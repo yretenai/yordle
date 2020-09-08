@@ -27,15 +27,17 @@ poppy::manifest::riot_manifest::riot_manifest(dragon::Array<uint8_t> &buffer) {
     assert(*reinterpret_cast<uint16_t *>(&flags) == 0x200);
 
     if (size > 0) {
-        dragon::Array<uint8_t> decbuffer;
         if (flags.compressed) {
-            decbuffer = dragon::Array<uint8_t>(size, nullptr);
-            ZSTD_decompress(decbuffer.data(), size, buffer.data() + offset, csize);
+            data = std::make_shared<dragon::Array<uint8_t>>(size, nullptr);
+            ZSTD_decompress(data->data(), size, buffer.data() + offset, csize);
         } else {
-            decbuffer = buffer.slice(offset, size);
+            data = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset, size, nullptr);
         }
-        data = std::shared_ptr<const generated::rman>(generated::Getrman(decbuffer.data()));
     }
 
     signature = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset + csize, 0x100, nullptr);
+}
+
+const poppy::manifest::generated::rman *poppy::manifest::riot_manifest::get_rman_data() const {
+    return generated::Getrman(data->data());
 }

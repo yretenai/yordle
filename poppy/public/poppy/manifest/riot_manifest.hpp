@@ -8,8 +8,8 @@
 #include <cstdint>
 #include <memory>
 
-#include <poppy/poppy_export.h>
 #include <poppy/manifest/rman_generated.h>
+#include <poppy/poppy_export.h>
 
 #include <standard_dragon/dragon.h>
 
@@ -51,8 +51,10 @@ namespace poppy::manifest {
         uint32_t size = 0;
 #pragma pack(pop)
 
-        std::shared_ptr<const generated::rman> data;
+        std::shared_ptr<dragon::Array<uint8_t>> data;
         std::shared_ptr<dragon::Array<uint8_t>> signature;
+
+        const generated::rman *get_rman_data() const;
     };
 } // namespace poppy::manifest
 
