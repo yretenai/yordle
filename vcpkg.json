@@ -1,0 +1,12 @@
+{
+  "name": "poppy",
+  "version-string": "0.1.0-dev",
+  "homepage": "https://github.com/yretenai/poppy",
+  "description": "League of Legends File IO Library",
+  "dependencies": [
+    "zstd",
+    "zlib",
+    "xxhash",
+    "flatbuffers"
+  ]
+}

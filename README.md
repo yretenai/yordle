@@ -1,2 +1,2 @@
 # poppy
-League of Legends File Parser
+League of Legends File IO Library
