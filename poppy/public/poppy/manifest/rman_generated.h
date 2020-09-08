@@ -31,8 +31,8 @@ struct rman FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_UNKNOWN1 = 12,
     VT_UNKNOWN2 = 14
   };
-  int32_t chunks() const {
-    return GetField<int32_t>(VT_CHUNKS, 0);
+  const flatbuffers::Vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_chunk>> *chunks() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_chunk>> *>(VT_CHUNKS);
   }
   const flatbuffers::Vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_language>> *languages() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_language>> *>(VT_LANGUAGES);
@@ -51,7 +51,9 @@ struct rman FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<int32_t>(verifier, VT_CHUNKS) &&
+           VerifyOffset(verifier, VT_CHUNKS) &&
+           verifier.VerifyVector(chunks()) &&
+           verifier.VerifyVectorOfTables(chunks()) &&
            VerifyOffset(verifier, VT_LANGUAGES) &&
            verifier.VerifyVector(languages()) &&
            verifier.VerifyVectorOfTables(languages()) &&
@@ -72,8 +74,8 @@ struct rman FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
 struct rmanBuilder {
   flatbuffers::FlatBufferBuilder &fbb_;
   flatbuffers::uoffset_t start_;
-  void add_chunks(int32_t chunks) {
-    fbb_.AddElement<int32_t>(rman::VT_CHUNKS, chunks, 0);
+  void add_chunks(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_chunk>>> chunks) {
+    fbb_.AddOffset(rman::VT_CHUNKS, chunks);
   }
   void add_languages(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_language>>> languages) {
     fbb_.AddOffset(rman::VT_LANGUAGES, languages);
@@ -104,7 +106,7 @@ struct rmanBuilder {
 
 inline flatbuffers::Offset<rman> Createrman(
     flatbuffers::FlatBufferBuilder &_fbb,
-    int32_t chunks = 0,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_chunk>>> chunks = 0,
     flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_language>>> languages = 0,
     flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_file>>> files = 0,
     flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_directory>>> directories = 0,
@@ -122,12 +124,13 @@ inline flatbuffers::Offset<rman> Createrman(
 
 inline flatbuffers::Offset<rman> CreatermanDirect(
     flatbuffers::FlatBufferBuilder &_fbb,
-    int32_t chunks = 0,
+    const std::vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_chunk>> *chunks = nullptr,
     const std::vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_language>> *languages = nullptr,
     const std::vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_file>> *files = nullptr,
     const std::vector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_directory>> *directories = nullptr,
     const char *unknown1 = nullptr,
     const std::vector<uint32_t> *unknown2 = nullptr) {
+  auto chunks__ = chunks ? _fbb.CreateVector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_chunk>>(*chunks) : 0;
   auto languages__ = languages ? _fbb.CreateVector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_language>>(*languages) : 0;
   auto files__ = files ? _fbb.CreateVector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_file>>(*files) : 0;
   auto directories__ = directories ? _fbb.CreateVector<flatbuffers::Offset<poppy::manifest::generated::riot_manifest_directory>>(*directories) : 0;
@@ -135,7 +138,7 @@ inline flatbuffers::Offset<rman> CreatermanDirect(
   auto unknown2__ = unknown2 ? _fbb.CreateVector<uint32_t>(*unknown2) : 0;
   return poppy::manifest::generated::Createrman(
       _fbb,
-      chunks,
+      chunks__,
       languages__,
       files__,
       directories__,
@@ -365,8 +368,8 @@ struct riot_manifest_file FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   uint32_t unknown4() const {
     return GetField<uint32_t>(VT_UNKNOWN4, 0);
   }
-  int32_t block_ids() const {
-    return GetField<int32_t>(VT_BLOCK_IDS, 0);
+  const flatbuffers::Vector<uint64_t> *block_ids() const {
+    return GetPointer<const flatbuffers::Vector<uint64_t> *>(VT_BLOCK_IDS);
   }
   uint32_t unknown6() const {
     return GetField<uint32_t>(VT_UNKNOWN6, 0);
@@ -393,7 +396,8 @@ struct riot_manifest_file FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyField<uint32_t>(verifier, VT_LANGUAGE_FLAGS) &&
            VerifyField<uint32_t>(verifier, VT_UNKNOWN3) &&
            VerifyField<uint32_t>(verifier, VT_UNKNOWN4) &&
-           VerifyField<int32_t>(verifier, VT_BLOCK_IDS) &&
+           VerifyOffset(verifier, VT_BLOCK_IDS) &&
+           verifier.VerifyVector(block_ids()) &&
            VerifyField<uint32_t>(verifier, VT_UNKNOWN6) &&
            VerifyOffset(verifier, VT_UNKNOWN7) &&
            verifier.VerifyString(unknown7()) &&
@@ -428,8 +432,8 @@ struct riot_manifest_fileBuilder {
   void add_unknown4(uint32_t unknown4) {
     fbb_.AddElement<uint32_t>(riot_manifest_file::VT_UNKNOWN4, unknown4, 0);
   }
-  void add_block_ids(int32_t block_ids) {
-    fbb_.AddElement<int32_t>(riot_manifest_file::VT_BLOCK_IDS, block_ids, 0);
+  void add_block_ids(flatbuffers::Offset<flatbuffers::Vector<uint64_t>> block_ids) {
+    fbb_.AddOffset(riot_manifest_file::VT_BLOCK_IDS, block_ids);
   }
   void add_unknown6(uint32_t unknown6) {
     fbb_.AddElement<uint32_t>(riot_manifest_file::VT_UNKNOWN6, unknown6, 0);
@@ -467,7 +471,7 @@ inline flatbuffers::Offset<riot_manifest_file> Createriot_manifest_file(
     uint32_t language_flags = 0,
     uint32_t unknown3 = 0,
     uint32_t unknown4 = 0,
-    int32_t block_ids = 0,
+    flatbuffers::Offset<flatbuffers::Vector<uint64_t>> block_ids = 0,
     uint32_t unknown6 = 0,
     flatbuffers::Offset<flatbuffers::String> unknown7 = 0,
     uint32_t unknown8 = 0,
@@ -499,13 +503,14 @@ inline flatbuffers::Offset<riot_manifest_file> Createriot_manifest_fileDirect(
     uint32_t language_flags = 0,
     uint32_t unknown3 = 0,
     uint32_t unknown4 = 0,
-    int32_t block_ids = 0,
+    const std::vector<uint64_t> *block_ids = nullptr,
     uint32_t unknown6 = 0,
     const char *unknown7 = nullptr,
     uint32_t unknown8 = 0,
     uint16_t unknown9 = 0,
     int8_t unknown10 = 0) {
   auto name__ = name ? _fbb.CreateString(name) : 0;
+  auto block_ids__ = block_ids ? _fbb.CreateVector<uint64_t>(*block_ids) : 0;
   auto unknown7__ = unknown7 ? _fbb.CreateString(unknown7) : 0;
   return poppy::manifest::generated::Createriot_manifest_file(
       _fbb,
@@ -516,7 +521,7 @@ inline flatbuffers::Offset<riot_manifest_file> Createriot_manifest_fileDirect(
       language_flags,
       unknown3,
       unknown4,
-      block_ids,
+      block_ids__,
       unknown6,
       unknown7__,
       unknown8,

@@ -1,7 +1,7 @@
 namespace poppy.manifest.generated;
 
 table rman {
-    chunks: int; // [riot_manifest_chunk];
+    chunks: [riot_manifest_chunk];
     languages: [riot_manifest_language];
     files: [riot_manifest_file];
     directories: [riot_manifest_directory];
@@ -33,7 +33,7 @@ table riot_manifest_file {
     language_flags: uint;
     unknown3: uint;
     unknown4: uint;
-    block_ids: int; // [ulong];
+    block_ids: [ulong];
     unknown6: uint;
     unknown7: string;
     unknown8: uint;
