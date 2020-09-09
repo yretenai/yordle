@@ -18,7 +18,7 @@ poppy::archive::wad_file_v3::wad_file_v3(dragon::Array<uint8_t> &buffer) {
     assert(data_end - data_start == EXPECTED_DATA_SIZE);
 #endif
 
-    if (buffer.cast<uint32_t>(0) != FOURCC || buffer.size() < EXPECTED_DATA_SIZE) {
+    if (buffer.cast<uint32_t>(0) != FOURCC || buffer.size() < EXPECTED_DATA_SIZE + 4) {
         throw invalid_data_exception("Buffer passed to wad_file_v3 is not a valid RW30 buffer.");
     }
 
@@ -26,7 +26,7 @@ poppy::archive::wad_file_v3::wad_file_v3(dragon::Array<uint8_t> &buffer) {
 
     if (entry_count > 0) {
         entries = dragon::Array<wad_entry_v3>(entry_count, nullptr);
-        buffer.copy(reinterpret_cast<uintptr_t>(entries.data()), EXPECTED_DATA_SIZE, entries.byte_size());
+        buffer.copy(reinterpret_cast<uintptr_t>(entries.data()), EXPECTED_DATA_SIZE + 4, entries.byte_size());
     }
 }
 
