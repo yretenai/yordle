@@ -19,7 +19,7 @@ poppy::archive::wad_file_v3::wad_file_v3(dragon::Array<uint8_t> &buffer) {
 #endif
 
     if (buffer.cast<uint32_t>(0) != FOURCC || buffer.size() < EXPECTED_DATA_SIZE) {
-        throw invalid_data_exception("Buffer passed to RiotManifest is not a valid RMAN buffer.");
+        throw invalid_data_exception("Buffer passed to wad_file_v3 is not a valid RW30 buffer.");
     }
 
     buffer.copy(data_start, 4, EXPECTED_DATA_SIZE);
@@ -41,7 +41,7 @@ poppy::archive::wad_file_v3::wad_file_v3(std::istream &stream) {
     stream.read(reinterpret_cast<char *>(buffer.data()), EXPECTED_DATA_SIZE + 4);
 
     if (buffer.cast<uint32_t>(0) != FOURCC || buffer.size() < EXPECTED_DATA_SIZE + 4) {
-        throw invalid_data_exception("Buffer passed to RiotManifest is not a valid RMAN buffer.");
+        throw invalid_data_exception("Buffer passed to wad_file_v3 is not a valid RW30 buffer.");
     }
 
     buffer.copy(data_start, 4, EXPECTED_DATA_SIZE);
