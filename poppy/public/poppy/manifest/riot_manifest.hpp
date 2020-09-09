@@ -6,6 +6,7 @@
 #define POPPY_RIOT_MANIFEST_HPP
 
 #include <cstdint>
+#include <map>
 #include <memory>
 
 #include <poppy/manifest/rman_generated.h>
@@ -18,6 +19,28 @@ namespace poppy::manifest {
     private:
         static constexpr uint32_t FOURCC = MAKEFOURCC('R', 'M', 'A', 'N');
         static constexpr uint32_t EXPECTED_DATA_SIZE = 0x18;
+
+    protected:
+        typedef struct RMAN_BUNDLE {
+            uint64_t block_id = 0;
+            uint32_t csize = 0;
+            uint32_t size = 0;
+        } riot_manifest_bundle;
+
+        typedef struct RMAN_FILE {
+            uint64_t file_id = 0;
+            uint64_t directory_id = 0;
+            uint32_t size = 0;
+            std::string name;
+            uint32_t language_flags = 0;
+            std::shared_ptr<dragon::Array<uint64_t>> block_ids;
+        } riot_manifest_file;
+
+        typedef struct RMAN_DIR {
+            uint64_t id = 0;
+            uint64_t parent_id = 0;
+            std::string name;
+        } riot_manifest_dir;
 
     public:
         explicit riot_manifest(dragon::Array<uint8_t> &buffer);
@@ -53,6 +76,11 @@ namespace poppy::manifest {
 
         std::shared_ptr<dragon::Array<uint8_t>> data;
         std::shared_ptr<dragon::Array<uint8_t>> signature;
+
+        std::map<uint64_t, std::shared_ptr<dragon::Array<riot_manifest_bundle>>> chunks;
+        std::map<uint8_t, std::string> languages;
+        std::map<uint64_t, riot_manifest_file> files;
+        std::map<uint64_t, riot_manifest_dir> directories;
 
         const generated::rman *get_rman_data() const;
     };

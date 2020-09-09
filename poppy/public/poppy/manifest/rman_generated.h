@@ -221,14 +221,14 @@ struct riot_manifest_block FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table 
   uint32_t compressed_size() const {
     return GetField<uint32_t>(VT_COMPRESSED_SIZE, 0);
   }
-  int32_t size() const {
-    return GetField<int32_t>(VT_SIZE, 0);
+  uint32_t size() const {
+    return GetField<uint32_t>(VT_SIZE, 0);
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<uint64_t>(verifier, VT_BLOCK_ID) &&
            VerifyField<uint32_t>(verifier, VT_COMPRESSED_SIZE) &&
-           VerifyField<int32_t>(verifier, VT_SIZE) &&
+           VerifyField<uint32_t>(verifier, VT_SIZE) &&
            verifier.EndTable();
   }
 };
@@ -242,8 +242,8 @@ struct riot_manifest_blockBuilder {
   void add_compressed_size(uint32_t compressed_size) {
     fbb_.AddElement<uint32_t>(riot_manifest_block::VT_COMPRESSED_SIZE, compressed_size, 0);
   }
-  void add_size(int32_t size) {
-    fbb_.AddElement<int32_t>(riot_manifest_block::VT_SIZE, size, 0);
+  void add_size(uint32_t size) {
+    fbb_.AddElement<uint32_t>(riot_manifest_block::VT_SIZE, size, 0);
   }
   explicit riot_manifest_blockBuilder(flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
@@ -261,7 +261,7 @@ inline flatbuffers::Offset<riot_manifest_block> Createriot_manifest_block(
     flatbuffers::FlatBufferBuilder &_fbb,
     uint64_t block_id = 0,
     uint32_t compressed_size = 0,
-    int32_t size = 0) {
+    uint32_t size = 0) {
   riot_manifest_blockBuilder builder_(_fbb);
   builder_.add_block_id(block_id);
   builder_.add_size(size);

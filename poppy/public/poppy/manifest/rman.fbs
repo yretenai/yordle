@@ -17,7 +17,7 @@ table riot_manifest_chunk {
 table riot_manifest_block {
     block_id: ulong;
     compressed_size: uint;
-    size: int;
+    size: uint;
 }
 
 table riot_manifest_language {
