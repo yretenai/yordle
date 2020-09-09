@@ -1,18 +1,18 @@
 //
-// Created by yretenai on 2020-09-08.
+// Created by yretenai on 2020-09-09.
 //
 
-#ifndef POPPY_INVALID_DATA_EXCEPTION_HPP
-#define POPPY_INVALID_DATA_EXCEPTION_HPP
+#ifndef POPPY_NOT_IMPLEMENTED_EXCEPTION_HPP
+#define POPPY_NOT_IMPLEMENTED_EXCEPTION_HPP
 
 #include <exception>
 #include <string>
 
 namespace poppy::exception {
-    class invalid_data_exception : public std::exception {
+    class not_implemented_exception : public std::exception {
     public:
         std::string reason_message;
-        explicit invalid_data_exception(const char *message = "invalid or unexpected data") {
+        explicit not_implemented_exception(const char *message = "not implemented") {
             reason_message = message;
         }
 
@@ -22,4 +22,4 @@ namespace poppy::exception {
     };
 } // namespace poppy::exception
 
-#endif //POPPY_INVALID_DATA_EXCEPTION_HPP
+#endif //POPPY_NOT_IMPLEMENTED_EXCEPTION_HPP
