@@ -2,11 +2,11 @@
 // Created by yretenai on 2020-09-09.
 //
 
-#ifndef POPPY_WAD_FILE_V3_HPP
-#define POPPY_WAD_FILE_V3_HPP
+#pragma once
 
 #include <cstdbool>
 #include <cstdint>
+#include <filesystem>
 #include <istream>
 
 #include <poppy/archive/wad_file_common.hpp>
@@ -44,10 +44,9 @@ namespace poppy::archive {
 
         dragon::Array<wad_entry_v3> entries;
 
-        static dragon::Array<uint8_t> read_file(dragon::Array<uint8_t> &buffer, wad_entry_v3 entry);
-        static dragon::Array<uint8_t> read_file(std::istream &stream, wad_entry_v3 entry);
+        static dragon::Array<uint8_t> read_file(dragon::Array<uint8_t> &buffer, const wad_entry_v3 &entry);
+        static dragon::Array<uint8_t> read_file(std::istream &stream, const wad_entry_v3 &entry);
+        bool has_file(uint64_t hash) const;
+        bool has_file(const std::filesystem::path &path) const;
     };
 } // namespace poppy::archive
-
-
-#endif //POPPY_WAD_FILE_V3_HPP

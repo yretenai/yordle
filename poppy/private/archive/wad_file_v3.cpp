@@ -2,14 +2,16 @@
 // Created by yretenai on 2020-09-09.
 //
 
-#include <poppy/archive/wad_file_v3.hpp>
-#include <poppy/exception/invalid_data_exception.hpp>
-#include <poppy/exception/not_implemented_exception.hpp>
+#include <algorithm>
+#include <cctype>
 
+#include <poppy/archive/wad_file_v3.hpp>
+#include <standard_dragon/exception/invalid_data.hpp>
+#include <standard_dragon/exception/not_implemented.hpp>
+
+#include <xxhash.h>
 #include <zlib.h>
 #include <zstd.h>
-
-using namespace poppy::exception;
 
 poppy::archive::wad_file_v3::wad_file_v3(dragon::Array<uint8_t> &buffer) {
     uintptr_t data_start = reinterpret_cast<uintptr_t>(&signature);
@@ -19,7 +21,7 @@ poppy::archive::wad_file_v3::wad_file_v3(dragon::Array<uint8_t> &buffer) {
 #endif
 
     if (buffer.cast<uint32_t>(0) != FOURCC || buffer.size() < EXPECTED_DATA_SIZE + 4) {
-        throw invalid_data_exception("Buffer passed to wad_file_v3 is not a valid RW30 buffer.");
+        throw dragon::exception::invalid_data("Buffer passed to wad_file_v3 is not a valid RW30 buffer.");
     }
 
     buffer.copy(data_start, 4, EXPECTED_DATA_SIZE);
@@ -41,7 +43,7 @@ poppy::archive::wad_file_v3::wad_file_v3(std::istream &stream) {
     stream.read(reinterpret_cast<char *>(buffer.data()), EXPECTED_DATA_SIZE + 4);
 
     if (buffer.cast<uint32_t>(0) != FOURCC || buffer.size() < EXPECTED_DATA_SIZE + 4) {
-        throw invalid_data_exception("Buffer passed to wad_file_v3 is not a valid RW30 buffer.");
+        throw dragon::exception::invalid_data("Buffer passed to wad_file_v3 is not a valid RW30 buffer.");
     }
 
     buffer.copy(data_start, 4, EXPECTED_DATA_SIZE);
@@ -72,32 +74,42 @@ dragon::Array<uint8_t> decompress(poppy::archive::wad_file_v3::wad_entry_v3 entr
                     case Z_DATA_ERROR:
                     case Z_STREAM_ERROR:
                     case Z_MEM_ERROR:
-                        throw invalid_data_exception("zlib error");
+                        throw dragon::exception::invalid_data("zlib error");
                 }
             } while (zs.avail_out > 0);
             return data;
         }
         case poppy::archive::WAD_STORAGE_TYPE::Symlink: // no clue how this works
-            throw not_implemented_exception("wad_storage_type::symlink");
+            throw dragon::exception::not_implemented("wad_storage_type::symlink");
         case poppy::archive::WAD_STORAGE_TYPE::Zstd: { // YEP
             dragon::Array<uint8_t> data(entry.size, nullptr);
             ZSTD_decompress(data.data(), entry.size, buffer.data(), entry.csize);
             return data;
         }
         default:
-            throw invalid_data_exception("type is out of range");
+            throw dragon::exception::invalid_data("type is out of range");
     }
 }
 
-dragon::Array<uint8_t> poppy::archive::wad_file_v3::read_file(dragon::Array<uint8_t> &buffer, poppy::archive::wad_file_v3::wad_entry_v3 entry) {
+dragon::Array<uint8_t> poppy::archive::wad_file_v3::read_file(dragon::Array<uint8_t> &buffer, const poppy::archive::wad_file_v3::wad_entry_v3 &entry) {
     dragon::Array<uint8_t> data(entry.csize, nullptr);
     buffer.copy(reinterpret_cast<uintptr_t>(data.data()), entry.offset, entry.csize);
     return decompress(entry, data);
 }
 
-dragon::Array<uint8_t> poppy::archive::wad_file_v3::read_file(std::istream &stream, poppy::archive::wad_file_v3::wad_entry_v3 entry) {
+dragon::Array<uint8_t> poppy::archive::wad_file_v3::read_file(std::istream &stream, const poppy::archive::wad_file_v3::wad_entry_v3 &entry) {
     dragon::Array<uint8_t> data(entry.csize, nullptr);
     stream.seekg(entry.offset);
     stream.read(reinterpret_cast<char *>(data.data()), entry.csize);
     return decompress(entry, data);
+}
+
+bool poppy::archive::wad_file_v3::has_file(uint64_t hash) const {
+    return std::any_of(entries.begin(), entries.end(), [&](poppy::archive::wad_file_v3::wad_entry_v3 entry) { return entry.hash == hash; });
+}
+
+bool poppy::archive::wad_file_v3::has_file(const std::filesystem::path &path) const {
+    std::string data = path.string();
+    std::transform(data.begin(), data.end(), data.begin(), [](char c) { return std::tolower(c); });
+    return has_file(XXH64(data.data(), data.length(), 0));
 }

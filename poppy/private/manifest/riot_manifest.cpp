@@ -4,12 +4,12 @@
 
 #include <cassert>
 
-#include <poppy/exception/invalid_data_exception.hpp>
 #include <poppy/manifest/riot_manifest.hpp>
+#include <poppy/manifest/rman_generated.h>
+
+#include <standard_dragon/exception/invalid_data.hpp>
 
 #include <zstd.h>
-
-using namespace poppy::exception;
 
 poppy::manifest::riot_manifest::riot_manifest(dragon::Array<uint8_t> &buffer) {
     uintptr_t data_start = reinterpret_cast<uintptr_t>(&version_major);
@@ -19,7 +19,7 @@ poppy::manifest::riot_manifest::riot_manifest(dragon::Array<uint8_t> &buffer) {
 #endif
 
     if (buffer.cast<uint32_t>(0) != FOURCC || buffer.size() < EXPECTED_DATA_SIZE + 0x100) {
-        throw invalid_data_exception("Buffer passed to RiotManifest is not a valid RMAN buffer.");
+        throw dragon::exception::invalid_data("Buffer passed to RiotManifest is not a valid RMAN buffer.");
     }
 
     buffer.copy(data_start, 4, EXPECTED_DATA_SIZE);
@@ -37,7 +37,7 @@ poppy::manifest::riot_manifest::riot_manifest(dragon::Array<uint8_t> &buffer) {
         }
     }
 
-    const generated::rman *rman = get_rman_data();
+    const generated::rman *rman = generated::Getrman(data->data());
     for (flatbuffers::uoffset_t i = 0; i < rman->chunks()->size(); ++i) {
         const generated::riot_manifest_chunk *chunk = rman->chunks()->GetAs<generated::riot_manifest_chunk>(i);
         std::shared_ptr<dragon::Array<riot_manifest_bundle>> bundles = std::make_shared<dragon::Array<riot_manifest_bundle>>((size_t) chunk->blocks()->size(), nullptr);
@@ -70,8 +70,4 @@ poppy::manifest::riot_manifest::riot_manifest(dragon::Array<uint8_t> &buffer) {
     }
 
     signature = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset + csize, 0x100, nullptr);
-}
-
-const poppy::manifest::generated::rman *poppy::manifest::riot_manifest::get_rman_data() const {
-    return generated::Getrman(data->data());
 }

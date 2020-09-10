@@ -2,8 +2,7 @@
 // Created by yretenai on 2020-09-09.
 //
 
-#ifndef POPPY_WAD_FILE_COMMON_HPP
-#define POPPY_WAD_FILE_COMMON_HPP
+#pragma once
 
 #include <cstdint>
 
@@ -17,5 +16,3 @@ namespace poppy::archive {
     } wad_storage_type;
 #pragma pack(pop)
 } // namespace poppy::archive
-
-#endif //POPPY_WAD_FILE_COMMON_HPP

@@ -3,12 +3,10 @@
 //
 
 
-#include <poppy/manifest/riot_manifest.hpp>
-#include <standard_dragon/dragon.h>
-
-using namespace poppy::manifest;
+#include <poppy/poppy.hpp>
 
 int main(int argc, char **argv) {
-    dragon::Array<uint8_t> data = dragon::read_file(argv[1]);
-    riot_manifest rman(data);
+    if (argc < 2) {
+        return -1;
+    }
 }

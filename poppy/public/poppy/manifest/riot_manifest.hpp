@@ -2,14 +2,12 @@
 // Created by yretenai on 2020-08-25.
 //
 
-#ifndef POPPY_RIOT_MANIFEST_HPP
-#define POPPY_RIOT_MANIFEST_HPP
+#pragma once
 
 #include <cstdint>
 #include <map>
 #include <memory>
 
-#include <poppy/manifest/rman_generated.h>
 #include <poppy/poppy_export.h>
 
 #include <standard_dragon/dragon.h>
@@ -81,9 +79,5 @@ namespace poppy::manifest {
         std::map<uint8_t, std::string> languages;
         std::map<uint64_t, riot_manifest_file> files;
         std::map<uint64_t, riot_manifest_dir> directories;
-
-        const generated::rman *get_rman_data() const;
     };
 } // namespace poppy::manifest
-
-#endif //POPPY_RIOT_MANIFEST_HPP

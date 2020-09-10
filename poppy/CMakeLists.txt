@@ -16,6 +16,8 @@ find_package(Flatbuffers CONFIG REQUIRED)
 target_link_libraries(poppy PRIVATE libzstd)
 target_link_libraries(poppy PRIVATE ZLIB::ZLIB)
 target_link_libraries(poppy PUBLIC flatbuffers::flatbuffers)
+find_library(XXHASH_LIBRARY xxhash)
+target_link_libraries(poppy PRIVATE ${XXHASH_LIBRARY})
 
 file(GLOB_RECURSE POPPY_HEADERS "public/*.h" "public/*.hpp")
 
