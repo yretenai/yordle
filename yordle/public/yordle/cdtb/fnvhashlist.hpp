@@ -1,5 +1,5 @@
 //
-// Created by yretenai on 2020-09-10.
+// Created by yretenai on 2020-09-14.
 //
 
 #pragma once
@@ -10,9 +10,9 @@
 #include <standard_dragon/dragon.hpp>
 
 namespace yordle::cdtb {
-    class YORDLE_EXPORT xxhashlist : public hashlist<uint64_t> {
+    class YORDLE_EXPORT fnvhashlist : public hashlist<uint64_t> {
     public:
-        explicit xxhashlist(const dragon::Array<uint8_t> &buffer);
+        explicit fnvhashlist(const dragon::Array<uint8_t> &buffer);
 
         void validate() override;
     };

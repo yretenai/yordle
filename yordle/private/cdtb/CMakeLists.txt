@@ -1,3 +1,3 @@
 project(yordle_cdtb)
 
-target_sources(yordle PRIVATE guesser.cpp xxhashlist.cpp)
+target_sources(yordle PRIVATE guesser.cpp xxhashlist.cpp fnvhashlist.cpp)

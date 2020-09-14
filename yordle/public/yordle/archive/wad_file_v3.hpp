@@ -12,7 +12,7 @@
 #include <yordle/archive/wad_file_common.hpp>
 #include <yordle/yordle_export.h>
 
-#include <standard_dragon/dragon.h>
+#include <standard_dragon/dragon.hpp>
 
 namespace yordle::archive {
     class YORDLE_EXPORT wad_file_v3 {

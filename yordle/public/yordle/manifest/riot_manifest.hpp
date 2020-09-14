@@ -10,7 +10,7 @@
 
 #include <yordle/yordle_export.h>
 
-#include <standard_dragon/dragon.h>
+#include <standard_dragon/dragon.hpp>
 
 namespace yordle::manifest {
     class YORDLE_EXPORT riot_manifest {

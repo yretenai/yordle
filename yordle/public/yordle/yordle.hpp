@@ -6,5 +6,7 @@
 
 #include <yordle/archive/wad_file_common.hpp>
 #include <yordle/archive/wad_file_v3.hpp>
+#include <yordle/cdtb/fnvhashlist.hpp>
+#include <yordle/cdtb/hashlist.hpp>
 #include <yordle/cdtb/xxhashlist.hpp>
 #include <yordle/manifest/riot_manifest.hpp>
