@@ -1,3 +1,3 @@
 project(TOOL)
 
-add_subdirectory("yordle")
+add_subdirectory("poppy")

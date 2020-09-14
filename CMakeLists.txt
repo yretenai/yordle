@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.17)
 
-project(poppy)
+project(yordle)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -29,9 +29,9 @@ include(GenerateExportHeader)
 include_directories(vendor)
 
 add_subdirectory("vendor")
-add_subdirectory("poppy")
+add_subdirectory("yordle")
 add_subdirectory("tool")
 
 include(GNUInstallDirs)
 install(DIRECTORY licenses DESTINATION ${CMAKE_INSTALL_DOCDIR})
-install(FILES LICENSE DESTINATION ${CMAKE_INSTALL_DOCDIR}/licenses RENAME poppy)
+install(FILES LICENSE DESTINATION ${CMAKE_INSTALL_DOCDIR}/licenses RENAME yordle)
