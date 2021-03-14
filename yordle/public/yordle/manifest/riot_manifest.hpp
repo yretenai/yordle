@@ -15,7 +15,7 @@
 namespace yordle::manifest {
     class YORDLE_EXPORT riot_manifest {
     private:
-        static constexpr uint32_t FOURCC = MAKEFOURCC('R', 'M', 'A', 'N');
+        static constexpr uint32_t FOURCC = DRAGON_MAGIC32('R', 'M', 'A', 'N');
         static constexpr uint32_t EXPECTED_DATA_SIZE = 0x18;
 
     protected:

@@ -3,6 +3,7 @@
 //
 
 #include <algorithm>
+#include <cassert>
 #include <cctype>
 
 #include <yordle/archive/wad_file_v3.hpp>

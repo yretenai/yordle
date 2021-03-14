@@ -29,7 +29,7 @@ void yordle::cdtb::xxhashlist::validate() {
         std::transform(data.begin(), data.end(), data.begin(), [](char c) { return std::tolower(c); });
         hash = XXH64(data.data(), data.length(), 0);
         if (hash != pair.first) {
-            LOG("Failed to match " << pair.second << " to hash " << HEXLOG64 << pair.first << " instead got " << HEXLOG64 << hash);
+            DRAGON_LOG("Failed to match " << pair.second << " to hash " << HEXLOG64 << pair.first << " instead got " << HEXLOG64 << hash);
         }
     }
 }

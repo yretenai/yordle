@@ -17,7 +17,7 @@
 namespace yordle::archive {
     class YORDLE_EXPORT wad_file_v3 {
     private:
-        static constexpr uint32_t FOURCC = MAKEFOURCC('R', 'W', 3, 0);
+        static constexpr uint32_t FOURCC = DRAGON_MAGIC32('R', 'W', 3, 0);
         static constexpr uintptr_t EXPECTED_DATA_SIZE = 0x10C;
 
     public:

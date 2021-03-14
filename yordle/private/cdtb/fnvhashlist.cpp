@@ -29,7 +29,7 @@ void yordle::cdtb::fnvhashlist::validate() {
         std::transform(data.begin(), data.end(), data.begin(), [](char c) { return std::tolower(c); });
         hash = dragon::hash::fnv1a32(reinterpret_cast<uint8_t *>(data.data()), data.length());
         if (hash != pair.first) {
-            LOG("Failed to match " << pair.second << " to hash " << HEXLOG32 << pair.first << " instead got " << HEXLOG32 << hash);
+            DRAGON_LOG("Failed to match " << pair.second << " to hash " << HEXLOG32 << pair.first << " instead got " << HEXLOG32 << hash);
         }
     }
 }
