@@ -14,10 +14,10 @@
 #include <zlib.h>
 #include <zstd.h>
 
-yordle::archive::wad_file_v3::wad_file_v3(dragon::Array<uint8_t> &buffer) {
-    uintptr_t data_start = reinterpret_cast<uintptr_t>(&signature);
+[[maybe_unused]] yordle::archive::wad_file_v3::wad_file_v3(dragon::Array<uint8_t> &buffer) {
+    auto data_start = reinterpret_cast<uintptr_t>(&signature);
 #ifndef NDEBUG
-    uintptr_t data_end = reinterpret_cast<uintptr_t>(&entry_count) + sizeof(uint32_t);
+    auto data_end = reinterpret_cast<uintptr_t>(&entry_count) + sizeof(uint32_t);
     assert(data_end - data_start == EXPECTED_DATA_SIZE);
 #endif
 
@@ -33,10 +33,10 @@ yordle::archive::wad_file_v3::wad_file_v3(dragon::Array<uint8_t> &buffer) {
     }
 }
 
-yordle::archive::wad_file_v3::wad_file_v3(std::istream &stream) {
-    uintptr_t data_start = reinterpret_cast<uintptr_t>(&signature);
+[[maybe_unused]] yordle::archive::wad_file_v3::wad_file_v3(std::istream &stream) {
+    auto data_start = reinterpret_cast<uintptr_t>(&signature);
 #ifndef NDEBUG
-    uintptr_t data_end = reinterpret_cast<uintptr_t>(&entry_count) + sizeof(uint32_t);
+    auto data_end = reinterpret_cast<uintptr_t>(&entry_count) + sizeof(uint32_t);
     assert(data_end - data_start == EXPECTED_DATA_SIZE);
 #endif
 
@@ -65,9 +65,9 @@ dragon::Array<uint8_t> decompress(yordle::archive::wad_file_v3::wad_entry_v3 ent
             zs.zalloc = nullptr;
             zs.zfree = nullptr;
             zs.next_in = buffer.data();
-            zs.avail_in = buffer.size();
+            zs.avail_in =  static_cast<uInt>(buffer.size());
             zs.next_out = data.data();
-            zs.avail_out = data.size();
+            zs.avail_out = static_cast<uInt>(data.size());
             inflateInit(&zs);
             do {
                 switch (inflate(&zs, Z_NO_FLUSH)) {
@@ -92,24 +92,24 @@ dragon::Array<uint8_t> decompress(yordle::archive::wad_file_v3::wad_entry_v3 ent
     }
 }
 
-dragon::Array<uint8_t> yordle::archive::wad_file_v3::read_file(dragon::Array<uint8_t> &buffer, const yordle::archive::wad_file_v3::wad_entry_v3 &entry) {
+[[maybe_unused]] dragon::Array<uint8_t> yordle::archive::wad_file_v3::read_file(dragon::Array<uint8_t> &buffer, const yordle::archive::wad_file_v3::wad_entry_v3 &entry) {
     dragon::Array<uint8_t> data(entry.csize, nullptr);
     buffer.copy(reinterpret_cast<uintptr_t>(data.data()), entry.offset, entry.csize);
     return decompress(entry, data);
 }
 
-dragon::Array<uint8_t> yordle::archive::wad_file_v3::read_file(std::istream &stream, const yordle::archive::wad_file_v3::wad_entry_v3 &entry) {
+[[maybe_unused]] dragon::Array<uint8_t> yordle::archive::wad_file_v3::read_file(std::istream &stream, const yordle::archive::wad_file_v3::wad_entry_v3 &entry) {
     dragon::Array<uint8_t> data(entry.csize, nullptr);
     stream.seekg(entry.offset);
     stream.read(reinterpret_cast<char *>(data.data()), entry.csize);
     return decompress(entry, data);
 }
 
-bool yordle::archive::wad_file_v3::has_file(uint64_t hash) const {
+[[maybe_unused]] [[nodiscard]] bool yordle::archive::wad_file_v3::has_file(uint64_t hash) const {
     return std::any_of(entries.begin(), entries.end(), [&](yordle::archive::wad_file_v3::wad_entry_v3 entry) { return entry.hash == hash; });
 }
 
-bool yordle::archive::wad_file_v3::has_file(const std::filesystem::path &path) const {
+[[maybe_unused]] [[nodiscard]] bool yordle::archive::wad_file_v3::has_file(const std::filesystem::path &path) const {
     std::string data = path.string();
     std::transform(data.begin(), data.end(), data.begin(), [](char c) { return std::tolower(c); });
     return has_file(XXH64(data.data(), data.length(), 0));

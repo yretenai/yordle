@@ -8,7 +8,7 @@
 
 #include <xxhash.h>
 
-yordle::cdtb::xxhashlist::xxhashlist(const dragon::Array<uint8_t> &buffer) {
+[[maybe_unused]] yordle::cdtb::xxhashlist::xxhashlist(const dragon::Array<uint8_t> &buffer) {
     if (buffer.empty()) return;
 
     std::istringstream stream(reinterpret_cast<char *>(buffer.data()));
@@ -22,7 +22,7 @@ yordle::cdtb::xxhashlist::xxhashlist(const dragon::Array<uint8_t> &buffer) {
     }
 }
 
-void yordle::cdtb::xxhashlist::validate() {
+[[maybe_unused]] void yordle::cdtb::xxhashlist::validate() {
     uint64_t hash;
     for (const auto &pair : hashes) {
         std::string data = pair.second.string();

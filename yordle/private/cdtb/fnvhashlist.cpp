@@ -3,12 +3,13 @@
 //
 
 #include <sstream>
+#include <string>
 
 #include <yordle/cdtb/fnvhashlist.hpp>
 
 #include <standard_dragon/hash/fnv1a.hpp>
 
-yordle::cdtb::fnvhashlist::fnvhashlist(const dragon::Array<uint8_t> &buffer) {
+[[maybe_unused]] yordle::cdtb::fnvhashlist::fnvhashlist(const dragon::Array<uint8_t> &buffer) {
     if (buffer.empty()) return;
 
     std::istringstream stream(reinterpret_cast<char *>(buffer.data()));
@@ -22,7 +23,7 @@ yordle::cdtb::fnvhashlist::fnvhashlist(const dragon::Array<uint8_t> &buffer) {
     }
 }
 
-void yordle::cdtb::fnvhashlist::validate() {
+[[maybe_unused]] void yordle::cdtb::fnvhashlist::validate() {
     uint32_t hash;
     for (const auto &pair : hashes) {
         std::string data = pair.second.string();

@@ -3,17 +3,22 @@
 //
 
 #pragma once
+#pragma clang diagnostic ignored "-Wunused-variable"
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "OCUnusedGlobalDeclarationInspection"
 
 #include <cstdint>
 #include <map>
 #include <memory>
+#include <ostream>
 
 #include <yordle/yordle_export.h>
 
 #include <standard_dragon/dragon.hpp>
+#include <standard_dragon/Indent.hpp>
 
 namespace yordle::manifest {
-    class YORDLE_EXPORT riot_manifest {
+    class YORDLE_EXPORT [[maybe_unused]] riot_manifest {
     private:
         static constexpr uint32_t FOURCC = DRAGON_MAGIC32('R', 'M', 'A', 'N');
         static constexpr uint32_t EXPECTED_DATA_SIZE = 0x18;
@@ -31,6 +36,13 @@ namespace yordle::manifest {
             uint32_t size = 0;
             std::string name;
             uint32_t language_flags = 0;
+            uint32_t unknown3;
+            uint32_t unknown4;
+            uint32_t unknown6;
+            std::string unknown7;
+            uint32_t unknown8;
+            uint16_t unknown9;
+            uint8_t unknown10;
             std::shared_ptr<dragon::Array<uint64_t>> block_ids;
         } riot_manifest_file;
 
@@ -41,25 +53,24 @@ namespace yordle::manifest {
         } riot_manifest_dir;
 
     public:
-        explicit riot_manifest(dragon::Array<uint8_t> &buffer);
+        [[maybe_unused]] explicit riot_manifest(dragon::Array<uint8_t> &buffer);
         ~riot_manifest() = default;
 
-        typedef struct alignas(2) RMAN_FLAGS {
-            bool unknown1 : 1;
-            bool unknown2 : 1;
-            bool unknown3 : 1;
-            bool unknown4 : 1;
-            bool unknown5 : 1;
-            bool unknown6 : 1;
-            bool unknown7 : 1;
-            bool unknown8 : 1;
-            bool unknown9 : 1;
-            bool compressed : 1; // assumption
-            bool unknown12 : 1;
-            bool unknown13 : 1;
-            bool unknown14 : 1;
-            bool unknown15 : 1;
-            bool unknown16 : 1;
+        typedef union alignas(2) RMAN_FLAGS {
+            struct {
+                bool unknown1 : 1;
+                bool unknown2 : 1;
+                bool unknown3 : 1;
+                bool unknown4 : 1;
+                bool unknown5 : 1;
+                bool unknown6 : 1;
+                bool unknown7 : 1;
+                bool unknown8 : 1;
+                bool unknown9 : 1;
+                bool compressed : 1; // assumption
+            };
+
+            uint16_t value;
         } riot_manifest_flags;
 
 #pragma pack(push, 1)
@@ -79,5 +90,9 @@ namespace yordle::manifest {
         std::map<uint8_t, std::string> languages;
         std::map<uint64_t, riot_manifest_file> files;
         std::map<uint64_t, riot_manifest_dir> directories;
+
+        [[noreturn]] [[maybe_unused]] void print(std::ostream stream, dragon::Indent &indent);
     };
 } // namespace yordle::manifest
+
+#pragma clang diagnostic pop

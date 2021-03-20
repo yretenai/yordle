@@ -1,31 +1,31 @@
 namespace yordle.manifest.generated;
 
-table rman {
-    chunks: [riot_manifest_chunk];
-    languages: [riot_manifest_language];
-    files: [riot_manifest_file];
-    directories: [riot_manifest_directory];
+table RiotManifest {
+    chunks: [RiotManifestChunk];
+    languages: [RiotManifestLanguage];
+    files: [RiotManifestFile];
+    directories: [RiotManifestDirectory];
     unknown1: string;
     unknown2: [uint];
 }
 
-table riot_manifest_chunk {
+table RiotManifestChunk {
     chunk_id: ulong;
-    blocks: [riot_manifest_block];
+    blocks: [RiotManifestBlock];
 }
 
-table riot_manifest_block {
+table RiotManifestBlock {
     block_id: ulong;
     compressed_size: uint;
     size: uint;
 }
 
-table riot_manifest_language {
+table RiotManifestLanguage {
     language_id: byte;
     name: string;
 }
 
-table riot_manifest_file {
+table RiotManifestFile {
     file_id: ulong;
     directory_id: ulong;
     size: uint;
@@ -38,13 +38,13 @@ table riot_manifest_file {
     unknown7: string;
     unknown8: uint;
     unknown9: ushort;
-    unknown10: byte;
+    unknown10: ubyte;
 }
 
-table riot_manifest_directory {
+table RiotManifestDirectory {
     id: ulong;
     parent_id: ulong;
     name: string;
 }
 
-root_type rman;
+root_type RiotManifest;

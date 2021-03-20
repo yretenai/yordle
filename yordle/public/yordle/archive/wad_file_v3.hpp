@@ -3,6 +3,9 @@
 //
 
 #pragma once
+#pragma clang diagnostic ignored "-Wunused-variable"
+#pragma clang diagnostic push
+#pragma ide diagnostic ignored "OCUnusedGlobalDeclarationInspection"
 
 #include <cstdbool>
 #include <cstdint>
@@ -15,14 +18,14 @@
 #include <standard_dragon/dragon.hpp>
 
 namespace yordle::archive {
-    class YORDLE_EXPORT wad_file_v3 {
+    class YORDLE_EXPORT [[maybe_unused]] wad_file_v3 {
     private:
         static constexpr uint32_t FOURCC = DRAGON_MAGIC32('R', 'W', 3, 0);
         static constexpr uintptr_t EXPECTED_DATA_SIZE = 0x10C;
 
     public:
-        explicit wad_file_v3(dragon::Array<uint8_t> &buffer);
-        explicit wad_file_v3(std::istream &stream);
+        [[maybe_unused]] explicit wad_file_v3(dragon::Array<uint8_t> &buffer);
+        [[maybe_unused]] explicit wad_file_v3(std::istream &stream);
         ~wad_file_v3() = default;
 
 #pragma pack(push, 1)
@@ -44,9 +47,11 @@ namespace yordle::archive {
 
         dragon::Array<wad_entry_v3> entries;
 
-        static dragon::Array<uint8_t> read_file(dragon::Array<uint8_t> &buffer, const wad_entry_v3 &entry);
-        static dragon::Array<uint8_t> read_file(std::istream &stream, const wad_entry_v3 &entry);
-        bool has_file(uint64_t hash) const;
-        bool has_file(const std::filesystem::path &path) const;
+        [[maybe_unused]] static dragon::Array<uint8_t> read_file(dragon::Array<uint8_t> &buffer, const wad_entry_v3 &entry);
+        [[maybe_unused]] static dragon::Array<uint8_t> read_file(std::istream &stream, const wad_entry_v3 &entry);
+        [[maybe_unused]] [[nodiscard]] bool has_file(uint64_t hash) const;
+        [[maybe_unused]] [[nodiscard]] bool has_file(const std::filesystem::path &path) const;
     };
 } // namespace yordle::archive
+
+#pragma clang diagnostic pop

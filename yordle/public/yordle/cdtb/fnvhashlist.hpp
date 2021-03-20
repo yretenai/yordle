@@ -10,10 +10,10 @@
 #include <standard_dragon/dragon.hpp>
 
 namespace yordle::cdtb {
-    class YORDLE_EXPORT fnvhashlist : public hashlist<uint64_t> {
+    class YORDLE_EXPORT [[maybe_unused]] fnvhashlist : public hashlist<uint64_t> {
     public:
-        explicit fnvhashlist(const dragon::Array<uint8_t> &buffer);
+        [[maybe_unused]] explicit fnvhashlist(const dragon::Array<uint8_t> &buffer);
 
-        void validate() override;
+        [[maybe_unused]] void validate() override;
     };
 } // namespace yordle::cdtb
