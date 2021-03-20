@@ -5,8 +5,8 @@
 #include <bitset>
 #include <cassert>
 
-#include <yordle/manifest/riot_manifest.hpp>
 #include <yordle/manifest/RiotManifest_generated.h>
+#include <yordle/manifest/riot_manifest.hpp>
 
 #include <standard_dragon/exception/invalid_data.hpp>
 
@@ -100,19 +100,19 @@
     stream << indent1 << "Size: " << HEXLOG32 << size << std::endl;
 
     stream << indent1 << "Languages: " << std::endl;
-    for (auto const& language : languages) {
+    for (auto const &language : languages) {
         stream << indent2 << "Language(" << language.first << ") = " << language.second << std::endl;
     }
 
     stream << indent1 << "Directories: " << std::endl;
-    for (auto const& directory : directories) {
+    for (auto const &directory : directories) {
         stream << indent2 << "Directory(" << directory.first << ") = " << std::endl;
         stream << indent3 << "Parent: " << directory.second.parent_id << std::endl;
         stream << indent3 << "Name: " << directory.second.name << std::endl;
     }
 
     stream << indent1 << "Files: " << std::endl;
-    for (auto const& file : files) {
+    for (auto const &file : files) {
         stream << indent2 << "File(" << file.first << ") = " << std::endl;
         stream << indent3 << "Directory: " << file.second.directory_id << std::endl;
         stream << indent3 << "Size: " << file.second.size << std::endl;

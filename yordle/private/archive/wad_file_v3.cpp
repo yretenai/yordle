@@ -6,9 +6,9 @@
 #include <cassert>
 #include <cctype>
 
-#include <yordle/archive/wad_file_v3.hpp>
 #include <standard_dragon/exception/invalid_data.hpp>
 #include <standard_dragon/exception/not_implemented.hpp>
+#include <yordle/archive/wad_file_v3.hpp>
 
 #include <xxhash.h>
 #include <zlib.h>
@@ -65,7 +65,7 @@ dragon::Array<uint8_t> decompress(yordle::archive::wad_file_v3::wad_entry_v3 ent
             zs.zalloc = nullptr;
             zs.zfree = nullptr;
             zs.next_in = buffer.data();
-            zs.avail_in =  static_cast<uInt>(buffer.size());
+            zs.avail_in = static_cast<uInt>(buffer.size());
             zs.next_out = data.data();
             zs.avail_out = static_cast<uInt>(data.size());
             inflateInit(&zs);

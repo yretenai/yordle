@@ -10,7 +10,7 @@
 // 64-bit hashing uses xxhash64. (xxhashlist)
 // 32-bit hashing uses fnv1a32. (fnvhaslist)
 namespace yordle::cdtb {
-    template <typename T>
+    template<typename T>
     class hashlist {
     public:
         ~hashlist() = default;
