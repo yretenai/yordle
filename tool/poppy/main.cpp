@@ -4,11 +4,18 @@
 
 
 #include <yordle/yordle.hpp>
+#include <ostream>
 
 int main(int argc, char **argv) {
     if (argc < 2) {
         return -1;
     }
 
-    auto version_set = yordle::sieve::version_set(dragon::read_file(argv[1]).to_string());
+    auto data = dragon::read_file(argv[1]);
+    auto manifest = yordle::manifest::riot_manifest(data);
+    std::ostream& out = std::cout;
+    auto indent = dragon::Indent(0);
+    manifest.print(out, indent);
+
+    return 0;
 }

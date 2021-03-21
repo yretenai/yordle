@@ -35,7 +35,7 @@ table RiotManifestFile {
     unknown4: uint;
     block_ids: [ulong];
     unknown6: uint;
-    unknown7: string;
+    unknown7: [uint];
     unknown8: uint;
     unknown9: ushort;
     unknown10: ubyte;

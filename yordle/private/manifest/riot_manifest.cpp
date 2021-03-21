@@ -27,7 +27,7 @@
     assert(buffer.size() >= csize + offset + 0x100);
     assert(version_major == 2);
     assert(version_minor == 0);
-    assert(*reinterpret_cast<uint16_t *>(&flags) == 0x200);
+    assert(flags.value == 0x200);
 
     if (size > 0) {
         if (flags.compressed) {
@@ -61,14 +61,7 @@
                 file->directory_id(),
                 file->size(),
                 file->name()->str(),
-                file->language_flags(),
-                file->unknown3(),
-                file->unknown4(),
-                file->unknown6(),
-                file->unknown7()->str(),
-                file->unknown8(),
-                file->unknown9(),
-                file->unknown10()};
+                file->language_flags()};
         std::shared_ptr<dragon::Array<uint64_t>> bundle_ids = std::make_shared<dragon::Array<uint64_t>>((size_t) file->block_ids()->size(), nullptr);
         for (flatbuffers::uoffset_t j = 0; j < file->block_ids()->size(); ++j) {
             bundle_ids->set(j, file->block_ids()->Get(j));
@@ -85,8 +78,8 @@
     signature = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset + csize, 0x100, true);
 }
 
-[[noreturn]] [[maybe_unused]] void yordle::manifest::riot_manifest::print(std::ostream stream, dragon::Indent &indent) {
-    stream << indent << "Riot Manifest v" << version_major << "." << version_minor << std::endl;
+[[noreturn]] [[maybe_unused]] void yordle::manifest::riot_manifest::print(std::ostream& stream, dragon::Indent &indent) {
+    stream << indent << "Riot Manifest v" << static_cast<unsigned int>(version_major) << "." << static_cast<unsigned int>(version_minor) << std::endl;
 
     auto indent1 = indent + 1;
     auto indent2 = indent + 2;
@@ -95,13 +88,13 @@
     stream << indent1 << "Flags: " << BITLOG16(flags.value) << std::endl;
     stream << indent2 << "Compressed: " << flags.compressed << std::endl;
     stream << indent1 << "Offset: " << HEXLOG32 << offset << std::endl;
-    stream << indent1 << "Compressed Size: " << HEXLOG32 << offset << std::endl;
+    stream << indent1 << "Compressed Size: " << std::dec << csize << std::endl;
     stream << indent1 << "Id: " << id << std::endl;
-    stream << indent1 << "Size: " << HEXLOG32 << size << std::endl;
+    stream << indent1 << "Size: " << std::dec << size << std::endl;
 
     stream << indent1 << "Languages: " << std::endl;
     for (auto const &language : languages) {
-        stream << indent2 << "Language(" << language.first << ") = " << language.second << std::endl;
+        stream << indent2 << "Language(" << static_cast<unsigned int>(language.first) << ") = " << language.second << std::endl;
     }
 
     stream << indent1 << "Directories: " << std::endl;
@@ -115,15 +108,8 @@
     for (auto const &file : files) {
         stream << indent2 << "File(" << file.first << ") = " << std::endl;
         stream << indent3 << "Directory: " << file.second.directory_id << std::endl;
-        stream << indent3 << "Size: " << file.second.size << std::endl;
+        stream << indent3 << "Size: " << std::dec << file.second.size << std::endl;
         stream << indent3 << "Name: " << file.second.name << std::endl;
         stream << indent3 << "Language: " << BITLOG32(file.second.language_flags) << std::endl;
-        stream << indent3 << "Unknown3: " << file.second.unknown3 << std::endl;
-        stream << indent3 << "Unknown4: " << file.second.unknown4 << std::endl;
-        stream << indent3 << "Unknown6: " << file.second.unknown6 << std::endl;
-        stream << indent3 << "Unknown7: " << file.second.unknown7 << std::endl;
-        stream << indent3 << "Unknown8: " << file.second.unknown8 << std::endl;
-        stream << indent3 << "Unknown9: " << file.second.unknown9 << std::endl;
-        stream << indent3 << "Unknown10: " << file.second.unknown10 << std::endl;
     }
 }

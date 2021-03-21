@@ -385,8 +385,8 @@ struct RiotManifestFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   uint32_t unknown6() const {
     return GetField<uint32_t>(VT_UNKNOWN6, 0);
   }
-  const flatbuffers::String *unknown7() const {
-    return GetPointer<const flatbuffers::String *>(VT_UNKNOWN7);
+  const flatbuffers::Vector<uint32_t> *unknown7() const {
+    return GetPointer<const flatbuffers::Vector<uint32_t> *>(VT_UNKNOWN7);
   }
   uint32_t unknown8() const {
     return GetField<uint32_t>(VT_UNKNOWN8, 0);
@@ -411,7 +411,7 @@ struct RiotManifestFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            verifier.VerifyVector(block_ids()) &&
            VerifyField<uint32_t>(verifier, VT_UNKNOWN6) &&
            VerifyOffset(verifier, VT_UNKNOWN7) &&
-           verifier.VerifyString(unknown7()) &&
+           verifier.VerifyVector(unknown7()) &&
            VerifyField<uint32_t>(verifier, VT_UNKNOWN8) &&
            VerifyField<uint16_t>(verifier, VT_UNKNOWN9) &&
            VerifyField<uint8_t>(verifier, VT_UNKNOWN10) &&
@@ -450,7 +450,7 @@ struct RiotManifestFileBuilder {
   void add_unknown6(uint32_t unknown6) {
     fbb_.AddElement<uint32_t>(RiotManifestFile::VT_UNKNOWN6, unknown6, 0);
   }
-  void add_unknown7(flatbuffers::Offset<flatbuffers::String> unknown7) {
+  void add_unknown7(flatbuffers::Offset<flatbuffers::Vector<uint32_t>> unknown7) {
     fbb_.AddOffset(RiotManifestFile::VT_UNKNOWN7, unknown7);
   }
   void add_unknown8(uint32_t unknown8) {
@@ -484,7 +484,7 @@ inline flatbuffers::Offset<RiotManifestFile> CreateRiotManifestFile(
     uint32_t unknown4 = 0,
     flatbuffers::Offset<flatbuffers::Vector<uint64_t>> block_ids = 0,
     uint32_t unknown6 = 0,
-    flatbuffers::Offset<flatbuffers::String> unknown7 = 0,
+    flatbuffers::Offset<flatbuffers::Vector<uint32_t>> unknown7 = 0,
     uint32_t unknown8 = 0,
     uint16_t unknown9 = 0,
     uint8_t unknown10 = 0) {
@@ -516,13 +516,13 @@ inline flatbuffers::Offset<RiotManifestFile> CreateRiotManifestFileDirect(
     uint32_t unknown4 = 0,
     const std::vector<uint64_t> *block_ids = nullptr,
     uint32_t unknown6 = 0,
-    const char *unknown7 = nullptr,
+    const std::vector<uint32_t> *unknown7 = nullptr,
     uint32_t unknown8 = 0,
     uint16_t unknown9 = 0,
     uint8_t unknown10 = 0) {
   auto name__ = name ? _fbb.CreateString(name) : 0;
   auto block_ids__ = block_ids ? _fbb.CreateVector<uint64_t>(*block_ids) : 0;
-  auto unknown7__ = unknown7 ? _fbb.CreateString(unknown7) : 0;
+  auto unknown7__ = unknown7 ? _fbb.CreateVector<uint32_t>(*unknown7) : 0;
   return yordle::manifest::generated::CreateRiotManifestFile(
       _fbb,
       file_id,

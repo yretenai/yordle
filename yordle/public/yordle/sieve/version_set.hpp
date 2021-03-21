@@ -25,7 +25,7 @@
 namespace yordle::sieve {
     class YORDLE_EXPORT [[maybe_unused]] version_set {
     public:
-        [[maybe_unused]] explicit version_set(const std::string &buffer);
+        [[maybe_unused]] explicit version_set(const std::string buffer);
         ~version_set() = default;
 
         version_set_model data;
