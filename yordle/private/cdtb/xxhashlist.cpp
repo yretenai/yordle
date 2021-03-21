@@ -8,10 +8,7 @@
 
 #include <xxhash.h>
 
-[[maybe_unused]] yordle::cdtb::xxhashlist::xxhashlist(const dragon::Array<uint8_t> &buffer) {
-    if (buffer.empty()) return;
-
-    std::istringstream stream(reinterpret_cast<char *>(buffer.data()));
+[[maybe_unused]] yordle::cdtb::xxhashlist::xxhashlist(std::istringstream stream) {
     std::string line;
 
     uint64_t hash;

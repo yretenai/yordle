@@ -9,6 +9,6 @@ int main(int argc, char **argv) {
     if (argc < 2) {
         return -1;
     }
-    auto list = yordle::cdtb::fnvhashlist(dragon::read_file(argv[1]));
-    list.validate();
+
+    auto version_set = yordle::sieve::version_set(dragon::read_file(argv[1]).to_string());
 }

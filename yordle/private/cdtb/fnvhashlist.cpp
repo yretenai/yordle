@@ -9,10 +9,7 @@
 
 #include <standard_dragon/hash/fnv1a.hpp>
 
-[[maybe_unused]] yordle::cdtb::fnvhashlist::fnvhashlist(const dragon::Array<uint8_t> &buffer) {
-    if (buffer.empty()) return;
-
-    std::istringstream stream(reinterpret_cast<char *>(buffer.data()));
+[[maybe_unused]] yordle::cdtb::fnvhashlist::fnvhashlist(std::istringstream stream) {
     std::string line;
 
     uint32_t hash;

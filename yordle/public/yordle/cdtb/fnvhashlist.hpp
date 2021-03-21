@@ -12,7 +12,7 @@
 namespace yordle::cdtb {
     class YORDLE_EXPORT [[maybe_unused]] fnvhashlist : public hashlist<uint64_t> {
     public:
-        [[maybe_unused]] explicit fnvhashlist(const dragon::Array<uint8_t> &buffer);
+        [[maybe_unused]] explicit fnvhashlist(std::istringstream stream);
 
         [[maybe_unused]] void validate() override;
     };

@@ -12,7 +12,7 @@
 namespace yordle::cdtb {
     class YORDLE_EXPORT [[maybe_unused]] xxhashlist : public hashlist<uint64_t> {
     public:
-        [[maybe_unused]] explicit xxhashlist(const dragon::Array<uint8_t> &buffer);
+        [[maybe_unused]] explicit xxhashlist(std::istringstream stream);
 
         [[maybe_unused]] void validate() override;
     };
