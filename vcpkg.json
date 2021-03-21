@@ -7,6 +7,7 @@
     "zstd",
     "zlib",
     "xxhash",
-    "flatbuffers"
+    "flatbuffers",
+    "nlohmann-json"
   ]
 }
