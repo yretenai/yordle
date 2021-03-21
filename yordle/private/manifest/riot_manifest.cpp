@@ -34,7 +34,7 @@
             data = std::make_shared<dragon::Array<uint8_t>>(size, nullptr);
             ZSTD_decompress(data->data(), size, buffer.data() + offset, csize);
         } else {
-            data = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset, size, nullptr);
+            data = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset, size, true);
         }
     }
 
@@ -82,7 +82,7 @@
         directories[dir->id()] = riot_manifest_dir{dir->id(), dir->parent_id(), dir->name()->str()};
     }
 
-    signature = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset + csize, 0x100, nullptr);
+    signature = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset + csize, 0x100, true);
 }
 
 [[noreturn]] [[maybe_unused]] void yordle::manifest::riot_manifest::print(std::ostream stream, dragon::Indent &indent) {
