@@ -8,6 +8,7 @@
 #include <yordle/manifest/RiotManifest_generated.h>
 #include <yordle/manifest/riot_manifest.hpp>
 
+#include <standard_dragon/Indent.hpp>
 #include <standard_dragon/exception/invalid_data.hpp>
 
 #include <zstd.h>
@@ -39,14 +40,14 @@
     }
 
     const generated::RiotManifest *rman = generated::GetRiotManifest(data->data());
-    for (flatbuffers::uoffset_t i = 0; i < rman->chunks()->size(); ++i) {
-        const auto *chunk = rman->chunks()->GetAs<generated::RiotManifestChunk>(i);
-        std::shared_ptr<dragon::Array<riot_manifest_bundle>> bundles = std::make_shared<dragon::Array<riot_manifest_bundle>>((size_t) chunk->blocks()->size(), nullptr);
-        for (flatbuffers::uoffset_t j = 0; j < chunk->blocks()->size(); ++j) {
-            const auto *block = chunk->blocks()->GetAs<generated::RiotManifestBlock>(j);
-            bundles->set(j, {block->block_id(), block->compressed_size(), block->size()});
+    for (flatbuffers::uoffset_t i = 0; i < rman->bundles()->size(); ++i) {
+        const auto *bundle = rman->bundles()->GetAs<generated::RiotManifestBundle>(i);
+        std::shared_ptr<dragon::Array<riot_manifest_bundle>> blocks = std::make_shared<dragon::Array<riot_manifest_bundle>>((size_t) bundle->blocks()->size(), nullptr);
+        for (flatbuffers::uoffset_t j = 0; j < bundle->blocks()->size(); ++j) {
+            const auto *block = bundle->blocks()->GetAs<generated::RiotManifestBlock>(j);
+            blocks->set(j, {block->block_id(), block->compressed_size(), block->size()});
         }
-        chunks[chunk->chunk_id()] = bundles;
+        bundles[bundle->block_id()] = blocks;
     }
 
     for (flatbuffers::uoffset_t i = 0; i < rman->languages()->size(); ++i) {
@@ -78,18 +79,18 @@
     signature = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset + csize, 0x100, true);
 }
 
-[[noreturn]] [[maybe_unused]] void yordle::manifest::riot_manifest::print(std::ostream& stream, dragon::Indent &indent) {
-    stream << indent << "Riot Manifest v" << static_cast<unsigned int>(version_major) << "." << static_cast<unsigned int>(version_minor) << std::endl;
-
+[[noreturn]] [[maybe_unused]] void yordle::manifest::riot_manifest::print(std::ostream &stream, dragon::Indent &indent) const {
     auto indent1 = indent + 1;
     auto indent2 = indent + 2;
     auto indent3 = indent + 3;
+
+    stream << indent << "Riot Manifest v" << static_cast<unsigned int>(version_major) << "." << static_cast<unsigned int>(version_minor) << std::endl;
 
     stream << indent1 << "Flags: " << BITLOG16(flags.value) << std::endl;
     stream << indent2 << "Compressed: " << flags.compressed << std::endl;
     stream << indent1 << "Offset: " << HEXLOG32 << offset << std::endl;
     stream << indent1 << "Compressed Size: " << std::dec << csize << std::endl;
-    stream << indent1 << "Id: " << id << std::endl;
+    stream << indent1 << "Id: " << HEXLOG64 << id << std::endl;
     stream << indent1 << "Size: " << std::dec << size << std::endl;
 
     stream << indent1 << "Languages: " << std::endl;
@@ -99,17 +100,29 @@
 
     stream << indent1 << "Directories: " << std::endl;
     for (auto const &directory : directories) {
-        stream << indent2 << "Directory(" << directory.first << ") = " << std::endl;
-        stream << indent3 << "Parent: " << directory.second.parent_id << std::endl;
+        stream << indent2 << "Directory(" << HEXLOG64 << directory.first << ") = " << std::endl;
+        stream << indent3 << "Parent: " << HEXLOG64 << directory.second.parent_id << std::endl;
         stream << indent3 << "Name: " << directory.second.name << std::endl;
+    }
+
+    stream << indent1 << "Bundles: " << std::endl;
+    for (auto const &bundle : bundles) {
+        stream << indent2 << "Bundle(" << HEXLOG64 << bundle.first << ") = " << std::endl;
+        for (auto const &block : *bundle.second) {
+            stream << indent3 << HEXLOG64 << block.block_id << " " << block.size << ":" << block.csize << std::endl;
+        }
     }
 
     stream << indent1 << "Files: " << std::endl;
     for (auto const &file : files) {
-        stream << indent2 << "File(" << file.first << ") = " << std::endl;
-        stream << indent3 << "Directory: " << file.second.directory_id << std::endl;
+        stream << indent2 << "File(" << HEXLOG64 << file.first << ") = " << std::endl;
+        stream << indent3 << "Directory: " << HEXLOG64 << file.second.directory_id << std::endl;
         stream << indent3 << "Size: " << std::dec << file.second.size << std::endl;
         stream << indent3 << "Name: " << file.second.name << std::endl;
         stream << indent3 << "Language: " << BITLOG32(file.second.language_flags) << std::endl;
+        stream << indent3 << "Chucks: ";
+        for (auto const &bundle : *file.second.block_ids) {
+            stream << HEXLOG64 << bundle << std::endl;
+        }
     }
 }

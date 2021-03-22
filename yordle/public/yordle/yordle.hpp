@@ -9,5 +9,6 @@
 #include <yordle/cdtb/fnvhashlist.hpp>
 #include <yordle/cdtb/hashlist.hpp>
 #include <yordle/cdtb/xxhashlist.hpp>
+#include <yordle/manifest/riot_bundle.hpp>
 #include <yordle/manifest/riot_manifest.hpp>
 #include <yordle/sieve/version_set.hpp>

@@ -12,10 +12,10 @@ int main(int argc, char **argv) {
     }
 
     auto data = dragon::read_file(argv[1]);
-    auto manifest = yordle::manifest::riot_manifest(data);
+    auto bundle = yordle::manifest::riot_bundle(data);
     std::ostream& out = std::cout;
     auto indent = dragon::Indent(0);
-    manifest.print(out, indent);
+    bundle.print(out, indent);
 
     return 0;
 }

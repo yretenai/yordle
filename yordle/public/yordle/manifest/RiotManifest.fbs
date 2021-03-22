@@ -1,7 +1,7 @@
 namespace yordle.manifest.generated;
 
 table RiotManifest {
-    chunks: [RiotManifestChunk];
+    bundles: [RiotManifestBundle];
     languages: [RiotManifestLanguage];
     files: [RiotManifestFile];
     directories: [RiotManifestDirectory];
@@ -9,8 +9,8 @@ table RiotManifest {
     unknown2: [uint];
 }
 
-table RiotManifestChunk {
-    chunk_id: ulong;
+table RiotManifestBundle {
+    block_id: ulong;
     blocks: [RiotManifestBlock];
 }
 
