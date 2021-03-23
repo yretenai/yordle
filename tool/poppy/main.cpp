@@ -11,11 +11,6 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-    auto data = dragon::read_file(argv[1]);
-    auto bundle = yordle::manifest::riot_bundle(data);
-    std::ostream& out = std::cout;
-    auto indent = dragon::Indent(0);
-    bundle.print(out, indent);
-
-    return 0;
+    std::ifstream file(argv[1], std::ios::binary | std::ios::in);
+    auto wad = yordle::archive::wad_file_v3(file);
 }
