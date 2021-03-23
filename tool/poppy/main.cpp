@@ -11,6 +11,6 @@ int main(int argc, char **argv) {
         return -1;
     }
 
-    std::ifstream file(argv[1], std::ios::binary | std::ios::in);
-    auto wad = yordle::archive::wad_file_v3(file);
+    std::string data = dragon::read_file(argv[1]).to_string();
+    auto test = yordle::sieve::client_config(data);
 }

@@ -11,4 +11,6 @@
 #include <yordle/cdtb/xxhashlist.hpp>
 #include <yordle/manifest/riot_bundle.hpp>
 #include <yordle/manifest/riot_manifest.hpp>
+#include <yordle/sieve/client_config.hpp>
+#include <yordle/sieve/release_channel.hpp>
 #include <yordle/sieve/version_set.hpp>

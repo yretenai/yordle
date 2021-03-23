@@ -4,9 +4,10 @@
 
 #pragma once
 
-#include "yordle/sieve/version_set_model.hpp"
-#include "yordle/yordle_export.h"
 #include <standard_dragon/Array.hpp>
+
+#include <yordle/sieve/models/version_set_model.hpp>
+#include <yordle/yordle_export.h>
 
 // release channel:
 // https://lol.secure.dyn.riotcdn.net/channels/public/live-na-win.json
@@ -25,9 +26,9 @@
 namespace yordle::sieve {
     class YORDLE_EXPORT [[maybe_unused]] version_set {
     public:
-        [[maybe_unused]] explicit version_set(const std::string buffer);
+        [[maybe_unused]] explicit version_set(const std::string &buffer);
         ~version_set() = default;
 
-        version_set_model data;
+        std::shared_ptr<models::version_set> data;
     };
 } // namespace yordle::sieve
