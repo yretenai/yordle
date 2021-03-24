@@ -110,8 +110,9 @@ namespace poppy {
         if (help.was_set()) {
             std::cout << cli << std::endl;
             exit_code = 0;
-            return configuration;
         }
+
+        return configuration;
     }
 } // namespace poppy
 
