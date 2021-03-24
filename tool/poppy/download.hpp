@@ -6,4 +6,6 @@
 
 #include "poppy.hpp"
 
-bool download(PoppyConfiguration &poppy);
+namespace poppy {
+    bool download(PoppyConfiguration &poppy);
+}

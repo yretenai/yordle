@@ -6,4 +6,6 @@
 
 #include "poppy.hpp"
 
-bool fetch(PoppyConfiguration &poppy);
+namespace poppy {
+    bool fetch(PoppyConfiguration &poppy);
+}

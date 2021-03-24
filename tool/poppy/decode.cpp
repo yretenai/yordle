@@ -4,6 +4,6 @@
 
 #include "decode.hpp"
 
-bool decode(PoppyConfiguration &poppy) {
+bool poppy::decode(PoppyConfiguration &poppy) {
     return true;
 }

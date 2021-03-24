@@ -6,4 +6,6 @@
 
 #include "poppy.hpp"
 
-bool decode(PoppyConfiguration &poppy);
+namespace poppy {
+    bool decode(PoppyConfiguration &poppy);
+}

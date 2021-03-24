@@ -4,6 +4,6 @@
 
 #include "download.hpp"
 
-bool download(PoppyConfiguration &poppy) {
+bool poppy::download(PoppyConfiguration &poppy) {
     return true;
 }

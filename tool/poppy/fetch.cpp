@@ -4,6 +4,6 @@
 
 #include "fetch.hpp"
 
-bool fetch(PoppyConfiguration &poppy) {
+bool poppy::fetch(PoppyConfiguration &poppy) {
     return true;
 }
