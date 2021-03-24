@@ -21,6 +21,8 @@
 #define POPPY_DEFAULT_VERSION_SET_FORMAT "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/{}?q[artifact_type_id]=lol-game-client&q[platform]=windows&q[published]=true"
 #define POPPY_DEFAULT_BUNDLE_FORMAT "http://lol.secure.dyn.riotcdn.net/channels/public/bundles/{:16X}.bundle"
 
+#define POPPY_SAFE_EXIT_CODE -418
+
 #include <cstdint>
 #include <deque>
 #include <filesystem>

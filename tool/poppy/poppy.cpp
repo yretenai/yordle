@@ -17,22 +17,22 @@
 namespace poppy {
     PoppyConfiguration parse_configuration(int argc, char **argv, int &exit_code) {
         po::parser cli;
-        PoppyConfiguration configuration = {};
+        PoppyConfiguration poppy = {};
 
         cli["fetch"]
                 .abbreviation('F')
                 .description("fetches manifests from CDN servers")
-                .callback([&] { configuration.fetch = true; });
+                .callback([&] { poppy.fetch = true; });
 
         cli["download"]
                 .abbreviation('d')
                 .description("downloads bundles defined by manifest from CDN servers")
-                .callback([&] { configuration.download = true; });
+                .callback([&] { poppy.download = true; });
 
         cli["decode"]
                 .abbreviation('D')
                 .description("decodes bundles")
-                .callback([&] { configuration.decode = true; });
+                .callback([&] { poppy.decode = true; });
 
         cli["source"]
                 .abbreviation('s')
@@ -40,14 +40,14 @@ namespace poppy {
                 .type(po::string)
                 .callback([&](const po::string_t &str) {
                     if (str == "version_set") {
-                        configuration.source = PoppySource::VersionSet;
+                        poppy.source = PoppySource::VersionSet;
                     } else if (str == "release_channel") {
-                        configuration.source = PoppySource::ReleaseChannel;
+                        poppy.source = PoppySource::ReleaseChannel;
                     } else {
                         if (str != "client_config") {
                             std::cout << "warn: unrecognized option " << str << " for PoppySource, defaulting to client_config" << std::endl;
                         }
-                        configuration.source = PoppySource::ClientConfig;
+                        poppy.source = PoppySource::ClientConfig;
                     }
                 });
 
@@ -56,7 +56,7 @@ namespace poppy {
                 .description("downloads bundles defined by manifest from CDN servers")
                 .type(po::string)
                 .callback([&](const po::string_t &str) {
-                    configuration.cache_dir = str;
+                    poppy.cache_dir = str;
                 });
 
         cli["output"]
@@ -64,29 +64,29 @@ namespace poppy {
                 .description("downloads bundles defined by manifest from CDN servers")
                 .type(po::string)
                 .callback([&](const po::string_t &str) {
-                    configuration.output_dir = str;
+                    poppy.output_dir = str;
                 });
 
         cli["manifest"]
                 .abbreviation('m')
                 .description("manifest url format")
                 .type(po::string)
-                .bind(configuration.manifest_format);
+                .bind(poppy.manifest_format);
 
         cli["bundle"]
                 .abbreviation('b')
                 .description("bundle url format")
                 .type(po::string)
-                .bind(configuration.bundle_format);
+                .bind(poppy.bundle_format);
 
         cli["threads"]
                 .abbreviation('t')
                 .description("number of concurrent threads to download")
                 .type(po::i32)
-                .bind(configuration.concurrency);
+                .bind(poppy.concurrency);
 
         cli[""]
-                .bind(configuration.targets);
+                .bind(poppy.targets);
 
         auto &help = cli["help"]
                              .abbreviation('h')
@@ -99,20 +99,45 @@ namespace poppy {
         if (!cli(argc, argv)) {
             std::cerr << "errored while parsing opts; aborting.\n";
             exit_code = -1;
-            return configuration;
+            return poppy;
         }
 
         if (version.was_set()) {
             exit_code = 0;
-            return configuration;
+            return poppy;
         }
 
         if (help.was_set()) {
             std::cout << cli << std::endl;
             exit_code = 0;
+            return poppy;
         }
 
-        return configuration;
+        if (poppy.concurrency < 1) {
+            poppy.concurrency = std::thread::hardware_concurrency() > 0 ? std::thread::hardware_concurrency() : 1;
+            std::cout << "warn: thread count is an invalid number, defaulting to " << poppy.concurrency << '.' << std::endl;
+        }
+
+        if (poppy.manifest_format.empty()) {
+            switch (poppy.source) {
+                case poppy::PoppySource::ClientConfig:
+                    poppy.manifest_format = POPPY_DEFAULT_CLIENT_CONFIG_FORMAT;
+                    break;
+                case poppy::PoppySource::ReleaseChannel:
+                    poppy.manifest_format = POPPY_DEFAULT_RELEASE_CHANNEL_FORMAT;
+                    break;
+                case poppy::PoppySource::VersionSet:
+                    poppy.manifest_format = POPPY_DEFAULT_VERSION_SET_FORMAT;
+                    break;
+            }
+            std::cout << "warn: set manifest url format to " << poppy.manifest_format << '.' << std::endl;
+        }
+
+        if (poppy.targets.empty()) {
+            std::cerr << "err: no targets specified." << std::endl;
+        }
+
+        return poppy;
     }
 } // namespace poppy
 
@@ -120,35 +145,10 @@ int main(int argc, char **argv) {
     std::cout << YORDLE_VERSION_S << std::endl;
     std::cout << POPPY_VERSION_S << std::endl;
 
-    int exit_code = -418;
+    int exit_code = POPPY_SAFE_EXIT_CODE;
     auto poppy = poppy::parse_configuration(argc, argv, exit_code);
-    if (exit_code != -418) {
+    if (exit_code != POPPY_SAFE_EXIT_CODE) {
         return exit_code;
-    }
-
-    if (poppy.concurrency < 1) {
-        poppy.concurrency = std::thread::hardware_concurrency() > 0 ? std::thread::hardware_concurrency() : 1;
-        std::cout << "warn: thread count is an invalid number, defaulting to " << poppy.concurrency << '.' << std::endl;
-    }
-
-    if (poppy.manifest_format.empty()) {
-        switch (poppy.source) {
-            case poppy::PoppySource::ClientConfig:
-                poppy.manifest_format = POPPY_DEFAULT_CLIENT_CONFIG_FORMAT;
-                break;
-            case poppy::PoppySource::ReleaseChannel:
-                poppy.manifest_format = POPPY_DEFAULT_RELEASE_CHANNEL_FORMAT;
-                break;
-            case poppy::PoppySource::VersionSet:
-                poppy.manifest_format = POPPY_DEFAULT_VERSION_SET_FORMAT;
-                break;
-        }
-        std::cout << "warn: set manifest url format to " << poppy.manifest_format << '.' << std::endl;
-    }
-
-    if (poppy.targets.empty()) {
-        std::cerr << "err: no targets specified." << std::endl;
-        return 0;
     }
 
     if (poppy.fetch && !poppy::fetch(poppy)) {
