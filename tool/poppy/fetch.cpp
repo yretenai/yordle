@@ -5,4 +5,5 @@
 #include "fetch.hpp"
 
 bool fetch(PoppyConfiguration &poppy) {
+    return true;
 }

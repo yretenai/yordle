@@ -5,4 +5,5 @@
 #include "decode.hpp"
 
 bool decode(PoppyConfiguration &poppy) {
+    return true;
 }

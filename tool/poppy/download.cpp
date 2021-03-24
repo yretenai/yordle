@@ -5,4 +5,5 @@
 #include "download.hpp"
 
 bool download(PoppyConfiguration &poppy) {
+    return true;
 }
