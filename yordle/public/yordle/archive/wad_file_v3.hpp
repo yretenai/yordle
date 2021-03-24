@@ -1,10 +1,10 @@
 //
-// Created by yretenai on 2020-09-09.
+// Created by Lilith on 2020-09-09.
 //
 
 #pragma once
-#pragma clang diagnostic ignored "-Wunused-variable"
 #pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
 #pragma ide diagnostic ignored "OCUnusedGlobalDeclarationInspection"
 
 #include <cstdbool>

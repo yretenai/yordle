@@ -1,5 +1,5 @@
 //
-// Created by yretenai on 2020-08-25.
+// Created by Lilith on 2020-08-25.
 //
 
 #include <bitset>
@@ -8,7 +8,6 @@
 #include <yordle/manifest/RiotManifest_generated.h>
 #include <yordle/manifest/riot_manifest.hpp>
 
-#include <standard_dragon/Indent.hpp>
 #include <standard_dragon/exception/invalid_data.hpp>
 
 #include <zstd.h>

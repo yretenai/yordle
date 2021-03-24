@@ -8,6 +8,8 @@
     "zlib",
     "xxhash",
     "flatbuffers",
-    "nlohmann-json"
+    "nlohmann-json",
+    "cpp-httplib",
+    "openssl"
   ]
 }

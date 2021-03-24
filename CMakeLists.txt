@@ -28,6 +28,12 @@ endif()
 include(GenerateExportHeader)
 include_directories(vendor)
 
+find_package(zstd CONFIG REQUIRED)
+find_package(ZLIB REQUIRED)
+find_package(Flatbuffers CONFIG REQUIRED)
+find_package(nlohmann_json CONFIG REQUIRED)
+find_package(OpenSSL REQUIRED)
+
 add_subdirectory("vendor")
 add_subdirectory("yordle")
 add_subdirectory("tool")

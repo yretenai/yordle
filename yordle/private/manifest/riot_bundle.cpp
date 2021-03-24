@@ -1,12 +1,11 @@
 //
-// Created by Lilith on 3/22/2021.
+// Created by Lilith on 2021-03-22.
 //
 
 #include <cassert>
 
 #include <yordle/manifest/riot_bundle.hpp>
 
-#include <standard_dragon/Indent.hpp>
 #include <standard_dragon/exception/invalid_data.hpp>
 
 
