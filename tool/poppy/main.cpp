@@ -92,12 +92,20 @@ int main(int argc, char **argv) {
             .bind(configuration.targets);
 
     auto &help = cli["help"]
-                         .abbreviation('h')
-                         .description("print this help screen");
+            .abbreviation('h')
+            .description("print this help screen");
+
+    auto &version = cli["version"]
+            .abbreviation('v')
+            .description("print application version");
 
     if (!cli(argc, argv)) {
         std::cerr << "errored while parsing opts; aborting.\n";
         return -1;
+    }
+
+    if(version.was_set()) {
+        return 0;
     }
 
     if (help.was_set()) {
