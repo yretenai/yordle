@@ -9,7 +9,9 @@
     "xxhash",
     "flatbuffers",
     "nlohmann-json",
-    "cpp-httplib",
-    "openssl"
+    "curl",
+    "openssl",
+    "boost-format",
+    "uriparser"
   ]
 }

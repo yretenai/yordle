@@ -33,6 +33,8 @@ find_package(ZLIB REQUIRED)
 find_package(Flatbuffers CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
 find_package(OpenSSL REQUIRED)
+find_package(CURL REQUIRED)
+find_package(uriparser CONFIG REQUIRED char wchar_t)
 
 add_subdirectory("vendor")
 add_subdirectory("yordle")

@@ -13,15 +13,11 @@
 namespace yordle::sieve::models {
     using nlohmann::json;
 
-    struct default_class {
+    struct keystone_products_metadata {
         std::shared_ptr<std::map<std::string, std::string>> content_paths;
         std::shared_ptr<std::string> default_theme_manifest;
         std::shared_ptr<std::string> full_name;
         std::shared_ptr<std::string> path_name;
-    };
-
-    struct keystone_products_metadata {
-        std::shared_ptr<default_class> metadata_default;
     };
 
     struct dependency {
@@ -71,10 +67,12 @@ namespace yordle::sieve::models {
         std::shared_ptr<configuration_metadata> metadata;
         std::shared_ptr<std::string> patch_notes_url;
         std::shared_ptr<std::string> patch_url;
+        std::shared_ptr<std::string> path;
         std::shared_ptr<region_data> region_data;
         std::shared_ptr<std::vector<configuration>> secondary_patchlines;
         std::shared_ptr<std::string> seed_url;
         std::shared_ptr<std::vector<nlohmann::json>> tags;
+        std::shared_ptr<std::string> url;
     };
 
     struct platform {
@@ -87,13 +85,11 @@ namespace yordle::sieve::models {
     };
 
     struct keystone_products_patchlines {
-        std::shared_ptr<keystone_products_metadata> metadata;
+        std::shared_ptr<std::map<std::string, keystone_products_metadata>> metadata;
         std::shared_ptr<std::map<std::string, platform>> platforms;
         std::shared_ptr<std::string> version;
     };
 
-    [[maybe_unused]] void from_json(const json &j, default_class &x);
-    [[maybe_unused]] void to_json(json &j, const default_class &x);
     [[maybe_unused]] void from_json(const json &j, keystone_products_metadata &x);
     [[maybe_unused]] void to_json(json &j, const keystone_products_metadata &x);
     [[maybe_unused]] void from_json(const json &j, dependency &x);
@@ -115,14 +111,14 @@ namespace yordle::sieve::models {
     [[maybe_unused]] void from_json(const json &j, keystone_products_patchlines &x);
     [[maybe_unused]] void to_json(json &j, const keystone_products_patchlines &x);
 
-    [[maybe_unused]] inline void from_json(const json &j, default_class &x) {
+    [[maybe_unused]] inline void from_json(const json &j, keystone_products_metadata &x) {
         x.content_paths = get_optional<std::map<std::string, std::string>>(j, "content_paths");
         x.default_theme_manifest = get_optional<std::string>(j, "default_theme_manifest");
         x.full_name = get_optional<std::string>(j, "full_name");
         x.path_name = get_optional<std::string>(j, "path_name");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const default_class &x) {
+    [[maybe_unused]] inline void to_json(json &j, const keystone_products_metadata &x) {
         j = json::object();
         if (x.content_paths) {
             j["content_paths"] = x.content_paths;
@@ -135,17 +131,6 @@ namespace yordle::sieve::models {
         }
         if (x.path_name) {
             j["path_name"] = x.path_name;
-        }
-    }
-
-    [[maybe_unused]] inline void from_json(const json &j, keystone_products_metadata &x) {
-        x.metadata_default = get_optional<default_class>(j, "default");
-    }
-
-    [[maybe_unused]] inline void to_json(json &j, const keystone_products_metadata &x) {
-        j = json::object();
-        if (x.metadata_default) {
-            j["default"] = x.metadata_default;
         }
     }
 
@@ -271,10 +256,12 @@ namespace yordle::sieve::models {
         x.metadata = get_optional<configuration_metadata>(j, "metadata");
         x.patch_notes_url = get_optional<std::string>(j, "patch_notes_url");
         x.patch_url = get_optional<std::string>(j, "patch_url");
+        x.path = get_optional<std::string>(j, "path");
         x.region_data = get_optional<region_data>(j, "region_data");
         x.secondary_patchlines = get_optional<std::vector<configuration>>(j, "secondary_patchlines");
         x.seed_url = get_optional<std::string>(j, "seed_url");
         x.tags = get_optional<std::vector<json>>(j, "tags");
+        x.url = get_optional<std::string>(j, "url");
     }
 
     [[maybe_unused]] inline void to_json(json &j, const configuration &x) {
@@ -312,6 +299,9 @@ namespace yordle::sieve::models {
         if (x.patch_url) {
             j["patch_url"] = x.patch_url;
         }
+        if (x.path) {
+            j["path"] = x.path;
+        }
         if (x.region_data) {
             j["region_data"] = x.region_data;
         }
@@ -323,6 +313,9 @@ namespace yordle::sieve::models {
         }
         if (x.tags) {
             j["tags"] = x.tags;
+        }
+        if (x.url) {
+            j["url"] = x.url;
         }
     }
 
@@ -358,7 +351,7 @@ namespace yordle::sieve::models {
     }
 
     [[maybe_unused]] inline void from_json(const json &j, keystone_products_patchlines &x) {
-        x.metadata = get_optional<keystone_products_metadata>(j, "metadata");
+        x.metadata = get_optional<std::map<std::string, keystone_products_metadata>>(j, "metadata");
         x.platforms = get_optional<std::map<std::string, platform>>(j, "platforms");
         x.version = get_optional<std::string>(j, "version");
     }

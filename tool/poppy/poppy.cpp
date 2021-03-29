@@ -9,47 +9,14 @@
 #define PROGRAMOPTIONS_NO_COLORS
 #endif
 #include <ProgramOptions.hxx>
+#include <curl/curl.h>
 
-#include "decode.hpp"
-#include "download.hpp"
 #include "fetch.hpp"
 
 namespace poppy {
     PoppyConfiguration parse_configuration(int argc, char **argv, int &exit_code) {
         po::parser cli;
         PoppyConfiguration poppy = {};
-
-        cli["fetch"]
-                .abbreviation('F')
-                .description("fetches manifests from CDN servers")
-                .callback([&] { poppy.fetch = true; });
-
-        cli["download"]
-                .abbreviation('d')
-                .description("downloads bundles defined by manifest from CDN servers")
-                .callback([&] { poppy.download = true; });
-
-        cli["decode"]
-                .abbreviation('D')
-                .description("decodes bundles")
-                .callback([&] { poppy.decode = true; });
-
-        cli["source"]
-                .abbreviation('s')
-                .description("source system to fetch manifests from\n(client_config, version_set, release_channel)")
-                .type(po::string)
-                .callback([&](const po::string_t &str) {
-                    if (str == "version_set") {
-                        poppy.source = PoppySource::VersionSet;
-                    } else if (str == "release_channel") {
-                        poppy.source = PoppySource::ReleaseChannel;
-                    } else {
-                        if (str != "client_config") {
-                            std::cout << "warn: unrecognized option " << str << " for PoppySource, defaulting to client_config" << std::endl;
-                        }
-                        poppy.source = PoppySource::ClientConfig;
-                    }
-                });
 
         cli["cache"]
                 .abbreviation('c')
@@ -71,19 +38,25 @@ namespace poppy {
                 .abbreviation('m')
                 .description("manifest url format")
                 .type(po::string)
-                .bind(poppy.manifest_format);
+                .bind(poppy.manifest_url);
 
         cli["bundle"]
                 .abbreviation('b')
                 .description("bundle url format")
                 .type(po::string)
-                .bind(poppy.bundle_format);
+                .bind(poppy.bundle_url);
 
         cli["threads"]
                 .abbreviation('t')
                 .description("number of concurrent threads to download")
                 .type(po::i32)
                 .bind(poppy.concurrency);
+
+        auto &configurations = cli["configurations"]
+                .abbreviation('C')
+                .description("configurations to actualize")
+                .type(po::string)
+                .multi();
 
         cli[""]
                 .bind(poppy.targets);
@@ -118,26 +91,44 @@ namespace poppy {
             std::cout << "warn: thread count is an invalid number, defaulting to " << poppy.concurrency << '.' << std::endl;
         }
 
-        if (poppy.manifest_format.empty()) {
-            switch (poppy.source) {
-                case poppy::PoppySource::ClientConfig:
-                    poppy.manifest_format = POPPY_DEFAULT_CLIENT_CONFIG_FORMAT;
-                    break;
-                case poppy::PoppySource::ReleaseChannel:
-                    poppy.manifest_format = POPPY_DEFAULT_RELEASE_CHANNEL_FORMAT;
-                    break;
-                case poppy::PoppySource::VersionSet:
-                    poppy.manifest_format = POPPY_DEFAULT_VERSION_SET_FORMAT;
-                    break;
-            }
-            std::cout << "warn: set manifest url format to " << poppy.manifest_format << '.' << std::endl;
-        }
-
         if (poppy.targets.empty()) {
             std::cerr << "err: no targets specified." << std::endl;
         }
 
+        if (configurations.was_set()) {
+            auto vec = configurations.to_vector<po::string>();
+            poppy.configurations = std::set<std::string>(vec.begin(), vec.end());
+        } else {
+            poppy.configurations = {"na1", "default", "na"};
+            std::cout << "warn: no configurations set, defaulting to na, na1, default" << std::endl;
+        }
+
         return poppy;
+    }
+
+    static size_t append_vector(void* contents, size_t size, size_t nmemb, void *userp) {
+        auto vec = (std::vector<uint8_t>*)userp;
+        vec->insert(vec->end(), (uint8_t*)contents, (uint8_t*)contents + (size * nmemb));
+        return size * nmemb;
+    }
+
+    std::unique_ptr<std::vector<uint8_t>> download(const std::string& url) {
+        std::unique_ptr<std::vector<uint8_t>> ptr = std::make_unique<std::vector<uint8_t>>();
+        CURL *curl;
+        CURLcode res;
+
+        curl = curl_easy_init();
+        if(curl) {
+            curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+            curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, append_vector);
+            curl_easy_setopt(curl, CURLOPT_WRITEDATA, ptr.get());
+            res = curl_easy_perform(curl);
+            curl_easy_cleanup(curl);
+            if(res != CURLE_OK) return nullptr;
+            return ptr;
+        }
+
+        return nullptr;
     }
 } // namespace poppy
 
@@ -151,19 +142,9 @@ int main(int argc, char **argv) {
         return exit_code;
     }
 
-    if (poppy.fetch && !poppy::fetch(poppy)) {
+    if (!poppy::fetch(poppy)) {
         std::cerr << "err: failure during fetch operation" << std::endl;
         return 1;
-    }
-
-    if (poppy.download && !poppy::download(poppy)) {
-        std::cerr << "err: failure during download operation" << std::endl;
-        return 2;
-    }
-
-    if (poppy.decode && !poppy::decode(poppy)) {
-        std::cerr << "err: failure during decode operation" << std::endl;
-        return 3;
     }
 
     return 0;
