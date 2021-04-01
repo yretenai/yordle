@@ -46,17 +46,11 @@ namespace poppy {
                 .type(po::string)
                 .bind(poppy.bundle_url);
 
-        cli["threads"]
-                .abbreviation('t')
-                .description("number of concurrent threads to download")
-                .type(po::i32)
-                .bind(poppy.concurrency);
-
         auto &configurations = cli["configurations"]
-                .abbreviation('C')
-                .description("configurations to actualize")
-                .type(po::string)
-                .multi();
+                                       .abbreviation('C')
+                                       .description("configurations to actualize")
+                                       .type(po::string)
+                                       .multi();
 
         cli[""]
                 .bind(poppy.targets);
@@ -64,6 +58,10 @@ namespace poppy {
         auto &help = cli["help"]
                              .abbreviation('h')
                              .description("print this help screen");
+
+        auto &offline = cli["offline-config"]
+                                .abbreviation('B')
+                                .description("targets are file paths to cached configs");
 
         auto &version = cli["version"]
                                 .abbreviation('v')
@@ -86,9 +84,8 @@ namespace poppy {
             return poppy;
         }
 
-        if (poppy.concurrency < 1) {
-            poppy.concurrency = std::thread::hardware_concurrency() > 0 ? std::thread::hardware_concurrency() : 1;
-            std::cout << "warn: thread count is an invalid number, defaulting to " << poppy.concurrency << '.' << std::endl;
+        if (offline.was_set()) {
+            poppy.offline_config = true;
         }
 
         if (poppy.targets.empty()) {
@@ -106,25 +103,25 @@ namespace poppy {
         return poppy;
     }
 
-    static size_t append_vector(void* contents, size_t size, size_t nmemb, void *userp) {
-        auto vec = (std::vector<uint8_t>*)userp;
-        vec->insert(vec->end(), (uint8_t*)contents, (uint8_t*)contents + (size * nmemb));
+    static size_t append_vector(void *contents, size_t size, size_t nmemb, void *userp) {
+        auto vec = (std::vector<uint8_t> *) userp;
+        vec->insert(vec->end(), (uint8_t *) contents, (uint8_t *) contents + (size * nmemb));
         return size * nmemb;
     }
 
-    std::unique_ptr<std::vector<uint8_t>> download(const std::string& url) {
+    std::unique_ptr<std::vector<uint8_t>> download(const std::string &url) {
         std::unique_ptr<std::vector<uint8_t>> ptr = std::make_unique<std::vector<uint8_t>>();
         CURL *curl;
         CURLcode res;
 
         curl = curl_easy_init();
-        if(curl) {
+        if (curl) {
             curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
             curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, append_vector);
             curl_easy_setopt(curl, CURLOPT_WRITEDATA, ptr.get());
             res = curl_easy_perform(curl);
             curl_easy_cleanup(curl);
-            if(res != CURLE_OK) return nullptr;
+            if (res != CURLE_OK) return nullptr;
             return ptr;
         }
 

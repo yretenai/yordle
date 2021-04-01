@@ -23,8 +23,8 @@
 
 #include <cstdint>
 #include <deque>
-#include <set>
 #include <filesystem>
+#include <set>
 #include <string>
 
 #include <yordle/yordle.hpp>
@@ -37,10 +37,10 @@ namespace poppy {
         std::string bundle_url = POPPY_DEFAULT_BUNDLE_URL;
         std::deque<std::string> targets;
         std::set<std::string> configurations;
-        int32_t concurrency;
+        bool offline_config;
     } PoppyConfiguration;
 
-    std::unique_ptr<std::vector<uint8_t>> download(const std::string& path);
+    std::unique_ptr<std::vector<uint8_t>> download(const std::string &path);
 
     PoppyConfiguration parse_configuration(int argc, char **argv, int &exit_code);
 } // namespace poppy

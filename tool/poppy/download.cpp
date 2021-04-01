@@ -4,9 +4,15 @@
 
 #include "download.hpp"
 
+#include <execution>
+#include <mutex>
+#include <thread>
+
 #include <boost/format.hpp>
 
 #define POPPY_BUNDLE_FILENAME_FORMAT "%016X.bundle"
+
+static std::mutex print_lock;
 
 bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest_data) {
     auto manifest = yordle::manifest::riot_manifest(manifest_data);
@@ -16,24 +22,32 @@ bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest
         std::filesystem::create_directories(cache);
     }
 
-    // TODO: Thread this!
-    for(const auto& bundle_pair : manifest.bundles) {
+    std::for_each(std::execution::par_unseq, manifest.bundles.cbegin(), manifest.bundles.cend(), [poppy, cache](const auto &bundle_pair) {
         auto url = boost::format(poppy.bundle_url) % bundle_pair.first;
         auto filename = boost::format(POPPY_BUNDLE_FILENAME_FORMAT) % bundle_pair.first;
         auto cache_path = cache / filename.str();
-        if(std::filesystem::exists(cache_path)) {
+        if (std::filesystem::exists(cache_path)) {
+            print_lock.lock();
             std::cout << "already downloaded " << url << std::endl;
-            continue;
+            print_lock.unlock();
+            return;
         }
+
+        print_lock.lock();
         std::cout << "downloading " << url << std::endl;
+        print_lock.unlock();
+
         auto bundle_data = poppy::download(url.str());
         if (bundle_data == nullptr) {
+            print_lock.lock();
             std::cerr << "err: can't download bundle!" << std::endl;
-            continue;
+            print_lock.unlock();
+            return;
         }
+
         auto array = dragon::Array<uint8_t>(*bundle_data);
         dragon::write_file(cache_path, array);
-    }
+    });
 
     return true;
 }

@@ -4,6 +4,7 @@ add_executable(poppy poppy.cpp decode.cpp download.cpp fetch.cpp)
 target_link_libraries(poppy yordle)
 target_link_libraries(poppy ProgramOptionsHxx)
 target_link_libraries(poppy CURL::libcurl)
+target_link_libraries(poppy OpenSSL::Crypto)
 
 include(GNUInstallDirs)
 install(TARGETS poppy RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
