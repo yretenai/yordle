@@ -122,6 +122,10 @@ namespace poppy {
             res = curl_easy_perform(curl);
             curl_easy_cleanup(curl);
             if (res != CURLE_OK) return nullptr;
+            long response_code;
+            if (curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code) == CURLE_OK) {
+                if (response_code != 200) return nullptr;
+            }
             return ptr;
         }
 

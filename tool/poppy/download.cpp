@@ -37,16 +37,19 @@ bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest
         std::cout << "downloading " << url << std::endl;
         print_lock.unlock();
 
-        auto bundle_data = poppy::download(url.str());
-        if (bundle_data == nullptr) {
-            print_lock.lock();
-            std::cerr << "err: can't download bundle!" << std::endl;
-            print_lock.unlock();
-            return;
-        }
+        for (auto i = 0; i < 3; ++i) {
+            auto bundle_data = poppy::download(url.str());
+            if (bundle_data == nullptr) {
+                print_lock.lock();
+                std::cerr << "err: can't download bundle! attempt " << i + 1 << " of 3" << std::endl;
+                print_lock.unlock();
+                continue;
+            }
 
-        auto array = dragon::Array<uint8_t>(*bundle_data);
-        dragon::write_file(cache_path, array);
+            auto array = dragon::Array<uint8_t>(*bundle_data);
+            dragon::write_file(cache_path, array);
+            break;
+        }
     });
 
     return true;
