@@ -120,12 +120,13 @@ namespace poppy {
             curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, append_vector);
             curl_easy_setopt(curl, CURLOPT_WRITEDATA, ptr.get());
             res = curl_easy_perform(curl);
+            long response_code;
+            if (curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code) != CURLE_OK) {
+                response_code = 200;
+            }
             curl_easy_cleanup(curl);
             if (res != CURLE_OK) return nullptr;
-            long response_code;
-            if (curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code) == CURLE_OK) {
-                if (response_code != 200) return nullptr;
-            }
+            if (response_code != 200) return nullptr;
             return ptr;
         }
 
