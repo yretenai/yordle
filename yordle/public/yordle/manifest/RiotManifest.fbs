@@ -5,8 +5,8 @@ table RiotManifest {
     languages: [RiotManifestLanguage];
     files: [RiotManifestFile];
     directories: [RiotManifestDirectory];
-    unknown1: string;
-    unknown2: [uint];
+    signatures: [string];
+    params: [RiotManifestParam];
 }
 
 table RiotManifestBundle {
@@ -45,6 +45,14 @@ table RiotManifestDirectory {
     id: ulong;
     parent_id: ulong;
     name: string;
+}
+
+table RiotManifestParams {
+    unknown1: ushort;
+    hash_type: ubyte;
+    unknown3: ubyte;
+    size: uint;
+    csize: uint;
 }
 
 root_type RiotManifest;
