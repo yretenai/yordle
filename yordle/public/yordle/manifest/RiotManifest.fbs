@@ -47,7 +47,7 @@ table RiotManifestDirectory {
     name: string;
 }
 
-table RiotManifestParams {
+table RiotManifestParam {
     unknown1: ushort;
     hash_type: ubyte;
     unknown3: ubyte;
