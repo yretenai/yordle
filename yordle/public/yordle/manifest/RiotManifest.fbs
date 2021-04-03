@@ -34,11 +34,11 @@ table RiotManifestFile {
     unknown3: uint;
     unknown4: uint;
     block_ids: [ulong];
-    unknown6: uint;
-    unknown7: [uint];
-    unknown8: uint;
-    unknown9: ushort;
-    unknown10: ubyte;
+    is_bundle_hierarchy: bool;
+    link: string;
+    unknown8: ubyte;
+    index: ubyte;
+    permissions: ubyte;
 }
 
 table RiotManifestDirectory {
