@@ -61,7 +61,11 @@ yordle::manifest::riot_manifest::riot_manifest(dragon::Array<uint8_t> &buffer) {
                 file->directory_id(),
                 file->size(),
                 file->name()->str(),
-                file->language_flags()};
+                file->language_flags(),
+                file->link()->str(),
+                file->is_bundle_hierarchy(),
+                file->index(),
+                file->permissions()};
         std::shared_ptr<dragon::Array<uint64_t>> bundle_ids = std::make_shared<dragon::Array<uint64_t>>((size_t) file->block_ids()->size(), nullptr);
         for (flatbuffers::uoffset_t j = 0; j < file->block_ids()->size(); ++j) {
             bundle_ids->set(j, file->block_ids()->Get(j));
@@ -78,10 +82,11 @@ yordle::manifest::riot_manifest::riot_manifest(dragon::Array<uint8_t> &buffer) {
     signature = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset + csize, 0x100, true);
 }
 
-void yordle::manifest::riot_manifest::print(std::ostream &stream, dragon::Indent &indent) const {
+void yordle::manifest::riot_manifest::print(std::ostream &stream, dragon::Indent &indent, bool full) const {
     auto indent1 = indent + 1;
     auto indent2 = indent + 2;
     auto indent3 = indent + 3;
+    auto indent4 = indent + 4;
 
     stream << indent << "Riot Manifest v" << static_cast<unsigned int>(version_major) << "." << static_cast<unsigned int>(version_minor) << std::endl;
 
@@ -107,8 +112,12 @@ void yordle::manifest::riot_manifest::print(std::ostream &stream, dragon::Indent
     stream << indent1 << "Bundles: " << std::endl;
     for (auto const &bundle : bundles) {
         stream << indent2 << "Bundle(" << HEXLOG64 << bundle.first << ") = " << std::endl;
-        for (auto const &block : *bundle.second) {
-            stream << indent3 << HEXLOG64 << block.block_id << " " << block.size << ":" << block.csize << std::endl;
+        if (full) {
+            for (auto const &block : *bundle.second) {
+                stream << indent3 << HEXLOG64 << block.block_id << " " << block.size << ":" << block.csize << std::endl;
+            }
+        } else {
+           stream << indent3 << "...suppressed..." << std::endl;
         }
     }
 
@@ -119,9 +128,17 @@ void yordle::manifest::riot_manifest::print(std::ostream &stream, dragon::Indent
         stream << indent3 << "Size: " << std::dec << file.second.size << std::endl;
         stream << indent3 << "Name: " << file.second.name << std::endl;
         stream << indent3 << "Language: " << BITLOG32(file.second.language_flags) << std::endl;
-        stream << indent3 << "Chucks: ";
-        for (auto const &bundle : *file.second.block_ids) {
-            stream << HEXLOG64 << bundle << std::endl;
+        stream << indent3 << "Link: " << file.second.link << std::endl;
+        stream << indent3 << "Is Hierarchy: " << (file.second.is_hierarchy ? "yes" : "no") << std::endl;
+        stream << indent3 << "Index: " << static_cast<unsigned int>(file.second.index) << std::endl;
+        stream << indent3 << "Permissions: " << OCTLOG8 << static_cast<unsigned int>(file.second.permissions) << std::endl;
+        stream << indent3 << "Chucks: " << std::endl;
+        if (full) {
+            for (auto const &bundle : *file.second.block_ids) {
+                stream << indent4 << HEXLOG64 << bundle << std::endl;
+            }
+        } else {
+            stream << indent3 << "...suppressed..." << std::endl;
         }
     }
 }

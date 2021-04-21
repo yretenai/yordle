@@ -28,6 +28,9 @@ struct RiotManifestFileBuilder;
 struct RiotManifestDirectory;
 struct RiotManifestDirectoryBuilder;
 
+struct RiotManifestParam;
+struct RiotManifestParamBuilder;
+
 struct RiotManifest FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   typedef RiotManifestBuilder Builder;
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
@@ -35,8 +38,8 @@ struct RiotManifest FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_LANGUAGES = 6,
     VT_FILES = 8,
     VT_DIRECTORIES = 10,
-    VT_UNKNOWN1 = 12,
-    VT_UNKNOWN2 = 14
+    VT_SIGNATURES = 12,
+    VT_PARAMS = 14
   };
   const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBundle>> *bundles() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBundle>> *>(VT_BUNDLES);
@@ -50,11 +53,11 @@ struct RiotManifest FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestDirectory>> *directories() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestDirectory>> *>(VT_DIRECTORIES);
   }
-  const flatbuffers::String *unknown1() const {
-    return GetPointer<const flatbuffers::String *>(VT_UNKNOWN1);
+  const flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>> *signatures() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>> *>(VT_SIGNATURES);
   }
-  const flatbuffers::Vector<uint32_t> *unknown2() const {
-    return GetPointer<const flatbuffers::Vector<uint32_t> *>(VT_UNKNOWN2);
+  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestParam>> *params() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestParam>> *>(VT_PARAMS);
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
@@ -70,10 +73,12 @@ struct RiotManifest FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyOffset(verifier, VT_DIRECTORIES) &&
            verifier.VerifyVector(directories()) &&
            verifier.VerifyVectorOfTables(directories()) &&
-           VerifyOffset(verifier, VT_UNKNOWN1) &&
-           verifier.VerifyString(unknown1()) &&
-           VerifyOffset(verifier, VT_UNKNOWN2) &&
-           verifier.VerifyVector(unknown2()) &&
+           VerifyOffset(verifier, VT_SIGNATURES) &&
+           verifier.VerifyVector(signatures()) &&
+           verifier.VerifyVectorOfStrings(signatures()) &&
+           VerifyOffset(verifier, VT_PARAMS) &&
+           verifier.VerifyVector(params()) &&
+           verifier.VerifyVectorOfTables(params()) &&
            verifier.EndTable();
   }
 };
@@ -94,11 +99,11 @@ struct RiotManifestBuilder {
   void add_directories(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestDirectory>>> directories) {
     fbb_.AddOffset(RiotManifest::VT_DIRECTORIES, directories);
   }
-  void add_unknown1(flatbuffers::Offset<flatbuffers::String> unknown1) {
-    fbb_.AddOffset(RiotManifest::VT_UNKNOWN1, unknown1);
+  void add_signatures(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>>> signatures) {
+    fbb_.AddOffset(RiotManifest::VT_SIGNATURES, signatures);
   }
-  void add_unknown2(flatbuffers::Offset<flatbuffers::Vector<uint32_t>> unknown2) {
-    fbb_.AddOffset(RiotManifest::VT_UNKNOWN2, unknown2);
+  void add_params(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestParam>>> params) {
+    fbb_.AddOffset(RiotManifest::VT_PARAMS, params);
   }
   explicit RiotManifestBuilder(flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
@@ -117,11 +122,11 @@ inline flatbuffers::Offset<RiotManifest> CreateRiotManifest(
     flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestLanguage>>> languages = 0,
     flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestFile>>> files = 0,
     flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestDirectory>>> directories = 0,
-    flatbuffers::Offset<flatbuffers::String> unknown1 = 0,
-    flatbuffers::Offset<flatbuffers::Vector<uint32_t>> unknown2 = 0) {
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>>> signatures = 0,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestParam>>> params = 0) {
   RiotManifestBuilder builder_(_fbb);
-  builder_.add_unknown2(unknown2);
-  builder_.add_unknown1(unknown1);
+  builder_.add_params(params);
+  builder_.add_signatures(signatures);
   builder_.add_directories(directories);
   builder_.add_files(files);
   builder_.add_languages(languages);
@@ -135,22 +140,22 @@ inline flatbuffers::Offset<RiotManifest> CreateRiotManifestDirect(
     const std::vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestLanguage>> *languages = nullptr,
     const std::vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestFile>> *files = nullptr,
     const std::vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestDirectory>> *directories = nullptr,
-    const char *unknown1 = nullptr,
-    const std::vector<uint32_t> *unknown2 = nullptr) {
+    const std::vector<flatbuffers::Offset<flatbuffers::String>> *signatures = nullptr,
+    const std::vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestParam>> *params = nullptr) {
   auto bundles__ = bundles ? _fbb.CreateVector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBundle>>(*bundles) : 0;
   auto languages__ = languages ? _fbb.CreateVector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestLanguage>>(*languages) : 0;
   auto files__ = files ? _fbb.CreateVector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestFile>>(*files) : 0;
   auto directories__ = directories ? _fbb.CreateVector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestDirectory>>(*directories) : 0;
-  auto unknown1__ = unknown1 ? _fbb.CreateString(unknown1) : 0;
-  auto unknown2__ = unknown2 ? _fbb.CreateVector<uint32_t>(*unknown2) : 0;
+  auto signatures__ = signatures ? _fbb.CreateVector<flatbuffers::Offset<flatbuffers::String>>(*signatures) : 0;
+  auto params__ = params ? _fbb.CreateVector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestParam>>(*params) : 0;
   return yordle::manifest::generated::CreateRiotManifest(
       _fbb,
       bundles__,
       languages__,
       files__,
       directories__,
-      unknown1__,
-      unknown2__);
+      signatures__,
+      params__);
 }
 
 struct RiotManifestBundle FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
@@ -352,11 +357,11 @@ struct RiotManifestFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_UNKNOWN3 = 14,
     VT_UNKNOWN4 = 16,
     VT_BLOCK_IDS = 18,
-    VT_UNKNOWN6 = 20,
-    VT_UNKNOWN7 = 22,
+    VT_IS_BUNDLE_HIERARCHY = 20,
+    VT_LINK = 22,
     VT_UNKNOWN8 = 24,
-    VT_UNKNOWN9 = 26,
-    VT_UNKNOWN10 = 28
+    VT_INDEX = 26,
+    VT_PERMISSIONS = 28
   };
   uint64_t file_id() const {
     return GetField<uint64_t>(VT_FILE_ID, 0);
@@ -382,20 +387,20 @@ struct RiotManifestFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const flatbuffers::Vector<uint64_t> *block_ids() const {
     return GetPointer<const flatbuffers::Vector<uint64_t> *>(VT_BLOCK_IDS);
   }
-  uint32_t unknown6() const {
-    return GetField<uint32_t>(VT_UNKNOWN6, 0);
+  bool is_bundle_hierarchy() const {
+    return GetField<uint8_t>(VT_IS_BUNDLE_HIERARCHY, 0) != 0;
   }
-  const flatbuffers::Vector<uint32_t> *unknown7() const {
-    return GetPointer<const flatbuffers::Vector<uint32_t> *>(VT_UNKNOWN7);
+  const flatbuffers::String *link() const {
+    return GetPointer<const flatbuffers::String *>(VT_LINK);
   }
-  uint32_t unknown8() const {
-    return GetField<uint32_t>(VT_UNKNOWN8, 0);
+  uint8_t unknown8() const {
+    return GetField<uint8_t>(VT_UNKNOWN8, 0);
   }
-  uint16_t unknown9() const {
-    return GetField<uint16_t>(VT_UNKNOWN9, 0);
+  uint8_t index() const {
+    return GetField<uint8_t>(VT_INDEX, 0);
   }
-  uint8_t unknown10() const {
-    return GetField<uint8_t>(VT_UNKNOWN10, 0);
+  uint8_t permissions() const {
+    return GetField<uint8_t>(VT_PERMISSIONS, 0);
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
@@ -409,12 +414,12 @@ struct RiotManifestFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyField<uint32_t>(verifier, VT_UNKNOWN4) &&
            VerifyOffset(verifier, VT_BLOCK_IDS) &&
            verifier.VerifyVector(block_ids()) &&
-           VerifyField<uint32_t>(verifier, VT_UNKNOWN6) &&
-           VerifyOffset(verifier, VT_UNKNOWN7) &&
-           verifier.VerifyVector(unknown7()) &&
-           VerifyField<uint32_t>(verifier, VT_UNKNOWN8) &&
-           VerifyField<uint16_t>(verifier, VT_UNKNOWN9) &&
-           VerifyField<uint8_t>(verifier, VT_UNKNOWN10) &&
+           VerifyField<uint8_t>(verifier, VT_IS_BUNDLE_HIERARCHY) &&
+           VerifyOffset(verifier, VT_LINK) &&
+           verifier.VerifyString(link()) &&
+           VerifyField<uint8_t>(verifier, VT_UNKNOWN8) &&
+           VerifyField<uint8_t>(verifier, VT_INDEX) &&
+           VerifyField<uint8_t>(verifier, VT_PERMISSIONS) &&
            verifier.EndTable();
   }
 };
@@ -447,20 +452,20 @@ struct RiotManifestFileBuilder {
   void add_block_ids(flatbuffers::Offset<flatbuffers::Vector<uint64_t>> block_ids) {
     fbb_.AddOffset(RiotManifestFile::VT_BLOCK_IDS, block_ids);
   }
-  void add_unknown6(uint32_t unknown6) {
-    fbb_.AddElement<uint32_t>(RiotManifestFile::VT_UNKNOWN6, unknown6, 0);
+  void add_is_bundle_hierarchy(bool is_bundle_hierarchy) {
+    fbb_.AddElement<uint8_t>(RiotManifestFile::VT_IS_BUNDLE_HIERARCHY, static_cast<uint8_t>(is_bundle_hierarchy), 0);
   }
-  void add_unknown7(flatbuffers::Offset<flatbuffers::Vector<uint32_t>> unknown7) {
-    fbb_.AddOffset(RiotManifestFile::VT_UNKNOWN7, unknown7);
+  void add_link(flatbuffers::Offset<flatbuffers::String> link) {
+    fbb_.AddOffset(RiotManifestFile::VT_LINK, link);
   }
-  void add_unknown8(uint32_t unknown8) {
-    fbb_.AddElement<uint32_t>(RiotManifestFile::VT_UNKNOWN8, unknown8, 0);
+  void add_unknown8(uint8_t unknown8) {
+    fbb_.AddElement<uint8_t>(RiotManifestFile::VT_UNKNOWN8, unknown8, 0);
   }
-  void add_unknown9(uint16_t unknown9) {
-    fbb_.AddElement<uint16_t>(RiotManifestFile::VT_UNKNOWN9, unknown9, 0);
+  void add_index(uint8_t index) {
+    fbb_.AddElement<uint8_t>(RiotManifestFile::VT_INDEX, index, 0);
   }
-  void add_unknown10(uint8_t unknown10) {
-    fbb_.AddElement<uint8_t>(RiotManifestFile::VT_UNKNOWN10, unknown10, 0);
+  void add_permissions(uint8_t permissions) {
+    fbb_.AddElement<uint8_t>(RiotManifestFile::VT_PERMISSIONS, permissions, 0);
   }
   explicit RiotManifestFileBuilder(flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
@@ -483,25 +488,25 @@ inline flatbuffers::Offset<RiotManifestFile> CreateRiotManifestFile(
     uint32_t unknown3 = 0,
     uint32_t unknown4 = 0,
     flatbuffers::Offset<flatbuffers::Vector<uint64_t>> block_ids = 0,
-    uint32_t unknown6 = 0,
-    flatbuffers::Offset<flatbuffers::Vector<uint32_t>> unknown7 = 0,
-    uint32_t unknown8 = 0,
-    uint16_t unknown9 = 0,
-    uint8_t unknown10 = 0) {
+    bool is_bundle_hierarchy = false,
+    flatbuffers::Offset<flatbuffers::String> link = 0,
+    uint8_t unknown8 = 0,
+    uint8_t index = 0,
+    uint8_t permissions = 0) {
   RiotManifestFileBuilder builder_(_fbb);
   builder_.add_directory_id(directory_id);
   builder_.add_file_id(file_id);
-  builder_.add_unknown8(unknown8);
-  builder_.add_unknown7(unknown7);
-  builder_.add_unknown6(unknown6);
+  builder_.add_link(link);
   builder_.add_block_ids(block_ids);
   builder_.add_unknown4(unknown4);
   builder_.add_unknown3(unknown3);
   builder_.add_language_flags(language_flags);
   builder_.add_name(name);
   builder_.add_size(size);
-  builder_.add_unknown9(unknown9);
-  builder_.add_unknown10(unknown10);
+  builder_.add_permissions(permissions);
+  builder_.add_index(index);
+  builder_.add_unknown8(unknown8);
+  builder_.add_is_bundle_hierarchy(is_bundle_hierarchy);
   return builder_.Finish();
 }
 
@@ -515,14 +520,14 @@ inline flatbuffers::Offset<RiotManifestFile> CreateRiotManifestFileDirect(
     uint32_t unknown3 = 0,
     uint32_t unknown4 = 0,
     const std::vector<uint64_t> *block_ids = nullptr,
-    uint32_t unknown6 = 0,
-    const std::vector<uint32_t> *unknown7 = nullptr,
-    uint32_t unknown8 = 0,
-    uint16_t unknown9 = 0,
-    uint8_t unknown10 = 0) {
+    bool is_bundle_hierarchy = false,
+    const char *link = nullptr,
+    uint8_t unknown8 = 0,
+    uint8_t index = 0,
+    uint8_t permissions = 0) {
   auto name__ = name ? _fbb.CreateString(name) : 0;
   auto block_ids__ = block_ids ? _fbb.CreateVector<uint64_t>(*block_ids) : 0;
-  auto unknown7__ = unknown7 ? _fbb.CreateVector<uint32_t>(*unknown7) : 0;
+  auto link__ = link ? _fbb.CreateString(link) : 0;
   return yordle::manifest::generated::CreateRiotManifestFile(
       _fbb,
       file_id,
@@ -533,11 +538,11 @@ inline flatbuffers::Offset<RiotManifestFile> CreateRiotManifestFileDirect(
       unknown3,
       unknown4,
       block_ids__,
-      unknown6,
-      unknown7__,
+      is_bundle_hierarchy,
+      link__,
       unknown8,
-      unknown9,
-      unknown10);
+      index,
+      permissions);
 }
 
 struct RiotManifestDirectory FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
@@ -613,6 +618,87 @@ inline flatbuffers::Offset<RiotManifestDirectory> CreateRiotManifestDirectoryDir
       id,
       parent_id,
       name__);
+}
+
+struct RiotManifestParam FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  typedef RiotManifestParamBuilder Builder;
+  enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
+    VT_UNKNOWN1 = 4,
+    VT_HASH_TYPE = 6,
+    VT_UNKNOWN3 = 8,
+    VT_SIZE = 10,
+    VT_CSIZE = 12
+  };
+  uint16_t unknown1() const {
+    return GetField<uint16_t>(VT_UNKNOWN1, 0);
+  }
+  uint8_t hash_type() const {
+    return GetField<uint8_t>(VT_HASH_TYPE, 0);
+  }
+  uint8_t unknown3() const {
+    return GetField<uint8_t>(VT_UNKNOWN3, 0);
+  }
+  uint32_t size() const {
+    return GetField<uint32_t>(VT_SIZE, 0);
+  }
+  uint32_t csize() const {
+    return GetField<uint32_t>(VT_CSIZE, 0);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyField<uint16_t>(verifier, VT_UNKNOWN1) &&
+           VerifyField<uint8_t>(verifier, VT_HASH_TYPE) &&
+           VerifyField<uint8_t>(verifier, VT_UNKNOWN3) &&
+           VerifyField<uint32_t>(verifier, VT_SIZE) &&
+           VerifyField<uint32_t>(verifier, VT_CSIZE) &&
+           verifier.EndTable();
+  }
+};
+
+struct RiotManifestParamBuilder {
+  typedef RiotManifestParam Table;
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_unknown1(uint16_t unknown1) {
+    fbb_.AddElement<uint16_t>(RiotManifestParam::VT_UNKNOWN1, unknown1, 0);
+  }
+  void add_hash_type(uint8_t hash_type) {
+    fbb_.AddElement<uint8_t>(RiotManifestParam::VT_HASH_TYPE, hash_type, 0);
+  }
+  void add_unknown3(uint8_t unknown3) {
+    fbb_.AddElement<uint8_t>(RiotManifestParam::VT_UNKNOWN3, unknown3, 0);
+  }
+  void add_size(uint32_t size) {
+    fbb_.AddElement<uint32_t>(RiotManifestParam::VT_SIZE, size, 0);
+  }
+  void add_csize(uint32_t csize) {
+    fbb_.AddElement<uint32_t>(RiotManifestParam::VT_CSIZE, csize, 0);
+  }
+  explicit RiotManifestParamBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  flatbuffers::Offset<RiotManifestParam> Finish() {
+    const auto end = fbb_.EndTable(start_);
+    auto o = flatbuffers::Offset<RiotManifestParam>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<RiotManifestParam> CreateRiotManifestParam(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    uint16_t unknown1 = 0,
+    uint8_t hash_type = 0,
+    uint8_t unknown3 = 0,
+    uint32_t size = 0,
+    uint32_t csize = 0) {
+  RiotManifestParamBuilder builder_(_fbb);
+  builder_.add_csize(csize);
+  builder_.add_size(size);
+  builder_.add_unknown1(unknown1);
+  builder_.add_unknown3(unknown3);
+  builder_.add_hash_type(hash_type);
+  return builder_.Finish();
 }
 
 inline const yordle::manifest::generated::RiotManifest *GetRiotManifest(const void *buf) {

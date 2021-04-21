@@ -36,6 +36,10 @@ namespace yordle::manifest {
             uint32_t size = 0;
             std::string name;
             uint32_t language_flags = 0;
+            std::string link;
+            bool is_hierarchy;
+            uint8_t index;
+            uint8_t permissions;
             std::shared_ptr<dragon::Array<uint64_t>> block_ids;
         } riot_manifest_file;
 
@@ -86,7 +90,7 @@ namespace yordle::manifest {
         std::map<uint64_t, riot_manifest_file> files;
         std::map<uint64_t, riot_manifest_dir> directories;
 
-        void print(std::ostream& stream, dragon::Indent &indent) const;
+        void print(std::ostream& stream, dragon::Indent &indent, bool full) const;
     };
 } // namespace yordle::manifest
 
