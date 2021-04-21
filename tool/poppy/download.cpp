@@ -4,15 +4,29 @@
 
 #include "download.hpp"
 
-#include <execution>
 #include <mutex>
-#include <thread>
 
 #include <boost/format.hpp>
 
 #include "decode.hpp"
 
 #define POPPY_BUNDLE_FILENAME_FORMAT "%016X.bundle"
+
+#ifdef POPPY_THREADING
+    #include <execution>
+    #include <thread>
+    #ifdef __clang__
+        #ifndef _LIBCPP_HAS_PARALLEL_ALGORITHMS
+            #undef POPPY_THREADING
+        #endif
+    #else
+        #ifdef __GNUC__
+            #ifndef _PSTL_EXECUTION_POLICIES_DEFINED
+                #undef POPPY_THREADING
+            #endif
+        #endif
+    #endif
+#endif
 
 static std::mutex print_lock;
 
@@ -24,7 +38,13 @@ bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest
         std::filesystem::create_directories(cache);
     }
 
+    // why not just do std::execution::unseq -> both unseq and par_unseq are defined in pstl
+    // if POPPY_THREADING is undefined because the system does not have PSTL, std::execution::unseq will also be undefined.
+#ifdef POPPY_THREADING
     std::for_each(std::execution::par_unseq, manifest.bundles.cbegin(), manifest.bundles.cend(), [poppy, cache](const auto &bundle_pair) {
+#else
+    for(const auto &bundle_pair : manifest.bundles) {
+#endif
         auto url = boost::format(poppy.bundle_url) % bundle_pair.first;
         auto filename = boost::format(POPPY_BUNDLE_FILENAME_FORMAT) % bundle_pair.first;
         auto cache_path = cache / filename.str();
@@ -32,7 +52,11 @@ bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest
             print_lock.lock();
             std::cout << "already downloaded " << url << std::endl;
             print_lock.unlock();
+#ifdef POPPY_THREADING
             return;
+#else
+            continue;
+#endif
         }
 
         print_lock.lock();
@@ -52,7 +76,11 @@ bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest
             dragon::write_file(cache_path, array);
             break;
         }
+#ifdef POPPY_THREADING
     });
+#else
+    }
+#endif
 
     auto path = poppy.output_dir / target;
     return poppy::decode(poppy, manifest, path);
