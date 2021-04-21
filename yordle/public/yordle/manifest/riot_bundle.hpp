@@ -35,9 +35,11 @@ namespace yordle::manifest {
         } riot_bundle_block;
         DRAGON_ASSERT(sizeof(riot_bundle_block) == 0x10);
 
-        uint64_t id = 0;
-        uint32_t block_count = 0;
-        uint32_t version = 1; // bundle format version
+        struct {
+            uint64_t id = 0;
+            uint32_t block_count = 0;
+            uint32_t version = 1; // bundle format version
+        };
 #pragma pack(pop)
 
         std::shared_ptr<dragon::Array<uint8_t>> data;

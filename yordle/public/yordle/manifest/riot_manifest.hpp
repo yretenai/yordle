@@ -67,13 +67,15 @@ namespace yordle::manifest {
         } riot_manifest_flags;
 
 #pragma pack(push, 1)
-        uint8_t version_major = 2; // manifest format version
-        uint8_t version_minor = 0;
-        riot_manifest_flags flags{};
-        uint32_t offset = riot_manifest::EXPECTED_DATA_SIZE + 4;
-        uint32_t csize = 0;
-        uint64_t id = 0;
-        uint32_t size = 0;
+        struct {
+            uint8_t version_major = 2; // manifest format version
+            uint8_t version_minor = 0;
+            riot_manifest_flags flags{};
+            uint32_t offset = riot_manifest::EXPECTED_DATA_SIZE + 4;
+            uint32_t csize = 0;
+            uint64_t id = 0;
+            uint32_t size = 0;
+        };
 #pragma pack(pop)
 
         std::shared_ptr<dragon::Array<uint8_t>> data;

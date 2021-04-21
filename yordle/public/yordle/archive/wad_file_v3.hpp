@@ -41,9 +41,11 @@ namespace yordle::archive {
 #pragma pack(pop)
 
 #pragma pack(push, 1)
-        uint8_t signature[256] = {};
-        uint64_t checksum = 0;
-        uint32_t entry_count = 0;
+        struct {
+            uint8_t signature[256] = {};
+            uint64_t checksum = 0;
+            uint32_t entry_count = 0;
+        };
 #pragma pack(pop)
 
         std::shared_ptr<dragon::Array<wad_entry_v3>> entries;
