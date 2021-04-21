@@ -5,8 +5,8 @@ table RiotManifest {
     languages: [RiotManifestLanguage];
     files: [RiotManifestFile];
     directories: [RiotManifestDirectory];
-    unknown1: string;
-    unknown2: [uint];
+    signatures: [string];
+    params: [RiotManifestParam];
 }
 
 table RiotManifestBundle {
@@ -34,17 +34,25 @@ table RiotManifestFile {
     unknown3: uint;
     unknown4: uint;
     block_ids: [ulong];
-    unknown6: uint;
-    unknown7: [uint];
-    unknown8: uint;
-    unknown9: ushort;
-    unknown10: ubyte;
+    is_bundle_hierarchy: bool;
+    link: string;
+    unknown8: ubyte;
+    index: ubyte;
+    permissions: ubyte;
 }
 
 table RiotManifestDirectory {
     id: ulong;
     parent_id: ulong;
     name: string;
+}
+
+table RiotManifestParam {
+    unknown1: ushort;
+    hash_type: ubyte;
+    unknown3: ubyte;
+    size: uint;
+    csize: uint;
 }
 
 root_type RiotManifest;
