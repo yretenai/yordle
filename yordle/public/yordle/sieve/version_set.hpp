@@ -24,9 +24,9 @@
 // https://clientconfig.rpg.riotgames.com/api/v1/config/public?version=99.0.0.9999999&namespace=keystone.self_update&patchline=KeystoneFoundationLiveWin&app=Riot%20Client
 
 namespace yordle::sieve {
-    class YORDLE_EXPORT [[maybe_unused]] version_set {
+    class YORDLE_EXPORT version_set {
     public:
-        [[maybe_unused]] explicit version_set(const std::string &buffer);
+        explicit version_set(const std::string &buffer);
         ~version_set() = default;
 
         std::shared_ptr<models::version_set> data;

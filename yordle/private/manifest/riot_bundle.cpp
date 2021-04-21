@@ -9,7 +9,7 @@
 #include <standard_dragon/exception/invalid_data.hpp>
 
 
-[[maybe_unused]] yordle::manifest::riot_bundle::riot_bundle(dragon::Array<uint8_t> &buffer) {
+yordle::manifest::riot_bundle::riot_bundle(dragon::Array<uint8_t> &buffer) {
     auto data_start = reinterpret_cast<uintptr_t>(&id);
 #ifndef NDEBUG
     auto data_end = reinterpret_cast<uintptr_t>(&version) + sizeof(uint32_t);
@@ -29,7 +29,7 @@
     blocks = std::make_shared<dragon::Array<riot_bundle_block>>(reinterpret_cast<riot_bundle_block *>(buffer.data() + offset), block_count, true);
 }
 
-[[noreturn]] [[maybe_unused]] void yordle::manifest::riot_bundle::print(std::ostream &stream, dragon::Indent &indent) const {
+void yordle::manifest::riot_bundle::print(std::ostream &stream, dragon::Indent &indent) const {
     auto indent1 = indent + 1;
     auto indent2 = indent + 2;
     auto indent3 = indent + 3;

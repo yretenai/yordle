@@ -10,10 +10,10 @@
 #include <standard_dragon/dragon.hpp>
 
 namespace yordle::cdtb {
-    class YORDLE_EXPORT [[maybe_unused]] xxhashlist : public hashlist<uint64_t> {
+    class YORDLE_EXPORT xxhashlist : public hashlist<uint64_t> {
     public:
-        [[maybe_unused]] explicit xxhashlist(std::istringstream stream);
+        explicit xxhashlist(std::istringstream stream);
 
-        [[maybe_unused]] void validate() override;
+        void validate() override;
     };
 } // namespace yordle::cdtb

@@ -10,9 +10,9 @@
 
 
 namespace yordle::sieve {
-    class YORDLE_EXPORT [[maybe_unused]] release_channel {
+    class YORDLE_EXPORT release_channel {
     public:
-        [[maybe_unused]] explicit release_channel(const std::string &buffer);
+        explicit release_channel(const std::string &buffer);
         ~release_channel() = default;
 
         std::shared_ptr<models::release_channel> data;

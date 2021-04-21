@@ -13,7 +13,7 @@
 #include <zlib.h>
 #include <zstd.h>
 
-[[maybe_unused]] yordle::archive::wad_file_v3::wad_file_v3(std::istream &stream) {
+yordle::archive::wad_file_v3::wad_file_v3(std::istream &stream) {
     auto data_start = reinterpret_cast<uintptr_t>(&signature);
 #ifndef NDEBUG
     auto data_end = reinterpret_cast<uintptr_t>(&entry_count) + sizeof(uint32_t);
@@ -35,7 +35,7 @@
     }
 }
 
-[[maybe_unused]] std::shared_ptr<dragon::Array<uint8_t>> yordle::archive::wad_file_v3::read_file(std::istream &stream, const yordle::archive::wad_file_v3::wad_entry_v3 &entry) {
+std::shared_ptr<dragon::Array<uint8_t>> yordle::archive::wad_file_v3::read_file(std::istream &stream, const yordle::archive::wad_file_v3::wad_entry_v3 &entry) {
     stream.seekg(entry.offset);
     auto buffer = std::make_shared<dragon::Array<uint8_t>>(entry.size, nullptr);
     switch (entry.type) {
@@ -85,11 +85,11 @@
     return buffer;
 }
 
-[[maybe_unused]] [[nodiscard]] bool yordle::archive::wad_file_v3::has_file(uint64_t hash) const {
+[[nodiscard]] bool yordle::archive::wad_file_v3::has_file(uint64_t hash) const {
     return std::any_of(entries->begin(), entries->end(), [&](yordle::archive::wad_file_v3::wad_entry_v3 entry) { return entry.hash == hash; });
 }
 
-[[maybe_unused]] [[nodiscard]] bool yordle::archive::wad_file_v3::has_file(const std::filesystem::path &path) const {
+[[nodiscard]] bool yordle::archive::wad_file_v3::has_file(const std::filesystem::path &path) const {
     std::string data = path.string();
     std::transform(data.begin(), data.end(), data.begin(), [](char c) { return std::tolower(c); });
     return has_file(XXH64(data.data(), data.length(), 0));

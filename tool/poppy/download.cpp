@@ -10,11 +10,13 @@
 
 #include <boost/format.hpp>
 
+#include "decode.hpp"
+
 #define POPPY_BUNDLE_FILENAME_FORMAT "%016X.bundle"
 
 static std::mutex print_lock;
 
-bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest_data) {
+bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest_data, std::string &target) {
     auto manifest = yordle::manifest::riot_manifest(manifest_data);
 
     auto cache = poppy.cache_dir / "bundles";
@@ -38,7 +40,7 @@ bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest
         print_lock.unlock();
 
         for (auto i = 0; i < 3; ++i) {
-            auto bundle_data = poppy::download(url.str());
+            auto bundle_data = poppy::download_curl(url.str());
             if (bundle_data == nullptr) {
                 print_lock.lock();
                 std::cerr << "err: can't download bundle! attempt " << i + 1 << " of 3" << std::endl;
@@ -52,5 +54,6 @@ bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest
         }
     });
 
-    return true;
+    auto path = poppy.output_dir / target;
+    return poppy::decode(poppy, manifest, path);
 }

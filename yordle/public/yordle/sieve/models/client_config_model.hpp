@@ -90,35 +90,35 @@ namespace yordle::sieve::models {
         std::shared_ptr<std::string> version;
     };
 
-    [[maybe_unused]] void from_json(const json &j, keystone_products_metadata &x);
-    [[maybe_unused]] void to_json(json &j, const keystone_products_metadata &x);
-    [[maybe_unused]] void from_json(const json &j, dependency &x);
-    [[maybe_unused]] void to_json(json &j, const dependency &x);
-    [[maybe_unused]] void from_json(const json &j, executables &x);
-    [[maybe_unused]] void to_json(json &j, const executables &x);
-    [[maybe_unused]] void from_json(const json &j, launcher &x);
-    [[maybe_unused]] void to_json(json &j, const launcher &x);
-    [[maybe_unused]] void from_json(const json &j, locale_data &x);
-    [[maybe_unused]] void to_json(json &j, const locale_data &x);
-    [[maybe_unused]] void from_json(const json &j, configuration_metadata &x);
-    [[maybe_unused]] void to_json(json &j, const configuration_metadata &x);
-    [[maybe_unused]] void from_json(const json &j, region_data &x);
-    [[maybe_unused]] void to_json(json &j, const region_data &x);
-    [[maybe_unused]] void from_json(const json &j, configuration &x);
-    [[maybe_unused]] void to_json(json &j, const configuration &x);
-    [[maybe_unused]] void from_json(const json &j, platform &x);
-    [[maybe_unused]] void to_json(json &j, const platform &x);
-    [[maybe_unused]] void from_json(const json &j, keystone_products_patchlines &x);
-    [[maybe_unused]] void to_json(json &j, const keystone_products_patchlines &x);
+    void from_json(const json &j, keystone_products_metadata &x);
+    void to_json(json &j, const keystone_products_metadata &x);
+    void from_json(const json &j, dependency &x);
+    void to_json(json &j, const dependency &x);
+    void from_json(const json &j, executables &x);
+    void to_json(json &j, const executables &x);
+    void from_json(const json &j, launcher &x);
+    void to_json(json &j, const launcher &x);
+    void from_json(const json &j, locale_data &x);
+    void to_json(json &j, const locale_data &x);
+    void from_json(const json &j, configuration_metadata &x);
+    void to_json(json &j, const configuration_metadata &x);
+    void from_json(const json &j, region_data &x);
+    void to_json(json &j, const region_data &x);
+    void from_json(const json &j, configuration &x);
+    void to_json(json &j, const configuration &x);
+    void from_json(const json &j, platform &x);
+    void to_json(json &j, const platform &x);
+    void from_json(const json &j, keystone_products_patchlines &x);
+    void to_json(json &j, const keystone_products_patchlines &x);
 
-    [[maybe_unused]] inline void from_json(const json &j, keystone_products_metadata &x) {
+    inline void from_json(const json &j, keystone_products_metadata &x) {
         x.content_paths = get_optional<std::map<std::string, std::string>>(j, "content_paths");
         x.default_theme_manifest = get_optional<std::string>(j, "default_theme_manifest");
         x.full_name = get_optional<std::string>(j, "full_name");
         x.path_name = get_optional<std::string>(j, "path_name");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const keystone_products_metadata &x) {
+    inline void to_json(json &j, const keystone_products_metadata &x) {
         j = json::object();
         if (x.content_paths) {
             j["content_paths"] = x.content_paths;
@@ -134,7 +134,7 @@ namespace yordle::sieve::models {
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, dependency &x) {
+    inline void from_json(const json &j, dependency &x) {
         x.args = get_optional<std::vector<std::string>>(j, "args");
         x.elevate = get_optional<bool>(j, "elevate");
         x.hash = get_optional<std::string>(j, "hash");
@@ -144,7 +144,7 @@ namespace yordle::sieve::models {
         x.version = get_optional<std::string>(j, "version");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const dependency &x) {
+    inline void to_json(json &j, const dependency &x) {
         j = json::object();
         if (x.args) {
             j["args"] = x.args;
@@ -169,12 +169,12 @@ namespace yordle::sieve::models {
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, executables &x) {
+    inline void from_json(const json &j, executables &x) {
         x.app = get_optional<std::string>(j, "app");
         x.exe = get_optional<std::string>(j, "exe");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const executables &x) {
+    inline void to_json(json &j, const executables &x) {
         j = json::object();
         if (x.app) {
             j["app"] = x.app;
@@ -184,13 +184,13 @@ namespace yordle::sieve::models {
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, launcher &x) {
+    inline void from_json(const json &j, launcher &x) {
         x.arguments = get_optional<std::vector<std::string>>(j, "arguments");
         x.component_id = get_optional<std::string>(j, "component_id");
         x.executables = get_optional<executables>(j, "executables");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const launcher &x) {
+    inline void to_json(json &j, const launcher &x) {
         j = json::object();
         if (x.arguments) {
             j["arguments"] = x.arguments;
@@ -203,12 +203,12 @@ namespace yordle::sieve::models {
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, locale_data &x) {
+    inline void from_json(const json &j, locale_data &x) {
         x.available_locales = get_optional<std::vector<std::string>>(j, "available_locales");
         x.default_locale = get_optional<std::string>(j, "default_locale");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const locale_data &x) {
+    inline void to_json(json &j, const locale_data &x) {
         j = json::object();
         if (x.available_locales) {
             j["available_locales"] = x.available_locales;
@@ -218,23 +218,23 @@ namespace yordle::sieve::models {
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, configuration_metadata &x) {
+    inline void from_json(const json &j, configuration_metadata &x) {
         x.theme_manifest = get_optional<std::string>(j, "theme_manifest");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const configuration_metadata &x) {
+    inline void to_json(json &j, const configuration_metadata &x) {
         j = json::object();
         if (x.theme_manifest) {
             j["theme_manifest"] = x.theme_manifest;
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, region_data &x) {
+    inline void from_json(const json &j, region_data &x) {
         x.available_regions = get_optional<std::vector<std::string>>(j, "available_regions");
         x.default_region = get_optional<std::string>(j, "default_region");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const region_data &x) {
+    inline void to_json(json &j, const region_data &x) {
         j = json::object();
         if (x.available_regions) {
             j["available_regions"] = x.available_regions;
@@ -244,7 +244,7 @@ namespace yordle::sieve::models {
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, configuration &x) {
+    inline void from_json(const json &j, configuration &x) {
         x.allowed_http_fallback_hostnames = get_optional<std::vector<std::string>>(j, "allowed_http_fallback_hostnames");
         x.bundles_url = get_optional<std::string>(j, "bundles_url");
         x.dependencies = get_optional<std::vector<dependency>>(j, "dependencies");
@@ -264,7 +264,7 @@ namespace yordle::sieve::models {
         x.url = get_optional<std::string>(j, "url");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const configuration &x) {
+    inline void to_json(json &j, const configuration &x) {
         j = json::object();
         if (x.allowed_http_fallback_hostnames) {
             j["allowed_http_fallback_hostnames"] = x.allowed_http_fallback_hostnames;
@@ -319,7 +319,7 @@ namespace yordle::sieve::models {
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, platform &x) {
+    inline void from_json(const json &j, platform &x) {
         x.auto_patch = get_optional<bool>(j, "auto_patch");
         x.configurations = get_optional<std::vector<configuration>>(j, "configurations");
         x.deprecated_cloudfront_id = get_optional<std::string>(j, "deprecated_cloudfront_id");
@@ -328,7 +328,7 @@ namespace yordle::sieve::models {
         x.rogue_process_whitelist = get_optional<std::vector<std::string>>(j, "rogue_process_whitelist");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const platform &x) {
+    inline void to_json(json &j, const platform &x) {
         j = json::object();
         if (x.auto_patch) {
             j["auto_patch"] = x.auto_patch;
@@ -350,13 +350,13 @@ namespace yordle::sieve::models {
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, keystone_products_patchlines &x) {
+    inline void from_json(const json &j, keystone_products_patchlines &x) {
         x.metadata = get_optional<std::map<std::string, keystone_products_metadata>>(j, "metadata");
         x.platforms = get_optional<std::map<std::string, platform>>(j, "platforms");
         x.version = get_optional<std::string>(j, "version");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const keystone_products_patchlines &x) {
+    inline void to_json(json &j, const keystone_products_patchlines &x) {
         j = json::object();
         if (x.metadata) {
             j["metadata"] = x.metadata;

@@ -18,13 +18,13 @@
 #include <standard_dragon/dragon.hpp>
 
 namespace yordle::manifest {
-    class YORDLE_EXPORT [[maybe_unused]] riot_bundle {
+    class YORDLE_EXPORT riot_bundle {
     private:
         static constexpr uint32_t FOURCC = DRAGON_MAGIC32('R', 'B', 'U', 'N');
         static constexpr uint32_t EXPECTED_DATA_SIZE = 0x10;
 
     public:
-        [[maybe_unused]] explicit riot_bundle(dragon::Array<uint8_t> &buffer);
+        explicit riot_bundle(dragon::Array<uint8_t> &buffer);
         ~riot_bundle() = default;
 
 #pragma pack(push, 1)
@@ -43,7 +43,7 @@ namespace yordle::manifest {
         std::shared_ptr<dragon::Array<uint8_t>> data;
         std::shared_ptr<dragon::Array<riot_bundle_block>> blocks;
 
-        [[noreturn]] [[maybe_unused]] void print(std::ostream& stream, dragon::Indent &indent) const;
+        void print(std::ostream& stream, dragon::Indent &indent) const;
     };
 } // namespace yordle::manifest
 

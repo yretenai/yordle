@@ -109,7 +109,7 @@ namespace poppy {
         return size * nmemb;
     }
 
-    std::unique_ptr<std::vector<uint8_t>> download(const std::string &url) {
+    std::unique_ptr<std::vector<uint8_t>> download_curl(const std::string &url) {
         std::unique_ptr<std::vector<uint8_t>> ptr = std::make_unique<std::vector<uint8_t>>();
         CURL *curl;
         CURLcode res;

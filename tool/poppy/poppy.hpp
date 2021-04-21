@@ -40,7 +40,7 @@ namespace poppy {
         bool offline_config;
     } PoppyConfiguration;
 
-    std::unique_ptr<std::vector<uint8_t>> download(const std::string &path);
+    std::unique_ptr<std::vector<uint8_t>> download_curl(const std::string &path);
 
     PoppyConfiguration parse_configuration(int argc, char **argv, int &exit_code);
 } // namespace poppy

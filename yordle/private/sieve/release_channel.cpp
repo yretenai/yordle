@@ -4,6 +4,6 @@
 
 #include <yordle/sieve/release_channel.hpp>
 
-[[maybe_unused]] yordle::sieve::release_channel::release_channel(const std::string &buffer) {
+yordle::sieve::release_channel::release_channel(const std::string &buffer) {
     data = nlohmann::json::parse(buffer);
 }

@@ -21,8 +21,8 @@ namespace yordle::sieve::models {
         std::shared_ptr<std::map<std::string, int64_t>> toggles;
     };
 
-    [[maybe_unused]] void from_json(const json &j, release_channel &x);
-    [[maybe_unused]] void to_json(json &j, const release_channel &x);
+    void from_json(const json &j, release_channel &x);
+    void to_json(json &j, const release_channel &x);
 
     inline void from_json(const json &j, release_channel &x) {
         x.version = get_optional<int64_t>(j, "version");

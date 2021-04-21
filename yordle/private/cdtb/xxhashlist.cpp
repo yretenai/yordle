@@ -8,7 +8,7 @@
 
 #include <xxhash.h>
 
-[[maybe_unused]] yordle::cdtb::xxhashlist::xxhashlist(std::istringstream stream) {
+yordle::cdtb::xxhashlist::xxhashlist(std::istringstream stream) {
     std::string line;
 
     uint64_t hash;
@@ -19,7 +19,7 @@
     }
 }
 
-[[maybe_unused]] void yordle::cdtb::xxhashlist::validate() {
+void yordle::cdtb::xxhashlist::validate() {
     uint64_t hash;
     for (const auto &pair : hashes) {
         std::string data = pair.second.string();

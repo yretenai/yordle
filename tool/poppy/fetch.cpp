@@ -3,7 +3,6 @@
 //
 
 
-#include <algorithm>
 #include <string>
 
 #include <boost/format.hpp>
@@ -12,7 +11,7 @@
 #include "download.hpp"
 #include "fetch.hpp"
 
-bool process_configuration(const std::filesystem::path &cache, const yordle::sieve::models::configuration &configuration, poppy::PoppyConfiguration &poppy) {
+bool process_configuration(const std::filesystem::path &cache, const yordle::sieve::models::configuration &configuration, poppy::PoppyConfiguration &poppy, std::string &path) {
     auto url = configuration.patch_url == nullptr ? configuration.url : configuration.patch_url;
     if (url == nullptr) {
         std::cerr << "err: manifest url is null!" << std::endl;
@@ -26,7 +25,7 @@ bool process_configuration(const std::filesystem::path &cache, const yordle::sie
         array = dragon::read_file(cache_target);
     } else {
         std::cout << "downloading " << *url << std::endl;
-        auto manifest_data = poppy::download(*url);
+        auto manifest_data = poppy::download_curl(*url);
         if (manifest_data == nullptr) {
             std::cerr << "err: can't download manifest" << std::endl;
             return false;
@@ -35,7 +34,7 @@ bool process_configuration(const std::filesystem::path &cache, const yordle::sie
         dragon::write_file(cache_target, array);
     }
 
-    return poppy::download(poppy, array);
+    return poppy::download(poppy, array, path);
 }
 
 bool poppy::fetch(PoppyConfiguration &poppy) {
@@ -52,7 +51,7 @@ bool poppy::fetch(PoppyConfiguration &poppy) {
         } else {
             auto url = boost::format(poppy.manifest_url) % target;
             std::cout << "downloading " << url << std::endl;
-            auto data = poppy::download(url.str());
+            auto data = poppy::download_curl(url.str());
             if (data == nullptr) {
                 std::cerr << "err: can't download client config" << std::endl;
                 continue;
@@ -86,14 +85,15 @@ bool poppy::fetch(PoppyConfiguration &poppy) {
                 }
                 std::cout << "processing configuration " << id << std::endl;
 
-                if (!process_configuration(cache, configuration, poppy)) {
+                if (!process_configuration(cache, configuration, poppy, id)) {
                     std::cerr << "err: cannot process configuration!" << std::endl;
                     continue;
                 }
 
                 if (configuration.secondary_patchlines != nullptr) {
                     for (const auto &sub_configuration : *configuration.secondary_patchlines) {
-                        if (!process_configuration(cache, sub_configuration, poppy)) {
+                        auto resolved_path = id + "/" + *sub_configuration.path;
+                        if (!process_configuration(cache, sub_configuration, poppy, resolved_path)) {
                             std::cerr << "err: cannot process configuration!" << std::endl;
                             continue;
                         }

@@ -12,7 +12,7 @@
 
 #include <zstd.h>
 
-[[maybe_unused]] yordle::manifest::riot_manifest::riot_manifest(dragon::Array<uint8_t> &buffer) {
+yordle::manifest::riot_manifest::riot_manifest(dragon::Array<uint8_t> &buffer) {
     auto data_start = reinterpret_cast<uintptr_t>(&version_major);
 #ifndef NDEBUG
     auto data_end = reinterpret_cast<uintptr_t>(&size) + sizeof(uint32_t);
@@ -78,7 +78,7 @@
     signature = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset + csize, 0x100, true);
 }
 
-[[noreturn]] [[maybe_unused]] void yordle::manifest::riot_manifest::print(std::ostream &stream, dragon::Indent &indent) const {
+void yordle::manifest::riot_manifest::print(std::ostream &stream, dragon::Indent &indent) const {
     auto indent1 = indent + 1;
     auto indent2 = indent + 2;
     auto indent3 = indent + 3;

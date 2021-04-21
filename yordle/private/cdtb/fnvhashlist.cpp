@@ -9,7 +9,7 @@
 
 #include <standard_dragon/hash/fnv1a.hpp>
 
-[[maybe_unused]] yordle::cdtb::fnvhashlist::fnvhashlist(std::istringstream stream) {
+yordle::cdtb::fnvhashlist::fnvhashlist(std::istringstream stream) {
     std::string line;
 
     uint32_t hash;
@@ -20,7 +20,7 @@
     }
 }
 
-[[maybe_unused]] void yordle::cdtb::fnvhashlist::validate() {
+void yordle::cdtb::fnvhashlist::validate() {
     uint32_t hash;
     for (const auto &pair : hashes) {
         std::string data = pair.second.string();

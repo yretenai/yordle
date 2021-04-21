@@ -10,9 +10,9 @@
 
 
 namespace yordle::sieve {
-    class YORDLE_EXPORT [[maybe_unused]] client_config {
+    class YORDLE_EXPORT client_config {
     public:
-        [[maybe_unused]] explicit client_config(const std::string &buffer);
+        explicit client_config(const std::string &buffer);
         ~client_config() = default;
 
         std::shared_ptr<std::map<std::string, models::keystone_products_patchlines>> data;

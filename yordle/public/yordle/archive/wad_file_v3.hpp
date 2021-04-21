@@ -18,13 +18,13 @@
 #include <standard_dragon/dragon.hpp>
 
 namespace yordle::archive {
-    class YORDLE_EXPORT [[maybe_unused]] wad_file_v3 {
+    class YORDLE_EXPORT wad_file_v3 {
     private:
         static constexpr uint32_t FOURCC = DRAGON_MAGIC32('R', 'W', 3, 0);
         static constexpr uintptr_t EXPECTED_DATA_SIZE = 0x10C;
 
     public:
-        [[maybe_unused]] explicit wad_file_v3(std::istream &stream);
+        explicit wad_file_v3(std::istream &stream);
         ~wad_file_v3() = default;
 
 #pragma pack(push, 4)
@@ -48,9 +48,9 @@ namespace yordle::archive {
 
         std::shared_ptr<dragon::Array<wad_entry_v3>> entries;
 
-        [[maybe_unused]] static std::shared_ptr<dragon::Array<uint8_t>> read_file(std::istream &stream, const wad_entry_v3 &entry);
-        [[maybe_unused]] [[nodiscard]] bool has_file(uint64_t hash) const;
-        [[maybe_unused]] [[nodiscard]] bool has_file(const std::filesystem::path &path) const;
+        static std::shared_ptr<dragon::Array<uint8_t>> read_file(std::istream &stream, const wad_entry_v3 &entry);
+        [[nodiscard]] bool has_file(uint64_t hash) const;
+        [[nodiscard]] bool has_file(const std::filesystem::path &path) const;
     };
 } // namespace yordle::archive
 

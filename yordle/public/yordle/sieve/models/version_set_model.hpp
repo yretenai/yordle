@@ -42,36 +42,36 @@ namespace yordle::sieve::models {
         std::shared_ptr<std::vector<release_element>> releases;
     };
 
-    [[maybe_unused]] void from_json(const json &j, compat_version &x);
-    [[maybe_unused]] void to_json(json &j, const compat_version &x);
-    [[maybe_unused]] void from_json(const json &j, download &x);
-    [[maybe_unused]] void to_json(json &j, const download &x);
-    [[maybe_unused]] void from_json(const json &j, label &x);
-    [[maybe_unused]] void to_json(json &j, const label &x);
-    [[maybe_unused]] void from_json(const json &j, release_release &x);
-    [[maybe_unused]] void to_json(json &j, const release_release &x);
-    [[maybe_unused]] void from_json(const json &j, release_element &x);
-    [[maybe_unused]] void to_json(json &j, const release_element &x);
-    [[maybe_unused]] void from_json(const json &j, version_set &x);
-    [[maybe_unused]] void to_json(json &j, const version_set &x);
+    void from_json(const json &j, compat_version &x);
+    void to_json(json &j, const compat_version &x);
+    void from_json(const json &j, download &x);
+    void to_json(json &j, const download &x);
+    void from_json(const json &j, label &x);
+    void to_json(json &j, const label &x);
+    void from_json(const json &j, release_release &x);
+    void to_json(json &j, const release_release &x);
+    void from_json(const json &j, release_element &x);
+    void to_json(json &j, const release_element &x);
+    void from_json(const json &j, version_set &x);
+    void to_json(json &j, const version_set &x);
 
-    [[maybe_unused]] inline void from_json(const json &j, compat_version &x) {
+    inline void from_json(const json &j, compat_version &x) {
         x.id = get_optional<std::string>(j, "id");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const compat_version &x) {
+    inline void to_json(json &j, const compat_version &x) {
         j = json::object();
         if (x.id) {
             j["id"] = x.id;
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, download &x) {
+    inline void from_json(const json &j, download &x) {
         x.url = get_optional<std::string>(j, "url");
         x.scd_required = get_optional<bool>(j, "scd_required");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const download &x) {
+    inline void to_json(json &j, const download &x) {
         j = json::object();
         if (x.url) {
             j["url"] = x.url;
@@ -81,24 +81,24 @@ namespace yordle::sieve::models {
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, label &x) {
+    inline void from_json(const json &j, label &x) {
         x.values = get_optional<std::vector<std::string>>(j, "values");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const label &x) {
+    inline void to_json(json &j, const label &x) {
         j = json::object();
         if (x.values) {
             j["values"] = x.values;
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, release_release &x) {
+    inline void from_json(const json &j, release_release &x) {
         x.product = get_optional<std::string>(j, "product");
         x.id = get_optional<std::string>(j, "id");
         x.labels = get_optional<std::map<std::string, label>>(j, "labels");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const release_release &x) {
+    inline void to_json(json &j, const release_release &x) {
         j = json::object();
         if (x.product) {
             j["product"] = x.product;
@@ -111,13 +111,13 @@ namespace yordle::sieve::models {
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, release_element &x) {
+    inline void from_json(const json &j, release_element &x) {
         x.release = get_optional<release_release>(j, "release");
         x.compat_version = get_optional<compat_version>(j, "compat_version");
         x.download = get_optional<download>(j, "download");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const release_element &x) {
+    inline void to_json(json &j, const release_element &x) {
         j = json::object();
         if (x.release) {
             j["release"] = x.release;
@@ -130,11 +130,11 @@ namespace yordle::sieve::models {
         }
     }
 
-    [[maybe_unused]] inline void from_json(const json &j, version_set &x) {
+    inline void from_json(const json &j, version_set &x) {
         x.releases = get_optional<std::vector<release_element>>(j, "releases");
     }
 
-    [[maybe_unused]] inline void to_json(json &j, const version_set &x) {
+    inline void to_json(json &j, const version_set &x) {
         j = json::object();
         if (x.releases) {
             j["releases"] = x.releases;

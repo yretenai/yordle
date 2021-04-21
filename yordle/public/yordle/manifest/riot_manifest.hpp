@@ -18,7 +18,7 @@
 #include <standard_dragon/dragon.hpp>
 
 namespace yordle::manifest {
-    class YORDLE_EXPORT [[maybe_unused]] riot_manifest {
+    class YORDLE_EXPORT riot_manifest {
     private:
         static constexpr uint32_t FOURCC = DRAGON_MAGIC32('R', 'M', 'A', 'N');
         static constexpr uint32_t EXPECTED_DATA_SIZE = 0x18;
@@ -46,7 +46,7 @@ namespace yordle::manifest {
         } riot_manifest_dir;
 
     public:
-        [[maybe_unused]] explicit riot_manifest(dragon::Array<uint8_t> &buffer);
+        explicit riot_manifest(dragon::Array<uint8_t> &buffer);
         ~riot_manifest() = default;
 
         typedef union alignas(2) RMAN_FLAGS {
@@ -84,7 +84,7 @@ namespace yordle::manifest {
         std::map<uint64_t, riot_manifest_file> files;
         std::map<uint64_t, riot_manifest_dir> directories;
 
-        [[noreturn]] [[maybe_unused]] void print(std::ostream& stream, dragon::Indent &indent) const;
+        void print(std::ostream& stream, dragon::Indent &indent) const;
     };
 } // namespace yordle::manifest
 

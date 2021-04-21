@@ -7,5 +7,5 @@
 #include "poppy.hpp"
 
 namespace poppy {
-    bool decode(PoppyConfiguration &poppy);
+    bool decode(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &manifest, std::filesystem::path &deploy_path);
 }
