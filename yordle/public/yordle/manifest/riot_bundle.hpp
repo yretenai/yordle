@@ -45,6 +45,8 @@ namespace yordle::manifest {
         std::shared_ptr<dragon::Array<uint8_t>> data;
         std::shared_ptr<dragon::Array<riot_bundle_block>> blocks;
 
+        void read_block(uint64_t block_id, std::ostream &out) const;
+        [[nodiscard]] std::shared_ptr<dragon::Array<uint8_t>> read_block(uint64_t block_id) const;
         void print(std::ostream& stream, dragon::Indent &indent) const;
     };
 } // namespace yordle::manifest

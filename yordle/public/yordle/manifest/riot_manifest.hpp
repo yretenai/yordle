@@ -86,11 +86,14 @@ namespace yordle::manifest {
         std::shared_ptr<dragon::Array<uint8_t>> signature;
 
         std::map<uint64_t, std::shared_ptr<dragon::Array<riot_manifest_bundle>>> bundles;
+        std::map<uint64_t, uint64_t> block_to_bundle_map;
         std::map<uint8_t, std::string> languages;
         std::map<uint64_t, riot_manifest_file> files;
         std::map<uint64_t, riot_manifest_dir> directories;
 
-        void print(std::ostream& stream, dragon::Indent &indent, bool full) const;
+        std::filesystem::path get_directory_path(const uint64_t &id);
+
+        void print(std::ostream &stream, dragon::Indent &indent, bool full) const;
     };
 } // namespace yordle::manifest
 

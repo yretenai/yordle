@@ -7,6 +7,7 @@
 #include <yordle/manifest/riot_bundle.hpp>
 
 #include <standard_dragon/exception/invalid_data.hpp>
+#include <zstd.h>
 
 
 yordle::manifest::riot_bundle::riot_bundle(dragon::Array<uint8_t> &buffer) {
@@ -45,4 +46,26 @@ void yordle::manifest::riot_bundle::print(std::ostream &stream, dragon::Indent &
         stream << indent3 << "Size: " << HEXLOG64 << block.size << std::endl;
         stream << indent3 << "Compressed Size: " << HEXLOG64 << block.csize << std::endl;
     }
+}
+
+std::shared_ptr<dragon::Array<uint8_t>> yordle::manifest::riot_bundle::read_block(uint64_t block_id) const {
+    uint64_t offset = 0;
+    std::shared_ptr<dragon::Array<uint8_t>> buffer = nullptr;
+    for (const auto &block : *blocks) {
+        if (block.block_id != block_id) {
+            offset += block.csize;
+            continue;
+        }
+
+        buffer = std::make_shared<dragon::Array<uint8_t>>(block.size, nullptr);
+        ZSTD_decompress(buffer->data(), block.size, data->data() + offset, block.csize);
+        break;
+    }
+
+    return buffer;
+}
+
+void yordle::manifest::riot_bundle::read_block(uint64_t block_id, std::ostream &out) const {
+    auto buffer = read_block(block_id);
+    out.write(reinterpret_cast<const char *>(buffer->data()), (std::streamsize) buffer->size());
 }

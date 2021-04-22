@@ -45,6 +45,7 @@ yordle::manifest::riot_manifest::riot_manifest(dragon::Array<uint8_t> &buffer) {
         for (flatbuffers::uoffset_t j = 0; j < bundle->blocks()->size(); ++j) {
             const auto *block = bundle->blocks()->GetAs<generated::RiotManifestBlock>(j);
             blocks->set(j, {block->block_id(), block->compressed_size(), block->size()});
+            block_to_bundle_map[block->block_id()] = bundle->block_id();
         }
         bundles[bundle->block_id()] = blocks;
     }
@@ -82,6 +83,20 @@ yordle::manifest::riot_manifest::riot_manifest(dragon::Array<uint8_t> &buffer) {
     signature = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset + csize, 0x100, true);
 }
 
+std::filesystem::path yordle::manifest::riot_manifest::get_directory_path(const uint64_t &id) {
+    if (!directories.contains(id)) {
+        return std::filesystem::path();
+    }
+
+    const auto directory = directories[id];
+    auto path = std::filesystem::path(directory.name);
+    if (directory.parent_id == 0) {
+        return path;
+    }
+
+    return yordle::manifest::riot_manifest::get_directory_path(directory.parent_id) / path;
+}
+
 void yordle::manifest::riot_manifest::print(std::ostream &stream, dragon::Indent &indent, bool full) const {
     auto indent1 = indent + 1;
     auto indent2 = indent + 2;
@@ -117,7 +132,7 @@ void yordle::manifest::riot_manifest::print(std::ostream &stream, dragon::Indent
                 stream << indent3 << HEXLOG64 << block.block_id << " " << block.size << ":" << block.csize << std::endl;
             }
         } else {
-           stream << indent3 << "...suppressed..." << std::endl;
+            stream << indent3 << "...suppressed..." << std::endl;
         }
     }
 

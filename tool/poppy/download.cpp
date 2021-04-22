@@ -10,24 +10,6 @@
 
 #include "decode.hpp"
 
-#define POPPY_BUNDLE_FILENAME_FORMAT "%016X.bundle"
-
-#ifdef POPPY_THREADING
-    #include <execution>
-    #include <thread>
-    #ifdef __clang__
-        #ifndef _LIBCPP_HAS_PARALLEL_ALGORITHMS
-            #undef POPPY_THREADING
-        #endif
-    #else
-        #ifdef __GNUC__
-            #ifndef _PSTL_EXECUTION_POLICIES_DEFINED
-                #undef POPPY_THREADING
-            #endif
-        #endif
-    #endif
-#endif
-
 static std::mutex print_lock;
 
 bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest_data, std::string &target) {
@@ -43,7 +25,7 @@ bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest
 #ifdef POPPY_THREADING
     std::for_each(std::execution::par_unseq, manifest.bundles.cbegin(), manifest.bundles.cend(), [poppy, cache](const auto &bundle_pair) {
 #else
-    for(const auto &bundle_pair : manifest.bundles) {
+    for (const auto &bundle_pair : manifest.bundles) {
 #endif
         auto url = boost::format(poppy.bundle_url) % bundle_pair.first;
         auto filename = boost::format(POPPY_BUNDLE_FILENAME_FORMAT) % bundle_pair.first;
