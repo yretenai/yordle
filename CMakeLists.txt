@@ -41,7 +41,8 @@ if(HAS_PARALLEL_ALGORITHMS)
 endif()
 
 include(GenerateExportHeader)
-include_directories(vendor)
+
+add_subdirectory("vendor")
 
 find_package(zstd CONFIG REQUIRED)
 find_package(ZLIB REQUIRED)
@@ -51,7 +52,6 @@ find_package(OpenSSL REQUIRED)
 find_package(CURL REQUIRED)
 find_package(uriparser CONFIG REQUIRED char wchar_t)
 
-add_subdirectory("vendor")
 add_subdirectory("yordle")
 add_subdirectory("tool")
 

@@ -141,7 +141,7 @@ bool poppy::fetch_sieve(PoppyConfiguration &poppy) {
                 for (unsigned char i : hash) {
                     ss << std::setfill('0') << std::setw(2) << std::hex << (int) i;
                 }
-                auto cache_target = cache / (target + "_" + ss.str() + ".json");
+                auto cache_target = cache / (target + configuration + "_" + ss.str() + ".json");
                 if (!std::filesystem::exists(cache_target)) {
                     dragon::write_file(cache_target, array);
                 }
