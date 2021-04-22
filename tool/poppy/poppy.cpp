@@ -59,9 +59,12 @@ namespace poppy {
                              .abbreviation('h')
                              .description("print this help screen");
 
-        auto &offline = cli["offline-config"]
+        auto &offline = cli["local-manifest"]
                                 .abbreviation('B')
-                                .description("targets are file paths to cached configs");
+                                .description("targets are file paths to cached manifests");
+
+        auto &deploy = cli["no-deploy"]
+                                .description("only download bundle files");
 
         auto &client_config = cli["client-config"]
                                       .description("cdn data is from patch-lines, not sieve");
@@ -88,19 +91,17 @@ namespace poppy {
         }
 
         if (offline.was_set()) {
-            poppy.offline_config = true;
+            poppy.is_offline = true;
+        }
+
+        if (deploy.was_set()) {
+            poppy.no_deploy = true;
         }
 
         if (poppy.targets.empty()) {
             std::cerr << "err: no targets specified." << std::endl;
-        }
-
-        if (configurations.was_set()) {
-            auto vec = configurations.to_vector<po::string>();
-            poppy.configurations = std::set<std::string>(vec.begin(), vec.end());
-        } else {
-            poppy.configurations = {"na1", "default", "na"};
-            std::cout << "warn: no configurations set, defaulting to na, na1, default" << std::endl;
+            exit_code = 1;
+            return poppy;
         }
 
         if (client_config.was_set()) {
@@ -108,6 +109,19 @@ namespace poppy {
             if (poppy.manifest_url == POPPY_DEFAULT_SIEVE_URL) {
                 poppy.manifest_url = POPPY_DEFAULT_MANIFEST_URL;
                 std::cout << "warn: updating manifest url to " << poppy.manifest_url << std::endl;
+            }
+        }
+
+        if (configurations.was_set()) {
+            auto vec = configurations.to_vector<po::string>();
+            poppy.configurations = std::set<std::string>(vec.begin(), vec.end());
+        } else {
+            if(poppy.is_client_config) {
+                poppy.configurations = {"na1", "default", "na"};
+                std::cout << "warn: no configurations set, defaulting to na, na1, default" << std::endl;
+            } else if(!poppy.is_offline) {
+                poppy.configurations = {"NA1"};
+                std::cout << "warn: no configurations set, defaulting to NA1" << std::endl;
             }
         }
 
@@ -155,13 +169,23 @@ int main(int argc, char **argv) {
         return exit_code;
     }
 
-    if (!poppy.is_client_config && !poppy::fetch_sieve(poppy)) {
-        std::cerr << "err: failure during sieve operation" << std::endl;
-        return 1;
-    } else if (poppy.is_client_config && !poppy::fetch_client_config(poppy)) {
-        std::cerr << "err: failure during client config operation" << std::endl;
-        return 1;
+    if (poppy.is_offline) {
+        if (!poppy::fetch_local(poppy)) {
+            std::cerr << "err: failure during local operation" << std::endl;
+            return 1;
+        }
+    } else if (poppy.is_client_config) {
+        if (!poppy::fetch_client_config(poppy)) {
+            std::cerr << "err: failure during client config operation" << std::endl;
+            return 1;
+        }
+    } else {
+        if (!poppy::fetch_sieve(poppy)) {
+            std::cerr << "err: failure during sieve operation" << std::endl;
+            return 1;
+        }
     }
+
 
     return 0;
 }

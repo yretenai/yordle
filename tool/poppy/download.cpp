@@ -8,7 +8,7 @@
 
 #include <boost/format.hpp>
 
-#include "decode.hpp"
+#include "deploy.hpp"
 
 static std::mutex print_lock;
 
@@ -65,5 +65,5 @@ bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest
 #endif
 
     auto path = poppy.output_dir / target;
-    return poppy::decode(poppy, manifest, path);
+    return poppy::deploy(poppy, manifest, path);
 }

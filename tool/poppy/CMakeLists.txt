@@ -1,6 +1,6 @@
 project(TOOL_poppy)
 
-add_executable(poppy poppy.cpp decode.cpp download.cpp fetch.cpp)
+add_executable(poppy poppy.cpp deploy.cpp download.cpp fetch.cpp)
 if(YORDLE_TOOL_POPPY_THREADING)
     message("-- Enabling threading in Poppy")
     target_compile_definitions(poppy PRIVATE POPPY_THREADING)

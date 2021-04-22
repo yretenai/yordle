@@ -2,11 +2,15 @@
 // Created by Lilith on 3/24/2021.
 //
 
-#include "decode.hpp"
+#include "deploy.hpp"
 
 #include <boost/format.hpp>
 
-bool poppy::decode(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &manifest, std::filesystem::path &deploy_path) {
+bool poppy::deploy(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &manifest, std::filesystem::path &deploy_path) {
+    if(poppy.no_deploy) {
+        return true;
+    }
+
     // pass 1: build directory skeleton
     auto directory_cache = std::map<uint64_t, std::filesystem::path>();
     for (const auto &directory_pair : manifest.directories) {
