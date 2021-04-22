@@ -37,7 +37,7 @@ bool process_configuration(const std::filesystem::path &cache, const yordle::sie
     return poppy::download(poppy, array, path);
 }
 
-bool poppy::fetch(PoppyConfiguration &poppy) {
+bool poppy::fetch_client_config(PoppyConfiguration &poppy) {
     for (const auto &target : poppy.targets) {
         dragon::Array<uint8_t> array;
 
@@ -80,9 +80,9 @@ bool poppy::fetch(PoppyConfiguration &poppy) {
 
             auto resolved_path = std::filesystem::path(patchline.first);
 
-            if(patchline.second.metadata != nullptr && patchline.second.metadata->contains("default")) {
+            if (patchline.second.metadata != nullptr && patchline.second.metadata->contains("default")) {
                 auto metadata = patchline.second.metadata->at("default");
-                if(metadata.path_name != nullptr) {
+                if (metadata.path_name != nullptr) {
                     resolved_path = std::filesystem::path(*metadata.path_name);
                 }
             }
@@ -106,6 +106,77 @@ bool poppy::fetch(PoppyConfiguration &poppy) {
                             continue;
                         }
                     }
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+bool poppy::fetch_sieve(PoppyConfiguration &poppy) {
+    for (const auto &target : poppy.targets) {
+        for (const auto &configuration : poppy.configurations) {
+            dragon::Array<uint8_t> array;
+
+            auto cache = poppy.cache_dir / "sieve";
+            if (!std::filesystem::exists(cache)) {
+                std::filesystem::create_directories(cache);
+            }
+
+            if (poppy.offline_config) {
+                array = dragon::read_file(target);
+            } else {
+                auto url = boost::format(poppy.manifest_url) % configuration % target;
+                std::cout << "downloading " << url << std::endl;
+                auto data = poppy::download_curl(url.str());
+                if (data == nullptr) {
+                    std::cerr << "err: can't download client config" << std::endl;
+                    continue;
+                }
+                array = dragon::Array<uint8_t>(*data);
+                unsigned char hash[SHA256_DIGEST_LENGTH];
+                SHA256(array.data(), array.byte_size(), hash);
+                std::stringstream ss;
+                for (unsigned char i : hash) {
+                    ss << std::setfill('0') << std::setw(2) << std::hex << (int) i;
+                }
+                auto cache_target = cache / (target + "_" + ss.str() + ".json");
+                if (!std::filesystem::exists(cache_target)) {
+                    dragon::write_file(cache_target, array);
+                }
+            }
+
+            auto config = yordle::sieve::version_set(array.to_string());
+            for (const auto &release : *config.data->releases) {
+                auto id = *release.compat_version->id;
+                std::cout << "processing version " << id << std::endl;
+                auto resolved_path = std::filesystem::path(id);
+
+                auto url = release.download->url;
+                if (url == nullptr) {
+                    std::cerr << "err: manifest url is null!" << std::endl;
+                    continue;
+                }
+                auto manifest_name = url->substr(url->find_last_of('/') + 1);
+                auto cache_target = cache / manifest_name;
+                dragon::Array<uint8_t> manifest_array;
+                if (std::filesystem::exists(cache_target)) {
+                    std::cout << "using cached " << manifest_name << std::endl;
+                    manifest_array = dragon::read_file(cache_target);
+                } else {
+                    std::cout << "downloading " << *url << std::endl;
+                    auto manifest_data = poppy::download_curl(*url);
+                    if (manifest_data == nullptr) {
+                        std::cerr << "err: can't download manifest" << std::endl;
+                        continue;
+                    }
+                    manifest_array = dragon::Array<uint8_t>(*manifest_data);
+                    dragon::write_file(cache_target, manifest_array);
+                }
+
+                if (!poppy::download(poppy, manifest_array, resolved_path)) {
+                    std::cerr << "err: can't download data!" << std::endl;
                 }
             }
         }

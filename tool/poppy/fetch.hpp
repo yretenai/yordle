@@ -7,5 +7,6 @@
 #include "poppy.hpp"
 
 namespace poppy {
-    bool fetch(PoppyConfiguration &poppy);
-}
+    bool fetch_client_config(PoppyConfiguration &poppy);
+    bool fetch_sieve(PoppyConfiguration &poppy);
+} // namespace poppy

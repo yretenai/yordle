@@ -63,6 +63,9 @@ namespace poppy {
                                 .abbreviation('B')
                                 .description("targets are file paths to cached configs");
 
+        auto &client_config = cli["client-config"]
+                                      .description("cdn data is from patch-lines, not sieve");
+
         auto &version = cli["version"]
                                 .abbreviation('v')
                                 .description("print application version");
@@ -98,6 +101,14 @@ namespace poppy {
         } else {
             poppy.configurations = {"na1", "default", "na"};
             std::cout << "warn: no configurations set, defaulting to na, na1, default" << std::endl;
+        }
+
+        if (client_config.was_set()) {
+            poppy.is_client_config = true;
+            if (poppy.manifest_url == POPPY_DEFAULT_SIEVE_URL) {
+                poppy.manifest_url = POPPY_DEFAULT_MANIFEST_URL;
+                std::cout << "warn: updating manifest url to " << poppy.manifest_url << std::endl;
+            }
         }
 
         return poppy;
@@ -144,8 +155,11 @@ int main(int argc, char **argv) {
         return exit_code;
     }
 
-    if (!poppy::fetch(poppy)) {
-        std::cerr << "err: failure during fetch operation" << std::endl;
+    if (!poppy.is_client_config && !poppy::fetch_sieve(poppy)) {
+        std::cerr << "err: failure during sieve operation" << std::endl;
+        return 1;
+    } else if (poppy.is_client_config && !poppy::fetch_client_config(poppy)) {
+        std::cerr << "err: failure during client config operation" << std::endl;
         return 1;
     }
 
