@@ -7,5 +7,5 @@
 #include "poppy.hpp"
 
 namespace poppy {
-    bool download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest_data, std::string &target);
+    bool download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest_data, std::filesystem::path &target);
 }

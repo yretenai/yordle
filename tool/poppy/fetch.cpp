@@ -11,7 +11,7 @@
 #include "download.hpp"
 #include "fetch.hpp"
 
-bool process_configuration(const std::filesystem::path &cache, const yordle::sieve::models::configuration &configuration, poppy::PoppyConfiguration &poppy, std::string &path) {
+bool process_configuration(const std::filesystem::path &cache, const yordle::sieve::models::configuration &configuration, poppy::PoppyConfiguration &poppy, std::filesystem::path path) {
     auto url = configuration.patch_url == nullptr ? configuration.url : configuration.patch_url;
     if (url == nullptr) {
         std::cerr << "err: manifest url is null!" << std::endl;
@@ -78,6 +78,15 @@ bool poppy::fetch(PoppyConfiguration &poppy) {
                 std::filesystem::create_directories(cache);
             }
 
+            auto resolved_path = std::filesystem::path(patchline.first);
+
+            if(patchline.second.metadata != nullptr && patchline.second.metadata->contains("default")) {
+                auto metadata = patchline.second.metadata->at("default");
+                if(metadata.path_name != nullptr) {
+                    resolved_path = std::filesystem::path(*metadata.path_name);
+                }
+            }
+
             for (const auto &configuration : *patchline.second.platforms->at("win").configurations) {
                 auto id = *configuration.id;
                 if (poppy.configurations.find(id) == poppy.configurations.end()) {
@@ -85,15 +94,14 @@ bool poppy::fetch(PoppyConfiguration &poppy) {
                 }
                 std::cout << "processing configuration " << id << std::endl;
 
-                if (!process_configuration(cache, configuration, poppy, id)) {
+                if (!process_configuration(cache, configuration, poppy, resolved_path / id)) {
                     std::cerr << "err: cannot process configuration!" << std::endl;
                     continue;
                 }
 
                 if (configuration.secondary_patchlines != nullptr) {
                     for (const auto &sub_configuration : *configuration.secondary_patchlines) {
-                        auto resolved_path = id + "/" + *sub_configuration.path;
-                        if (!process_configuration(cache, sub_configuration, poppy, resolved_path)) {
+                        if (!process_configuration(cache, sub_configuration, poppy, resolved_path / id / resolved_path)) {
                             std::cerr << "err: cannot process configuration!" << std::endl;
                             continue;
                         }

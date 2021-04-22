@@ -12,7 +12,7 @@
 
 static std::mutex print_lock;
 
-bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest_data, std::string &target) {
+bool poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest_data, std::filesystem::path &target) {
     auto manifest = yordle::manifest::riot_manifest(manifest_data);
 
     auto cache = poppy.cache_dir / "bundles";

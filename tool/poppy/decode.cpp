@@ -14,10 +14,10 @@ bool poppy::decode(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &m
         auto resolved = deploy_path / normalized_path;
         directory_cache[directory_pair.first] = resolved;
         if (std::filesystem::exists(resolved)) {
-            std::cout << "Skipping " << normalized_path << " already exists" << std::endl;
+            std::cout << "warn: skipping " << normalized_path << " already exists" << std::endl;
             continue;
         }
-        std::cout << "Creating directory " << normalized_path << std::endl;
+        std::cout << "creating directory " << normalized_path << std::endl;
         std::filesystem::create_directories(resolved);
     }
 
@@ -35,12 +35,12 @@ bool poppy::decode(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &m
 
         // i don't want to talk about it.
         auto stream = std::ofstream(directory_path, std::ios::binary | std::ios::out | std::ios::trunc);
-        std::cout << "Writing file " << directory_path << std::endl;
+        std::cout << "writing " << directory_path << std::endl;
         auto bundle_cache = std::map<uint64_t, std::shared_ptr<yordle::manifest::riot_bundle>>();
 
         for (const auto &block_id : *file_info.block_ids) {
             if (!manifest.block_to_bundle_map.contains(block_id)) {
-                std::cerr << "Can't find block id " << HEXLOG64 << block_id << std::endl;
+                std::cerr << "err: can't find block id " << HEXLOG64 << block_id << std::endl;
                 continue;
             }
 
