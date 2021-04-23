@@ -64,7 +64,7 @@ namespace poppy {
                                 .description("targets are file paths to cached manifests");
 
         auto &deploy = cli["no-deploy"]
-                                .description("only download bundle files");
+                               .description("only download bundle files");
 
         auto &client_config = cli["client-config"]
                                       .description("cdn data is from patch-lines, not sieve");
@@ -116,10 +116,10 @@ namespace poppy {
             auto vec = configurations.to_vector<po::string>();
             poppy.configurations = std::set<std::string>(vec.begin(), vec.end());
         } else {
-            if(poppy.is_client_config) {
+            if (poppy.is_client_config) {
                 poppy.configurations = {"na1", "default", "na"};
                 std::cout << "warn: no configurations set, defaulting to na, na1, default" << std::endl;
-            } else if(!poppy.is_offline) {
+            } else if (!poppy.is_offline) {
                 poppy.configurations = {"NA1"};
                 std::cout << "warn: no configurations set, defaulting to NA1" << std::endl;
             }
@@ -134,8 +134,8 @@ namespace poppy {
         return size * nmemb;
     }
 
-    std::unique_ptr<std::vector<uint8_t>> download_curl(const std::string &url) {
-        std::unique_ptr<std::vector<uint8_t>> ptr = std::make_unique<std::vector<uint8_t>>();
+    std::shared_ptr<std::vector<uint8_t>> download_curl(const std::string &url) {
+        std::shared_ptr<std::vector<uint8_t>> ptr = std::make_shared<std::vector<uint8_t>>();
         CURL *curl;
         CURLcode res;
 
@@ -170,20 +170,11 @@ int main(int argc, char **argv) {
     }
 
     if (poppy.is_offline) {
-        if (!poppy::fetch_local(poppy)) {
-            std::cerr << "err: failure during local operation" << std::endl;
-            return 1;
-        }
+        poppy::fetch_local(poppy);
     } else if (poppy.is_client_config) {
-        if (!poppy::fetch_client_config(poppy)) {
-            std::cerr << "err: failure during client config operation" << std::endl;
-            return 1;
-        }
+        poppy::fetch_client_config(poppy);
     } else {
-        if (!poppy::fetch_sieve(poppy)) {
-            std::cerr << "err: failure during sieve operation" << std::endl;
-            return 1;
-        }
+        poppy::fetch_sieve(poppy);
     }
 
 

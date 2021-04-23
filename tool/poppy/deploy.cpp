@@ -6,9 +6,9 @@
 
 #include <boost/format.hpp>
 
-bool poppy::deploy(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &manifest, std::filesystem::path &deploy_path) {
-    if(poppy.no_deploy) {
-        return true;
+void poppy::deploy(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &manifest, std::filesystem::path &deploy_path) {
+    if (poppy.no_deploy) {
+        return;
     }
 
     // pass 1: build directory skeleton
@@ -63,6 +63,4 @@ bool poppy::deploy(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &m
         stream.flush();
         stream.close();
     }
-
-    return true;
 }

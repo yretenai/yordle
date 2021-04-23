@@ -11,11 +11,11 @@
 #include "download.hpp"
 #include "fetch.hpp"
 
-bool process_configuration(const std::filesystem::path &cache, const yordle::sieve::models::configuration &configuration, poppy::PoppyConfiguration &poppy, std::filesystem::path path) {
+void process_configuration(const std::filesystem::path &cache, const yordle::sieve::models::configuration &configuration, poppy::PoppyConfiguration &poppy, std::filesystem::path path) {
     auto url = configuration.patch_url == nullptr ? configuration.url : configuration.patch_url;
     if (url == nullptr) {
         std::cerr << "err: manifest url is null!" << std::endl;
-        return false;
+        return;
     }
     auto manifest_name = url->substr(url->find_last_of('/') + 1);
     auto cache_target = cache / manifest_name;
@@ -28,18 +28,18 @@ bool process_configuration(const std::filesystem::path &cache, const yordle::sie
         auto manifest_data = poppy::download_curl(*url);
         if (manifest_data == nullptr) {
             std::cerr << "err: can't download manifest" << std::endl;
-            return false;
+            return;
         }
         array = dragon::Array<uint8_t>(*manifest_data);
         dragon::write_file(cache_target, array);
     }
 
-    return poppy::download(poppy, array, path);
+    poppy::download(poppy, array, path);
 }
 
-bool poppy::fetch_client_config(PoppyConfiguration &poppy) {
+void poppy::fetch_client_config(PoppyConfiguration &poppy) {
     for (const auto &target : poppy.targets) {
-        auto cache = poppy.cache_dir / "sieve";
+        auto cache = poppy.cache_dir;
         if (!std::filesystem::exists(cache)) {
             std::filesystem::create_directories(cache);
         }
@@ -67,7 +67,7 @@ bool poppy::fetch_client_config(PoppyConfiguration &poppy) {
         for (const auto &patchline : *config.data) {
             std::cout << "processing " << *patchline.second.metadata->at("default").full_name << std::endl;
 
-            cache = poppy.cache_dir / "sieve" / patchline.first;
+            cache = poppy.cache_dir / patchline.first;
             if (!std::filesystem::exists(cache)) {
                 std::filesystem::create_directories(cache);
             }
@@ -88,30 +88,22 @@ bool poppy::fetch_client_config(PoppyConfiguration &poppy) {
                 }
                 std::cout << "processing configuration " << id << std::endl;
 
-                if (!process_configuration(cache, configuration, poppy, resolved_path / id)) {
-                    std::cerr << "err: cannot process configuration!" << std::endl;
-                    continue;
-                }
+                process_configuration(cache, configuration, poppy, resolved_path / id);
 
                 if (configuration.secondary_patchlines != nullptr) {
                     for (const auto &sub_configuration : *configuration.secondary_patchlines) {
-                        if (!process_configuration(cache, sub_configuration, poppy, resolved_path / id / resolved_path)) {
-                            std::cerr << "err: cannot process configuration!" << std::endl;
-                            continue;
-                        }
+                        process_configuration(cache, sub_configuration, poppy, resolved_path / id / resolved_path);
                     }
                 }
             }
         }
     }
-
-    return true;
 }
 
-bool poppy::fetch_sieve(PoppyConfiguration &poppy) {
+void poppy::fetch_sieve(PoppyConfiguration &poppy) {
     for (const auto &target : poppy.targets) {
         for (const auto &configuration : poppy.configurations) {
-            auto cache = poppy.cache_dir / "sieve";
+            auto cache = poppy.cache_dir;
             if (!std::filesystem::exists(cache)) {
                 std::filesystem::create_directories(cache);
             }
@@ -163,17 +155,13 @@ bool poppy::fetch_sieve(PoppyConfiguration &poppy) {
                     dragon::write_file(manifest_cache_target, manifest_array);
                 }
 
-                if (!poppy::download(poppy, manifest_array, resolved_path)) {
-                    std::cerr << "err: can't download data!" << std::endl;
-                }
+                poppy::download(poppy, manifest_array, resolved_path);
             }
         }
     }
-
-    return true;
 }
 
-bool poppy::fetch_local(PoppyConfiguration &poppy) {
+void poppy::fetch_local(PoppyConfiguration &poppy) {
     for (const auto &target : poppy.targets) {
         auto resolved_path = std::filesystem::path(target).stem();
         std::cout << "processing manifest " << resolved_path << std::endl;
@@ -182,8 +170,6 @@ bool poppy::fetch_local(PoppyConfiguration &poppy) {
             continue;
         }
         auto manifest_array = dragon::read_file(target);
-        if (!poppy::download(poppy, manifest_array, resolved_path)) {
-            std::cerr << "err: can't download data!" << std::endl;
-        }
+        poppy::download(poppy, manifest_array, resolved_path);
     }
 }

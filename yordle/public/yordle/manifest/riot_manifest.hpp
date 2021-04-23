@@ -91,7 +91,7 @@ namespace yordle::manifest {
         std::map<uint64_t, riot_manifest_file> files;
         std::map<uint64_t, riot_manifest_dir> directories;
 
-        std::filesystem::path get_directory_path(const uint64_t &id);
+        std::filesystem::path get_directory_path(uint64_t id);
 
         void print(std::ostream &stream, dragon::Indent &indent, bool full) const;
     };

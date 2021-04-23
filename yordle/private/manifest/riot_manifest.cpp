@@ -83,18 +83,20 @@ yordle::manifest::riot_manifest::riot_manifest(dragon::Array<uint8_t> &buffer) {
     signature = std::make_shared<dragon::Array<uint8_t>>(buffer.data() + offset + csize, 0x100, true);
 }
 
-std::filesystem::path yordle::manifest::riot_manifest::get_directory_path(const uint64_t &id) {
-    if (!directories.contains(id)) {
-        return std::filesystem::path();
+std::filesystem::path yordle::manifest::riot_manifest::get_directory_path(uint64_t id) {
+    auto combined_path = std::filesystem::path();
+
+    while(id != 0) {
+        if (!directories.contains(id)) {
+            return combined_path;
+        }
+
+        const auto directory = directories[id];
+        combined_path = std::filesystem::path(directory.name) / combined_path;
+        id = directory.parent_id;
     }
 
-    const auto directory = directories[id];
-    auto path = std::filesystem::path(directory.name);
-    if (directory.parent_id == 0) {
-        return path;
-    }
-
-    return yordle::manifest::riot_manifest::get_directory_path(directory.parent_id) / path;
+    return combined_path;
 }
 
 void yordle::manifest::riot_manifest::print(std::ostream &stream, dragon::Indent &indent, bool full) const {

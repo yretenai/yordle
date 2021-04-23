@@ -31,7 +31,7 @@ yordle::archive::wad_file_v3::wad_file_v3(std::istream &stream) {
 
     if (entry_count > 0) {
         entries = std::make_shared<dragon::Array<wad_entry_v3>>(entry_count, nullptr);
-        stream.read(reinterpret_cast<char *>(entries->data()), entries->byte_size());
+        stream.read(reinterpret_cast<char *>(entries->data()), static_cast<std::streamsize>(entries->byte_size()));
     }
 }
 
@@ -60,6 +60,8 @@ std::shared_ptr<dragon::Array<uint8_t>> yordle::archive::wad_file_v3::read_file(
                     case Z_STREAM_ERROR:
                     case Z_MEM_ERROR:
                         throw dragon::exception::invalid_data("zlib error");
+                    default:
+                        continue;
                 }
             } while (zs.avail_out > 0);
             break;
