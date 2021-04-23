@@ -50,8 +50,8 @@
 
 namespace poppy {
     typedef struct POPPY_CONFIGURATION {
-        std::filesystem::path output_dir = "Deploy";
-        std::filesystem::path cache_dir = "Sieve";
+        std::filesystem::path output_dir = "deploy";
+        std::filesystem::path cache_dir = "sieve";
         std::string manifest_url = POPPY_DEFAULT_SIEVE_URL;
         std::string bundle_url = POPPY_DEFAULT_BUNDLE_URL;
         std::deque<std::string> targets;
