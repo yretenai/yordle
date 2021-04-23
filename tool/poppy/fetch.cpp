@@ -25,7 +25,7 @@ void process_configuration(const std::filesystem::path &cache, const yordle::sie
         array = dragon::read_file(cache_target);
     } else {
         std::cout << "downloading " << *url << std::endl;
-        auto manifest_data = poppy::download_curl(*url);
+        auto manifest_data = poppy::download_curl(*url, poppy.max_speed);
         if (manifest_data == nullptr) {
             std::cerr << "err: can't download manifest" << std::endl;
             return;
@@ -46,7 +46,7 @@ void poppy::fetch_client_config(PoppyConfiguration &poppy) {
 
         auto url = boost::format(poppy.manifest_url) % target;
         std::cout << "downloading " << url << std::endl;
-        auto data = poppy::download_curl(url.str());
+        auto data = poppy::download_curl(url.str(), poppy.max_speed);
         if (data == nullptr) {
             std::cerr << "err: can't download client config" << std::endl;
             continue;
@@ -110,7 +110,7 @@ void poppy::fetch_sieve(PoppyConfiguration &poppy) {
 
             auto url = boost::format(poppy.manifest_url) % configuration % target;
             std::cout << "downloading " << url << std::endl;
-            auto data = poppy::download_curl(url.str());
+            auto data = poppy::download_curl(url.str(), poppy.max_speed);
             if (data == nullptr) {
                 std::cerr << "err: can't download client config" << std::endl;
                 continue;
@@ -146,7 +146,7 @@ void poppy::fetch_sieve(PoppyConfiguration &poppy) {
                     manifest_array = dragon::read_file(manifest_cache_target);
                 } else {
                     std::cout << "downloading " << *manifest_url << std::endl;
-                    auto manifest_data = poppy::download_curl(*manifest_url);
+                    auto manifest_data = poppy::download_curl(*manifest_url, poppy.max_speed);
                     if (manifest_data == nullptr) {
                         std::cerr << "err: can't download manifest" << std::endl;
                         continue;

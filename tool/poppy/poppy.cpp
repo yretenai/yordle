@@ -11,6 +11,7 @@
 #include <ProgramOptions.hxx>
 #include <curl/curl.h>
 
+#include "poppy.hpp"
 #include "fetch.hpp"
 
 namespace poppy {
@@ -45,6 +46,11 @@ namespace poppy {
                 .description("bundle url format")
                 .type(po::string)
                 .bind(poppy.bundle_url);
+
+        cli["speed-limit"]
+                .description("download speed limit (per thread) in bytes")
+                .type(po::i64)
+                .bind(poppy.max_speed);
 
         auto &configurations = cli["configurations"]
                                        .abbreviation('C')
@@ -134,7 +140,7 @@ namespace poppy {
         return size * nmemb;
     }
 
-    std::shared_ptr<std::vector<uint8_t>> download_curl(const std::string &url) {
+    std::shared_ptr<std::vector<uint8_t>> download_curl(const std::string &url, int64_t speed_limit) {
         std::shared_ptr<std::vector<uint8_t>> ptr = std::make_shared<std::vector<uint8_t>>();
         CURL *curl;
         CURLcode res;
@@ -144,6 +150,7 @@ namespace poppy {
             curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
             curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, append_vector);
             curl_easy_setopt(curl, CURLOPT_WRITEDATA, ptr.get());
+            curl_easy_setopt(curl, CURLOPT_MAX_RECV_SPEED_LARGE, static_cast<curl_off_t>(speed_limit));
             res = curl_easy_perform(curl);
             long response_code;
             if (curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code) != CURLE_OK) {
@@ -157,11 +164,23 @@ namespace poppy {
 
         return nullptr;
     }
+
+    std::string get_version_str() {
+        return POPPY_VERSION_S;
+    }
+
+    int get_version() {
+        return POPPY_VERSION;
+    }
 } // namespace poppy
 
 int main(int argc, char **argv) {
-    std::cout << YORDLE_VERSION_S << std::endl;
-    std::cout << POPPY_VERSION_S << std::endl;
+    std::cout << yordle::get_version_str() << std::endl;
+    std::cout << poppy::get_version_str() << std::endl;
+
+    if (yordle::get_version() != YORDLE_VERSION) {
+        std::cout << "warn: Yordle version is " << yordle::get_version() << " expected version " << YORDLE_VERSION << " (" << YORDLE_VERSION_S << ")! behavior is undefined!" << std::endl;
+    }
 
     int exit_code = POPPY_SAFE_EXIT_CODE;
     auto poppy = poppy::parse_configuration(argc, argv, exit_code);

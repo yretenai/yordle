@@ -21,3 +21,8 @@
 #include <yordle/sieve/client_config.hpp>
 #include <yordle/sieve/release_channel.hpp>
 #include <yordle/sieve/version_set.hpp>
+
+namespace yordle {
+    YORDLE_EXPORT std::string get_version_str();
+    YORDLE_EXPORT int get_version();
+} // namespace yordle

@@ -46,7 +46,7 @@ void poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest
         print_lock.unlock();
 
         for (auto i = 0; i < 3; ++i) {
-            auto bundle_data = poppy::download_curl(url.str());
+            auto bundle_data = poppy::download_curl(url.str(), poppy.max_speed);
             if (bundle_data == nullptr) {
                 print_lock.lock();
                 std::cerr << "err: can't download bundle! attempt " << i + 1 << " of 3" << std::endl;
