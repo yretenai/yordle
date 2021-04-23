@@ -7,7 +7,6 @@
 #pragma clang diagnostic ignored "-Wunused-variable"
 #pragma ide diagnostic ignored "OCUnusedGlobalDeclarationInspection"
 
-#include <cstdbool>
 #include <cstdint>
 #include <filesystem>
 #include <istream>
