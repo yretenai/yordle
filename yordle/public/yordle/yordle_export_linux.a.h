@@ -9,15 +9,15 @@
 #  ifndef YORDLE_EXPORT
 #    ifdef yordle_EXPORTS
         /* We are building this library */
-#      define YORDLE_EXPORT __attribute__((visibility("default")))
+#      define YORDLE_EXPORT 
 #    else
         /* We are using this library */
-#      define YORDLE_EXPORT __attribute__((visibility("default")))
+#      define YORDLE_EXPORT 
 #    endif
 #  endif
 
 #  ifndef YORDLE_NO_EXPORT
-#    define YORDLE_NO_EXPORT __attribute__((visibility("hidden")))
+#    define YORDLE_NO_EXPORT 
 #  endif
 #endif
 
