@@ -3,7 +3,6 @@
 //
 
 #include <ostream>
-#include <thread>
 
 #ifndef NDEBUG
 #define PROGRAMOPTIONS_NO_COLORS
@@ -12,15 +11,13 @@
 #include <curl/curl.h>
 
 #include "fetch.hpp"
-#include "poppy.hpp"
 
 using namespace std;
 using namespace yordle;
 
 namespace poppy {
-    PoppyConfiguration parse_configuration(int argc, char **argv, int &exit_code) {
+    bool parse_configuration(int argc, char **argv, PoppyConfiguration &poppy, int &exit_code) {
         po::parser cli;
-        PoppyConfiguration poppy = {};
 
         cli["cache"]
                 .abbreviation('c')
@@ -85,18 +82,18 @@ namespace poppy {
         if (!cli(argc, argv)) {
             cerr << "errored while parsing opts; aborting.\n";
             exit_code = -1;
-            return poppy;
+            return false;
         }
 
         if (version.was_set()) {
             exit_code = 0;
-            return poppy;
+            return false;
         }
 
         if (help.was_set()) {
             cout << cli << endl;
             exit_code = 0;
-            return poppy;
+            return false;
         }
 
         if (offline.was_set()) {
@@ -110,7 +107,7 @@ namespace poppy {
         if (poppy.targets.empty()) {
             cerr << "err: no targets specified." << endl;
             exit_code = 1;
-            return poppy;
+            return false;
         }
 
         if (client_config.was_set()) {
@@ -134,7 +131,7 @@ namespace poppy {
             }
         }
 
-        return poppy;
+        return true;
     }
 
     static size_t append_vector(void *contents, size_t size, size_t nmemb, void *userp) {
@@ -185,9 +182,9 @@ int main(int argc, char **argv) {
         cout << "warn: Yordle version is " << get_version() << " expected version " << YORDLE_VERSION << " (" << YORDLE_VERSION_S << ")! behavior is undefined!" << endl;
     }
 
-    int exit_code = POPPY_SAFE_EXIT_CODE;
-    auto poppy = poppy::parse_configuration(argc, argv, exit_code);
-    if (exit_code != POPPY_SAFE_EXIT_CODE) {
+    int exit_code = 0;
+    poppy::PoppyConfiguration poppy = {};
+    if (!poppy::parse_configuration(argc, argv, poppy, exit_code)) {
         return exit_code;
     }
 
