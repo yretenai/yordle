@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "IRenderFramework.hpp"
+
 namespace norra::render_fx {
     class DirectX11Window : public IRenderFramework {
     };
