@@ -63,7 +63,7 @@ namespace poppy {
             for (unsigned char i : hash) {
                 ss << setfill('0') << setw(2) << hex << (int) i;
             }
-            auto cache_target = cache / fmt::format("{s}_{s}.json", target, ss.str());
+            auto cache_target = cache / fmt::format("{0:s}_{1:s}.json", target, ss.str());
             if (!filesystem::exists(cache_target)) {
                 write_file(cache_target, array);
             }
@@ -127,7 +127,7 @@ namespace poppy {
                 for (unsigned char i : hash) {
                     ss << setfill('0') << setw(2) << hex << (int) i;
                 }
-                auto cache_target = cache / fmt::format("{s}{s}_{s}.json", target, configuration, ss.str());
+                auto cache_target = cache / fmt::format("{0:s}{1:s}_{2:s}.json", target, configuration, ss.str());
                 if (!filesystem::exists(cache_target)) {
                     write_file(cache_target, array);
                 }
