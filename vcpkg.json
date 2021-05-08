@@ -22,7 +22,9 @@
       "name": "imgui",
       "features": [
         "freetype",
-        "docking-experimental"
+        "docking-experimental",
+        "vulkan-binding",
+        "opengl3-glad-binding"
       ]
     },
     {
@@ -39,14 +41,6 @@
         "metal-binding"
       ],
       "platform": "osx"
-    },
-    {
-      "name": "imgui",
-      "features": [
-        "vulkan-binding",
-        "opengl3-glad-binding"
-      ],
-      "platform": "!windows & !osx"
     },
     {
       "name": "glad",
