@@ -5,6 +5,7 @@ find_package(CURL REQUIRED)
 find_package(fmt CONFIG REQUIRED)
 
 add_executable(poppy poppy.cpp deploy.cpp download.cpp fetch.cpp)
+target_compile_definitions(poppy PRIVATE DRAGON_LIBRARY_NAME="poppy")
 if (YORDLE_TOOL_POPPY_THREADING)
     message("-- Enabling threading in Poppy")
     target_compile_definitions(poppy PRIVATE POPPY_THREADING)

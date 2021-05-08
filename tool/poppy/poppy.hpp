@@ -29,19 +29,19 @@
 #include <yordle/yordle.hpp>
 
 #ifdef POPPY_THREADING
-#include <execution>
-#include <thread>
-#ifdef __clang__
-#ifndef _LIBCPP_HAS_PARALLEL_ALGORITHMS
-#undef POPPY_THREADING
-#endif
-#else
-#ifdef __GNUC__
-#ifndef _PSTL_EXECUTION_POLICIES_DEFINED
-#undef POPPY_THREADING
-#endif
-#endif
-#endif
+#    include <execution>
+#    include <thread>
+#    ifdef __clang__
+#        ifndef _LIBCPP_HAS_PARALLEL_ALGORITHMS
+#            undef POPPY_THREADING
+#        endif
+#    else
+#        ifdef __GNUC__
+#            ifndef _PSTL_EXECUTION_POLICIES_DEFINED
+#                undef POPPY_THREADING
+#            endif
+#        endif
+#    endif
 #endif
 
 #define POPPY_BUNDLE_FILENAME_FORMAT "{0:016X}.bundle"

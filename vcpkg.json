@@ -9,11 +9,53 @@
     "xxhash",
     "flatbuffers",
     "nlohmann-json",
-    "curl",
+    {
+      "name": "curl",
+      "features": [
+        "openssl",
+        "http2"
+      ]
+    },
     "openssl",
     "fmt",
-    "imgui",
-    "glad",
+    {
+      "name": "imgui",
+      "features": [
+        "freetype",
+        "docking-experimental"
+      ]
+    },
+    {
+      "name": "imgui",
+      "features": [
+        "dx11-binding",
+        "win32-binding"
+      ],
+      "platform": "windows"
+    },
+    {
+      "name": "imgui",
+      "features": [
+        "metal-binding"
+      ],
+      "platform": "osx"
+    },
+    {
+      "name": "imgui",
+      "features": [
+        "vulkan-binding",
+        "opengl3-glad-binding"
+      ],
+      "platform": "!windows & !osx"
+    },
+    {
+      "name": "glad",
+      "features": [
+        "extensions",
+        "loader",
+        "gl-api-latest"
+      ]
+    },
     "vulkan",
     "opengl"
   ]
