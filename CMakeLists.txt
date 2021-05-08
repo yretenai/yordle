@@ -33,7 +33,9 @@ endif ()
 
 include(CheckIncludeFileCXX)
 
-CHECK_INCLUDE_FILE_CXX("__pstl_execution" HAS_PARALLEL_ALGORITHMS)
+if (NOT WIN32)
+    CHECK_INCLUDE_FILE_CXX("__pstl_execution" HAS_PARALLEL_ALGORITHMS)
+endif ()
 
 if (HAS_PARALLEL_ALGORITHMS)
     add_compile_definitions("_LIBCPP_HAS_PARALLEL_ALGORITHMS")
@@ -47,9 +49,8 @@ find_package(zstd CONFIG REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(Flatbuffers CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
-find_package(OpenSSL REQUIRED)
-find_package(CURL REQUIRED)
-find_package(uriparser CONFIG REQUIRED char wchar_t)
+
+option(BUILD_SHARED_LIBS "Build as a shared library" OFF)
 
 add_subdirectory("yordle")
 add_subdirectory("tool")

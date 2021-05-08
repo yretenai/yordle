@@ -10,6 +10,8 @@
 #define YORDLE_VERSION_i 5
 #define YORDLE_VERSION_S "Yordle version 0.0.5"
 
+#include <yordle/yordle_export.h>
+
 #include <yordle/archive/wad_file_common.hpp>
 #include <yordle/archive/wad_file_v3.hpp>
 #include <yordle/cdtb/fnvhashlist.hpp>

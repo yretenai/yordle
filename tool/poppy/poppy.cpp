@@ -11,8 +11,11 @@
 #include <ProgramOptions.hxx>
 #include <curl/curl.h>
 
-#include "poppy.hpp"
 #include "fetch.hpp"
+#include "poppy.hpp"
+
+using namespace std;
+using namespace yordle;
 
 namespace poppy {
     PoppyConfiguration parse_configuration(int argc, char **argv, int &exit_code) {
@@ -80,7 +83,7 @@ namespace poppy {
                                 .description("print application version");
 
         if (!cli(argc, argv)) {
-            std::cerr << "errored while parsing opts; aborting.\n";
+            cerr << "errored while parsing opts; aborting.\n";
             exit_code = -1;
             return poppy;
         }
@@ -91,7 +94,7 @@ namespace poppy {
         }
 
         if (help.was_set()) {
-            std::cout << cli << std::endl;
+            cout << cli << endl;
             exit_code = 0;
             return poppy;
         }
@@ -105,7 +108,7 @@ namespace poppy {
         }
 
         if (poppy.targets.empty()) {
-            std::cerr << "err: no targets specified." << std::endl;
+            cerr << "err: no targets specified." << endl;
             exit_code = 1;
             return poppy;
         }
@@ -114,20 +117,20 @@ namespace poppy {
             poppy.is_client_config = true;
             if (poppy.manifest_url == POPPY_DEFAULT_SIEVE_URL) {
                 poppy.manifest_url = POPPY_DEFAULT_MANIFEST_URL;
-                std::cout << "warn: updating manifest url to " << poppy.manifest_url << std::endl;
+                cout << "warn: updating manifest url to " << poppy.manifest_url << endl;
             }
         }
 
         if (configurations.was_set()) {
             auto vec = configurations.to_vector<po::string>();
-            poppy.configurations = std::set<std::string>(vec.begin(), vec.end());
+            poppy.configurations = set<string>(vec.begin(), vec.end());
         } else {
             if (poppy.is_client_config) {
                 poppy.configurations = {"na1", "default", "na"};
-                std::cout << "warn: no configurations set, defaulting to na, na1, default" << std::endl;
+                cout << "warn: no configurations set, defaulting to na, na1, default" << endl;
             } else if (!poppy.is_offline) {
                 poppy.configurations = {"NA1"};
-                std::cout << "warn: no configurations set, defaulting to NA1" << std::endl;
+                cout << "warn: no configurations set, defaulting to NA1" << endl;
             }
         }
 
@@ -135,13 +138,13 @@ namespace poppy {
     }
 
     static size_t append_vector(void *contents, size_t size, size_t nmemb, void *userp) {
-        auto vec = (std::vector<uint8_t> *) userp;
+        auto vec = (vector<uint8_t> *) userp;
         vec->insert(vec->end(), (uint8_t *) contents, (uint8_t *) contents + (size * nmemb));
         return size * nmemb;
     }
 
-    std::shared_ptr<std::vector<uint8_t>> download_curl(const std::string &url, int64_t speed_limit) {
-        std::shared_ptr<std::vector<uint8_t>> ptr = std::make_shared<std::vector<uint8_t>>();
+    shared_ptr<vector<uint8_t>> download_curl(const string &url, int64_t speed_limit) {
+        shared_ptr<vector<uint8_t>> ptr = make_shared<vector<uint8_t>>();
         CURL *curl;
         CURLcode res;
 
@@ -165,7 +168,7 @@ namespace poppy {
         return nullptr;
     }
 
-    std::string get_version_str() {
+    string get_version_str() {
         return POPPY_VERSION_S;
     }
 
@@ -175,11 +178,11 @@ namespace poppy {
 } // namespace poppy
 
 int main(int argc, char **argv) {
-    std::cout << yordle::get_version_str() << std::endl;
-    std::cout << poppy::get_version_str() << std::endl;
+    cout << get_version_str() << endl;
+    cout << poppy::get_version_str() << endl;
 
-    if (yordle::get_version() != YORDLE_VERSION) {
-        std::cout << "warn: Yordle version is " << yordle::get_version() << " expected version " << YORDLE_VERSION << " (" << YORDLE_VERSION_S << ")! behavior is undefined!" << std::endl;
+    if (get_version() != YORDLE_VERSION) {
+        cout << "warn: Yordle version is " << get_version() << " expected version " << YORDLE_VERSION << " (" << YORDLE_VERSION_S << ")! behavior is undefined!" << endl;
     }
 
     int exit_code = POPPY_SAFE_EXIT_CODE;

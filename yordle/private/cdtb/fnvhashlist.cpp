@@ -9,25 +9,30 @@
 
 #include <standard_dragon/hash/fnv1a.hpp>
 
-yordle::cdtb::fnvhashlist::fnvhashlist(std::istringstream stream) {
-    std::string line;
+using namespace dragon::hash;
+using namespace std;
 
-    uint32_t hash;
-    while (std::getline(stream, line, '\n')) {
-        std::istringstream line_stream = std::istringstream(line);
-        line_stream >> std::hex >> hash;
-        line_stream >> hashes[hash];
-    }
-}
+namespace yordle::cdtb {
+    fnvhashlist::fnvhashlist(istringstream stream) {
+        string line;
 
-void yordle::cdtb::fnvhashlist::validate() {
-    uint32_t hash;
-    for (const auto &pair : hashes) {
-        std::string data = pair.second.string();
-        std::transform(data.begin(), data.end(), data.begin(), [](char c) { return std::tolower(c); });
-        hash = dragon::hash::fnv1a32(reinterpret_cast<uint8_t *>(data.data()), data.length());
-        if (hash != pair.first) {
-            DRAGON_LOG("Failed to match " << pair.second << " to hash " << HEXLOG32 << pair.first << " instead got " << HEXLOG32 << hash);
+        uint32_t hash;
+        while (getline(stream, line, '\n')) {
+            istringstream line_stream = istringstream(line);
+            line_stream >> hex >> hash;
+            line_stream >> hashes[hash];
         }
     }
-}
+
+    void fnvhashlist::validate() {
+        uint32_t hash;
+        for (const auto &pair : hashes) {
+            string data = pair.second.string();
+            transform(data.begin(), data.end(), data.begin(), [](char c) { return tolower(c); });
+            hash = dragon::hash::fnv1a32(reinterpret_cast<uint8_t *>(data.data()), data.length());
+            if (hash != pair.first) {
+                DRAGON_LOG("Failed to match " << pair.second << " to hash " << HEXLOG32 << pair.first << " instead got " << HEXLOG32 << hash);
+            }
+        }
+    }
+} // namespace yordle::cdtb

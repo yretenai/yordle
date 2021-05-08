@@ -1,8 +1,8 @@
 {
   "name": "yordle",
-  "version-string": "0.1.0-dev",
+  "version-string": "0.0.5",
   "homepage": "https://github.com/yretenai/yordle",
-  "description": "League of Legends File IO Library",
+  "description": "Third Party League of Legends File IO Library and Tooling",
   "dependencies": [
     "zstd",
     "zlib",
@@ -12,6 +12,9 @@
     "curl",
     "openssl",
     "boost-format",
-    "uriparser"
+    "imgui",
+    "glad",
+    "vulkan",
+    "opengl"
   ]
 }

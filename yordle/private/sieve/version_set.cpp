@@ -6,6 +6,11 @@
 
 #include <yordle/sieve/version_set.hpp>
 
-yordle::sieve::version_set::version_set(const std::string &buffer) {
-    data = nlohmann::json::parse(buffer);
-}
+using namespace std;
+using namespace nlohmann;
+
+namespace yordle::sieve {
+    version_set::version_set(const string &buffer) {
+        data = json::parse(buffer);
+    }
+} // namespace yordle::sieve

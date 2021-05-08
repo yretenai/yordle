@@ -8,4 +8,4 @@
 
 namespace poppy {
     void deploy(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &manifest, std::filesystem::path &deploy_path);
-}
+} // namespace poppy

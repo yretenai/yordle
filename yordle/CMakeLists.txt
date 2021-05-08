@@ -1,10 +1,6 @@
 project(yordle)
 
-if (MSVC OR WIN32_CLANG)
-    add_library(yordle SHARED)
-else ()
-    add_library(yordle STATIC)
-endif ()
+add_library(yordle)
 
 target_sources(yordle PUBLIC public/yordle/manifest/RiotManifest_generated.h)
 

@@ -7,8 +7,8 @@ project(TOOL)
 # add_subdirectory("kennen")
 # add_subdirectory("kled")
 # add_subdirectory("lulu")
-# add_subdirectory("norra")
-add_subdirectory("poppy")
+add_subdirectory("norra") # wad explorer
+add_subdirectory("poppy") # manifest decoder and downloader
 # add_subdirectory("rumble")
 # add_subdirectory("teemo")
 # add_subdirectory("tristana")

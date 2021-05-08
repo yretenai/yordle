@@ -9,10 +9,10 @@
 #  ifndef YORDLE_EXPORT
 #    ifdef yordle_EXPORTS
         /* We are building this library */
-#      define YORDLE_EXPORT __declspec(dllexport)
+#      define YORDLE_EXPORT 
 #    else
         /* We are using this library */
-#      define YORDLE_EXPORT __declspec(dllimport)
+#      define YORDLE_EXPORT 
 #    endif
 #  endif
 

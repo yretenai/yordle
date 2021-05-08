@@ -4,6 +4,11 @@
 
 #include <yordle/sieve/client_config.hpp>
 
-yordle::sieve::client_config::client_config(const std::string &buffer) {
-    data = nlohmann::json::parse(buffer);
-}
+using namespace std;
+using namespace nlohmann;
+
+namespace yordle::sieve {
+    client_config::client_config(const string &buffer) {
+        data = json::parse(buffer);
+    }
+} // namespace yordle::sieve

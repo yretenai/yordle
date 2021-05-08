@@ -10,60 +10,67 @@
 
 #include "deploy.hpp"
 
-static std::mutex print_lock;
+using namespace std;
+using namespace yordle::manifest;
+using namespace boost;
+using namespace dragon;
 
-void poppy::download(PoppyConfiguration &poppy, dragon::Array<uint8_t> &manifest_data, std::filesystem::path &target) {
-    auto manifest = yordle::manifest::riot_manifest(manifest_data);
+static mutex print_lock;
 
-    auto cache = poppy.cache_dir / "bundles";
-    if (!std::filesystem::exists(cache)) {
-        std::filesystem::create_directories(cache);
-    }
+namespace poppy {
+    void download(PoppyConfiguration &poppy, Array<uint8_t> &manifest_data, filesystem::path &target) {
+        auto manifest = riot_manifest(manifest_data);
 
-    // why not just do std::execution::unseq -> both unseq and par_unseq are defined in pstl
-    // if POPPY_THREADING is undefined because the system does not have PSTL, std::execution::unseq will also be undefined.
-#ifdef POPPY_THREADING
-    std::for_each(std::execution::par_unseq, manifest.bundles.cbegin(), manifest.bundles.cend(), [poppy, cache](const auto &bundle_pair) {
-#else
-    for (const auto &bundle_pair : manifest.bundles) {
-#endif
-        auto url = boost::format(poppy.bundle_url) % bundle_pair.first;
-        auto filename = boost::format(POPPY_BUNDLE_FILENAME_FORMAT) % bundle_pair.first;
-        auto cache_path = cache / filename.str();
-        if (std::filesystem::exists(cache_path)) {
-            print_lock.lock();
-            std::cout << "already downloaded " << url << std::endl;
-            print_lock.unlock();
-#ifdef POPPY_THREADING
-            return;
-#else
-            continue;
-#endif
+        auto cache = poppy.cache_dir / "bundles";
+        if (!filesystem::exists(cache)) {
+            filesystem::create_directories(cache);
         }
 
-        print_lock.lock();
-        std::cout << "downloading " << url << std::endl;
-        print_lock.unlock();
-
-        for (auto i = 0; i < 3; ++i) {
-            auto bundle_data = poppy::download_curl(url.str(), poppy.max_speed);
-            if (bundle_data == nullptr) {
+        // why not just do execution::unseq -> both unseq and par_unseq are defined in pstl
+        // if POPPY_THREADING is undefined because the system does not have PSTL, execution::unseq will also be undefined.
+#ifdef POPPY_THREADING
+        for_each(execution::par_unseq, manifest.bundles.cbegin(), manifest.bundles.cend(), [poppy, cache](const auto &bundle_pair) {
+#else
+        for (const auto &bundle_pair : manifest.bundles) {
+#endif
+            auto url = format(poppy.bundle_url) % bundle_pair.first;
+            auto filename = format(POPPY_BUNDLE_FILENAME_FORMAT) % bundle_pair.first;
+            auto cache_path = cache / filename.str();
+            if (filesystem::exists(cache_path)) {
                 print_lock.lock();
-                std::cerr << "err: can't download bundle! attempt " << i + 1 << " of 3" << std::endl;
+                cout << "already downloaded " << url << endl;
                 print_lock.unlock();
+#ifdef POPPY_THREADING
+                return;
+#else
                 continue;
+#endif
             }
 
-            auto array = dragon::Array<uint8_t>(*bundle_data);
-            dragon::write_file(cache_path, array);
-            break;
-        }
+            print_lock.lock();
+            cout << "downloading " << url << endl;
+            print_lock.unlock();
+
+            for (auto i = 0; i < 3; ++i) {
+                auto bundle_data = download_curl(url.str(), poppy.max_speed);
+                if (bundle_data == nullptr) {
+                    print_lock.lock();
+                    cerr << "err: can't download bundle! attempt " << i + 1 << " of 3" << endl;
+                    print_lock.unlock();
+                    continue;
+                }
+
+                auto array = Array<uint8_t>(*bundle_data);
+                write_file(cache_path, array);
+                break;
+            }
 #ifdef POPPY_THREADING
-    });
+        });
 #else
-    }
+        }
 #endif
 
-    auto path = poppy.output_dir / target;
-    poppy::deploy(poppy, manifest, path);
-}
+        auto path = poppy.output_dir / target;
+        deploy(poppy, manifest, path);
+    }
+} // namespace poppy

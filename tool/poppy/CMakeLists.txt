@@ -1,5 +1,8 @@
 project(TOOL_poppy)
 
+find_package(OpenSSL REQUIRED)
+find_package(CURL REQUIRED)
+
 add_executable(poppy poppy.cpp deploy.cpp download.cpp fetch.cpp)
 if (YORDLE_TOOL_POPPY_THREADING)
     message("-- Enabling threading in Poppy")
