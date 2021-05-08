@@ -21,7 +21,6 @@
     {
       "name": "imgui",
       "features": [
-        "freetype",
         "docking-experimental",
         "vulkan-binding",
         "opengl3-glad-binding"
