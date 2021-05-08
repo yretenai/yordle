@@ -11,7 +11,7 @@
     "nlohmann-json",
     "curl",
     "openssl",
-    "boost-format",
+    "fmt",
     "imgui",
     "glad",
     "vulkan",

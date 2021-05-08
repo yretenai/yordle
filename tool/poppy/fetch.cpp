@@ -5,7 +5,7 @@
 
 #include <string>
 
-#include <boost/format.hpp>
+#include <fmt/core.h>
 #include <openssl/sha.h>
 
 #include "download.hpp"
@@ -49,9 +49,9 @@ namespace poppy {
                 filesystem::create_directories(cache);
             }
 
-            auto url = boost::format(poppy.manifest_url) % target;
+            auto url = fmt::format(poppy.manifest_url, target);
             cout << "downloading " << url << endl;
-            auto data = download_curl(url.str(), poppy.max_speed);
+            auto data = download_curl(url, poppy.max_speed);
             if (data == nullptr) {
                 cerr << "err: can't download client config" << endl;
                 continue;
@@ -63,7 +63,7 @@ namespace poppy {
             for (unsigned char i : hash) {
                 ss << setfill('0') << setw(2) << hex << (int) i;
             }
-            auto cache_target = cache / (target + "_" + ss.str() + ".json");
+            auto cache_target = cache / fmt::format("{s}_{s}.json", target, ss.str());
             if (!filesystem::exists(cache_target)) {
                 write_file(cache_target, array);
             }
@@ -113,9 +113,9 @@ namespace poppy {
                     filesystem::create_directories(cache);
                 }
 
-                auto url = boost::format(poppy.manifest_url) % configuration % target;
+                auto url = fmt::format(poppy.manifest_url, configuration, target);
                 cout << "downloading " << url << endl;
-                auto data = download_curl(url.str(), poppy.max_speed);
+                auto data = download_curl(url, poppy.max_speed);
                 if (data == nullptr) {
                     cerr << "err: can't download client config" << endl;
                     continue;
@@ -127,7 +127,7 @@ namespace poppy {
                 for (unsigned char i : hash) {
                     ss << setfill('0') << setw(2) << hex << (int) i;
                 }
-                auto cache_target = cache / (target + configuration + "_" + ss.str() + ".json");
+                auto cache_target = cache / fmt::format("{s}{s}_{s}.json", target, configuration, ss.str());
                 if (!filesystem::exists(cache_target)) {
                     write_file(cache_target, array);
                 }

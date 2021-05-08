@@ -4,7 +4,7 @@
 
 #include "deploy.hpp"
 
-#include <boost/format.hpp>
+#include <fmt/core.h>
 
 using namespace std;
 using namespace yordle::manifest;
@@ -56,7 +56,7 @@ namespace poppy {
                 // don't
                 auto bundle_id = manifest.block_to_bundle_map[block_id];
                 if (!bundle_cache.contains(bundle_id)) {
-                    auto filename = cache / (boost::format(POPPY_BUNDLE_FILENAME_FORMAT) % bundle_id).str();
+                    auto filename = cache / fmt::format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_id);
                     auto bundle_data = read_file(filename);
                     bundle_cache[bundle_id] = make_shared<riot_bundle>(bundle_data);
                 }

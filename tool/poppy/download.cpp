@@ -6,13 +6,12 @@
 
 #include <mutex>
 
-#include <boost/format.hpp>
+#include <fmt/core.h>
 
 #include "deploy.hpp"
 
 using namespace std;
 using namespace yordle::manifest;
-using namespace boost;
 using namespace dragon;
 
 static mutex print_lock;
@@ -33,9 +32,9 @@ namespace poppy {
 #else
         for (const auto &bundle_pair : manifest.bundles) {
 #endif
-            auto url = format(poppy.bundle_url) % bundle_pair.first;
-            auto filename = format(POPPY_BUNDLE_FILENAME_FORMAT) % bundle_pair.first;
-            auto cache_path = cache / filename.str();
+            auto url = fmt::format(poppy.bundle_url, bundle_pair.first);
+            auto filename = fmt::format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_pair.first);
+            auto cache_path = cache / filename;
             if (filesystem::exists(cache_path)) {
                 print_lock.lock();
                 cout << "already downloaded " << url << endl;
@@ -52,7 +51,7 @@ namespace poppy {
             print_lock.unlock();
 
             for (auto i = 0; i < 3; ++i) {
-                auto bundle_data = download_curl(url.str(), poppy.max_speed);
+                auto bundle_data = download_curl(url, poppy.max_speed);
                 if (bundle_data == nullptr) {
                     print_lock.lock();
                     cerr << "err: can't download bundle! attempt " << i + 1 << " of 3" << endl;

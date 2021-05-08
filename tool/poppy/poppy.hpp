@@ -16,9 +16,9 @@
 #define POPPY_VERSION_i 2
 #define POPPY_VERSION_S "Poppy version 1.2.2"
 
-#define POPPY_DEFAULT_MANIFEST_URL "https://clientconfig.rpg.riotgames.com/api/v1/config/public?namespace=keystone.products.%s.patchlines"
-#define POPPY_DEFAULT_SIEVE_URL "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/%s?q[artifact_type_id]=%s&q[platform]=windows&q[published]=true"
-#define POPPY_DEFAULT_BUNDLE_URL "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/%016X.bundle"
+#define POPPY_DEFAULT_MANIFEST_URL "https://clientconfig.rpg.riotgames.com/api/v1/config/public?namespace=keystone.products.{s}.patchlines"
+#define POPPY_DEFAULT_SIEVE_URL "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/{s}?q[artifact_type_id]={s}&q[platform]=windows&q[published]=true"
+#define POPPY_DEFAULT_BUNDLE_URL "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/{016X}.bundle"
 
 #define POPPY_SAFE_EXIT_CODE (-418)
 
@@ -46,7 +46,7 @@
 #endif
 #endif
 
-#define POPPY_BUNDLE_FILENAME_FORMAT "%016X.bundle"
+#define POPPY_BUNDLE_FILENAME_FORMAT "{016X}.bundle"
 
 namespace poppy {
     typedef struct POPPY_CONFIGURATION {
