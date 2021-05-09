@@ -14,7 +14,7 @@
 #define POPPY_VERSION_M 1
 #define POPPY_VERSION_m 2
 #define POPPY_VERSION_i 5
-#define POPPY_VERSION_S "Poppy version 1.2.5"
+#define POPPY_VERSION_S "1.2.5"
 
 #define POPPY_DEFAULT_MANIFEST_URL "https://clientconfig.rpg.riotgames.com/api/v1/config/public?namespace=keystone.products.{0:s}.patchlines"
 #define POPPY_DEFAULT_SIEVE_URL "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/{0:s}?q%5Bartifact_type_id%5D={1:s}&q%5Bplatform%5D=windows&q%5Bpublished%5D=true"
@@ -46,6 +46,8 @@
 
 #define POPPY_BUNDLE_FILENAME_FORMAT "{0:016X}.bundle"
 
+#include "../tool_export.h"
+
 namespace poppy {
     typedef struct POPPY_CONFIGURATION {
         std::filesystem::path output_dir = "deploy";
@@ -64,7 +66,7 @@ namespace poppy {
 
     bool parse_configuration(int argc, char **argv, int &exit_code, PoppyConfiguration &poppy, int &code);
 
-    std::string get_version_str();
-    int get_version();
+    YORDLE_TOOL_EXPORT std::string get_version_str();
+    YORDLE_TOOL_EXPORT int get_version();
 } // namespace poppy
 #pragma clang diagnostic pop

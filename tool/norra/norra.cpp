@@ -10,15 +10,25 @@
 
 #include "norra.hpp"
 
+#include "ui/norra_menu_version.hpp"
+#include "ui/yordle_menu_version.hpp"
+
 #include <iostream>
 
 int main(int argc, char **argv) {
 #ifdef HAS_DX11
     norra::g_framework = norra::device::win_d3d11::get_instance();
+#endif
+
+    norra::g_framework->menu_items.push_back(std::make_shared<norra::ui::yordle_menu_version>());
+    norra::g_framework->menu_items.push_back(std::make_shared<norra::ui::norra_menu_version>());
+    norra::g_framework->refresh_menu();
+
     if (norra::g_framework == nullptr) {
         std::cerr << "Failed to create graphics device" << std::endl;
         return 2;
     }
+
     try {
         norra::g_framework->run();
     } catch (std::exception &exception) {
@@ -27,6 +37,13 @@ int main(int argc, char **argv) {
     }
 
     norra::g_framework->shutdown();
-#endif
     return 0;
+}
+
+std::string norra::get_version_str() {
+    return NORRA_VERSION_S;
+}
+
+int norra::get_version() {
+    return NORRA_VERSION;
 }

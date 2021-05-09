@@ -5,7 +5,7 @@
 #include <ostream>
 
 #ifndef NDEBUG
-#define PROGRAMOPTIONS_NO_COLORS
+#    define PROGRAMOPTIONS_NO_COLORS
 #endif
 #include <ProgramOptions.hxx>
 #include <curl/curl.h>
@@ -175,8 +175,8 @@ namespace poppy {
 } // namespace poppy
 
 int main(int argc, char **argv) {
-    cout << get_version_str() << endl;
-    cout << poppy::get_version_str() << endl;
+    cout << "yordle version " << get_version_str() << endl;
+    cout << "poppy version " << poppy::get_version_str() << endl;
 
     if (get_version() != YORDLE_VERSION) {
         cout << "warn: Yordle version is " << get_version() << " expected version " << YORDLE_VERSION << " (" << YORDLE_VERSION_S << ")! behavior is undefined!" << endl;

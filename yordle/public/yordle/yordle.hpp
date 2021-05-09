@@ -8,7 +8,7 @@
 #define YORDLE_VERSION_M 0
 #define YORDLE_VERSION_m 0
 #define YORDLE_VERSION_i 5
-#define YORDLE_VERSION_S "Yordle version 0.0.5"
+#define YORDLE_VERSION_S "0.0.5"
 
 #include <yordle/yordle_export.h>
 

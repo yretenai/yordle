@@ -32,12 +32,8 @@ namespace norra::device {
         ShowWindow(hwnd, SW_SHOWDEFAULT);
         UpdateWindow(hwnd);
 
-        IMGUI_CHECKVERSION();
-        ImGui::CreateContext();
-        ImGuiIO &io = ImGui::GetIO();
-        io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-        io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
-        ImGui::StyleColorsDark();
+        setup_imgui();
+
         ImGui_ImplWin32_Init(hwnd);
         ImGui_ImplDX11_Init(dx_device, dx_context);
 
@@ -45,7 +41,6 @@ namespace norra::device {
     }
 
     void win_d3d11::run() {
-        ImVec4 clear_color = ImVec4(0.05f, 0.06f, 0.09f, 1.00f);
         while (!is_exiting) {
             MSG msg;
             while (PeekMessage(&msg, nullptr, 0U, 0U, PM_REMOVE)) {
@@ -59,21 +54,22 @@ namespace norra::device {
                 break;
             }
 
-            // TODO: render stack.
-
             ImGui_ImplDX11_NewFrame();
             ImGui_ImplWin32_NewFrame();
             ImGui::NewFrame();
 
-            // TODO: window stack.
+            render_imgui();
 
             ImGui::Render();
             const float clear_color_with_alpha[4] = {clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w};
             dx_context->OMSetRenderTargets(1, &dx_rt, nullptr);
             dx_context->ClearRenderTargetView(dx_rt, clear_color_with_alpha);
+
+            // TODO: render stack.
+
             ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
-            dx_swap->Present(0, 0);
+            dx_swap->Present(1, 0);
         }
     }
 

@@ -9,8 +9,10 @@ target_link_libraries(norra standard_dragon)
 target_link_libraries(norra ProgramOptionsHxx)
 target_link_libraries(norra imgui::imgui)
 
+add_subdirectory(device)
+add_subdirectory(ui)
+
 if (MSVC OR WIN32_CLANG)
-    target_sources(norra PRIVATE device/win_d3d11.cpp)
     find_library(D3D11_LIBRARY d3d11.lib)
     target_link_libraries(norra "${D3D11_LIBRARY}")
 endif ()
