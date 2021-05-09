@@ -12,7 +12,7 @@
 namespace norra::ui {
     class imgui_menu_item : public imgui_element {
     public:
-        virtual ~imgui_menu_item() = default;
+        virtual ~imgui_menu_item() override = default;
         int priority;
     };
 } // namespace norra::ui

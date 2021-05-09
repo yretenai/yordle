@@ -6,7 +6,7 @@
 
 #include "render_device_framework.hpp"
 
-#define _WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
 #include <d3d11.h>
 #include <windows.h>
 
