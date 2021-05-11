@@ -11,23 +11,33 @@
 #include "norra.hpp"
 
 #include "ui/norra_menu_version.hpp"
+#include "ui/ux_generic_error.hpp"
 #include "ui/yordle_menu_version.hpp"
+
+#include <standard_dragon/exception/invalid_data.hpp>
 
 #include <iostream>
 
-int main(int argc, char **argv) {
+int main() {
+    try {
 #ifdef HAS_DX11
-    norra::g_framework = norra::device::win_d3d11::get_instance();
+        norra::g_framework = norra::device::win_d3d11::get_instance();
 #endif
-
-    norra::g_framework->menu_items.push_back(std::make_shared<norra::ui::yordle_menu_version>());
-    norra::g_framework->menu_items.push_back(std::make_shared<norra::ui::norra_menu_version>());
-    norra::g_framework->refresh_menu();
+    } catch (const std::exception &ex) {
+        std::cerr << ex.what() << std::endl;
+        return 3;
+    }
 
     if (norra::g_framework == nullptr) {
         std::cerr << "Failed to create graphics device" << std::endl;
         return 2;
     }
+
+    norra::g_framework->menu_items->push_back(std::make_shared<norra::ui::yordle_menu_version>());
+    norra::g_framework->menu_items->push_back(std::make_shared<norra::ui::norra_menu_version>());
+    norra::g_framework->elements->push_back(std::make_shared<norra::ui::ux_generic_error>("Test error message"));
+    norra::g_framework->elements->push_back(std::make_shared<norra::ui::ux_generic_error>("Another test error"));
+    norra::g_framework->refresh_menu();
 
     try {
         norra::g_framework->run();

@@ -26,16 +26,18 @@ namespace norra::device {
 
         bool is_exiting = false;
 
-        bool create_device();
+        void create_device();
         void shutdown_device();
         void create_rt();
         void shutdown_rt();
         void shutdown_impl();
 
+        static ID3DBlob *compile_shader(const std::string &text, const std::string &entry, const std::string &shader_model);
+
         static LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
     protected:
-        bool startup() override;
+        void startup() override;
 
     public:
         win_d3d11() = default;

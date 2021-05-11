@@ -6,8 +6,8 @@ project(TOOL)
 # add_subdirectory("heimerdinger")
 # add_subdirectory("kennen")
 # add_subdirectory("kled")
-# add_subdirectory("lulu")
-add_subdirectory("norra") # wad explorer
+# add_subdirectory("lulu") # wad explorer
+add_subdirectory("norra") # model viewer
 add_subdirectory("poppy") # manifest decoder and downloader
 # add_subdirectory("rumble")
 # add_subdirectory("teemo")

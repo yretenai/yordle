@@ -19,8 +19,9 @@ namespace norra::ui {
 
         std::string name = "yordle " + yordle::get_version_str();
 
-        void paint() override {
+        bool paint() override {
             ImGui::MenuItem(name.c_str(), nullptr, false, false);
+            return true;
         }
     };
 } // namespace norra::ui

@@ -5,14 +5,15 @@
 #pragma once
 
 #include <imgui.h>
+#include <string>
 
 namespace norra::ui {
     class imgui_element {
-    protected:
-        static constexpr ImGuiWindowFlags window_flags = ImGuiWindowFlags_MenuBar;
-
     public:
+        std::string title;
+        bool open = true;
+        ImGuiWindowFlags window_flags = ImGuiWindowFlags_Modal;
         virtual ~imgui_element() = default;
-        virtual void paint() = 0;
+        virtual bool paint() = 0;
     };
 } // namespace norra::ui

@@ -74,20 +74,35 @@ namespace norra::device {
 
     void render_device_framework::render_imgui() {
         if (ImGui::BeginMainMenuBar()) {
-            for (const auto &item : menu_items) {
-                item->paint();
+            auto new_items = std::make_shared<std::vector<std::shared_ptr<norra::ui::imgui_menu_item>>>();
+            for (const auto &item : *menu_items) {
+                if (item->paint()) {
+                    new_items->push_back(item);
+                }
             }
             ImGui::EndMainMenuBar();
+            menu_items = new_items;
         }
 
-        for (const auto &element : elements) {
-            element->paint();
+        auto new_elements = std::make_shared<std::vector<std::shared_ptr<norra::ui::imgui_element>>>();
+        for (const auto &element : *elements) {
+            ImGui::Begin(element->title.c_str(), &element->open, element->window_flags);
+            if (element->paint() && element->open) {
+                new_elements->push_back(element);
+            }
+            ImGui::End();
         }
+        elements = new_elements;
     }
 
-    void render_device_framework::refresh_menu() {
-        std::sort(menu_items.begin(), menu_items.end(), [](const std::shared_ptr<norra::ui::imgui_menu_item> &a, const std::shared_ptr<norra::ui::imgui_menu_item> &b) -> bool {
+    void render_device_framework::refresh_menu() const {
+        std::sort(menu_items->begin(), menu_items->end(), [](const std::shared_ptr<norra::ui::imgui_menu_item> &a, const std::shared_ptr<norra::ui::imgui_menu_item> &b) -> bool {
             return a->priority > b->priority;
         });
+    }
+
+    void render_device_framework::startup() {
+        menu_items = std::make_shared<std::vector<std::shared_ptr<norra::ui::imgui_menu_item>>>();
+        elements = std::make_shared<std::vector<std::shared_ptr<norra::ui::imgui_element>>>();
     }
 } // namespace norra::device

@@ -3,11 +3,13 @@
 //
 
 #include <d3d11.h>
+#include <d3dcompiler.h>
 #include <imgui.h>
 #include <imgui_impl_dx11.h>
 #include <imgui_impl_win32.h>
-#include <tchar.h>
+#include <iostream>
 
+#include "../common_win.hpp"
 #include "win_d3d11.hpp"
 
 
@@ -16,17 +18,24 @@ extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg
 std::shared_ptr<norra::device::win_d3d11> norra::device::win_d3d11::instance = nullptr;
 
 namespace norra::device {
-    bool win_d3d11::startup() {
-        wc = {sizeof(WNDCLASSEX), CS_CLASSDC, win_d3d11::WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, _T("Norra"), nullptr};
-        RegisterClassEx(&wc);
-        hwnd = CreateWindow(wc.lpszClassName, _T("Norra"), WS_OVERLAPPEDWINDOW, 100, 100, 1280, 800, nullptr, nullptr, wc.hInstance, nullptr);
+    void win_d3d11::startup() {
+        render_device_framework::startup();
 
-        if (!create_device()) {
+        wc = {sizeof(WNDCLASSEX), CS_CLASSDC, win_d3d11::WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, TEXT("Norra"), nullptr};
+        auto result = RegisterClassExW(&wc);
+        if (result == 0) {
+            throw norra::windows::get_win_exception(static_cast<HRESULT>(GetLastError()));
+        }
+        hwnd = CreateWindowExW(0, wc.lpszClassName, TEXT("Norra"), WS_OVERLAPPEDWINDOW, 100, 100, 1280, 800, nullptr, nullptr, wc.hInstance, nullptr);
+
+        try {
+            create_device();
+        } catch (const std::exception &ex) {
             shutdown_device();
-            UnregisterClass(wc.lpszClassName, wc.hInstance);
+            UnregisterClassW(wc.lpszClassName, wc.hInstance);
             DestroyWindow(hwnd);
             is_exiting = true;
-            return false;
+            throw ex;
         }
 
         ShowWindow(hwnd, SW_SHOWDEFAULT);
@@ -36,16 +45,14 @@ namespace norra::device {
 
         ImGui_ImplWin32_Init(hwnd);
         ImGui_ImplDX11_Init(dx_device, dx_context);
-
-        return true;
     }
 
     void win_d3d11::run() {
         while (!is_exiting) {
             MSG msg;
-            while (PeekMessage(&msg, nullptr, 0U, 0U, PM_REMOVE)) {
+            while (PeekMessageW(&msg, nullptr, 0U, 0U, PM_REMOVE)) {
                 TranslateMessage(&msg);
-                DispatchMessage(&msg);
+                DispatchMessageW(&msg);
                 if (msg.message == WM_QUIT)
                     is_exiting = true;
             }
@@ -65,7 +72,7 @@ namespace norra::device {
             dx_context->OMSetRenderTargets(1, &dx_rt, nullptr);
             dx_context->ClearRenderTargetView(dx_rt, clear_color_with_alpha);
 
-            // TODO: render stack.
+            // TODO: Insert D3D11 Render code here.
 
             ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
@@ -84,7 +91,7 @@ namespace norra::device {
 
         shutdown_device();
         DestroyWindow(hwnd);
-        UnregisterClass(wc.lpszClassName, wc.hInstance);
+        UnregisterClassW(wc.lpszClassName, wc.hInstance);
 
         instance = nullptr;
     }
@@ -93,7 +100,7 @@ namespace norra::device {
         is_exiting = true;
     }
 
-    bool win_d3d11::create_device() {
+    void win_d3d11::create_device() {
         DXGI_SWAP_CHAIN_DESC sd;
         ZeroMemory(&sd, sizeof(sd));
         sd.BufferCount = 2;
@@ -118,12 +125,12 @@ namespace norra::device {
                 D3D_FEATURE_LEVEL_10_0,
         };
 
-        if (D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, createDeviceFlags, featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &dx_swap, &dx_device, &featureLevel, &dx_context) != S_OK) {
-            return false;
+        auto result = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, createDeviceFlags, featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &dx_swap, &dx_device, &featureLevel, &dx_context);
+        if (FAILED(result)) {
+            throw norra::windows::get_win_exception(result);
         }
 
         create_rt();
-        return true;
     }
 
     void win_d3d11::shutdown_device() {
@@ -144,9 +151,17 @@ namespace norra::device {
 
     void win_d3d11::create_rt() {
         ID3D11Texture2D *pBackBuffer;
-        dx_swap->GetBuffer(0, IID_PPV_ARGS(&pBackBuffer));
-        dx_device->CreateRenderTargetView(pBackBuffer, nullptr, &dx_rt);
+
+        auto result = dx_swap->GetBuffer(0, IID_PPV_ARGS(&pBackBuffer));
+        if (FAILED(result)) {
+            throw norra::windows::get_win_exception(result);
+        }
+
+        result = dx_device->CreateRenderTargetView(pBackBuffer, nullptr, &dx_rt);
         pBackBuffer->Release();
+        if (FAILED(result)) {
+            throw norra::windows::get_win_exception(result);
+        }
     }
 
     void win_d3d11::shutdown_rt() {
@@ -188,11 +203,37 @@ namespace norra::device {
     std::shared_ptr<render_device_framework> win_d3d11::get_instance() {
         if (win_d3d11::instance == nullptr) {
             instance = std::make_shared<win_d3d11>();
-            if (!instance->startup()) {
+            try {
+                instance->startup();
+            } catch (const std::exception &ex) {
                 instance = nullptr;
+                throw ex;
             }
         }
 
         return instance;
+    }
+
+    ID3DBlob *win_d3d11::compile_shader(const std::string &text, const std::string &entry, const std::string &shader_model) {
+        auto flags = D3DCOMPILE_ENABLE_STRICTNESS;
+        ID3DBlob *blob = nullptr, *error_blob = nullptr;
+        auto result = D3DCompile(text.c_str(), text.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE,
+                                 entry.c_str(), shader_model.c_str(), flags, 0, &blob, &error_blob);
+        if (FAILED(result)) {
+            if (blob) {
+                blob->Release();
+                blob = nullptr;
+            }
+
+            if (error_blob) {
+                std::string msg = std::string(reinterpret_cast<char *>(error_blob->GetBufferPointer()), error_blob->GetBufferSize());
+                error_blob->Release();
+                throw std::exception(msg.c_str());
+            }
+
+            throw norra::windows::get_win_exception(result);
+        }
+
+        return blob;
     }
 } // namespace norra::device
