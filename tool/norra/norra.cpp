@@ -35,8 +35,6 @@ int main() {
 
     norra::g_framework->menu_items->push_back(std::make_shared<norra::ui::yordle_menu_version>());
     norra::g_framework->menu_items->push_back(std::make_shared<norra::ui::norra_menu_version>());
-    norra::g_framework->elements->push_back(std::make_shared<norra::ui::ux_generic_error>("Test error message"));
-    norra::g_framework->elements->push_back(std::make_shared<norra::ui::ux_generic_error>("Another test error"));
     norra::g_framework->refresh_menu();
 
     try {
