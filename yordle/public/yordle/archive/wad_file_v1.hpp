@@ -18,7 +18,7 @@
 namespace yordle::archive {
     class YORDLE_EXPORT wad_file_v1 : public wad_file {
     private:
-        static constexpr uintptr_t EXPECTED_DATA_SIZE = 0x8;
+        static constexpr uintptr_t EXPECTED_DATA_SIZE = 0x0C;
 
     public:
         explicit wad_file_v1() = default;
@@ -27,14 +27,15 @@ namespace yordle::archive {
 
 #pragma pack(push, 1)
         struct {
+            yordle::archive::wad_version fourcc = yordle::archive::wad_version::v0_0;
             uint16_t entry_offset = 0;
             uint16_t entry_size = 0;
             uint32_t entry_count = 0;
         };
 #pragma pack(pop)
 
-        int wad_version() override {
-            return 1;
+        yordle::archive::wad_version wad_version() override {
+            return fourcc;
         }
     };
 } // namespace yordle::archive

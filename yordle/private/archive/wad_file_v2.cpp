@@ -22,7 +22,8 @@ namespace yordle::archive {
         Array<uint8_t> buffer(5, nullptr);
         stream.read(reinterpret_cast<char *>(buffer.data()), 5);
 
-        if (buffer.cast<uint32_t>(0) != FOURCC_2_0) {
+        fourcc = buffer.cast<yordle::archive::wad_version>(0);
+        if (fourcc != yordle::archive::wad_version::v2_0) {
             throw invalid_data("Buffer passed to wad_file_v2 is not a valid RW20 buffer.");
         }
 

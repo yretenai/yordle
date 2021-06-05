@@ -13,24 +13,28 @@ using namespace std;
 
 namespace yordle::archive {
     wad_file_v3::wad_file_v3(istream &stream) : wad_file() {
-        auto data_start = reinterpret_cast<uintptr_t>(&signature);
+        auto data_start = reinterpret_cast<uintptr_t>(&fourcc);
 #ifndef NDEBUG
         auto data_end = reinterpret_cast<uintptr_t>(&entry_count) + sizeof(uint32_t);
         assert(data_end - data_start == EXPECTED_DATA_SIZE);
 #endif
 
-        Array<uint8_t> buffer(EXPECTED_DATA_SIZE + 4, nullptr);
-        stream.read(reinterpret_cast<char *>(buffer.data()), EXPECTED_DATA_SIZE + 4);
+        Array<uint8_t> buffer(EXPECTED_DATA_SIZE, nullptr);
+        stream.read(reinterpret_cast<char *>(buffer.data()), EXPECTED_DATA_SIZE);
 
-        auto fourcc = buffer.cast<uint32_t>(0);
-        if ((fourcc != FOURCC_3_0 && fourcc != FOURCC_3_1) || buffer.size() < EXPECTED_DATA_SIZE + 4) {
+        fourcc = buffer.cast<yordle::archive::wad_version>(0);
+        if ((fourcc != yordle::archive::wad_version::v3_0 && fourcc != yordle::archive::wad_version::v3_1) || buffer.size() < EXPECTED_DATA_SIZE) {
             throw invalid_data("Buffer passed to wad_file_v3 is not a valid RW30 buffer.");
         }
 
-        buffer.copy(data_start, 4, EXPECTED_DATA_SIZE);
+        buffer.copy(data_start, 0, EXPECTED_DATA_SIZE);
 
         if (entry_count > 0) {
             read_entries<wad_entry_v2>(stream, entry_count);
         }
+    }
+
+    bool wad_file_v3::uses_xxhash() const {
+        return fourcc == yordle::archive::wad_version::v3_1;
     }
 } // namespace yordle::archive

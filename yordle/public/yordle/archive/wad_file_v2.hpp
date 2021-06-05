@@ -28,6 +28,8 @@ namespace yordle::archive {
         std::shared_ptr<dragon::Array<uint8_t>> signature;
         std::shared_ptr<dragon::Array<uint8_t>> extra_data;
 
+        yordle::archive::wad_version fourcc = yordle::archive::wad_version::v0_0;
+
 #pragma pack(push, 1)
         struct {
             uint64_t checksum = 0;
@@ -37,8 +39,8 @@ namespace yordle::archive {
         };
 #pragma pack(pop)
 
-        int wad_version() override {
-            return 2;
+        yordle::archive::wad_version wad_version() override {
+            return fourcc;
         }
     };
 } // namespace yordle::archive

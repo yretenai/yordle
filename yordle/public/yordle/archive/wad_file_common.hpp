@@ -21,6 +21,14 @@ namespace yordle::archive {
         Symlink = 2,
         Zstd = 3
     } wad_storage_type;
+
+    typedef enum class WAD_VERSION : uint32_t {
+        v0_0 = DRAGON_MAGIC32('R', 'W', 0, 0),
+        v1_0 = DRAGON_MAGIC32('R', 'W', 1, 0),
+        v2_0 = DRAGON_MAGIC32('R', 'W', 2, 0),
+        v3_0 = DRAGON_MAGIC32('R', 'W', 3, 0),
+        v3_1 = DRAGON_MAGIC32('R', 'W', 3, 1)
+    } wad_version;
 #pragma pack(pop)
 
 #pragma pack(push, 4)
@@ -49,11 +57,6 @@ namespace yordle::archive {
 
     class YORDLE_EXPORT wad_file {
     protected:
-        static constexpr uint32_t FOURCC_1_0 = DRAGON_MAGIC32('R', 'W', 1, 0);
-        static constexpr uint32_t FOURCC_2_0 = DRAGON_MAGIC32('R', 'W', 2, 0);
-        static constexpr uint32_t FOURCC_3_0 = DRAGON_MAGIC32('R', 'W', 3, 0);
-        static constexpr uint32_t FOURCC_3_1 = DRAGON_MAGIC32('R', 'W', 3, 1);
-
         template<typename T>
         typename std::enable_if<std::is_base_of<T, wad_entry>::value, void>::type read_entries(std::istream &stream, uint64_t count) {
             auto local_entries = dragon::Array<wad_entry_v2>(count, nullptr);
@@ -72,6 +75,6 @@ namespace yordle::archive {
         [[nodiscard]] bool has_file(const std::filesystem::path &path) const;
         static std::shared_ptr<yordle::archive::wad_file> load_wad_file(std::istream &stream);
 
-        virtual int wad_version() = 0;
+        virtual wad_version wad_version() = 0;
     };
 } // namespace yordle::archive

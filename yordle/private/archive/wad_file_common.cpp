@@ -83,20 +83,20 @@ bool yordle::archive::wad_file::has_file(const std::filesystem::path &path) cons
 }
 
 shared_ptr<yordle::archive::wad_file> yordle::archive::wad_file::load_wad_file(istream &stream) {
-    uint32_t fourcc;
+    yordle::archive::wad_version fourcc;
     auto pos = stream.tellg();
-    stream.read(reinterpret_cast<char *>(&fourcc), sizeof(uint32_t));
+    stream.read(reinterpret_cast<char *>(&fourcc), sizeof(yordle::archive::wad_version));
     stream.seekg(pos, ios::beg);
 
-    if (fourcc == FOURCC_1_0) {
+    if (fourcc == yordle::archive::wad_version::v1_0) {
         return make_shared<yordle::archive::wad_file_v1>(stream);
     }
 
-    if (fourcc == FOURCC_2_0) {
+    if (fourcc == yordle::archive::wad_version::v2_0) {
         return make_shared<yordle::archive::wad_file_v2>(stream);
     }
 
-    if (fourcc == FOURCC_3_0 || fourcc == FOURCC_3_1) {
+    if (fourcc == yordle::archive::wad_version::v3_0 || fourcc == yordle::archive::wad_version::v3_1) {
         return make_shared<yordle::archive::wad_file_v3>(stream);
     }
 
