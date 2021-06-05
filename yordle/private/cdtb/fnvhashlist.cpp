@@ -13,7 +13,7 @@ using namespace dragon::hash;
 using namespace std;
 
 namespace yordle::cdtb {
-    fnvhashlist::fnvhashlist(istringstream stream) {
+    fnvhashlist::fnvhashlist(std::istream &stream) {
         string line;
 
         uint32_t hash;

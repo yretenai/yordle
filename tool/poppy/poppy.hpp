@@ -64,7 +64,7 @@ namespace poppy {
 
     std::shared_ptr<std::vector<uint8_t>> download_curl(const std::string &path, int64_t speed_limit);
 
-    bool parse_configuration(int argc, char **argv, int &exit_code, PoppyConfiguration &poppy, int &code);
+    bool parse_configuration(int argc, char **argv, PoppyConfiguration &poppy, int &code);
 
     YORDLE_TOOL_EXPORT std::string get_version_str();
     YORDLE_TOOL_EXPORT int get_version();

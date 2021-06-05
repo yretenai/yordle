@@ -12,7 +12,7 @@ using namespace dragon::exception;
 using namespace std;
 
 namespace yordle::archive {
-    wad_file_v3::wad_file_v3(istream &stream) : wad_file_v2() {
+    wad_file_v3::wad_file_v3(istream &stream) : wad_file() {
         auto data_start = reinterpret_cast<uintptr_t>(&signature);
 #ifndef NDEBUG
         auto data_end = reinterpret_cast<uintptr_t>(&entry_count) + sizeof(uint32_t);
@@ -22,15 +22,15 @@ namespace yordle::archive {
         Array<uint8_t> buffer(EXPECTED_DATA_SIZE + 4, nullptr);
         stream.read(reinterpret_cast<char *>(buffer.data()), EXPECTED_DATA_SIZE + 4);
 
-        if (buffer.cast<uint32_t>(0) != FOURCC || buffer.size() < EXPECTED_DATA_SIZE + 4) {
+        auto fourcc = buffer.cast<uint32_t>(0);
+        if ((fourcc != FOURCC_3_0 && fourcc != FOURCC_3_1) || buffer.size() < EXPECTED_DATA_SIZE + 4) {
             throw invalid_data("Buffer passed to wad_file_v3 is not a valid RW30 buffer.");
         }
 
         buffer.copy(data_start, 4, EXPECTED_DATA_SIZE);
 
         if (entry_count > 0) {
-            entries = make_shared<Array<wad_entry_v2>>(entry_count, nullptr);
-            stream.read(reinterpret_cast<char *>(entries->data()), static_cast<streamsize>(entries->byte_size()));
+            read_entries<wad_entry_v2>(stream, entry_count);
         }
     }
 } // namespace yordle::archive

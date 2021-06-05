@@ -12,7 +12,8 @@
 namespace yordle::cdtb {
     class YORDLE_EXPORT fnvhashlist : public hashlist<uint64_t> {
     public:
-        explicit fnvhashlist(std::istringstream stream);
+        fnvhashlist() = default;
+        explicit fnvhashlist(std::istream &stream);
 
         void validate() override;
     };

@@ -8,19 +8,16 @@
 #pragma ide diagnostic ignored "OCUnusedGlobalDeclarationInspection"
 
 #include <cstdint>
-#include <filesystem>
 #include <istream>
 
 #include <yordle/archive/wad_file_common.hpp>
-#include <yordle/archive/wad_file_v2.hpp>
 #include <yordle/yordle_export.h>
 
 #include <standard_dragon/dragon.hpp>
 
 namespace yordle::archive {
-    class YORDLE_EXPORT wad_file_v3 : public wad_file_v2 {
+    class YORDLE_EXPORT wad_file_v3 : public wad_file {
     private:
-        static constexpr uint32_t FOURCC = DRAGON_MAGIC32('R', 'W', 3, 0);
         static constexpr uintptr_t EXPECTED_DATA_SIZE = 0x10C;
 
     public:
@@ -35,6 +32,10 @@ namespace yordle::archive {
             uint32_t entry_count = 0;
         };
 #pragma pack(pop)
+
+        int wad_version() override {
+            return 3;
+        }
     };
 } // namespace yordle::archive
 

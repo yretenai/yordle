@@ -16,7 +16,6 @@
 #include <yordle/archive/wad_file_v1.hpp>
 #include <yordle/archive/wad_file_v2.hpp>
 #include <yordle/archive/wad_file_v3.hpp>
-#include <yordle/archive/wad_file_v3_1.hpp>
 #include <yordle/cdtb/fnvhashlist.hpp>
 #include <yordle/cdtb/hashlist.hpp>
 #include <yordle/cdtb/xxhashlist.hpp>

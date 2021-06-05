@@ -11,7 +11,7 @@
 using namespace std;
 
 namespace yordle::cdtb {
-    xxhashlist::xxhashlist(std::istringstream stream) {
+    xxhashlist::xxhashlist(std::istream &stream) {
         std::string line;
 
         uint64_t hash;

@@ -12,7 +12,8 @@
 namespace yordle::cdtb {
     class YORDLE_EXPORT xxhashlist : public hashlist<uint64_t> {
     public:
-        explicit xxhashlist(std::istringstream stream);
+        xxhashlist() = default;
+        explicit xxhashlist(std::istream &stream);
 
         void validate() override;
     };
