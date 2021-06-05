@@ -12,29 +12,21 @@
 #include <istream>
 
 #include <yordle/archive/wad_file_common.hpp>
-#include <yordle/archive/wad_file_v2.hpp>
+#include <yordle/archive/wad_file_v3.hpp>
 #include <yordle/yordle_export.h>
 
 #include <standard_dragon/dragon.hpp>
 
 namespace yordle::archive {
-    class YORDLE_EXPORT wad_file_v3 : public wad_file_v2 {
+    class YORDLE_EXPORT wad_file_v3_1 : public wad_file_v3 {
     private:
-        static constexpr uint32_t FOURCC = DRAGON_MAGIC32('R', 'W', 3, 0);
+        static constexpr uint32_t FOURCC = DRAGON_MAGIC32('R', 'W', 3, 1);
         static constexpr uintptr_t EXPECTED_DATA_SIZE = 0x10C;
 
     public:
-        explicit wad_file_v3() = default;
-        explicit wad_file_v3(std::istream &stream);
-        ~wad_file_v3() = default;
-
-#pragma pack(push, 1)
-        struct {
-            uint8_t signature[256] = {};
-            uint64_t checksum = 0;
-            uint32_t entry_count = 0;
-        };
-#pragma pack(pop)
+        explicit wad_file_v3_1() = default;
+        explicit wad_file_v3_1(std::istream &stream);
+        ~wad_file_v3_1() = default;
     };
 } // namespace yordle::archive
 

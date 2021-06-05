@@ -18,6 +18,8 @@ add_subdirectory(ui)
 if (MSVC OR WIN32_CLANG)
     find_library(D3D11_LIBRARY d3d11.lib)
     target_link_libraries(norra "${D3D11_LIBRARY}")
+    find_library(D3DCOMPILER_LIBRARY d3dcompiler.lib)
+    target_link_libraries(norra "${D3DCOMPILER_LIBRARY}")
 endif ()
 
 include(GNUInstallDirs)
