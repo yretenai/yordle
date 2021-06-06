@@ -133,7 +133,7 @@ namespace yordle::manifest {
                 stream << indent3 << "Parent: " << HEXLOG64 << directory.second.parent_id << endl;
                 stream << indent3 << "Name: " << directory.second.name << endl;
             } else {
-                stream << indent2 << get_directory_path(directory.first) << endl;
+                stream << indent2 << get_directory_path(directory.first).string() << endl;
             }
         }
 
@@ -164,7 +164,7 @@ namespace yordle::manifest {
                     stream << indent4 << HEXLOG64 << bundle << endl;
                 }
             } else {
-                stream << indent2 << (get_directory_path(file.second.directory_id) / file.second.name) << endl;
+                stream << indent2 << (get_directory_path(file.second.directory_id) / file.second.name).string() << endl;
             }
         }
     }

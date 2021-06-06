@@ -27,7 +27,7 @@ namespace poppy {
             }
         }
 
-        cout << "target: " << target << endl;
+        cout << "target: " << target.string() << endl;
 
         cout << "---manifest mini dump---" << endl;
         auto indent = Indent(0);
