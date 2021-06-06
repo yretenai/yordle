@@ -33,4 +33,14 @@ namespace yordle::cdtb {
             }
         }
     }
+
+    std::filesystem::path xxhashlist::get_path(uint64_t hash) {
+        if (!hashes.contains(hash)) {
+            std::stringstream stream;
+            stream << hex << hash;
+            return std::filesystem::path("__unknown") / stream.str();
+        }
+
+        return hashes[hash];
+    }
 } // namespace yordle::cdtb

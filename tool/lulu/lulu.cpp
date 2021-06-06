@@ -105,6 +105,30 @@ int main(int argc, char **argv) {
     }
 
     for (const auto &wad_path : lulu.targets) {
+        auto stream = ifstream(wad_path, ios::in | ios::binary);
+        auto wad = yordle::archive::wad_file::load_wad_file(stream);
+
+        for (const auto &entry : *wad->entries) {
+            auto entry_path = lulu.hash_list.get_path(entry.hash);
+            cout << entry_path.string() << endl;
+            if (lulu.dry_run) {
+                continue;
+            }
+
+            auto output_path = lulu.output_dir / entry_path;
+            auto output_dir = output_path.parent_path();
+
+            if (filesystem::exists(output_dir)) {
+                if (!filesystem::is_directory(output_path)) {
+                    filesystem::create_directories(output_dir.replace_filename(output_dir.filename().string() + ".dir"));
+                }
+            } else {
+                filesystem::create_directories(output_dir);
+            }
+
+            auto data = wad->read_file(stream, entry);
+            dragon::write_file(output_path, *data);
+        }
     }
 
     return 0;

@@ -17,5 +17,6 @@ namespace yordle::cdtb {
 
         std::map<T, std::filesystem::path> hashes;
         virtual void validate() = 0;
+        virtual std::filesystem::path get_path(T hash) = 0;
     };
 } // namespace yordle::cdtb

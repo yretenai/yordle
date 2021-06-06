@@ -16,5 +16,6 @@ namespace yordle::cdtb {
         explicit xxhashlist(std::istream &stream);
 
         void validate() override;
+        std::filesystem::path get_path(uint64_t hash) override;
     };
 } // namespace yordle::cdtb
