@@ -26,6 +26,7 @@ namespace yordle::archive {
         v0_0 = DRAGON_MAGIC32('R', 'W', 0, 0),
         v1_0 = DRAGON_MAGIC32('R', 'W', 1, 0),
         v2_0 = DRAGON_MAGIC32('R', 'W', 2, 0),
+        v2_1 = DRAGON_MAGIC32('R', 'W', 2, 1),
         v3_0 = DRAGON_MAGIC32('R', 'W', 3, 0),
         v3_1 = DRAGON_MAGIC32('R', 'W', 3, 1)
     } wad_version;

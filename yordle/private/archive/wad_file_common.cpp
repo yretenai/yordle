@@ -92,7 +92,7 @@ shared_ptr<yordle::archive::wad_file> yordle::archive::wad_file::load_wad_file(i
         return make_shared<yordle::archive::wad_file_v1>(stream);
     }
 
-    if (fourcc == yordle::archive::wad_version::v2_0) {
+    if (fourcc == yordle::archive::wad_version::v2_0 || fourcc == yordle::archive::wad_version::v2_1) {
         return make_shared<yordle::archive::wad_file_v2>(stream);
     }
 
