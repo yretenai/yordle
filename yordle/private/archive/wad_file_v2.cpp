@@ -27,13 +27,15 @@ namespace yordle::archive {
             throw invalid_data("Buffer passed to wad_file_v2 is not a valid RW20 buffer.");
         }
 
-        signature = std::make_shared<dragon::Array<uint8_t>>(static_cast<size_t>(buffer[4]), nullptr);
-        stream.read(reinterpret_cast<char *>(signature->data()), static_cast<streamsize>(signature->byte_size()));
+        if (buffer[4] > 0) {
+            signature = std::make_shared<dragon::Array<uint8_t>>(static_cast<size_t>(buffer[4]), nullptr);
+            stream.read(reinterpret_cast<char *>(signature->data()), static_cast<streamsize>(signature->byte_size()));
+        }
+
         if (83 - buffer[4] > 0) {
             extra_data = std::make_shared<dragon::Array<uint8_t>>(static_cast<size_t>(83 - buffer[4]), nullptr);
             stream.read(reinterpret_cast<char *>(extra_data->data()), static_cast<streamsize>(extra_data->byte_size()));
         }
-
 
         buffer = Array<uint8_t>(EXPECTED_DATA_SIZE, nullptr);
         stream.read(reinterpret_cast<char *>(buffer.data()), static_cast<streamsize>(buffer.byte_size()));

@@ -5,7 +5,7 @@
   "description": "Third Party League of Legends File IO Library and Tooling",
   "dependencies": [
     "zstd",
-    "zlib",
+    "gzip-hpp",
     "xxhash",
     "flatbuffers",
     "nlohmann-json",

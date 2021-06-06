@@ -17,7 +17,7 @@ namespace yordle::archive {
 #pragma pack(push, 1)
     typedef enum class WAD_STORAGE_TYPE : uint8_t {
         Uncompressed = 0,
-        Zlib = 1,
+        GZip = 1,
         Symlink = 2,
         Zstd = 3
     } wad_storage_type;
@@ -25,6 +25,7 @@ namespace yordle::archive {
     typedef enum class WAD_VERSION : uint32_t {
         v0_0 = DRAGON_MAGIC32('R', 'W', 0, 0),
         v1_0 = DRAGON_MAGIC32('R', 'W', 1, 0),
+        v1_1 = DRAGON_MAGIC32('R', 'W', 1, 1),
         v2_0 = DRAGON_MAGIC32('R', 'W', 2, 0),
         v2_1 = DRAGON_MAGIC32('R', 'W', 2, 1),
         v3_0 = DRAGON_MAGIC32('R', 'W', 3, 0),

@@ -24,7 +24,7 @@ namespace yordle::archive {
 
         fourcc = buffer.cast<yordle::archive::wad_version>(0);
 
-        if (fourcc != yordle::archive::wad_version::v1_0 || buffer.size() < EXPECTED_DATA_SIZE) {
+        if ((fourcc != yordle::archive::wad_version::v1_0 && fourcc != yordle::archive::wad_version::v1_1) || buffer.size() < EXPECTED_DATA_SIZE) {
             throw invalid_data("Buffer passed to wad_file_v1 is not a valid RW10 buffer.");
         }
 
