@@ -4,11 +4,11 @@
 
 #pragma once
 
-#define YORDLE_VERSION 5
+#define YORDLE_VERSION 8
 #define YORDLE_VERSION_M 0
-#define YORDLE_VERSION_m 0
-#define YORDLE_VERSION_i 5
-#define YORDLE_VERSION_S "0.0.5"
+#define YORDLE_VERSION_m 1
+#define YORDLE_VERSION_i 0
+#define YORDLE_VERSION_S "0.1.0"
 
 #include <yordle/yordle_export.h>
 

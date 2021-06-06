@@ -118,11 +118,7 @@ int main(int argc, char **argv) {
             auto output_path = lulu.output_dir / entry_path;
             auto output_dir = output_path.parent_path();
 
-            if (filesystem::exists(output_dir)) {
-                if (!filesystem::is_directory(output_path)) {
-                    filesystem::create_directories(output_dir.replace_filename(output_dir.filename().string() + ".dir"));
-                }
-            } else {
+            if (!filesystem::exists(output_dir)) {
                 filesystem::create_directories(output_dir);
             }
 
