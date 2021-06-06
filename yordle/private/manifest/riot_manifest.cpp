@@ -65,15 +65,15 @@ namespace yordle::manifest {
         for (flatbuffers::uoffset_t i = 0; i < rman->files()->size(); ++i) {
             const auto *file = rman->files()->GetAs<generated::RiotManifestFile>(i);
             riot_manifest_file target_file{
-                    file->file_id(),
-                    file->directory_id(),
-                    file->size(),
-                    file->name()->str(),
-                    file->language_flags(),
-                    file->link()->str(),
-                    file->is_bundle_hierarchy(),
-                    file->index(),
-                    file->permissions()};
+                file->file_id(),
+                file->directory_id(),
+                file->size(),
+                file->name()->str(),
+                file->language_flags(),
+                file->link()->str(),
+                file->is_bundle_hierarchy(),
+                file->index(),
+                file->permissions()};
             shared_ptr<Array<uint64_t>> target_bundle_ids = make_shared<Array<uint64_t>>((size_t) file->block_ids()->size(), nullptr);
             for (flatbuffers::uoffset_t j = 0; j < file->block_ids()->size(); ++j) {
                 target_bundle_ids->set(j, file->block_ids()->Get(j));
@@ -128,7 +128,7 @@ namespace yordle::manifest {
 
         stream << indent1 << "Directories: " << endl;
         for (auto const &directory : directories) {
-            if(full) {
+            if (full) {
                 stream << indent2 << "Directory(" << HEXLOG64 << directory.first << ") = " << endl;
                 stream << indent3 << "Parent: " << HEXLOG64 << directory.second.parent_id << endl;
                 stream << indent3 << "Name: " << directory.second.name << endl;
@@ -149,7 +149,7 @@ namespace yordle::manifest {
 
         stream << indent1 << "Files: " << endl;
         for (auto const &file : files) {
-            if(full) {
+            if (full) {
                 stream << indent2 << "File(" << HEXLOG64 << file.first << ") = " << endl;
                 stream << indent3 << "Directory: " << HEXLOG64 << file.second.directory_id << endl;
                 stream << indent3 << "Size: " << dec << file.second.size << endl;

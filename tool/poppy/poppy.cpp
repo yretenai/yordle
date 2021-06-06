@@ -20,68 +20,77 @@ namespace poppy {
         po::parser cli;
 
         cli["cache"]
-                .abbreviation('c')
-                .description("downloads bundles defined by manifest from CDN servers")
-                .type(po::string)
-                .callback([&](const po::string_t &str) {
-                    poppy.cache_dir = str;
-                });
+            .abbreviation('c')
+            .description("downloads bundles defined by manifest from CDN servers")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                poppy.cache_dir = str;
+            });
 
         cli["output"]
-                .abbreviation('o')
-                .description("downloads bundles defined by manifest from CDN servers")
-                .type(po::string)
-                .callback([&](const po::string_t &str) {
-                    poppy.output_dir = str;
-                });
+            .abbreviation('o')
+            .description("downloads bundles defined by manifest from CDN servers")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                poppy.output_dir = str;
+            });
 
         cli["manifest"]
-                .abbreviation('m')
-                .description("manifest url format")
-                .type(po::string)
-                .bind(poppy.manifest_url);
+            .abbreviation('m')
+            .description("manifest url format")
+            .type(po::string)
+            .bind(poppy.manifest_url);
 
         cli["bundle"]
-                .abbreviation('b')
-                .description("bundle url format")
-                .type(po::string)
-                .bind(poppy.bundle_url);
+            .abbreviation('b')
+            .description("bundle url format")
+            .type(po::string)
+            .bind(poppy.bundle_url);
 
-        cli["speed-limit"]
-                .description("download speed limit (per thread) in bytes")
-                .type(po::i64)
-                .bind(poppy.max_speed);
+        cli["platform"]
+            .abbreviation('p')
+            .description("target platform to download")
+            .type(po::string)
+            .bind(poppy.platform);
+
+        cli["throttle"]
+            .abbreviation('t')
+            .description("download speed limit (per thread) in bytes")
+            .type(po::i64)
+            .bind(poppy.max_speed);
 
         auto &configurations = cli["configurations"]
-                                       .abbreviation('C')
-                                       .description("configurations to actualize")
-                                       .type(po::string)
-                                       .multi();
+                                   .abbreviation('C')
+                                   .description("configurations to actualize")
+                                   .type(po::string)
+                                   .multi();
 
         cli[""]
-                .bind(poppy.targets);
+            .bind(poppy.targets);
 
         auto &help = cli["help"]
-                             .abbreviation('h')
-                             .description("print this help screen");
+                         .abbreviation('h')
+                         .description("print this help screen");
 
         auto &offline = cli["local-manifest"]
-                .abbreviation('B')
-                .description("targets are file paths to cached manifests");
+                            .abbreviation('B')
+                            .description("targets are file paths to cached manifests");
 
-        auto &dry= cli["dry-run"]
-                .abbreviation('n')
-                .description("read-only mode");
+        auto &dry = cli["dry-run"]
+                        .abbreviation('n')
+                        .description("read-only mode");
 
         auto &deploy = cli["no-deploy"]
-                               .description("only download bundle files");
+                           .abbreviation('N')
+                           .description("only download bundle files");
 
         auto &client_config = cli["client-config"]
-                                      .description("cdn data is from patch-lines, not sieve");
+                                  .abbreviation('C')
+                                  .description("cdn data is from patch-lines, not sieve");
 
         auto &version = cli["version"]
-                                .abbreviation('v')
-                                .description("print application version");
+                            .abbreviation('v')
+                            .description("print application version");
 
         if (!cli(argc, argv)) {
             cerr << "errored while parsing opts; aborting.\n";
@@ -104,7 +113,7 @@ namespace poppy {
             poppy.is_offline = true;
         }
 
-        if(dry.was_set()) {
+        if (dry.was_set()) {
             poppy.dry_run = true;
         }
 
@@ -123,6 +132,11 @@ namespace poppy {
             if (poppy.manifest_url == POPPY_DEFAULT_SIEVE_URL) {
                 poppy.manifest_url = POPPY_DEFAULT_MANIFEST_URL;
                 cout << "warn: updating manifest url to " << poppy.manifest_url << endl;
+            }
+
+            if (poppy.platform == "windows") {
+                poppy.platform = "win";
+                cout << "warn: updating platform to " << poppy.platform << endl;
             }
         }
 

@@ -21,7 +21,7 @@ namespace poppy {
         auto manifest = riot_manifest(manifest_data);
 
         auto cache = poppy.cache_dir / "bundles";
-        if(!poppy.dry_run) {
+        if (!poppy.dry_run) {
             if (!filesystem::exists(cache)) {
                 filesystem::create_directories(cache);
             }
@@ -61,7 +61,7 @@ namespace poppy {
             cout << "downloading (" << ind << "/" << max << ") " << url << endl;
             print_lock.unlock();
 
-            if(poppy.dry_run) {
+            if (poppy.dry_run) {
 #ifdef POPPY_THREADING
                 return;
 #else

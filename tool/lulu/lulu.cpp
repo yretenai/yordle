@@ -17,39 +17,39 @@ namespace lulu {
         po::parser cli;
 
         cli["output"]
-                .abbreviation('o')
-                .description("target output directory to save files to")
-                .type(po::string)
-                .callback([&](const po::string_t &str) {
-                    lulu.output_dir = str;
-                });
+            .abbreviation('o')
+            .description("target output directory to save files to")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                lulu.output_dir = str;
+            });
 
         cli["hash"]
-                .abbreviation('H')
-                .description("manifest url format")
-                .type(po::string)
-                .callback([&](const po::string_t &str) {
-                    if (std::filesystem::exists(str)) {
-                        ifstream stream(str, ios::in);
-                        lulu.hash_list = cdtb::xxhashlist(stream);
-                        stream.close();
-                    }
-                });
+            .abbreviation('H')
+            .description("manifest url format")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                if (std::filesystem::exists(str)) {
+                    ifstream stream(str, ios::in);
+                    lulu.hash_list = cdtb::xxhashlist(stream);
+                    stream.close();
+                }
+            });
 
         cli[""]
-                .bind(lulu.targets);
+            .bind(lulu.targets);
 
         auto &help = cli["help"]
-                             .abbreviation('h')
-                             .description("print this help screen");
+                         .abbreviation('h')
+                         .description("print this help screen");
 
         auto &dry = cli["dry"]
-                            .abbreviation('n')
-                            .description("targets are file paths to cached manifests");
+                        .abbreviation('n')
+                        .description("targets are file paths to cached manifests");
 
         auto &version = cli["version"]
-                                .abbreviation('v')
-                                .description("print application version");
+                            .abbreviation('v')
+                            .description("print application version");
 
         if (!cli(argc, argv)) {
             cerr << "errored while parsing opts; aborting.\n";

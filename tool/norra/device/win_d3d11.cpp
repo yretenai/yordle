@@ -121,8 +121,8 @@ namespace norra::device {
         //createDeviceFlags |= D3D11_CREATE_DEVICE_DEBUG;
         D3D_FEATURE_LEVEL featureLevel;
         const D3D_FEATURE_LEVEL featureLevelArray[2] = {
-                D3D_FEATURE_LEVEL_11_0,
-                D3D_FEATURE_LEVEL_10_0,
+            D3D_FEATURE_LEVEL_11_0,
+            D3D_FEATURE_LEVEL_10_0,
         };
 
         auto result = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, createDeviceFlags, featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &dx_swap, &dx_device, &featureLevel, &dx_context);

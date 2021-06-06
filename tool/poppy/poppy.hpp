@@ -17,7 +17,7 @@
 #define POPPY_VERSION_S "1.2.5"
 
 #define POPPY_DEFAULT_MANIFEST_URL "https://clientconfig.rpg.riotgames.com/api/v1/config/public?namespace=keystone.products.{0:s}.patchlines"
-#define POPPY_DEFAULT_SIEVE_URL "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/{0:s}?q%5Bartifact_type_id%5D={1:s}&q%5Bplatform%5D=windows&q%5Bpublished%5D=true"
+#define POPPY_DEFAULT_SIEVE_URL "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/{0:s}?q%5Bartifact_type_id%5D={1:s}&q%5Bplatform%5D={2:s}&q%5Bpublished%5D=true"
 #define POPPY_DEFAULT_BUNDLE_URL "https://lol.secure.dyn.riotcdn.net/channels/public/bundles/{0:016X}.bundle"
 
 #include <cstdint>
@@ -52,6 +52,7 @@ namespace poppy {
     typedef struct POPPY_CONFIGURATION {
         std::filesystem::path output_dir = "deploy";
         std::filesystem::path cache_dir = "sieve";
+        std::string platform = "windows";
         std::string manifest_url = POPPY_DEFAULT_SIEVE_URL;
         std::string bundle_url = POPPY_DEFAULT_BUNDLE_URL;
         std::deque<std::string> targets;

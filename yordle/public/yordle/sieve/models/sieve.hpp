@@ -9,7 +9,7 @@
 #include <utility>
 
 #ifndef NLOHMANN_OPT_HELPER
-#define NLOHMANN_OPT_HELPER
+#    define NLOHMANN_OPT_HELPER
 namespace nlohmann {
     template<typename T>
     struct adl_serializer<std::shared_ptr<T>> {
