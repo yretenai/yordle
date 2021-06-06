@@ -42,6 +42,7 @@ namespace poppy {
 #else
         for (const auto &bundle_id : manifest.bundle_ids) {
 #endif
+            ind += 1;
             auto url = fmt::format(poppy.bundle_url, bundle_id);
             auto filename = fmt::format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_id);
             auto cache_path = cache / filename;
@@ -57,7 +58,7 @@ namespace poppy {
             }
 
             print_lock.lock();
-            cout << "downloading (" << ++ind << "/" << max << ") " << url << endl;
+            cout << "downloading (" << ind << "/" << max << ") " << url << endl;
             print_lock.unlock();
 
             if(poppy.dry_run) {
