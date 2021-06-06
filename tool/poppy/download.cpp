@@ -27,6 +27,12 @@ namespace poppy {
             }
         }
 
+        cout << "target: " << target << endl;
+
+        cout << "---manifest mini dump---" << endl;
+        auto indent = Indent(0);
+        manifest.print(cout, indent, false);
+
         // why not just do execution::unseq -> both unseq and par_unseq are defined in pstl
         // if POPPY_THREADING is undefined because the system does not have PSTL, execution::unseq will also be undefined.
         auto ind = 0ul;

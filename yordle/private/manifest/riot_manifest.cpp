@@ -74,11 +74,11 @@ namespace yordle::manifest {
                     file->is_bundle_hierarchy(),
                     file->index(),
                     file->permissions()};
-            shared_ptr<Array<uint64_t>> bundle_ids = make_shared<Array<uint64_t>>((size_t) file->block_ids()->size(), nullptr);
+            shared_ptr<Array<uint64_t>> target_bundle_ids = make_shared<Array<uint64_t>>((size_t) file->block_ids()->size(), nullptr);
             for (flatbuffers::uoffset_t j = 0; j < file->block_ids()->size(); ++j) {
-                bundle_ids->set(j, file->block_ids()->Get(j));
+                target_bundle_ids->set(j, file->block_ids()->Get(j));
             }
-            target_file.block_ids = bundle_ids;
+            target_file.block_ids = target_bundle_ids;
             files[target_file.file_id] = target_file;
         }
 
@@ -90,7 +90,7 @@ namespace yordle::manifest {
         signature = make_shared<Array<uint8_t>>(buffer.data() + offset + csize, 0x100, true);
     }
 
-    filesystem::path yordle::manifest::riot_manifest::get_directory_path(uint64_t id) {
+    filesystem::path yordle::manifest::riot_manifest::get_directory_path(uint64_t id) const {
         auto combined_path = filesystem::path();
 
         while (id != 0) {
@@ -98,7 +98,7 @@ namespace yordle::manifest {
                 return combined_path;
             }
 
-            const auto directory = directories[id];
+            const auto directory = directories.at(id);
             combined_path = filesystem::path(directory.name) / combined_path;
             id = directory.parent_id;
         }
@@ -128,41 +128,43 @@ namespace yordle::manifest {
 
         stream << indent1 << "Directories: " << endl;
         for (auto const &directory : directories) {
-            stream << indent2 << "Directory(" << HEXLOG64 << directory.first << ") = " << endl;
-            stream << indent3 << "Parent: " << HEXLOG64 << directory.second.parent_id << endl;
-            stream << indent3 << "Name: " << directory.second.name << endl;
+            if(full) {
+                stream << indent2 << "Directory(" << HEXLOG64 << directory.first << ") = " << endl;
+                stream << indent3 << "Parent: " << HEXLOG64 << directory.second.parent_id << endl;
+                stream << indent3 << "Name: " << directory.second.name << endl;
+            } else {
+                stream << indent2 << get_directory_path(directory.first) << endl;
+            }
         }
 
-        stream << indent1 << "Bundles: " << endl;
-        for (auto const &bundle : bundles) {
-            stream << indent2 << "Bundle(" << HEXLOG64 << bundle.first << ") = " << endl;
-            if (full) {
+        if (full) {
+            stream << indent1 << "Bundles: " << endl;
+            for (auto const &bundle : bundles) {
+                stream << indent2 << "Bundle(" << HEXLOG64 << bundle.first << ") = " << endl;
                 for (auto const &block : *bundle.second) {
                     stream << indent3 << HEXLOG64 << block.block_id << " " << block.size << ":" << block.csize << endl;
                 }
-            } else {
-                stream << indent3 << "...suppressed..." << endl;
             }
         }
 
         stream << indent1 << "Files: " << endl;
         for (auto const &file : files) {
-            stream << indent2 << "File(" << HEXLOG64 << file.first << ") = " << endl;
-            stream << indent3 << "Directory: " << HEXLOG64 << file.second.directory_id << endl;
-            stream << indent3 << "Size: " << dec << file.second.size << endl;
-            stream << indent3 << "Name: " << file.second.name << endl;
-            stream << indent3 << "Language: " << BITLOG32(file.second.language_flags) << endl;
-            stream << indent3 << "Link: " << file.second.link << endl;
-            stream << indent3 << "Is Hierarchy: " << (file.second.is_hierarchy ? "yes" : "no") << endl;
-            stream << indent3 << "Index: " << static_cast<unsigned int>(file.second.index) << endl;
-            stream << indent3 << "Permissions: " << OCTLOG8 << static_cast<unsigned int>(file.second.permissions) << endl;
-            stream << indent3 << "Chucks: " << endl;
-            if (full) {
+            if(full) {
+                stream << indent2 << "File(" << HEXLOG64 << file.first << ") = " << endl;
+                stream << indent3 << "Directory: " << HEXLOG64 << file.second.directory_id << endl;
+                stream << indent3 << "Size: " << dec << file.second.size << endl;
+                stream << indent3 << "Name: " << file.second.name << endl;
+                stream << indent3 << "Language: " << BITLOG32(file.second.language_flags) << endl;
+                stream << indent3 << "Link: " << file.second.link << endl;
+                stream << indent3 << "Is Hierarchy: " << (file.second.is_hierarchy ? "yes" : "no") << endl;
+                stream << indent3 << "Index: " << static_cast<unsigned int>(file.second.index) << endl;
+                stream << indent3 << "Permissions: " << OCTLOG8 << static_cast<unsigned int>(file.second.permissions) << endl;
+                stream << indent3 << "Chucks: " << endl;
                 for (auto const &bundle : *file.second.block_ids) {
                     stream << indent4 << HEXLOG64 << bundle << endl;
                 }
             } else {
-                stream << indent3 << "...suppressed..." << endl;
+                stream << indent2 << (get_directory_path(file.second.directory_id) / file.second.name) << endl;
             }
         }
     }

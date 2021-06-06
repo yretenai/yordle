@@ -24,13 +24,14 @@ namespace poppy {
         }
         auto manifest_name = url->substr(url->find_last_of('/') + 1);
         auto cache_target = cache / manifest_name;
+        path += std::string("+") + std::filesystem::path(manifest_name).replace_extension().string();
         Array<uint8_t> array;
         if (filesystem::exists(cache_target)) {
             cout << "using cached " << manifest_name << endl;
             array = read_file(cache_target);
         } else {
             cout << "downloading " << *url << endl;
-            auto manifest_data = download_curl(*url, poppy.max_speed);
+            auto manifest_data = download_curl(*url, 0);
             if (manifest_data == nullptr) {
                 cerr << "err: can't download manifest" << endl;
                 return;
@@ -53,7 +54,7 @@ namespace poppy {
 
             auto url = fmt::format(poppy.manifest_url, target);
             cout << "downloading " << url << endl;
-            auto data = download_curl(url, poppy.max_speed);
+            auto data = download_curl(url, 0);
             if (data == nullptr) {
                 cerr << "err: can't download client config" << endl;
                 continue;
@@ -117,7 +118,7 @@ namespace poppy {
 
                 auto url = fmt::format(poppy.manifest_url, configuration, target);
                 cout << "downloading " << url << endl;
-                auto data = download_curl(url, poppy.max_speed);
+                auto data = download_curl(url, 0);
                 if (data == nullptr) {
                     cerr << "err: can't download client config" << endl;
                     continue;
@@ -146,6 +147,7 @@ namespace poppy {
                         continue;
                     }
                     auto manifest_name = manifest_url->substr(manifest_url->find_last_of('/') + 1);
+                    resolved_path += std::string("+") + std::filesystem::path(manifest_name).replace_extension().string();
                     auto manifest_cache_target = cache / manifest_name;
                     Array<uint8_t> manifest_array;
                     if (filesystem::exists(manifest_cache_target)) {
@@ -153,7 +155,7 @@ namespace poppy {
                         manifest_array = read_file(manifest_cache_target);
                     } else {
                         cout << "downloading " << *manifest_url << endl;
-                        auto manifest_data = download_curl(*manifest_url, poppy.max_speed);
+                        auto manifest_data = download_curl(*manifest_url, 0);
                         if (manifest_data == nullptr) {
                             cerr << "err: can't download manifest" << endl;
                             continue;
@@ -178,6 +180,8 @@ namespace poppy {
                 cerr << target << " does not exist!" << endl;
                 continue;
             }
+            auto manifest_name = std::filesystem::path(target).filename().replace_extension().string();
+            resolved_path += std::string("+") + manifest_name;
             auto manifest_array = read_file(target);
             download(poppy, manifest_array, resolved_path);
         }
