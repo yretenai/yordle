@@ -35,31 +35,26 @@ namespace poppy {
 
         // why not just do execution::unseq -> both unseq and par_unseq are defined in pstl
         // if POPPY_THREADING is undefined because the system does not have PSTL, execution::unseq will also be undefined.
-        auto ind = 0ul;
+        auto ind = std::atomic<int>(0ul);
         auto max = manifest.bundle_ids.size();
 #ifdef POPPY_THREADING
         for_each(execution::par_unseq, manifest.bundle_ids.cbegin(), manifest.bundle_ids.cend(), [poppy, cache, &ind, max](const auto &bundle_id) {
 #else
         for (const auto &bundle_id : manifest.bundle_ids) {
 #endif
-            ind += 1;
             auto url = fmt::format(poppy.bundle_url, bundle_id);
+            print_lock.lock();
+            cout << "downloading (" << ++ind << "/" << max << ") " << url << endl;
+            print_lock.unlock();
             auto filename = fmt::format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_id);
             auto cache_path = cache / filename;
             if (filesystem::exists(cache_path)) {
-                print_lock.lock();
-                cout << "already downloaded " << url << endl;
-                print_lock.unlock();
 #ifdef POPPY_THREADING
                 return;
 #else
                 continue;
 #endif
             }
-
-            print_lock.lock();
-            cout << "downloading (" << ind << "/" << max << ") " << url << endl;
-            print_lock.unlock();
 
             if (poppy.dry_run) {
 #ifdef POPPY_THREADING
