@@ -66,8 +66,12 @@ namespace poppy {
                              .description("print this help screen");
 
         auto &offline = cli["local-manifest"]
-                                .abbreviation('B')
-                                .description("targets are file paths to cached manifests");
+                .abbreviation('B')
+                .description("targets are file paths to cached manifests");
+
+        auto &dry= cli["dry-run"]
+                .abbreviation('n')
+                .description("read-only mode");
 
         auto &deploy = cli["no-deploy"]
                                .description("only download bundle files");
@@ -98,6 +102,10 @@ namespace poppy {
 
         if (offline.was_set()) {
             poppy.is_offline = true;
+        }
+
+        if(dry.was_set()) {
+            poppy.dry_run = true;
         }
 
         if (deploy.was_set()) {

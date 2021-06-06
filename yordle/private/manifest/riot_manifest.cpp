@@ -44,6 +44,7 @@ namespace yordle::manifest {
         }
 
         const generated::RiotManifest *rman = generated::GetRiotManifest(data->data());
+        bundle_ids.reserve(rman->bundles()->size());
         for (flatbuffers::uoffset_t i = 0; i < rman->bundles()->size(); ++i) {
             const auto *bundle = rman->bundles()->GetAs<generated::RiotManifestBundle>(i);
             shared_ptr<Array<riot_manifest_bundle>> blocks = make_shared<Array<riot_manifest_bundle>>((size_t) bundle->blocks()->size(), nullptr);
@@ -52,6 +53,7 @@ namespace yordle::manifest {
                 blocks->set(j, {block->block_id(), block->compressed_size(), block->size()});
                 block_to_bundle_map[block->block_id()] = bundle->block_id();
             }
+            bundle_ids.emplace_back(bundle->block_id());
             bundles[bundle->block_id()] = blocks;
         }
 

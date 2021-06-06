@@ -21,19 +21,23 @@ namespace poppy {
         auto manifest = riot_manifest(manifest_data);
 
         auto cache = poppy.cache_dir / "bundles";
-        if (!filesystem::exists(cache)) {
-            filesystem::create_directories(cache);
+        if(!poppy.dry_run) {
+            if (!filesystem::exists(cache)) {
+                filesystem::create_directories(cache);
+            }
         }
 
         // why not just do execution::unseq -> both unseq and par_unseq are defined in pstl
         // if POPPY_THREADING is undefined because the system does not have PSTL, execution::unseq will also be undefined.
+        auto ind = 0ul;
+        auto max = manifest.bundle_ids.size();
 #ifdef POPPY_THREADING
-        for_each(execution::par_unseq, manifest.bundles.cbegin(), manifest.bundles.cend(), [poppy, cache](const auto &bundle_pair) {
+        for_each(execution::par_unseq, manifest.bundle_ids.cbegin(), manifest.bundle_ids.cend(), [poppy, cache, &ind, max](const auto &bundle_id) {
 #else
-        for (const auto &bundle_pair : manifest.bundles) {
+        for (const auto &bundle_id : manifest.bundle_ids) {
 #endif
-            auto url = fmt::format(poppy.bundle_url, bundle_pair.first);
-            auto filename = fmt::format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_pair.first);
+            auto url = fmt::format(poppy.bundle_url, bundle_id);
+            auto filename = fmt::format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_id);
             auto cache_path = cache / filename;
             if (filesystem::exists(cache_path)) {
                 print_lock.lock();
@@ -47,8 +51,16 @@ namespace poppy {
             }
 
             print_lock.lock();
-            cout << "downloading " << url << endl;
+            cout << "downloading (" << ++ind << "/" << max << ") " << url << endl;
             print_lock.unlock();
+
+            if(poppy.dry_run) {
+#ifdef POPPY_THREADING
+                return;
+#else
+                continue;
+#endif
+            }
 
             for (auto i = 0; i < 3; ++i) {
                 auto bundle_data = download_curl(url, poppy.max_speed);

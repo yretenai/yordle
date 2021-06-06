@@ -36,7 +36,9 @@ namespace poppy {
                 return;
             }
             array = Array<uint8_t>(*manifest_data);
-            write_file(cache_target, array);
+            if(!poppy.dry_run) {
+                write_file(cache_target, array);
+            }
         }
 
         download(poppy, array, path);
@@ -45,7 +47,7 @@ namespace poppy {
     void fetch_client_config(PoppyConfiguration &poppy) {
         for (const auto &target : poppy.targets) {
             auto cache = poppy.cache_dir;
-            if (!filesystem::exists(cache)) {
+            if(!poppy.dry_run && !filesystem::exists(cache)) {
                 filesystem::create_directories(cache);
             }
 
@@ -64,7 +66,7 @@ namespace poppy {
                 ss << setfill('0') << setw(2) << hex << (int) i;
             }
             auto cache_target = cache / fmt::format("{0:s}_{1:s}.json", target, ss.str());
-            if (!filesystem::exists(cache_target)) {
+            if (!poppy.dry_run && !filesystem::exists(cache_target)) {
                 write_file(cache_target, array);
             }
 
@@ -73,7 +75,7 @@ namespace poppy {
                 cout << "processing " << *patchline.second.metadata->at("default").full_name << endl;
 
                 cache = poppy.cache_dir / patchline.first;
-                if (!filesystem::exists(cache)) {
+                if (!poppy.dry_run && !filesystem::exists(cache)) {
                     filesystem::create_directories(cache);
                 }
 
@@ -109,7 +111,7 @@ namespace poppy {
         for (const auto &target : poppy.targets) {
             for (const auto &configuration : poppy.configurations) {
                 auto cache = poppy.cache_dir;
-                if (!filesystem::exists(cache)) {
+                if (!poppy.dry_run && !filesystem::exists(cache)) {
                     filesystem::create_directories(cache);
                 }
 
@@ -128,7 +130,7 @@ namespace poppy {
                     ss << setfill('0') << setw(2) << hex << (int) i;
                 }
                 auto cache_target = cache / fmt::format("{0:s}{1:s}_{2:s}.json", target, configuration, ss.str());
-                if (!filesystem::exists(cache_target)) {
+                if (!poppy.dry_run && !filesystem::exists(cache_target)) {
                     write_file(cache_target, array);
                 }
 
@@ -157,7 +159,9 @@ namespace poppy {
                             continue;
                         }
                         manifest_array = Array<uint8_t>(*manifest_data);
-                        write_file(manifest_cache_target, manifest_array);
+                        if(!poppy.dry_run) {
+                            write_file(manifest_cache_target, manifest_array);
+                        }
                     }
 
                     download(poppy, manifest_array, resolved_path);

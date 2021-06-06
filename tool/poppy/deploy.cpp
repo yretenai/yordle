@@ -12,7 +12,7 @@ using namespace dragon;
 
 namespace poppy {
     void deploy(PoppyConfiguration &poppy, riot_manifest &manifest, filesystem::path &deploy_path) {
-        if (poppy.no_deploy) {
+        if (poppy.no_deploy || poppy.dry_run) {
             return;
         }
 
@@ -57,6 +57,10 @@ namespace poppy {
                 auto bundle_id = manifest.block_to_bundle_map[block_id];
                 if (!bundle_cache.contains(bundle_id)) {
                     auto filename = cache / fmt::format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_id);
+                    if (!filesystem::exists(filename)) {
+                        cerr << "err: can't find cached block file " << HEXLOG64 << block_id << endl;
+                        continue;
+                    }
                     auto bundle_data = read_file(filename);
                     bundle_cache[bundle_id] = make_shared<riot_bundle>(bundle_data);
                 }

@@ -57,6 +57,7 @@ namespace poppy {
         std::deque<std::string> targets;
         std::set<std::string> configurations;
         bool is_offline = false;
+        bool dry_run = false;
         bool is_client_config = false;
         bool no_deploy = false;
         int64_t max_speed = 0;
