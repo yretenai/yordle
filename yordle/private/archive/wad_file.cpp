@@ -5,7 +5,7 @@
 #include <algorithm>
 
 #include <standard_dragon/exception/invalid_data.hpp>
-#include <yordle/archive/wad_file_common.hpp>
+#include <yordle/archive/wad_file.hpp>
 
 #include <yordle/archive/wad_file_v1.hpp>
 #include <yordle/archive/wad_file_v2.hpp>

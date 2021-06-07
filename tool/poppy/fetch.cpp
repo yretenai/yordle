@@ -62,11 +62,11 @@ namespace poppy {
             auto array = Array<uint8_t>(*data);
             unsigned char hash[SHA256_DIGEST_LENGTH];
             SHA256(array.data(), array.byte_size(), hash);
-            stringstream ss;
+            stringstream str_stream;
             for (unsigned char i : hash) {
-                ss << setfill('0') << setw(2) << hex << (int) i;
+                str_stream << setfill('0') << setw(2) << hex << (int) i;
             }
-            auto cache_target = cache / fmt::format("{0:s}_{1:s}.json", target, ss.str());
+            auto cache_target = cache / fmt::format("{0:s}_{1:s}.json", target, str_stream.str());
             if (!poppy.dry_run && !filesystem::exists(cache_target)) {
                 write_file(cache_target, array);
             }
@@ -131,11 +131,11 @@ namespace poppy {
                 auto array = Array<uint8_t>(*data);
                 unsigned char hash[SHA256_DIGEST_LENGTH];
                 SHA256(array.data(), array.byte_size(), hash);
-                stringstream ss;
+                stringstream str_stream;
                 for (unsigned char i : hash) {
-                    ss << setfill('0') << setw(2) << hex << (int) i;
+                    str_stream << setfill('0') << setw(2) << hex << (int) i;
                 }
-                auto cache_target = cache / fmt::format("{0:s}_{1:s}_{2:s}.json", target, configuration, ss.str());
+                auto cache_target = cache / fmt::format("{0:s}_{1:s}_{2:s}.json", target, configuration, str_stream.str());
                 if (!poppy.dry_run && !filesystem::exists(cache_target)) {
                     write_file(cache_target, array);
                 }

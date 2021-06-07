@@ -10,7 +10,7 @@
 #include <cstdint>
 #include <istream>
 
-#include <yordle/archive/wad_file_common.hpp>
+#include <yordle/archive/wad_file.hpp>
 #include <yordle/yordle_export.h>
 
 #include <standard_dragon/dragon.hpp>

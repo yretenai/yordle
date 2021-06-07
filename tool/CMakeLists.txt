@@ -3,7 +3,7 @@ project(TOOL)
 # add_subdirectory("corki")
 # add_subdirectory("fizz")
 # add_subdirectory("gnar")
-# add_subdirectory("heimerdinger")
+add_subdirectory("heimerdinger") # data converter
 # add_subdirectory("kennen")
 # add_subdirectory("kled")
 add_subdirectory("lulu") # wad explorer

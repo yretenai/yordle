@@ -12,13 +12,17 @@
 
 #include <yordle/yordle_export.h>
 
-#include <yordle/archive/wad_file_common.hpp>
+#include <yordle/archive/wad_file.hpp>
 #include <yordle/archive/wad_file_v1.hpp>
 #include <yordle/archive/wad_file_v2.hpp>
 #include <yordle/archive/wad_file_v3.hpp>
 #include <yordle/cdtb/fnvhashlist.hpp>
 #include <yordle/cdtb/hashlist.hpp>
 #include <yordle/cdtb/xxhashlist.hpp>
+#include <yordle/data/inibin.hpp>
+#include <yordle/data/inibin_v1.hpp>
+#include <yordle/data/inibin_v2.hpp>
+#include <yordle/data/prop.hpp>
 #include <yordle/manifest/riot_bundle.hpp>
 #include <yordle/manifest/riot_manifest.hpp>
 #include <yordle/meeps/languages.hpp>

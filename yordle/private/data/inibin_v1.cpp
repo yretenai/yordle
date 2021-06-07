@@ -1,0 +1,29 @@
+//
+// Created by Lilith on 2021-06-06.
+//
+
+#include <cassert>
+
+#include <yordle/data/inibin_v1.hpp>
+
+using namespace std;
+using namespace dragon;
+
+yordle::data::inibin_v1::inibin_v1(Array<uint8_t> &buffer) {
+    auto data_start = reinterpret_cast<uintptr_t>(&version);
+#ifndef NDEBUG
+    auto data_end = reinterpret_cast<uintptr_t>(&blob_length) + sizeof(uint32_t);
+    assert(data_end - data_start == EXPECTED_DATA_SIZE);
+#endif
+
+    assert(buffer[0] == 1);
+
+    buffer.copy(data_start, 0, EXPECTED_DATA_SIZE);
+
+    auto keys = buffer.cast<inibin_v1_entry>(EXPECTED_DATA_SIZE, prop_count);
+    auto string_table = buffer.slice(EXPECTED_DATA_SIZE + keys.byte_size(), blob_length);
+
+    for (auto key : keys) {
+        properties[key.hash] = std::string(reinterpret_cast<const char *>(string_table.data() + key.offset));
+    }
+}

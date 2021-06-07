@@ -28,7 +28,7 @@ namespace lulu {
         bool dry_run = false;
     } LuluConfiguration;
 
-    bool parse_configuration(int argc, char **argv, LuluConfiguration &poppy, int &code);
+    bool parse_configuration(int argc, char **argv, LuluConfiguration &lulu, int &code);
 
     YORDLE_TOOL_EXPORT std::string get_version_str();
     YORDLE_TOOL_EXPORT int get_version();
