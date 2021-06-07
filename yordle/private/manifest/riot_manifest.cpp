@@ -30,7 +30,7 @@ namespace yordle::manifest {
 
         buffer.copy(data_start, 4, EXPECTED_DATA_SIZE);
         assert(buffer.size() >= csize + offset + 0x100);
-        assert(version_major == 2);
+        assert(version_major == 2); // TODO: Find v1.0 manifests.
         assert(version_minor == 0);
         assert(flags.value == 0x200);
 
