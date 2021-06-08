@@ -17,7 +17,7 @@ using namespace dragon::exception;
 using namespace std;
 
 namespace yordle::manifest {
-    yordle::manifest::riot_manifest::riot_manifest(Array<uint8_t> &buffer) {
+    riot_manifest::riot_manifest(Array<uint8_t> &buffer) {
         auto data_start = reinterpret_cast<uintptr_t>(&version_major);
 #ifndef NDEBUG
         auto data_end = reinterpret_cast<uintptr_t>(&size) + sizeof(uint32_t);
@@ -90,7 +90,7 @@ namespace yordle::manifest {
         signature = make_shared<Array<uint8_t>>(buffer.data() + offset + csize, 0x100, true);
     }
 
-    filesystem::path yordle::manifest::riot_manifest::get_directory_path(uint64_t id) const {
+    filesystem::path riot_manifest::get_directory_path(uint64_t id) const {
         auto combined_path = filesystem::path();
 
         while (id != 0) {
@@ -106,7 +106,7 @@ namespace yordle::manifest {
         return combined_path;
     }
 
-    void yordle::manifest::riot_manifest::print(ostream &stream, Indent &indent, bool full) const {
+    void riot_manifest::print(ostream &stream, Indent &indent, bool full) const {
         auto indent1 = indent + 1;
         auto indent2 = indent + 2;
         auto indent3 = indent + 3;

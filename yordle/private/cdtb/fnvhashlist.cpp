@@ -13,7 +13,7 @@ using namespace dragon::hash;
 using namespace std;
 
 namespace yordle::cdtb {
-    fnvhashlist::fnvhashlist(std::istream &stream) {
+    fnvhashlist::fnvhashlist(istream &stream) {
         string line;
 
         uint32_t hash;
@@ -29,18 +29,18 @@ namespace yordle::cdtb {
         for (const auto &pair : hashes) {
             string data = pair.second.string();
             transform(data.begin(), data.end(), data.begin(), [](char c) { return tolower(c); });
-            hash = dragon::hash::fnv1a32(reinterpret_cast<uint8_t *>(data.data()), data.length());
+            hash = fnv1a32(reinterpret_cast<uint8_t *>(data.data()), data.length());
             if (hash != pair.first) {
                 DRAGON_LOG("Failed to match " << pair.second << " to hash " << HEXLOG32 << pair.first << " instead got " << HEXLOG32 << hash);
             }
         }
     }
 
-    std::filesystem::path fnvhashlist::get_path(uint32_t hash) {
+    filesystem::path fnvhashlist::get_path(uint32_t hash) {
         if (!hashes.contains(hash)) {
-            std::stringstream stream;
+            stringstream stream;
             stream << hex << hash;
-            return std::filesystem::path("__unknown") / stream.str();
+            return filesystem::path("__unknown") / stream.str();
         }
 
         return hashes[hash];

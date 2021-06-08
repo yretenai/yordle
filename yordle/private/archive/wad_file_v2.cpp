@@ -28,12 +28,12 @@ namespace yordle::archive {
         }
 
         if (buffer[4] > 0) {
-            signature = std::make_shared<dragon::Array<uint8_t>>(static_cast<size_t>(buffer[4]), nullptr);
+            signature = make_shared<Array<uint8_t>>(static_cast<size_t>(buffer[4]), nullptr);
             stream.read(reinterpret_cast<char *>(signature->data()), static_cast<streamsize>(signature->byte_size()));
         }
 
         if (83 - buffer[4] > 0) {
-            extra_data = std::make_shared<dragon::Array<uint8_t>>(static_cast<size_t>(83 - buffer[4]), nullptr);
+            extra_data = make_shared<Array<uint8_t>>(static_cast<size_t>(83 - buffer[4]), nullptr);
             stream.read(reinterpret_cast<char *>(extra_data->data()), static_cast<streamsize>(extra_data->byte_size()));
         }
 

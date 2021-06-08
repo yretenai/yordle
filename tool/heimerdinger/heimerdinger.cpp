@@ -90,9 +90,9 @@ int main(int argc, char **argv) {
                 // property bin
             } else {
                 auto inibin = yordle::data::inibin::load_inibin_file(buffer);
-                auto json = inibin->dump_to_json();
+                auto json = yordle::data::dump(inibin->properties);
                 std::ofstream file(target_path, std::ios::out | std::ios::trunc);
-                file.write(json.data(), (std::streamsize) json.size());
+                file.write(json.dump(2, ' ', false, nlohmann::json::error_handler_t::replace).data(), (std::streamsize) json.size());
                 file.flush();
                 file.close();
             }
