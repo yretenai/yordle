@@ -7,8 +7,9 @@
 #ifndef NDEBUG
 #    define PROGRAMOPTIONS_NO_COLORS
 #endif
-#include <curl/curl.h>
 #include <ProgramOptions.hxx>
+
+#include <curl/curl.h>
 
 #include "fetch.hpp"
 
