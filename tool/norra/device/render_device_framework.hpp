@@ -26,9 +26,9 @@ namespace norra::device {
         std::shared_ptr<std::vector<std::shared_ptr<norra::ui::imgui_menu_item>>> menu_items;
 
         virtual ~render_device_framework() = default;
-        virtual void run() = 0;
-        virtual void close() = 0;
-        virtual void shutdown() = 0;
+        virtual void run()                 = 0;
+        virtual void close()               = 0;
+        virtual void shutdown()            = 0;
 
         void refresh_menu() const;
     };

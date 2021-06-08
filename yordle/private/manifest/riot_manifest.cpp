@@ -5,8 +5,8 @@
 #include <bitset>
 #include <cassert>
 
-#include <yordle/manifest/RiotManifest_generated.h>
 #include <yordle/manifest/riot_manifest.hpp>
+#include <yordle/manifest/RiotManifest_generated.h>
 
 #include <standard_dragon/exception/invalid_data.hpp>
 
@@ -46,7 +46,7 @@ namespace yordle::manifest {
         const generated::RiotManifest *rman = generated::GetRiotManifest(data->data());
         bundle_ids.reserve(rman->bundles()->size());
         for (flatbuffers::uoffset_t i = 0; i < rman->bundles()->size(); ++i) {
-            const auto *bundle = rman->bundles()->GetAs<generated::RiotManifestBundle>(i);
+            const auto *bundle                             = rman->bundles()->GetAs<generated::RiotManifestBundle>(i);
             shared_ptr<Array<riot_manifest_bundle>> blocks = make_shared<Array<riot_manifest_bundle>>((size_t) bundle->blocks()->size(), nullptr);
             for (flatbuffers::uoffset_t j = 0; j < bundle->blocks()->size(); ++j) {
                 const auto *block = bundle->blocks()->GetAs<generated::RiotManifestBlock>(j);
@@ -58,13 +58,13 @@ namespace yordle::manifest {
         }
 
         for (flatbuffers::uoffset_t i = 0; i < rman->languages()->size(); ++i) {
-            const auto *language = rman->languages()->GetAs<generated::RiotManifestLanguage>(i);
+            const auto *language               = rman->languages()->GetAs<generated::RiotManifestLanguage>(i);
             languages[language->language_id()] = language->name()->str();
         }
 
         for (flatbuffers::uoffset_t i = 0; i < rman->files()->size(); ++i) {
             const auto *file = rman->files()->GetAs<generated::RiotManifestFile>(i);
-            riot_manifest_file target_file{
+            riot_manifest_file target_file {
                 file->file_id(),
                 file->directory_id(),
                 file->size(),
@@ -78,13 +78,13 @@ namespace yordle::manifest {
             for (flatbuffers::uoffset_t j = 0; j < file->block_ids()->size(); ++j) {
                 target_bundle_ids->set(j, file->block_ids()->Get(j));
             }
-            target_file.block_ids = target_bundle_ids;
+            target_file.block_ids      = target_bundle_ids;
             files[target_file.file_id] = target_file;
         }
 
         for (flatbuffers::uoffset_t i = 0; i < rman->directories()->size(); ++i) {
-            const auto *dir = rman->directories()->GetAs<generated::RiotManifestDirectory>(i);
-            directories[dir->id()] = riot_manifest_dir{dir->id(), dir->parent_id(), dir->name()->str()};
+            const auto *dir        = rman->directories()->GetAs<generated::RiotManifestDirectory>(i);
+            directories[dir->id()] = riot_manifest_dir {dir->id(), dir->parent_id(), dir->name()->str()};
         }
 
         signature = make_shared<Array<uint8_t>>(buffer.data() + offset + csize, 0x100, true);
@@ -99,8 +99,8 @@ namespace yordle::manifest {
             }
 
             const auto directory = directories.at(id);
-            combined_path = filesystem::path(directory.name) / combined_path;
-            id = directory.parent_id;
+            combined_path        = filesystem::path(directory.name) / combined_path;
+            id                   = directory.parent_id;
         }
 
         return combined_path;

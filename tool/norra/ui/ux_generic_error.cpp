@@ -9,7 +9,7 @@ int norra::ui::ux_generic_error::id = 0;
 
 namespace norra::ui {
     ux_generic_error::ux_generic_error(const std::string &msg, const std::string &where) {
-        title = fmt::format("{0:s}##error_{1:d}", where, ++id);
+        title   = fmt::format("{0:s}##error_{1:d}", where, ++id);
         message = msg;
     }
 

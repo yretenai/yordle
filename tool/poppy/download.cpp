@@ -47,7 +47,7 @@ namespace poppy {
             print_lock.lock();
             cout << "downloading (" << ++ind << "/" << max << ") " << url << endl;
             print_lock.unlock();
-            auto filename = fmt::format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_id);
+            auto filename   = fmt::format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_id);
             auto cache_path = cache / filename;
             if (filesystem::exists(cache_path)) {
 #ifdef POPPY_THREADING

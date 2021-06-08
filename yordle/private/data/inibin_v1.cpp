@@ -21,7 +21,7 @@ namespace yordle::data {
 
         buffer.copy(data_start, 4, EXPECTED_DATA_SIZE);
 
-        auto keys = buffer.cast<inibin_v1_entry>(4 + EXPECTED_DATA_SIZE, prop_count);
+        auto keys         = buffer.cast<inibin_v1_entry>(4 + EXPECTED_DATA_SIZE, prop_count);
         auto string_table = buffer.slice(4 + EXPECTED_DATA_SIZE + keys.byte_size(), blob_length);
 
         for (auto key : keys) {

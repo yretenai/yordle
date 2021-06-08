@@ -28,9 +28,9 @@ namespace yordle::archive {
 #pragma pack(push, 1)
         struct {
             yordle::archive::wad_version fourcc = yordle::archive::wad_version::v0_0;
-            uint8_t signature[256] = {};
-            uint64_t checksum = 0;
-            uint32_t entry_count = 0;
+            uint8_t signature[256]              = {};
+            uint64_t checksum                   = 0;
+            uint32_t entry_count                = 0;
         };
 #pragma pack(pop)
 

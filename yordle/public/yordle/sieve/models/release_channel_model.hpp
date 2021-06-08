@@ -25,11 +25,11 @@ namespace yordle::sieve::models {
     void to_json(json &j, const release_channel &x);
 
     inline void from_json(const json &j, release_channel &x) {
-        x.version = get_optional<int64_t>(j, "version");
-        x.timestamp = get_optional<std::string>(j, "timestamp");
+        x.version          = get_optional<int64_t>(j, "version");
+        x.timestamp        = get_optional<std::string>(j, "timestamp");
         x.client_patch_url = get_optional<std::string>(j, "client_patch_url");
-        x.game_patch_url = get_optional<std::string>(j, "game_patch_url");
-        x.toggles = get_optional<std::map<std::string, int64_t>>(j, "toggles");
+        x.game_patch_url   = get_optional<std::string>(j, "game_patch_url");
+        x.toggles          = get_optional<std::map<std::string, int64_t>>(j, "toggles");
     }
 
     inline void to_json(json &j, const release_channel &x) {

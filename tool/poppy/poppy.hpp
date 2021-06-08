@@ -51,17 +51,17 @@
 namespace poppy {
     typedef struct POPPY_CONFIGURATION {
         std::filesystem::path output_dir = "deploy";
-        std::filesystem::path cache_dir = "sieve";
-        std::string platform = "windows";
-        std::string manifest_url = POPPY_DEFAULT_SIEVE_URL;
-        std::string bundle_url = POPPY_DEFAULT_BUNDLE_URL;
+        std::filesystem::path cache_dir  = "sieve";
+        std::string platform             = "windows";
+        std::string manifest_url         = POPPY_DEFAULT_SIEVE_URL;
+        std::string bundle_url           = POPPY_DEFAULT_BUNDLE_URL;
         std::deque<std::string> targets;
         std::set<std::string> configurations;
-        bool is_offline = false;
-        bool dry_run = false;
+        bool is_offline       = false;
+        bool dry_run          = false;
         bool is_client_config = false;
-        bool no_deploy = false;
-        int64_t max_speed = 0;
+        bool no_deploy        = false;
+        int64_t max_speed     = 0;
     } PoppyConfiguration;
 
     std::shared_ptr<std::vector<uint8_t>> download_curl(const std::string &path, int64_t speed_limit);

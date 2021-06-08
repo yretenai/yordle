@@ -17,9 +17,9 @@ namespace yordle::archive {
 #pragma pack(push, 1)
     typedef enum class WAD_STORAGE_TYPE : uint8_t {
         Uncompressed = 0,
-        GZip = 1,
-        Symlink = 2,
-        Zstd = 3
+        GZip         = 1,
+        Symlink      = 2,
+        Zstd         = 3
     } wad_storage_type;
 
     typedef enum class WAD_VERSION : uint32_t {
@@ -35,12 +35,12 @@ namespace yordle::archive {
 
 #pragma pack(push, 4)
     typedef struct WAD_ENTRY_V1 {
-        uint64_t hash = 0;
-        uint32_t offset = 0;
-        uint32_t csize = 0;
-        uint32_t size = 0;
+        uint64_t hash         = 0;
+        uint32_t offset       = 0;
+        uint32_t csize        = 0;
+        uint32_t size         = 0;
         wad_storage_type type = wad_storage_type::Zstd;
-        bool duplicate = false;
+        bool duplicate        = false;
     } wad_entry_v1;
     DRAGON_ASSERT(sizeof(WAD_ENTRY_V1) == 0x18);
 

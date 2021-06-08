@@ -15,12 +15,12 @@
 namespace norra::device {
     class win_d3d11 : public render_device_framework {
     private:
-        ID3D11Device *dx_device = nullptr;
+        ID3D11Device *dx_device         = nullptr;
         ID3D11DeviceContext *dx_context = nullptr;
-        IDXGISwapChain *dx_swap = nullptr;
-        ID3D11RenderTargetView *dx_rt = nullptr;
-        WNDCLASSEX wc{};
-        HWND hwnd{};
+        IDXGISwapChain *dx_swap         = nullptr;
+        ID3D11RenderTargetView *dx_rt   = nullptr;
+        WNDCLASSEX wc {};
+        HWND hwnd {};
 
         static std::shared_ptr<win_d3d11> instance;
 

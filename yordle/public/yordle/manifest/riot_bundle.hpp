@@ -14,13 +14,13 @@
 
 #include <yordle/yordle_export.h>
 
-#include <standard_dragon/Indent.hpp>
 #include <standard_dragon/dragon.hpp>
+#include <standard_dragon/Indent.hpp>
 
 namespace yordle::manifest {
     class YORDLE_EXPORT riot_bundle {
     private:
-        static constexpr uint32_t FOURCC = DRAGON_MAGIC32('R', 'B', 'U', 'N');
+        static constexpr uint32_t FOURCC             = DRAGON_MAGIC32('R', 'B', 'U', 'N');
         static constexpr uint32_t EXPECTED_DATA_SIZE = 0x10;
 
     public:
@@ -36,9 +36,9 @@ namespace yordle::manifest {
         DRAGON_ASSERT(sizeof(riot_bundle_block) == 0x10);
 
         struct {
-            uint64_t id = 0;
+            uint64_t id          = 0;
             uint32_t block_count = 0;
-            uint32_t version = 1; // bundle format version
+            uint32_t version     = 1; // bundle format version
         };
 #pragma pack(pop)
 

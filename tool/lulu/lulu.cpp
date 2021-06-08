@@ -30,7 +30,7 @@ namespace lulu {
             .type(po::string)
             .callback([&](const po::string_t &str) {
                 if (std::filesystem::exists(str)) {
-                    auto buffer = dragon::read_file(str);
+                    auto buffer    = dragon::read_file(str);
                     lulu.hash_list = cdtb::xxhashlist(buffer);
                 }
             });
@@ -105,7 +105,7 @@ int main(int argc, char **argv) {
 
     for (const auto &wad_path : lulu.targets) {
         auto stream = ifstream(wad_path, ios::in | ios::binary);
-        auto wad = yordle::archive::wad_file::load_wad_file(stream);
+        auto wad    = yordle::archive::wad_file::load_wad_file(stream);
 
         for (const auto &entry : *wad->entries) {
             auto entry_path = lulu.hash_list.get_path(entry.hash);
@@ -115,7 +115,7 @@ int main(int argc, char **argv) {
             }
 
             auto output_path = lulu.output_dir / entry_path;
-            auto output_dir = output_path.parent_path();
+            auto output_dir  = output_path.parent_path();
 
             if (!filesystem::exists(output_dir)) {
                 filesystem::create_directories(output_dir);

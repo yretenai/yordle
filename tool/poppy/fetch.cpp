@@ -23,7 +23,7 @@ namespace poppy {
             return;
         }
         auto manifest_name = url->substr(url->find_last_of('/') + 1);
-        auto cache_target = cache / manifest_name;
+        auto cache_target  = cache / manifest_name;
         path += std::string("+") + std::filesystem::path(manifest_name).replace_extension().string();
         Array<uint8_t> array;
         if (filesystem::exists(cache_target)) {

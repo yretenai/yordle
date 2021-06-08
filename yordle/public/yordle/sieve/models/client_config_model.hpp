@@ -112,10 +112,10 @@ namespace yordle::sieve::models {
     void to_json(json &j, const keystone_products_patchlines &x);
 
     inline void from_json(const json &j, keystone_products_metadata &x) {
-        x.content_paths = get_optional<std::map<std::string, std::string>>(j, "content_paths");
+        x.content_paths          = get_optional<std::map<std::string, std::string>>(j, "content_paths");
         x.default_theme_manifest = get_optional<std::string>(j, "default_theme_manifest");
-        x.full_name = get_optional<std::string>(j, "full_name");
-        x.path_name = get_optional<std::string>(j, "path_name");
+        x.full_name              = get_optional<std::string>(j, "full_name");
+        x.path_name              = get_optional<std::string>(j, "path_name");
     }
 
     inline void to_json(json &j, const keystone_products_metadata &x) {
@@ -135,13 +135,13 @@ namespace yordle::sieve::models {
     }
 
     inline void from_json(const json &j, dependency &x) {
-        x.args = get_optional<std::vector<std::string>>(j, "args");
-        x.elevate = get_optional<bool>(j, "elevate");
-        x.hash = get_optional<std::string>(j, "hash");
-        x.id = get_optional<std::string>(j, "id");
+        x.args        = get_optional<std::vector<std::string>>(j, "args");
+        x.elevate     = get_optional<bool>(j, "elevate");
+        x.hash        = get_optional<std::string>(j, "hash");
+        x.id          = get_optional<std::string>(j, "id");
         x.min_version = get_optional<std::string>(j, "min_version");
-        x.url = get_optional<std::string>(j, "url");
-        x.version = get_optional<std::string>(j, "version");
+        x.url         = get_optional<std::string>(j, "url");
+        x.version     = get_optional<std::string>(j, "version");
     }
 
     inline void to_json(json &j, const dependency &x) {
@@ -185,9 +185,9 @@ namespace yordle::sieve::models {
     }
 
     inline void from_json(const json &j, launcher_info &x) {
-        x.arguments = get_optional<std::vector<std::string>>(j, "arguments");
+        x.arguments    = get_optional<std::vector<std::string>>(j, "arguments");
         x.component_id = get_optional<std::string>(j, "component_id");
-        x.executables = get_optional<executable>(j, "executables");
+        x.executables  = get_optional<executable>(j, "executables");
     }
 
     inline void to_json(json &j, const launcher_info &x) {
@@ -205,7 +205,7 @@ namespace yordle::sieve::models {
 
     inline void from_json(const json &j, locale_data_info &x) {
         x.available_locales = get_optional<std::vector<std::string>>(j, "available_locales");
-        x.default_locale = get_optional<std::string>(j, "default_locale");
+        x.default_locale    = get_optional<std::string>(j, "default_locale");
     }
 
     inline void to_json(json &j, const locale_data_info &x) {
@@ -231,7 +231,7 @@ namespace yordle::sieve::models {
 
     inline void from_json(const json &j, region_data_info &x) {
         x.available_regions = get_optional<std::vector<std::string>>(j, "available_regions");
-        x.default_region = get_optional<std::string>(j, "default_region");
+        x.default_region    = get_optional<std::string>(j, "default_region");
     }
 
     inline void to_json(json &j, const region_data_info &x) {
@@ -246,22 +246,22 @@ namespace yordle::sieve::models {
 
     inline void from_json(const json &j, configuration &x) {
         x.allowed_http_fallback_hostnames = get_optional<std::vector<std::string>>(j, "allowed_http_fallback_hostnames");
-        x.bundles_url = get_optional<std::string>(j, "bundles_url");
-        x.dependencies = get_optional<std::vector<dependency>>(j, "dependencies");
-        x.excluded_paths = get_optional<std::vector<std::string>>(j, "excluded_paths");
-        x.id = get_optional<std::string>(j, "id");
-        x.launchable_on_update_fail = get_optional<bool>(j, "launchable_on_update_fail");
-        x.launcher = get_optional<launcher_info>(j, "launcher");
-        x.locale_data = get_optional<locale_data_info>(j, "locale_data");
-        x.metadata = get_optional<configuration_metadata>(j, "metadata");
-        x.patch_notes_url = get_optional<std::string>(j, "patch_notes_url");
-        x.patch_url = get_optional<std::string>(j, "patch_url");
-        x.path = get_optional<std::string>(j, "path");
-        x.region_data = get_optional<region_data_info>(j, "region_data");
-        x.secondary_patchlines = get_optional<std::vector<configuration>>(j, "secondary_patchlines");
-        x.seed_url = get_optional<std::string>(j, "seed_url");
-        x.tags = get_optional<std::vector<json>>(j, "tags");
-        x.url = get_optional<std::string>(j, "url");
+        x.bundles_url                     = get_optional<std::string>(j, "bundles_url");
+        x.dependencies                    = get_optional<std::vector<dependency>>(j, "dependencies");
+        x.excluded_paths                  = get_optional<std::vector<std::string>>(j, "excluded_paths");
+        x.id                              = get_optional<std::string>(j, "id");
+        x.launchable_on_update_fail       = get_optional<bool>(j, "launchable_on_update_fail");
+        x.launcher                        = get_optional<launcher_info>(j, "launcher");
+        x.locale_data                     = get_optional<locale_data_info>(j, "locale_data");
+        x.metadata                        = get_optional<configuration_metadata>(j, "metadata");
+        x.patch_notes_url                 = get_optional<std::string>(j, "patch_notes_url");
+        x.patch_url                       = get_optional<std::string>(j, "patch_url");
+        x.path                            = get_optional<std::string>(j, "path");
+        x.region_data                     = get_optional<region_data_info>(j, "region_data");
+        x.secondary_patchlines            = get_optional<std::vector<configuration>>(j, "secondary_patchlines");
+        x.seed_url                        = get_optional<std::string>(j, "seed_url");
+        x.tags                            = get_optional<std::vector<json>>(j, "tags");
+        x.url                             = get_optional<std::string>(j, "url");
     }
 
     inline void to_json(json &j, const configuration &x) {
@@ -320,12 +320,12 @@ namespace yordle::sieve::models {
     }
 
     inline void from_json(const json &j, platform &x) {
-        x.auto_patch = get_optional<bool>(j, "auto_patch");
-        x.configurations = get_optional<std::vector<configuration>>(j, "configurations");
+        x.auto_patch               = get_optional<bool>(j, "auto_patch");
+        x.configurations           = get_optional<std::vector<configuration>>(j, "configurations");
         x.deprecated_cloudfront_id = get_optional<std::string>(j, "deprecated_cloudfront_id");
-        x.icon_path = get_optional<std::string>(j, "icon_path");
-        x.install_dir = get_optional<std::string>(j, "install_dir");
-        x.rogue_process_whitelist = get_optional<std::vector<std::string>>(j, "rogue_process_whitelist");
+        x.icon_path                = get_optional<std::string>(j, "icon_path");
+        x.install_dir              = get_optional<std::string>(j, "install_dir");
+        x.rogue_process_whitelist  = get_optional<std::vector<std::string>>(j, "rogue_process_whitelist");
     }
 
     inline void to_json(json &j, const platform &x) {
@@ -351,9 +351,9 @@ namespace yordle::sieve::models {
     }
 
     inline void from_json(const json &j, keystone_products_patchlines &x) {
-        x.metadata = get_optional<std::map<std::string, keystone_products_metadata>>(j, "metadata");
+        x.metadata  = get_optional<std::map<std::string, keystone_products_metadata>>(j, "metadata");
         x.platforms = get_optional<std::map<std::string, platform>>(j, "platforms");
-        x.version = get_optional<std::string>(j, "version");
+        x.version   = get_optional<std::string>(j, "version");
     }
 
     inline void to_json(json &j, const keystone_products_patchlines &x) {

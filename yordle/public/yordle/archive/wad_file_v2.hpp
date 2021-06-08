@@ -32,10 +32,10 @@ namespace yordle::archive {
 
 #pragma pack(push, 1)
         struct {
-            uint64_t checksum = 0;
+            uint64_t checksum     = 0;
             uint16_t entry_offset = 0;
-            uint16_t entry_size = 0;
-            uint32_t entry_count = 0;
+            uint16_t entry_size   = 0;
+            uint32_t entry_count  = 0;
         };
 #pragma pack(pop)
 

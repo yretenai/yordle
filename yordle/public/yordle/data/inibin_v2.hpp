@@ -44,12 +44,12 @@ namespace yordle::data {
 
 #pragma pack(push, 1)
         struct {
-            uint16_t blob_length = 0;
+            uint16_t blob_length  = 0;
             inibin_v2_flags flags = {};
         };
 #pragma pack(pop)
 
-        uint8_t inibin_version() override {
+        uint8_t get_inibin_version() override {
             return 2;
         }
     };

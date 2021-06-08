@@ -19,8 +19,8 @@ namespace poppy {
         // pass 1: build directory skeleton
         auto directory_cache = map<uint64_t, filesystem::path>();
         for (const auto &directory_pair : manifest.directories) {
-            auto normalized_path = manifest.get_directory_path(directory_pair.first);
-            auto resolved = deploy_path / normalized_path;
+            auto normalized_path                  = manifest.get_directory_path(directory_pair.first);
+            auto resolved                         = deploy_path / normalized_path;
             directory_cache[directory_pair.first] = resolved;
             if (filesystem::exists(resolved)) {
                 cout << "warn: skipping " << normalized_path << " already exists" << endl;
@@ -34,7 +34,7 @@ namespace poppy {
 
         // pass 2: time to d-d-d-duel
         for (const auto &file_pair : manifest.files) {
-            auto file_info = file_pair.second;
+            auto file_info      = file_pair.second;
             auto directory_path = deploy_path / to_string(file_info.directory_id);
             if (directory_cache.contains(file_info.directory_id)) {
                 directory_path = directory_cache[file_info.directory_id];
@@ -61,7 +61,7 @@ namespace poppy {
                         cerr << "err: can't find cached block file " << HEXLOG64 << block_id << endl;
                         continue;
                     }
-                    auto bundle_data = read_file(filename);
+                    auto bundle_data        = read_file(filename);
                     bundle_cache[bundle_id] = make_shared<riot_bundle>(bundle_data);
                 }
                 bundle_cache[bundle_id]->read_block(block_id, stream);

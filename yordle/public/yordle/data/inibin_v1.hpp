@@ -28,12 +28,12 @@ namespace yordle::data {
 
 #pragma pack(push, 1)
         struct {
-            uint32_t prop_count = 0;
+            uint32_t prop_count  = 0;
             uint32_t blob_length = 0;
         };
 #pragma pack(pop)
 
-        uint8_t inibin_version() override {
+        uint8_t get_inibin_version() override {
             return 1;
         }
     };

@@ -22,7 +22,7 @@ namespace heimerdinger {
             .callback([&](const po::string_t &str) {
                 if (filesystem::exists(str)) {
                     auto buffer = dragon::read_file(str);
-                    auto hash = cdtb::fnvhashlist(buffer);
+                    auto hash   = cdtb::fnvhashlist(buffer);
                     heimerdinger.hash_list.combine(hash);
                 }
             });
@@ -33,7 +33,7 @@ namespace heimerdinger {
             .callback([&](const po::string_t &str) {
                 if (filesystem::exists(str)) {
                     auto buffer = dragon::read_file(str);
-                    auto hash = cdtb::fnvhashlist(buffer);
+                    auto hash   = cdtb::fnvhashlist(buffer);
                     heimerdinger.hash_list.combine(hash);
                 }
             });
@@ -44,7 +44,7 @@ namespace heimerdinger {
             .callback([&](const po::string_t &str) {
                 if (filesystem::exists(str)) {
                     auto buffer = dragon::read_file(str);
-                    auto hash = cdtb::fnvhashlist(buffer);
+                    auto hash   = cdtb::fnvhashlist(buffer);
                     heimerdinger.hash_list.combine(hash);
                 }
             });
@@ -55,7 +55,7 @@ namespace heimerdinger {
             .callback([&](const po::string_t &str) {
                 if (filesystem::exists(str)) {
                     auto buffer = dragon::read_file(str);
-                    auto hash = cdtb::fnvhashlist(buffer);
+                    auto hash   = cdtb::fnvhashlist(buffer);
                     heimerdinger.hash_list.combine(hash);
                 }
             });
@@ -124,7 +124,7 @@ int main(int argc, char **argv) {
 
     for (const auto &target : heimerdinger.targets) {
         filesystem::path target_path = target;
-        auto buffer = dragon::read_file(target_path);
+        auto buffer                  = dragon::read_file(target_path);
 
         if (target_path.extension() == ".json") {
             target_path = target_path.replace_extension(".bin");
@@ -136,7 +136,7 @@ int main(int argc, char **argv) {
                 // property bin
             } else {
                 auto inibin = data::inibin::load_inibin_file(buffer);
-                auto json = data::dump(inibin->properties, heimerdinger.hash_list);
+                auto json   = inibin->dump(heimerdinger.hash_list);
                 ofstream file(target_path, ios::out | ios::trunc);
                 file.write(json.dump(2, ' ', false, nlohmann::json::error_handler_t::replace).data(), (streamsize) json.size());
                 file.flush();

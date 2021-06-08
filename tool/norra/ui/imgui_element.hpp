@@ -11,9 +11,9 @@ namespace norra::ui {
     class imgui_element {
     public:
         std::string title;
-        bool open = true;
+        bool open                     = true;
         ImGuiWindowFlags window_flags = ImGuiWindowFlags_Modal;
-        virtual ~imgui_element() = default;
-        virtual bool paint() = 0;
+        virtual ~imgui_element()      = default;
+        virtual bool paint()          = 0;
     };
 } // namespace norra::ui

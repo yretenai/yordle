@@ -67,7 +67,7 @@ namespace yordle::sieve::models {
     }
 
     inline void from_json(const json &j, download_info &x) {
-        x.url = get_optional<std::string>(j, "url");
+        x.url          = get_optional<std::string>(j, "url");
         x.scd_required = get_optional<bool>(j, "scd_required");
     }
 
@@ -94,8 +94,8 @@ namespace yordle::sieve::models {
 
     inline void from_json(const json &j, release_release &x) {
         x.product = get_optional<std::string>(j, "product");
-        x.id = get_optional<std::string>(j, "id");
-        x.labels = get_optional<std::map<std::string, label>>(j, "labels");
+        x.id      = get_optional<std::string>(j, "id");
+        x.labels  = get_optional<std::map<std::string, label>>(j, "labels");
     }
 
     inline void to_json(json &j, const release_release &x) {
@@ -112,9 +112,9 @@ namespace yordle::sieve::models {
     }
 
     inline void from_json(const json &j, release_element &x) {
-        x.release = get_optional<release_release>(j, "release");
+        x.release        = get_optional<release_release>(j, "release");
         x.compat_version = get_optional<compatible_version>(j, "compat_version");
-        x.download = get_optional<download_info>(j, "download");
+        x.download       = get_optional<download_info>(j, "download");
     }
 
     inline void to_json(json &j, const release_element &x) {

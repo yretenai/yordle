@@ -21,7 +21,7 @@ namespace norra::device {
     void win_d3d11::startup() {
         render_device_framework::startup();
 
-        wc = {sizeof(WNDCLASSEX), CS_CLASSDC, win_d3d11::WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, TEXT("Norra"), nullptr};
+        wc          = {sizeof(WNDCLASSEX), CS_CLASSDC, win_d3d11::WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, TEXT("Norra"), nullptr};
         auto result = RegisterClassExW(&wc);
         if (result == 0) {
             throw norra::windows::get_win_exception(static_cast<HRESULT>(GetLastError()));
@@ -103,19 +103,19 @@ namespace norra::device {
     void win_d3d11::create_device() {
         DXGI_SWAP_CHAIN_DESC sd;
         ZeroMemory(&sd, sizeof(sd));
-        sd.BufferCount = 2;
-        sd.BufferDesc.Width = 0;
-        sd.BufferDesc.Height = 0;
-        sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-        sd.BufferDesc.RefreshRate.Numerator = 60;
+        sd.BufferCount                        = 2;
+        sd.BufferDesc.Width                   = 0;
+        sd.BufferDesc.Height                  = 0;
+        sd.BufferDesc.Format                  = DXGI_FORMAT_R8G8B8A8_UNORM;
+        sd.BufferDesc.RefreshRate.Numerator   = 60;
         sd.BufferDesc.RefreshRate.Denominator = 1;
-        sd.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
-        sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-        sd.OutputWindow = hwnd;
-        sd.SampleDesc.Count = 1;
-        sd.SampleDesc.Quality = 0;
-        sd.Windowed = TRUE;
-        sd.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
+        sd.Flags                              = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
+        sd.BufferUsage                        = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+        sd.OutputWindow                       = hwnd;
+        sd.SampleDesc.Count                   = 1;
+        sd.SampleDesc.Quality                 = 0;
+        sd.Windowed                           = TRUE;
+        sd.SwapEffect                         = DXGI_SWAP_EFFECT_DISCARD;
 
         UINT createDeviceFlags = 0;
         //createDeviceFlags |= D3D11_CREATE_DEVICE_DEBUG;
@@ -215,7 +215,7 @@ namespace norra::device {
     }
 
     ID3DBlob *win_d3d11::compile_shader(const std::string &text, const std::string &entry, const std::string &shader_model) {
-        auto flags = D3DCOMPILE_ENABLE_STRICTNESS;
+        auto flags     = D3DCOMPILE_ENABLE_STRICTNESS;
         ID3DBlob *blob = nullptr, *error_blob = nullptr;
         auto result = D3DCompile(text.c_str(), text.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE,
                                  entry.c_str(), shader_model.c_str(), flags, 0, &blob, &error_blob);

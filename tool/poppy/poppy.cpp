@@ -7,8 +7,8 @@
 #ifndef NDEBUG
 #    define PROGRAMOPTIONS_NO_COLORS
 #endif
-#include <ProgramOptions.hxx>
 #include <curl/curl.h>
+#include <ProgramOptions.hxx>
 
 #include "fetch.hpp"
 
@@ -141,7 +141,7 @@ namespace poppy {
         }
 
         if (configurations.was_set()) {
-            auto vec = configurations.to_vector<po::string>();
+            auto vec             = configurations.to_vector<po::string>();
             poppy.configurations = set<string>(vec.begin(), vec.end());
         } else {
             if (poppy.is_client_config) {
@@ -204,7 +204,7 @@ int main(int argc, char **argv) {
         cout << "warn: Yordle version is " << get_version() << " expected version " << YORDLE_VERSION << " (" << YORDLE_VERSION_S << ")! behavior is undefined!" << endl;
     }
 
-    int exit_code = 0;
+    int exit_code                   = 0;
     poppy::PoppyConfiguration poppy = {};
     if (!poppy::parse_configuration(argc, argv, poppy, exit_code)) {
         return exit_code;
