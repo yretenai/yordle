@@ -22,13 +22,14 @@ namespace yordle::data::prop {
         }
     };
 
-    class YORDLE_EXPORT bool_prop : primitive_prop<bool, prop_type::boolean> { };
-    class YORDLE_EXPORT int8_prop : primitive_prop<int8_t, prop_type::int8> { };
-    class YORDLE_EXPORT uint8_prop : primitive_prop<uint8_t, prop_type::uint8> { };
-    class YORDLE_EXPORT int16_prop : primitive_prop<int16_t, prop_type::int16> { };
-    class YORDLE_EXPORT uint16_prop : primitive_prop<uint16_t, prop_type::uint16> { };
-    class YORDLE_EXPORT int32_prop : primitive_prop<int32_t, prop_type::int32> { };
-    class YORDLE_EXPORT uint32_prop : primitive_prop<uint32_t, prop_type::uint32> { };
-    class YORDLE_EXPORT int64_prop : primitive_prop<int32_t, prop_type::int64> { };
-    class YORDLE_EXPORT uint64_prop : primitive_prop<uint32_t, prop_type::uint64> { };
+    DRAGON_ASSERT(sizeof(bool) == 1);
+    typedef primitive_prop<bool, prop_type::boolean> bool_prop;
+    typedef primitive_prop<int8_t, prop_type::int8> int8_prop;
+    typedef primitive_prop<uint8_t, prop_type::uint8> uint8_prop;
+    typedef primitive_prop<int16_t, prop_type::int16> int16_prop;
+    typedef primitive_prop<uint16_t, prop_type::uint16> uint16_prop;
+    typedef primitive_prop<int32_t, prop_type::int32> int32_prop;
+    typedef primitive_prop<uint32_t, prop_type::uint32> uint32_prop;
+    typedef primitive_prop<int32_t, prop_type::int64> int64_prop;
+    typedef primitive_prop<uint32_t, prop_type::uint64> uint64_prop;
 } // namespace yordle::data::prop
