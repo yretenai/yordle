@@ -28,4 +28,4 @@ namespace yordle::data {
             properties[key.hash] = string(reinterpret_cast<const char *>(string_table.data() + key.offset));
         }
     }
-}
+} // namespace yordle::data

@@ -16,6 +16,50 @@ namespace heimerdinger {
     bool parse_configuration(int argc, char **argv, HeimerdingerConfiguration &heimerdinger, int &exit_code) {
         po::parser cli;
 
+        cli["bin-entries"]
+            .description("bin entries hashlist path")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                if (filesystem::exists(str)) {
+                    auto buffer = dragon::read_file(str);
+                    auto hash = cdtb::fnvhashlist(buffer);
+                    heimerdinger.hash_list.combine(hash);
+                }
+            });
+
+        cli["bin-fields"]
+            .description("bin fields hashlist path")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                if (filesystem::exists(str)) {
+                    auto buffer = dragon::read_file(str);
+                    auto hash = cdtb::fnvhashlist(buffer);
+                    heimerdinger.hash_list.combine(hash);
+                }
+            });
+
+        cli["bin-hashes"]
+            .description("bin hashes hashlist path")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                if (filesystem::exists(str)) {
+                    auto buffer = dragon::read_file(str);
+                    auto hash = cdtb::fnvhashlist(buffer);
+                    heimerdinger.hash_list.combine(hash);
+                }
+            });
+
+        cli["bin-types"]
+            .description("bin types hashlist path")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                if (filesystem::exists(str)) {
+                    auto buffer = dragon::read_file(str);
+                    auto hash = cdtb::fnvhashlist(buffer);
+                    heimerdinger.hash_list.combine(hash);
+                }
+            });
+
         cli[""]
             .bind(heimerdinger.targets);
 
@@ -76,8 +120,10 @@ int main(int argc, char **argv) {
         return exit_code;
     }
 
+    auto hashlist = cdtb::fnvhashlist();
+
     for (const auto &target : heimerdinger.targets) {
-        std::filesystem::path target_path = target;
+        filesystem::path target_path = target;
         auto buffer = dragon::read_file(target_path);
 
         if (target_path.extension() == ".json") {
@@ -89,10 +135,10 @@ int main(int argc, char **argv) {
             if (buffer[0] == 'P') {
                 // property bin
             } else {
-                auto inibin = yordle::data::inibin::load_inibin_file(buffer);
-                auto json = yordle::data::dump(inibin->properties);
-                std::ofstream file(target_path, std::ios::out | std::ios::trunc);
-                file.write(json.dump(2, ' ', false, nlohmann::json::error_handler_t::replace).data(), (std::streamsize) json.size());
+                auto inibin = data::inibin::load_inibin_file(buffer);
+                auto json = data::dump(inibin->properties, heimerdinger.hash_list);
+                ofstream file(target_path, ios::out | ios::trunc);
+                file.write(json.dump(2, ' ', false, nlohmann::json::error_handler_t::replace).data(), (streamsize) json.size());
                 file.flush();
                 file.close();
             }

@@ -9,6 +9,7 @@
 
 #include <nlohmann/json.hpp>
 
+#include <yordle/cdtb/fnvhashlist.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data {
@@ -17,5 +18,5 @@ namespace yordle::data {
     typedef std::array<float, 2> float2_type;
     typedef std::array<uint8_t, 3> uint8x3_type;
 
-    nlohmann::json YORDLE_EXPORT dump(const std::map<uint32_t, std::any> &properties);
+    nlohmann::json YORDLE_EXPORT dump(const std::map<uint32_t, std::any> &properties, const yordle::cdtb::fnvhashlist &hashlist);
 } // namespace yordle::data

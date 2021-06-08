@@ -26,13 +26,12 @@ namespace lulu {
 
         cli["hash"]
             .abbreviation('H')
-            .description("manifest url format")
+            .description("hash list path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
                 if (std::filesystem::exists(str)) {
-                    ifstream stream(str, ios::in);
-                    lulu.hash_list = cdtb::xxhashlist(stream);
-                    stream.close();
+                    auto buffer = dragon::read_file(str);
+                    lulu.hash_list = cdtb::xxhashlist(buffer);
                 }
             });
 
