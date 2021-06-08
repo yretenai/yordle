@@ -12,7 +12,7 @@
 namespace yordle::data {
     class YORDLE_EXPORT inibin_v1 : public inibin {
     private:
-        static constexpr uintptr_t EXPECTED_DATA_SIZE = 0x0C;
+        static constexpr uintptr_t EXPECTED_DATA_SIZE = 0x08;
 
     public:
         explicit inibin_v1() = default;
@@ -26,9 +26,8 @@ namespace yordle::data {
         DRAGON_ASSERT(sizeof(inibin_v1_entry) == 8);
 #pragma pack(pop)
 
-#pragma pack(push, 4)
+#pragma pack(push, 1)
         struct {
-            uint8_t version = 1;
             uint32_t prop_count = 0;
             uint32_t blob_length = 0;
         };

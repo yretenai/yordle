@@ -5,6 +5,7 @@
 #pragma once
 
 #include <any>
+#include <array>
 #include <map>
 
 #include <standard_dragon/Array.hpp>

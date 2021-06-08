@@ -12,11 +12,11 @@
 namespace yordle::data {
     class YORDLE_EXPORT inibin_v2 : public inibin {
     private:
-        static constexpr uintptr_t EXPECTED_DATA_SIZE = 0x05;
+        static constexpr uintptr_t EXPECTED_DATA_SIZE = 0x04;
 
     public:
         explicit inibin_v2() = default;
-        explicit inibin_v2(dragon::Array<uint8_t> &stream);
+        explicit inibin_v2(dragon::Array<uint8_t> &buffer);
 
 #pragma pack(push, 2)
         typedef union alignas(2) INIBIN_V2_FLAGS {
@@ -44,7 +44,6 @@ namespace yordle::data {
 
 #pragma pack(push, 1)
         struct {
-            uint8_t version = 2;
             uint16_t blob_length = 0;
             inibin_v2_flags flags = {};
         };
