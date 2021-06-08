@@ -136,7 +136,7 @@ int main(int argc, char **argv) {
                 // property bin
             } else {
                 auto inibin = data::inibin::load_inibin_file(buffer);
-                auto json   = inibin->dump(heimerdinger.hash_list);
+                auto json   = inibin->to_json(heimerdinger.hash_list);
                 ofstream file(target_path, ios::out | ios::trunc);
                 file.write(json.dump(2, ' ', false, nlohmann::json::error_handler_t::replace).data(), (streamsize) json.size());
                 file.flush();

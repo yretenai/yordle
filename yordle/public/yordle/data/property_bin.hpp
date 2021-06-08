@@ -9,6 +9,7 @@
 
 #include <nlohmann/json.hpp>
 
+#include <yordle/cdtb/fnvhashlist.hpp>
 #include <yordle/data/prop/empty_constructed_prop.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/object_prop.hpp>

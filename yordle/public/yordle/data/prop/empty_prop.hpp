@@ -11,6 +11,7 @@
 
 #include <standard_dragon/Array.hpp>
 
+#include <yordle/cdtb/fnvhashlist.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::prop {

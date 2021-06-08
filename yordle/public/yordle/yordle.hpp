@@ -22,8 +22,7 @@
 #include <yordle/data/inibin.hpp>
 #include <yordle/data/inibin_v1.hpp>
 #include <yordle/data/inibin_v2.hpp>
-#include <yordle/data/json_helper.hpp>
-#include <yordle/data/prop.hpp>
+#include <yordle/data/property_bin.hpp>
 #include <yordle/manifest/riot_bundle.hpp>
 #include <yordle/manifest/riot_manifest.hpp>
 #include <yordle/meeps/languages.hpp>
