@@ -77,6 +77,6 @@ namespace yordle::archive {
         [[nodiscard]] bool has_file(const std::filesystem::path &path) const;
         static std::shared_ptr<yordle::archive::wad_file> load_wad_file(std::istream &stream);
 
-        virtual wad_version wad_version() = 0;
+        virtual wad_version get_wad_version() = 0;
     };
 } // namespace yordle::archive

@@ -4,6 +4,7 @@
 
 #include "download.hpp"
 
+#include <atomic>
 #include <mutex>
 
 #include <fmt/core.h>
@@ -35,7 +36,7 @@ namespace poppy {
 
         // why not just do execution::unseq -> both unseq and par_unseq are defined in pstl
         // if POPPY_THREADING is undefined because the system does not have PSTL, execution::unseq will also be undefined.
-        auto ind = std::atomic<int>(0ul);
+        auto ind = std::atomic<int>(0);
         auto max = manifest.bundle_ids.size();
 #ifdef POPPY_THREADING
         for_each(execution::par_unseq, manifest.bundle_ids.cbegin(), manifest.bundle_ids.cend(), [poppy, cache, &ind, max](const auto &bundle_id) {

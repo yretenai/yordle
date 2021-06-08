@@ -39,7 +39,7 @@ namespace yordle::archive {
         };
 #pragma pack(pop)
 
-        yordle::archive::wad_version wad_version() override {
+        yordle::archive::wad_version get_wad_version() override {
             return fourcc;
         }
     };

@@ -67,9 +67,9 @@ namespace yordle::archive {
     }
 
     shared_ptr<wad_file> wad_file::load_wad_file(istream &stream) {
-        yordle::archive::wad_version fourcc;
+        wad_version fourcc;
         auto pos = stream.tellg();
-        stream.read(reinterpret_cast<char *>(&fourcc), sizeof(yordle::archive::wad_version));
+        stream.read(reinterpret_cast<char *>(&fourcc), sizeof(wad_version));
         stream.seekg(pos, ios::beg);
 
         switch (fourcc) {

@@ -30,18 +30,18 @@ namespace yordle::sieve::models {
         std::shared_ptr<std::string> version;
     };
 
-    struct executables {
+    struct executable {
         std::shared_ptr<std::string> app;
         std::shared_ptr<std::string> exe;
     };
 
-    struct launcher {
+    struct launcher_info {
         std::shared_ptr<std::vector<std::string>> arguments;
         std::shared_ptr<std::string> component_id;
-        std::shared_ptr<executables> executables;
+        std::shared_ptr<executable> executables;
     };
 
-    struct locale_data {
+    struct locale_data_info {
         std::shared_ptr<std::vector<std::string>> available_locales;
         std::shared_ptr<std::string> default_locale;
     };
@@ -50,7 +50,7 @@ namespace yordle::sieve::models {
         std::shared_ptr<std::string> theme_manifest;
     };
 
-    struct region_data {
+    struct region_data_info {
         std::shared_ptr<std::vector<std::string>> available_regions;
         std::shared_ptr<std::string> default_region;
     };
@@ -62,13 +62,13 @@ namespace yordle::sieve::models {
         std::shared_ptr<std::vector<std::string>> excluded_paths;
         std::shared_ptr<std::string> id;
         std::shared_ptr<bool> launchable_on_update_fail;
-        std::shared_ptr<launcher> launcher;
-        std::shared_ptr<locale_data> locale_data;
+        std::shared_ptr<launcher_info> launcher;
+        std::shared_ptr<locale_data_info> locale_data;
         std::shared_ptr<configuration_metadata> metadata;
         std::shared_ptr<std::string> patch_notes_url;
         std::shared_ptr<std::string> patch_url;
         std::shared_ptr<std::string> path;
-        std::shared_ptr<region_data> region_data;
+        std::shared_ptr<region_data_info> region_data;
         std::shared_ptr<std::vector<configuration>> secondary_patchlines;
         std::shared_ptr<std::string> seed_url;
         std::shared_ptr<std::vector<nlohmann::json>> tags;
@@ -94,16 +94,16 @@ namespace yordle::sieve::models {
     void to_json(json &j, const keystone_products_metadata &x);
     void from_json(const json &j, dependency &x);
     void to_json(json &j, const dependency &x);
-    void from_json(const json &j, executables &x);
-    void to_json(json &j, const executables &x);
-    void from_json(const json &j, launcher &x);
-    void to_json(json &j, const launcher &x);
-    void from_json(const json &j, locale_data &x);
-    void to_json(json &j, const locale_data &x);
+    void from_json(const json &j, executable &x);
+    void to_json(json &j, const executable &x);
+    void from_json(const json &j, launcher_info &x);
+    void to_json(json &j, const launcher_info &x);
+    void from_json(const json &j, locale_data_info &x);
+    void to_json(json &j, const locale_data_info &x);
     void from_json(const json &j, configuration_metadata &x);
     void to_json(json &j, const configuration_metadata &x);
-    void from_json(const json &j, region_data &x);
-    void to_json(json &j, const region_data &x);
+    void from_json(const json &j, region_data_info &x);
+    void to_json(json &j, const region_data_info &x);
     void from_json(const json &j, configuration &x);
     void to_json(json &j, const configuration &x);
     void from_json(const json &j, platform &x);
@@ -169,12 +169,12 @@ namespace yordle::sieve::models {
         }
     }
 
-    inline void from_json(const json &j, executables &x) {
+    inline void from_json(const json &j, executable &x) {
         x.app = get_optional<std::string>(j, "app");
         x.exe = get_optional<std::string>(j, "exe");
     }
 
-    inline void to_json(json &j, const executables &x) {
+    inline void to_json(json &j, const executable &x) {
         j = json::object();
         if (x.app) {
             j["app"] = x.app;
@@ -184,13 +184,13 @@ namespace yordle::sieve::models {
         }
     }
 
-    inline void from_json(const json &j, launcher &x) {
+    inline void from_json(const json &j, launcher_info &x) {
         x.arguments = get_optional<std::vector<std::string>>(j, "arguments");
         x.component_id = get_optional<std::string>(j, "component_id");
-        x.executables = get_optional<executables>(j, "executables");
+        x.executables = get_optional<executable>(j, "executables");
     }
 
-    inline void to_json(json &j, const launcher &x) {
+    inline void to_json(json &j, const launcher_info &x) {
         j = json::object();
         if (x.arguments) {
             j["arguments"] = x.arguments;
@@ -203,12 +203,12 @@ namespace yordle::sieve::models {
         }
     }
 
-    inline void from_json(const json &j, locale_data &x) {
+    inline void from_json(const json &j, locale_data_info &x) {
         x.available_locales = get_optional<std::vector<std::string>>(j, "available_locales");
         x.default_locale = get_optional<std::string>(j, "default_locale");
     }
 
-    inline void to_json(json &j, const locale_data &x) {
+    inline void to_json(json &j, const locale_data_info &x) {
         j = json::object();
         if (x.available_locales) {
             j["available_locales"] = x.available_locales;
@@ -229,12 +229,12 @@ namespace yordle::sieve::models {
         }
     }
 
-    inline void from_json(const json &j, region_data &x) {
+    inline void from_json(const json &j, region_data_info &x) {
         x.available_regions = get_optional<std::vector<std::string>>(j, "available_regions");
         x.default_region = get_optional<std::string>(j, "default_region");
     }
 
-    inline void to_json(json &j, const region_data &x) {
+    inline void to_json(json &j, const region_data_info &x) {
         j = json::object();
         if (x.available_regions) {
             j["available_regions"] = x.available_regions;
@@ -251,13 +251,13 @@ namespace yordle::sieve::models {
         x.excluded_paths = get_optional<std::vector<std::string>>(j, "excluded_paths");
         x.id = get_optional<std::string>(j, "id");
         x.launchable_on_update_fail = get_optional<bool>(j, "launchable_on_update_fail");
-        x.launcher = get_optional<launcher>(j, "launcher");
-        x.locale_data = get_optional<locale_data>(j, "locale_data");
+        x.launcher = get_optional<launcher_info>(j, "launcher");
+        x.locale_data = get_optional<locale_data_info>(j, "locale_data");
         x.metadata = get_optional<configuration_metadata>(j, "metadata");
         x.patch_notes_url = get_optional<std::string>(j, "patch_notes_url");
         x.patch_url = get_optional<std::string>(j, "patch_url");
         x.path = get_optional<std::string>(j, "path");
-        x.region_data = get_optional<region_data>(j, "region_data");
+        x.region_data = get_optional<region_data_info>(j, "region_data");
         x.secondary_patchlines = get_optional<std::vector<configuration>>(j, "secondary_patchlines");
         x.seed_url = get_optional<std::string>(j, "seed_url");
         x.tags = get_optional<std::vector<json>>(j, "tags");

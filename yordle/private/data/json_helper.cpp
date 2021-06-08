@@ -39,7 +39,7 @@ namespace yordle::data {
             } else if (prop.second.type() == typeid(string)) {
                 j[key] = any_cast<string const &>(prop.second);
             } else {
-                j[key] = prop.second.type().raw_name();
+                j[key] = prop.second.type().name();
             }
         }
         return j;
