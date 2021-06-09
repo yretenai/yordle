@@ -100,7 +100,7 @@ namespace yordle::data::prop {
 
         nlohmann::json data_obj;
         for (const auto &pair : properties) {
-            pair.second->to_json(data_obj, hash_list);
+            pair.second->to_json(data_obj, hash_list, file_hash_list);
         }
         obj["data"] = data_obj;
 
