@@ -11,6 +11,7 @@
 #include <nlohmann/json.hpp>
 
 #include <yordle/cdtb/fnvhashlist.hpp>
+#include <yordle/cdtb/xxhashlist.hpp>
 #include <yordle/data/prop/object_prop.hpp>
 #include <yordle/yordle_export.h>
 
@@ -29,6 +30,6 @@ namespace yordle::data {
         std::vector<std::string> dependencies;
         std::map<uint32_t, std::shared_ptr<yordle::data::prop::object_prop>> objects;
 
-        nlohmann::json dump(const yordle::cdtb::fnvhashlist &hashlist);
+        [[nodiscard]] nlohmann::json to_json(const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list) const;
     };
 } // namespace yordle::data

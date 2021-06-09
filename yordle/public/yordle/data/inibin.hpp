@@ -30,6 +30,6 @@ namespace yordle::data {
         static std::shared_ptr<yordle::data::inibin> load_inibin_file(dragon::Array<uint8_t> &buffer);
 
         virtual uint8_t get_inibin_version() = 0;
-        nlohmann::json to_json(const yordle::cdtb::fnvhashlist &hashlist);
+        nlohmann::json to_json(const yordle::cdtb::fnvhashlist &hash_list);
     };
 } // namespace yordle::data

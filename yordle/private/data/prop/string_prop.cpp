@@ -15,11 +15,11 @@ namespace yordle::data::prop {
         ptr += sz;
     }
 
-    void string_prop::to_json(json json, const yordle::cdtb::fnvhashlist &hashlist) const {
+    void string_prop::to_json(json json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list) const {
         if (value.has_value()) {
-            json[hashlist.get_string(key)] = std::any_cast<std::string>(value);
+            json[hash_list.get_string(key)] = std::any_cast<std::string>(value);
         } else {
-            json[hashlist.get_string(key)] = nullptr;
+            json[hash_list.get_string(key)] = nullptr;
         }
     }
 } // namespace yordle::data::prop

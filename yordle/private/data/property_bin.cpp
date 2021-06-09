@@ -47,7 +47,26 @@ namespace yordle::data {
         }
     }
 
-    nlohmann::json property_bin::dump(const yordle::cdtb::fnvhashlist &hashlist) {
-        return nlohmann::json();
+    json property_bin::to_json(const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list) const {
+        json j;
+
+        if (parent_hash > 0) {
+            j["prev"] = hash_list.get_string(parent_hash);
+        }
+
+        j["dependencies"] = dependencies;
+
+        json objs = json::array();
+        for (const auto &pair : objects) {
+            json obj;
+            obj["type"] = hash_list.get_string(pair.first);
+            json data;
+            pair.second->to_json(data, hash_list, file_hash_list);
+            obj["data"] = data;
+            objs.emplace_back(obj);
+        }
+        j["objects"] = objs;
+
+        return j;
     }
 } // namespace yordle::data

@@ -12,6 +12,7 @@
 #include <standard_dragon/Array.hpp>
 
 #include <yordle/cdtb/fnvhashlist.hpp>
+#include <yordle/cdtb/xxhashlist.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::prop {
@@ -60,8 +61,8 @@ namespace yordle::data::prop {
         prop_type type = prop_type::null;
         std::any value;
 
-        virtual void to_json(nlohmann::json json, const yordle::cdtb::fnvhashlist &hashlist) const {
-            json[hashlist.get_string(key)] = nullptr;
+        virtual void to_json(nlohmann::json json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list) const {
+            json[hash_list.get_string(key)] = nullptr;
         }
     };
 } // namespace yordle::data::prop

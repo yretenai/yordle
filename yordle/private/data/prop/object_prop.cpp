@@ -85,14 +85,14 @@ namespace yordle::data::prop {
         return nullptr;
     }
 
-    void object_prop::to_json(json json, const cdtb::fnvhashlist &hashlist) const {
+    void object_prop::to_json(json json, const cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list) const {
         nlohmann::json obj;
-        obj["type"] = hashlist.get_string(key);
+        obj["type"] = hash_list.get_string(key);
 
         if (!value.has_value()) {
             obj["data"] = nullptr;
 
-            json[hashlist.get_string(path_hash)] = obj;
+            json[hash_list.get_string(path_hash)] = obj;
             return;
         }
 
@@ -100,10 +100,10 @@ namespace yordle::data::prop {
 
         nlohmann::json data_obj;
         for (const auto &pair : properties) {
-            pair.second->to_json(data_obj, hashlist);
+            pair.second->to_json(data_obj, hash_list);
         }
         obj["data"] = data_obj;
 
-        json[hashlist.get_string(path_hash)] = obj;
+        json[hash_list.get_string(path_hash)] = obj;
     }
 } // namespace yordle::data::prop

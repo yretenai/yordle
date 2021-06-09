@@ -16,6 +16,6 @@ namespace yordle::data::prop {
 
         prop_type type = prop_type::string;
 
-        void to_json(nlohmann::json json, const yordle::cdtb::fnvhashlist &hashlist) const override;
+        void to_json(nlohmann::json json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list) const override;
     };
 } // namespace yordle::data::prop

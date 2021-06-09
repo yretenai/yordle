@@ -22,10 +22,10 @@ namespace yordle::data {
         }
     }
 
-    json inibin::to_json(const yordle::cdtb::fnvhashlist &hashlist) {
+    json inibin::to_json(const yordle::cdtb::fnvhashlist &hash_list) {
         json j;
         for (const auto &prop : properties) {
-            auto key = hashlist.get_string(prop.first);
+            auto key = hash_list.get_string(prop.first);
             if (!prop.second.has_value()) {
                 j[key] = nullptr;
             }

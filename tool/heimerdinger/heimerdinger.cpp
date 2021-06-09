@@ -60,6 +60,17 @@ namespace heimerdinger {
                 }
             });
 
+        cli["hash"]
+            .abbreviation('H')
+            .description("file hash list path")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                if (std::filesystem::exists(str)) {
+                    auto buffer                 = dragon::read_file(str);
+                    heimerdinger.file_hash_list = cdtb::xxhashlist(buffer);
+                }
+            });
+
         cli[""]
             .bind(heimerdinger.targets);
 
@@ -133,7 +144,12 @@ int main(int argc, char **argv) {
             target_path = target_path.replace_extension(".json");
             // decode
             if (buffer[0] == 'P') {
-                // property bin
+                auto prop = data::property_bin(buffer);
+                auto json = prop.to_json(heimerdinger.hash_list, heimerdinger.file_hash_list);
+                ofstream file(target_path, ios::out | ios::trunc);
+                file.write(json.dump(2, ' ', false, nlohmann::json::error_handler_t::replace).data(), (streamsize) json.size());
+                file.flush();
+                file.close();
             } else {
                 auto inibin = data::inibin::load_inibin_file(buffer);
                 auto json   = inibin->to_json(heimerdinger.hash_list);

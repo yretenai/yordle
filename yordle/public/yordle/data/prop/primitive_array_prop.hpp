@@ -22,8 +22,8 @@ namespace yordle::data::prop {
 
         prop_type type = P;
 
-        void to_json(nlohmann::json json, const yordle::cdtb::fnvhashlist &hashlist) const override {
-            json[hashlist.get_string(key)] = value.has_value() ? std::any_cast<T>(value) : nullptr;
+        void to_json(nlohmann::json json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list) const override {
+            json[hash_list.get_string(key)] = value.has_value() ? std::any_cast<T>(value) : nullptr;
         }
     };
 

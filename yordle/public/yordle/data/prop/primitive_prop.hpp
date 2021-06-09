@@ -19,8 +19,19 @@ namespace yordle::data::prop {
 
         prop_type type = P;
 
-        void to_json(nlohmann::json json, const yordle::cdtb::fnvhashlist &hashlist) const override {
-            json[hashlist.get_string(key)] = value.has_value() ? std::any_cast<T>(value) : nullptr;
+        void to_json(nlohmann::json json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list) const override {
+            if (!value.has_value()) {
+                json[hash_list.get_string(key)] = nullptr;
+            }
+
+            // this is inefficient, move fnv and xx to their own classes.
+            if (type == prop_type::fnv_hash) {
+                json[hash_list.get_string(key)] = hash_list.get_string(std::any_cast<T>(value));
+            } else if (type == prop_type::xx_hash) {
+                json[hash_list.get_string(key)] = file_hash_list.get_string(std::any_cast<T>(value));
+            } else {
+                json[hash_list.get_string(key)] = std::any_cast<T>(value);
+            }
         }
     };
 
