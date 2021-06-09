@@ -10,6 +10,7 @@
 
 using namespace std;
 using namespace dragon;
+using namespace nlohmann;
 
 namespace yordle::data::prop {
     object_prop::object_prop(Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
@@ -82,5 +83,27 @@ namespace yordle::data::prop {
         }
 
         return nullptr;
+    }
+
+    void object_prop::to_json(json json, const cdtb::fnvhashlist &hashlist) const {
+        nlohmann::json obj;
+        obj["type"] = hashlist.get_string(key);
+
+        if (!value.has_value()) {
+            obj["data"] = nullptr;
+
+            json[hashlist.get_string(path_hash)] = obj;
+            return;
+        }
+
+        auto properties = std::any_cast<map<uint32_t, shared_ptr<empty_prop>>>(value);
+
+        nlohmann::json data_obj;
+        for (const auto &pair : properties) {
+            pair.second->to_json(data_obj, hashlist);
+        }
+        obj["data"] = data_obj;
+
+        json[hashlist.get_string(path_hash)] = obj;
     }
 } // namespace yordle::data::prop
