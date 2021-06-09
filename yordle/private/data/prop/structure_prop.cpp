@@ -32,7 +32,7 @@ namespace yordle::data::prop {
 
         ptr += size;
     }
-    void structure_prop::to_json(json &json, const cdtb::fnvhashlist &hash_list, const cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key) const {
+    void structure_prop::to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const {
         if (!obj_key.has_value()) {
             obj_key = hash_list.get_string(key);
         }
@@ -51,10 +51,14 @@ namespace yordle::data::prop {
 
         nlohmann::json data_obj;
         for (const auto &property : properties) {
-            property->to_json(data_obj, hash_list, file_hash_list, {});
+            property->to_json(data_obj, hash_list, file_hash_list, {}, store_type_info);
         }
         obj["data"] = data_obj;
 
-        json[obj_key.value()] = obj;
+        if (store_type_info) {
+            json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", obj}};
+        } else {
+            json[obj_key.value()] = obj;
+        }
     }
 } // namespace yordle::data::prop

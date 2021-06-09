@@ -30,6 +30,6 @@ namespace yordle::data {
         std::vector<std::string> dependencies;
         std::set<std::shared_ptr<yordle::data::prop::object_prop>> objects;
 
-        [[nodiscard]] nlohmann::json to_json(const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list) const;
+        [[nodiscard]] nlohmann::json to_json(const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, bool store_type_info) const;
     };
 } // namespace yordle::data

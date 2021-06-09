@@ -48,11 +48,11 @@ namespace yordle::data {
         }
     }
 
-    json property_bin::to_json(const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list) const {
+    nlohmann::json property_bin::to_json(const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, bool store_type_info) const {
         json j;
 
         if (parent_hash > 0) {
-            j["prev"] = hash_list.get_string(parent_hash);
+            j["hash"] = hash_list.get_string(parent_hash);
         }
 
         j["dependencies"] = dependencies;
@@ -62,11 +62,12 @@ namespace yordle::data {
             json obj;
             obj["type"] = hash_list.get_string(object->path_hash);
             json data;
-            object->to_json(data, hash_list, file_hash_list, {});
+            object->to_json(data, hash_list, file_hash_list, {}, store_type_info);
             obj["data"] = data;
             objs.emplace_back(obj);
         }
         j["objects"] = objs;
+        j["has_type_info"] = store_type_info;
 
         return j;
     }

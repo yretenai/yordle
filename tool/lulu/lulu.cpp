@@ -29,6 +29,7 @@ namespace lulu {
             .description("hash list path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
+                std::cout << "loading hash list" << std::endl;
                 if (std::filesystem::exists(str)) {
                     auto buffer    = dragon::read_file(str);
                     lulu.hash_list = cdtb::xxhashlist(buffer);

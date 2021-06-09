@@ -21,15 +21,23 @@ namespace yordle::data::prop {
             ptr += sizeof(T) * S;
         }
 
-        void to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key) const override {
+        void to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const override {
             if (!obj_key.has_value()) {
                 obj_key = hash_list.get_string(key);
             }
 
-            if (!value.has_value()) {
-                json[obj_key.value()] = nullptr;
+            if (store_type_info) {
+                if (!value.has_value()) {
+                    json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", nullptr}};
+                } else {
+                    json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", std::any_cast<std::array<T, S>>(value)}};
+                }
             } else {
-                json[obj_key.value()] = std::any_cast<std::array<T, S>>(value);
+                if (!value.has_value()) {
+                    json[obj_key.value()] = nullptr;
+                } else {
+                    json[obj_key.value()] = std::any_cast<std::array<T, S>>(value);
+                }
             }
         }
     };

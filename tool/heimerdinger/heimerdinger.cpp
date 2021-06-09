@@ -20,6 +20,7 @@ namespace heimerdinger {
             .description("bin entries hashlist path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
+                std::cout << "loading bin entries hash list" << std::endl;
                 if (filesystem::exists(str)) {
                     auto buffer = dragon::read_file(str);
                     auto hash   = cdtb::fnvhashlist(buffer);
@@ -31,6 +32,7 @@ namespace heimerdinger {
             .description("bin fields hashlist path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
+                std::cout << "loading bin fields hash list" << std::endl;
                 if (filesystem::exists(str)) {
                     auto buffer = dragon::read_file(str);
                     auto hash   = cdtb::fnvhashlist(buffer);
@@ -42,6 +44,7 @@ namespace heimerdinger {
             .description("bin hashes hashlist path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
+                std::cout << "loading bin hashes hash list" << std::endl;
                 if (filesystem::exists(str)) {
                     auto buffer = dragon::read_file(str);
                     auto hash   = cdtb::fnvhashlist(buffer);
@@ -53,6 +56,7 @@ namespace heimerdinger {
             .description("bin types hashlist path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
+                std::cout << "loading bin types hash list" << std::endl;
                 if (filesystem::exists(str)) {
                     auto buffer = dragon::read_file(str);
                     auto hash   = cdtb::fnvhashlist(buffer);
@@ -65,6 +69,7 @@ namespace heimerdinger {
             .description("game file hash list path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
+                std::cout << "loading game hash list" << std::endl;
                 if (std::filesystem::exists(str)) {
                     auto buffer = dragon::read_file(str);
                     auto hash   = cdtb::xxhashlist(buffer);
@@ -74,9 +79,10 @@ namespace heimerdinger {
 
         cli["lcu-hash"]
             .abbreviation('L')
-            .description("LCU file hash list path")
+            .description("lcu file hash list path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
+                std::cout << "loading lcu hash list" << std::endl;
                 if (std::filesystem::exists(str)) {
                     auto buffer = dragon::read_file(str);
                     auto hash   = cdtb::xxhashlist(buffer);
@@ -95,6 +101,10 @@ namespace heimerdinger {
                             .abbreviation('v')
                             .description("print application version");
 
+        auto &typeinfo = cli["typeinfo"]
+                             .abbreviation('T')
+                             .description("store type info in json output");
+
         if (!cli(argc, argv)) {
             cerr << "errored while parsing opts; aborting.\n";
             exit_code = -1;
@@ -104,6 +114,10 @@ namespace heimerdinger {
         if (version.was_set()) {
             exit_code = 0;
             return false;
+        }
+
+        if (typeinfo.was_set()) {
+            heimerdinger.store_type_info = true;
         }
 
         if (help.was_set()) {
@@ -150,6 +164,8 @@ int main(int argc, char **argv) {
         filesystem::path target_path = target;
         auto buffer                  = dragon::read_file(target_path);
 
+        std::cout << target << std::endl;
+
         if (target_path.extension() == ".json") {
             target_path = target_path.replace_extension(".bin");
             // encode
@@ -159,7 +175,7 @@ int main(int argc, char **argv) {
             // decode
             if (buffer[0] == 'P') {
                 auto prop = data::property_bin(buffer);
-                json      = prop.to_json(heimerdinger.hash_list, heimerdinger.file_hash_list);
+                json      = prop.to_json(heimerdinger.hash_list, heimerdinger.file_hash_list, heimerdinger.store_type_info);
             } else {
                 auto inibin = data::inibin::load_inibin_file(buffer);
                 json        = inibin->to_json(heimerdinger.hash_list);
