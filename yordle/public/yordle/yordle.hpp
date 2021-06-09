@@ -22,6 +22,12 @@
 #include <yordle/data/inibin.hpp>
 #include <yordle/data/inibin_v1.hpp>
 #include <yordle/data/inibin_v2.hpp>
+#include <yordle/data/prop/empty_complex_prop.hpp>
+#include <yordle/data/prop/empty_prop.hpp>
+#include <yordle/data/prop/object_prop.hpp>
+#include <yordle/data/prop/primitive_array_prop.hpp>
+#include <yordle/data/prop/primitive_prop.hpp>
+#include <yordle/data/prop/string_prop.hpp>
 #include <yordle/data/property_bin.hpp>
 #include <yordle/manifest/riot_bundle.hpp>
 #include <yordle/manifest/riot_manifest.hpp>

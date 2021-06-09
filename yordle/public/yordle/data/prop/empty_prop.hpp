@@ -30,17 +30,17 @@ namespace yordle::data::prop {
         int64      = 8,
         uint64     = 9,
         float32    = 10,
-        float32x2  = 11,
-        float32x3  = 12,
-        float32x4  = 13,
-        float32x16 = 14,
-        uint8x4    = 15,
+        point      = 11,
+        vector     = 12,
+        quaternion = 13,
+        matrix     = 14,
+        color      = 15,
         string     = 16,
-        hash       = 17,
-        file       = 18,
+        fnv_hash   = 17,
+        xx_hash    = 18,
 
-        vector           = COMPLEX_PROPERTY_TYPE | 0,
-        unordered_vector = COMPLEX_PROPERTY_TYPE | 1,
+        set              = COMPLEX_PROPERTY_TYPE | 0,
+        unordered_set    = COMPLEX_PROPERTY_TYPE | 1,
         structure        = COMPLEX_PROPERTY_TYPE | 2,
         inline_structure = COMPLEX_PROPERTY_TYPE | 3,
         reference        = COMPLEX_PROPERTY_TYPE | 4,
@@ -49,10 +49,11 @@ namespace yordle::data::prop {
         bit              = COMPLEX_PROPERTY_TYPE | 7
     } prop_type;
 #pragma pack(pop)
+    DRAGON_ASSERT(sizeof(prop_type) == 1);
 
     class YORDLE_EXPORT empty_prop {
     public:
-        explicit empty_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t key_hash) : key(key_hash) {
+        explicit empty_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : key(key_hash) {
         }
 
         uint32_t key;

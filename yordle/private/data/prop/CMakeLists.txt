@@ -1,3 +1,3 @@
 project(yordle_data_prop)
 
-target_sources(yordle PRIVATE object_prop.cpp)
+target_sources(yordle PRIVATE object_prop.cpp string_prop.cpp)
