@@ -66,7 +66,7 @@ namespace yordle::data {
             obj["data"] = data;
             objs.emplace_back(obj);
         }
-        j["objects"] = objs;
+        j["objects"]       = objs;
         j["has_type_info"] = store_type_info;
 
         return j;
