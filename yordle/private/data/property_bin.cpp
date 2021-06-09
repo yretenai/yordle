@@ -57,14 +57,9 @@ namespace yordle::data {
 
         j["dependencies"] = dependencies;
 
-        json objs = json::array();
+        json objs;
         for (const auto &object : objects) {
-            json obj;
-            obj["type"] = hash_list.get_string(object->path_hash);
-            json data;
-            object->to_json(data, hash_list, file_hash_list, {}, store_type_info);
-            obj["data"] = data;
-            objs.emplace_back(obj);
+            object->to_json(objs, hash_list, file_hash_list, {}, store_type_info);
         }
         j["objects"]       = objs;
         j["has_type_info"] = store_type_info;

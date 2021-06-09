@@ -39,8 +39,8 @@ namespace yordle::data::prop {
         auto map_value     = std::any_cast<map<shared_ptr<empty_prop>, shared_ptr<empty_prop>>>(value);
         for (const auto &pair : map_value) {
             nlohmann::json obj = json::object();
-            pair.first->to_json(obj, hash_list, file_hash_list, {}, store_type_info);
-            pair.second->to_json(obj, hash_list, file_hash_list, {}, store_type_info);
+            pair.first->to_json(obj, hash_list, file_hash_list, "key", store_type_info);
+            pair.second->to_json(obj, hash_list, file_hash_list, "value", store_type_info);
             arr.emplace_back(obj);
         }
 
