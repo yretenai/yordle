@@ -60,14 +60,27 @@ namespace heimerdinger {
                 }
             });
 
-        cli["hash"]
+        cli["game-hash"]
             .abbreviation('H')
-            .description("file hash list path")
+            .description("game file hash list path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
                 if (std::filesystem::exists(str)) {
-                    auto buffer                 = dragon::read_file(str);
-                    heimerdinger.file_hash_list = cdtb::xxhashlist(buffer);
+                    auto buffer = dragon::read_file(str);
+                    auto hash   = cdtb::xxhashlist(buffer);
+                    heimerdinger.file_hash_list.combine(hash);
+                }
+            });
+
+        cli["lcu-hash"]
+            .abbreviation('L')
+            .description("LCU file hash list path")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                if (std::filesystem::exists(str)) {
+                    auto buffer = dragon::read_file(str);
+                    auto hash   = cdtb::xxhashlist(buffer);
+                    heimerdinger.file_hash_list.combine(hash);
                 }
             });
 
@@ -142,22 +155,21 @@ int main(int argc, char **argv) {
             // encode
         } else {
             target_path = target_path.replace_extension(".json");
+            nlohmann::json json;
             // decode
             if (buffer[0] == 'P') {
                 auto prop = data::property_bin(buffer);
-                auto json = prop.to_json(heimerdinger.hash_list, heimerdinger.file_hash_list);
-                ofstream file(target_path, ios::out | ios::trunc);
-                file.write(json.dump(2, ' ', false, nlohmann::json::error_handler_t::replace).data(), (streamsize) json.size());
-                file.flush();
-                file.close();
+                json      = prop.to_json(heimerdinger.hash_list, heimerdinger.file_hash_list);
             } else {
                 auto inibin = data::inibin::load_inibin_file(buffer);
-                auto json   = inibin->to_json(heimerdinger.hash_list);
-                ofstream file(target_path, ios::out | ios::trunc);
-                file.write(json.dump(2, ' ', false, nlohmann::json::error_handler_t::replace).data(), (streamsize) json.size());
-                file.flush();
-                file.close();
+                json        = inibin->to_json(heimerdinger.hash_list);
             }
+
+            ofstream file(target_path, ios::out | ios::trunc);
+            auto json_text = json.dump(2, ' ', false, nlohmann::json::error_handler_t::replace);
+            file.write(json_text.data(), (streamsize) json_text.size());
+            file.flush();
+            file.close();
         }
     }
 

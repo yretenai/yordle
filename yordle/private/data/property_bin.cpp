@@ -36,6 +36,7 @@ namespace yordle::data {
             for (auto i = 0; i < dep_count; ++i) {
                 auto size = buffer.lpcast<uint16_t>(&ptr);
                 dependencies.emplace_back(string(reinterpret_cast<const char *>(buffer.data() + ptr), size));
+                ptr += size;
             }
         }
 
@@ -43,7 +44,7 @@ namespace yordle::data {
         auto obj_hashes = buffer.lpcast<uint32_t>(&ptr, obj_count);
 
         for (auto obj_hash : obj_hashes) {
-            objects[obj_hash] = make_shared<prop::object_prop>(buffer, ptr, version, obj_hash);
+            objects.emplace(make_shared<prop::object_prop>(buffer, ptr, version, obj_hash));
         }
     }
 
@@ -57,11 +58,11 @@ namespace yordle::data {
         j["dependencies"] = dependencies;
 
         json objs = json::array();
-        for (const auto &pair : objects) {
+        for (const auto &object : objects) {
             json obj;
-            obj["type"] = hash_list.get_string(pair.first);
+            obj["type"] = hash_list.get_string(object->path_hash);
             json data;
-            pair.second->to_json(data, hash_list, file_hash_list);
+            object->to_json(data, hash_list, file_hash_list, {});
             obj["data"] = data;
             objs.emplace_back(obj);
         }

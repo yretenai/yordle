@@ -10,9 +10,12 @@
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::prop {
-    class YORDLE_EXPORT string_prop : public empty_prop {
+    class YORDLE_EXPORT map_prop : public empty_prop {
     public:
-        explicit string_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash);
+        explicit map_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash);
+
+        prop_type key_type   = prop_type::null;
+        prop_type value_type = prop_type::null;
 
         void to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key) const override;
     };

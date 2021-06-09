@@ -2,35 +2,39 @@
 // Created by Lilith on 2021-06-08.
 //
 
-#include <yordle/data/prop/object_prop.hpp>
+#include <set>
 
+#include <standard_dragon/exception/not_implemented.hpp>
+
+#include <yordle/data/prop/inline_structure_prop.hpp>
+#include <yordle/data/prop/map_prop.hpp>
+#include <yordle/data/prop/object_prop.hpp>
+#include <yordle/data/prop/optional_prop.hpp>
 #include <yordle/data/prop/primitive_array_prop.hpp>
 #include <yordle/data/prop/primitive_prop.hpp>
+#include <yordle/data/prop/set_prop.hpp>
 #include <yordle/data/prop/string_prop.hpp>
+#include <yordle/data/prop/unordered_set_prop.hpp>
 
 using namespace std;
 using namespace dragon;
+using namespace dragon::exception;
 using namespace nlohmann;
 
 namespace yordle::data::prop {
     object_prop::object_prop(Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
-        auto data_start = reinterpret_cast<uintptr_t>(&byte_size);
-#ifndef NDEBUG
-        auto data_end = reinterpret_cast<uintptr_t>(&property_count) + sizeof(uint16_t);
-        assert(data_end - data_start == EXPECTED_DATA_SIZE);
-#endif
+        auto size  = buffer.lpcast<uint32_t>(&ptr);
+        path_hash  = buffer.cast<uint32_t>(ptr);
+        auto count = buffer.cast<uint16_t>(ptr + 4);
 
-        buffer.copy(data_start, ptr, EXPECTED_DATA_SIZE);
-        auto ptr_shadow = ptr + EXPECTED_DATA_SIZE;
-
-        auto props = map<uint32_t, shared_ptr<empty_prop>>();
-        for (auto i = 0; i < property_count; ++i) {
-            auto prop        = read_prop(buffer, ptr_shadow, version, {}, {});
-            props[prop->key] = prop;
+        auto ptr_shadow = ptr + 6;
+        auto props      = set<shared_ptr<empty_prop>>();
+        for (auto i = 0; i < count; ++i) {
+            props.emplace(read_prop(buffer, ptr_shadow, version, {}, {}));
         }
         value = props;
 
-        ptr += 4 + byte_size;
+        ptr += size;
     }
 
     shared_ptr<empty_prop> object_prop::read_prop(Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, optional<uint32_t> key_hash, optional<prop_type> type) {
@@ -42,6 +46,7 @@ namespace yordle::data::prop {
             type = buffer.lpcast<prop_type>(&ptr);
         }
 
+        // if i ever change the signature of the constructor i'm doomed.
         if (type == prop_type::null) {
             return make_shared<empty_prop>(buffer, ptr, version, key_hash.value());
         } else if (type == prop_type::boolean) {
@@ -80,30 +85,50 @@ namespace yordle::data::prop {
             return make_shared<fnv_hash_prop>(buffer, ptr, version, key_hash.value());
         } else if (type == prop_type::xx_hash) {
             return make_shared<xx_hash_prop>(buffer, ptr, version, key_hash.value());
+        } else if (type == prop_type::set) {
+            return make_shared<set_prop>(buffer, ptr, version, key_hash.value());
+        } else if (type == prop_type::unordered_set) {
+            return make_shared<unordered_set_prop>(buffer, ptr, version, key_hash.value());
+        } else if (type == prop_type::structure) {
+            return make_shared<structure_prop>(buffer, ptr, version, key_hash.value());
+        } else if (type == prop_type::inline_structure) {
+            return make_shared<inline_structure_prop>(buffer, ptr, version, key_hash.value());
+        } else if (type == prop_type::reference) {
+            return make_shared<reference_prop>(buffer, ptr, version, key_hash.value());
+        } else if (type == prop_type::optional) {
+            return make_shared<optional_prop>(buffer, ptr, version, key_hash.value());
+        } else if (type == prop_type::map) {
+            return make_shared<map_prop>(buffer, ptr, version, key_hash.value());
+        } else if (type == prop_type::bit) {
+            return make_shared<bit_prop>(buffer, ptr, version, key_hash.value());
         }
 
-        return nullptr;
+        throw not_implemented("property type is not implemented");
     }
 
-    void object_prop::to_json(json json, const cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list) const {
+    void object_prop::to_json(json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key) const {
+        if (!obj_key.has_value()) {
+            obj_key = hash_list.get_string(path_hash);
+        }
+
         nlohmann::json obj;
         obj["type"] = hash_list.get_string(key);
 
         if (!value.has_value()) {
             obj["data"] = nullptr;
 
-            json[hash_list.get_string(path_hash)] = obj;
+            json[obj_key.value()] = obj;
             return;
         }
 
-        auto properties = std::any_cast<map<uint32_t, shared_ptr<empty_prop>>>(value);
+        auto properties = std::any_cast<set<shared_ptr<empty_prop>>>(value);
 
         nlohmann::json data_obj;
-        for (const auto &pair : properties) {
-            pair.second->to_json(data_obj, hash_list, file_hash_list);
+        for (const auto &property : properties) {
+            property->to_json(data_obj, hash_list, file_hash_list, {});
         }
         obj["data"] = data_obj;
 
-        json[hash_list.get_string(path_hash)] = obj;
+        json[obj_key.value()] = obj;
     }
 } // namespace yordle::data::prop

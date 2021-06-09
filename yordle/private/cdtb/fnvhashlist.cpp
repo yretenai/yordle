@@ -41,7 +41,7 @@ namespace yordle::cdtb {
     string fnvhashlist::get_string(uint32_t hash) const {
         if (!hashes.contains(hash)) {
             stringstream stream;
-            stream << hex << hash;
+            stream << "0x" << hex << hash;
             return stream.str();
         }
 
