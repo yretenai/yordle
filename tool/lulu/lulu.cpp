@@ -28,11 +28,13 @@ namespace lulu {
             .abbreviation('H')
             .description("hash list path")
             .type(po::string)
+            .multi()
             .callback([&](const po::string_t &str) {
-                std::cout << "loading hash list" << std::endl;
+                std::cout << "loading xxhashlist" << std::endl;
                 if (std::filesystem::exists(str)) {
-                    auto buffer    = dragon::read_file(str);
-                    lulu.hash_list = cdtb::xxhashlist(buffer);
+                    auto buffer = dragon::read_file(str);
+                    auto hash   = cdtb::xxhashlist(buffer);
+                    lulu.hash_list.combine(hash);
                 }
             });
 
@@ -104,9 +106,14 @@ int main(int argc, char **argv) {
         return exit_code;
     }
 
-    for (const auto &wad_path : lulu.targets) {
+    for (const auto &wad_path : dragon::find_paths(lulu.targets, {".wad", ".client", ".mobile"}, {})) {
+        std::cout << "processing " << wad_path.filename().string() << std::endl;
         auto stream = ifstream(wad_path, ios::in | ios::binary);
         auto wad    = yordle::archive::wad_file::load_wad_file(stream);
+
+        if (wad == nullptr || wad->entries == nullptr) {
+            continue;
+        }
 
         for (const auto &entry : *wad->entries) {
             auto entry_path = lulu.hash_list.get_path(entry.hash);

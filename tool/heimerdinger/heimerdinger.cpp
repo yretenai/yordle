@@ -6,21 +6,24 @@
 #    define PROGRAMOPTIONS_NO_COLORS
 #endif
 #include <ProgramOptions.hxx>
+#include <exception>
 
 #include "heimerdinger.hpp"
 
 using namespace std;
+using namespace dragon;
 using namespace yordle;
 
 namespace heimerdinger {
     bool parse_configuration(int argc, char **argv, HeimerdingerConfiguration &heimerdinger, int &exit_code) {
         po::parser cli;
 
-        cli["bin-entries"]
-            .description("bin entries hashlist path")
+        cli["fnv-hash"]
+            .abbreviation('F')
+            .description("fnv hash list path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
-                std::cout << "loading bin entries hash list" << std::endl;
+                std::cout << "loading fnvhashlist" << std::endl;
                 if (filesystem::exists(str)) {
                     auto buffer = dragon::read_file(str);
                     auto hash   = cdtb::fnvhashlist(buffer);
@@ -28,61 +31,12 @@ namespace heimerdinger {
                 }
             });
 
-        cli["bin-fields"]
-            .description("bin fields hashlist path")
-            .type(po::string)
-            .callback([&](const po::string_t &str) {
-                std::cout << "loading bin fields hash list" << std::endl;
-                if (filesystem::exists(str)) {
-                    auto buffer = dragon::read_file(str);
-                    auto hash   = cdtb::fnvhashlist(buffer);
-                    heimerdinger.hash_list.combine(hash);
-                }
-            });
-
-        cli["bin-hashes"]
-            .description("bin hashes hashlist path")
-            .type(po::string)
-            .callback([&](const po::string_t &str) {
-                std::cout << "loading bin hashes hash list" << std::endl;
-                if (filesystem::exists(str)) {
-                    auto buffer = dragon::read_file(str);
-                    auto hash   = cdtb::fnvhashlist(buffer);
-                    heimerdinger.hash_list.combine(hash);
-                }
-            });
-
-        cli["bin-types"]
-            .description("bin types hashlist path")
-            .type(po::string)
-            .callback([&](const po::string_t &str) {
-                std::cout << "loading bin types hash list" << std::endl;
-                if (filesystem::exists(str)) {
-                    auto buffer = dragon::read_file(str);
-                    auto hash   = cdtb::fnvhashlist(buffer);
-                    heimerdinger.hash_list.combine(hash);
-                }
-            });
-
-        cli["game-hash"]
+        cli["xx-hash"]
             .abbreviation('H')
-            .description("game file hash list path")
+            .description("xx hash list path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
-                std::cout << "loading game hash list" << std::endl;
-                if (std::filesystem::exists(str)) {
-                    auto buffer = dragon::read_file(str);
-                    auto hash   = cdtb::xxhashlist(buffer);
-                    heimerdinger.file_hash_list.combine(hash);
-                }
-            });
-
-        cli["lcu-hash"]
-            .abbreviation('L')
-            .description("lcu file hash list path")
-            .type(po::string)
-            .callback([&](const po::string_t &str) {
-                std::cout << "loading lcu hash list" << std::endl;
+                std::cout << "loading xxhashlist" << std::endl;
                 if (std::filesystem::exists(str)) {
                     auto buffer = dragon::read_file(str);
                     auto hash   = cdtb::xxhashlist(buffer);
@@ -160,19 +114,14 @@ int main(int argc, char **argv) {
 
     auto hashlist = cdtb::fnvhashlist();
 
-    for (const auto &target : heimerdinger.targets) {
+    for (const auto &target : dragon::find_paths(heimerdinger.targets, {".bin", ".inibin"}, {})) {
+        std::cout << target.string() << std::endl;
         filesystem::path target_path = target;
         auto buffer                  = dragon::read_file(target_path);
+        target_path                  = target_path.replace_extension(".json");
 
-        std::cout << target << std::endl;
-
-        if (target_path.extension() == ".json") {
-            target_path = target_path.replace_extension(".bin");
-            // encode
-        } else {
-            target_path = target_path.replace_extension(".json");
-            nlohmann::json json;
-            // decode
+        nlohmann::json json;
+        try {
             if (buffer[0] == 'P') {
                 auto prop = data::property_bin(buffer);
                 json      = prop.to_json(heimerdinger.hash_list, heimerdinger.file_hash_list, heimerdinger.store_type_info);
@@ -180,13 +129,15 @@ int main(int argc, char **argv) {
                 auto inibin = data::inibin::load_inibin_file(buffer);
                 json        = inibin->to_json(heimerdinger.hash_list);
             }
-
-            ofstream file(target_path, ios::out | ios::trunc);
-            auto json_text = json.dump(2, ' ', false, nlohmann::json::error_handler_t::replace);
-            file.write(json_text.data(), (streamsize) json_text.size());
-            file.flush();
-            file.close();
+        } catch (const std::exception &ex) {
+            std::cerr << "error processing " << target.string() << " got exception " << ex.what() << std::endl;
         }
+
+        ofstream file(target_path, ios::out | ios::trunc);
+        auto json_text = json.dump(2, ' ', false, nlohmann::json::error_handler_t::replace);
+        file.write(json_text.data(), (streamsize) json_text.size());
+        file.flush();
+        file.close();
     }
 
     return 0;

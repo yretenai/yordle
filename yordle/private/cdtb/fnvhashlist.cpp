@@ -30,7 +30,7 @@ namespace yordle::cdtb {
         uint32_t hash;
         for (const auto &pair : hashes) {
             string data = pair.second;
-            transform(data.begin(), data.end(), data.begin(), [](char c) { return tolower(c); });
+            str_to_lower(data);
             hash = fnv1a32(reinterpret_cast<uint8_t *>(data.data()), data.length());
             if (hash != pair.first) {
                 DRAGON_LOG("Failed to match " << pair.second << " to hash " << HEXLOG32 << pair.first << " instead got " << HEXLOG32 << hash);

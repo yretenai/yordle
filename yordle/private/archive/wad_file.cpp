@@ -62,7 +62,7 @@ namespace yordle::archive {
 
     bool wad_file::has_file(const filesystem::path &path) const {
         string data = path.string();
-        transform(data.begin(), data.end(), data.begin(), [](char c) { return tolower(c); });
+        dragon::str_to_lower(data);
         return has_file(XXH64(data.data(), data.length(), 0));
     }
 

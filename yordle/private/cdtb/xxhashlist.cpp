@@ -28,7 +28,7 @@ namespace yordle::cdtb {
         uint64_t hash;
         for (const auto &pair : hashes) {
             string data = pair.second;
-            transform(data.begin(), data.end(), data.begin(), [](char c) { return tolower(c); });
+            str_to_lower(data);
             hash = XXH64(data.data(), data.length(), 0);
             if (hash != pair.first) {
                 DRAGON_LOG("Failed to match " << pair.second << " to hash " << HEXLOG64 << pair.first << " instead got " << HEXLOG64 << hash);
