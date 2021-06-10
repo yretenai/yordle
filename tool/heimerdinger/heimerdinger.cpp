@@ -5,8 +5,8 @@
 #ifndef NDEBUG
 #    define PROGRAMOPTIONS_NO_COLORS
 #endif
-#include <ProgramOptions.hxx>
 #include <exception>
+#include <ProgramOptions.hxx>
 
 #include "heimerdinger.hpp"
 
@@ -23,9 +23,10 @@ namespace heimerdinger {
             .description("fnv hash list path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
-                std::cout << "loading fnvhashlist" << std::endl;
-                if (filesystem::exists(str)) {
-                    auto buffer = dragon::read_file(str);
+                const std::filesystem::path &path = str;
+                std::cout << "loading hash list " << path.filename() << std::endl;
+                if (filesystem::exists(path)) {
+                    auto buffer = dragon::read_file(path);
                     auto hash   = cdtb::fnvhashlist(buffer);
                     heimerdinger.hash_list.combine(hash);
                 }
@@ -36,9 +37,10 @@ namespace heimerdinger {
             .description("xx hash list path")
             .type(po::string)
             .callback([&](const po::string_t &str) {
-                std::cout << "loading xxhashlist" << std::endl;
-                if (std::filesystem::exists(str)) {
-                    auto buffer = dragon::read_file(str);
+                const std::filesystem::path &path = str;
+                std::cout << "loading hash list " << path.filename() << std::endl;
+                if (std::filesystem::exists(path)) {
+                    auto buffer = dragon::read_file(path);
                     auto hash   = cdtb::xxhashlist(buffer);
                     heimerdinger.file_hash_list.combine(hash);
                 }
@@ -112,8 +114,7 @@ int main(int argc, char **argv) {
         return exit_code;
     }
 
-    auto hashlist = cdtb::fnvhashlist();
-
+    std::cout << "finding files..." << std::endl;
     for (const auto &target : dragon::find_paths(heimerdinger.targets, {".bin", ".inibin"}, {})) {
         std::cout << target.string() << std::endl;
         filesystem::path target_path = target;

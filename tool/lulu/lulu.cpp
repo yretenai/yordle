@@ -30,9 +30,10 @@ namespace lulu {
             .type(po::string)
             .multi()
             .callback([&](const po::string_t &str) {
-                std::cout << "loading xxhashlist" << std::endl;
-                if (std::filesystem::exists(str)) {
-                    auto buffer = dragon::read_file(str);
+                const std::filesystem::path &path = str;
+                std::cout << "loading hash list " << path.filename() << std::endl;
+                if (std::filesystem::exists(path)) {
+                    auto buffer = dragon::read_file(path);
                     auto hash   = cdtb::xxhashlist(buffer);
                     lulu.hash_list.combine(hash);
                 }
@@ -106,6 +107,7 @@ int main(int argc, char **argv) {
         return exit_code;
     }
 
+    std::cout << "finding files..." << std::endl;
     for (const auto &wad_path : dragon::find_paths(lulu.targets, {".wad", ".client", ".mobile"}, {})) {
         std::cout << "processing " << wad_path.filename().string() << std::endl;
         auto stream = ifstream(wad_path, ios::in | ios::binary);
