@@ -128,7 +128,10 @@ int main(int argc, char **argv) {
                 json      = prop.to_json(heimerdinger.hash_list, heimerdinger.file_hash_list, heimerdinger.store_type_info);
             } else {
                 auto inibin = data::inibin::load_inibin_file(buffer);
-                json        = inibin->to_json(heimerdinger.hash_list);
+                if (inibin == nullptr || inibin->properties.empty()) {
+                    continue;
+                }
+                json = inibin->to_json(heimerdinger.hash_list);
             }
         } catch (const std::exception &ex) {
             std::cerr << "error processing " << target.string() << " got exception " << ex.what() << std::endl;

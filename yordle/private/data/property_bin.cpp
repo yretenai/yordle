@@ -40,11 +40,13 @@ namespace yordle::data {
             }
         }
 
-        auto obj_count  = buffer.lpcast<uint32_t>(&ptr);
-        auto obj_hashes = buffer.lpcast<uint32_t>(&ptr, obj_count);
+        auto obj_count = buffer.lpcast<uint32_t>(&ptr);
+        if (obj_count > 0) {
+            auto obj_hashes = buffer.lpcast<uint32_t>(&ptr, obj_count);
 
-        for (auto obj_hash : obj_hashes) {
-            objects.emplace(make_shared<prop::object_prop>(buffer, ptr, version, obj_hash));
+            for (auto obj_hash : obj_hashes) {
+                objects.emplace(make_shared<prop::object_prop>(buffer, ptr, version, obj_hash));
+            }
         }
     }
 
