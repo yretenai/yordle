@@ -86,8 +86,15 @@ namespace poppy {
                            .description("only download bundle files");
 
         auto &client_config = cli["client-config"]
-                                  .abbreviation('C')
+                                  .abbreviation('L')
                                   .description("cdn data is from patch-lines, not sieve");
+
+        auto &no_sub = cli["no-sub"]
+                           .abbreviation('S')
+                           .description("do not process sub configurations");
+
+        auto &fresh_install = cli["fresh-install"]
+                                  .description("do not use bundles from previous versions");
 
         auto &version = cli["version"]
                             .abbreviation('v')
@@ -120,6 +127,14 @@ namespace poppy {
 
         if (deploy.was_set()) {
             poppy.no_deploy = true;
+        }
+
+        if (no_sub.was_set()) {
+            poppy.no_sub_configuration = true;
+        }
+
+        if (fresh_install.was_set()) {
+            poppy.fresh_install = true;
         }
 
         if (poppy.targets.empty()) {
@@ -196,6 +211,11 @@ namespace poppy {
         return POPPY_VERSION;
     }
 } // namespace poppy
+
+// TODO: refactor the way bundle downloads are processed.
+// iterate through cache, build block id list, find the ones that are missing
+// download bundles that have block ids not processed yet.
+// map block_id to a cached bundle id.
 
 int main(int argc, char **argv) {
     cout << "yordle version " << get_version_str() << endl;

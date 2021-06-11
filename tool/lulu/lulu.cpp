@@ -114,6 +114,7 @@ int main(int argc, char **argv) {
         auto wad    = yordle::archive::wad_file::load_wad_file(stream);
 
         if (wad == nullptr || wad->entries == nullptr) {
+            stream.close();
             continue;
         }
 
@@ -134,6 +135,8 @@ int main(int argc, char **argv) {
             auto data = wad->read_file(stream, entry);
             dragon::write_file(output_path, *data);
         }
+        
+        stream.close();
     }
 
     return 0;

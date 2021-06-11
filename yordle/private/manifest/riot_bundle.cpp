@@ -14,6 +14,41 @@ using namespace dragon::exception;
 using namespace std;
 
 namespace yordle::manifest {
+    riot_bundle::riot_bundle(ifstream &stream) {
+        auto data_start = reinterpret_cast<uintptr_t>(&id);
+#ifndef NDEBUG
+        auto data_end = reinterpret_cast<uintptr_t>(&version) + sizeof(uint32_t);
+        assert(data_end - data_start == EXPECTED_DATA_SIZE);
+#endif
+
+        stream.seekg(0, ios::end);
+        int64_t offset = stream.tellg();
+        if (offset < EXPECTED_DATA_SIZE) {
+            throw invalid_data("Buffer passed to RiotBundle is too small!");
+        }
+
+        uint32_t fourcc;
+        offset -= sizeof(uint32_t);
+        stream.seekg(offset);
+        stream.read(reinterpret_cast<char *>(&fourcc), sizeof(uint32_t));
+        if (fourcc != FOURCC) {
+            throw invalid_data("Buffer passed to RiotBundle is not a valid RBUN buffer.");
+        }
+
+        offset -= EXPECTED_DATA_SIZE;
+        stream.seekg(offset);
+        Array<uint8_t> buffer(EXPECTED_DATA_SIZE, nullptr);
+        stream.read(reinterpret_cast<char *>(buffer.data()), EXPECTED_DATA_SIZE);
+        buffer.copy(data_start, 0, EXPECTED_DATA_SIZE);
+        assert(version == 1);
+
+        offset -= (int64_t) sizeof(riot_bundle_block) * block_count;
+        stream.seekg(offset);
+        blocks = make_shared<Array<riot_bundle_block>>(block_count, nullptr);
+        stream.read(reinterpret_cast<char *>(blocks->data()), (streamsize) blocks->byte_size());
+    }
+
+    // todo: drop this, pass istream into read.
     riot_bundle::riot_bundle(Array<uint8_t> &buffer) {
         auto data_start = reinterpret_cast<uintptr_t>(&id);
 #ifndef NDEBUG
@@ -53,6 +88,10 @@ namespace yordle::manifest {
     }
 
     shared_ptr<Array<uint8_t>> riot_bundle::read_block(uint64_t block_id) const {
+        if (data == nullptr) {
+            return nullptr;
+        }
+
         uint64_t offset                   = 0;
         shared_ptr<Array<uint8_t>> buffer = nullptr;
         for (const auto &block : *blocks) {
@@ -71,6 +110,8 @@ namespace yordle::manifest {
 
     void riot_bundle::read_block(uint64_t block_id, ostream &out) const {
         auto buffer = read_block(block_id);
-        out.write(reinterpret_cast<const char *>(buffer->data()), (streamsize) buffer->size());
+        if (buffer != nullptr) {
+            out.write(reinterpret_cast<const char *>(buffer->data()), (streamsize) buffer->size());
+        }
     }
 } // namespace yordle::manifest

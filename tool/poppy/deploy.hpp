@@ -7,5 +7,5 @@
 #include "poppy.hpp"
 
 namespace poppy {
-    void deploy(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &manifest, std::filesystem::path &deploy_path);
+    void deploy(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &manifest, std::filesystem::path &deploy_path, std::map<uint64_t, uint64_t> &block_to_bundle_map);
 } // namespace poppy

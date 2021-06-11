@@ -80,7 +80,7 @@ namespace poppy {
                     continue;
                 }
 
-                cache = poppy.cache_dir / patchline.first;
+                cache = poppy.cache_dir;
                 if (!poppy.dry_run && !filesystem::exists(cache)) {
                     filesystem::create_directories(cache);
                 }
@@ -103,9 +103,9 @@ namespace poppy {
 
                     process_configuration(cache, configuration, poppy, resolved_path / id);
 
-                    if (configuration.secondary_patchlines != nullptr) {
+                    if (configuration.secondary_patchlines != nullptr && !poppy.no_sub_configuration) {
                         for (const auto &sub_configuration : *configuration.secondary_patchlines) {
-                            process_configuration(cache, sub_configuration, poppy, resolved_path / id / resolved_path);
+                            process_configuration(cache, sub_configuration, poppy, resolved_path / id / std::filesystem::path(*sub_configuration.path));
                         }
                     }
                 }

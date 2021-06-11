@@ -24,7 +24,9 @@ namespace yordle::manifest {
         static constexpr uint32_t EXPECTED_DATA_SIZE = 0x10;
 
     public:
-        explicit riot_bundle(dragon::Array<uint8_t> &buffer);
+        explicit riot_bundle() = default;
+        explicit riot_bundle(std::ifstream &stream);
+        explicit riot_bundle(dragon::Array<uint8_t> &stream);
         ~riot_bundle() = default;
 
 #pragma pack(push, 1)
