@@ -38,6 +38,4 @@ cmake-build-*
 build
 vcs.xml
 
-.idea
-
 /tmp

@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="StandardDragon" pattern="file[yordle]:vendor/standard_dragon//*" />
+</component>

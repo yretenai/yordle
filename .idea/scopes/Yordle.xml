@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Yordle" pattern="(file[yordle]:yordle//*||file[yordle]:tool//*)&amp;&amp;!file:yordle/public/yordle/manifest/RiotManifest_generated.h&amp;&amp;!file:yordle/public/yordle/yordle_export_clang.a.h&amp;&amp;!file:yordle/public/yordle/yordle_export_win.a.h&amp;&amp;!file:yordle/public/yordle/yordle_export_linux.a.h" />
+</component>
