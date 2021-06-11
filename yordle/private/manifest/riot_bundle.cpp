@@ -65,8 +65,8 @@ namespace yordle::manifest {
         buffer.copy(data_start, offset, EXPECTED_DATA_SIZE);
         assert(version == 1);
         offset -= sizeof(riot_bundle_block) * block_count;
-        data   = make_shared<Array<uint8_t>>(buffer.data(), offset, true);
-        blocks = make_shared<Array<riot_bundle_block>>(reinterpret_cast<riot_bundle_block *>(buffer.data() + offset), block_count, true);
+        data   = make_shared<Array<uint8_t>>(buffer.data(), offset);
+        blocks = make_shared<Array<riot_bundle_block>>(reinterpret_cast<riot_bundle_block *>(buffer.data() + offset), block_count);
     }
 
     void riot_bundle::print(ostream &stream, Indent &indent) const {

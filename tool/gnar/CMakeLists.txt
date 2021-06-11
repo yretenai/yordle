@@ -1,10 +1,10 @@
-project(TOOL_heimerdinger)
+project(TOOL_gnar)
 
-add_executable(heimerdinger heimerdinger.cpp)
-target_compile_definitions(heimerdinger PRIVATE DRAGON_LIBRARY_NAME="heimerdinger")
-target_link_libraries(heimerdinger yordle)
-target_link_libraries(heimerdinger standard_dragon)
-target_link_libraries(heimerdinger ProgramOptionsHxx)
+add_executable(gnar gnar.cpp)
+target_compile_definitions(gnar PRIVATE DRAGON_LIBRARY_NAME="gnar")
+target_link_libraries(gnar yordle)
+target_link_libraries(gnar standard_dragon)
+target_link_libraries(gnar ProgramOptionsHxx)
 
 include(GNUInstallDirs)
-install(TARGETS heimerdinger RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(TARGETS gnar RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

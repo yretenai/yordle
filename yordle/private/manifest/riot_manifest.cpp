@@ -39,7 +39,7 @@ namespace yordle::manifest {
                 data = make_shared<Array<uint8_t>>(size, nullptr);
                 ZSTD_decompress(data->data(), size, buffer.data() + offset, csize);
             } else {
-                data = make_shared<Array<uint8_t>>(buffer.data() + offset, size, true);
+                data = make_shared<Array<uint8_t>>(buffer.data() + offset, size);
             }
         }
 
@@ -87,7 +87,7 @@ namespace yordle::manifest {
             directories[dir->id()] = riot_manifest_dir {dir->id(), dir->parent_id(), dir->name()->str()};
         }
 
-        signature = make_shared<Array<uint8_t>>(buffer.data() + offset + csize, 0x100, true);
+        signature = make_shared<Array<uint8_t>>(buffer.data() + offset + csize, 0x100);
     }
 
     filesystem::path riot_manifest::get_directory_path(uint64_t id) const {

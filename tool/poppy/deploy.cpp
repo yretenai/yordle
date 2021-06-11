@@ -66,7 +66,7 @@ namespace poppy {
             }
 
             auto stream = ofstream(directory_path, ios::binary | ios::out | ios::trunc);
-            cout << "writing " << directory_path << endl;
+            cout << "writing " << directory_path.string() << endl;
             for (const auto &block_id : *file_info.block_ids) {
                 if (!block_to_bundle_map.contains(block_id)) {
                     cerr << "err: can't find block id " << HEXLOG64 << block_id << endl;
