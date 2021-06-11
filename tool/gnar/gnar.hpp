@@ -32,4 +32,4 @@ namespace heimerdinger {
 
     YORDLE_TOOL_EXPORT std::string get_version_str();
     YORDLE_TOOL_EXPORT int get_version();
-} // namespace heimerdinger
+}; // namespace heimerdinger
