@@ -13,6 +13,7 @@
     "openssl",
     "fmt",
     "imgui",
+    "tbb",
     {
       "name": "imgui",
       "features": [

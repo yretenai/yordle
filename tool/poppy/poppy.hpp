@@ -37,7 +37,7 @@
 #        endif
 #    else
 #        ifdef __GNUC__
-#            ifndef _PSTL_EXECUTION_POLICIES_DEFINED
+#            ifndef __PSTL_USE_PAR_POLICIES
 #                undef POPPY_THREADING
 #            endif
 #        endif

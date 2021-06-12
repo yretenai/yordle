@@ -212,11 +212,6 @@ namespace poppy {
     }
 } // namespace poppy
 
-// TODO: refactor the way bundle downloads are processed.
-// iterate through cache, build block id list, find the ones that are missing
-// download bundles that have block ids not processed yet.
-// map block_id to a cached bundle id.
-
 int main(int argc, char **argv) {
     cout << "yordle version " << get_version_str() << endl;
     cout << "poppy version " << poppy::get_version_str() << endl;
