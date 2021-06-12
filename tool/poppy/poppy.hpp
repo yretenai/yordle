@@ -10,11 +10,11 @@
 
 // Poppy is responsible for downloading/decoding manifests/bundles
 
-#define POPPY_VERSION 17
+#define POPPY_VERSION 18
 #define POPPY_VERSION_M 1
-#define POPPY_VERSION_m 3
-#define POPPY_VERSION_i 1
-#define POPPY_VERSION_S "1.3.1"
+#define POPPY_VERSION_m 4
+#define POPPY_VERSION_i 0
+#define POPPY_VERSION_S "1.4.0"
 
 #define POPPY_DEFAULT_MANIFEST_URL "https://clientconfig.rpg.riotgames.com/api/v1/config/public?namespace=keystone.products.{0:s}.patchlines"
 #define POPPY_DEFAULT_SIEVE_URL "https://sieve.services.riotcdn.net/api/v1/products/lol/version-sets/{0:s}?q%5Bartifact_type_id%5D={1:s}&q%5Bplatform%5D={2:s}&q%5Bpublished%5D=true"
@@ -65,6 +65,7 @@ namespace poppy {
 
         std::deque<std::string> targets;
         std::set<std::string> configurations;
+        std::shared_ptr<yordle::manifest::riot_manifest> old_manifest;
     } PoppyConfiguration;
 
     std::shared_ptr<std::vector<uint8_t>> download_curl(const std::string &path, int64_t speed_limit);

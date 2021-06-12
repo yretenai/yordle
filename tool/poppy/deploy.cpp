@@ -33,7 +33,28 @@ namespace poppy {
         auto cache        = poppy.cache_dir / "bundles";
 
         for (const auto &file_pair : manifest.files) {
-            auto file_info      = file_pair.second;
+            auto file_info = file_pair.second;
+
+            if (poppy.old_manifest != nullptr && poppy.old_manifest->files.contains(file_pair.first)) {
+                bool new_data      = false;
+                auto old_block_ids = poppy.old_manifest->files[file_pair.first].block_ids;
+                auto new_block_ids = file_info.block_ids;
+                if (old_block_ids->size() != new_block_ids->size()) {
+                    new_data = true;
+                } else {
+                    for (auto i = 0; i < new_block_ids->size(); ++i) {
+                        if (new_block_ids->get(i) != old_block_ids->get(i)) {
+                            new_data = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!new_data) {
+                    continue;
+                }
+            }
+
             auto directory_path = deploy_path / to_string(file_info.directory_id);
             if (directory_cache.contains(file_info.directory_id)) {
                 directory_path = directory_cache[file_info.directory_id];

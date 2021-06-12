@@ -36,6 +36,21 @@ namespace poppy {
                 poppy.output_dir = str;
             });
 
+        cli["old"]
+            .abbreviation('O')
+            .description("old manifest to compare against (will only actualize changed files)")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                if (filesystem::exists(str)) {
+                    cout << "loading old manifest... ";
+                    auto manifest_data = dragon::read_file(str);
+                    poppy.old_manifest = make_shared<manifest::riot_manifest>(manifest_data);
+                    cout << HEXLOG64 << poppy.old_manifest->id << endl;
+                } else {
+                    cerr << str << " doesn't exist!" << endl;
+                }
+            });
+
         cli["manifest"]
             .abbreviation('m')
             .description("manifest url format")
