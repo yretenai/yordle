@@ -30,12 +30,12 @@ namespace yordle::manifest {
         ~riot_bundle() = default;
 
 #pragma pack(push, 1)
-        typedef struct RBUN_BLOCK {
+        using riot_bundle_block = struct RBUN_BLOCK {
             uint64_t block_id;
             uint32_t size;
             uint32_t csize;
-        } riot_bundle_block;
-        DRAGON_ASSERT(sizeof(riot_bundle_block) == 0x10);
+        };
+        DRAGON_ASSERT(sizeof(riot_bundle_block) == 0x10, "riot_bundle_block size is not 16");
 
         struct {
             uint64_t id          = 0;

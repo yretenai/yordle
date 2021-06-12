@@ -21,12 +21,12 @@
 #include "../tool_export.h"
 
 namespace lulu {
-    typedef struct LULU_CONFIGURATION {
+    using LuluConfiguration = struct LULU_CONFIGURATION {
         std::deque<std::string> targets;
         std::filesystem::path output_dir = ".";
         yordle::cdtb::xxhashlist hash_list;
         bool dry_run = false;
-    } LuluConfiguration;
+    };
 
     bool parse_configuration(int argc, char **argv, LuluConfiguration &lulu, int &code);
 

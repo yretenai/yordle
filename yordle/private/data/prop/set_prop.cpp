@@ -13,8 +13,8 @@ using namespace nlohmann;
 namespace yordle::data::prop {
     set_prop::set_prop(Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
         type       = prop_type::set;
-        value_type = buffer.lpcast<prop_type>(&ptr);
-        auto size  = buffer.lpcast<uint32_t>(&ptr);
+        value_type = buffer.lpcast<prop_type>(ptr);
+        auto size  = buffer.lpcast<uint32_t>(ptr);
         auto count = buffer.cast<uint32_t>(ptr);
 
         auto set_value  = set<shared_ptr<empty_prop>>();

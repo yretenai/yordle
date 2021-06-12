@@ -24,13 +24,13 @@ namespace yordle::manifest {
         static constexpr uint32_t EXPECTED_DATA_SIZE = 0x18;
 
     protected:
-        typedef struct RMAN_BUNDLE {
+        using riot_manifest_bundle = struct RMAN_BUNDLE {
             uint64_t block_id = 0;
             uint32_t csize    = 0;
             uint32_t size     = 0;
-        } riot_manifest_bundle;
+        };
 
-        typedef struct RMAN_FILE {
+        using riot_manifest_file = struct RMAN_FILE {
             uint64_t file_id      = 0;
             uint64_t directory_id = 0;
             uint32_t size         = 0;
@@ -41,19 +41,19 @@ namespace yordle::manifest {
             uint8_t index;
             uint8_t permissions;
             std::shared_ptr<dragon::Array<uint64_t>> block_ids;
-        } riot_manifest_file;
+        };
 
-        typedef struct RMAN_DIR {
+        using riot_manifest_dir = struct RMAN_DIR {
             uint64_t id        = 0;
             uint64_t parent_id = 0;
             std::string name;
-        } riot_manifest_dir;
+        };
 
     public:
         explicit riot_manifest(dragon::Array<uint8_t> &buffer);
         ~riot_manifest() = default;
 
-        typedef union alignas(2) RMAN_FLAGS {
+        using riot_manifest_flags = union alignas(2) RMAN_FLAGS {
             struct {
                 bool unknown1 : 1;
                 bool unknown2 : 1;
@@ -68,7 +68,8 @@ namespace yordle::manifest {
             };
 
             uint16_t value;
-        } riot_manifest_flags;
+        };
+        DRAGON_ASSERT(sizeof(riot_manifest_flags) == 2, "riot_manifest_flags size is not 2");
 
 #pragma pack(push, 1)
         struct {

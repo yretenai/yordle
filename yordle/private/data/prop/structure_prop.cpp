@@ -14,13 +14,13 @@ using namespace nlohmann;
 namespace yordle::data::prop {
     structure_prop::structure_prop(Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
         type       = prop_type::structure;
-        class_hash = buffer.lpcast<uint32_t>(&ptr);
+        class_hash = buffer.lpcast<uint32_t>(ptr);
         if (class_hash == 0) {
             value = {};
             return;
         }
 
-        auto size  = buffer.lpcast<uint32_t>(&ptr);
+        auto size  = buffer.lpcast<uint32_t>(ptr);
         auto count = buffer.cast<uint16_t>(ptr);
 
         auto ptr_shadow = ptr + 2;

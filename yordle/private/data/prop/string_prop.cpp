@@ -11,7 +11,7 @@ using namespace nlohmann;
 namespace yordle::data::prop {
     string_prop::string_prop(Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
         type      = prop_type::string;
-        auto size = buffer.lpcast<uint16_t>(&ptr);
+        auto size = buffer.lpcast<uint16_t>(ptr);
         value     = std::string(reinterpret_cast<const char *>(buffer.data() + ptr), size);
 
         ptr += size;

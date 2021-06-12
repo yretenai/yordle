@@ -20,7 +20,7 @@
 // https://universe-comics.leagueoflegends.com/comics/en_us/lux/issue-1/index.json
 
 namespace yordle::meeps::languages {
-    typedef const char *UniverseLanguage;
+    using UniverseLanguage = const char *;
 
     static constexpr UniverseLanguage Czech              = "cs_cz";
     static constexpr UniverseLanguage German             = "de_de";

@@ -18,10 +18,10 @@
 namespace yordle::data {
     class YORDLE_EXPORT inibin {
     public:
-        typedef std::array<float, 4> float4_type;
-        typedef std::array<float, 3> float3_type;
-        typedef std::array<float, 2> float2_type;
-        typedef std::array<uint8_t, 3> uint8x3_type;
+        using float4_type  = std::array<float, 4>;
+        using float3_type  = std::array<float, 3>;
+        using float2_type  = std::array<float, 2>;
+        using uint8x3_type = std::array<uint8_t, 3>;
 
         explicit inibin() = default;
 

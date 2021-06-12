@@ -19,7 +19,7 @@ namespace yordle::data {
         explicit inibin_v2(dragon::Array<uint8_t> &buffer);
 
 #pragma pack(push, 2)
-        typedef union alignas(2) INIBIN_V2_FLAGS {
+        using inibin_v2_flags = union alignas(2) INIBIN_V2_FLAGS {
             struct {
                 bool uint32 : 1;
                 bool float32 : 1;
@@ -38,8 +38,8 @@ namespace yordle::data {
             };
 
             uint16_t value;
-        } inibin_v2_flags;
-        DRAGON_ASSERT(sizeof(inibin_v2_flags) == 2);
+        };
+        DRAGON_ASSERT(sizeof(inibin_v2_flags) == 2, "inibin_v2_flags size is not 2");
 #pragma pack(pop)
 
 #pragma pack(push, 1)

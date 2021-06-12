@@ -21,12 +21,12 @@
 #include "../tool_export.h"
 
 namespace gnar {
-    typedef struct GNAR_CONFIGURATION {
+    using GnarConfiguration = struct GNAR_CONFIGURATION {
         std::deque<std::string> targets;
         yordle::cdtb::fnvhashlist hash_list;
         yordle::cdtb::xxhashlist file_hash_list;
         std::string output;
-    } GnarConfiguration;
+    };
 
     bool parse_configuration(int argc, char **argv, GnarConfiguration &gnar, int &code);
 

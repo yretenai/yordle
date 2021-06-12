@@ -13,9 +13,9 @@ namespace yordle::data::prop {
     map_prop::map_prop(Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
         type = prop_type::map;
 
-        key_type   = buffer.lpcast<prop_type>(&ptr);
-        value_type = buffer.lpcast<prop_type>(&ptr);
-        auto size  = buffer.lpcast<uint32_t>(&ptr);
+        key_type   = buffer.lpcast<prop_type>(ptr);
+        value_type = buffer.lpcast<prop_type>(ptr);
+        auto size  = buffer.lpcast<uint32_t>(ptr);
         auto count = buffer.cast<uint32_t>(ptr);
 
         auto map_value  = map<shared_ptr<empty_prop>, shared_ptr<empty_prop>>();

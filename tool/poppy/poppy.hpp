@@ -49,7 +49,7 @@
 #include "../tool_export.h"
 
 namespace poppy {
-    typedef struct POPPY_CONFIGURATION {
+    using PoppyConfiguration = struct POPPY_CONFIGURATION {
         std::filesystem::path output_dir = "deploy";
         std::filesystem::path cache_dir  = "sieve";
         std::string platform             = "windows";
@@ -66,7 +66,7 @@ namespace poppy {
         std::deque<std::string> targets;
         std::set<std::string> configurations;
         std::shared_ptr<yordle::manifest::riot_manifest> old_manifest;
-    } PoppyConfiguration;
+    };
 
     std::shared_ptr<std::vector<uint8_t>> download_curl(const std::string &path, int64_t speed_limit);
 

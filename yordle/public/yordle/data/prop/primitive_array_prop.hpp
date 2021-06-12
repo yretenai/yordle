@@ -42,7 +42,7 @@ namespace yordle::data::prop {
         }
     };
 
-    DRAGON_ASSERT(sizeof(float) == 4);
+    DRAGON_ASSERT(sizeof(float) == 4, "float size is not 4");
     using point_prop      = primitive_array_prop<float, prop_type::point, 2>;
     using vector_prop     = primitive_array_prop<float, prop_type::vector, 3>;
     using quaternion_prop = primitive_array_prop<float, prop_type::quaternion, 4>;

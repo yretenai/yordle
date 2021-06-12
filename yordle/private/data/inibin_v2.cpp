@@ -6,9 +6,9 @@
 
 #include <yordle/data/inibin_v2.hpp>
 
-#define READ_INIBIN_KEYS                        \
-    auto count = buffer.lpcast<uint16_t>(&ptr); \
-    auto keys  = buffer.lpcast<uint32_t>(&ptr, count)
+#define READ_INIBIN_KEYS                       \
+    auto count = buffer.lpcast<uint16_t>(ptr); \
+    auto keys  = buffer.lpcast<uint32_t>(ptr, count)
 
 using namespace std;
 using namespace dragon;
@@ -30,7 +30,7 @@ namespace yordle::data {
         uintptr_t ptr = 1 + EXPECTED_DATA_SIZE;
         if (flags.uint32) {
             READ_INIBIN_KEYS;
-            auto values = buffer.lpcast<uint32_t>(&ptr, count);
+            auto values = buffer.lpcast<uint32_t>(ptr, count);
             for (auto i = 0; i < count; ++i) {
                 properties[keys[i]] = values[i];
             }
@@ -38,7 +38,7 @@ namespace yordle::data {
 
         if (flags.float32) {
             READ_INIBIN_KEYS;
-            auto values = buffer.lpcast<float>(&ptr, count);
+            auto values = buffer.lpcast<float>(ptr, count);
             for (auto i = 0; i < count; ++i) {
                 properties[keys[i]] = values[i];
             }
@@ -46,7 +46,7 @@ namespace yordle::data {
 
         if (flags.float8) {
             READ_INIBIN_KEYS;
-            auto values = buffer.lpcast<uint8_t>(&ptr, count);
+            auto values = buffer.lpcast<uint8_t>(ptr, count);
             for (auto i = 0; i < count; ++i) {
                 properties[keys[i]] = (float) values[i] / 10.0f;
             }
@@ -54,7 +54,7 @@ namespace yordle::data {
 
         if (flags.uint16) {
             READ_INIBIN_KEYS;
-            auto values = buffer.lpcast<uint16_t>(&ptr, count);
+            auto values = buffer.lpcast<uint16_t>(ptr, count);
             for (auto i = 0; i < count; ++i) {
                 properties[keys[i]] = values[i];
             }
@@ -62,7 +62,7 @@ namespace yordle::data {
 
         if (flags.uint8) {
             READ_INIBIN_KEYS;
-            auto values = buffer.lpcast<uint8_t>(&ptr, count);
+            auto values = buffer.lpcast<uint8_t>(ptr, count);
             for (auto i = 0; i < count; ++i) {
                 properties[keys[i]] = values[i];
             }
@@ -71,7 +71,7 @@ namespace yordle::data {
         if (flags.bool1) {
             READ_INIBIN_KEYS;
             auto bytes  = count / 8 + (count % 8 == 0 ? 0 : 1);
-            auto values = buffer.lpcast<uint8_t>(&ptr, bytes);
+            auto values = buffer.lpcast<uint8_t>(ptr, bytes);
             for (auto i = 0; i < count; ++i) {
                 auto bit            = count % 8;
                 auto bit_index      = count / 8;
@@ -81,7 +81,7 @@ namespace yordle::data {
 
         if (flags.uint8x3) {
             READ_INIBIN_KEYS;
-            auto values = buffer.lpcast<uint8_t>(&ptr, count * 3);
+            auto values = buffer.lpcast<uint8_t>(ptr, count * 3);
             for (auto i = 0; i < count; ++i) {
                 properties[keys[i]] = array<uint8_t, 3> {{values[i * 3 + 0], values[i * 3 + 1], values[i * 3 + 2]}};
             }
@@ -89,7 +89,7 @@ namespace yordle::data {
 
         if (flags.float32x3) {
             READ_INIBIN_KEYS;
-            auto values = buffer.lpcast<float>(&ptr, count * 3);
+            auto values = buffer.lpcast<float>(ptr, count * 3);
             for (auto i = 0; i < count; ++i) {
                 properties[keys[i]] = array<float, 3> {{values[i * 3 + 0], values[i * 3 + 1], values[i * 3 + 2]}};
             }
@@ -97,7 +97,7 @@ namespace yordle::data {
 
         if (flags.float8x2) {
             READ_INIBIN_KEYS;
-            auto values = buffer.lpcast<uint8_t>(&ptr, count * 2);
+            auto values = buffer.lpcast<uint8_t>(ptr, count * 2);
             for (auto i = 0; i < count; ++i) {
                 properties[keys[i]] = array<float, 2> {{(float) values[i * 2 + 0] / 10.0f, (float) values[i * 2 + 1] / 10.0f}};
             }
@@ -105,7 +105,7 @@ namespace yordle::data {
 
         if (flags.float32x2) {
             READ_INIBIN_KEYS;
-            auto values = buffer.lpcast<float>(&ptr, count * 2);
+            auto values = buffer.lpcast<float>(ptr, count * 2);
             for (auto i = 0; i < count; ++i) {
                 properties[keys[i]] = array<float, 2> {{values[i * 2 + 0], values[i * 2 + 1]}};
             }
@@ -113,7 +113,7 @@ namespace yordle::data {
 
         if (flags.float8x3) {
             READ_INIBIN_KEYS;
-            auto values = buffer.lpcast<uint8_t>(&ptr, count * 3);
+            auto values = buffer.lpcast<uint8_t>(ptr, count * 3);
             for (auto i = 0; i < count; ++i) {
                 properties[keys[i]] = array<float, 3> {{(float) values[i * 3 + 0] / 10.0f, (float) values[i * 3 + 1] / 10.0f, (float) values[i * 3 + 2] / 10.0f}};
             }
@@ -121,7 +121,7 @@ namespace yordle::data {
 
         if (flags.float32x4) {
             READ_INIBIN_KEYS;
-            auto values = buffer.lpcast<float>(&ptr, count * 4);
+            auto values = buffer.lpcast<float>(ptr, count * 4);
             for (auto i = 0; i < count; ++i) {
                 properties[keys[i]] = array<float, 4> {{values[i * 4 + 0], values[i * 4 + 1], values[i * 4 + 2], values[i * 4 + 3]}};
             }
@@ -129,8 +129,8 @@ namespace yordle::data {
 
         if (flags.string) {
             READ_INIBIN_KEYS;
-            auto str_offsets = buffer.lpcast<uint16_t>(&ptr, count);
-            auto str_buf     = buffer.lpslice(&ptr, blob_length);
+            auto str_offsets = buffer.lpcast<uint16_t>(ptr, count);
+            auto str_buf     = buffer.lpslice(ptr, blob_length);
 
             for (auto i = 0; i < count; ++i) {
                 properties[keys[i]] = string(reinterpret_cast<const char *>(str_buf.data() + str_offsets[i]));

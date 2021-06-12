@@ -15,7 +15,7 @@ namespace yordle::data::prop {
     public:
         explicit primitive_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
             type  = P;
-            value = buffer.lpcast<T>(&ptr);
+            value = buffer.lpcast<T>(ptr);
         }
 
         void to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const override {
@@ -52,8 +52,8 @@ namespace yordle::data::prop {
         }
     };
 
-    DRAGON_ASSERT(sizeof(bool) == 1);
-    DRAGON_ASSERT(sizeof(float) == 4);
+    DRAGON_ASSERT(sizeof(bool) == 1, "bool size is not 1");
+    DRAGON_ASSERT(sizeof(float) == 4, "float size is not 4");
     using bool_prop      = primitive_prop<bool, prop_type::boolean>;
     using int8_prop      = primitive_prop<int8_t, prop_type::int8>;
     using uint8_prop     = primitive_prop<uint8_t, prop_type::uint8>;

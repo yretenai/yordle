@@ -19,11 +19,11 @@ namespace yordle::data {
         explicit inibin_v1(dragon::Array<uint8_t> &buffer);
 
 #pragma pack(push, 4)
-        typedef struct INIBIN_V1_ENTRY {
+        using inibin_v1_entry = struct INIBIN_V1_ENTRY {
             uint32_t hash;
             uint32_t offset;
-        } inibin_v1_entry;
-        DRAGON_ASSERT(sizeof(inibin_v1_entry) == 8);
+        };
+        DRAGON_ASSERT(sizeof(inibin_v1_entry) == 8, "inibin_v1_entry size is not 8");
 #pragma pack(pop)
 
 #pragma pack(push, 1)

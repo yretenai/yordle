@@ -23,7 +23,7 @@ namespace yordle::data::prop {
 #pragma pack(push, 1)
     static constexpr uint8_t COMPLEX_PROPERTY_TYPE = 1 << 7;
 
-    typedef enum class PROPERTY_TYPE : uint8_t {
+    using prop_type = enum class PROPERTY_TYPE : uint8_t {
         null       = 0,
         boolean    = 1,
         int8       = 2,
@@ -52,9 +52,9 @@ namespace yordle::data::prop {
         optional         = COMPLEX_PROPERTY_TYPE | 5,
         map              = COMPLEX_PROPERTY_TYPE | 6,
         bit              = COMPLEX_PROPERTY_TYPE | 7
-    } prop_type;
+    };
 #pragma pack(pop)
-    DRAGON_ASSERT(sizeof(prop_type) == 1);
+    DRAGON_ASSERT(sizeof(prop_type) == 1, "prop_type size is not 1");
 
     static std::map<prop_type, std::string> prop_type_name {
         {prop_type::null, "null"},

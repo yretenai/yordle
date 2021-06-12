@@ -12,8 +12,8 @@ using namespace nlohmann;
 namespace yordle::data::prop {
     optional_prop::optional_prop(Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
         type           = prop_type::optional;
-        value_type     = buffer.lpcast<prop_type>(&ptr);
-        auto has_value = buffer.lpcast<bool>(&ptr);
+        value_type     = buffer.lpcast<prop_type>(ptr);
+        auto has_value = buffer.lpcast<bool>(ptr);
 
         if (has_value) {
             value = object_prop::read_prop(buffer, ptr, version, key_hash, value_type);

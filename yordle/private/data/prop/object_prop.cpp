@@ -23,7 +23,7 @@ using namespace nlohmann;
 
 namespace yordle::data::prop {
     object_prop::object_prop(Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
-        auto size  = buffer.lpcast<uint32_t>(&ptr);
+        auto size  = buffer.lpcast<uint32_t>(ptr);
         path_hash  = buffer.cast<uint32_t>(ptr);
         auto count = buffer.cast<uint16_t>(ptr + 4);
 
@@ -39,11 +39,11 @@ namespace yordle::data::prop {
 
     shared_ptr<empty_prop> object_prop::read_prop(Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, optional<uint32_t> key_hash, optional<prop_type> type) {
         if (!key_hash.has_value()) {
-            key_hash = buffer.lpcast<uint32_t>(&ptr);
+            key_hash = buffer.lpcast<uint32_t>(ptr);
         }
 
         if (!type.has_value()) {
-            type = buffer.lpcast<prop_type>(&ptr);
+            type = buffer.lpcast<prop_type>(ptr);
         }
 
         // if i ever change the signature of the constructor i'm doomed.
