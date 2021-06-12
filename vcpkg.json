@@ -1,6 +1,6 @@
 {
   "name": "yordle",
-  "version-string": "0.0.5",
+  "version-string": "0.3.2",
   "homepage": "https://github.com/yretenai/yordle",
   "description": "Third Party League of Legends File IO Library and Tooling",
   "dependencies": [

@@ -5,7 +5,7 @@ table RiotManifest {
     languages: [RiotManifestLanguage];
     files: [RiotManifestFile];
     directories: [RiotManifestDirectory];
-    signatures: [string];
+    keys: [RiotManifestKey];
     params: [RiotManifestParam];
 }
 
@@ -47,12 +47,23 @@ table RiotManifestDirectory {
     name: string;
 }
 
+table RiotManifestKey {
+    unknown1: ubyte;
+}
+
+enum RiotManifestParamType : ubyte {
+    NONE,
+    SHA512,
+    SHA256,
+    HKDF // unknown variant
+}
+
 table RiotManifestParam {
-    unknown1: ushort;
-    hash_type: ubyte;
+    id: ushort;
+    hash_type: RiotManifestParamType;
     unknown3: ubyte;
-    size: uint;
-    csize: uint;
+    min_size: uint;
+    max_size: uint;
 }
 
 root_type RiotManifest;
