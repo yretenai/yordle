@@ -164,8 +164,6 @@ namespace gnar {
 } // namespace gnar
 
 void output_source(filesystem::path &target, uint32_t id, const vector<WemSoundbank> &banks, const vector<wem_pack> &packs) {
-    cout << "Saving wem " << id << endl;
-
     for (auto bank : banks) {
         auto data  = bank.get_chunk_impl<WemData>();
         auto index = bank.get_chunk_impl<WemDataIndex>();
