@@ -16,6 +16,7 @@ namespace yordle::cdtb {
         explicit fnvhashlist(dragon::Array<uint8_t> &buffer);
 
         void validate() override;
+        static uint32_t hash(std::string str);
         [[nodiscard]] std::string get_string(uint32_t hash) const override;
         [[nodiscard]] std::filesystem::path get_path(uint32_t hash) const override;
         void combine(hashlist<uint32_t> &hashlist) override;

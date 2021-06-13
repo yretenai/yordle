@@ -4,9 +4,9 @@
 
 #pragma once
 
+#include <map>
 #include <memory>
 #include <optional>
-#include <set>
 
 #include <standard_dragon/Array.hpp>
 
@@ -21,7 +21,22 @@ namespace yordle::data::prop {
         explicit structure_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash);
 
         uint32_t class_hash = 0;
-        std::set<std::shared_ptr<empty_prop>> value;
+        std::map<uint32_t, std::shared_ptr<empty_prop>> properties;
+
+
+        template<typename T>
+        typename std::enable_if<std::is_base_of<empty_prop, T>::value, std::shared_ptr<T>>::type cast_prop(uint32_t prop_key) {
+            if (!properties.contains(prop_key)) {
+                return nullptr;
+            }
+
+            return empty_prop::cast_prop<T>(properties[prop_key]);
+        }
+
+        template<typename T>
+        typename std::enable_if<std::is_base_of<empty_prop, T>::value, std::shared_ptr<T>>::type cast_prop(std::string prop_key) {
+            return cast_prop<T>(yordle::cdtb::fnvhashlist::hash(std::move(prop_key)));
+        }
 
         void to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const override;
     };

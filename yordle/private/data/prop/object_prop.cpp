@@ -2,8 +2,6 @@
 // Created by Lilith on 2021-06-08.
 //
 
-#include <set>
-
 #include <standard_dragon/exception/not_implemented.hpp>
 
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -31,7 +29,8 @@ namespace yordle::data::prop {
 
         auto ptr_shadow = ptr + 6;
         for (auto i = 0; i < count; ++i) {
-            value.emplace(read_prop(buffer, ptr_shadow, version, {}, {}));
+            auto prop             = read_prop(buffer, ptr_shadow, version, {}, {});
+            properties[prop->key] = prop;
         }
 
         ptr += size;
@@ -115,8 +114,8 @@ namespace yordle::data::prop {
         obj["type"]        = hash_list.get_string(key);
 
         nlohmann::json data_obj = nlohmann::json::object();
-        for (const auto &property : value) {
-            property->to_json(data_obj, hash_list, file_hash_list, {}, store_type_info);
+        for (const auto &property : properties) {
+            property.second->to_json(data_obj, hash_list, file_hash_list, {}, store_type_info);
         }
         obj["data"] = data_obj;
 

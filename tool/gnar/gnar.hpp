@@ -6,11 +6,11 @@
 
 // Gnar is responsible for unpacking bnk/wpk files into wem files using bin files for naming.
 
-#define GNAR_VERSION 1
-#define GNAR_VERSION_M 0
+#define GNAR_VERSION 3
+#define GNAR_VERSION_M 1
 #define GNAR_VERSION_m 0
-#define GNAR_VERSION_i 1
-#define GNAR_VERSION_S "0.0.1"
+#define GNAR_VERSION_i 0
+#define GNAR_VERSION_S "1.0.0"
 
 #include <cstdint>
 #include <deque>
@@ -23,9 +23,10 @@
 namespace gnar {
     using GnarConfiguration = struct GNAR_CONFIGURATION {
         std::deque<std::string> targets;
+        std::filesystem::path game_dir;
+        std::filesystem::path output_dir;
         yordle::cdtb::fnvhashlist hash_list;
         yordle::cdtb::xxhashlist file_hash_list;
-        std::string output;
     };
 
     bool parse_configuration(int argc, char **argv, GnarConfiguration &gnar, int &code);

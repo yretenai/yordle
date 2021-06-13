@@ -95,6 +95,15 @@ namespace yordle::data::prop {
         uint32_t key;
         prop_type type = prop_type::null;
 
+        template<typename T>
+        static typename std::enable_if<std::is_base_of<empty_prop, T>::value, std::shared_ptr<T>>::type cast_prop(std::shared_ptr<empty_prop> &prop) {
+            if (prop->type != T::TYPE) {
+                return nullptr;
+            }
+
+            return std::reinterpret_pointer_cast<T>(prop);
+        }
+
         virtual void to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const {
             if (!obj_key.has_value()) {
                 obj_key = hash_list.get_string(key);

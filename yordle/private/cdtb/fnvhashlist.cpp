@@ -17,23 +17,21 @@ namespace yordle::cdtb {
     fnvhashlist::fnvhashlist(Array<uint8_t> &buffer) {
         string line;
 
-        uint32_t hash;
+        uint32_t hash_value;
         auto stream = buffer.to_string_stream();
         while (getline(stream, line, '\n')) {
             istringstream line_stream = istringstream(line);
-            line_stream >> hex >> hash;
-            line_stream >> hashes[hash];
+            line_stream >> hex >> hash_value;
+            line_stream >> hashes[hash_value];
         }
     }
 
     void fnvhashlist::validate() {
-        uint32_t hash;
+        uint32_t test;
         for (const auto &pair : hashes) {
-            string data = pair.second;
-            str_to_lower(data);
-            hash = fnv1a32(reinterpret_cast<uint8_t *>(data.data()), data.length());
-            if (hash != pair.first) {
-                DRAGON_LOG("Failed to match " << pair.second << " to hash " << HEXLOG32 << pair.first << " instead got " << HEXLOG32 << hash);
+            test = hash(pair.second);
+            if (test != pair.first) {
+                DRAGON_LOG("Failed to match " << pair.second << " to hash " << HEXLOG32 << pair.first << " instead got " << HEXLOG32 << test);
             }
         }
     }
@@ -58,5 +56,10 @@ namespace yordle::cdtb {
 
     void fnvhashlist::combine(hashlist<uint32_t> &hashlist) {
         hashes.merge(hashlist.hashes);
+    }
+
+    uint32_t fnvhashlist::hash(std::string str) {
+        dragon::str_to_lower(str);
+        return dragon::hash::fnv1a32(reinterpret_cast<uint8_t *>(str.data()), str.length());
     }
 } // namespace yordle::cdtb

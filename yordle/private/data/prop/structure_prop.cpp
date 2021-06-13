@@ -24,7 +24,8 @@ namespace yordle::data::prop {
 
         auto ptr_shadow = ptr + 2;
         for (auto i = 0; i < count; ++i) {
-            value.emplace(object_prop::read_prop(buffer, ptr_shadow, version, {}, {}));
+            auto prop             = object_prop::read_prop(buffer, ptr_shadow, version, {}, {});
+            properties[prop->key] = prop;
         }
 
         ptr += size;
@@ -38,8 +39,8 @@ namespace yordle::data::prop {
         obj["type"]        = hash_list.get_string(class_hash);
 
         nlohmann::json data_obj = nlohmann::json::object();
-        for (const auto &property : value) {
-            property->to_json(data_obj, hash_list, file_hash_list, {}, store_type_info);
+        for (const auto &property : properties) {
+            property.second->to_json(data_obj, hash_list, file_hash_list, {}, store_type_info);
         }
         obj["data"] = data_obj;
 

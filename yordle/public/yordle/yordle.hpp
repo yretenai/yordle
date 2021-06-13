@@ -4,11 +4,11 @@
 
 #pragma once
 
-#define YORDLE_VERSION 13
+#define YORDLE_VERSION 14
 #define YORDLE_VERSION_M 0
-#define YORDLE_VERSION_m 3
-#define YORDLE_VERSION_i 3
-#define YORDLE_VERSION_S "0.3.3"
+#define YORDLE_VERSION_m 4
+#define YORDLE_VERSION_i 0
+#define YORDLE_VERSION_S "0.4.0"
 
 #include <yordle/yordle_export.h>
 
@@ -16,6 +16,7 @@
 #include <yordle/archive/wad_file_v1.hpp>
 #include <yordle/archive/wad_file_v2.hpp>
 #include <yordle/archive/wad_file_v3.hpp>
+#include <yordle/audio/wem_pack.hpp>
 #include <yordle/cdtb/fnvhashlist.hpp>
 #include <yordle/cdtb/hashlist.hpp>
 #include <yordle/cdtb/xxhashlist.hpp>
