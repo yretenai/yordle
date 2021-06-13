@@ -394,7 +394,7 @@ void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const
                     localedBankPaths.push_back(localizedBankPath.parent_path());
                 }
                 cout << "processing locale " << locale << endl;
-                process(gnar, gnar.output_dir / (type + "VO") / name / locale, localedBankPaths, events, localTag, true);
+                process(gnar, gnar.output_dir / (type + "VO") / locale / name, localedBankPaths, events, localTag, true);
             }
         } else {
             if (!gnar.process_sfx) {
