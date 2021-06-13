@@ -297,6 +297,7 @@ void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, cons
     }
 
     string type = isVO ? "vo" : "sfx";
+    set<uint32_t> done_events;
     for (auto event : events) {
         cout << "Processing event " << event << endl;
         if (!event.starts_with("Play_")) {
@@ -314,10 +315,36 @@ void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, cons
             }
         }
         auto target = output / cleaned_event;
-        set<uint32_t> done;
 
         str_to_lower(event);
-        find_source(target, fnv1_32(reinterpret_cast<uint8_t *>(event.data()), event.length()), banks, wem_packs, done);
+        auto hash = fnv1_32(reinterpret_cast<uint8_t *>(event.data()), event.length());
+        if (done_events.emplace(hash).second) {
+            set<uint32_t> done;
+            find_source(target, hash, banks, wem_packs, done);
+        }
+    }
+
+    for (auto bank : banks) {
+        auto hirc = bank.get_chunk_impl<WemHierarchy>();
+        if (hirc == nullptr) {
+            continue;
+        }
+
+        for (auto chunk : hirc->types) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wswitch"
+            switch (chunk.second) {
+                case WemHierarchyEvent::type: {
+                    if (done_events.emplace(chunk.first).second) {
+                        set<uint32_t> done;
+                        auto target = output / to_string(chunk.first);
+                        find_source(target, chunk.first, banks, wem_packs, done);
+                    }
+                    break;
+                }
+            }
+#pragma clang diagnostic pop
+        }
     }
 }
 
