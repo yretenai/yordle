@@ -7,7 +7,6 @@
 
 #pragma once
 
-#include <any>
 #include <cstdint>
 
 #include <nlohmann/json.hpp>
@@ -88,12 +87,13 @@ namespace yordle::data::prop {
 
     class YORDLE_EXPORT empty_prop {
     public:
+        const static prop_type TYPE = prop_type::null;
+
         explicit empty_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, [[maybe_unused]] uint32_t version, uint32_t key_hash) : key(key_hash) {
         }
 
         uint32_t key;
         prop_type type = prop_type::null;
-        std::any value;
 
         virtual void to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const {
             if (!obj_key.has_value()) {

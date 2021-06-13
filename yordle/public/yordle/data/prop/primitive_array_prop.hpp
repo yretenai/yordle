@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <array>
+
 #include <standard_dragon/Array.hpp>
 
 #include <yordle/data/prop/empty_prop.hpp>
@@ -13,13 +15,15 @@ namespace yordle::data::prop {
     template<typename T, prop_type P, size_t S>
     class YORDLE_EXPORT primitive_array_prop : public empty_prop {
     public:
+        const static prop_type TYPE = P;
+
         explicit primitive_array_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
-            type     = P;
-            auto arr = std::array<T, S>();
-            buffer.copy(reinterpret_cast<uintptr_t>(arr.data()), ptr, sizeof(T) * S);
-            value = arr;
+            type = P;
+            buffer.copy(reinterpret_cast<uintptr_t>(value.data()), ptr, sizeof(T) * S);
             ptr += sizeof(T) * S;
         }
+
+        std::array<T, S> value;
 
         void to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const override {
             if (!obj_key.has_value()) {
@@ -27,17 +31,9 @@ namespace yordle::data::prop {
             }
 
             if (store_type_info) {
-                if (!value.has_value()) {
-                    json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", nullptr}};
-                } else {
-                    json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", std::any_cast<std::array<T, S>>(value)}};
-                }
+                json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", value}};
             } else {
-                if (!value.has_value()) {
-                    json[obj_key.value()] = nullptr;
-                } else {
-                    json[obj_key.value()] = std::any_cast<std::array<T, S>>(value);
-                }
+                json[obj_key.value()] = value;
             }
         }
     };

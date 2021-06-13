@@ -16,7 +16,6 @@ namespace yordle::data::prop {
         type       = prop_type::structure;
         class_hash = buffer.lpcast<uint32_t>(ptr);
         if (class_hash == 0) {
-            value = {};
             return;
         }
 
@@ -24,11 +23,9 @@ namespace yordle::data::prop {
         auto count = buffer.cast<uint16_t>(ptr);
 
         auto ptr_shadow = ptr + 2;
-        auto props      = set<shared_ptr<empty_prop>>();
         for (auto i = 0; i < count; ++i) {
-            props.emplace(object_prop::read_prop(buffer, ptr_shadow, version, {}, {}));
+            value.emplace(object_prop::read_prop(buffer, ptr_shadow, version, {}, {}));
         }
-        value = props;
 
         ptr += size;
     }
@@ -37,20 +34,11 @@ namespace yordle::data::prop {
             obj_key = hash_list.get_string(key);
         }
 
-        nlohmann::json obj;
-        obj["type"] = hash_list.get_string(class_hash);
+        nlohmann::json obj = nlohmann::json::object();
+        obj["type"]        = hash_list.get_string(class_hash);
 
-        if (!value.has_value()) {
-            obj["data"] = nullptr;
-
-            json[obj_key.value()] = obj;
-            return;
-        }
-
-        auto properties = std::any_cast<set<shared_ptr<empty_prop>>>(value);
-
-        nlohmann::json data_obj;
-        for (const auto &property : properties) {
+        nlohmann::json data_obj = nlohmann::json::object();
+        for (const auto &property : value) {
             property->to_json(data_obj, hash_list, file_hash_list, {}, store_type_info);
         }
         obj["data"] = data_obj;

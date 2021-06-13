@@ -23,17 +23,9 @@ namespace yordle::data::prop {
         }
 
         if (store_type_info) {
-            if (value.has_value()) {
-                json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", std::any_cast<std::string>(value)}};
-            } else {
-                json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", nullptr}};
-            }
+            json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", value}};
         } else {
-            if (value.has_value()) {
-                json[obj_key.value()] = std::any_cast<std::string>(value);
-            } else {
-                json[obj_key.value()] = nullptr;
-            }
+            json[obj_key.value()] = value;
         }
     }
 } // namespace yordle::data::prop

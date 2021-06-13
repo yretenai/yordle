@@ -13,10 +13,14 @@ namespace yordle::data::prop {
     template<typename T, prop_type P>
     class YORDLE_EXPORT primitive_prop : public empty_prop {
     public:
+        const static prop_type TYPE = P;
+
         explicit primitive_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
             type  = P;
             value = buffer.lpcast<T>(ptr);
         }
+
+        T value;
 
         void to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const override {
             if (!obj_key.has_value()) {
@@ -25,28 +29,20 @@ namespace yordle::data::prop {
 
             // this is super inefficient, move fnv, xx, and reference to their own classes.
             if (store_type_info) {
-                if (!value.has_value()) {
-                    json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", nullptr}};
+                if (type == prop_type::fnv_hash || type == prop_type::reference) {
+                    json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", hash_list.get_string(value)}};
+                } else if (type == prop_type::xx_hash) {
+                    json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", file_hash_list.get_string(value)}};
                 } else {
-                    if (type == prop_type::fnv_hash || type == prop_type::reference) {
-                        json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", hash_list.get_string(std::any_cast<T>(value))}};
-                    } else if (type == prop_type::xx_hash) {
-                        json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", file_hash_list.get_string(std::any_cast<T>(value))}};
-                    } else {
-                        json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", std::any_cast<T>(value)}};
-                    }
+                    json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", value}};
                 }
             } else {
-                if (!value.has_value()) {
-                    json[obj_key.value()] = nullptr;
+                if (type == prop_type::fnv_hash || type == prop_type::reference) {
+                    json[obj_key.value()] = hash_list.get_string(value);
+                } else if (type == prop_type::xx_hash) {
+                    json[obj_key.value()] = file_hash_list.get_string(value);
                 } else {
-                    if (type == prop_type::fnv_hash || type == prop_type::reference) {
-                        json[obj_key.value()] = hash_list.get_string(std::any_cast<T>(value));
-                    } else if (type == prop_type::xx_hash) {
-                        json[obj_key.value()] = file_hash_list.get_string(std::any_cast<T>(value));
-                    } else {
-                        json[obj_key.value()] = std::any_cast<T>(value);
-                    }
+                    json[obj_key.value()] = value;
                 }
             }
         }

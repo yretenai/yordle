@@ -25,13 +25,13 @@ namespace yordle::data::prop {
             obj_key = hash_list.get_string(key);
         }
 
-        if (value.has_value()) {
+        if (value != nullptr) {
             if (store_type_info) {
                 nlohmann::json obj = {{"type", prop_type_name[type]}};
-                any_cast<shared_ptr<empty_prop>>(value)->to_json(obj, hash_list, file_hash_list, "value", false);
+                value->to_json(obj, hash_list, file_hash_list, "value", false);
                 json[obj_key.value()] = obj;
             } else {
-                any_cast<shared_ptr<empty_prop>>(value)->to_json(json, hash_list, file_hash_list, obj_key, false);
+                value->to_json(json, hash_list, file_hash_list, obj_key, false);
             }
         } else {
             if (!obj_key.has_value()) {

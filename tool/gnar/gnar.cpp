@@ -116,7 +116,8 @@ int main(int argc, char **argv) {
     }
 
     for (const auto &target : find_paths(gnar.targets, {".bin"}, {})) {
-        
+        auto data = read_file(target);
+        auto bin  = yordle::data::property_bin(data);
     }
 
     return 0;

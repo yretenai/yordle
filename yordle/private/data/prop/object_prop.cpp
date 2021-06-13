@@ -22,17 +22,17 @@ using namespace dragon::exception;
 using namespace nlohmann;
 
 namespace yordle::data::prop {
-    object_prop::object_prop(Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
+    object_prop::object_prop(Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) {
+        key = key_hash;
+
         auto size  = buffer.lpcast<uint32_t>(ptr);
         path_hash  = buffer.cast<uint32_t>(ptr);
         auto count = buffer.cast<uint16_t>(ptr + 4);
 
         auto ptr_shadow = ptr + 6;
-        auto props      = set<shared_ptr<empty_prop>>();
         for (auto i = 0; i < count; ++i) {
-            props.emplace(read_prop(buffer, ptr_shadow, version, {}, {}));
+            value.emplace(read_prop(buffer, ptr_shadow, version, {}, {}));
         }
-        value = props;
 
         ptr += size;
     }
@@ -111,20 +111,11 @@ namespace yordle::data::prop {
             obj_key = hash_list.get_string(path_hash);
         }
 
-        nlohmann::json obj;
-        obj["type"] = hash_list.get_string(key);
+        nlohmann::json obj = nlohmann::json::object();
+        obj["type"]        = hash_list.get_string(key);
 
-        if (!value.has_value()) {
-            obj["data"] = nullptr;
-
-            json[obj_key.value()] = obj;
-            return;
-        }
-
-        auto properties = std::any_cast<set<shared_ptr<empty_prop>>>(value);
-
-        nlohmann::json data_obj;
-        for (const auto &property : properties) {
+        nlohmann::json data_obj = nlohmann::json::object();
+        for (const auto &property : value) {
             property->to_json(data_obj, hash_list, file_hash_list, {}, store_type_info);
         }
         obj["data"] = data_obj;

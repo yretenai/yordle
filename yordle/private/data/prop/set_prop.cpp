@@ -17,12 +17,10 @@ namespace yordle::data::prop {
         auto size  = buffer.lpcast<uint32_t>(ptr);
         auto count = buffer.cast<uint32_t>(ptr);
 
-        auto set_value  = set<shared_ptr<empty_prop>>();
         auto ptr_shadow = ptr + 4;
         for (auto i = 0; i < count; ++i) {
-            set_value.emplace(object_prop::read_prop(buffer, ptr_shadow, version, 0, value_type));
+            value.emplace(object_prop::read_prop(buffer, ptr_shadow, version, 0, value_type));
         }
-        value = set_value;
 
         ptr += size;
     }
@@ -33,8 +31,7 @@ namespace yordle::data::prop {
         }
 
         nlohmann::json arr = json::array();
-        auto set_value     = std::any_cast<set<shared_ptr<empty_prop>>>(value);
-        for (const auto &entry : set_value) {
+        for (const auto &entry : value) {
             nlohmann::json obj = json::object();
             entry->to_json(obj, hash_list, file_hash_list, {}, store_type_info);
             for (const auto &sub_value : obj) {
