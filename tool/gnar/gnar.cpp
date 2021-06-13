@@ -115,5 +115,9 @@ int main(int argc, char **argv) {
         return exit_code;
     }
 
+    for (const auto &target : find_paths(gnar.targets, {".bin"}, {})) {
+        
+    }
+
     return 0;
 }
