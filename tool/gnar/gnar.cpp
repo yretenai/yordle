@@ -202,11 +202,9 @@ void output_source(filesystem::path &target, uint32_t id, const vector<WemSoundb
 }
 
 void find_source(filesystem::path &target, uint32_t id, const vector<WemSoundbank> &banks, const vector<wem_pack> &packs, set<uint32_t> &done) {
-    if (done.contains(id)) {
+    if (!done.emplace(id).second) {
         return;
     }
-
-    done.emplace(id);
 
     for (auto bank : banks) {
         auto hirc = bank.get_chunk_impl<WemHierarchy>();
@@ -325,7 +323,7 @@ void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, cons
     }
 }
 
-void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const shared_ptr<set_prop> &bankUnits, vector<string> &tags) {
+void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const shared_ptr<set_prop> &bankUnits, vector<string> &tags, set<string> &done_units) {
     if (bankUnits == nullptr) {
         return;
     }
@@ -347,6 +345,10 @@ void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const
             continue;
         }
         auto name = namePtr->value;
+        if (!done_units.emplace(name).second) {
+            continue;
+        }
+
         cout << "processing bank unit " << name << endl;
 
         auto isVOPtr = bankUnit->cast_prop<bool_prop>(0x3b13aa4b); // voiceOver
@@ -420,6 +422,7 @@ int main(int argc, char **argv) {
         return exit_code;
     }
 
+    set<string> done_units;
     for (const auto &target : find_paths(gnar.targets, {".bin"}, {})) {
         auto data = read_file(target);
         auto bin  = property_bin(data);
@@ -437,10 +440,10 @@ int main(int argc, char **argv) {
                         }
                     }
 
-                    process_bank_units(gnar, "Skin", skinAudioProperties->cast_prop<set_prop>(0xf8f29f92), tags); // bankUnits
+                    process_bank_units(gnar, "Skin", skinAudioProperties->cast_prop<set_prop>(0xf8f29f92), tags, done_units); // bankUnits
                 }
-            } else if (gnar.process_map && (obj->key == 0xb36da9ac || obj->key == 0xf2b58198)) { // MapAudioDataProperties || FeatureAudioDataProperties
-                process_bank_units(gnar, "Map", obj->cast_prop<set_prop>(0xf8f29f92), tags);     // bankUnits
+            } else if (gnar.process_map && (obj->key == 0xb36da9ac || obj->key == 0xf2b58198)) {         // MapAudioDataProperties || FeatureAudioDataProperties
+                process_bank_units(gnar, "Map", obj->cast_prop<set_prop>(0xf8f29f92), tags, done_units); // bankUnits
             }
         }
     }
