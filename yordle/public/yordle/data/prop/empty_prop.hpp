@@ -87,7 +87,7 @@ namespace yordle::data::prop {
 
     class YORDLE_EXPORT empty_prop {
     public:
-        const static prop_type TYPE = prop_type::null;
+        static constexpr prop_type TYPE = prop_type::null;
 
         explicit empty_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, [[maybe_unused]] uint32_t version, uint32_t key_hash) : key(key_hash) {
         }

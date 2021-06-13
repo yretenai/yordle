@@ -15,7 +15,7 @@ namespace yordle::data::prop {
     template<typename T, prop_type P, size_t S>
     class YORDLE_EXPORT primitive_array_prop : public empty_prop {
     public:
-        const static prop_type TYPE = P;
+        static constexpr prop_type TYPE = P;
 
         explicit primitive_array_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : empty_prop(buffer, ptr, version, key_hash) {
             type = P;

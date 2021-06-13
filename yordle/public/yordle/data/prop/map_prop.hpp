@@ -15,7 +15,7 @@
 namespace yordle::data::prop {
     class YORDLE_EXPORT map_prop : public empty_prop {
     public:
-        const static prop_type TYPE = prop_type::map;
+        static constexpr prop_type TYPE = prop_type::map;
 
         explicit map_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash);
 

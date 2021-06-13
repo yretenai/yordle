@@ -14,7 +14,7 @@
 namespace yordle::data::prop {
     class YORDLE_EXPORT optional_prop : public empty_prop {
     public:
-        const static prop_type TYPE = prop_type::optional;
+        static constexpr prop_type TYPE = prop_type::optional;
 
         explicit optional_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash);
 
