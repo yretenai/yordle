@@ -300,16 +300,17 @@ void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, cons
     set<uint32_t> done_events;
     for (auto event : events) {
         cout << "Processing event " << event << endl;
-        if (!event.starts_with("Play_")) {
+        if (event.starts_with("Stop_")) {
             continue;
         }
+        auto event_prefix  = event.substr(0, event.find('_') + 1);
         auto cleaned_event = event;
-        if (event.starts_with(string("Play_").append(type).append("_"))) {
+        if (event.starts_with(string(event_prefix).append(type).append("_"))) {
             cleaned_event = event.substr(5 + type.size() + 1);
         }
 
         for (const auto &tag : tags) {
-            auto prefix = string("Play_").append(type).append("_").append(tag).append("_");
+            auto prefix = string(event_prefix).append(type).append("_").append(tag).append("_");
             if (event.starts_with(prefix)) {
                 cleaned_event = event.substr(prefix.size());
             }
@@ -338,6 +339,7 @@ void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, cons
                     if (done_events.emplace(chunk.first).second) {
                         set<uint32_t> done;
                         auto target = output / to_string(chunk.first);
+                        cout << "processing unhandled event " << chunk.first << endl;
                         find_source(target, chunk.first, banks, wem_packs, done);
                     }
                     break;
