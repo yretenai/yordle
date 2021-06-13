@@ -378,8 +378,8 @@ void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const
                 continue;
             }
 
-            vector<filesystem::path> localedBankPaths;
             for (const auto &locale : gnar.locales) {
+                vector<filesystem::path> localedBankPaths;
                 for (auto bankPath : bankPaths) {
                     filesystem::path localizedBankPath;
                     do {
