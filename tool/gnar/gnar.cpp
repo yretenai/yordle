@@ -58,6 +58,12 @@ namespace gnar {
                 }
             });
 
+        cli["locale"]
+            .abbreviation('l')
+            .type(po::string)
+            .multi()
+            .bind(gnar.locales);
+
         auto &output = cli["output"]
                            .abbreviation('o')
                            .description("output directory")
@@ -65,6 +71,18 @@ namespace gnar {
                            .callback([&](const po::string_t &str) {
                                gnar.output_dir = str;
                            });
+
+        auto &disable_map = cli["disable-map"]
+                                .description("disable map processing");
+
+        auto &disable_champ = cli["disable-champ"]
+                                  .description("disable champ processing");
+
+        auto &disable_sfx = cli["disable-sfx"]
+                                .description("disable sfx processing");
+
+        auto &disable_vo = cli["disable-vo"]
+                               .description("disable vo processing");
 
         cli[""]
             .bind(gnar.targets);
@@ -112,6 +130,27 @@ namespace gnar {
             return false;
         }
 
+        if (disable_map.was_set()) {
+            gnar.process_map = false;
+        }
+
+        if (disable_champ.was_set()) {
+            gnar.process_champ = false;
+        }
+
+        if (disable_sfx.was_set()) {
+            gnar.process_sfx = false;
+        }
+
+        if (disable_vo.was_set()) {
+            gnar.process_vo = false;
+        }
+
+        if (gnar.locales.empty()) {
+            cout << "warn: setting default locales" << endl;
+            gnar.locales = {"cs_CZ", "de_DE", "el_GR", "en_US", "es_ES", "es_MX", "fr_FR", "hu_HU", "it_IT", "ja_JP", "ko_KR", "pl_PL", "pt_BR", "ro_RO", "ru_RU", "th_TH", "tr_TR", "vn_VN", "zh_CN", "zh_TW"};
+        }
+
         return true;
     }
 
@@ -139,7 +178,7 @@ void output_source(filesystem::path &target, uint32_t id, const vector<WemSoundb
             if (!filesystem::exists(target)) {
                 filesystem::create_directories(target);
             }
-            auto wem_name = std::to_string(id) + ".wem";
+            auto wem_name = to_string(id) + ".wem";
             auto output   = target / wem_name;
             write_file(output, data->get_stream(index->streams[id]));
             return;
@@ -147,7 +186,7 @@ void output_source(filesystem::path &target, uint32_t id, const vector<WemSoundb
     }
 
     for (auto pack : packs) {
-        auto wem_name = std::to_wstring(id) + L".wem";
+        auto wem_name = to_wstring(id) + L".wem";
         auto output   = target / wem_name;
         if (pack.audio.contains(wem_name)) {
             if (!filesystem::exists(target)) {
@@ -162,7 +201,7 @@ void output_source(filesystem::path &target, uint32_t id, const vector<WemSoundb
     cerr << "can't find wem id " << id << endl;
 }
 
-void find_source(filesystem::path &target, uint32_t id, const vector<WemSoundbank> &banks, const vector<wem_pack> &packs, std::set<uint32_t> &done) {
+void find_source(filesystem::path &target, uint32_t id, const vector<WemSoundbank> &banks, const vector<wem_pack> &packs, set<uint32_t> &done) {
     if (done.contains(id)) {
         return;
     }
@@ -261,27 +300,32 @@ void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, cons
         }
     }
 
+    string type = isVO ? "vo" : "sfx";
     for (auto event : events) {
         cout << "Processing event " << event << endl;
         if (!event.starts_with("Play_")) {
             continue;
         }
         auto cleaned_event = event;
+        if (event.starts_with(string("Play_").append(type).append("_"))) {
+            cleaned_event = event.substr(5 + type.size() + 1);
+        }
+
         for (const auto &tag : tags) {
-            auto prefix = std::string("Play_") + (isVO ? "vo" : "sfx") + "_" + tag + "_";
+            auto prefix = string("Play_").append(type).append("_").append(tag).append("_");
             if (event.starts_with(prefix)) {
                 cleaned_event = event.substr(prefix.size());
             }
         }
         auto target = output / cleaned_event;
-        std::set<uint32_t> done;
+        set<uint32_t> done;
 
         str_to_lower(event);
         find_source(target, fnv1_32(reinterpret_cast<uint8_t *>(event.data()), event.length()), banks, wem_packs, done);
     }
 }
 
-void process_bank_units(gnar::GnarConfiguration &gnar, const std::string &type, const shared_ptr<set_prop> &bankUnits, vector<string> &tags) {
+void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const shared_ptr<set_prop> &bankUnits, vector<string> &tags) {
     if (bankUnits == nullptr) {
         return;
     }
@@ -291,12 +335,10 @@ void process_bank_units(gnar::GnarConfiguration &gnar, const std::string &type, 
 
         auto bankPathsPtr = bankUnit->cast_prop<set_prop>(0x2a21ad00); // bankPath
         if (bankPathsPtr == nullptr) {
-            cerr << "can't find banks!" << endl;
             continue;
         }
         auto eventsPtr = bankUnit->cast_prop<set_prop>(0x12d8e384); // events
         if (eventsPtr == nullptr) {
-            cerr << "can't find events!" << endl;
             continue;
         }
         auto namePtr = bankUnit->cast_prop<string_prop>(0x8d39bde6); // name
@@ -310,6 +352,8 @@ void process_bank_units(gnar::GnarConfiguration &gnar, const std::string &type, 
         auto isVOPtr = bankUnit->cast_prop<bool_prop>(0x3b13aa4b); // voiceOver
         auto isVO    = !(isVOPtr == nullptr) && isVOPtr->value;
 
+        vector<string> localTag = tags;
+        localTag.push_back(name);
 
         vector<filesystem::path> bankPaths;
         bankPaths.reserve(bankPathsPtr->value.size());
@@ -322,28 +366,42 @@ void process_bank_units(gnar::GnarConfiguration &gnar, const std::string &type, 
             events.push_back(empty_prop::cast_prop<string_prop>(eventPtr)->value);
         }
 
+        if (name.ends_with("_VO")) {
+            localTag.push_back(name.substr(0, name.length() - 3));
+        }
+        if (name.ends_with("_SFX")) {
+            localTag.push_back(name.substr(0, name.length() - 4));
+        }
+
         if (isVO) {
-            // todo: additional processing to get other locales!
+            if (!gnar.process_vo) {
+                continue;
+            }
+
             vector<filesystem::path> localedBankPaths;
-            for (const filesystem::path &locale : {"cs_CZ", "de_DE", "el_GR", "en_US", "es_ES", "es_MX", "fr_FR", "hu_HU", "it_IT", "ja_JP", "ko_KR", "pl_PL", "pt_BR", "ro_RO", "ru_RU", "th_TH", "tr_TR", "vn_VN", "zh_CN", "zh_TW"}) {
+            for (const auto &locale : gnar.locales) {
                 for (auto bankPath : bankPaths) {
                     filesystem::path localizedBankPath;
                     do {
                         auto dir = bankPath.filename();
                         bankPath = bankPath.parent_path();
                         if (dir.string() == "en_US") {
-                            localizedBankPath = locale / localizedBankPath;
+                            localizedBankPath = filesystem::path(locale) / localizedBankPath;
                         } else {
                             localizedBankPath = dir / localizedBankPath;
                         }
                     } while (!bankPath.empty());
                     localedBankPaths.push_back(localizedBankPath.parent_path());
                 }
-                cout << "processing locale " << locale.string() << endl;
-                process(gnar, gnar.output_dir / (type + "VO") / name / locale, localedBankPaths, events, tags, true);
+                cout << "processing locale " << locale << endl;
+                process(gnar, gnar.output_dir / (type + "VO") / name / locale, localedBankPaths, events, localTag, true);
             }
         } else {
-            process(gnar, gnar.output_dir / (type + "SFX") / name, bankPaths, events, tags, false);
+            if (!gnar.process_sfx) {
+                continue;
+            }
+
+            process(gnar, gnar.output_dir / (type + "SFX") / name, bankPaths, events, localTag, false);
         }
     }
 }
@@ -368,7 +426,7 @@ int main(int argc, char **argv) {
 
         for (auto &obj : bin.objects) {
             vector<string> tags;
-            if (obj->key == 0x9b67e9f6) {                                                     // SkinCharacterDataProperties
+            if (gnar.process_champ && obj->key == 0x9b67e9f6) {                               // SkinCharacterDataProperties
                 auto skinAudioProperties = obj->cast_prop<inline_structure_prop>(0x8f7b194f); // skinAudioProperties
                 if (skinAudioProperties != nullptr) {
                     auto tagEventList = skinAudioProperties->cast_prop<set_prop>(0xd65bac4d); // tagEventList
@@ -381,8 +439,8 @@ int main(int argc, char **argv) {
 
                     process_bank_units(gnar, "Skin", skinAudioProperties->cast_prop<set_prop>(0xf8f29f92), tags); // bankUnits
                 }
-            } else if (obj->key == 0xb36da9ac || obj->key == 0xf2b58198) {                   // MapAudioDataProperties || FeatureAudioDataProperties
-                process_bank_units(gnar, "Map", obj->cast_prop<set_prop>(0xf8f29f92), tags); // bankUnits
+            } else if (gnar.process_map && (obj->key == 0xb36da9ac || obj->key == 0xf2b58198)) { // MapAudioDataProperties || FeatureAudioDataProperties
+                process_bank_units(gnar, "Map", obj->cast_prop<set_prop>(0xf8f29f92), tags);     // bankUnits
             }
         }
     }

@@ -9,8 +9,8 @@
 #define GNAR_VERSION 3
 #define GNAR_VERSION_M 1
 #define GNAR_VERSION_m 1
-#define GNAR_VERSION_i 0
-#define GNAR_VERSION_S "1.1.0"
+#define GNAR_VERSION_i 2
+#define GNAR_VERSION_S "1.1.2"
 
 #include <cstdint>
 #include <deque>
@@ -25,8 +25,13 @@ namespace gnar {
         std::deque<std::string> targets;
         std::filesystem::path game_dir;
         std::filesystem::path output_dir;
+        std::vector<std::string> locales;
         yordle::cdtb::fnvhashlist hash_list;
         yordle::cdtb::xxhashlist file_hash_list;
+        bool process_map   = true;
+        bool process_champ = true;
+        bool process_sfx   = true;
+        bool process_vo    = true;
     };
 
     bool parse_configuration(int argc, char **argv, GnarConfiguration &gnar, int &code);
