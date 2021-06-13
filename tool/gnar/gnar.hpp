@@ -8,9 +8,9 @@
 
 #define GNAR_VERSION 3
 #define GNAR_VERSION_M 1
-#define GNAR_VERSION_m 0
+#define GNAR_VERSION_m 1
 #define GNAR_VERSION_i 0
-#define GNAR_VERSION_S "1.0.0"
+#define GNAR_VERSION_S "1.1.0"
 
 #include <cstdint>
 #include <deque>

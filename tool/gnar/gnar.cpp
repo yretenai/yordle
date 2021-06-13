@@ -381,7 +381,7 @@ int main(int argc, char **argv) {
 
                     process_bank_units(gnar, "Skin", skinAudioProperties->cast_prop<set_prop>(0xf8f29f92), tags); // bankUnits
                 }
-            } else if (obj->key == 0xb36da9ac) {                                             // MapAudioDataProperties
+            } else if (obj->key == 0xb36da9ac || obj->key == 0xf2b58198) {                   // MapAudioDataProperties || FeatureAudioDataProperties
                 process_bank_units(gnar, "Map", obj->cast_prop<set_prop>(0xf8f29f92), tags); // bankUnits
             }
         }
