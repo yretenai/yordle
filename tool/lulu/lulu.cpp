@@ -7,6 +7,7 @@
 #endif
 #include <ProgramOptions.hxx>
 
+#include "file_type_detector.hpp"
 #include "lulu.hpp"
 
 using namespace std;
@@ -133,9 +134,15 @@ int main(int argc, char **argv) {
             }
 
             auto data = wad->read_file(stream, entry);
+            if (!output_path.has_extension()) {
+                auto detected = lulu::file_type_detector::detect_extension(data);
+                if (!detected.empty()) {
+                    output_path.replace_extension(detected);
+                }
+            }
             dragon::write_file(output_path, *data);
         }
-        
+
         stream.close();
     }
 

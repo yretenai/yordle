@@ -2,9 +2,6 @@
 // Created by Lilith on 2021-06-08.
 //
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "cert-err58-cpp"
-
 #pragma once
 
 #include <cstdint>
@@ -117,5 +114,3 @@ namespace yordle::data::prop {
         }
     };
 } // namespace yordle::data::prop
-
-#pragma clang diagnostic pop

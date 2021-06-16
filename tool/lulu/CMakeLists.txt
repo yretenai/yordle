@@ -1,6 +1,6 @@
 project(TOOL_lulu)
 
-add_executable(lulu lulu.cpp)
+add_executable(lulu lulu.cpp file_type_detector.cpp)
 target_compile_definitions(lulu PRIVATE DRAGON_LIBRARY_NAME="lulu")
 target_link_libraries(lulu yordle)
 target_link_libraries(lulu standard_dragon)
