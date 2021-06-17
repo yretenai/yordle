@@ -291,10 +291,7 @@ void find_values(std::shared_ptr<data::prop::empty_prop> &prop, set<uint32_t> &p
                 }
                 auto xx_hash40 = xx_hash & 0x7fffffffff;
                 auto xx_hash39 = xx_hash & 0xffffffffff;
-                if (rst_hashes.contains(xx_hash40)) {
-                    teemo.hashes.xx[cdtb::hashlist_target::rst_string]->hashes[xx_hash] = value;
-                }
-                if (rst_hashes.contains(xx_hash39)) {
+                if (rst_hashes.contains(xx_hash40) || rst_hashes.contains(xx_hash39)) {
                     teemo.hashes.xx[cdtb::hashlist_target::rst_string]->hashes[xx_hash] = value;
                 }
             }
