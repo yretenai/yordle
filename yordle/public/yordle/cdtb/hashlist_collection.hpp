@@ -4,19 +4,27 @@
 
 #pragma once
 
+#include <yordle/cdtb/fnvhashlist.hpp>
 #include <yordle/cdtb/hashlist.hpp>
+#include <yordle/cdtb/xxhashlist.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::cdtb {
-    using hashlist_target = enum class HASHLIST_TARGET {
-        none,
-        prop_entry,
-        prop_field,
-        prop_hash,
-        prop_type,
-        wad_file,
-        rst_string,
-        rst4_string
+    using hashlist_target = enum class HASHLIST_TARGET : int32_t {
+        none        = -1,
+        prop_entry  = 0,
+        prop_field  = 1,
+        prop_hash   = 2,
+        prop_type   = 3,
+        wad_file    = 4,
+        rst_string  = 5,
+        rst4_string = 6,
+        end         = 7,
+
+        fnv_start = prop_entry,
+        fnv_end   = prop_type,
+        xx_start  = wad_file,
+        xx_end    = rst4_string
     };
 
     class YORDLE_EXPORT hashlist_collection {
@@ -25,6 +33,20 @@ namespace yordle::cdtb {
 
         std::map<hashlist_target, std::shared_ptr<hashlist<uint32_t>>> fnv;
         std::map<hashlist_target, std::shared_ptr<hashlist<uint64_t>>> xx;
+
+        inline void init_empty() {
+            for (auto i = static_cast<uint32_t>(hashlist_target::fnv_start); static_cast<HASHLIST_TARGET>(i) <= hashlist_target::fnv_end; i++) {
+                if (!fnv.contains(static_cast<hashlist_target>(i))) {
+                    fnv[static_cast<hashlist_target>(i)] = std::make_shared<fnvhashlist>();
+                }
+            }
+
+            for (auto i = static_cast<uint32_t>(hashlist_target::xx_start); static_cast<HASHLIST_TARGET>(i) <= hashlist_target::xx_end; i++) {
+                if (!xx.contains(static_cast<hashlist_target>(i))) {
+                    xx[static_cast<hashlist_target>(i)] = std::make_shared<xxhashlist>();
+                }
+            }
+        }
 
         [[nodiscard]] static inline std::string hex_hash(uint64_t hash) {
             std::stringstream stream;

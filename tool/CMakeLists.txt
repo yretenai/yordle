@@ -10,7 +10,7 @@ add_subdirectory("lulu") # wad exporter
 add_subdirectory("norra") # model viewer
 add_subdirectory("poppy") # manifest decoder and downloader
 # add_subdirectory("rumble")
-# add_subdirectory("teemo") # hash finder
+add_subdirectory("teemo") # hash finder
 # add_subdirectory("tristana")
 # add_subdirectory("veigar")
 # add_subdirectory("ziggs")

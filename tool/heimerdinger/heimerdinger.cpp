@@ -139,7 +139,9 @@ namespace heimerdinger {
         }
 
         if (heimerdinger.hashes.xx.contains(cdtb::hashlist_target::rst_string)) {
-            heimerdinger.hashes.xx[cdtb::hashlist_target::rst4_string] = heimerdinger.hashes.xx[cdtb::hashlist_target::rst_string]->restrict_bits(39);
+            auto restricted = heimerdinger.hashes.xx[cdtb::hashlist_target::rst_string]->restrict_bits(40);
+            heimerdinger.hashes.xx[cdtb::hashlist_target::rst_string]  = restricted;
+            heimerdinger.hashes.xx[cdtb::hashlist_target::rst4_string] = restricted->restrict_bits(39);
         }
 
         return true;
