@@ -285,7 +285,7 @@ void find_values(std::shared_ptr<data::prop::empty_prop> &prop, set<uint32_t> &p
                 if (prop_hashes.contains(fnv_hash)) {
                     teemo.hashes.fnv[cdtb::hashlist_target::prop_hash]->hashes[fnv_hash] = value;
                 }
-                auto xx_hash = cdtb::fnvhashlist::hash(value);
+                auto xx_hash = cdtb::xxhashlist::hash(value);
                 if (wad_hashes.contains(xx_hash)) {
                     teemo.hashes.xx[cdtb::hashlist_target::wad_file]->hashes[xx_hash] = value;
                 }
@@ -409,8 +409,8 @@ int main(int argc, char **argv) {
                             continue;
                         }
 
-                        prop_types.insert(obj->path_hash);
-                        prop_entries.insert(obj->key);
+                        prop_types.insert(obj->key);
+                        prop_entries.insert(obj->path_hash);
 
                         for (const auto &property : obj->properties) {
                             prop_fields.insert(property.first);
