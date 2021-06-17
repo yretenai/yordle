@@ -62,7 +62,7 @@ namespace yordle::cdtb {
 
     shared_ptr<hashlist<uint64_t>> xxhashlist::restrict_bits(uint8_t bits) const {
         auto list = make_shared<xxhashlist>();
-        auto mask = (1u << bits) - 1;
+        auto mask = ((uint64_t) 1 << bits) - 1;
         for (const auto &hash : hashes) {
             list->hashes[hash.first & mask] = hash.second;
         }

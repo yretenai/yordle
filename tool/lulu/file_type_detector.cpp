@@ -11,11 +11,11 @@ using namespace dragon;
 
 bool test_legacydirlistinfo(shared_ptr<Array<uint8_t>> &buffer) {
     auto len = buffer->cast<uint32_t>(4);
-    if (buffer->size() < 8 + len) {
+    if (len == 0 || buffer->size() < 8 + len) {
         return false;
     }
     for (auto i = 0; i < len; i++) {
-        auto c = buffer->get(i);
+        auto c = buffer->get(8 + i);
         if (c < 0x20 || c > 0x7E) {
             return false;
         }
@@ -50,7 +50,7 @@ namespace lulu {
 
         auto magic = buffer->cast<uint64_t>(0);
         for (const auto &test : types) {
-            if ((magic & ((1 << test.bits) - 1)) == test.magic) {
+            if ((magic & (((uint64_t) 1 << test.bits) - 1)) == test.magic) {
                 return test.ext;
             }
         }
