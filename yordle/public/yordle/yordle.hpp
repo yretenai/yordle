@@ -19,6 +19,7 @@
 #include <yordle/audio/wem_pack.hpp>
 #include <yordle/cdtb/fnvhashlist.hpp>
 #include <yordle/cdtb/hashlist.hpp>
+#include <yordle/cdtb/hashlist_collection.hpp>
 #include <yordle/cdtb/xxhashlist.hpp>
 #include <yordle/data/inibin.hpp>
 #include <yordle/data/inibin_v1.hpp>
@@ -35,6 +36,10 @@
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/data/prop/unordered_set_prop.hpp>
 #include <yordle/data/property_bin.hpp>
+#include <yordle/data/rst_file.hpp>
+#include <yordle/data/rst_file_v1.hpp>
+#include <yordle/data/rst_file_v2.hpp>
+#include <yordle/data/rst_file_v4.hpp>
 #include <yordle/manifest/riot_bundle.hpp>
 #include <yordle/manifest/riot_manifest.hpp>
 #include <yordle/meeps/languages.hpp>

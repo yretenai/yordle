@@ -33,7 +33,7 @@ namespace yordle::data {
         };
 #pragma pack(pop)
 
-        uint8_t get_inibin_version() override {
+        inline uint8_t get_inibin_version() override {
             return 1;
         }
     };

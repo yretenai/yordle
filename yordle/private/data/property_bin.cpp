@@ -5,6 +5,7 @@
 #include <standard_dragon/exception/invalid_data.hpp>
 #include <standard_dragon/exception/not_implemented.hpp>
 
+#include <yordle/cdtb/hashlist_collection.hpp>
 #include <yordle/data/property_bin.hpp>
 
 using namespace std;
@@ -18,8 +19,8 @@ namespace yordle::data {
 
         auto fourcc = buffer.lpcast<uint32_t>(ptr);
         if (fourcc == FOURCC_PATCH) {
-            parent_hash = buffer.lpcast<uint64_t>(ptr);
-            fourcc      = buffer.lpcast<uint32_t>(ptr);
+            patch_weight = buffer.lpcast<uint64_t>(ptr);
+            fourcc       = buffer.lpcast<uint32_t>(ptr);
         }
 
         if (fourcc != FOURCC) {
@@ -50,18 +51,18 @@ namespace yordle::data {
         }
     }
 
-    nlohmann::json property_bin::to_json(const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, bool store_type_info) const {
+    nlohmann::json property_bin::to_json(const yordle::cdtb::hashlist_collection &hashes, bool store_type_info) const {
         json j;
 
-        if (parent_hash > 0) {
-            j["hash"] = hash_list.get_string(parent_hash);
+        if (patch_weight > 0) {
+            j["weight"] = patch_weight;
         }
 
         j["dependencies"] = dependencies;
 
         json objs;
         for (const auto &object : objects) {
-            object->to_json(objs, hash_list, file_hash_list, {}, store_type_info);
+            object->to_json(objs, hashes, {}, store_type_info);
         }
         j["objects"]       = objs;
         j["has_type_info"] = store_type_info;

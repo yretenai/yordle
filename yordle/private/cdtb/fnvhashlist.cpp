@@ -6,6 +6,7 @@
 #include <string>
 
 #include <yordle/cdtb/fnvhashlist.hpp>
+#include <yordle/cdtb/hashlist_collection.hpp>
 
 #include <standard_dragon/hash/fnv1a.hpp>
 
@@ -38,9 +39,7 @@ namespace yordle::cdtb {
 
     string fnvhashlist::get_string(uint32_t hash) const {
         if (!hashes.contains(hash)) {
-            stringstream stream;
-            stream << "0x" << hex << hash;
-            return stream.str();
+            return hashlist_collection::hex_hash(hash);
         }
 
         return hashes.at(hash);
@@ -61,5 +60,14 @@ namespace yordle::cdtb {
     uint32_t fnvhashlist::hash(std::string str) {
         dragon::str_to_lower(str);
         return dragon::hash::fnv1a32(reinterpret_cast<uint8_t *>(str.data()), str.length());
+    }
+
+    shared_ptr<hashlist<uint32_t>> fnvhashlist::restrict_bits(uint8_t bits) const {
+        auto list = make_shared<fnvhashlist>();
+        auto mask = (1u << bits) - 1;
+        for (const auto &hash : hashes) {
+            list->hashes[hash.first & mask] = hash.second;
+        }
+        return list;
     }
 } // namespace yordle::cdtb

@@ -4,6 +4,7 @@
 
 #include <standard_dragon/exception/not_implemented.hpp>
 
+#include <yordle/cdtb/hashlist_collection.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
 #include <yordle/data/prop/map_prop.hpp>
 #include <yordle/data/prop/object_prop.hpp>
@@ -105,17 +106,17 @@ namespace yordle::data::prop {
         throw not_implemented("property type is not implemented");
     }
 
-    void object_prop::to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const {
+    void object_prop::to_json(nlohmann::json &json, const yordle::cdtb::hashlist_collection &hashes, std::optional<std::string> obj_key, bool store_type_info) const {
         if (!obj_key.has_value()) {
-            obj_key = hash_list.get_string(path_hash);
+            obj_key = hashes.get_fnvhash(key, cdtb::hashlist_target::prop_entry);
         }
 
         nlohmann::json obj = nlohmann::json::object();
-        obj["type"]        = hash_list.get_string(key);
+        obj["type"]        = hashes.get_fnvhash(key, cdtb::hashlist_target::prop_type);
 
         nlohmann::json data_obj = nlohmann::json::object();
         for (const auto &property : properties) {
-            property.second->to_json(data_obj, hash_list, file_hash_list, {}, store_type_info);
+            property.second->to_json(data_obj, hashes, {}, store_type_info);
         }
         obj["data"] = data_obj;
 

@@ -4,6 +4,7 @@
 
 #include <sstream>
 
+#include <yordle/cdtb/hashlist_collection.hpp>
 #include <yordle/cdtb/xxhashlist.hpp>
 
 #include <xxhash.h>
@@ -36,9 +37,7 @@ namespace yordle::cdtb {
 
     string xxhashlist::get_string(uint64_t hash) const {
         if (!hashes.contains(hash)) {
-            stringstream stream;
-            stream << "0x" << hex << hash;
-            return stream.str();
+            return hashlist_collection::hex_hash(hash);
         }
 
         return hashes.at(hash);
@@ -59,5 +58,14 @@ namespace yordle::cdtb {
     uint64_t xxhashlist::hash(std::string str) {
         str_to_lower(str);
         return XXH64(str.data(), str.length(), 0);
+    }
+
+    shared_ptr<hashlist<uint64_t>> xxhashlist::restrict_bits(uint8_t bits) const {
+        auto list = make_shared<xxhashlist>();
+        auto mask = (1u << bits) - 1;
+        for (const auto &hash : hashes) {
+            list->hashes[hash.first & mask] = hash.second;
+        }
+        return list;
     }
 } // namespace yordle::cdtb

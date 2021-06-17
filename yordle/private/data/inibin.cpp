@@ -2,6 +2,7 @@
 // Created by Lilith on 2021-06-06.
 //
 
+#include <yordle/cdtb/hashlist_collection.hpp>
 #include <yordle/data/inibin.hpp>
 #include <yordle/data/inibin_v1.hpp>
 #include <yordle/data/inibin_v2.hpp>
@@ -22,10 +23,10 @@ namespace yordle::data {
         }
     }
 
-    json inibin::to_json(const yordle::cdtb::fnvhashlist &hash_list) {
+    json inibin::to_json(const yordle::cdtb::hashlist_collection &hashes) {
         json j;
         for (const auto &prop : properties) {
-            auto key = hash_list.get_string(prop.first);
+            auto key = hashes.get_fnvhash(prop.first);
             if (!prop.second.has_value()) {
                 j[key] = nullptr;
             }

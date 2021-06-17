@@ -12,7 +12,8 @@
 
 #include <nlohmann/json.hpp>
 
-#include <yordle/cdtb/fnvhashlist.hpp>
+#include <yordle/cdtb/hashlist_collection.hpp>
+
 #include <yordle/yordle_export.h>
 
 namespace yordle::data {
@@ -29,7 +30,7 @@ namespace yordle::data {
 
         static std::shared_ptr<yordle::data::inibin> load_inibin_file(dragon::Array<uint8_t> &buffer);
 
-        virtual uint8_t get_inibin_version() = 0;
-        nlohmann::json to_json(const yordle::cdtb::fnvhashlist &hash_list);
+        virtual inline uint8_t get_inibin_version() = 0;
+        nlohmann::json to_json(const cdtb::hashlist_collection &hashes);
     };
 } // namespace yordle::data

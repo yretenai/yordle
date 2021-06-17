@@ -37,6 +37,6 @@ namespace yordle::data::prop {
             return cast_prop<T>(yordle::cdtb::fnvhashlist::hash(std::move(prop_key)));
         }
 
-        void to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const;
+        void to_json(nlohmann::json &json, const yordle::cdtb::hashlist_collection &hashes, std::optional<std::string> obj_key, bool store_type_info) const;
     };
 } // namespace yordle::data::prop

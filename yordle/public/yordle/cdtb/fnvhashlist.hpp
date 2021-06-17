@@ -19,6 +19,7 @@ namespace yordle::cdtb {
         static uint32_t hash(std::string str);
         [[nodiscard]] std::string get_string(uint32_t hash) const override;
         [[nodiscard]] std::filesystem::path get_path(uint32_t hash) const override;
+        [[nodiscard]] std::shared_ptr<hashlist<uint32_t>> restrict_bits(uint8_t bits) const override;
         void combine(hashlist<uint32_t> &hashlist) override;
     };
 } // namespace yordle::cdtb

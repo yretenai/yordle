@@ -25,9 +25,9 @@ namespace yordle::data::prop {
 
         std::array<T, S> value;
 
-        void to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const override {
+        void to_json(nlohmann::json &json, const yordle::cdtb::hashlist_collection &hashes, std::optional<std::string> obj_key, bool store_type_info) const override {
             if (!obj_key.has_value()) {
-                obj_key = hash_list.get_string(key);
+                obj_key = hashes.get_fnvhash(key, yordle::cdtb::hashlist_target::prop_field);
             }
 
             if (store_type_info) {

@@ -22,25 +22,25 @@ namespace yordle::data::prop {
 
         T value;
 
-        void to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const override {
+        void to_json(nlohmann::json &json, const yordle::cdtb::hashlist_collection &hashes, std::optional<std::string> obj_key, bool store_type_info) const override {
             if (!obj_key.has_value()) {
-                obj_key = hash_list.get_string(key);
+                obj_key = hashes.get_fnvhash(key, yordle::cdtb::hashlist_target::prop_field);
             }
 
             // this is super inefficient, move fnv, xx, and reference to their own classes.
             if (store_type_info) {
                 if (type == prop_type::fnv_hash || type == prop_type::reference) {
-                    json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", hash_list.get_string(value)}};
+                    json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", hashes.get_fnvhash(value)}};
                 } else if (type == prop_type::xx_hash) {
-                    json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", file_hash_list.get_string(value)}};
+                    json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", hashes.get_xxhash(value)}};
                 } else {
                     json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", value}};
                 }
             } else {
                 if (type == prop_type::fnv_hash || type == prop_type::reference) {
-                    json[obj_key.value()] = hash_list.get_string(value);
+                    json[obj_key.value()] = hashes.get_fnvhash(value);
                 } else if (type == prop_type::xx_hash) {
-                    json[obj_key.value()] = file_hash_list.get_string(value);
+                    json[obj_key.value()] = hashes.get_xxhash(value);
                 } else {
                     json[obj_key.value()] = value;
                 }

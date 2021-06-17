@@ -2,6 +2,7 @@
 // Created by Lilith on 2021-06-09.
 //
 
+#include <yordle/cdtb/hashlist_collection.hpp>
 #include <yordle/data/prop/map_prop.hpp>
 #include <yordle/data/prop/object_prop.hpp>
 
@@ -28,16 +29,16 @@ namespace yordle::data::prop {
         ptr += size;
     }
 
-    void map_prop::to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const {
+    void map_prop::to_json(nlohmann::json &json, const yordle::cdtb::hashlist_collection &hashes, std::optional<std::string> obj_key, bool store_type_info) const {
         if (!obj_key.has_value()) {
-            obj_key = hash_list.get_string(key);
+            obj_key = hashes.get_fnvhash(key, cdtb::hashlist_target::prop_field);
         }
 
         nlohmann::json arr = json::array();
         for (const auto &pair : value) {
             nlohmann::json obj = json::object();
-            pair.first->to_json(obj, hash_list, file_hash_list, "key", store_type_info);
-            pair.second->to_json(obj, hash_list, file_hash_list, "value", store_type_info);
+            pair.first->to_json(obj, hashes, "key", store_type_info);
+            pair.second->to_json(obj, hashes, "value", store_type_info);
             arr.emplace_back(obj);
         }
 

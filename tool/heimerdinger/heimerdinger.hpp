@@ -23,8 +23,7 @@
 namespace heimerdinger {
     using HeimerdingerConfiguration = struct HEIMERDINGER_CONFIGURATION {
         std::deque<std::string> targets;
-        yordle::cdtb::fnvhashlist hash_list;
-        yordle::cdtb::xxhashlist file_hash_list;
+        yordle::cdtb::hashlist_collection hashes;
         bool store_type_info = false;
     };
 

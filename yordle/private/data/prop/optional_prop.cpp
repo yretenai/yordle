@@ -2,6 +2,7 @@
 // Created by Lilith on 2021-06-09.
 //
 
+#include <yordle/cdtb/hashlist_collection.hpp>
 #include <yordle/data/prop/object_prop.hpp>
 #include <yordle/data/prop/optional_prop.hpp>
 
@@ -20,24 +21,20 @@ namespace yordle::data::prop {
         }
     }
 
-    void optional_prop::to_json(nlohmann::json &json, const yordle::cdtb::fnvhashlist &hash_list, const yordle::cdtb::xxhashlist &file_hash_list, std::optional<std::string> obj_key, bool store_type_info) const {
+    void optional_prop::to_json(nlohmann::json &json, const yordle::cdtb::hashlist_collection &hashes, std::optional<std::string> obj_key, bool store_type_info) const {
         if (!obj_key.has_value()) {
-            obj_key = hash_list.get_string(key);
+            obj_key = hashes.get_fnvhash(key, cdtb::hashlist_target::prop_field);
         }
 
         if (value != nullptr) {
             if (store_type_info) {
                 nlohmann::json obj = {{"type", prop_type_name[type]}};
-                value->to_json(obj, hash_list, file_hash_list, "value", false);
+                value->to_json(obj, hashes, "value", false);
                 json[obj_key.value()] = obj;
             } else {
-                value->to_json(json, hash_list, file_hash_list, obj_key, false);
+                value->to_json(json, hashes, obj_key, false);
             }
         } else {
-            if (!obj_key.has_value()) {
-                obj_key = hash_list.get_string(key);
-            }
-
             if (store_type_info) {
                 json[obj_key.value()] = {{"type", prop_type_name[type]}, {"value", nullptr}};
             } else {

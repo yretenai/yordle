@@ -18,31 +18,81 @@ namespace heimerdinger {
     bool parse_configuration(int argc, char **argv, HeimerdingerConfiguration &heimerdinger, int &exit_code) {
         po::parser cli;
 
-        cli["fnv-hash"]
-            .abbreviation('F')
-            .description("fnv hash list path")
+        cli["prop-entry"]
+            .description("hash list path for property entries (binentries)")
             .type(po::string)
             .callback([&](const po::string_t &str) {
                 const std::filesystem::path &path = str;
                 std::cout << "loading hash list " << path.filename() << std::endl;
                 if (filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
-                    auto hash   = cdtb::fnvhashlist(buffer);
-                    heimerdinger.hash_list.combine(hash);
+
+                    heimerdinger.hashes.fnv[cdtb::hashlist_target::prop_entry] = make_shared<cdtb::fnvhashlist>(buffer);
                 }
             });
 
-        cli["xx-hash"]
-            .abbreviation('H')
-            .description("xx hash list path")
+        cli["prop-field"]
+            .description("hash list path for property fields (binfields)")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                const std::filesystem::path &path = str;
+                std::cout << "loading hash list " << path.filename() << std::endl;
+                if (filesystem::exists(path)) {
+                    auto buffer = dragon::read_file(path);
+
+                    heimerdinger.hashes.fnv[cdtb::hashlist_target::prop_field] = make_shared<cdtb::fnvhashlist>(buffer);
+                }
+            });
+
+        cli["prop-hash"]
+            .description("hash list path for property hashes (binhashes)")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                const std::filesystem::path &path = str;
+                std::cout << "loading hash list " << path.filename() << std::endl;
+                if (filesystem::exists(path)) {
+                    auto buffer = dragon::read_file(path);
+
+                    heimerdinger.hashes.fnv[cdtb::hashlist_target::prop_hash] = make_shared<cdtb::fnvhashlist>(buffer);
+                }
+            });
+
+        cli["prop-type"]
+            .description("hash list path for property types (bintypes)")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                const std::filesystem::path &path = str;
+                std::cout << "loading hash list " << path.filename() << std::endl;
+                if (filesystem::exists(path)) {
+                    auto buffer = dragon::read_file(path);
+
+                    heimerdinger.hashes.fnv[cdtb::hashlist_target::prop_type] = make_shared<cdtb::fnvhashlist>(buffer);
+                }
+            });
+
+        cli["wad-hash"]
+            .description("hash list path for wad files (game/lcu)")
             .type(po::string)
             .callback([&](const po::string_t &str) {
                 const std::filesystem::path &path = str;
                 std::cout << "loading hash list " << path.filename() << std::endl;
                 if (std::filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
-                    auto hash   = cdtb::xxhashlist(buffer);
-                    heimerdinger.file_hash_list.combine(hash);
+
+                    heimerdinger.hashes.xx[cdtb::hashlist_target::wad_file] = make_shared<cdtb::xxhashlist>(buffer);
+                }
+            });
+
+        cli["rst-hash"]
+            .description("hash list path for rst keys (strings)")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                const std::filesystem::path &path = str;
+                std::cout << "loading hash list " << path.filename() << std::endl;
+                if (std::filesystem::exists(path)) {
+                    auto buffer = dragon::read_file(path);
+
+                    heimerdinger.hashes.xx[cdtb::hashlist_target::rst_string] = make_shared<cdtb::xxhashlist>(buffer);
                 }
             });
 
@@ -88,6 +138,10 @@ namespace heimerdinger {
             return false;
         }
 
+        if (heimerdinger.hashes.xx.contains(cdtb::hashlist_target::rst_string)) {
+            heimerdinger.hashes.xx[cdtb::hashlist_target::rst4_string] = heimerdinger.hashes.xx[cdtb::hashlist_target::rst_string]->restrict_bits(39);
+        }
+
         return true;
     }
 
@@ -115,7 +169,7 @@ int main(int argc, char **argv) {
     }
 
     std::cout << "finding files..." << std::endl;
-    for (const auto &target : dragon::find_paths(heimerdinger.targets, {".bin", ".inibin"}, {})) {
+    for (const auto &target : dragon::find_paths(heimerdinger.targets, {".bin", ".inibin", ".txt"}, {})) {
         std::cout << target.string() << std::endl;
         filesystem::path target_path = target;
         auto buffer                  = dragon::read_file(target_path);
@@ -123,15 +177,19 @@ int main(int argc, char **argv) {
 
         nlohmann::json json;
         try {
-            if (buffer[0] == 'P') {
+            auto fourcc = buffer.cast<uint32_t>(0);
+            if (fourcc == data::property_bin::FOURCC || fourcc == data::property_bin::FOURCC_PATCH) {
                 auto prop = data::property_bin(buffer);
-                json      = prop.to_json(heimerdinger.hash_list, heimerdinger.file_hash_list, heimerdinger.store_type_info);
+                json      = prop.to_json(heimerdinger.hashes, heimerdinger.store_type_info);
+            } else if (static_cast<data::rst_version>(fourcc & 0xFFFFFF) == data::rst_version::v0) {
+                auto rst = data::rst_file::load_rst_file(buffer);
+                json     = rst->to_json(heimerdinger.hashes);
             } else {
                 auto inibin = data::inibin::load_inibin_file(buffer);
                 if (inibin == nullptr || inibin->properties.empty()) {
                     continue;
                 }
-                json = inibin->to_json(heimerdinger.hash_list);
+                json = inibin->to_json(heimerdinger.hashes);
             }
         } catch (const std::exception &ex) {
             std::cerr << "error processing " << target.string() << " got exception " << ex.what() << std::endl;

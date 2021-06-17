@@ -16,9 +16,10 @@ namespace yordle::cdtb {
         ~hashlist() = default;
 
         std::map<T, std::string> hashes;
-        virtual void validate()                                            = 0;
-        [[nodiscard]] virtual std::string get_string(T hash) const         = 0;
-        [[nodiscard]] virtual std::filesystem::path get_path(T hash) const = 0;
-        virtual void combine(hashlist<T> &hashlist)                        = 0;
+        virtual void validate()                                                              = 0;
+        [[nodiscard]] virtual std::string get_string(T hash) const                           = 0;
+        [[nodiscard]] virtual std::filesystem::path get_path(T hash) const                   = 0;
+        [[nodiscard]] virtual std::shared_ptr<hashlist<T>> restrict_bits(uint8_t bits) const = 0;
+        virtual void combine(hashlist<T> &hashlist)                                          = 0;
     };
 } // namespace yordle::cdtb

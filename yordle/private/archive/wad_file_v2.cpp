@@ -23,9 +23,6 @@ namespace yordle::archive {
         stream.read(reinterpret_cast<char *>(buffer.data()), 5);
 
         fourcc = buffer.cast<yordle::archive::wad_version>(0);
-        if (fourcc != yordle::archive::wad_version::v2_0 && fourcc != yordle::archive::wad_version::v2_1) {
-            throw invalid_data("Buffer passed to wad_file_v2 is not a valid RW20 buffer.");
-        }
 
         if (buffer[4] > 0) {
             signature = make_shared<Array<uint8_t>>(static_cast<size_t>(buffer[4]), nullptr);

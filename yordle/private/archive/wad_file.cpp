@@ -73,14 +73,14 @@ namespace yordle::archive {
         stream.seekg(pos, ios::beg);
 
         switch (fourcc) {
-            case wad_version ::v1_0:
-            case wad_version ::v1_1:
+            case wad_version::v1_0:
+            case wad_version::v1_1:
                 return make_shared<wad_file_v1>(stream);
-            case wad_version ::v2_0:
-            case wad_version ::v2_1:
+            case wad_version::v2_0:
+            case wad_version::v2_1:
                 return make_shared<wad_file_v2>(stream);
-            case wad_version ::v3_0:
-            case wad_version ::v3_1:
+            case wad_version::v3_0:
+            case wad_version::v3_1:
                 return make_shared<wad_file_v3>(stream);
             case wad_version::v0_0:
             default:
