@@ -377,7 +377,7 @@ int main(int argc, char **argv) {
     teemo.hashes.init_empty();
 
     cout << "finding files to build hash database..." << endl;
-    auto targets = dragon::find_paths(teemo.targets, {".bin", ".inibin", ".txt", ".wad"}, {});
+    auto targets = dragon::find_paths(teemo.targets, {".bin", ".inibin", ".txt", ".wad", ".mobile", ".client"}, {});
 
     set<uint32_t> prop_entries;
     set<uint32_t> prop_types;
