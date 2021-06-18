@@ -11,10 +11,10 @@
 
 #include "norra.hpp"
 
+#include "ui/exit_menu.hpp"
 #include "ui/message_menu.hpp"
 #include "ui/norra_menu_version.hpp"
 #include "ui/wad_menu.hpp"
-#include "ui/exit_menu.hpp"
 #include "ui/yordle_menu_version.hpp"
 
 #include <standard_dragon/exception/invalid_data.hpp>

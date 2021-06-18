@@ -179,7 +179,7 @@ namespace norra::device {
 
         auto inst = get_instance();
 
-        if(inst == nullptr) {
+        if (inst == nullptr) {
             PostQuitMessage(0);
             return 0;
         }

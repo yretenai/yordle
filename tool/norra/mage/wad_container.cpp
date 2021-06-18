@@ -19,15 +19,17 @@ void norra::mage::wad_container::load_wad(std::filesystem::path &wad_path) {
 
     auto index  = std::distance(paths.begin(), paths.insert(wad_path).first);
     wads[index] = wad;
-    for (auto entry : *wad->entries) {
-        entries[entry.hash] = std::pair<int64_t, yordle::archive::wad_entry>(index, entry);
+    if (wad->entries != nullptr) {
+        for (auto entry : *wad->entries) {
+            entries[entry.hash] = std::pair<int64_t, yordle::archive::wad_entry>(index, entry);
+        }
     }
 }
 
 void norra::mage::wad_container::load_wads(std::set<std::filesystem::path> &game_paths) {
     auto que       = std::deque<std::filesystem::path>(game_paths.begin(), game_paths.end());
     auto wad_paths = dragon::find_paths(que, {".wad", ".client", ".mobile"}, {});
-    auto mut = norra::g_message_mutex.load();
+    auto mut       = norra::g_message_mutex.load();
     for (auto path : wad_paths) {
         if (mut->try_lock()) {
             norra::g_message = std::make_shared<std::string>(std::string("loading ") + path.filename().string());
