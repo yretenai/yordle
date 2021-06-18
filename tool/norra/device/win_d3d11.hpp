@@ -20,9 +20,8 @@ namespace norra::device {
         IDXGISwapChain *dx_swap         = nullptr;
         ID3D11RenderTargetView *dx_rt   = nullptr;
         WNDCLASSEX wc {};
-        HWND hwnd {};
 
-        static std::shared_ptr<win_d3d11> instance;
+        static std::atomic<std::shared_ptr<win_d3d11>> instance;
 
         bool is_exiting = false;
 
@@ -40,6 +39,8 @@ namespace norra::device {
         void startup() override;
 
     public:
+        HWND hwnd {};
+
         win_d3d11() = default;
 
         ~win_d3d11() override {
@@ -52,6 +53,6 @@ namespace norra::device {
         }
         void close() override;
 
-        static std::shared_ptr<render_device_framework> get_instance();
+        static std::shared_ptr<win_d3d11> get_instance(bool create = false);
     };
 } // namespace norra::device

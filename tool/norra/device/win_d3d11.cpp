@@ -15,11 +15,12 @@
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-std::shared_ptr<norra::device::win_d3d11> norra::device::win_d3d11::instance = nullptr;
+std::atomic<std::shared_ptr<norra::device::win_d3d11>> norra::device::win_d3d11::instance;
 
 namespace norra::device {
     void win_d3d11::startup() {
         render_device_framework::startup();
+        CoInitializeEx(nullptr, COINIT_MULTITHREADED);
 
         wc          = {sizeof(WNDCLASSEX), CS_CLASSDC, win_d3d11::WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, TEXT("Norra"), nullptr};
         auto result = RegisterClassExW(&wc);
@@ -81,7 +82,7 @@ namespace norra::device {
     }
 
     void win_d3d11::shutdown_impl() {
-        if (instance == nullptr) {
+        if (get_instance() == nullptr) {
             return;
         }
 
@@ -93,7 +94,7 @@ namespace norra::device {
         DestroyWindow(hwnd);
         UnregisterClassW(wc.lpszClassName, wc.hInstance);
 
-        instance = nullptr;
+        instance.store(nullptr);
     }
 
     void win_d3d11::close() {
@@ -176,12 +177,19 @@ namespace norra::device {
             return true;
         }
 
+        auto inst = get_instance();
+
+        if(inst == nullptr) {
+            PostQuitMessage(0);
+            return 0;
+        }
+
         switch (msg) { // NOLINT(hicpp-multiway-paths-covered)
             case WM_SIZE:
-                if (instance->dx_device != nullptr && wParam != SIZE_MINIMIZED) {
-                    instance->shutdown_rt();
-                    instance->dx_swap->ResizeBuffers(0, (UINT) LOWORD(lParam), (UINT) HIWORD(lParam), DXGI_FORMAT_UNKNOWN, 0);
-                    instance->create_rt();
+                if (inst->dx_device != nullptr && wParam != SIZE_MINIMIZED) {
+                    inst->shutdown_rt();
+                    inst->dx_swap->ResizeBuffers(0, (UINT) LOWORD(lParam), (UINT) HIWORD(lParam), DXGI_FORMAT_UNKNOWN, 0);
+                    inst->create_rt();
                 }
                 return 0;
             case WM_SYSCOMMAND:
@@ -191,7 +199,7 @@ namespace norra::device {
                 break;
             case WM_QUIT:
             case WM_CLOSE:
-                instance->shutdown();
+                get_instance()->shutdown();
                 return 0;
             case WM_DESTROY:
                 PostQuitMessage(0);
@@ -200,18 +208,20 @@ namespace norra::device {
         return DefWindowProc(hWnd, msg, wParam, lParam);
     }
 
-    std::shared_ptr<render_device_framework> win_d3d11::get_instance() {
-        if (win_d3d11::instance == nullptr) {
-            instance = std::make_shared<win_d3d11>();
+    std::shared_ptr<win_d3d11> win_d3d11::get_instance(bool create) {
+        auto ptr = win_d3d11::instance.load();
+        if (ptr == nullptr && create) {
+            ptr = std::make_shared<win_d3d11>();
             try {
-                instance->startup();
+                win_d3d11::instance.store(ptr);
+                ptr->startup();
             } catch (const std::exception &ex) {
-                instance = nullptr;
+                ptr = nullptr;
                 throw ex;
             }
         }
 
-        return instance;
+        return ptr;
     }
 
     ID3DBlob *win_d3d11::compile_shader(const std::string &text, const std::string &entry, const std::string &shader_model) {

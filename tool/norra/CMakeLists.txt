@@ -13,6 +13,8 @@ target_link_libraries(norra imgui::imgui)
 target_link_libraries(norra fmt::fmt)
 
 add_subdirectory(device)
+add_subdirectory(mage)
+add_subdirectory(os)
 add_subdirectory(ui)
 
 if (MSVC OR WIN32_CLANG)
