@@ -14,7 +14,7 @@ namespace norra::ui {
     class wad_menu : public imgui_menu_item {
     public:
         wad_menu() {
-            priority = 100;
+            priority = 0x7FFFFFFF;
         }
 
         ~wad_menu() override = default;

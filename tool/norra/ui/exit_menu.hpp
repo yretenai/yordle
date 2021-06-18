@@ -14,7 +14,7 @@ namespace norra::ui {
     class exit_menu : public imgui_menu_item {
     public:
         exit_menu() {
-            priority = 0x7FFFFFFF;
+            priority = 100;
         }
 
         ~exit_menu() override = default;
