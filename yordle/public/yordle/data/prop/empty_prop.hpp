@@ -39,21 +39,21 @@ namespace yordle::data::prop {
         fnv_hash   = 17,
         xx_hash    = 18,
 
-        set              = COMPLEX_PROPERTY_TYPE | 0,
-        unordered_set    = COMPLEX_PROPERTY_TYPE | 1,
-        structure        = COMPLEX_PROPERTY_TYPE | 2,
-        inline_structure = COMPLEX_PROPERTY_TYPE | 3,
-        reference        = COMPLEX_PROPERTY_TYPE | 4,
-        optional         = COMPLEX_PROPERTY_TYPE | 5,
-        map              = COMPLEX_PROPERTY_TYPE | 6,
-        bit              = COMPLEX_PROPERTY_TYPE | 7
+        set              = COMPLEX_PROPERTY_TYPE | 0, // 128
+        unordered_set    = COMPLEX_PROPERTY_TYPE | 1, // 129
+        structure        = COMPLEX_PROPERTY_TYPE | 2, // 130
+        inline_structure = COMPLEX_PROPERTY_TYPE | 3, // 131
+        reference        = COMPLEX_PROPERTY_TYPE | 4, // 132
+        optional         = COMPLEX_PROPERTY_TYPE | 5, // 133
+        map              = COMPLEX_PROPERTY_TYPE | 6, // 134
+        bit              = COMPLEX_PROPERTY_TYPE | 7, // 135
     };
 #pragma pack(pop)
     DRAGON_ASSERT(sizeof(prop_type) == 1, "prop_type size is not 1");
 
     static std::map<prop_type, std::string> prop_type_name {
-        {prop_type::null, "null"},
-        {prop_type::boolean, "boolean"},
+        {prop_type::null, "empty"},
+        {prop_type::boolean, "bool"},
         {prop_type::int8, "int8"},
         {prop_type::uint8, "uint8"},
         {prop_type::int16, "int16"},
@@ -93,8 +93,8 @@ namespace yordle::data::prop {
         prop_type type = prop_type::null;
 
         template<typename T>
-        static typename std::enable_if<std::is_base_of<empty_prop, T>::value, std::shared_ptr<T>>::type cast_prop(std::shared_ptr<empty_prop> &prop) {
-            if (prop->type != T::TYPE) {
+        static typename std::enable_if<std::is_base_of<empty_prop, T>::value, std::shared_ptr<T>>::type cast_prop(const std::shared_ptr<empty_prop> &prop) {
+            if (prop == nullptr || prop->type != T::TYPE) {
                 return nullptr;
             }
 

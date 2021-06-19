@@ -48,12 +48,6 @@ namespace yordle::cdtb {
             }
         }
 
-        [[nodiscard]] static inline std::string hex_hash(uint64_t hash) {
-            std::stringstream stream;
-            stream << "0x" << std::hex << hash;
-            return stream.str();
-        }
-
         [[nodiscard]] inline std::shared_ptr<hashlist<uint32_t>> get_fnvhashlist(hashlist_target target) const {
             if (fnv.contains(target)) {
                 return fnv.at(target);
@@ -75,7 +69,7 @@ namespace yordle::cdtb {
                 }
             }
 
-            return hex_hash(hash);
+            return hashlist<uint32_t>::hex_hash(hash);
         }
 
         [[nodiscard]] inline std::shared_ptr<hashlist<uint64_t>> get_xxhashlist(hashlist_target target) const {
@@ -99,7 +93,7 @@ namespace yordle::cdtb {
                 }
             }
 
-            return hex_hash(hash);
+            return hashlist<uint64_t>::hex_hash(hash);
         }
     };
 } // namespace yordle::cdtb

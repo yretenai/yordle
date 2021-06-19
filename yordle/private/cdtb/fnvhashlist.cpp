@@ -37,22 +37,6 @@ namespace yordle::cdtb {
         }
     }
 
-    string fnvhashlist::get_string(uint32_t hash) const {
-        if (!hashes.contains(hash)) {
-            return hashlist_collection::hex_hash(hash);
-        }
-
-        return hashes.at(hash);
-    }
-
-    filesystem::path fnvhashlist::get_path(uint32_t hash) const {
-        if (!hashes.contains(hash)) {
-            return filesystem::path("__unknown") / get_string(hash);
-        }
-
-        return hashes.at(hash);
-    }
-
     void fnvhashlist::combine(hashlist<uint32_t> &hashlist) {
         hashes.merge(hashlist.hashes);
     }

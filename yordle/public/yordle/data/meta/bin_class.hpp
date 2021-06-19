@@ -14,7 +14,7 @@
 namespace yordle::data::meta {
     class YORDLE_EXPORT bin_class {
     public:
-        explicit bin_class(std::shared_ptr<yordle::data::prop::structure_prop> &prop) {
+        explicit bin_class(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) {
             if (prop == nullptr) {
                 return;
             }
@@ -23,10 +23,6 @@ namespace yordle::data::meta {
         }
 
         uint32_t _class_hash = 0;
-
-        virtual std::shared_ptr<yordle::data::prop::structure_prop> serialize() {
-            return std::make_shared<yordle::data::prop::structure_prop>(_class_hash);
-        }
 
         virtual bool is_type(uint32_t type) {
             return false;

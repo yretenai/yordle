@@ -9,6 +9,7 @@ target_compile_definitions(yordle PRIVATE DRAGON_LIBRARY_NAME="yordle")
 
 if (MSVC)
     generate_export_header(yordle BASE_NAME yordle DEFINE_NO_DEPRECATED EXPORT_FILE_NAME ${PROJECT_SOURCE_DIR}/public/yordle/yordle_export_win.a.h)
+
 elseif (WIN32_CLANG)
     generate_export_header(yordle BASE_NAME yordle DEFINE_NO_DEPRECATED EXPORT_FILE_NAME ${PROJECT_SOURCE_DIR}/public/yordle/yordle_export_clang.a.h)
 else ()

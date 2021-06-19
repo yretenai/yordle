@@ -12,10 +12,13 @@
 #include <yordle/data/meta/bin_class.hpp>
 
 namespace yordle::data::meta {
-    extern std::map<uint32_t, std::function<std::shared_ptr<yordle::data::meta::bin_class>(std::shared_ptr<yordle::data::prop::structure_prop> &)>> dispatch_table;
+    using prop_arg = const std::shared_ptr<yordle::data::prop::structure_prop> &;
+    using prop_ret = std::shared_ptr<yordle::data::meta::bin_class>;
+
+    static std::map<uint32_t, std::function<prop_ret(prop_arg)>> dispatch_table;
 
     template<typename T>
-    typename std::enable_if<std::is_base_of<yordle::data::meta::bin_class, T>::value, std::shared_ptr<T>>::type deserialize(std::shared_ptr<yordle::data::prop::structure_prop> &prop, uint32_t target_type) {
+    typename std::enable_if<std::is_base_of<yordle::data::meta::bin_class, T>::value, std::shared_ptr<T>>::type deserialize(const std::shared_ptr<yordle::data::prop::structure_prop> &prop, uint32_t target_type) {
         if (prop == nullptr || prop->class_hash == 0) {
             return nullptr;
         }
@@ -24,7 +27,7 @@ namespace yordle::data::meta {
             return nullptr;
         }
 
-        auto decoded = dispatch_table[prop->class_hash](prop);
+        auto decoded = std::reinterpret_pointer_cast<T>(dispatch_table[prop->class_hash](prop));
         if (!decoded->is_type(target_type)) {
             return nullptr;
         }

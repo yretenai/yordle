@@ -46,7 +46,7 @@ namespace yordle::data::prop {
 
         for (auto i = 0; i < count; ++i) {
             auto prop             = structure_prop::read_prop(buffer, ptr_shadow, version, {}, {});
-            properties[prop->key] = prop;
+            value[prop->key] = prop;
         }
 
         ptr += size;
@@ -60,7 +60,7 @@ namespace yordle::data::prop {
         obj["type"]        = hashes.get_fnvhash(class_hash, cdtb::hashlist_target::prop_type);
 
         nlohmann::json data_obj = nlohmann::json::object();
-        for (const auto &property : properties) {
+        for (const auto &property : value) {
             property.second->to_json(data_obj, hashes, {}, store_type_info);
         }
         obj["data"] = data_obj;

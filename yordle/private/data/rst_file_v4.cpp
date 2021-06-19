@@ -36,7 +36,7 @@ namespace yordle::data {
         }
         auto json = json::object();
         for (const auto &entry : strings) {
-            json[list == nullptr ? cdtb::hashlist_collection::hex_hash(entry.first) : list->get_string(entry.first)] = entry.second;
+            json[list == nullptr ? cdtb::hashlist<uint64_t>::hex_hash(entry.first) : list->get_string(entry.first)] = entry.second;
         }
         return json;
     }

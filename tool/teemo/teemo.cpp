@@ -210,7 +210,7 @@ void find_hashes(std::shared_ptr<data::prop::empty_prop> &prop, set<uint32_t> &p
             auto structure_prop = data::prop::empty_prop::cast_prop<data::prop::structure_prop>(prop);
             if (structure_prop != nullptr) {
                 prop_types.insert(structure_prop->class_hash);
-                for (const auto &pair : structure_prop->properties) {
+                for (const auto &pair : structure_prop->value) {
                     prop_hashes.insert(pair.first);
                     auto sub_prop = pair.second;
                     find_hashes(sub_prop, prop_entries, prop_types, prop_fields, prop_hashes, wad_hashes);
@@ -222,7 +222,7 @@ void find_hashes(std::shared_ptr<data::prop::empty_prop> &prop, set<uint32_t> &p
             auto structure_prop = data::prop::empty_prop::cast_prop<data::prop::inline_structure_prop>(prop);
             if (structure_prop != nullptr) {
                 prop_types.insert(structure_prop->class_hash);
-                for (const auto &pair : structure_prop->properties) {
+                for (const auto &pair : structure_prop->value) {
                     prop_hashes.insert(pair.first);
                     auto sub_prop = pair.second;
                     find_hashes(sub_prop, prop_entries, prop_types, prop_fields, prop_hashes, wad_hashes);
@@ -318,7 +318,7 @@ void find_values(std::shared_ptr<data::prop::empty_prop> &prop, set<uint32_t> &p
         case data::prop::prop_type::structure: {
             auto structure_prop = data::prop::empty_prop::cast_prop<data::prop::structure_prop>(prop);
             if (structure_prop != nullptr) {
-                for (const auto &pair : structure_prop->properties) {
+                for (const auto &pair : structure_prop->value) {
                     auto sub_prop = pair.second;
                     find_values(sub_prop, prop_entries, prop_types, prop_fields, prop_hashes, wad_hashes, rst_hashes, teemo);
                 }
@@ -328,7 +328,7 @@ void find_values(std::shared_ptr<data::prop::empty_prop> &prop, set<uint32_t> &p
         case data::prop::prop_type::inline_structure: {
             auto structure_prop = data::prop::empty_prop::cast_prop<data::prop::inline_structure_prop>(prop);
             if (structure_prop != nullptr) {
-                for (const auto &pair : structure_prop->properties) {
+                for (const auto &pair : structure_prop->value) {
                     auto sub_prop = pair.second;
                     find_values(sub_prop, prop_entries, prop_types, prop_fields, prop_hashes, wad_hashes, rst_hashes, teemo);
                 }
@@ -412,7 +412,7 @@ int main(int argc, char **argv) {
                         prop_types.insert(obj->key);
                         prop_entries.insert(obj->class_hash);
 
-                        for (const auto &property : obj->properties) {
+                        for (const auto &property : obj->value) {
                             prop_fields.insert(property.first);
 
                             auto sub_prop = property.second;
@@ -460,7 +460,7 @@ int main(int argc, char **argv) {
                     continue;
                 }
 
-                for (const auto &property : obj->properties) {
+                for (const auto &property : obj->value) {
                     auto sub_prop = property.second;
                     find_values(sub_prop, prop_entries, prop_types, prop_fields, prop_hashes, wad_hashes, rst_hashes, teemo);
                 }
