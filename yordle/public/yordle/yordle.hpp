@@ -4,11 +4,11 @@
 
 #pragma once
 
-#define YORDLE_VERSION 17
+#define YORDLE_VERSION 20
 #define YORDLE_VERSION_M 0
 #define YORDLE_VERSION_m 5
 #define YORDLE_VERSION_i 0
-#define YORDLE_VERSION_S "0.5.0"
+#define YORDLE_VERSION_S "0.5.3"
 
 #include <yordle/yordle_export.h>
 
@@ -24,10 +24,11 @@
 #include <yordle/data/inibin.hpp>
 #include <yordle/data/inibin_v1.hpp>
 #include <yordle/data/inibin_v2.hpp>
+#include <yordle/data/meta/bin_class.hpp>
+#include <yordle/data/meta/bin_dispatch.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
 #include <yordle/data/prop/map_prop.hpp>
-#include <yordle/data/prop/object_prop.hpp>
 #include <yordle/data/prop/optional_prop.hpp>
 #include <yordle/data/prop/primitive_array_prop.hpp>
 #include <yordle/data/prop/primitive_prop.hpp>

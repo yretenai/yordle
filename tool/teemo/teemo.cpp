@@ -410,7 +410,7 @@ int main(int argc, char **argv) {
                         }
 
                         prop_types.insert(obj->key);
-                        prop_entries.insert(obj->path_hash);
+                        prop_entries.insert(obj->class_hash);
 
                         for (const auto &property : obj->properties) {
                             prop_fields.insert(property.first);

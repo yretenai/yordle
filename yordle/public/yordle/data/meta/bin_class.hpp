@@ -1,0 +1,35 @@
+//
+// Created by Lilith on 2021-06-19.
+//
+
+#pragma once
+
+#include <map>
+#include <memory>
+
+#include <yordle/data/prop/empty_prop.hpp>
+#include <yordle/data/prop/structure_prop.hpp>
+#include <yordle/yordle_export.h>
+
+namespace yordle::data::meta {
+    class YORDLE_EXPORT bin_class {
+    public:
+        explicit bin_class(std::shared_ptr<yordle::data::prop::structure_prop> &prop) {
+            if (prop == nullptr) {
+                return;
+            }
+
+            _class_hash = prop->class_hash;
+        }
+
+        uint32_t _class_hash = 0;
+
+        virtual std::shared_ptr<yordle::data::prop::structure_prop> serialize() {
+            return std::make_shared<yordle::data::prop::structure_prop>(_class_hash);
+        }
+
+        virtual bool is_type(uint32_t type) {
+            return false;
+        }
+    };
+} // namespace yordle::data::meta

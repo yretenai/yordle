@@ -18,7 +18,8 @@ namespace yordle::data::prop {
     public:
         static constexpr prop_type TYPE = prop_type::structure;
 
-        explicit structure_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash);
+        explicit structure_prop(uint32_t hash) : class_hash(hash), empty_prop() { }
+        explicit structure_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash, bool root);
 
         uint32_t class_hash = 0;
         std::map<uint32_t, std::shared_ptr<empty_prop>> properties;
@@ -39,5 +40,7 @@ namespace yordle::data::prop {
         }
 
         void to_json(nlohmann::json &json, const yordle::cdtb::hashlist_collection &hashes, std::optional<std::string> obj_key, bool store_type_info) const override;
+
+        static std::shared_ptr<empty_prop> read_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, std::optional<uint32_t> key_hash, std::optional<prop_type> type);
     };
 } // namespace yordle::data::prop

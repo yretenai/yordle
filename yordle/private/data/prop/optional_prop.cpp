@@ -3,8 +3,8 @@
 //
 
 #include <yordle/cdtb/hashlist_collection.hpp>
-#include <yordle/data/prop/object_prop.hpp>
 #include <yordle/data/prop/optional_prop.hpp>
+#include <yordle/data/prop/structure_prop.hpp>
 
 using namespace std;
 using namespace dragon;
@@ -17,7 +17,7 @@ namespace yordle::data::prop {
         auto has_value = buffer.lpcast<bool>(ptr);
 
         if (has_value) {
-            value = object_prop::read_prop(buffer, ptr, version, key_hash, value_type);
+            value = structure_prop::read_prop(buffer, ptr, version, key_hash, value_type);
         }
     }
 

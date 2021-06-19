@@ -11,9 +11,7 @@
 #include <standard_dragon/Array.hpp>
 
 #include <optional>
-#include <yordle/cdtb/fnvhashlist.hpp>
-#include <yordle/cdtb/hashlist.hpp>
-#include <yordle/cdtb/xxhashlist.hpp>
+#include <yordle/cdtb/hashlist_collection.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::prop {
@@ -87,10 +85,11 @@ namespace yordle::data::prop {
     public:
         static constexpr prop_type TYPE = prop_type::null;
 
+        explicit empty_prop() = default;
         explicit empty_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, [[maybe_unused]] uint32_t version, uint32_t key_hash) : key(key_hash) {
         }
 
-        uint32_t key;
+        uint32_t key   = 0;
         prop_type type = prop_type::null;
 
         template<typename T>

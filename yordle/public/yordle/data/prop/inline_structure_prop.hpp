@@ -14,7 +14,7 @@ namespace yordle::data::prop {
     public:
         static constexpr prop_type TYPE = prop_type::inline_structure;
 
-        explicit inline_structure_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : structure_prop(buffer, ptr, version, key_hash) {
+        explicit inline_structure_prop(dragon::Array<uint8_t> &buffer, uintptr_t &ptr, uint32_t version, uint32_t key_hash) : structure_prop(buffer, ptr, version, key_hash, false) {
             type = prop_type::inline_structure;
         }
     };

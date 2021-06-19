@@ -4,7 +4,7 @@
 
 #include <yordle/cdtb/hashlist_collection.hpp>
 #include <yordle/data/prop/map_prop.hpp>
-#include <yordle/data/prop/object_prop.hpp>
+#include <yordle/data/prop/structure_prop.hpp>
 
 using namespace std;
 using namespace dragon;
@@ -21,8 +21,8 @@ namespace yordle::data::prop {
 
         auto ptr_shadow = ptr + 4;
         for (auto i = 0; i < count; ++i) {
-            auto key   = object_prop::read_prop(buffer, ptr_shadow, version, 0, key_type);
-            auto data  = object_prop::read_prop(buffer, ptr_shadow, version, 0, value_type);
+            auto key   = structure_prop::read_prop(buffer, ptr_shadow, version, 0, key_type);
+            auto data  = structure_prop::read_prop(buffer, ptr_shadow, version, 0, value_type);
             value[key] = data;
         }
 

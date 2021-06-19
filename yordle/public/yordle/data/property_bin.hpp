@@ -11,7 +11,7 @@
 #include <nlohmann/json.hpp>
 
 #include <yordle/cdtb/hashlist.hpp>
-#include <yordle/data/prop/object_prop.hpp>
+#include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data {
@@ -25,7 +25,7 @@ namespace yordle::data {
         uint64_t patch_weight = 0;
         uint32_t version      = 0;
         std::vector<std::string> dependencies;
-        std::set<std::shared_ptr<yordle::data::prop::object_prop>> objects;
+        std::set<std::shared_ptr<yordle::data::prop::structure_prop>> objects;
 
         [[nodiscard]] nlohmann::json to_json(const yordle::cdtb::hashlist_collection &hashes, bool store_type_info) const;
     };

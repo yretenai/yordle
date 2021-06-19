@@ -139,7 +139,7 @@ namespace heimerdinger {
         }
 
         if (heimerdinger.hashes.xx.contains(cdtb::hashlist_target::rst_string)) {
-            auto restricted = heimerdinger.hashes.xx[cdtb::hashlist_target::rst_string]->restrict_bits(40);
+            auto restricted                                            = heimerdinger.hashes.xx[cdtb::hashlist_target::rst_string]->restrict_bits(40);
             heimerdinger.hashes.xx[cdtb::hashlist_target::rst_string]  = restricted;
             heimerdinger.hashes.xx[cdtb::hashlist_target::rst4_string] = restricted->restrict_bits(39);
         }
@@ -178,7 +178,9 @@ int main(int argc, char **argv) {
         target_path                  = target_path.replace_extension(".json");
 
         nlohmann::json json;
+#ifdef NDEBUG
         try {
+#endif
             auto fourcc = buffer.cast<uint32_t>(0);
             if (fourcc == data::property_bin::FOURCC || fourcc == data::property_bin::FOURCC_PATCH) {
                 auto prop = data::property_bin(buffer);
@@ -193,9 +195,11 @@ int main(int argc, char **argv) {
                 }
                 json = inibin->to_json(heimerdinger.hashes);
             }
+#ifdef NDEBUG
         } catch (const std::exception &ex) {
             std::cerr << "error processing " << target.string() << " got exception " << ex.what() << std::endl;
         }
+#endif
 
         ofstream file(target_path, ios::out | ios::trunc);
         auto json_text = json.dump(2, ' ', false, nlohmann::json::error_handler_t::replace);

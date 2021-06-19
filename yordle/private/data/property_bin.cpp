@@ -6,6 +6,7 @@
 #include <standard_dragon/exception/not_implemented.hpp>
 
 #include <yordle/cdtb/hashlist_collection.hpp>
+#include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/data/property_bin.hpp>
 
 using namespace std;
@@ -46,7 +47,7 @@ namespace yordle::data {
             auto obj_hashes = buffer.lpcast<uint32_t>(ptr, obj_count);
 
             for (auto obj_hash : obj_hashes) {
-                objects.emplace(make_shared<prop::object_prop>(buffer, ptr, version, obj_hash));
+                objects.emplace(make_shared<prop::structure_prop>(buffer, ptr, version, obj_hash, true));
             }
         }
     }
