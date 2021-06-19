@@ -352,8 +352,12 @@ void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, cons
 }
 
 void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const set<shared_ptr<yordle::data::meta::BankUnit>> &bankUnits, set<string> &tags, set<string> &done_units) {
-    for (const auto& bankUnit : bankUnits) {
+    for (const auto &bankUnit : bankUnits) {
         if (bankUnit == nullptr) {
+            continue;
+        }
+
+        if (bankUnit->events.empty()) {
             continue;
         }
 
