@@ -480,7 +480,7 @@ int main(int argc, char **argv) {
     }
 
     dispatch_file += "};\n\n"
-                      "/// </auto-generated>\n";
+                     "/// </auto-generated>\n";
     auto dispatch_path   = norra.yordle_dir / "private" / "data" / "meta" / "bin_dispatch.cpp";
     auto dispatch_stream = ofstream(dispatch_path, ios::out);
     dispatch_stream << dispatch_file;

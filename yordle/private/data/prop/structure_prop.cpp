@@ -45,7 +45,7 @@ namespace yordle::data::prop {
         }
 
         for (auto i = 0; i < count; ++i) {
-            auto prop             = structure_prop::read_prop(buffer, ptr_shadow, version, {}, {});
+            auto prop        = structure_prop::read_prop(buffer, ptr_shadow, version, {}, {});
             value[prop->key] = prop;
         }
 
