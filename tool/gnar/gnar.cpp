@@ -6,6 +6,8 @@
 #include <standard_dragon/hash/fnv1a.hpp>
 #include <standard_dragon/WemSoundbank.hpp>
 
+#include <yordle/data/meta/bin_class_def.hpp>
+
 #include "gnar.hpp"
 
 using namespace std;
@@ -195,7 +197,6 @@ void output_source(filesystem::path &target, uint32_t id, const vector<WemSoundb
         }
     }
 
-    // todo: wem_pack
     cerr << "can't find wem id " << id << endl;
 }
 
@@ -277,7 +278,7 @@ void find_source(filesystem::path &target, uint32_t id, const vector<WemSoundban
     }
 }
 
-void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, const vector<filesystem::path> &bankPaths, const vector<string> &events, const vector<string> &tags, bool isVO) {
+void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, const vector<filesystem::path> &bankPaths, const set<string> &events, const set<string> &tags, bool isVO) {
     vector<WemSoundbank> banks;
     vector<wem_pack> wem_packs;
 
@@ -350,59 +351,36 @@ void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, cons
     }
 }
 
-void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const shared_ptr<set_prop> &bankUnits, vector<string> &tags, set<string> &done_units) {
-    if (bankUnits == nullptr) {
-        return;
-    }
+void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const set<shared_ptr<yordle::data::meta::BankUnit>> &bankUnits, set<string> &tags, set<string> &done_units) {
+    for (const auto& bankUnit : bankUnits) {
+        if (bankUnit == nullptr) {
+            continue;
+        }
 
-    for (auto bankUnitPtr : bankUnits->value) {
-        auto bankUnit = empty_prop::cast_prop<inline_structure_prop>(bankUnitPtr);
-
-        auto bankPathsPtr = bankUnit->cast_prop<set_prop>(0x2a21ad00); // bankPath
-        if (bankPathsPtr == nullptr) {
-            continue;
-        }
-        auto eventsPtr = bankUnit->cast_prop<set_prop>(0x12d8e384); // events
-        if (eventsPtr == nullptr) {
-            continue;
-        }
-        auto namePtr = bankUnit->cast_prop<string_prop>(0x8d39bde6); // name
-        if (namePtr == nullptr) {
-            cerr << "can't find name!" << endl;
-            continue;
-        }
-        auto name = namePtr->value;
+        auto name = bankUnit->name;
         if (!done_units.emplace(name).second) {
             continue;
         }
 
         cout << "processing bank unit " << name << endl;
 
-        auto isVOPtr = bankUnit->cast_prop<bool_prop>(0x3b13aa4b); // voiceOver
-        auto isVO    = !(isVOPtr == nullptr) && isVOPtr->value;
-
-        vector<string> localTag = tags;
-        localTag.push_back(name);
+        set<string> localTag = tags;
+        localTag.emplace(name);
 
         vector<filesystem::path> bankPaths;
-        bankPaths.reserve(bankPathsPtr->value.size());
-        for (auto bankPathPtr : bankPathsPtr->value) {
-            bankPaths.emplace_back(empty_prop::cast_prop<string_prop>(bankPathPtr)->value);
-        }
-        vector<string> events;
-        events.reserve(eventsPtr->value.size());
-        for (auto eventPtr : eventsPtr->value) {
-            events.push_back(empty_prop::cast_prop<string_prop>(eventPtr)->value);
+        bankPaths.reserve(bankUnit->bankPath.size());
+        for (const auto &bankPath : bankUnit->bankPath) {
+            bankPaths.emplace_back(bankPath);
         }
 
         if (name.ends_with("_VO")) {
-            localTag.push_back(name.substr(0, name.length() - 3));
+            localTag.emplace(name.substr(0, name.length() - 3));
         }
         if (name.ends_with("_SFX")) {
-            localTag.push_back(name.substr(0, name.length() - 4));
+            localTag.emplace(name.substr(0, name.length() - 4));
         }
 
-        if (isVO) {
+        if (bankUnit->voiceOver) {
             if (!gnar.process_vo) {
                 continue;
             }
@@ -423,14 +401,14 @@ void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const
                     localedBankPaths.push_back(localizedBankPath.parent_path());
                 }
                 cout << "processing locale " << locale << endl;
-                process(gnar, gnar.output_dir / (type + "VO") / locale / name, localedBankPaths, events, localTag, true);
+                process(gnar, gnar.output_dir / (type + "VO") / locale / name, localedBankPaths, bankUnit->events, localTag, true);
             }
         } else {
             if (!gnar.process_sfx) {
                 continue;
             }
 
-            process(gnar, gnar.output_dir / (type + "SFX") / name, bankPaths, events, localTag, false);
+            process(gnar, gnar.output_dir / (type + "SFX") / name, bankPaths, bankUnit->events, localTag, false);
         }
     }
 }
@@ -455,22 +433,40 @@ int main(int argc, char **argv) {
         auto bin  = property_bin(data);
 
         for (auto &obj : bin.objects) {
-            vector<string> tags;
-            if (gnar.process_champ && obj->key == 0x9b67e9f6) {                               // SkinCharacterDataProperties
-                auto skinAudioProperties = obj->cast_prop<inline_structure_prop>(0x8f7b194f); // skinAudioProperties
-                if (skinAudioProperties != nullptr) {
-                    auto tagEventList = skinAudioProperties->cast_prop<set_prop>(0xd65bac4d); // tagEventList
-                    if (tagEventList != nullptr) {
-                        tags.reserve(tagEventList->value.size());
-                        for (auto tagPtr : tagEventList->value) {
-                            tags.push_back(empty_prop::cast_prop<string_prop>(tagPtr)->value);
-                        }
-                    }
-
-                    process_bank_units(gnar, "Skin", skinAudioProperties->cast_prop<set_prop>(0xf8f29f92), tags, done_units); // bankUnits
+            if (gnar.process_champ && obj->class_hash == 0x9b67e9f6) {
+                auto skin = yordle::data::meta::deserialize<yordle::data::meta::SkinCharacterDataProperties>(obj);
+                if (skin == nullptr) {
+                    continue;
                 }
-            } else if (gnar.process_map && (obj->key == 0xb36da9ac || obj->key == 0xf2b58198)) {         // MapAudioDataProperties || FeatureAudioDataProperties
-                process_bank_units(gnar, "Map", obj->cast_prop<set_prop>(0xf8f29f92), tags, done_units); // bankUnits
+
+                if (skin->skinAudioProperties == nullptr) {
+                    continue;
+                }
+
+                process_bank_units(gnar, "Skin", skin->skinAudioProperties->bankUnits, skin->skinAudioProperties->tagEventList, done_units);
+            } else if (gnar.process_map) {
+                set<string> empty_tags;
+                if (obj->class_hash == 0xb36da9ac) {
+                    auto map_data = yordle::data::meta::deserialize<yordle::data::meta::MapAudioDataProperties>(obj);
+                    if (map_data == nullptr) {
+                        continue;
+                    }
+                    set<shared_ptr<yordle::data::meta::BankUnit>> bankUnits;
+                    for (const auto &bankUnit : map_data->bankUnits) {
+                        bankUnits.insert(std::reinterpret_pointer_cast<yordle::data::meta::BankUnit>(bankUnit));
+                    }
+                    process_bank_units(gnar, "Map", bankUnits, empty_tags, done_units);
+                } else if (obj->class_hash == 0xf2b58198) {
+                    auto feature_data = yordle::data::meta::deserialize<yordle::data::meta::FeatureAudioDataProperties>(obj);
+                    if (feature_data == nullptr) {
+                        continue;
+                    }
+                    set<shared_ptr<yordle::data::meta::BankUnit>> bankUnits;
+                    for (const auto &bankUnit : feature_data->bankUnits) {
+                        bankUnits.insert(std::reinterpret_pointer_cast<yordle::data::meta::BankUnit>(bankUnit));
+                    }
+                    process_bank_units(gnar, "Map", bankUnits, empty_tags, done_units);
+                }
             }
         }
     }

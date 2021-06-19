@@ -6,7 +6,7 @@
 using namespace std;
 using namespace yordle::data::meta;
 
-map<uint32_t, function<prop_ret(prop_arg)>> dispatch_table {
+const map<uint32_t, function<prop_ret(prop_arg)>> yordle::data::meta::bin_dispatch::table {
     {4197693672u, [](prop_arg prop) { return make_shared<yordle::data::meta::WardSkinDisabler>(prop); }},
     {1073283193u, [](prop_arg prop) { return make_shared<yordle::data::meta::IContextualAction>(prop); }},
     {3095435268u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualActionPlayAnimation>(prop); }},
