@@ -10,6 +10,10 @@ using namespace std;
 using namespace dragon;
 
 bool test_legacydirlistinfo(shared_ptr<Array<uint8_t>> &buffer) {
+    if (buffer->size() < 4) {
+        return false;
+    }
+
     auto len = buffer->cast<uint32_t>(4);
     if (len == 0 || buffer->size() < 8 + len) {
         return false;
@@ -41,21 +45,47 @@ namespace lulu {
         {".luabin", DRAGON_MAGIC32(0x1B, 'L', 'u', 'a'), 32},                 // lua binary
         {".txt", DRAGON_MAGIC32('R', 'S', 'T', 0), 24},                       // lua binary
         {".rofl", DRAGON_MAGIC32('R', 'I', 'O', 'T'), 32},                    // replay
+        {".jpg", 0xFFD8FF, 24},                                               // jpeg
+        {".png", DRAGON_MAGIC32(0x89, 'P', 'N', 'G'), 32},                    // png
+        {".ogg", DRAGON_MAGIC32('O', 'g', 'g', 0), 24},                       // ogg/vorbis
+        {".webm", 0xA3DF451A, 32},                                            // webm
+        {".svg", DRAGON_MAGIC32('<', 's', 'v', 'g'), 32},                     // svg
+        {".json", 0x7B, 8},                                                   // {
+        {".json", 0x5B, 8},                                                   // [
     };
 
     string file_type_detector::detect_extension(shared_ptr<Array<uint8_t>> &buffer) {
-        if (buffer->size() < 8) {
+        auto size = buffer->size();
+        if (size < 1) {
             return string();
         }
 
-        auto magic = buffer->cast<uint64_t>(0);
+        uint64_t magic;
+
+        if (size >= 8) {
+            magic = buffer->cast<uint64_t>(0);
+        } else if (size >= 4) {
+            magic = buffer->cast<uint32_t>(0);
+        } else if (size >= 2) {
+            magic = buffer->cast<uint16_t>(0);
+        } else if (size >= 1) {
+            magic = buffer->get(0);
+        }
         for (const auto &test : types) {
             if ((magic & (((uint64_t) 1 << test.bits) - 1)) == test.magic) {
                 return test.ext;
             }
         }
 
-        magic = buffer->cast<uint64_t>(buffer->size() - 8);
+        if (size >= 8) {
+            magic = buffer->cast<uint64_t>(size - 8);
+        } else if (size >= 4) {
+            magic = buffer->cast<uint32_t>(size - 4);
+        } else if (size >= 2) {
+            magic = buffer->cast<uint16_t>(size - 2);
+        } else if (size >= 1) {
+            magic = buffer->get(size - 1);
+        }
         for (const auto &test : types) {
             if (magic >> (64 - test.bits) == test.magic) {
                 return test.ext;
