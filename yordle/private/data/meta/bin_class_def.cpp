@@ -16,7 +16,7 @@ yordle::data::meta::WardSkinDisabler::WardSkinDisabler(const std::shared_ptr<yor
         for (const auto &entry : ptr_DisabledIds->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(entry);
             if (ptr_entry != nullptr) {
-                DisabledIds.emplace(ptr_entry->value);
+                DisabledIds.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -144,7 +144,7 @@ yordle::data::meta::ContextualConditionItemID::ContextualConditionItemID(const s
         for (const auto &entry : ptr_mItems->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mItems.emplace(ptr_entry->value);
+                mItems.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -295,7 +295,7 @@ yordle::data::meta::ContextualConditionMarkerName::ContextualConditionMarkerName
         for (const auto &entry : ptr_mMarkerNames->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mMarkerNames.emplace(ptr_entry->value);
+                mMarkerNames.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -603,7 +603,7 @@ yordle::data::meta::ContextualConditionCharacter::ContextualConditionCharacter(c
         for (const auto &entry : ptr_mChildConditions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mChildConditions.emplace(yordle::data::meta::deserialize<yordle::data::meta::ICharacterSubcondition>(ptr_entry, 3725269960u));
+                mChildConditions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ICharacterSubcondition>(ptr_entry, 3725269960u));
             }
         }
     }
@@ -619,7 +619,7 @@ yordle::data::meta::ContextualConditionAnyOtherHero::ContextualConditionAnyOther
         for (const auto &entry : ptr_mChildConditions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mChildConditions.emplace(yordle::data::meta::deserialize<yordle::data::meta::ICharacterSubcondition>(ptr_entry, 3725269960u));
+                mChildConditions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ICharacterSubcondition>(ptr_entry, 3725269960u));
             }
         }
     }
@@ -641,7 +641,7 @@ yordle::data::meta::ContextualConditionCharacterName::ContextualConditionCharact
         for (const auto &entry : ptr_mCharacters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCharacters.emplace(ptr_entry->value);
+                mCharacters.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -668,7 +668,7 @@ yordle::data::meta::ContextualConditionCharacterSkinID::ContextualConditionChara
         for (const auto &entry : ptr_mSkinIDs->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSkinIDs.emplace(ptr_entry->value);
+                mSkinIDs.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -825,7 +825,7 @@ yordle::data::meta::ContextualConditionCharacterHasCAC::ContextualConditionChara
         for (const auto &entry : ptr_mCacs->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCacs.emplace(ptr_entry->value);
+                mCacs.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -852,7 +852,7 @@ yordle::data::meta::ContextualConditionSpell::ContextualConditionSpell(const std
         for (const auto &entry : ptr_mChildConditions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mChildConditions.emplace(yordle::data::meta::deserialize<yordle::data::meta::IContextualConditionSpell>(ptr_entry, 576452982u));
+                mChildConditions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IContextualConditionSpell>(ptr_entry, 576452982u));
             }
         }
     }
@@ -960,7 +960,7 @@ yordle::data::meta::ContextualRule::ContextualRule(const std::shared_ptr<yordle:
         for (const auto &entry : ptr_mConditions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mConditions.emplace(yordle::data::meta::deserialize<yordle::data::meta::IContextualCondition>(ptr_entry, 3400586476u));
+                mConditions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IContextualCondition>(ptr_entry, 3400586476u));
             }
         }
     }
@@ -1014,7 +1014,7 @@ yordle::data::meta::ContextualSituation::ContextualSituation(const std::shared_p
         for (const auto &entry : ptr_mRules->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mRules.emplace(yordle::data::meta::deserialize<yordle::data::meta::ContextualRule>(ptr_entry, 584100880u));
+                mRules.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ContextualRule>(ptr_entry, 584100880u));
             }
         }
     }
@@ -1040,7 +1040,7 @@ yordle::data::meta::DamageSourceTemplate::DamageSourceTemplate(const std::shared
         for (const auto &entry : ptr_DamageTags->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                DamageTags.emplace(ptr_entry->value);
+                DamageTags.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1056,7 +1056,7 @@ yordle::data::meta::DamageSourceSettings::DamageSourceSettings(const std::shared
         for (const auto &entry : ptr_damageTagDefinition->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                damageTagDefinition.emplace(ptr_entry->value);
+                damageTagDefinition.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1066,7 +1066,7 @@ yordle::data::meta::DamageSourceSettings::DamageSourceSettings(const std::shared
         for (const auto &entry : ptr_templateDefinition->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                templateDefinition.emplace(yordle::data::meta::deserialize<yordle::data::meta::DamageSourceTemplate>(ptr_entry, 3888872651u));
+                templateDefinition.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::DamageSourceTemplate>(ptr_entry, 3888872651u));
             }
         }
     }
@@ -1098,7 +1098,7 @@ yordle::data::meta::DeathTimes::DeathTimes(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_mTimeDeadPerLevel->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mTimeDeadPerLevel.emplace(ptr_entry->value);
+                mTimeDeadPerLevel.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1128,7 +1128,7 @@ yordle::data::meta::DeathTimes::DeathTimes(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_mScalingPoints->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mScalingPoints.emplace(yordle::data::meta::deserialize<yordle::data::meta::DeathTimesScalingPoint>(ptr_entry, 2583264988u));
+                mScalingPoints.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::DeathTimesScalingPoint>(ptr_entry, 2583264988u));
             }
         }
     }
@@ -1212,7 +1212,7 @@ yordle::data::meta::AbilityResourceTypeData::AbilityResourceTypeData(const std::
         for (const auto &entry : ptr_states->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                states.emplace(yordle::data::meta::deserialize<yordle::data::meta::AbilityResourceStateData>(ptr_entry, 2001592274u));
+                states.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::AbilityResourceStateData>(ptr_entry, 2001592274u));
             }
         }
     }
@@ -1232,7 +1232,7 @@ yordle::data::meta::AbilityResourceTypeData::AbilityResourceTypeData(const std::
         for (const auto &entry : ptr_ThresholdIndicatorRanges->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                ThresholdIndicatorRanges.emplace(yordle::data::meta::deserialize<yordle::data::meta::AbilityResourceThresholdIndicatorRange>(ptr_entry, 2815698218u));
+                ThresholdIndicatorRanges.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::AbilityResourceThresholdIndicatorRange>(ptr_entry, 2815698218u));
             }
         }
     }
@@ -1339,7 +1339,7 @@ yordle::data::meta::EvolutionDescription::EvolutionDescription(const std::shared
         for (const auto &entry : ptr_mTooltips->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mTooltips.emplace(ptr_entry->value);
+                mTooltips.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1349,7 +1349,7 @@ yordle::data::meta::EvolutionDescription::EvolutionDescription(const std::shared
         for (const auto &entry : ptr_mIconNames->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mIconNames.emplace(ptr_entry->value);
+                mIconNames.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1365,7 +1365,7 @@ yordle::data::meta::ExperienceCurveData::ExperienceCurveData(const std::shared_p
         for (const auto &entry : ptr_mExperienceRequiredPerLevel->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mExperienceRequiredPerLevel.emplace(ptr_entry->value);
+                mExperienceRequiredPerLevel.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1375,7 +1375,7 @@ yordle::data::meta::ExperienceCurveData::ExperienceCurveData(const std::shared_p
         for (const auto &entry : ptr_mExperienceGrantedForKillPerLevel->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mExperienceGrantedForKillPerLevel.emplace(ptr_entry->value);
+                mExperienceGrantedForKillPerLevel.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1385,7 +1385,7 @@ yordle::data::meta::ExperienceCurveData::ExperienceCurveData(const std::shared_p
         for (const auto &entry : ptr_x9980fa2e->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                x9980fa2e.emplace(ptr_entry->value);
+                x9980fa2e.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1416,7 +1416,7 @@ yordle::data::meta::ExperienceModData::ExperienceModData(const std::shared_ptr<y
         for (const auto &entry : ptr_mPlayerMinionSplitXp->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mPlayerMinionSplitXp.emplace(ptr_entry->value);
+                mPlayerMinionSplitXp.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1464,7 +1464,7 @@ yordle::data::meta::GlobalStatsUIData::GlobalStatsUIData(const std::shared_ptr<y
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mStatUIData[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::StatUIData>(ptr_value, 309827837u);
+                mStatUIData.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::StatUIData>(ptr_value, 309827837u));
             }
         }
     }
@@ -1724,7 +1724,7 @@ yordle::data::meta::MapAudioDataProperties::MapAudioDataProperties(const std::sh
 
     auto ptr_BaseData = prop->cast_prop<yordle::data::prop::reference_prop>(2231333056u);
     if (ptr_BaseData != nullptr) {
-        BaseData = ptr_BaseData->value;
+        BaseData.key = ptr_BaseData->value;
     }
 
     auto ptr_bankUnits = prop->cast_prop<yordle::data::prop::set_prop>(4176650130u);
@@ -1732,7 +1732,7 @@ yordle::data::meta::MapAudioDataProperties::MapAudioDataProperties(const std::sh
         for (const auto &entry : ptr_bankUnits->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                bankUnits.emplace(yordle::data::meta::deserialize<yordle::data::meta::BankUnit>(ptr_entry, 2755749141u));
+                bankUnits.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::BankUnit>(ptr_entry, 2755749141u));
             }
         }
     }
@@ -1742,7 +1742,7 @@ yordle::data::meta::MapAudioDataProperties::MapAudioDataProperties(const std::sh
         for (const auto &entry : ptr_features->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                features.emplace(ptr_entry->value);
+                features.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(4071981464u, ptr_entry->value));
             }
         }
     }
@@ -1758,7 +1758,7 @@ yordle::data::meta::ClientStateAudioDataProperties::ClientStateAudioDataProperti
         for (const auto &entry : ptr_BankPaths->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                BankPaths.emplace(ptr_entry->value);
+                BankPaths.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1779,7 +1779,7 @@ yordle::data::meta::FeatureAudioDataProperties::FeatureAudioDataProperties(const
         for (const auto &entry : ptr_bankUnits->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                bankUnits.emplace(yordle::data::meta::deserialize<yordle::data::meta::BankUnit>(ptr_entry, 2755749141u));
+                bankUnits.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::BankUnit>(ptr_entry, 2755749141u));
             }
         }
     }
@@ -1810,7 +1810,7 @@ yordle::data::meta::BankUnit::BankUnit(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_bankPath->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                bankPath.emplace(ptr_entry->value);
+                bankPath.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1820,7 +1820,7 @@ yordle::data::meta::BankUnit::BankUnit(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_events->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                events.emplace(ptr_entry->value);
+                events.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1846,7 +1846,7 @@ yordle::data::meta::AudioTagListProperties::AudioTagListProperties(const std::sh
         for (const auto &entry : ptr_tags->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                tags.emplace(ptr_entry->value);
+                tags.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -1867,7 +1867,7 @@ yordle::data::meta::AudioSystemDataProperties::AudioSystemDataProperties(const s
         for (const auto &entry : ptr_systemTagEventList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                systemTagEventList.emplace(yordle::data::meta::deserialize<yordle::data::meta::AudioTagListProperties>(ptr_entry, 1123665566u));
+                systemTagEventList.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::AudioTagListProperties>(ptr_entry, 1123665566u));
             }
         }
     }
@@ -1905,7 +1905,7 @@ yordle::data::meta::GlobalAudioDataProperties::GlobalAudioDataProperties(const s
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                systems[ptr_key->value] = ptr_value->value;
+                systems[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::AudioSystemDataProperties>(ptr_value->value, 915602117u);
             }
         }
     }
@@ -1921,7 +1921,7 @@ yordle::data::meta::GlobalAudioDataProperties::GlobalAudioDataProperties(const s
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                localPlayerStatusEvents[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::AudioStatusEvents>(ptr_value, 2254221038u);
+                localPlayerStatusEvents.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::AudioStatusEvents>(ptr_value, 2254221038u));
             }
         }
     }
@@ -2072,7 +2072,7 @@ yordle::data::meta::CensoredImage::CensoredImage(const std::shared_ptr<yordle::d
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                UncensoredImages[ptr_key->value] = ptr_value->value;
+                UncensoredImages.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -2188,7 +2188,7 @@ yordle::data::meta::SkinCharacterMetaDataProperties::SkinCharacterMetaDataProper
         for (const auto &entry : ptr_eSportTeamTable->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                eSportTeamTable.emplace(yordle::data::meta::deserialize<yordle::data::meta::ESportTeamEntry>(ptr_entry, 336658597u));
+                eSportTeamTable.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ESportTeamEntry>(ptr_entry, 336658597u));
             }
         }
     }
@@ -2198,7 +2198,7 @@ yordle::data::meta::SkinCharacterMetaDataProperties::SkinCharacterMetaDataProper
         for (const auto &entry : ptr_eSportLeagueTable->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                eSportLeagueTable.emplace(yordle::data::meta::deserialize<yordle::data::meta::ESportLeagueEntry>(ptr_entry, 1219793301u));
+                eSportLeagueTable.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ESportLeagueEntry>(ptr_entry, 1219793301u));
             }
         }
     }
@@ -2218,7 +2218,7 @@ yordle::data::meta::SkinCharacterMetaDataProperties::SkinCharacterMetaDataProper
         for (const auto &entry : ptr_relativeColorSwapTable->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(entry);
             if (ptr_entry != nullptr) {
-                relativeColorSwapTable.emplace(ptr_entry->value);
+                relativeColorSwapTable.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -2233,7 +2233,7 @@ yordle::data::meta::SkinCharacterMetaDataProperties::SkinCharacterMetaDataProper
         for (const auto &entry : ptr_spawningSkinOffsets->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                spawningSkinOffsets.emplace(yordle::data::meta::deserialize<yordle::data::meta::SkinCharacterMetaDataProperties_SpawningSkinOffset>(ptr_entry, 1393249095u));
+                spawningSkinOffsets.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SkinCharacterMetaDataProperties_SpawningSkinOffset>(ptr_entry, 1393249095u));
             }
         }
     }
@@ -2254,7 +2254,7 @@ yordle::data::meta::SkinAudioProperties::SkinAudioProperties(const std::shared_p
         for (const auto &entry : ptr_tagEventList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                tagEventList.emplace(ptr_entry->value);
+                tagEventList.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -2264,7 +2264,7 @@ yordle::data::meta::SkinAudioProperties::SkinAudioProperties(const std::shared_p
         for (const auto &entry : ptr_bankUnits->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                bankUnits.emplace(yordle::data::meta::deserialize<yordle::data::meta::BankUnit>(ptr_entry, 2755749141u));
+                bankUnits.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::BankUnit>(ptr_entry, 2755749141u));
             }
         }
     }
@@ -2277,7 +2277,7 @@ yordle::data::meta::SkinAnimationProperties::SkinAnimationProperties(const std::
 
     auto ptr_animationGraphData = prop->cast_prop<yordle::data::prop::reference_prop>(4126869447u);
     if (ptr_animationGraphData != nullptr) {
-        animationGraphData = ptr_animationGraphData->value;
+        animationGraphData.key = ptr_animationGraphData->value;
     }
 }
 
@@ -2288,7 +2288,7 @@ yordle::data::meta::SkinEmblem::SkinEmblem(const std::shared_ptr<yordle::data::p
 
     auto ptr_mEmblemData = prop->cast_prop<yordle::data::prop::reference_prop>(1576489838u);
     if (ptr_mEmblemData != nullptr) {
-        mEmblemData = ptr_mEmblemData->value;
+        mEmblemData.key = ptr_mEmblemData->value;
     }
 
     auto ptr_mLoadingScreenAnchor = prop->cast_prop<yordle::data::prop::uint32_prop>(1447999873u);
@@ -2307,7 +2307,7 @@ yordle::data::meta::SkinSummonerEmoteLoadout::SkinSummonerEmoteLoadout(const std
         for (const auto &entry : ptr_mEmotes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mEmotes.emplace(ptr_entry->value);
+                mEmotes.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(1950165531u, ptr_entry->value));
             }
         }
     }
@@ -2398,7 +2398,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
         for (const auto &entry : ptr_themeMusic->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                themeMusic.emplace(ptr_entry->value);
+                themeMusic.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -2423,7 +2423,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
         for (const auto &entry : ptr_defaultAnimations->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                defaultAnimations.emplace(ptr_entry->value);
+                defaultAnimations.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -2433,7 +2433,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
         for (const auto &entry : ptr_idleParticlesEffects->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                idleParticlesEffects.emplace(yordle::data::meta::deserialize<yordle::data::meta::SkinCharacterDataProperties_CharacterIdleEffect>(ptr_entry, 856064357u));
+                idleParticlesEffects.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SkinCharacterDataProperties_CharacterIdleEffect>(ptr_entry, 856064357u));
             }
         }
     }
@@ -2458,7 +2458,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
         for (const auto &entry : ptr_extraCharacterPreloads->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                extraCharacterPreloads.emplace(ptr_entry->value);
+                extraCharacterPreloads.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -2480,7 +2480,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
 
     auto ptr_mContextualActionData = prop->cast_prop<yordle::data::prop::reference_prop>(3640019469u);
     if (ptr_mContextualActionData != nullptr) {
-        mContextualActionData = ptr_mContextualActionData->value;
+        mContextualActionData.key = ptr_mContextualActionData->value;
     }
 
     auto ptr_skinAudioNameOverride = prop->cast_prop<yordle::data::prop::string_prop>(1427754905u);
@@ -2517,7 +2517,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
         for (const auto &entry : ptr_alternateIconsCircle->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                alternateIconsCircle.emplace(ptr_entry->value);
+                alternateIconsCircle.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -2527,7 +2527,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
         for (const auto &entry : ptr_alternateIconsSquare->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                alternateIconsSquare.emplace(ptr_entry->value);
+                alternateIconsSquare.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -2538,7 +2538,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                uncensoredIconCircles[ptr_key->value] = ptr_value->value;
+                uncensoredIconCircles.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -2549,7 +2549,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                uncensoredIconSquares[ptr_key->value] = ptr_value->value;
+                uncensoredIconSquares.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -2584,7 +2584,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
         for (const auto &entry : ptr_mEmblems->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mEmblems.emplace(yordle::data::meta::deserialize<yordle::data::meta::SkinEmblem>(ptr_entry, 2074733870u));
+                mEmblems.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SkinEmblem>(ptr_entry, 2074733870u));
             }
         }
     }
@@ -2599,7 +2599,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
 
     auto ptr_mResourceResolver = prop->cast_prop<yordle::data::prop::reference_prop>(1646816894u);
     if (ptr_mResourceResolver != nullptr) {
-        mResourceResolver = ptr_mResourceResolver->value;
+        mResourceResolver.key = ptr_mResourceResolver->value;
     }
 
     auto ptr_mAdditionalResourceResolvers = prop->cast_prop<yordle::data::prop::set_prop>(2188533552u);
@@ -2607,7 +2607,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
         for (const auto &entry : ptr_mAdditionalResourceResolvers->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAdditionalResourceResolvers.emplace(ptr_entry->value);
+                mAdditionalResourceResolvers.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(4013559603u, ptr_entry->value));
             }
         }
     }
@@ -2643,7 +2643,7 @@ yordle::data::meta::SkinFilterData::SkinFilterData(const std::shared_ptr<yordle:
         for (const auto &entry : ptr_skinIds->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(entry);
             if (ptr_entry != nullptr) {
-                skinIds.emplace(ptr_entry->value);
+                skinIds.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -2656,7 +2656,7 @@ yordle::data::meta::CharacterPassiveData::CharacterPassiveData(const std::shared
 
     auto ptr_xbd3c31e4 = prop->cast_prop<yordle::data::prop::reference_prop>(3174838756u);
     if (ptr_xbd3c31e4 != nullptr) {
-        xbd3c31e4 = ptr_xbd3c31e4->value;
+        xbd3c31e4.key = ptr_xbd3c31e4->value;
     }
 
     auto ptr_mComponentBuffs = prop->cast_prop<yordle::data::prop::set_prop>(390986907u);
@@ -2664,7 +2664,7 @@ yordle::data::meta::CharacterPassiveData::CharacterPassiveData(const std::shared
         for (const auto &entry : ptr_mComponentBuffs->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mComponentBuffs.emplace(ptr_entry->value);
+                mComponentBuffs.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(1585338886u, ptr_entry->value));
             }
         }
     }
@@ -2674,7 +2674,7 @@ yordle::data::meta::CharacterPassiveData::CharacterPassiveData(const std::shared
         for (const auto &entry : ptr_mChildSpells->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mChildSpells.emplace(ptr_entry->value);
+                mChildSpells.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(1585338886u, ptr_entry->value));
             }
         }
     }
@@ -2705,7 +2705,7 @@ yordle::data::meta::GlobalPerLevelStatsFactor::GlobalPerLevelStatsFactor(const s
         for (const auto &entry : ptr_mPerLevelStatsFactor->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mPerLevelStatsFactor.emplace(ptr_entry->value);
+                mPerLevelStatsFactor.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -2963,7 +2963,7 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         for (const auto &entry : ptr_extraAttacks->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                extraAttacks.emplace(yordle::data::meta::deserialize<yordle::data::meta::AttackSlotData>(ptr_entry, 112014489u));
+                extraAttacks.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::AttackSlotData>(ptr_entry, 112014489u));
             }
         }
     }
@@ -2973,7 +2973,7 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         for (const auto &entry : ptr_critAttacks->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                critAttacks.emplace(yordle::data::meta::deserialize<yordle::data::meta::AttackSlotData>(ptr_entry, 112014489u));
+                critAttacks.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::AttackSlotData>(ptr_entry, 112014489u));
             }
         }
     }
@@ -3069,7 +3069,7 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         for (const auto &entry : ptr_spellNames->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                spellNames.emplace(ptr_entry->value);
+                spellNames.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -3079,7 +3079,7 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         for (const auto &entry : ptr_extraSpells->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                extraSpells.emplace(ptr_entry->value);
+                extraSpells.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -3089,7 +3089,7 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         for (const auto &entry : ptr_mAbilities->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAbilities.emplace(ptr_entry->value);
+                mAbilities.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(3696800942u, ptr_entry->value));
             }
         }
     }
@@ -3184,7 +3184,7 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         for (const auto &entry : ptr_weaponMaterials->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                weaponMaterials.emplace(ptr_entry->value);
+                weaponMaterials.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -3362,7 +3362,7 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         for (const auto &entry : ptr_mAbilitySlotCC->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAbilitySlotCC.emplace(ptr_entry->value);
+                mAbilitySlotCC.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -3382,7 +3382,7 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         for (const auto &entry : ptr_spellLevelUpInfo->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                spellLevelUpInfo.emplace(yordle::data::meta::deserialize<yordle::data::meta::SpellLevelUpInfo>(ptr_entry, 2606765944u));
+                spellLevelUpInfo.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SpellLevelUpInfo>(ptr_entry, 2606765944u));
             }
         }
     }
@@ -3392,7 +3392,7 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         for (const auto &entry : ptr_recSpellRankUpInfo->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                recSpellRankUpInfo.emplace(yordle::data::meta::deserialize<yordle::data::meta::RecSpellRankUpInfo>(ptr_entry, 825182082u));
+                recSpellRankUpInfo.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::RecSpellRankUpInfo>(ptr_entry, 825182082u));
             }
         }
     }
@@ -3432,7 +3432,7 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         for (const auto &entry : ptr_purchaseIdentities->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                purchaseIdentities.emplace(ptr_entry->value);
+                purchaseIdentities.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -3442,14 +3442,14 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         for (const auto &entry : ptr_mClientSideItemInventory->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mClientSideItemInventory.emplace(ptr_entry->value);
+                mClientSideItemInventory.emplace_back(ptr_entry->value);
             }
         }
     }
 
     auto ptr_mPreferredPerkStyle = prop->cast_prop<yordle::data::prop::reference_prop>(92127542u);
     if (ptr_mPreferredPerkStyle != nullptr) {
-        mPreferredPerkStyle = ptr_mPreferredPerkStyle->value;
+        mPreferredPerkStyle.key = ptr_mPreferredPerkStyle->value;
     }
 
     auto ptr_mPerkReplacements = prop->cast_prop<yordle::data::prop::inline_structure_prop>(665947137u);
@@ -3478,14 +3478,14 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mCharacterCalculations[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::IGameCalculation>(ptr_value, 389493299u);
+                mCharacterCalculations.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IGameCalculation>(ptr_value, 389493299u));
             }
         }
     }
 
     auto ptr_mCharacterPassiveSpell = prop->cast_prop<yordle::data::prop::reference_prop>(3916366866u);
     if (ptr_mCharacterPassiveSpell != nullptr) {
-        mCharacterPassiveSpell = ptr_mCharacterPassiveSpell->value;
+        mCharacterPassiveSpell.key = ptr_mCharacterPassiveSpell->value;
     }
 
     auto ptr_mCharacterPassiveBuffs = prop->cast_prop<yordle::data::prop::set_prop>(3138631806u);
@@ -3493,7 +3493,7 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         for (const auto &entry : ptr_mCharacterPassiveBuffs->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCharacterPassiveBuffs.emplace(yordle::data::meta::deserialize<yordle::data::meta::CharacterPassiveData>(ptr_entry, 2393107013u));
+                mCharacterPassiveBuffs.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::CharacterPassiveData>(ptr_entry, 2393107013u));
             }
         }
     }
@@ -3808,7 +3808,7 @@ yordle::data::meta::SpellRankUpRequirements::SpellRankUpRequirements(const std::
         for (const auto &entry : ptr_mRequirements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mRequirements.emplace(yordle::data::meta::deserialize<yordle::data::meta::ISpellRankUpRequirement>(ptr_entry, 1708005576u));
+                mRequirements.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ISpellRankUpRequirement>(ptr_entry, 1708005576u));
             }
         }
     }
@@ -3824,7 +3824,7 @@ yordle::data::meta::SpellLevelUpInfo::SpellLevelUpInfo(const std::shared_ptr<yor
         for (const auto &entry : ptr_mRequirements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mRequirements.emplace(yordle::data::meta::deserialize<yordle::data::meta::SpellRankUpRequirements>(ptr_entry, 3158945758u));
+                mRequirements.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SpellRankUpRequirements>(ptr_entry, 3158945758u));
             }
         }
     }
@@ -3840,7 +3840,7 @@ yordle::data::meta::RecSpellRankUpInfo::RecSpellRankUpInfo(const std::shared_ptr
         for (const auto &entry : ptr_mDefaultPriority->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(entry);
             if (ptr_entry != nullptr) {
-                mDefaultPriority.emplace(ptr_entry->value);
+                mDefaultPriority.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -3850,7 +3850,7 @@ yordle::data::meta::RecSpellRankUpInfo::RecSpellRankUpInfo(const std::shared_ptr
         for (const auto &entry : ptr_mEarlyLevelOverrides->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(entry);
             if (ptr_entry != nullptr) {
-                mEarlyLevelOverrides.emplace(ptr_entry->value);
+                mEarlyLevelOverrides.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -3940,7 +3940,7 @@ yordle::data::meta::SponsoredBanner::SponsoredBanner(const std::shared_ptr<yordl
 
     auto ptr_banner = prop->cast_prop<yordle::data::prop::reference_prop>(1097580943u);
     if (ptr_banner != nullptr) {
-        banner = ptr_banner->value;
+        banner.key = ptr_banner->value;
     }
 
     auto ptr_SponsorTexturePath = prop->cast_prop<yordle::data::prop::xx_hash_prop>(3625922223u);
@@ -3971,7 +3971,7 @@ yordle::data::meta::EsportsBannerConfiguration::EsportsBannerConfiguration(const
 
     auto ptr_eventMutator = prop->cast_prop<yordle::data::prop::reference_prop>(4043971103u);
     if (ptr_eventMutator != nullptr) {
-        eventMutator = ptr_eventMutator->value;
+        eventMutator.key = ptr_eventMutator->value;
     }
 
     auto ptr_texturePath = prop->cast_prop<yordle::data::prop::xx_hash_prop>(4037239779u);
@@ -3984,7 +3984,7 @@ yordle::data::meta::EsportsBannerConfiguration::EsportsBannerConfiguration(const
         for (const auto &entry : ptr_IndividualBannerOverrides->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                IndividualBannerOverrides.emplace(yordle::data::meta::deserialize<yordle::data::meta::SponsoredBanner>(ptr_entry, 6610142u));
+                IndividualBannerOverrides.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SponsoredBanner>(ptr_entry, 6610142u));
             }
         }
     }
@@ -4016,7 +4016,7 @@ yordle::data::meta::EsportsData::EsportsData(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_leagues->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                leagues.emplace(ptr_entry->value);
+                leagues.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -4065,7 +4065,7 @@ yordle::data::meta::EsportsBannerOptions::EsportsBannerOptions(const std::shared
 
     auto ptr_DefaultBlankMaterial = prop->cast_prop<yordle::data::prop::reference_prop>(3590584789u);
     if (ptr_DefaultBlankMaterial != nullptr) {
-        DefaultBlankMaterial = ptr_DefaultBlankMaterial->value;
+        DefaultBlankMaterial.key = ptr_DefaultBlankMaterial->value;
     }
 }
 
@@ -4115,7 +4115,7 @@ yordle::data::meta::MasteryBadgeConfig::MasteryBadgeConfig(const std::shared_ptr
         for (const auto &entry : ptr_mBadges->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mBadges.emplace(yordle::data::meta::deserialize<yordle::data::meta::MasteryBadgeData>(ptr_entry, 1337363141u));
+                mBadges.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MasteryBadgeData>(ptr_entry, 1337363141u));
             }
         }
     }
@@ -4153,7 +4153,7 @@ yordle::data::meta::ChampionMasteryMap::ChampionMasteryMap(const std::shared_ptr
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                masteryData[ptr_key->value] = ptr_value->value;
+                masteryData[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::MasteryData>(ptr_value->value, 505623326u);
             }
         }
     }
@@ -4216,7 +4216,7 @@ yordle::data::meta::LoadoutFeatureData::LoadoutFeatureData(const std::shared_ptr
         for (const auto &entry : ptr_mLoadoutProperties->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mLoadoutProperties.emplace(ptr_entry->value);
+                mLoadoutProperties.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -4227,7 +4227,7 @@ yordle::data::meta::LoadoutFeatureData::LoadoutFeatureData(const std::shared_ptr
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mGDSObjectPathTemplates[ptr_key->value] = ptr_value->value;
+                mGDSObjectPathTemplates.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -4295,7 +4295,7 @@ yordle::data::meta::SkinUpgradeData::SkinUpgradeData(const std::shared_ptr<yordl
         for (const auto &entry : ptr_mGearSkinUpgrades->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mGearSkinUpgrades.emplace(ptr_entry->value);
+                mGearSkinUpgrades.push_back(yordle::data::meta::bin_ref<yordle::data::meta::GearSkinUpgrade>(668820321u, ptr_entry->value));
             }
         }
     }
@@ -4311,7 +4311,7 @@ yordle::data::meta::TFTCompanionBucket::TFTCompanionBucket(const std::shared_ptr
         for (const auto &entry : ptr_Companions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                Companions.emplace(ptr_entry->value);
+                Companions.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -4327,7 +4327,7 @@ yordle::data::meta::TFTBotLoadoutConfiguration::TFTBotLoadoutConfiguration(const
         for (const auto &entry : ptr_xeffbc65c->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                xeffbc65c.emplace(yordle::data::meta::deserialize<yordle::data::meta::TFTCompanionBucket>(ptr_entry, 4009991563u));
+                xeffbc65c.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TFTCompanionBucket>(ptr_entry, 4009991563u));
             }
         }
     }
@@ -4337,7 +4337,7 @@ yordle::data::meta::TFTBotLoadoutConfiguration::TFTBotLoadoutConfiguration(const
         for (const auto &entry : ptr_mapSkins->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mapSkins.emplace(ptr_entry->value);
+                mapSkins.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -4350,7 +4350,7 @@ yordle::data::meta::BannerFlagData::BannerFlagData(const std::shared_ptr<yordle:
 
     auto ptr_animationGraphData = prop->cast_prop<yordle::data::prop::reference_prop>(4126869447u);
     if (ptr_animationGraphData != nullptr) {
-        animationGraphData = ptr_animationGraphData->value;
+        animationGraphData.key = ptr_animationGraphData->value;
     }
 
     auto ptr_skinMeshProperties = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1174362372u);
@@ -4366,7 +4366,7 @@ yordle::data::meta::BannerFrameData::BannerFrameData(const std::shared_ptr<yordl
 
     auto ptr_animationGraphData = prop->cast_prop<yordle::data::prop::reference_prop>(4126869447u);
     if (ptr_animationGraphData != nullptr) {
-        animationGraphData = ptr_animationGraphData->value;
+        animationGraphData.key = ptr_animationGraphData->value;
     }
 
     auto ptr_skinMeshProperties = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1174362372u);
@@ -4459,7 +4459,7 @@ yordle::data::meta::SummonerEmote::SummonerEmote(const std::shared_ptr<yordle::d
 
     auto ptr_vfxSystem = prop->cast_prop<yordle::data::prop::reference_prop>(719095870u);
     if (ptr_vfxSystem != nullptr) {
-        vfxSystem = ptr_vfxSystem->value;
+        vfxSystem.key = ptr_vfxSystem->value;
     }
 
     auto ptr_announcementIcon = prop->cast_prop<yordle::data::prop::string_prop>(728839351u);
@@ -4495,12 +4495,12 @@ yordle::data::meta::SummonerEmoteSettings::SummonerEmoteSettings(const std::shar
 
     auto ptr_mFirstBlood = prop->cast_prop<yordle::data::prop::reference_prop>(581243222u);
     if (ptr_mFirstBlood != nullptr) {
-        mFirstBlood = ptr_mFirstBlood->value;
+        mFirstBlood.key = ptr_mFirstBlood->value;
     }
 
     auto ptr_mAce = prop->cast_prop<yordle::data::prop::reference_prop>(3516908855u);
     if (ptr_mAce != nullptr) {
-        mAce = ptr_mAce->value;
+        mAce.key = ptr_mAce->value;
     }
 }
 
@@ -4516,7 +4516,7 @@ yordle::data::meta::GearData::GearData(const std::shared_ptr<yordle::data::prop:
 
     auto ptr_animationGraphData = prop->cast_prop<yordle::data::prop::reference_prop>(4126869447u);
     if (ptr_animationGraphData != nullptr) {
-        animationGraphData = ptr_animationGraphData->value;
+        animationGraphData.key = ptr_animationGraphData->value;
     }
 
     auto ptr_mVFXResourceResolver = prop->cast_prop<yordle::data::prop::structure_prop>(1602389154u);
@@ -4544,7 +4544,7 @@ yordle::data::meta::GearData::GearData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_xb6c044fb->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                xb6c044fb.emplace(ptr_entry->value);
+                xb6c044fb.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -4554,7 +4554,7 @@ yordle::data::meta::GearData::GearData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_x21b6167e->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                x21b6167e.emplace(ptr_entry->value);
+                x21b6167e.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -4575,7 +4575,7 @@ yordle::data::meta::ModeProgressionRewardData::ModeProgressionRewardData(const s
         for (const auto &entry : ptr_mCharacters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCharacters.emplace(ptr_entry->value);
+                mCharacters.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -4609,47 +4609,47 @@ yordle::data::meta::RegaliaLookup::RegaliaLookup(const std::shared_ptr<yordle::d
 
     auto ptr_regaliaCrest = prop->cast_prop<yordle::data::prop::reference_prop>(950328649u);
     if (ptr_regaliaCrest != nullptr) {
-        regaliaCrest = ptr_regaliaCrest->value;
+        regaliaCrest.key = ptr_regaliaCrest->value;
     }
 
     auto ptr_regaliaCrown1 = prop->cast_prop<yordle::data::prop::reference_prop>(2753957280u);
     if (ptr_regaliaCrown1 != nullptr) {
-        regaliaCrown1 = ptr_regaliaCrown1->value;
+        regaliaCrown1.key = ptr_regaliaCrown1->value;
     }
 
     auto ptr_regaliaCrown2 = prop->cast_prop<yordle::data::prop::reference_prop>(2804290137u);
     if (ptr_regaliaCrown2 != nullptr) {
-        regaliaCrown2 = ptr_regaliaCrown2->value;
+        regaliaCrown2.key = ptr_regaliaCrown2->value;
     }
 
     auto ptr_regaliaCrown3 = prop->cast_prop<yordle::data::prop::reference_prop>(2787512518u);
     if (ptr_regaliaCrown3 != nullptr) {
-        regaliaCrown3 = ptr_regaliaCrown3->value;
+        regaliaCrown3.key = ptr_regaliaCrown3->value;
     }
 
     auto ptr_regaliaCrown4 = prop->cast_prop<yordle::data::prop::reference_prop>(2837845375u);
     if (ptr_regaliaCrown4 != nullptr) {
-        regaliaCrown4 = ptr_regaliaCrown4->value;
+        regaliaCrown4.key = ptr_regaliaCrown4->value;
     }
 
     auto ptr_RegaliaTrim = prop->cast_prop<yordle::data::prop::reference_prop>(34629342u);
     if (ptr_RegaliaTrim != nullptr) {
-        RegaliaTrim = ptr_RegaliaTrim->value;
+        RegaliaTrim.key = ptr_RegaliaTrim->value;
     }
 
     auto ptr_regaliaSplit1 = prop->cast_prop<yordle::data::prop::reference_prop>(3647677749u);
     if (ptr_regaliaSplit1 != nullptr) {
-        regaliaSplit1 = ptr_regaliaSplit1->value;
+        regaliaSplit1.key = ptr_regaliaSplit1->value;
     }
 
     auto ptr_regaliaSplit2 = prop->cast_prop<yordle::data::prop::reference_prop>(3597344892u);
     if (ptr_regaliaSplit2 != nullptr) {
-        regaliaSplit2 = ptr_regaliaSplit2->value;
+        regaliaSplit2.key = ptr_regaliaSplit2->value;
     }
 
     auto ptr_regaliaSplit3 = prop->cast_prop<yordle::data::prop::reference_prop>(3614122511u);
     if (ptr_regaliaSplit3 != nullptr) {
-        regaliaSplit3 = ptr_regaliaSplit3->value;
+        regaliaSplit3.key = ptr_regaliaSplit3->value;
     }
 }
 
@@ -4660,7 +4660,7 @@ yordle::data::meta::RegaliaRankedCrestEntry::RegaliaRankedCrestEntry(const std::
 
     auto ptr_base = prop->cast_prop<yordle::data::prop::reference_prop>(1037866200u);
     if (ptr_base != nullptr) {
-        base = ptr_base->value;
+        base.key = ptr_base->value;
     }
 
     auto ptr_xfbb20410 = prop->cast_prop<yordle::data::prop::map_prop>(4222747664u);
@@ -4669,7 +4669,7 @@ yordle::data::meta::RegaliaRankedCrestEntry::RegaliaRankedCrestEntry(const std::
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                xfbb20410[ptr_key->value] = ptr_value->value;
+                xfbb20410[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData>(ptr_value->value, 2286074286u);
             }
         }
     }
@@ -4680,7 +4680,7 @@ yordle::data::meta::RegaliaRankedCrestEntry::RegaliaRankedCrestEntry(const std::
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                xaf2e170a[ptr_key->value] = ptr_value->value;
+                xaf2e170a[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData>(ptr_value->value, 2286074286u);
             }
         }
     }
@@ -4697,7 +4697,7 @@ yordle::data::meta::RegaliaRankedCrestMap::RegaliaRankedCrestMap(const std::shar
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                x723d6f91[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::RegaliaRankedCrestEntry>(ptr_value, 3828118224u);
+                x723d6f91.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::RegaliaRankedCrestEntry>(ptr_value, 3828118224u));
             }
         }
     }
@@ -4713,7 +4713,7 @@ yordle::data::meta::RegaliaPrestigeCrestList::RegaliaPrestigeCrestList(const std
         for (const auto &entry : ptr_PrestigeCrests->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                PrestigeCrests.emplace(ptr_entry->value);
+                PrestigeCrests.push_back(yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData>(2286074286u, ptr_entry->value));
             }
         }
     }
@@ -4730,7 +4730,7 @@ yordle::data::meta::RegaliaRankedBannerMap::RegaliaRankedBannerMap(const std::sh
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                xc5b8b568[ptr_key->value] = ptr_value->value;
+                xc5b8b568[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData>(ptr_value->value, 2286074286u);
             }
         }
     }
@@ -4747,7 +4747,7 @@ yordle::data::meta::x2ba8fc33::x2ba8fc33(const std::shared_ptr<yordle::data::pro
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                x5b1fd3c2[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::RegaliaData>(ptr_value, 2286074286u);
+                x5b1fd3c2.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::RegaliaData>(ptr_value, 2286074286u));
             }
         }
     }
@@ -4768,7 +4768,7 @@ yordle::data::meta::StatStoneEventToTrack::StatStoneEventToTrack(const std::shar
         for (const auto &entry : ptr_StatFilters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                StatFilters.emplace(yordle::data::meta::deserialize<yordle::data::meta::IStatStoneLogicDriver>(ptr_entry, 3276314181u));
+                StatFilters.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IStatStoneLogicDriver>(ptr_entry, 3276314181u));
             }
         }
     }
@@ -4784,14 +4784,14 @@ yordle::data::meta::StatStoneData::StatStoneData(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_EventsToTrack->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                EventsToTrack.emplace(yordle::data::meta::deserialize<yordle::data::meta::StatStoneEventToTrack>(ptr_entry, 4146948500u));
+                EventsToTrack.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::StatStoneEventToTrack>(ptr_entry, 4146948500u));
             }
         }
     }
 
     auto ptr_category = prop->cast_prop<yordle::data::prop::reference_prop>(3475980913u);
     if (ptr_category != nullptr) {
-        category = ptr_category->value;
+        category.key = ptr_category->value;
     }
 
     auto ptr_xfb2a56ef = prop->cast_prop<yordle::data::prop::uint32_prop>(4213855983u);
@@ -4809,7 +4809,7 @@ yordle::data::meta::StatStoneData::StatStoneData(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_Milestones->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint64_prop>(entry);
             if (ptr_entry != nullptr) {
-                Milestones.emplace(ptr_entry->value);
+                Milestones.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -4878,7 +4878,7 @@ yordle::data::meta::CrowdControlFilter::CrowdControlFilter(const std::shared_ptr
         for (const auto &entry : ptr_x20cf84ac->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(entry);
             if (ptr_entry != nullptr) {
-                x20cf84ac.emplace(ptr_entry->value);
+                x20cf84ac.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -4899,7 +4899,7 @@ yordle::data::meta::TargetHasBuffFilter::TargetHasBuffFilter(const std::shared_p
         for (const auto &entry : ptr_ValidBuffs->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(entry);
             if (ptr_entry != nullptr) {
-                ValidBuffs.emplace(ptr_entry->value);
+                ValidBuffs.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -5096,7 +5096,7 @@ yordle::data::meta::StatStoneSet::StatStoneSet(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_statStones->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                statStones.emplace(ptr_entry->value);
+                statStones.push_back(yordle::data::meta::bin_ref<yordle::data::meta::StatStoneData>(3978526660u, ptr_entry->value));
             }
         }
     }
@@ -5144,7 +5144,7 @@ yordle::data::meta::xead1b379::xead1b379(const std::shared_ptr<yordle::data::pro
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                xfb403eda[ptr_key->value] = ptr_value->value;
+                xfb403eda[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(ptr_value->value, 1171098015u);
             }
         }
     }
@@ -5161,7 +5161,7 @@ yordle::data::meta::x32be2466::x32be2466(const std::shared_ptr<yordle::data::pro
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                x1a28d722[ptr_key->value] = ptr_value->value;
+                x1a28d722[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::xead1b379>(ptr_value->value, 3939611513u);
             }
         }
     }
@@ -5207,14 +5207,14 @@ yordle::data::meta::TFTDamageSkin::TFTDamageSkin(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_x31af5dc6->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                x31af5dc6.emplace(yordle::data::meta::deserialize<yordle::data::meta::TftDamageSkinDescriptor>(ptr_entry, 3607046696u));
+                x31af5dc6.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TftDamageSkinDescriptor>(ptr_entry, 3607046696u));
             }
         }
     }
 
     auto ptr_VfxResourceResolver = prop->cast_prop<yordle::data::prop::reference_prop>(2679170533u);
     if (ptr_VfxResourceResolver != nullptr) {
-        VfxResourceResolver = ptr_VfxResourceResolver->value;
+        VfxResourceResolver.key = ptr_VfxResourceResolver->value;
     }
 
     auto ptr_StandaloneLoadoutsIcon = prop->cast_prop<yordle::data::prop::string_prop>(1125948026u);
@@ -5232,7 +5232,7 @@ yordle::data::meta::TFTDamageSkin::TFTDamageSkin(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_AudioBankPaths->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                AudioBankPaths.emplace(ptr_entry->value);
+                AudioBankPaths.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -5320,7 +5320,7 @@ yordle::data::meta::TftMapSkin::TftMapSkin(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_AudioBankPaths->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                AudioBankPaths.emplace(ptr_entry->value);
+                AudioBankPaths.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -5330,7 +5330,7 @@ yordle::data::meta::TftMapSkin::TftMapSkin(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_characters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                characters.emplace(ptr_entry->value);
+                characters.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -5368,7 +5368,7 @@ yordle::data::meta::TrophyData::TrophyData(const std::shared_ptr<yordle::data::p
 
     auto ptr_animationGraphData = prop->cast_prop<yordle::data::prop::reference_prop>(4126869447u);
     if (ptr_animationGraphData != nullptr) {
-        animationGraphData = ptr_animationGraphData->value;
+        animationGraphData.key = ptr_animationGraphData->value;
     }
 
     auto ptr_mVFXResourceResolver = prop->cast_prop<yordle::data::prop::structure_prop>(1602389154u);
@@ -5389,7 +5389,7 @@ yordle::data::meta::TrophyPedestalData::TrophyPedestalData(const std::shared_ptr
 
     auto ptr_animationGraphData = prop->cast_prop<yordle::data::prop::reference_prop>(4126869447u);
     if (ptr_animationGraphData != nullptr) {
-        animationGraphData = ptr_animationGraphData->value;
+        animationGraphData.key = ptr_animationGraphData->value;
     }
 
     auto ptr_mJointName = prop->cast_prop<yordle::data::prop::string_prop>(4077582351u);
@@ -5482,7 +5482,7 @@ yordle::data::meta::GameModeAutoItemPurchasingConfig::GameModeAutoItemPurchasing
         for (const auto &entry : ptr_xe34f62d0->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                xe34f62d0.emplace(ptr_entry->value);
+                xe34f62d0.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -5492,7 +5492,7 @@ yordle::data::meta::GameModeAutoItemPurchasingConfig::GameModeAutoItemPurchasing
         for (const auto &entry : ptr_xc8adfdbc->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                xc8adfdbc.emplace(ptr_entry->value);
+                xc8adfdbc.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -5502,7 +5502,7 @@ yordle::data::meta::GameModeAutoItemPurchasingConfig::GameModeAutoItemPurchasing
         for (const auto &entry : ptr_x83f0cccd->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                x83f0cccd.emplace(ptr_entry->value);
+                x83f0cccd.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -5523,7 +5523,7 @@ yordle::data::meta::GameModeChampionList::GameModeChampionList(const std::shared
         for (const auto &entry : ptr_mChampions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mChampions.emplace(ptr_entry->value);
+                mChampions.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -5589,7 +5589,7 @@ yordle::data::meta::GameModeConstantStringVector::GameModeConstantStringVector(c
         for (const auto &entry : ptr_mValue->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mValue.emplace(ptr_entry->value);
+                mValue.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -5627,7 +5627,7 @@ yordle::data::meta::GameModeConstantFloatPerLevel::GameModeConstantFloatPerLevel
         for (const auto &entry : ptr_mValues->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mValues.emplace(ptr_entry->value);
+                mValues.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -5644,7 +5644,7 @@ yordle::data::meta::GameModeConstantsGroup::GameModeConstantsGroup(const std::sh
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mConstants[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::GameModeConstant>(ptr_value, 1670770484u);
+                mConstants.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::GameModeConstant>(ptr_value, 1670770484u));
             }
         }
     }
@@ -5661,7 +5661,7 @@ yordle::data::meta::GameModeConstants::GameModeConstants(const std::shared_ptr<y
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mGroups[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::GameModeConstantsGroup>(ptr_value, 720276364u);
+                mGroups.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::GameModeConstantsGroup>(ptr_value, 720276364u));
             }
         }
     }
@@ -5677,7 +5677,7 @@ yordle::data::meta::GameModeItemList::GameModeItemList(const std::shared_ptr<yor
         for (const auto &entry : ptr_mItems->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mItems.emplace(ptr_entry->value);
+                mItems.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -5698,7 +5698,7 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
         for (const auto &entry : ptr_mChampionLists->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mChampionLists.emplace(ptr_entry->value);
+                mChampionLists.push_back(yordle::data::meta::bin_ref<yordle::data::meta::GameModeChampionList>(2322891183u, ptr_entry->value));
             }
         }
     }
@@ -5708,7 +5708,7 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
         for (const auto &entry : ptr_itemLists->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                itemLists.emplace(ptr_entry->value);
+                itemLists.push_back(yordle::data::meta::bin_ref<yordle::data::meta::GameModeItemList>(401601815u, ptr_entry->value));
             }
         }
     }
@@ -5720,12 +5720,12 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
 
     auto ptr_mItemShopData = prop->cast_prop<yordle::data::prop::reference_prop>(2519132899u);
     if (ptr_mItemShopData != nullptr) {
-        mItemShopData = ptr_mItemShopData->value;
+        mItemShopData.key = ptr_mItemShopData->value;
     }
 
     auto ptr_AnnouncementsMapping = prop->cast_prop<yordle::data::prop::reference_prop>(635771279u);
     if (ptr_AnnouncementsMapping != nullptr) {
-        AnnouncementsMapping = ptr_AnnouncementsMapping->value;
+        AnnouncementsMapping.key = ptr_AnnouncementsMapping->value;
     }
 
     auto ptr_mRelativeColorization = prop->cast_prop<yordle::data::prop::bool_prop>(3788255821u);
@@ -5735,7 +5735,7 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
 
     auto ptr_mNeutralTimersDisplay = prop->cast_prop<yordle::data::prop::reference_prop>(2378333997u);
     if (ptr_mNeutralTimersDisplay != nullptr) {
-        mNeutralTimersDisplay = ptr_mNeutralTimersDisplay->value;
+        mNeutralTimersDisplay.key = ptr_mNeutralTimersDisplay->value;
     }
 
     auto ptr_mCursorConfig = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3834810340u);
@@ -5755,17 +5755,17 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
 
     auto ptr_mRenderStyle = prop->cast_prop<yordle::data::prop::reference_prop>(1948257549u);
     if (ptr_mRenderStyle != nullptr) {
-        mRenderStyle = ptr_mRenderStyle->value;
+        mRenderStyle.key = ptr_mRenderStyle->value;
     }
 
     auto ptr_mFloatingTextOverride = prop->cast_prop<yordle::data::prop::reference_prop>(1845085589u);
     if (ptr_mFloatingTextOverride != nullptr) {
-        mFloatingTextOverride = ptr_mFloatingTextOverride->value;
+        mFloatingTextOverride.key = ptr_mFloatingTextOverride->value;
     }
 
     auto ptr_mStatsUiData = prop->cast_prop<yordle::data::prop::reference_prop>(1519015945u);
     if (ptr_mStatsUiData != nullptr) {
-        mStatsUiData = ptr_mStatsUiData->value;
+        mStatsUiData.key = ptr_mStatsUiData->value;
     }
 
     auto ptr_mChampionIndicatorEnabled = prop->cast_prop<yordle::data::prop::bool_prop>(2041914701u);
@@ -5780,27 +5780,27 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
 
     auto ptr_mExperienceCurveData = prop->cast_prop<yordle::data::prop::reference_prop>(4259458487u);
     if (ptr_mExperienceCurveData != nullptr) {
-        mExperienceCurveData = ptr_mExperienceCurveData->value;
+        mExperienceCurveData.key = ptr_mExperienceCurveData->value;
     }
 
     auto ptr_mExperienceModData = prop->cast_prop<yordle::data::prop::reference_prop>(1682265312u);
     if (ptr_mExperienceModData != nullptr) {
-        mExperienceModData = ptr_mExperienceModData->value;
+        mExperienceModData.key = ptr_mExperienceModData->value;
     }
 
     auto ptr_mDeathTimes = prop->cast_prop<yordle::data::prop::reference_prop>(3211873720u);
     if (ptr_mDeathTimes != nullptr) {
-        mDeathTimes = ptr_mDeathTimes->value;
+        mDeathTimes.key = ptr_mDeathTimes->value;
     }
 
     auto ptr_mLoadScreenTipConfiguration = prop->cast_prop<yordle::data::prop::reference_prop>(1689397297u);
     if (ptr_mLoadScreenTipConfiguration != nullptr) {
-        mLoadScreenTipConfiguration = ptr_mLoadScreenTipConfiguration->value;
+        mLoadScreenTipConfiguration.key = ptr_mLoadScreenTipConfiguration->value;
     }
 
     auto ptr_mMapLocators = prop->cast_prop<yordle::data::prop::reference_prop>(1456889581u);
     if (ptr_mMapLocators != nullptr) {
-        mMapLocators = ptr_mMapLocators->value;
+        mMapLocators.key = ptr_mMapLocators->value;
     }
 
     auto ptr_mScriptDataObjectLists = prop->cast_prop<yordle::data::prop::set_prop>(3273571353u);
@@ -5808,7 +5808,7 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
         for (const auto &entry : ptr_mScriptDataObjectLists->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mScriptDataObjectLists.emplace(ptr_entry->value);
+                mScriptDataObjectLists.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(3171701405u, ptr_entry->value));
             }
         }
     }
@@ -5820,27 +5820,27 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
 
     auto ptr_mGameModeConstants = prop->cast_prop<yordle::data::prop::reference_prop>(885630574u);
     if (ptr_mGameModeConstants != nullptr) {
-        mGameModeConstants = ptr_mGameModeConstants->value;
+        mGameModeConstants.key = ptr_mGameModeConstants->value;
     }
 
     auto ptr_mGameplayConfig = prop->cast_prop<yordle::data::prop::reference_prop>(3712367922u);
     if (ptr_mGameplayConfig != nullptr) {
-        mGameplayConfig = ptr_mGameplayConfig->value;
+        mGameplayConfig.key = ptr_mGameplayConfig->value;
     }
 
     auto ptr_mMissionBuffData = prop->cast_prop<yordle::data::prop::reference_prop>(3386271259u);
     if (ptr_mMissionBuffData != nullptr) {
-        mMissionBuffData = ptr_mMissionBuffData->value;
+        mMissionBuffData.key = ptr_mMissionBuffData->value;
     }
 
     auto ptr_mSurrenderSettings = prop->cast_prop<yordle::data::prop::reference_prop>(3906072283u);
     if (ptr_mSurrenderSettings != nullptr) {
-        mSurrenderSettings = ptr_mSurrenderSettings->value;
+        mSurrenderSettings.key = ptr_mSurrenderSettings->value;
     }
 
     auto ptr_x6941e612 = prop->cast_prop<yordle::data::prop::reference_prop>(1765926418u);
     if (ptr_x6941e612 != nullptr) {
-        x6941e612 = ptr_x6941e612->value;
+        x6941e612.key = ptr_x6941e612->value;
     }
 
     auto ptr_x882a6450 = prop->cast_prop<yordle::data::prop::bool_prop>(2284479568u);
@@ -5853,7 +5853,7 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
         for (const auto &entry : ptr_x70b29c3d->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                x70b29c3d.emplace(ptr_entry->value);
+                x70b29c3d.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(1936278667u, ptr_entry->value));
             }
         }
     }
@@ -5879,7 +5879,7 @@ yordle::data::meta::GameMutatorExpansions::GameMutatorExpansions(const std::shar
         for (const auto &entry : ptr_mMutators->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mMutators.emplace(ptr_entry->value);
+                mMutators.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -5961,7 +5961,7 @@ yordle::data::meta::SumOfSubPartsCalculationPart::SumOfSubPartsCalculationPart(c
         for (const auto &entry : ptr_mSubparts->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSubparts.emplace(yordle::data::meta::deserialize<yordle::data::meta::IGameCalculationPart>(ptr_entry, 3053458126u));
+                mSubparts.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IGameCalculationPart>(ptr_entry, 3053458126u));
             }
         }
     }
@@ -5993,7 +5993,7 @@ yordle::data::meta::x803dae4c::x803dae4c(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mSubparts->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSubparts.emplace(yordle::data::meta::deserialize<yordle::data::meta::IGameCalculationPart>(ptr_entry, 3053458126u));
+                mSubparts.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IGameCalculationPart>(ptr_entry, 3053458126u));
             }
         }
     }
@@ -6258,7 +6258,7 @@ yordle::data::meta::ByCharLevelBreakpointsCalculationPart::ByCharLevelBreakpoint
         for (const auto &entry : ptr_mBreakpoints->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mBreakpoints.emplace(yordle::data::meta::deserialize<yordle::data::meta::Breakpoint>(ptr_entry, 2392053998u));
+                mBreakpoints.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::Breakpoint>(ptr_entry, 2392053998u));
             }
         }
     }
@@ -6295,7 +6295,7 @@ yordle::data::meta::ByCharLevelFormulaCalculationPart::ByCharLevelFormulaCalcula
         for (const auto &entry : ptr_mValues->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mValues.emplace(ptr_entry->value);
+                mValues.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -6358,7 +6358,7 @@ yordle::data::meta::GameCalculation::GameCalculation(const std::shared_ptr<yordl
         for (const auto &entry : ptr_mFormulaParts->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mFormulaParts.emplace(yordle::data::meta::deserialize<yordle::data::meta::IGameCalculationPart>(ptr_entry, 3053458126u));
+                mFormulaParts.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IGameCalculationPart>(ptr_entry, 3053458126u));
             }
         }
     }
@@ -6524,7 +6524,7 @@ yordle::data::meta::GameplayConfig::GameplayConfig(const std::shared_ptr<yordle:
         for (const auto &entry : ptr_mSummonerSpells->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSummonerSpells.emplace(ptr_entry->value);
+                mSummonerSpells.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -6534,7 +6534,7 @@ yordle::data::meta::GameplayConfig::GameplayConfig(const std::shared_ptr<yordle:
         for (const auto &entry : ptr_mLegacySummonerSpells->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mLegacySummonerSpells.emplace(ptr_entry->value);
+                mLegacySummonerSpells.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -6565,7 +6565,7 @@ yordle::data::meta::EnchantmentGroup::EnchantmentGroup(const std::shared_ptr<yor
         for (const auto &entry : ptr_mEnchantments->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mEnchantments.emplace(ptr_entry->value);
+                mEnchantments.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -6575,7 +6575,7 @@ yordle::data::meta::EnchantmentGroup::EnchantmentGroup(const std::shared_ptr<yor
         for (const auto &entry : ptr_mBaseItems->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mBaseItems.emplace(ptr_entry->value);
+                mBaseItems.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -6636,7 +6636,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mRequiredPurchaseIdentities->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mRequiredPurchaseIdentities.emplace(ptr_entry->value);
+                mRequiredPurchaseIdentities.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -6671,7 +6671,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mItemGroups->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mItemGroups.emplace(ptr_entry->value);
+                mItemGroups.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(992861497u, ptr_entry->value));
             }
         }
     }
@@ -6681,7 +6681,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mItemAdviceAttributes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mItemAdviceAttributes.emplace(ptr_entry->value);
+                mItemAdviceAttributes.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(573358062u, ptr_entry->value));
             }
         }
     }
@@ -6786,7 +6786,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_recipeItemLinks->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                recipeItemLinks.emplace(ptr_entry->value);
+                recipeItemLinks.push_back(yordle::data::meta::bin_ref<yordle::data::meta::ItemData>(608970470u, ptr_entry->value));
             }
         }
     }
@@ -6796,7 +6796,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_requiredItemLinks->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                requiredItemLinks.emplace(ptr_entry->value);
+                requiredItemLinks.push_back(yordle::data::meta::bin_ref<yordle::data::meta::ItemData>(608970470u, ptr_entry->value));
             }
         }
     }
@@ -6806,7 +6806,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_sidegradeItemLinks->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                sidegradeItemLinks.emplace(ptr_entry->value);
+                sidegradeItemLinks.push_back(yordle::data::meta::bin_ref<yordle::data::meta::ItemData>(608970470u, ptr_entry->value));
             }
         }
     }
@@ -6816,7 +6816,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mItemModifiers->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mItemModifiers.emplace(ptr_entry->value);
+                mItemModifiers.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(2109319947u, ptr_entry->value));
             }
         }
     }
@@ -6826,19 +6826,19 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mScripts->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mScripts.emplace(ptr_entry->value);
+                mScripts.emplace_back(ptr_entry->value);
             }
         }
     }
 
     auto ptr_parentItemLink = prop->cast_prop<yordle::data::prop::reference_prop>(240928630u);
     if (ptr_parentItemLink != nullptr) {
-        parentItemLink = ptr_parentItemLink->value;
+        parentItemLink.key = ptr_parentItemLink->value;
     }
 
     auto ptr_parentEnchantmentLink = prop->cast_prop<yordle::data::prop::reference_prop>(3884213970u);
     if (ptr_parentEnchantmentLink != nullptr) {
-        parentEnchantmentLink = ptr_parentEnchantmentLink->value;
+        parentEnchantmentLink.key = ptr_parentEnchantmentLink->value;
     }
 
     auto ptr_mEffectAmount = prop->cast_prop<yordle::data::prop::set_prop>(622481957u);
@@ -6846,7 +6846,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mEffectAmount->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mEffectAmount.emplace(ptr_entry->value);
+                mEffectAmount.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -6856,7 +6856,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mDataValues->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mDataValues.emplace(yordle::data::meta::deserialize<yordle::data::meta::ItemDataValue>(ptr_entry, 2999331975u));
+                mDataValues.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ItemDataValue>(ptr_entry, 2999331975u));
             }
         }
     }
@@ -6867,7 +6867,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                xfb56608c[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::x61f8c41c>(ptr_value, 1643693084u);
+                xfb56608c.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::x61f8c41c>(ptr_value, 1643693084u));
             }
         }
     }
@@ -6878,7 +6878,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mItemCalculations[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::IGameCalculation>(ptr_value, 389493299u);
+                mItemCalculations.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IGameCalculation>(ptr_value, 389493299u));
             }
         }
     }
@@ -6888,7 +6888,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mEnchantmentEffectAmount->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mEnchantmentEffectAmount.emplace(ptr_entry->value);
+                mEnchantmentEffectAmount.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -6898,7 +6898,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mEffectByLevelAmount->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mEffectByLevelAmount.emplace(ptr_entry->value);
+                mEffectByLevelAmount.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -7203,7 +7203,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mCategories->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCategories.emplace(ptr_entry->value);
+                mCategories.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -7223,7 +7223,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mItemAttributes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(entry);
             if (ptr_entry != nullptr) {
-                mItemAttributes.emplace(ptr_entry->value);
+                mItemAttributes.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -7280,7 +7280,7 @@ yordle::data::meta::x61f8c41c::x61f8c41c(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_x6afef1b->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                x6afef1b.emplace(yordle::data::meta::deserialize<yordle::data::meta::ItemDataValue>(ptr_entry, 2999331975u));
+                x6afef1b.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ItemDataValue>(ptr_entry, 2999331975u));
             }
         }
     }
@@ -7317,7 +7317,7 @@ yordle::data::meta::ItemDataBuild::ItemDataBuild(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_itemLinks->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                itemLinks.emplace(ptr_entry->value);
+                itemLinks.push_back(yordle::data::meta::bin_ref<yordle::data::meta::ItemData>(608970470u, ptr_entry->value));
             }
         }
     }
@@ -7363,7 +7363,7 @@ yordle::data::meta::ItemGroup::ItemGroup(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mItemModifiers->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mItemModifiers.emplace(ptr_entry->value);
+                mItemModifiers.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(2109319947u, ptr_entry->value));
             }
         }
     }
@@ -7381,17 +7381,17 @@ yordle::data::meta::ItemModifier::ItemModifier(const std::shared_ptr<yordle::dat
 
     auto ptr_mModifiedItem = prop->cast_prop<yordle::data::prop::reference_prop>(2130202224u);
     if (ptr_mModifiedItem != nullptr) {
-        mModifiedItem = ptr_mModifiedItem->value;
+        mModifiedItem.key = ptr_mModifiedItem->value;
     }
 
     auto ptr_mModifiedGroup = prop->cast_prop<yordle::data::prop::reference_prop>(1794967550u);
     if (ptr_mModifiedGroup != nullptr) {
-        mModifiedGroup = ptr_mModifiedGroup->value;
+        mModifiedGroup.key = ptr_mModifiedGroup->value;
     }
 
     auto ptr_mModifiedIfBuildsFromItem = prop->cast_prop<yordle::data::prop::reference_prop>(1758653510u);
     if (ptr_mModifiedIfBuildsFromItem != nullptr) {
-        mModifiedIfBuildsFromItem = ptr_mModifiedIfBuildsFromItem->value;
+        mModifiedIfBuildsFromItem.key = ptr_mModifiedIfBuildsFromItem->value;
     }
 
     auto ptr_mMinimumModifierInstancesToBeActive = prop->cast_prop<yordle::data::prop::int32_prop>(2823290189u);
@@ -7424,7 +7424,7 @@ yordle::data::meta::ItemModifier::ItemModifier(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_mAddedBuildFrom->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAddedBuildFrom.emplace(ptr_entry->value);
+                mAddedBuildFrom.push_back(yordle::data::meta::bin_ref<yordle::data::meta::ItemData>(608970470u, ptr_entry->value));
             }
         }
     }
@@ -7434,7 +7434,7 @@ yordle::data::meta::ItemModifier::ItemModifier(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_mRemovedBuildFrom->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mRemovedBuildFrom.emplace(ptr_entry->value);
+                mRemovedBuildFrom.push_back(yordle::data::meta::bin_ref<yordle::data::meta::ItemData>(608970470u, ptr_entry->value));
             }
         }
     }
@@ -7602,7 +7602,7 @@ yordle::data::meta::ItemDataClient::ItemDataClient(const std::shared_ptr<yordle:
 
     auto ptr_InventoryIconMaterial = prop->cast_prop<yordle::data::prop::reference_prop>(3824668275u);
     if (ptr_InventoryIconMaterial != nullptr) {
-        InventoryIconMaterial = ptr_InventoryIconMaterial->value;
+        InventoryIconMaterial.key = ptr_InventoryIconMaterial->value;
     }
 
     auto ptr_epicness = prop->cast_prop<yordle::data::prop::uint8_prop>(1591985235u);
@@ -7620,7 +7620,7 @@ yordle::data::meta::ItemDataClient::ItemDataClient(const std::shared_ptr<yordle:
         for (const auto &entry : ptr_mFloatVarsDecimals->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mFloatVarsDecimals.emplace(ptr_entry->value);
+                mFloatVarsDecimals.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -7646,7 +7646,7 @@ yordle::data::meta::ChampionItemRecommendations::ChampionItemRecommendations(con
         for (const auto &entry : ptr_xad6d25a8->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                xad6d25a8.emplace(yordle::data::meta::deserialize<yordle::data::meta::ItemCareyOverrideStartingItemSet>(ptr_entry, 2822771443u));
+                xad6d25a8.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ItemCareyOverrideStartingItemSet>(ptr_entry, 2822771443u));
             }
         }
     }
@@ -7656,7 +7656,7 @@ yordle::data::meta::ChampionItemRecommendations::ChampionItemRecommendations(con
         for (const auto &entry : ptr_x2d7fd821->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                x2d7fd821.emplace(ptr_entry->value);
+                x2d7fd821.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -7672,7 +7672,7 @@ yordle::data::meta::ItemRecommendationItemList::ItemRecommendationItemList(const
         for (const auto &entry : ptr_mItemList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mItemList.emplace(ptr_entry->value);
+                mItemList.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -7689,7 +7689,7 @@ yordle::data::meta::ItemRecommendationContextList::ItemRecommendationContextList
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mAllStartingItemIds[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationItemList>(ptr_value, 1183984318u);
+                mAllStartingItemIds.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationItemList>(ptr_value, 1183984318u));
             }
         }
     }
@@ -7700,7 +7700,7 @@ yordle::data::meta::ItemRecommendationContextList::ItemRecommendationContextList
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                xa109530e[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationItemList>(ptr_value, 1183984318u);
+                xa109530e.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationItemList>(ptr_value, 1183984318u));
             }
         }
     }
@@ -7710,7 +7710,7 @@ yordle::data::meta::ItemRecommendationContextList::ItemRecommendationContextList
         for (const auto &entry : ptr_mContexts->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mContexts.emplace(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationContext>(ptr_entry, 4266457040u));
+                mContexts.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationContext>(ptr_entry, 4266457040u));
             }
         }
     }
@@ -7756,7 +7756,7 @@ yordle::data::meta::ItemRecommendationContext::ItemRecommendationContext(const s
         for (const auto &entry : ptr_mStartingItemBundles->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mStartingItemBundles.emplace(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationItemList>(ptr_entry, 1183984318u));
+                mStartingItemBundles.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationItemList>(ptr_entry, 1183984318u));
             }
         }
     }
@@ -7766,7 +7766,7 @@ yordle::data::meta::ItemRecommendationContext::ItemRecommendationContext(const s
         for (const auto &entry : ptr_mPopularItems->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mPopularItems.emplace(ptr_entry->value);
+                mPopularItems.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -7787,7 +7787,7 @@ yordle::data::meta::ItemRecommendationChoices::ItemRecommendationChoices(const s
         for (const auto &entry : ptr_mChoices->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mChoices.emplace(ptr_entry->value);
+                mChoices.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -7804,7 +7804,7 @@ yordle::data::meta::ItemRecommendationMatrixRow::ItemRecommendationMatrixRow(con
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mChoicesMap[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationChoices>(ptr_value, 1589364011u);
+                mChoicesMap.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationChoices>(ptr_value, 1589364011u));
             }
         }
     }
@@ -7820,7 +7820,7 @@ yordle::data::meta::ItemRecommendationMatrix::ItemRecommendationMatrix(const std
         for (const auto &entry : ptr_mrows->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mrows.emplace(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationMatrixRow>(ptr_entry, 2727115092u));
+                mrows.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationMatrixRow>(ptr_entry, 2727115092u));
             }
         }
     }
@@ -7836,7 +7836,7 @@ yordle::data::meta::x5a3bc52d::x5a3bc52d(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_items->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                items.emplace(ptr_entry->value);
+                items.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -7899,7 +7899,7 @@ yordle::data::meta::ItemRecommendationOverrideStartingItemSet::ItemRecommendatio
         for (const auto &entry : ptr_mStartingItems->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mStartingItems.emplace(ptr_entry->value);
+                mStartingItems.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -7920,7 +7920,7 @@ yordle::data::meta::ItemRecommendationOverride::ItemRecommendationOverride(const
         for (const auto &entry : ptr_mOverrideContexts->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mOverrideContexts.emplace(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationOverrideContext>(ptr_entry, 3898055584u));
+                mOverrideContexts.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationOverrideContext>(ptr_entry, 3898055584u));
             }
         }
     }
@@ -7930,7 +7930,7 @@ yordle::data::meta::ItemRecommendationOverride::ItemRecommendationOverride(const
         for (const auto &entry : ptr_mStartingItemSets->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mStartingItemSets.emplace(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationOverrideStartingItemSet>(ptr_entry, 2556481222u));
+                mStartingItemSets.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationOverrideStartingItemSet>(ptr_entry, 2556481222u));
             }
         }
     }
@@ -7940,7 +7940,7 @@ yordle::data::meta::ItemRecommendationOverride::ItemRecommendationOverride(const
         for (const auto &entry : ptr_mRecItemRanges->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mRecItemRanges.emplace(yordle::data::meta::deserialize<yordle::data::meta::x5a3bc52d>(ptr_entry, 1513866541u));
+                mRecItemRanges.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x5a3bc52d>(ptr_entry, 1513866541u));
             }
         }
     }
@@ -7950,7 +7950,7 @@ yordle::data::meta::ItemRecommendationOverride::ItemRecommendationOverride(const
         for (const auto &entry : ptr_mCoreItems->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCoreItems.emplace(ptr_entry->value);
+                mCoreItems.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -7960,7 +7960,7 @@ yordle::data::meta::ItemRecommendationOverride::ItemRecommendationOverride(const
         for (const auto &entry : ptr_mRecommendedItems->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mRecommendedItems.emplace(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationCondition>(ptr_entry, 396544810u));
+                mRecommendedItems.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationCondition>(ptr_entry, 396544810u));
             }
         }
     }
@@ -7976,7 +7976,7 @@ yordle::data::meta::ItemRecommendationOverrideSet::ItemRecommendationOverrideSet
         for (const auto &entry : ptr_mOverrides->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mOverrides.emplace(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationOverride>(ptr_entry, 1661050393u));
+                mOverrides.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationOverride>(ptr_entry, 1661050393u));
             }
         }
     }
@@ -8014,7 +8014,7 @@ yordle::data::meta::ItemCareyOverrideStartingItemSetSet::ItemCareyOverrideStarti
         for (const auto &entry : ptr_x6ca781cd->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                x6ca781cd.emplace(yordle::data::meta::deserialize<yordle::data::meta::ItemCareyOverrideStartingItemSet>(ptr_entry, 2822771443u));
+                x6ca781cd.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ItemCareyOverrideStartingItemSet>(ptr_entry, 2822771443u));
             }
         }
     }
@@ -8030,7 +8030,7 @@ yordle::data::meta::ItemShopGameModeData::ItemShopGameModeData(const std::shared
         for (const auto &entry : ptr_xc561f8e9->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                xc561f8e9.emplace(ptr_entry->value);
+                xc561f8e9.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -8051,7 +8051,7 @@ yordle::data::meta::ItemShopGameModeData::ItemShopGameModeData(const std::shared
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                x897c69b7[ptr_key->value] = ptr_value->value;
+                x897c69b7.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -8062,7 +8062,7 @@ yordle::data::meta::ItemShopGameModeData::ItemShopGameModeData(const std::shared
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                RecItemsSwaps[ptr_key->value] = ptr_value->value;
+                RecItemsSwaps.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -8106,7 +8106,7 @@ yordle::data::meta::SummonerIconData::SummonerIconData(const std::shared_ptr<yor
 
     auto ptr_esportsTeam = prop->cast_prop<yordle::data::prop::reference_prop>(3114625026u);
     if (ptr_esportsTeam != nullptr) {
-        esportsTeam = ptr_esportsTeam->value;
+        esportsTeam.key = ptr_esportsTeam->value;
     }
 
     auto ptr_gameTexture = prop->cast_prop<yordle::data::prop::string_prop>(487149542u);
@@ -8404,7 +8404,7 @@ yordle::data::meta::GDSMapObjectLightingInfo::GDSMapObjectLightingInfo(const std
         for (const auto &entry : ptr_colors->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::quaternion_prop>(entry);
             if (ptr_entry != nullptr) {
-                colors.emplace(ptr_entry->value);
+                colors.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -8417,7 +8417,7 @@ yordle::data::meta::GDSMapObjectBannerInfo::GDSMapObjectBannerInfo(const std::sh
 
     auto ptr_BannerData = prop->cast_prop<yordle::data::prop::reference_prop>(621604631u);
     if (ptr_BannerData != nullptr) {
-        BannerData = ptr_BannerData->value;
+        BannerData.key = ptr_BannerData->value;
     }
 }
 
@@ -8458,7 +8458,7 @@ yordle::data::meta::LootStatus::LootStatus(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_mTags->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mTags.emplace(ptr_entry->value);
+                mTags.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -8598,7 +8598,7 @@ yordle::data::meta::x14aef50c::x14aef50c(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mItemIDs->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mItemIDs.emplace(ptr_entry->value);
+                mItemIDs.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -8608,7 +8608,7 @@ yordle::data::meta::x14aef50c::x14aef50c(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mInventoryFilters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mInventoryFilters.emplace(yordle::data::meta::deserialize<yordle::data::meta::x14aef50c>(ptr_entry, 347010316u));
+                mInventoryFilters.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x14aef50c>(ptr_entry, 347010316u));
             }
         }
     }
@@ -8639,7 +8639,7 @@ yordle::data::meta::x9f59e92d::x9f59e92d(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mInventoryFilters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mInventoryFilters.emplace(yordle::data::meta::deserialize<yordle::data::meta::x14aef50c>(ptr_entry, 347010316u));
+                mInventoryFilters.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x14aef50c>(ptr_entry, 347010316u));
             }
         }
     }
@@ -8666,7 +8666,7 @@ yordle::data::meta::xaf23408c::xaf23408c(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_x5c042946->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                x5c042946.emplace(ptr_entry->value);
+                x5c042946.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -8697,7 +8697,7 @@ yordle::data::meta::x8c0d80f5::x8c0d80f5(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_MapParticleName->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                MapParticleName.emplace(ptr_entry->value);
+                MapParticleName.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -8812,7 +8812,7 @@ yordle::data::meta::xced6ab09::xced6ab09(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_MapParticleName->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                MapParticleName.emplace(ptr_entry->value);
+                MapParticleName.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -8851,7 +8851,7 @@ yordle::data::meta::MapAlternateAsset::MapAlternateAsset(const std::shared_ptr<y
 
     auto ptr_mParticleResourceResolver = prop->cast_prop<yordle::data::prop::reference_prop>(2232238088u);
     if (ptr_mParticleResourceResolver != nullptr) {
-        mParticleResourceResolver = ptr_mParticleResourceResolver->value;
+        mParticleResourceResolver.key = ptr_mParticleResourceResolver->value;
     }
 
     auto ptr_x97472c4d = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2538024013u);
@@ -8870,7 +8870,7 @@ yordle::data::meta::MapAlternateAssets::MapAlternateAssets(const std::shared_ptr
         for (const auto &entry : ptr_mAlternateAssets->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAlternateAssets.emplace(yordle::data::meta::deserialize<yordle::data::meta::MapAlternateAsset>(ptr_entry, 3846963535u));
+                mAlternateAssets.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MapAlternateAsset>(ptr_entry, 3846963535u));
             }
         }
     }
@@ -8886,7 +8886,7 @@ yordle::data::meta::MapCharacterList::MapCharacterList(const std::shared_ptr<yor
         for (const auto &entry : ptr_characters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                characters.emplace(ptr_entry->value);
+                characters.push_back(yordle::data::meta::bin_ref<yordle::data::meta::Character>(2335876880u, ptr_entry->value));
             }
         }
     }
@@ -8902,7 +8902,7 @@ yordle::data::meta::MapLocatorArray::MapLocatorArray(const std::shared_ptr<yordl
         for (const auto &entry : ptr_locators->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                locators.emplace(yordle::data::meta::deserialize<yordle::data::meta::MapLocator>(ptr_entry, 2823085921u));
+                locators.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MapLocator>(ptr_entry, 2823085921u));
             }
         }
     }
@@ -8919,7 +8919,7 @@ yordle::data::meta::MapNavigationGridOverlays::MapNavigationGridOverlays(const s
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                overlays[ptr_key->value] = ptr_value->value;
+                overlays[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(ptr_value->value, 953399041u);
             }
         }
     }
@@ -8989,7 +8989,7 @@ yordle::data::meta::MapSkin::MapSkin(const std::shared_ptr<yordle::data::prop::s
 
     auto ptr_x14f54bbd = prop->cast_prop<yordle::data::prop::reference_prop>(351620029u);
     if (ptr_x14f54bbd != nullptr) {
-        x14f54bbd = ptr_x14f54bbd->value;
+        x14f54bbd.key = ptr_x14f54bbd->value;
     }
 
     auto ptr_mWorldGeometry = prop->cast_prop<yordle::data::prop::string_prop>(2890499484u);
@@ -9023,7 +9023,7 @@ yordle::data::meta::MapSkin::MapSkin(const std::shared_ptr<yordle::data::prop::s
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mObjectSkinFallbacks[ptr_key->value] = ptr_value->value;
+                mObjectSkinFallbacks.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -9033,7 +9033,7 @@ yordle::data::meta::MapSkin::MapSkin(const std::shared_ptr<yordle::data::prop::s
         for (const auto &entry : ptr_mResourceResolvers->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mResourceResolvers.emplace(ptr_entry->value);
+                mResourceResolvers.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(4013559603u, ptr_entry->value));
             }
         }
     }
@@ -9091,7 +9091,7 @@ yordle::data::meta::MapVisibilityFlagDefinitions::MapVisibilityFlagDefinitions(c
         for (const auto &entry : ptr_FlagDefinitions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                FlagDefinitions.emplace(yordle::data::meta::deserialize<yordle::data::meta::MapVisibilityFlagDefinition>(ptr_entry, 730516414u));
+                FlagDefinitions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MapVisibilityFlagDefinition>(ptr_entry, 730516414u));
             }
         }
     }
@@ -9149,7 +9149,7 @@ yordle::data::meta::MinimapBackgroundConfig::MinimapBackgroundConfig(const std::
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mCustomMinimapBackgrounds[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MinimapBackground>(ptr_value, 2712490432u);
+                mCustomMinimapBackgrounds.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MinimapBackground>(ptr_value, 2712490432u));
             }
         }
     }
@@ -9186,7 +9186,7 @@ yordle::data::meta::CheatPage::CheatPage(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mCheats->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCheats.emplace(ptr_entry->value);
+                mCheats.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(2490030924u, ptr_entry->value));
             }
         }
     }
@@ -9219,7 +9219,7 @@ yordle::data::meta::CheatSet::CheatSet(const std::shared_ptr<yordle::data::prop:
 
     auto ptr_mAssociatedChampion = prop->cast_prop<yordle::data::prop::reference_prop>(736167517u);
     if (ptr_mAssociatedChampion != nullptr) {
-        mAssociatedChampion = ptr_mAssociatedChampion->value;
+        mAssociatedChampion.key = ptr_mAssociatedChampion->value;
     }
 
     auto ptr_mCheatPages = prop->cast_prop<yordle::data::prop::set_prop>(2738501045u);
@@ -9227,7 +9227,7 @@ yordle::data::meta::CheatSet::CheatSet(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mCheatPages->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCheatPages.emplace(yordle::data::meta::deserialize<yordle::data::meta::CheatPage>(ptr_entry, 2577175271u));
+                mCheatPages.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::CheatPage>(ptr_entry, 2577175271u));
             }
         }
     }
@@ -9278,7 +9278,7 @@ yordle::data::meta::CheatMenuUIData::CheatMenuUIData(const std::shared_ptr<yordl
         for (const auto &entry : ptr_mHotkeys->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mHotkeys.emplace(ptr_entry->value);
+                mHotkeys.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -9622,7 +9622,7 @@ yordle::data::meta::PerkEffectAmountPerMode::PerkEffectAmountPerMode(const std::
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mEffectAmountPerMode[ptr_key->value] = ptr_value->value;
+                mEffectAmountPerMode.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -9639,7 +9639,7 @@ yordle::data::meta::PerkScriptData::PerkScriptData(const std::shared_ptr<yordle:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mEffectAmount[ptr_key->value] = ptr_value->value;
+                mEffectAmount.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -9650,7 +9650,7 @@ yordle::data::meta::PerkScriptData::PerkScriptData(const std::shared_ptr<yordle:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mEffectAmountGameMode[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::PerkEffectAmountPerMode>(ptr_value, 2971960800u);
+                mEffectAmountGameMode.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::PerkEffectAmountPerMode>(ptr_value, 2971960800u));
             }
         }
     }
@@ -9661,7 +9661,7 @@ yordle::data::meta::PerkScriptData::PerkScriptData(const std::shared_ptr<yordle:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mCalculations[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::IGameCalculation>(ptr_value, 389493299u);
+                mCalculations.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IGameCalculation>(ptr_value, 389493299u));
             }
         }
     }
@@ -9749,7 +9749,7 @@ yordle::data::meta::BasePerk::BasePerk(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mEndOfGameStatDescriptions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mEndOfGameStatDescriptions.emplace(ptr_entry->value);
+                mEndOfGameStatDescriptions.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -9784,7 +9784,7 @@ yordle::data::meta::BasePerk::BasePerk(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mBuffs->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mBuffs.emplace(yordle::data::meta::deserialize<yordle::data::meta::PerkBuff>(ptr_entry, 1031283364u));
+                mBuffs.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::PerkBuff>(ptr_entry, 1031283364u));
             }
         }
     }
@@ -9799,7 +9799,7 @@ yordle::data::meta::BasePerk::BasePerk(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mCharacters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCharacters.emplace(ptr_entry->value);
+                mCharacters.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -9860,7 +9860,7 @@ yordle::data::meta::PerkStyle::PerkStyle(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mAllowedSubStyles->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAllowedSubStyles.emplace(ptr_entry->value);
+                mAllowedSubStyles.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -9870,7 +9870,7 @@ yordle::data::meta::PerkStyle::PerkStyle(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mSubStyleBonus->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSubStyleBonus.emplace(yordle::data::meta::deserialize<yordle::data::meta::PerkSubStyleBonus>(ptr_entry, 3127434961u));
+                mSubStyleBonus.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::PerkSubStyleBonus>(ptr_entry, 3127434961u));
             }
         }
     }
@@ -9881,7 +9881,7 @@ yordle::data::meta::PerkStyle::PerkStyle(const std::shared_ptr<yordle::data::pro
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mLCUAssetFileMap[ptr_key->value] = ptr_value->value;
+                mLCUAssetFileMap.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -9896,7 +9896,7 @@ yordle::data::meta::PerkStyle::PerkStyle(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mDefaultPerksWhenSplashed->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mDefaultPerksWhenSplashed.emplace(ptr_entry->value);
+                mDefaultPerksWhenSplashed.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(3069197533u, ptr_entry->value));
             }
         }
     }
@@ -9906,7 +9906,7 @@ yordle::data::meta::PerkStyle::PerkStyle(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_xfa4e9a2->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                xfa4e9a2.emplace(yordle::data::meta::deserialize<yordle::data::meta::DefaultStatModPerkSet>(ptr_entry, 3234822452u));
+                xfa4e9a2.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::DefaultStatModPerkSet>(ptr_entry, 3234822452u));
             }
         }
     }
@@ -9916,7 +9916,7 @@ yordle::data::meta::PerkStyle::PerkStyle(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mSlots->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSlots.emplace(yordle::data::meta::deserialize<yordle::data::meta::PerkSlot>(ptr_entry, 232419497u));
+                mSlots.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::PerkSlot>(ptr_entry, 232419497u));
             }
         }
     }
@@ -9926,7 +9926,7 @@ yordle::data::meta::PerkStyle::PerkStyle(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mSlotlinks->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSlotlinks.emplace(ptr_entry->value);
+                mSlotlinks.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(232419497u, ptr_entry->value));
             }
         }
     }
@@ -9946,7 +9946,7 @@ yordle::data::meta::PerkStyle::PerkStyle(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mBuffs->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mBuffs.emplace(yordle::data::meta::deserialize<yordle::data::meta::PerkBuff>(ptr_entry, 1031283364u));
+                mBuffs.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::PerkBuff>(ptr_entry, 1031283364u));
             }
         }
     }
@@ -9977,7 +9977,7 @@ yordle::data::meta::PerkSlot::PerkSlot(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mPerks->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mPerks.emplace(ptr_entry->value);
+                mPerks.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(3069197533u, ptr_entry->value));
             }
         }
     }
@@ -9990,17 +9990,17 @@ yordle::data::meta::DefaultSplashedPerkStyle::DefaultSplashedPerkStyle(const std
 
     auto ptr_mStyle = prop->cast_prop<yordle::data::prop::reference_prop>(4070665549u);
     if (ptr_mStyle != nullptr) {
-        mStyle = ptr_mStyle->value;
+        mStyle.key = ptr_mStyle->value;
     }
 
     auto ptr_mPerk1 = prop->cast_prop<yordle::data::prop::reference_prop>(2210297031u);
     if (ptr_mPerk1 != nullptr) {
-        mPerk1 = ptr_mPerk1->value;
+        mPerk1.key = ptr_mPerk1->value;
     }
 
     auto ptr_mPerk2 = prop->cast_prop<yordle::data::prop::reference_prop>(2227074650u);
     if (ptr_mPerk2 != nullptr) {
-        mPerk2 = ptr_mPerk2->value;
+        mPerk2.key = ptr_mPerk2->value;
     }
 }
 
@@ -10019,7 +10019,7 @@ yordle::data::meta::DefaultStatModPerkSet::DefaultStatModPerkSet(const std::shar
         for (const auto &entry : ptr_mPerks->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mPerks.emplace(ptr_entry->value);
+                mPerks.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(3069197533u, ptr_entry->value));
             }
         }
     }
@@ -10037,7 +10037,7 @@ yordle::data::meta::PerkSubStyleBonus::PerkSubStyleBonus(const std::shared_ptr<y
 
     auto ptr_mPerk = prop->cast_prop<yordle::data::prop::reference_prop>(3080294476u);
     if (ptr_mPerk != nullptr) {
-        mPerk = ptr_mPerk->value;
+        mPerk.key = ptr_mPerk->value;
     }
 }
 
@@ -10067,7 +10067,7 @@ yordle::data::meta::SummonerSpellPerkReplacementList::SummonerSpellPerkReplaceme
         for (const auto &entry : ptr_mReplacements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mReplacements.emplace(yordle::data::meta::deserialize<yordle::data::meta::SummonerSpellPerkReplacement>(ptr_entry, 4081542451u));
+                mReplacements.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SummonerSpellPerkReplacement>(ptr_entry, 4081542451u));
             }
         }
     }
@@ -10120,7 +10120,7 @@ yordle::data::meta::PerkReplacementList::PerkReplacementList(const std::shared_p
         for (const auto &entry : ptr_mReplacements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mReplacements.emplace(yordle::data::meta::deserialize<yordle::data::meta::PerkReplacement>(ptr_entry, 1517326239u));
+                mReplacements.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::PerkReplacement>(ptr_entry, 1517326239u));
             }
         }
     }
@@ -10133,7 +10133,7 @@ yordle::data::meta::PerkConfig::PerkConfig(const std::shared_ptr<yordle::data::p
 
     auto ptr_mBotOverrideSet = prop->cast_prop<yordle::data::prop::reference_prop>(4033440779u);
     if (ptr_mBotOverrideSet != nullptr) {
-        mBotOverrideSet = ptr_mBotOverrideSet->value;
+        mBotOverrideSet.key = ptr_mBotOverrideSet->value;
     }
 
     auto ptr_mPerkReplacements = prop->cast_prop<yordle::data::prop::inline_structure_prop>(665947137u);
@@ -10154,12 +10154,12 @@ yordle::data::meta::OverridePerkSelectionSet::OverridePerkSelectionSet(const std
 
     auto ptr_mStyle = prop->cast_prop<yordle::data::prop::reference_prop>(4070665549u);
     if (ptr_mStyle != nullptr) {
-        mStyle = ptr_mStyle->value;
+        mStyle.key = ptr_mStyle->value;
     }
 
     auto ptr_mSubStyle = prop->cast_prop<yordle::data::prop::reference_prop>(4291321791u);
     if (ptr_mSubStyle != nullptr) {
-        mSubStyle = ptr_mSubStyle->value;
+        mSubStyle.key = ptr_mSubStyle->value;
     }
 
     auto ptr_mPerks = prop->cast_prop<yordle::data::prop::set_prop>(1170084653u);
@@ -10167,7 +10167,7 @@ yordle::data::meta::OverridePerkSelectionSet::OverridePerkSelectionSet(const std
         for (const auto &entry : ptr_mPerks->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mPerks.emplace(ptr_entry->value);
+                mPerks.push_back(yordle::data::meta::bin_ref<yordle::data::meta::Perk>(3069197533u, ptr_entry->value));
             }
         }
     }
@@ -10321,7 +10321,7 @@ yordle::data::meta::MouseOverEffectData::MouseOverEffectData(const std::shared_p
         for (const auto &entry : ptr_mInteractionTimes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mInteractionTimes.emplace(ptr_entry->value);
+                mInteractionTimes.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -10331,7 +10331,7 @@ yordle::data::meta::MouseOverEffectData::MouseOverEffectData(const std::shared_p
         for (const auto &entry : ptr_mInteractionSizes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mInteractionSizes.emplace(ptr_entry->value);
+                mInteractionSizes.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -10347,7 +10347,7 @@ yordle::data::meta::FxSequence::FxSequence(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_Actions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                Actions.emplace(yordle::data::meta::deserialize<yordle::data::meta::IFxAction>(ptr_entry, 3063177560u));
+                Actions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IFxAction>(ptr_entry, 3063177560u));
             }
         }
     }
@@ -10365,7 +10365,7 @@ yordle::data::meta::FxTableEntry::FxTableEntry(const std::shared_ptr<yordle::dat
 
     auto ptr_Sequence = prop->cast_prop<yordle::data::prop::reference_prop>(1011085160u);
     if (ptr_Sequence != nullptr) {
-        Sequence = ptr_Sequence->value;
+        Sequence.key = ptr_Sequence->value;
     }
 }
 
@@ -10379,7 +10379,7 @@ yordle::data::meta::FxTable::FxTable(const std::shared_ptr<yordle::data::prop::s
         for (const auto &entry : ptr_Entries->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                Entries.emplace(yordle::data::meta::deserialize<yordle::data::meta::FxTableEntry>(ptr_entry, 351234915u));
+                Entries.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::FxTableEntry>(ptr_entry, 351234915u));
             }
         }
     }
@@ -10506,14 +10506,14 @@ yordle::data::meta::ScriptDataObject::ScriptDataObject(const std::shared_ptr<yor
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mConstants[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::GameModeConstant>(ptr_value, 1670770484u);
+                mConstants.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::GameModeConstant>(ptr_value, 1670770484u));
             }
         }
     }
 
     auto ptr_x9be36761 = prop->cast_prop<yordle::data::prop::reference_prop>(2615371617u);
     if (ptr_x9be36761 != nullptr) {
-        x9be36761 = ptr_x9be36761->value;
+        x9be36761.key = ptr_x9be36761->value;
     }
 }
 
@@ -10532,7 +10532,7 @@ yordle::data::meta::ScriptDataObjectList::ScriptDataObjectList(const std::shared
         for (const auto &entry : ptr_mScriptDataObjects->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mScriptDataObjects.emplace(ptr_entry->value);
+                mScriptDataObjects.push_back(yordle::data::meta::bin_ref<yordle::data::meta::ScriptDataObject>(1625294129u, ptr_entry->value));
             }
         }
     }
@@ -10559,7 +10559,7 @@ yordle::data::meta::HasAllSubRequirementsCastRequirement::HasAllSubRequirementsC
         for (const auto &entry : ptr_mSubRequirements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSubRequirements.emplace(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
+                mSubRequirements.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
             }
         }
     }
@@ -10575,7 +10575,7 @@ yordle::data::meta::HasNNearbyUnitsRequirement::HasNNearbyUnitsRequirement(const
         for (const auto &entry : ptr_mUnitsRequirements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mUnitsRequirements.emplace(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
+                mUnitsRequirements.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
             }
         }
     }
@@ -10606,7 +10606,7 @@ yordle::data::meta::HasNNearbyVisibleUnitsRequirement::HasNNearbyVisibleUnitsReq
         for (const auto &entry : ptr_mUnitsRequirements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mUnitsRequirements.emplace(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
+                mUnitsRequirements.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
             }
         }
     }
@@ -10658,7 +10658,7 @@ yordle::data::meta::HasAtleastNSubRequirementsCastRequirement::HasAtleastNSubReq
         for (const auto &entry : ptr_mSubRequirements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSubRequirements.emplace(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
+                mSubRequirements.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
             }
         }
     }
@@ -10896,7 +10896,7 @@ yordle::data::meta::BuffData::BuffData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mVfxSpawnConditions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mVfxSpawnConditions.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxSpawnConditions>(ptr_entry, 2833994484u));
+                mVfxSpawnConditions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxSpawnConditions>(ptr_entry, 2833994484u));
             }
         }
     }
@@ -10921,7 +10921,7 @@ yordle::data::meta::BuffData::BuffData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mFloatVarsDecimals->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mFloatVarsDecimals.emplace(ptr_entry->value);
+                mFloatVarsDecimals.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -11080,7 +11080,7 @@ yordle::data::meta::BuffStackingSettings::BuffStackingSettings(const std::shared
         for (const auto &entry : ptr_templateDefinition->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                templateDefinition.emplace(yordle::data::meta::deserialize<yordle::data::meta::BuffStackingTemplate>(ptr_entry, 471801710u));
+                templateDefinition.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::BuffStackingTemplate>(ptr_entry, 471801710u));
             }
         }
     }
@@ -11096,7 +11096,7 @@ yordle::data::meta::VFXSpawnConditionData::VFXSpawnConditionData(const std::shar
         for (const auto &entry : ptr_mPersistentVfxs->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mPersistentVfxs.emplace(yordle::data::meta::deserialize<yordle::data::meta::EffectCreationData>(ptr_entry, 2338173165u));
+                mPersistentVfxs.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::EffectCreationData>(ptr_entry, 2338173165u));
             }
         }
     }
@@ -11144,7 +11144,7 @@ yordle::data::meta::HasBuffComparisonData::HasBuffComparisonData(const std::shar
         for (const auto &entry : ptr_mBuffs->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mBuffs.emplace(yordle::data::meta::deserialize<yordle::data::meta::HasBuffData>(ptr_entry, 3836337806u));
+                mBuffs.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::HasBuffData>(ptr_entry, 3836337806u));
             }
         }
     }
@@ -11215,7 +11215,7 @@ yordle::data::meta::VfxSpawnConditions::VfxSpawnConditions(const std::shared_ptr
         for (const auto &entry : ptr_mConditionalVfxData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mConditionalVfxData.emplace(yordle::data::meta::deserialize<yordle::data::meta::VFXSpawnConditionData>(ptr_entry, 3390937687u));
+                mConditionalVfxData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VFXSpawnConditionData>(ptr_entry, 3390937687u));
             }
         }
     }
@@ -11253,7 +11253,7 @@ yordle::data::meta::HasBuffNameSpawnConditions::HasBuffNameSpawnConditions(const
         for (const auto &entry : ptr_mConditions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mConditions.emplace(yordle::data::meta::deserialize<yordle::data::meta::HasBuffSpawnConditionData>(ptr_entry, 2412429686u));
+                mConditions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::HasBuffSpawnConditionData>(ptr_entry, 2412429686u));
             }
         }
     }
@@ -11274,7 +11274,7 @@ yordle::data::meta::HasSkinIDSpawnConditions::HasSkinIDSpawnConditions(const std
         for (const auto &entry : ptr_mConditions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mConditions.emplace(yordle::data::meta::deserialize<yordle::data::meta::IsSkinSpawnConditionData>(ptr_entry, 1323437592u));
+                mConditions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IsSkinSpawnConditionData>(ptr_entry, 1323437592u));
             }
         }
     }
@@ -11295,7 +11295,7 @@ yordle::data::meta::IsOwnerHeroSpawnConditions::IsOwnerHeroSpawnConditions(const
         for (const auto &entry : ptr_mConditions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mConditions.emplace(yordle::data::meta::deserialize<yordle::data::meta::IsOwnerHeroConditionData>(ptr_entry, 3706207649u));
+                mConditions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IsOwnerHeroConditionData>(ptr_entry, 3706207649u));
             }
         }
     }
@@ -11316,7 +11316,7 @@ yordle::data::meta::IsOwnerAliveSpawnConditions::IsOwnerAliveSpawnConditions(con
         for (const auto &entry : ptr_mConditions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mConditions.emplace(yordle::data::meta::deserialize<yordle::data::meta::IsOwnerAliveConditionData>(ptr_entry, 3575093694u));
+                mConditions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IsOwnerAliveConditionData>(ptr_entry, 3575093694u));
             }
         }
     }
@@ -11454,7 +11454,7 @@ yordle::data::meta::x4379a5b2::x4379a5b2(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_x583da425->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                x583da425.emplace(yordle::data::meta::deserialize<yordle::data::meta::IGameCalculationPart>(ptr_entry, 3053458126u));
+                x583da425.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IGameCalculationPart>(ptr_entry, 3053458126u));
             }
         }
     }
@@ -11490,7 +11490,7 @@ yordle::data::meta::SpellModifier::SpellModifier(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_x441a3020->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                x441a3020.emplace(yordle::data::meta::deserialize<yordle::data::meta::RatioConversion>(ptr_entry, 3393100796u));
+                x441a3020.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::RatioConversion>(ptr_entry, 3393100796u));
             }
         }
     }
@@ -11500,7 +11500,7 @@ yordle::data::meta::SpellModifier::SpellModifier(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_xddbea054->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                xddbea054.emplace(yordle::data::meta::deserialize<yordle::data::meta::x4379a5b2>(ptr_entry, 1132045746u));
+                xddbea054.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x4379a5b2>(ptr_entry, 1132045746u));
             }
         }
     }
@@ -11513,7 +11513,7 @@ yordle::data::meta::AbilityObject::AbilityObject(const std::shared_ptr<yordle::d
 
     auto ptr_mRootSpell = prop->cast_prop<yordle::data::prop::reference_prop>(444295482u);
     if (ptr_mRootSpell != nullptr) {
-        mRootSpell = ptr_mRootSpell->value;
+        mRootSpell.key = ptr_mRootSpell->value;
     }
 
     auto ptr_mChildSpells = prop->cast_prop<yordle::data::prop::set_prop>(3277117473u);
@@ -11521,7 +11521,7 @@ yordle::data::meta::AbilityObject::AbilityObject(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_mChildSpells->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mChildSpells.emplace(ptr_entry->value);
+                mChildSpells.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(1585338886u, ptr_entry->value));
             }
         }
     }
@@ -11603,7 +11603,7 @@ yordle::data::meta::MissileSpecification::MissileSpecification(const std::shared
         for (const auto &entry : ptr_missileGroupSpawners->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                missileGroupSpawners.emplace(yordle::data::meta::deserialize<yordle::data::meta::MissileGroupSpawnerSpec>(ptr_entry, 1040594301u));
+                missileGroupSpawners.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MissileGroupSpawnerSpec>(ptr_entry, 1040594301u));
             }
         }
     }
@@ -11613,7 +11613,7 @@ yordle::data::meta::MissileSpecification::MissileSpecification(const std::shared
         for (const auto &entry : ptr_behaviors->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                behaviors.emplace(yordle::data::meta::deserialize<yordle::data::meta::MissileBehaviorSpec>(ptr_entry, 369826590u));
+                behaviors.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MissileBehaviorSpec>(ptr_entry, 369826590u));
             }
         }
     }
@@ -11689,7 +11689,7 @@ yordle::data::meta::MissileTriggerSpec::MissileTriggerSpec(const std::shared_ptr
         for (const auto &entry : ptr_mActions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mActions.emplace(yordle::data::meta::deserialize<yordle::data::meta::MissileTriggeredActionSpec>(ptr_entry, 1405067729u));
+                mActions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MissileTriggeredActionSpec>(ptr_entry, 1405067729u));
             }
         }
     }
@@ -11887,7 +11887,7 @@ yordle::data::meta::ChangeTurnRadius::ChangeTurnRadius(const std::shared_ptr<yor
         for (const auto &entry : ptr_x84bb076a->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                x84bb076a.emplace(ptr_entry->value);
+                x84bb076a.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -11962,7 +11962,7 @@ yordle::data::meta::MissileGroupSpawnerSpec::MissileGroupSpawnerSpec(const std::
 
     auto ptr_mChildMissileSpell = prop->cast_prop<yordle::data::prop::reference_prop>(2196846212u);
     if (ptr_mChildMissileSpell != nullptr) {
-        mChildMissileSpell = ptr_mChildMissileSpell->value;
+        mChildMissileSpell.key = ptr_mChildMissileSpell->value;
     }
 }
 
@@ -12078,7 +12078,7 @@ yordle::data::meta::MissileMovementSpec::MissileMovementSpec(const std::shared_p
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                xa6cb1fa4[ptr_key->value] = ptr_value->value;
+                xa6cb1fa4.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -12302,7 +12302,7 @@ yordle::data::meta::TrackMouseMovement::TrackMouseMovement(const std::shared_ptr
         for (const auto &entry : ptr_x84bb076a->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                x84bb076a.emplace(ptr_entry->value);
+                x84bb076a.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -12595,7 +12595,7 @@ yordle::data::meta::SpellEffectAmount::SpellEffectAmount(const std::shared_ptr<y
         for (const auto &entry : ptr_value->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                value.emplace(ptr_entry->value);
+                value.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -12616,7 +12616,7 @@ yordle::data::meta::SpellDataValue::SpellDataValue(const std::shared_ptr<yordle:
         for (const auto &entry : ptr_mValues->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mValues.emplace(ptr_entry->value);
+                mValues.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -12632,7 +12632,7 @@ yordle::data::meta::SpellDataValueVector::SpellDataValueVector(const std::shared
         for (const auto &entry : ptr_SpellDataValues->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                SpellDataValues.emplace(yordle::data::meta::deserialize<yordle::data::meta::SpellDataValue>(ptr_entry, 5245094u));
+                SpellDataValues.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SpellDataValue>(ptr_entry, 5245094u));
             }
         }
     }
@@ -12663,7 +12663,7 @@ yordle::data::meta::PlatformSpellInfo::PlatformSpellInfo(const std::shared_ptr<y
         for (const auto &entry : ptr_mGameModes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mGameModes.emplace(ptr_entry->value);
+                mGameModes.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -12759,7 +12759,7 @@ yordle::data::meta::x7a9e7d89::x7a9e7d89(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_x166d5141->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                x166d5141.emplace(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
+                x166d5141.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
             }
         }
     }
@@ -12769,7 +12769,7 @@ yordle::data::meta::x7a9e7d89::x7a9e7d89(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_x175e6650->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                x175e6650.emplace(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
+                x175e6650.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
             }
         }
     }
@@ -12906,7 +12906,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mCastRequirementsCaster->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCastRequirementsCaster.emplace(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
+                mCastRequirementsCaster.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
             }
         }
     }
@@ -12916,7 +12916,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mCastRequirementsTarget->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCastRequirementsTarget.emplace(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
+                mCastRequirementsTarget.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ICastRequirement>(ptr_entry, 1550969638u));
             }
         }
     }
@@ -12936,7 +12936,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mSpellTags->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSpellTags.emplace(ptr_entry->value);
+                mSpellTags.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -12946,7 +12946,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mEffectAmount->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mEffectAmount.emplace(yordle::data::meta::deserialize<yordle::data::meta::SpellEffectAmount>(ptr_entry, 2463406204u));
+                mEffectAmount.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SpellEffectAmount>(ptr_entry, 2463406204u));
             }
         }
     }
@@ -12956,7 +12956,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mDataValues->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mDataValues.emplace(yordle::data::meta::deserialize<yordle::data::meta::SpellDataValue>(ptr_entry, 5245094u));
+                mDataValues.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SpellDataValue>(ptr_entry, 5245094u));
             }
         }
     }
@@ -12967,7 +12967,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                xfb56608c[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::SpellDataValueVector>(ptr_value, 1798273677u);
+                xfb56608c.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::SpellDataValueVector>(ptr_value, 1798273677u));
             }
         }
     }
@@ -12978,7 +12978,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mSpellCalculations[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::IGameCalculation>(ptr_value, 389493299u);
+                mSpellCalculations.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IGameCalculation>(ptr_value, 389493299u));
             }
         }
     }
@@ -12998,7 +12998,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mAlternateSpellAssets->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAlternateSpellAssets.emplace(yordle::data::meta::deserialize<yordle::data::meta::AlternateSpellAssets>(ptr_entry, 609301268u));
+                mAlternateSpellAssets.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::AlternateSpellAssets>(ptr_entry, 609301268u));
             }
         }
     }
@@ -13028,7 +13028,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mImgIconName->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mImgIconName.emplace(ptr_entry->value);
+                mImgIconName.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13053,7 +13053,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mChannelDuration->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mChannelDuration.emplace(ptr_entry->value);
+                mChannelDuration.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13063,7 +13063,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_cooldownTime->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                cooldownTime.emplace(ptr_entry->value);
+                cooldownTime.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13113,7 +13113,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mCastRangeGrowthMax->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCastRangeGrowthMax.emplace(ptr_entry->value);
+                mCastRangeGrowthMax.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13123,7 +13123,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mCastRangeGrowthStartTime->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCastRangeGrowthStartTime.emplace(ptr_entry->value);
+                mCastRangeGrowthStartTime.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13133,7 +13133,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mCastRangeGrowthDuration->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCastRangeGrowthDuration.emplace(ptr_entry->value);
+                mCastRangeGrowthDuration.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13158,7 +13158,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_x1632f6fc->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                x1632f6fc.emplace(yordle::data::meta::deserialize<yordle::data::meta::SpellPassiveData>(ptr_entry, 3562978890u));
+                x1632f6fc.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SpellPassiveData>(ptr_entry, 3562978890u));
             }
         }
     }
@@ -13168,7 +13168,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mCharacterPassiveBuffs->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mCharacterPassiveBuffs.emplace(yordle::data::meta::deserialize<yordle::data::meta::CharacterPassiveData>(ptr_entry, 2393107013u));
+                mCharacterPassiveBuffs.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::CharacterPassiveData>(ptr_entry, 2393107013u));
             }
         }
     }
@@ -13178,7 +13178,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mMaxAmmo->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mMaxAmmo.emplace(ptr_entry->value);
+                mMaxAmmo.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13188,7 +13188,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mAmmoUsed->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAmmoUsed.emplace(ptr_entry->value);
+                mAmmoUsed.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13198,7 +13198,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mAmmoRechargeTime->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAmmoRechargeTime.emplace(ptr_entry->value);
+                mAmmoRechargeTime.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13483,7 +13483,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_castRange->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                castRange.emplace(ptr_entry->value);
+                castRange.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13493,7 +13493,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_castRangeDisplayOverride->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                castRangeDisplayOverride.emplace(ptr_entry->value);
+                castRangeDisplayOverride.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13503,7 +13503,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_castRadius->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                castRadius.emplace(ptr_entry->value);
+                castRadius.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13513,7 +13513,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_castRadiusSecondary->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                castRadiusSecondary.emplace(ptr_entry->value);
+                castRadiusSecondary.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13613,7 +13613,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mResourceResolvers->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mResourceResolvers.emplace(ptr_entry->value);
+                mResourceResolvers.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(4013559603u, ptr_entry->value));
             }
         }
     }
@@ -13668,7 +13668,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mFloatVarsDecimals->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mFloatVarsDecimals.emplace(ptr_entry->value);
+                mFloatVarsDecimals.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13678,7 +13678,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_mana->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mana.emplace(ptr_entry->value);
+                mana.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13688,7 +13688,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_manaUiOverride->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                manaUiOverride.emplace(ptr_entry->value);
+                manaUiOverride.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -13708,7 +13708,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         for (const auto &entry : ptr_x7a9e7d89->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                x7a9e7d89.emplace(yordle::data::meta::deserialize<yordle::data::meta::x7a9e7d89>(ptr_entry, 2057207177u));
+                x7a9e7d89.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x7a9e7d89>(ptr_entry, 2057207177u));
             }
         }
     }
@@ -13769,7 +13769,7 @@ yordle::data::meta::SpellPassiveData::SpellPassiveData(const std::shared_ptr<yor
 
     auto ptr_mBuff = prop->cast_prop<yordle::data::prop::reference_prop>(2131712633u);
     if (ptr_mBuff != nullptr) {
-        mBuff = ptr_mBuff->value;
+        mBuff.key = ptr_mBuff->value;
     }
 
     auto ptr_x8692e24a = prop->cast_prop<yordle::data::prop::uint32_prop>(2257773130u);
@@ -13813,7 +13813,7 @@ yordle::data::meta::CustomTargeterDefinitions::CustomTargeterDefinitions(const s
         for (const auto &entry : ptr_mTargeterDefinitions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mTargeterDefinitions.emplace(yordle::data::meta::deserialize<yordle::data::meta::TargeterDefinition>(ptr_entry, 1278600786u));
+                mTargeterDefinitions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TargeterDefinition>(ptr_entry, 1278600786u));
             }
         }
     }
@@ -13849,7 +13849,7 @@ yordle::data::meta::SpellDataResourceClient::SpellDataResourceClient(const std::
         for (const auto &entry : ptr_mTargeterDefinitions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mTargeterDefinitions.emplace(yordle::data::meta::deserialize<yordle::data::meta::TargeterDefinition>(ptr_entry, 1278600786u));
+                mTargeterDefinitions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TargeterDefinition>(ptr_entry, 1278600786u));
             }
         }
     }
@@ -13860,7 +13860,7 @@ yordle::data::meta::SpellDataResourceClient::SpellDataResourceClient(const std::
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mCustomTargeterDefinitions[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::CustomTargeterDefinitions>(ptr_value, 3174223914u);
+                mCustomTargeterDefinitions.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::CustomTargeterDefinitions>(ptr_value, 3174223914u));
             }
         }
     }
@@ -13870,7 +13870,7 @@ yordle::data::meta::SpellDataResourceClient::SpellDataResourceClient(const std::
         for (const auto &entry : ptr_mMissileTargeterDefinitions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mMissileTargeterDefinitions.emplace(yordle::data::meta::deserialize<yordle::data::meta::MissileAttachedTargetingDefinition>(ptr_entry, 3701578183u));
+                mMissileTargeterDefinitions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MissileAttachedTargetingDefinition>(ptr_entry, 3701578183u));
             }
         }
     }
@@ -13962,7 +13962,7 @@ yordle::data::meta::LoLSpellPreloadData::LoLSpellPreloadData(const std::shared_p
         for (const auto &entry : ptr_CharacterPreloads->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                CharacterPreloads.emplace(yordle::data::meta::deserialize<yordle::data::meta::ScriptPreloadCharacter>(ptr_entry, 796426082u));
+                CharacterPreloads.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ScriptPreloadCharacter>(ptr_entry, 796426082u));
             }
         }
     }
@@ -13972,7 +13972,7 @@ yordle::data::meta::LoLSpellPreloadData::LoLSpellPreloadData(const std::shared_p
         for (const auto &entry : ptr_SpellPreloads->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                SpellPreloads.emplace(yordle::data::meta::deserialize<yordle::data::meta::ScriptPreloadSpell>(ptr_entry, 2709224959u));
+                SpellPreloads.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ScriptPreloadSpell>(ptr_entry, 2709224959u));
             }
         }
     }
@@ -13982,7 +13982,7 @@ yordle::data::meta::LoLSpellPreloadData::LoLSpellPreloadData(const std::shared_p
         for (const auto &entry : ptr_ModulePreloads->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                ModulePreloads.emplace(yordle::data::meta::deserialize<yordle::data::meta::ScriptPreloadModule>(ptr_entry, 1322354127u));
+                ModulePreloads.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ScriptPreloadModule>(ptr_entry, 1322354127u));
             }
         }
     }
@@ -13992,7 +13992,7 @@ yordle::data::meta::LoLSpellPreloadData::LoLSpellPreloadData(const std::shared_p
         for (const auto &entry : ptr_ParticlePreloads->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                ParticlePreloads.emplace(yordle::data::meta::deserialize<yordle::data::meta::ScriptPreloadParticle>(ptr_entry, 3450289597u));
+                ParticlePreloads.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ScriptPreloadParticle>(ptr_entry, 3450289597u));
             }
         }
     }
@@ -14053,7 +14053,7 @@ yordle::data::meta::ScriptGlobalProperties::ScriptGlobalProperties(const std::sh
         for (const auto &entry : ptr_AutoBuffActivateEffects->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                AutoBuffActivateEffects.emplace(ptr_entry->value);
+                AutoBuffActivateEffects.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -14063,7 +14063,7 @@ yordle::data::meta::ScriptGlobalProperties::ScriptGlobalProperties(const std::sh
         for (const auto &entry : ptr_AutoBuffActivateAttachBoneNames->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                AutoBuffActivateAttachBoneNames.emplace(ptr_entry->value);
+                AutoBuffActivateAttachBoneNames.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -14088,7 +14088,7 @@ yordle::data::meta::ScriptGlobalProperties::ScriptGlobalProperties(const std::sh
         for (const auto &entry : ptr_SpellFXOverrideSkins->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                SpellFXOverrideSkins.emplace(ptr_entry->value);
+                SpellFXOverrideSkins.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -14098,7 +14098,7 @@ yordle::data::meta::ScriptGlobalProperties::ScriptGlobalProperties(const std::sh
         for (const auto &entry : ptr_SpellVOOverrideSkins->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                SpellVOOverrideSkins.emplace(ptr_entry->value);
+                SpellVOOverrideSkins.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -14108,7 +14108,7 @@ yordle::data::meta::ScriptGlobalProperties::ScriptGlobalProperties(const std::sh
         for (const auto &entry : ptr_PopupMessages->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                PopupMessages.emplace(ptr_entry->value);
+                PopupMessages.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -14237,7 +14237,7 @@ yordle::data::meta::FloatPerSpellLevel::FloatPerSpellLevel(const std::shared_ptr
         for (const auto &entry : ptr_mPerLevelValues->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mPerLevelValues.emplace(ptr_entry->value);
+                mPerLevelValues.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -14991,7 +14991,7 @@ yordle::data::meta::StatFormulaData::StatFormulaData(const std::shared_ptr<yordl
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                StatComponents[ptr_key->value] = ptr_value->value;
+                StatComponents.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -15008,7 +15008,7 @@ yordle::data::meta::StatFormulaDataList::StatFormulaDataList(const std::shared_p
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                StatFormulas[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::StatFormulaData>(ptr_value, 3086678927u);
+                StatFormulas.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::StatFormulaData>(ptr_value, 3086678927u));
             }
         }
     }
@@ -15074,7 +15074,7 @@ yordle::data::meta::TftMapCharacterData::TftMapCharacterData(const std::shared_p
         for (const auto &entry : ptr_SkinData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                SkinData.emplace(yordle::data::meta::deserialize<yordle::data::meta::TftMapCharacterSkinData>(ptr_entry, 2653184481u));
+                SkinData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TftMapCharacterSkinData>(ptr_entry, 2653184481u));
             }
         }
     }
@@ -15084,7 +15084,7 @@ yordle::data::meta::TftMapCharacterData::TftMapCharacterData(const std::shared_p
         for (const auto &entry : ptr_charData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                charData.emplace(yordle::data::meta::deserialize<yordle::data::meta::TftMapCharacterRecordData>(ptr_entry, 229654189u));
+                charData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TftMapCharacterRecordData>(ptr_entry, 229654189u));
             }
         }
     }
@@ -15105,7 +15105,7 @@ yordle::data::meta::TftMapCharacterList::TftMapCharacterList(const std::shared_p
         for (const auto &entry : ptr_characters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                characters.emplace(yordle::data::meta::deserialize<yordle::data::meta::TftMapCharacterData>(ptr_entry, 2155905376u));
+                characters.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TftMapCharacterData>(ptr_entry, 2155905376u));
             }
         }
     }
@@ -15126,7 +15126,7 @@ yordle::data::meta::TFTMapCharacterLists::TFTMapCharacterLists(const std::shared
         for (const auto &entry : ptr_characterLists->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                characterLists.emplace(yordle::data::meta::deserialize<yordle::data::meta::TftMapCharacterList>(ptr_entry, 2927874496u));
+                characterLists.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TftMapCharacterList>(ptr_entry, 2927874496u));
             }
         }
     }
@@ -15199,7 +15199,7 @@ yordle::data::meta::TFTCharacterRecord::TFTCharacterRecord(const std::shared_ptr
         for (const auto &entry : ptr_mLinkedTraits->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mLinkedTraits.emplace(yordle::data::meta::deserialize<yordle::data::meta::TFTTraitContributionData>(ptr_entry, 3758614261u));
+                mLinkedTraits.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TFTTraitContributionData>(ptr_entry, 3758614261u));
             }
         }
     }
@@ -15231,7 +15231,7 @@ yordle::data::meta::TFTCharacterRecord::TFTCharacterRecord(const std::shared_ptr
 
     auto ptr_mShopData = prop->cast_prop<yordle::data::prop::reference_prop>(3840361068u);
     if (ptr_mShopData != nullptr) {
-        mShopData = ptr_mShopData->value;
+        mShopData.key = ptr_mShopData->value;
     }
 
     auto ptr_x4e28a666 = prop->cast_prop<yordle::data::prop::string_prop>(1311286886u);
@@ -15356,7 +15356,7 @@ yordle::data::meta::TftDropRates::TftDropRates(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_mDropRatesByTier->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mDropRatesByTier.emplace(ptr_entry->value);
+                mDropRatesByTier.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -15372,7 +15372,7 @@ yordle::data::meta::xf260c3ae::xf260c3ae(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_mDropRatesByLevel->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mDropRatesByLevel.emplace(yordle::data::meta::deserialize<yordle::data::meta::TftDropRates>(ptr_entry, 4070851979u));
+                mDropRatesByLevel.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TftDropRates>(ptr_entry, 4070851979u));
             }
         }
     }
@@ -15409,7 +15409,7 @@ yordle::data::meta::TftItemComposition::TftItemComposition(const std::shared_ptr
         for (const auto &entry : ptr_mComponents->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mComponents.emplace(ptr_entry->value);
+                mComponents.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(3515269914u, ptr_entry->value));
             }
         }
     }
@@ -15445,7 +15445,7 @@ yordle::data::meta::TftItemData::TftItemData(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_mComposition->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mComposition.emplace(ptr_entry->value);
+                mComposition.push_back(yordle::data::meta::bin_ref<yordle::data::meta::TftItemData>(3515269914u, ptr_entry->value));
             }
         }
     }
@@ -15455,7 +15455,7 @@ yordle::data::meta::TftItemData::TftItemData(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_xa3ac84d8->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                xa3ac84d8.emplace(yordle::data::meta::deserialize<yordle::data::meta::TftItemComposition>(ptr_entry, 1707263328u));
+                xa3ac84d8.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TftItemComposition>(ptr_entry, 1707263328u));
             }
         }
     }
@@ -15465,7 +15465,7 @@ yordle::data::meta::TftItemData::TftItemData(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_x6752c795->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                x6752c795.emplace(ptr_entry->value);
+                x6752c795.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(1871118919u, ptr_entry->value));
             }
         }
     }
@@ -15475,7 +15475,7 @@ yordle::data::meta::TftItemData::TftItemData(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_effectAmounts->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                effectAmounts.emplace(yordle::data::meta::deserialize<yordle::data::meta::TftEffectAmount>(ptr_entry, 1660895988u));
+                effectAmounts.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TftEffectAmount>(ptr_entry, 1660895988u));
             }
         }
     }
@@ -15485,7 +15485,7 @@ yordle::data::meta::TftItemData::TftItemData(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_ItemTags->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                ItemTags.emplace(ptr_entry->value);
+                ItemTags.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -15520,7 +15520,7 @@ yordle::data::meta::TftItemData::TftItemData(const std::shared_ptr<yordle::data:
 
     auto ptr_mVfxSystem = prop->cast_prop<yordle::data::prop::reference_prop>(992664269u);
     if (ptr_mVfxSystem != nullptr) {
-        mVfxSystem = ptr_mVfxSystem->value;
+        mVfxSystem.key = ptr_mVfxSystem->value;
     }
 
     auto ptr_x6d8fceed = prop->cast_prop<yordle::data::prop::int32_prop>(1838141165u);
@@ -15539,14 +15539,14 @@ yordle::data::meta::TFTItemList::TFTItemList(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_mItems->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mItems.emplace(ptr_entry->value);
+                mItems.push_back(yordle::data::meta::bin_ref<yordle::data::meta::TftItemData>(3515269914u, ptr_entry->value));
             }
         }
     }
 
     auto ptr_VfxResourceResolver = prop->cast_prop<yordle::data::prop::reference_prop>(2679170533u);
     if (ptr_VfxResourceResolver != nullptr) {
-        VfxResourceResolver = ptr_VfxResourceResolver->value;
+        VfxResourceResolver.key = ptr_VfxResourceResolver->value;
     }
 }
 
@@ -15573,7 +15573,7 @@ yordle::data::meta::TFTModeData::TFTModeData(const std::shared_ptr<yordle::data:
 
     auto ptr_mDefaultSetData = prop->cast_prop<yordle::data::prop::reference_prop>(749352059u);
     if (ptr_mDefaultSetData != nullptr) {
-        mDefaultSetData = ptr_mDefaultSetData->value;
+        mDefaultSetData.key = ptr_mDefaultSetData->value;
     }
 
     auto ptr_mDragData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3020870234u);
@@ -15593,7 +15593,7 @@ yordle::data::meta::TFTModeData::TFTModeData(const std::shared_ptr<yordle::data:
 
     auto ptr_x4a191241 = prop->cast_prop<yordle::data::prop::reference_prop>(1243157057u);
     if (ptr_x4a191241 != nullptr) {
-        x4a191241 = ptr_x4a191241->value;
+        x4a191241.key = ptr_x4a191241->value;
     }
 
     auto ptr_mTftMapSkinDefault = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(753102698u);
@@ -15626,7 +15626,7 @@ yordle::data::meta::TFTModeData::TFTModeData(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_xe13c7aa->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                xe13c7aa.emplace(yordle::data::meta::deserialize<yordle::data::meta::x3604b3e3>(ptr_entry, 906277859u));
+                xe13c7aa.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x3604b3e3>(ptr_entry, 906277859u));
             }
         }
     }
@@ -15636,7 +15636,7 @@ yordle::data::meta::TFTModeData::TFTModeData(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_x12aaf1d8->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                x12aaf1d8.emplace(ptr_entry->value);
+                x12aaf1d8.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -15674,7 +15674,7 @@ yordle::data::meta::TFTGameVariationData::TFTGameVariationData(const std::shared
 
     auto ptr_mAnnouncementData = prop->cast_prop<yordle::data::prop::reference_prop>(1220847671u);
     if (ptr_mAnnouncementData != nullptr) {
-        mAnnouncementData = ptr_mAnnouncementData->value;
+        mAnnouncementData.key = ptr_mAnnouncementData->value;
     }
 }
 
@@ -15751,7 +15751,7 @@ yordle::data::meta::TFTPhaseData::TFTPhaseData(const std::shared_ptr<yordle::dat
 
     auto ptr_mAnnouncementData = prop->cast_prop<yordle::data::prop::reference_prop>(1220847671u);
     if (ptr_mAnnouncementData != nullptr) {
-        mAnnouncementData = ptr_mAnnouncementData->value;
+        mAnnouncementData.key = ptr_mAnnouncementData->value;
     }
 }
 
@@ -15791,7 +15791,7 @@ yordle::data::meta::TFTRoundData::TFTRoundData(const std::shared_ptr<yordle::dat
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mStateTooltipsTra[ptr_key->value] = ptr_value->value;
+                mStateTooltipsTra.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -15877,7 +15877,7 @@ yordle::data::meta::TFTRoundData::TFTRoundData(const std::shared_ptr<yordle::dat
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mScriptData[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::GameModeConstant>(ptr_value, 1670770484u);
+                mScriptData.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::GameModeConstant>(ptr_value, 1670770484u));
             }
         }
     }
@@ -15893,7 +15893,7 @@ yordle::data::meta::TFTStageData::TFTStageData(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_mRounds->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mRounds.emplace(ptr_entry->value);
+                mRounds.push_back(yordle::data::meta::bin_ref<yordle::data::meta::TFTRoundData>(4104567591u, ptr_entry->value));
             }
         }
     }
@@ -15924,7 +15924,7 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_DebugCharacterLists->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                DebugCharacterLists.emplace(ptr_entry->value);
+                DebugCharacterLists.push_back(yordle::data::meta::bin_ref<yordle::data::meta::MapCharacterList>(199060396u, ptr_entry->value));
             }
         }
     }
@@ -15934,7 +15934,7 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_characterLists->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                characterLists.emplace(ptr_entry->value);
+                characterLists.push_back(yordle::data::meta::bin_ref<yordle::data::meta::MapCharacterList>(199060396u, ptr_entry->value));
             }
         }
     }
@@ -15944,14 +15944,14 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_itemLists->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                itemLists.emplace(ptr_entry->value);
+                itemLists.push_back(yordle::data::meta::bin_ref<yordle::data::meta::TFTItemList>(2541164198u, ptr_entry->value));
             }
         }
     }
 
     auto ptr_traitList = prop->cast_prop<yordle::data::prop::reference_prop>(2970411059u);
     if (ptr_traitList != nullptr) {
-        traitList = ptr_traitList->value;
+        traitList.key = ptr_traitList->value;
     }
 
     auto ptr_traits = prop->cast_prop<yordle::data::prop::set_prop>(2288068616u);
@@ -15959,7 +15959,7 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_traits->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                traits.emplace(ptr_entry->value);
+                traits.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(1871118919u, ptr_entry->value));
             }
         }
     }
@@ -15970,7 +15970,7 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                DropRateTables[ptr_key->value] = ptr_value->value;
+                DropRateTables[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::xf260c3ae>(ptr_value->value, 4066427822u);
             }
         }
     }
@@ -15981,7 +15981,7 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                ScriptData[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::GameModeConstant>(ptr_value, 1670770484u);
+                ScriptData.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::GameModeConstant>(ptr_value, 1670770484u));
             }
         }
     }
@@ -15991,7 +15991,7 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_stages->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                stages.emplace(yordle::data::meta::deserialize<yordle::data::meta::TFTStageData>(ptr_entry, 4147633913u));
+                stages.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TFTStageData>(ptr_entry, 4147633913u));
             }
         }
     }
@@ -16001,7 +16001,7 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_UnitUpgrades->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                UnitUpgrades.emplace(ptr_entry->value);
+                UnitUpgrades.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(1963259073u, ptr_entry->value));
             }
         }
     }
@@ -16011,14 +16011,14 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_ScriptDataObjectLists->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                ScriptDataObjectLists.emplace(ptr_entry->value);
+                ScriptDataObjectLists.push_back(yordle::data::meta::bin_ref<yordle::data::meta::ScriptDataObjectList>(3171701405u, ptr_entry->value));
             }
         }
     }
 
     auto ptr_VfxResourceResolver = prop->cast_prop<yordle::data::prop::reference_prop>(2679170533u);
     if (ptr_VfxResourceResolver != nullptr) {
-        VfxResourceResolver = ptr_VfxResourceResolver->value;
+        VfxResourceResolver.key = ptr_VfxResourceResolver->value;
     }
 }
 
@@ -16146,7 +16146,7 @@ yordle::data::meta::TFTStreakData::TFTStreakData(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_xc3f540ed->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                xc3f540ed.emplace(yordle::data::meta::deserialize<yordle::data::meta::TFTStreak>(ptr_entry, 646351631u));
+                xc3f540ed.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TFTStreak>(ptr_entry, 646351631u));
             }
         }
     }
@@ -16156,7 +16156,7 @@ yordle::data::meta::TFTStreakData::TFTStreakData(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_mLossStreaks->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mLossStreaks.emplace(yordle::data::meta::deserialize<yordle::data::meta::TFTStreak>(ptr_entry, 646351631u));
+                mLossStreaks.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TFTStreak>(ptr_entry, 646351631u));
             }
         }
     }
@@ -16169,7 +16169,7 @@ yordle::data::meta::TFTTraitContributionData::TFTTraitContributionData(const std
 
     auto ptr_TraitData = prop->cast_prop<yordle::data::prop::reference_prop>(87695155u);
     if (ptr_TraitData != nullptr) {
-        TraitData = ptr_TraitData->value;
+        TraitData.key = ptr_TraitData->value;
     }
 
     auto ptr_Amount = prop->cast_prop<yordle::data::prop::int32_prop>(4152741449u);
@@ -16239,7 +16239,7 @@ yordle::data::meta::TFTTraitSetData::TFTTraitSetData(const std::shared_ptr<yordl
         for (const auto &entry : ptr_effectAmounts->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                effectAmounts.emplace(yordle::data::meta::deserialize<yordle::data::meta::TftEffectAmount>(ptr_entry, 1660895988u));
+                effectAmounts.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TftEffectAmount>(ptr_entry, 1660895988u));
             }
         }
     }
@@ -16285,7 +16285,7 @@ yordle::data::meta::TftTraitData::TftTraitData(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_mTraitSets->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mTraitSets.emplace(yordle::data::meta::deserialize<yordle::data::meta::TFTTraitSetData>(ptr_entry, 3241198053u));
+                mTraitSets.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TFTTraitSetData>(ptr_entry, 3241198053u));
             }
         }
     }
@@ -16301,14 +16301,14 @@ yordle::data::meta::TftTraitList::TftTraitList(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_mTraits->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mTraits.emplace(ptr_entry->value);
+                mTraits.push_back(yordle::data::meta::bin_ref<yordle::data::meta::TftTraitData>(1871118919u, ptr_entry->value));
             }
         }
     }
 
     auto ptr_VfxResourceResolver = prop->cast_prop<yordle::data::prop::reference_prop>(2679170533u);
     if (ptr_VfxResourceResolver != nullptr) {
-        VfxResourceResolver = ptr_VfxResourceResolver->value;
+        VfxResourceResolver.key = ptr_VfxResourceResolver->value;
     }
 }
 
@@ -16682,7 +16682,7 @@ yordle::data::meta::NumberFormattingData::NumberFormattingData(const std::shared
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                x7a4d89bb[ptr_key->value] = ptr_value->value;
+                x7a4d89bb[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::NumberFormattingBehavior>(ptr_value->value, 410617757u);
             }
         }
     }
@@ -16710,7 +16710,7 @@ yordle::data::meta::AnnouncementDefinitionData::AnnouncementDefinitionData(const
 
     auto ptr_Style = prop->cast_prop<yordle::data::prop::reference_prop>(2888859350u);
     if (ptr_Style != nullptr) {
-        Style = ptr_Style->value;
+        Style.key = ptr_Style->value;
     }
 
     auto ptr_TextKey = prop->cast_prop<yordle::data::prop::string_prop>(1816208293u);
@@ -16765,7 +16765,7 @@ yordle::data::meta::AnnouncementDefinition::AnnouncementDefinition(const std::sh
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                MutatorOverrides[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::AnnouncementDefinitionData>(ptr_value, 502828211u);
+                MutatorOverrides.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::AnnouncementDefinitionData>(ptr_value, 502828211u));
             }
         }
     }
@@ -16810,7 +16810,7 @@ yordle::data::meta::x48c9ff38::x48c9ff38(const std::shared_ptr<yordle::data::pro
 
     auto ptr_SourceIcon = prop->cast_prop<yordle::data::prop::reference_prop>(2120735593u);
     if (ptr_SourceIcon != nullptr) {
-        SourceIcon = ptr_SourceIcon->value;
+        SourceIcon.key = ptr_SourceIcon->value;
     }
 }
 
@@ -16821,12 +16821,12 @@ yordle::data::meta::xaa95a271::xaa95a271(const std::shared_ptr<yordle::data::pro
 
     auto ptr_LeftIcon = prop->cast_prop<yordle::data::prop::reference_prop>(4062313265u);
     if (ptr_LeftIcon != nullptr) {
-        LeftIcon = ptr_LeftIcon->value;
+        LeftIcon.key = ptr_LeftIcon->value;
     }
 
     auto ptr_RightIcon = prop->cast_prop<yordle::data::prop::reference_prop>(2055625488u);
     if (ptr_RightIcon != nullptr) {
-        RightIcon = ptr_RightIcon->value;
+        RightIcon.key = ptr_RightIcon->value;
     }
 }
 
@@ -16888,7 +16888,7 @@ yordle::data::meta::AnnouncementMap::AnnouncementMap(const std::shared_ptr<yordl
 
     auto ptr_ParentList = prop->cast_prop<yordle::data::prop::reference_prop>(3825086553u);
     if (ptr_ParentList != nullptr) {
-        ParentList = ptr_ParentList->value;
+        ParentList.key = ptr_ParentList->value;
     }
 
     auto ptr_x81082e4b = prop->cast_prop<yordle::data::prop::string_prop>(2164797003u);
@@ -16912,7 +16912,7 @@ yordle::data::meta::AnnouncementMap::AnnouncementMap(const std::shared_ptr<yordl
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                Announcements[ptr_key->value] = ptr_value->value;
+                Announcements[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::AnnouncementDefinition>(ptr_value->value, 94368299u);
             }
         }
     }
@@ -16959,7 +16959,7 @@ yordle::data::meta::CursorDataTeamContext::CursorDataTeamContext(const std::shar
         for (const auto &entry : ptr_mData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mData.emplace(yordle::data::meta::deserialize<yordle::data::meta::CursorData>(ptr_entry, 187557783u));
+                mData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::CursorData>(ptr_entry, 187557783u));
             }
         }
     }
@@ -16975,7 +16975,7 @@ yordle::data::meta::CursorDataCaptureCooldownContext::CursorDataCaptureCooldownC
         for (const auto &entry : ptr_mData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mData.emplace(yordle::data::meta::deserialize<yordle::data::meta::CursorData>(ptr_entry, 187557783u));
+                mData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::CursorData>(ptr_entry, 187557783u));
             }
         }
     }
@@ -16991,7 +16991,7 @@ yordle::data::meta::CursorConfig::CursorConfig(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_mSingleContextCursors->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSingleContextCursors.emplace(yordle::data::meta::deserialize<yordle::data::meta::CursorData>(ptr_entry, 187557783u));
+                mSingleContextCursors.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::CursorData>(ptr_entry, 187557783u));
             }
         }
     }
@@ -17001,7 +17001,7 @@ yordle::data::meta::CursorConfig::CursorConfig(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_mTeamContextCursors->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mTeamContextCursors.emplace(yordle::data::meta::deserialize<yordle::data::meta::CursorDataTeamContext>(ptr_entry, 4014870449u));
+                mTeamContextCursors.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::CursorDataTeamContext>(ptr_entry, 4014870449u));
             }
         }
     }
@@ -17082,7 +17082,7 @@ yordle::data::meta::UnitStatusPriorityList::UnitStatusPriorityList(const std::sh
         for (const auto &entry : ptr_mPrioritizedUnitStatusData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mPrioritizedUnitStatusData.emplace(yordle::data::meta::deserialize<yordle::data::meta::UnitStatusData>(ptr_entry, 1273755329u));
+                mPrioritizedUnitStatusData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::UnitStatusData>(ptr_entry, 1273755329u));
             }
         }
     }
@@ -17510,7 +17510,7 @@ yordle::data::meta::FloatingTextTunables::FloatingTextTunables(const std::shared
         for (const auto &entry : ptr_mComparisonByLevel->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mComparisonByLevel.emplace(ptr_entry->value);
+                mComparisonByLevel.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -17523,82 +17523,82 @@ yordle::data::meta::FloatingTextDamageDisplayTypeList::FloatingTextDamageDisplay
 
     auto ptr_Default = prop->cast_prop<yordle::data::prop::reference_prop>(2470140894u);
     if (ptr_Default != nullptr) {
-        Default = ptr_Default->value;
+        Default.key = ptr_Default->value;
     }
 
     auto ptr_Impact = prop->cast_prop<yordle::data::prop::reference_prop>(510767767u);
     if (ptr_Impact != nullptr) {
-        Impact = ptr_Impact->value;
+        Impact.key = ptr_Impact->value;
     }
 
     auto ptr_Zone = prop->cast_prop<yordle::data::prop::reference_prop>(59825223u);
     if (ptr_Zone != nullptr) {
-        Zone = ptr_Zone->value;
+        Zone.key = ptr_Zone->value;
     }
 
     auto ptr_Ult = prop->cast_prop<yordle::data::prop::reference_prop>(919599552u);
     if (ptr_Ult != nullptr) {
-        Ult = ptr_Ult->value;
+        Ult.key = ptr_Ult->value;
     }
 
     auto ptr_DotNoCombine = prop->cast_prop<yordle::data::prop::reference_prop>(4090306952u);
     if (ptr_DotNoCombine != nullptr) {
-        DotNoCombine = ptr_DotNoCombine->value;
+        DotNoCombine.key = ptr_DotNoCombine->value;
     }
 
     auto ptr_Dot = prop->cast_prop<yordle::data::prop::reference_prop>(3546849056u);
     if (ptr_Dot != nullptr) {
-        Dot = ptr_Dot->value;
+        Dot.key = ptr_Dot->value;
     }
 
     auto ptr_DotSlow = prop->cast_prop<yordle::data::prop::reference_prop>(3664779365u);
     if (ptr_DotSlow != nullptr) {
-        DotSlow = ptr_DotSlow->value;
+        DotSlow.key = ptr_DotSlow->value;
     }
 
     auto ptr_Multistrike = prop->cast_prop<yordle::data::prop::reference_prop>(1471176024u);
     if (ptr_Multistrike != nullptr) {
-        Multistrike = ptr_Multistrike->value;
+        Multistrike.key = ptr_Multistrike->value;
     }
 
     auto ptr_MultistrikeFast = prop->cast_prop<yordle::data::prop::reference_prop>(137644102u);
     if (ptr_MultistrikeFast != nullptr) {
-        MultistrikeFast = ptr_MultistrikeFast->value;
+        MultistrikeFast.key = ptr_MultistrikeFast->value;
     }
 
     auto ptr_MultistrikeSlow = prop->cast_prop<yordle::data::prop::reference_prop>(3099832765u);
     if (ptr_MultistrikeSlow != nullptr) {
-        MultistrikeSlow = ptr_MultistrikeSlow->value;
+        MultistrikeSlow.key = ptr_MultistrikeSlow->value;
     }
 
     auto ptr_PlayerMinion = prop->cast_prop<yordle::data::prop::reference_prop>(3503492138u);
     if (ptr_PlayerMinion != nullptr) {
-        PlayerMinion = ptr_PlayerMinion->value;
+        PlayerMinion.key = ptr_PlayerMinion->value;
     }
 
     auto ptr_BarrackMinion = prop->cast_prop<yordle::data::prop::reference_prop>(2724336455u);
     if (ptr_BarrackMinion != nullptr) {
-        BarrackMinion = ptr_BarrackMinion->value;
+        BarrackMinion.key = ptr_BarrackMinion->value;
     }
 
     auto ptr_Mini = prop->cast_prop<yordle::data::prop::reference_prop>(2324299930u);
     if (ptr_Mini != nullptr) {
-        Mini = ptr_Mini->value;
+        Mini.key = ptr_Mini->value;
     }
 
     auto ptr_SelfTrueDamageCounter = prop->cast_prop<yordle::data::prop::reference_prop>(2460767130u);
     if (ptr_SelfTrueDamageCounter != nullptr) {
-        SelfTrueDamageCounter = ptr_SelfTrueDamageCounter->value;
+        SelfTrueDamageCounter.key = ptr_SelfTrueDamageCounter->value;
     }
 
     auto ptr_SelfPhysicalDamageCounter = prop->cast_prop<yordle::data::prop::reference_prop>(1331041905u);
     if (ptr_SelfPhysicalDamageCounter != nullptr) {
-        SelfPhysicalDamageCounter = ptr_SelfPhysicalDamageCounter->value;
+        SelfPhysicalDamageCounter.key = ptr_SelfPhysicalDamageCounter->value;
     }
 
     auto ptr_SelfMagicalDamageCounter = prop->cast_prop<yordle::data::prop::reference_prop>(118015774u);
     if (ptr_SelfMagicalDamageCounter != nullptr) {
-        SelfMagicalDamageCounter = ptr_SelfMagicalDamageCounter->value;
+        SelfMagicalDamageCounter.key = ptr_SelfMagicalDamageCounter->value;
     }
 }
 
@@ -17629,7 +17629,7 @@ yordle::data::meta::FloatTextFormattingData::FloatTextFormattingData(const std::
 
     auto ptr_mFontDescription = prop->cast_prop<yordle::data::prop::reference_prop>(2221319337u);
     if (ptr_mFontDescription != nullptr) {
-        mFontDescription = ptr_mFontDescription->value;
+        mFontDescription.key = ptr_mFontDescription->value;
     }
 
     auto ptr_ignoreCombineRules = prop->cast_prop<yordle::data::prop::bool_prop>(765471835u);
@@ -17877,7 +17877,7 @@ yordle::data::meta::FloatTextFormattingData::FloatTextFormattingData(const std::
         for (const auto &entry : ptr_icons->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                icons.emplace(yordle::data::meta::deserialize<yordle::data::meta::FloatTextIconData>(ptr_entry, 383291203u));
+                icons.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::FloatTextIconData>(ptr_entry, 383291203u));
             }
         }
     }
@@ -17890,187 +17890,187 @@ yordle::data::meta::FloatingTextTypeList::FloatingTextTypeList(const std::shared
 
     auto ptr_Invulnerable = prop->cast_prop<yordle::data::prop::reference_prop>(1927465506u);
     if (ptr_Invulnerable != nullptr) {
-        Invulnerable = ptr_Invulnerable->value;
+        Invulnerable.key = ptr_Invulnerable->value;
     }
 
     auto ptr_Special = prop->cast_prop<yordle::data::prop::reference_prop>(3644904752u);
     if (ptr_Special != nullptr) {
-        Special = ptr_Special->value;
+        Special.key = ptr_Special->value;
     }
 
     auto ptr_Heal = prop->cast_prop<yordle::data::prop::reference_prop>(979982427u);
     if (ptr_Heal != nullptr) {
-        Heal = ptr_Heal->value;
+        Heal.key = ptr_Heal->value;
     }
 
     auto ptr_ManaHeal = prop->cast_prop<yordle::data::prop::reference_prop>(245179340u);
     if (ptr_ManaHeal != nullptr) {
-        ManaHeal = ptr_ManaHeal->value;
+        ManaHeal.key = ptr_ManaHeal->value;
     }
 
     auto ptr_ManaDamage = prop->cast_prop<yordle::data::prop::reference_prop>(1411283879u);
     if (ptr_ManaDamage != nullptr) {
-        ManaDamage = ptr_ManaDamage->value;
+        ManaDamage.key = ptr_ManaDamage->value;
     }
 
     auto ptr_Dodge = prop->cast_prop<yordle::data::prop::reference_prop>(590107600u);
     if (ptr_Dodge != nullptr) {
-        Dodge = ptr_Dodge->value;
+        Dodge.key = ptr_Dodge->value;
     }
 
     auto ptr_PhysicalDamageCritical = prop->cast_prop<yordle::data::prop::reference_prop>(2470704884u);
     if (ptr_PhysicalDamageCritical != nullptr) {
-        PhysicalDamageCritical = ptr_PhysicalDamageCritical->value;
+        PhysicalDamageCritical.key = ptr_PhysicalDamageCritical->value;
     }
 
     auto ptr_MagicalDamageCritical = prop->cast_prop<yordle::data::prop::reference_prop>(1910857453u);
     if (ptr_MagicalDamageCritical != nullptr) {
-        MagicalDamageCritical = ptr_MagicalDamageCritical->value;
+        MagicalDamageCritical.key = ptr_MagicalDamageCritical->value;
     }
 
     auto ptr_TrueDamageCritical = prop->cast_prop<yordle::data::prop::reference_prop>(3587055937u);
     if (ptr_TrueDamageCritical != nullptr) {
-        TrueDamageCritical = ptr_TrueDamageCritical->value;
+        TrueDamageCritical.key = ptr_TrueDamageCritical->value;
     }
 
     auto ptr_Experience = prop->cast_prop<yordle::data::prop::reference_prop>(2465329961u);
     if (ptr_Experience != nullptr) {
-        Experience = ptr_Experience->value;
+        Experience.key = ptr_Experience->value;
     }
 
     auto ptr_Gold = prop->cast_prop<yordle::data::prop::reference_prop>(3966162835u);
     if (ptr_Gold != nullptr) {
-        Gold = ptr_Gold->value;
+        Gold.key = ptr_Gold->value;
     }
 
     auto ptr_level = prop->cast_prop<yordle::data::prop::reference_prop>(2610554845u);
     if (ptr_level != nullptr) {
-        level = ptr_level->value;
+        level.key = ptr_level->value;
     }
 
     auto ptr_Disable = prop->cast_prop<yordle::data::prop::reference_prop>(3454897251u);
     if (ptr_Disable != nullptr) {
-        Disable = ptr_Disable->value;
+        Disable.key = ptr_Disable->value;
     }
 
     auto ptr_QuestReceived = prop->cast_prop<yordle::data::prop::reference_prop>(185844506u);
     if (ptr_QuestReceived != nullptr) {
-        QuestReceived = ptr_QuestReceived->value;
+        QuestReceived.key = ptr_QuestReceived->value;
     }
 
     auto ptr_QuestComplete = prop->cast_prop<yordle::data::prop::reference_prop>(3451657002u);
     if (ptr_QuestComplete != nullptr) {
-        QuestComplete = ptr_QuestComplete->value;
+        QuestComplete.key = ptr_QuestComplete->value;
     }
 
     auto ptr_Score = prop->cast_prop<yordle::data::prop::reference_prop>(3526332565u);
     if (ptr_Score != nullptr) {
-        Score = ptr_Score->value;
+        Score.key = ptr_Score->value;
     }
 
     auto ptr_PhysicalDamage = prop->cast_prop<yordle::data::prop::reference_prop>(4058842065u);
     if (ptr_PhysicalDamage != nullptr) {
-        PhysicalDamage = ptr_PhysicalDamage->value;
+        PhysicalDamage.key = ptr_PhysicalDamage->value;
     }
 
     auto ptr_MagicalDamage = prop->cast_prop<yordle::data::prop::reference_prop>(36583052u);
     if (ptr_MagicalDamage != nullptr) {
-        MagicalDamage = ptr_MagicalDamage->value;
+        MagicalDamage.key = ptr_MagicalDamage->value;
     }
 
     auto ptr_TrueDamage = prop->cast_prop<yordle::data::prop::reference_prop>(3795953760u);
     if (ptr_TrueDamage != nullptr) {
-        TrueDamage = ptr_TrueDamage->value;
+        TrueDamage.key = ptr_TrueDamage->value;
     }
 
     auto ptr_EnemyPhysicalDamage = prop->cast_prop<yordle::data::prop::reference_prop>(2441685467u);
     if (ptr_EnemyPhysicalDamage != nullptr) {
-        EnemyPhysicalDamage = ptr_EnemyPhysicalDamage->value;
+        EnemyPhysicalDamage.key = ptr_EnemyPhysicalDamage->value;
     }
 
     auto ptr_EnemyMagicalDamage = prop->cast_prop<yordle::data::prop::reference_prop>(357588466u);
     if (ptr_EnemyMagicalDamage != nullptr) {
-        EnemyMagicalDamage = ptr_EnemyMagicalDamage->value;
+        EnemyMagicalDamage.key = ptr_EnemyMagicalDamage->value;
     }
 
     auto ptr_EnemyTrueDamage = prop->cast_prop<yordle::data::prop::reference_prop>(2631516950u);
     if (ptr_EnemyTrueDamage != nullptr) {
-        EnemyTrueDamage = ptr_EnemyTrueDamage->value;
+        EnemyTrueDamage.key = ptr_EnemyTrueDamage->value;
     }
 
     auto ptr_EnemyPhysicalDamageCritical = prop->cast_prop<yordle::data::prop::reference_prop>(3481416186u);
     if (ptr_EnemyPhysicalDamageCritical != nullptr) {
-        EnemyPhysicalDamageCritical = ptr_EnemyPhysicalDamageCritical->value;
+        EnemyPhysicalDamageCritical.key = ptr_EnemyPhysicalDamageCritical->value;
     }
 
     auto ptr_EnemyMagicalDamageCritical = prop->cast_prop<yordle::data::prop::reference_prop>(1901617551u);
     if (ptr_EnemyMagicalDamageCritical != nullptr) {
-        EnemyMagicalDamageCritical = ptr_EnemyMagicalDamageCritical->value;
+        EnemyMagicalDamageCritical.key = ptr_EnemyMagicalDamageCritical->value;
     }
 
     auto ptr_EnemyTrueDamageCritical = prop->cast_prop<yordle::data::prop::reference_prop>(1869743891u);
     if (ptr_EnemyTrueDamageCritical != nullptr) {
-        EnemyTrueDamageCritical = ptr_EnemyTrueDamageCritical->value;
+        EnemyTrueDamageCritical.key = ptr_EnemyTrueDamageCritical->value;
     }
 
     auto ptr_Countdown = prop->cast_prop<yordle::data::prop::reference_prop>(3162485024u);
     if (ptr_Countdown != nullptr) {
-        Countdown = ptr_Countdown->value;
+        Countdown.key = ptr_Countdown->value;
     }
 
     auto ptr_OMW = prop->cast_prop<yordle::data::prop::reference_prop>(3157224410u);
     if (ptr_OMW != nullptr) {
-        OMW = ptr_OMW->value;
+        OMW.key = ptr_OMW->value;
     }
 
     auto ptr_Absorbed = prop->cast_prop<yordle::data::prop::reference_prop>(2346867193u);
     if (ptr_Absorbed != nullptr) {
-        Absorbed = ptr_Absorbed->value;
+        Absorbed.key = ptr_Absorbed->value;
     }
 
     auto ptr_Debug = prop->cast_prop<yordle::data::prop::reference_prop>(1483009432u);
     if (ptr_Debug != nullptr) {
-        Debug = ptr_Debug->value;
+        Debug.key = ptr_Debug->value;
     }
 
     auto ptr_PracticeToolTotal = prop->cast_prop<yordle::data::prop::reference_prop>(1241007236u);
     if (ptr_PracticeToolTotal != nullptr) {
-        PracticeToolTotal = ptr_PracticeToolTotal->value;
+        PracticeToolTotal.key = ptr_PracticeToolTotal->value;
     }
 
     auto ptr_PracticeToolLastHit = prop->cast_prop<yordle::data::prop::reference_prop>(3680004783u);
     if (ptr_PracticeToolLastHit != nullptr) {
-        PracticeToolLastHit = ptr_PracticeToolLastHit->value;
+        PracticeToolLastHit.key = ptr_PracticeToolLastHit->value;
     }
 
     auto ptr_PracticeToolDPS = prop->cast_prop<yordle::data::prop::reference_prop>(2475078983u);
     if (ptr_PracticeToolDPS != nullptr) {
-        PracticeToolDPS = ptr_PracticeToolDPS->value;
+        PracticeToolDPS.key = ptr_PracticeToolDPS->value;
     }
 
     auto ptr_ScoreDarkStar = prop->cast_prop<yordle::data::prop::reference_prop>(2022449025u);
     if (ptr_ScoreDarkStar != nullptr) {
-        ScoreDarkStar = ptr_ScoreDarkStar->value;
+        ScoreDarkStar.key = ptr_ScoreDarkStar->value;
     }
 
     auto ptr_ScoreProject0 = prop->cast_prop<yordle::data::prop::reference_prop>(568230618u);
     if (ptr_ScoreProject0 != nullptr) {
-        ScoreProject0 = ptr_ScoreProject0->value;
+        ScoreProject0.key = ptr_ScoreProject0->value;
     }
 
     auto ptr_ScoreProject1 = prop->cast_prop<yordle::data::prop::reference_prop>(585008237u);
     if (ptr_ScoreProject1 != nullptr) {
-        ScoreProject1 = ptr_ScoreProject1->value;
+        ScoreProject1.key = ptr_ScoreProject1->value;
     }
 
     auto ptr_ShieldBonusDamage = prop->cast_prop<yordle::data::prop::reference_prop>(3895931270u);
     if (ptr_ShieldBonusDamage != nullptr) {
-        ShieldBonusDamage = ptr_ShieldBonusDamage->value;
+        ShieldBonusDamage.key = ptr_ShieldBonusDamage->value;
     }
 
     auto ptr_TFTUnitLabel = prop->cast_prop<yordle::data::prop::reference_prop>(897531011u);
     if (ptr_TFTUnitLabel != nullptr) {
-        TFTUnitLabel = ptr_TFTUnitLabel->value;
+        TFTUnitLabel.key = ptr_TFTUnitLabel->value;
     }
 }
 
@@ -18106,7 +18106,7 @@ yordle::data::meta::FloatingTextOverride::FloatingTextOverride(const std::shared
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                OverriddenFloatingTextTypes[ptr_key->value] = ptr_value->value;
+                OverriddenFloatingTextTypes.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -18457,7 +18457,7 @@ yordle::data::meta::HudColorData::HudColorData(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_x9316f661->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(entry);
             if (ptr_entry != nullptr) {
-                x9316f661.emplace(ptr_entry->value);
+                x9316f661.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -18554,7 +18554,7 @@ yordle::data::meta::TeamScoreMeterUITunables::TeamScoreMeterUITunables(const std
         for (const auto &entry : ptr_mTeamScoreMeterProperties->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mTeamScoreMeterProperties.emplace(yordle::data::meta::deserialize<yordle::data::meta::HudTeamScoreMeterProperties>(ptr_entry, 3303051661u));
+                mTeamScoreMeterProperties.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::HudTeamScoreMeterProperties>(ptr_entry, 3303051661u));
             }
         }
     }
@@ -18683,7 +18683,7 @@ yordle::data::meta::DragonUITunables::DragonUITunables(const std::shared_ptr<yor
         for (const auto &entry : ptr_mDragonBaseNames->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mDragonBaseNames.emplace(ptr_entry->value);
+                mDragonBaseNames.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -18699,7 +18699,7 @@ yordle::data::meta::HudGameModeScoreData::HudGameModeScoreData(const std::shared
         for (const auto &entry : ptr_mTeamScoreElementTypes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(entry);
             if (ptr_entry != nullptr) {
-                mTeamScoreElementTypes.emplace(ptr_entry->value);
+                mTeamScoreElementTypes.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -18709,7 +18709,7 @@ yordle::data::meta::HudGameModeScoreData::HudGameModeScoreData(const std::shared
         for (const auto &entry : ptr_mIndividualScoreElementTypes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(entry);
             if (ptr_entry != nullptr) {
-                mIndividualScoreElementTypes.emplace(ptr_entry->value);
+                mIndividualScoreElementTypes.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -18754,7 +18754,7 @@ yordle::data::meta::HudGameModeScoreData::HudGameModeScoreData(const std::shared
         for (const auto &entry : ptr_mOptionalBins->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mOptionalBins.emplace(yordle::data::meta::deserialize<yordle::data::meta::HudOptionalBinData>(ptr_entry, 3920544379u));
+                mOptionalBins.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::HudOptionalBinData>(ptr_entry, 3920544379u));
             }
         }
     }
@@ -18834,7 +18834,7 @@ yordle::data::meta::MinimapIcon::MinimapIcon(const std::shared_ptr<yordle::data:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mTeamTextures[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MinimapIconTextureData>(ptr_value, 3732824828u);
+                mTeamTextures.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MinimapIconTextureData>(ptr_value, 3732824828u));
             }
         }
     }
@@ -18850,7 +18850,7 @@ yordle::data::meta::MinimapIcon::MinimapIcon(const std::shared_ptr<yordle::data:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mTeamColors[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MinimapIconColorData>(ptr_value, 59888480u);
+                mTeamColors.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MinimapIconColorData>(ptr_value, 59888480u));
             }
         }
     }
@@ -18867,7 +18867,7 @@ yordle::data::meta::MinimapData::MinimapData(const std::shared_ptr<yordle::data:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mIcons[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MinimapIcon>(ptr_value, 525225061u);
+                mIcons.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MinimapIcon>(ptr_value, 525225061u));
             }
         }
     }
@@ -18878,7 +18878,7 @@ yordle::data::meta::MinimapData::MinimapData(const std::shared_ptr<yordle::data:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mCustomIcons[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MinimapIcon>(ptr_value, 525225061u);
+                mCustomIcons.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MinimapIcon>(ptr_value, 525225061u));
             }
         }
     }
@@ -19783,7 +19783,7 @@ yordle::data::meta::HudHealthBarProgressiveTickData::HudHealthBarProgressiveTick
         for (const auto &entry : ptr_microTickPerTickData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                microTickPerTickData.emplace(yordle::data::meta::deserialize<yordle::data::meta::MicroTicksPerTickData>(ptr_entry, 105644319u));
+                microTickPerTickData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MicroTicksPerTickData>(ptr_entry, 105644319u));
             }
         }
     }
@@ -20287,7 +20287,7 @@ yordle::data::meta::MinimapPingTypeContainer::MinimapPingTypeContainer(const std
         for (const auto &entry : ptr_pingEffectList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                pingEffectList.emplace(yordle::data::meta::deserialize<yordle::data::meta::MinimapPingEffectAndTextureData>(ptr_entry, 2136503545u));
+                pingEffectList.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MinimapPingEffectAndTextureData>(ptr_entry, 2136503545u));
             }
         }
     }
@@ -20304,7 +20304,7 @@ yordle::data::meta::MinimapPingData::MinimapPingData(const std::shared_ptr<yordl
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mOMWPingRangeCutoffs[ptr_key->value] = ptr_value->value;
+                mOMWPingRangeCutoffs.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -20314,7 +20314,7 @@ yordle::data::meta::MinimapPingData::MinimapPingData(const std::shared_ptr<yordl
         for (const auto &entry : ptr_mPings->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mPings.emplace(yordle::data::meta::deserialize<yordle::data::meta::MinimapPingTypeContainer>(ptr_entry, 3823129339u));
+                mPings.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MinimapPingTypeContainer>(ptr_entry, 3823129339u));
             }
         }
     }
@@ -20359,7 +20359,7 @@ yordle::data::meta::LoadingScreenRankedData::LoadingScreenRankedData(const std::
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mRankedData[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::LoadingScreenRankedProperties>(ptr_value, 1700895677u);
+                mRankedData.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::LoadingScreenRankedProperties>(ptr_value, 1700895677u));
             }
         }
     }
@@ -20448,9 +20448,9 @@ yordle::data::meta::OptionItemBorder::OptionItemBorder(const std::shared_ptr<yor
         return;
     }
 
-    auto ptr__template = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
-    if (ptr__template != nullptr) {
-        _template = ptr__template->value;
+    auto ptr_template_template_ = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
+    if (ptr_template_template_ != nullptr) {
+        template_template_ = ptr_template_template_->value;
     }
 
     auto ptr_items = prop->cast_prop<yordle::data::prop::set_prop>(981021583u);
@@ -20458,7 +20458,7 @@ yordle::data::meta::OptionItemBorder::OptionItemBorder(const std::shared_ptr<yor
         for (const auto &entry : ptr_items->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                items.emplace(yordle::data::meta::deserialize<yordle::data::meta::IOptionItem>(ptr_entry, 2037513198u));
+                items.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IOptionItem>(ptr_entry, 2037513198u));
             }
         }
     }
@@ -20479,9 +20479,9 @@ yordle::data::meta::OptionItemCheckbox::OptionItemCheckbox(const std::shared_ptr
         Negate = ptr_Negate->value;
     }
 
-    auto ptr__template = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
-    if (ptr__template != nullptr) {
-        _template = ptr__template->value;
+    auto ptr_template_template_ = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
+    if (ptr_template_template_ != nullptr) {
+        template_template_ = ptr_template_template_->value;
     }
 
     auto ptr_LabelTraKey = prop->cast_prop<yordle::data::prop::string_prop>(3389946293u);
@@ -20505,7 +20505,7 @@ yordle::data::meta::OptionItemColumns::OptionItemColumns(const std::shared_ptr<y
         for (const auto &entry : ptr_ItemsEither->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                ItemsEither.emplace(yordle::data::meta::deserialize<yordle::data::meta::IOptionItem>(ptr_entry, 2037513198u));
+                ItemsEither.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IOptionItem>(ptr_entry, 2037513198u));
             }
         }
     }
@@ -20515,7 +20515,7 @@ yordle::data::meta::OptionItemColumns::OptionItemColumns(const std::shared_ptr<y
         for (const auto &entry : ptr_itemsLeft->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                itemsLeft.emplace(yordle::data::meta::deserialize<yordle::data::meta::IOptionItem>(ptr_entry, 2037513198u));
+                itemsLeft.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IOptionItem>(ptr_entry, 2037513198u));
             }
         }
     }
@@ -20525,7 +20525,7 @@ yordle::data::meta::OptionItemColumns::OptionItemColumns(const std::shared_ptr<y
         for (const auto &entry : ptr_itemsRight->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                itemsRight.emplace(yordle::data::meta::deserialize<yordle::data::meta::IOptionItem>(ptr_entry, 2037513198u));
+                itemsRight.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IOptionItem>(ptr_entry, 2037513198u));
             }
         }
     }
@@ -20557,9 +20557,9 @@ yordle::data::meta::OptionItemDropdown::OptionItemDropdown(const std::shared_ptr
         option = ptr_option->value;
     }
 
-    auto ptr__template = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
-    if (ptr__template != nullptr) {
-        _template = ptr__template->value;
+    auto ptr_template_template_ = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
+    if (ptr_template_template_ != nullptr) {
+        template_template_ = ptr_template_template_->value;
     }
 
     auto ptr_LabelTraKey = prop->cast_prop<yordle::data::prop::string_prop>(3389946293u);
@@ -20577,7 +20577,7 @@ yordle::data::meta::OptionItemDropdown::OptionItemDropdown(const std::shared_ptr
         for (const auto &entry : ptr_items->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                items.emplace(yordle::data::meta::deserialize<yordle::data::meta::OptionItemDropdownItem>(ptr_entry, 1128087393u));
+                items.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::OptionItemDropdownItem>(ptr_entry, 1128087393u));
             }
         }
     }
@@ -20599,7 +20599,7 @@ yordle::data::meta::xa6743a7::xa6743a7(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_Filters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                Filters.emplace(yordle::data::meta::deserialize<yordle::data::meta::IOptionItemFilter>(ptr_entry, 3415079880u));
+                Filters.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IOptionItemFilter>(ptr_entry, 3415079880u));
             }
         }
     }
@@ -20708,9 +20708,9 @@ yordle::data::meta::OptionItemGroup::OptionItemGroup(const std::shared_ptr<yordl
         return;
     }
 
-    auto ptr__template = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
-    if (ptr__template != nullptr) {
-        _template = ptr__template->value;
+    auto ptr_template_template_ = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
+    if (ptr_template_template_ != nullptr) {
+        template_template_ = ptr_template_template_->value;
     }
 
     auto ptr_LabelTraKey = prop->cast_prop<yordle::data::prop::string_prop>(3389946293u);
@@ -20728,7 +20728,7 @@ yordle::data::meta::OptionItemGroup::OptionItemGroup(const std::shared_ptr<yordl
         for (const auto &entry : ptr_items->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                items.emplace(yordle::data::meta::deserialize<yordle::data::meta::IOptionItem>(ptr_entry, 2037513198u));
+                items.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IOptionItem>(ptr_entry, 2037513198u));
             }
         }
     }
@@ -20739,9 +20739,9 @@ yordle::data::meta::OptionItemHotkeys::OptionItemHotkeys(const std::shared_ptr<y
         return;
     }
 
-    auto ptr__template = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
-    if (ptr__template != nullptr) {
-        _template = ptr__template->value;
+    auto ptr_template_template_ = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
+    if (ptr_template_template_ != nullptr) {
+        template_template_ = ptr_template_template_->value;
     }
 }
 
@@ -20750,9 +20750,9 @@ yordle::data::meta::OptionItemLabel::OptionItemLabel(const std::shared_ptr<yordl
         return;
     }
 
-    auto ptr__template = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
-    if (ptr__template != nullptr) {
-        _template = ptr__template->value;
+    auto ptr_template_template_ = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
+    if (ptr_template_template_ != nullptr) {
+        template_template_ = ptr_template_template_->value;
     }
 
     auto ptr_Label1TraKey = prop->cast_prop<yordle::data::prop::string_prop>(3748421612u);
@@ -20809,9 +20809,9 @@ yordle::data::meta::OptionItemSecondaryHotkeys1Column::OptionItemSecondaryHotkey
         return;
     }
 
-    auto ptr__template = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
-    if (ptr__template != nullptr) {
-        _template = ptr__template->value;
+    auto ptr_template_template_ = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
+    if (ptr_template_template_ != nullptr) {
+        template_template_ = ptr_template_template_->value;
     }
 
     auto ptr_Header = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3834172512u);
@@ -20824,7 +20824,7 @@ yordle::data::meta::OptionItemSecondaryHotkeys1Column::OptionItemSecondaryHotkey
         for (const auto &entry : ptr_Rows->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                Rows.emplace(yordle::data::meta::deserialize<yordle::data::meta::x518d5fc0>(ptr_entry, 1368219584u));
+                Rows.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x518d5fc0>(ptr_entry, 1368219584u));
             }
         }
     }
@@ -20877,9 +20877,9 @@ yordle::data::meta::OptionItemSecondaryHotkeys2Column::OptionItemSecondaryHotkey
         return;
     }
 
-    auto ptr__template = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
-    if (ptr__template != nullptr) {
-        _template = ptr__template->value;
+    auto ptr_template_template_ = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
+    if (ptr_template_template_ != nullptr) {
+        template_template_ = ptr_template_template_->value;
     }
 
     auto ptr_Header = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3834172512u);
@@ -20892,7 +20892,7 @@ yordle::data::meta::OptionItemSecondaryHotkeys2Column::OptionItemSecondaryHotkey
         for (const auto &entry : ptr_Rows->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                Rows.emplace(yordle::data::meta::deserialize<yordle::data::meta::x430dd10d>(ptr_entry, 1124978957u));
+                Rows.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x430dd10d>(ptr_entry, 1124978957u));
             }
         }
     }
@@ -20903,9 +20903,9 @@ yordle::data::meta::OptionItemSlider::OptionItemSlider(const std::shared_ptr<yor
         return;
     }
 
-    auto ptr__template = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
-    if (ptr__template != nullptr) {
-        _template = ptr__template->value;
+    auto ptr_template_template_ = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1766500875u);
+    if (ptr_template_template_ != nullptr) {
+        template_template_ = ptr_template_template_->value;
     }
 
     auto ptr_LabelTraKey = prop->cast_prop<yordle::data::prop::string_prop>(3389946293u);
@@ -21014,7 +21014,7 @@ yordle::data::meta::OptionsTab::OptionsTab(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_items->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                items.emplace(yordle::data::meta::deserialize<yordle::data::meta::IOptionItem>(ptr_entry, 2037513198u));
+                items.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IOptionItem>(ptr_entry, 2037513198u));
             }
         }
     }
@@ -21166,7 +21166,7 @@ yordle::data::meta::OptionTemplateHotkeys::OptionTemplateHotkeys(const std::shar
         for (const auto &entry : ptr_Labels->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                Labels.emplace(yordle::data::meta::deserialize<yordle::data::meta::OptionTemplateHotkeysLabel>(ptr_entry, 1432209297u));
+                Labels.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::OptionTemplateHotkeysLabel>(ptr_entry, 1432209297u));
             }
         }
     }
@@ -21176,7 +21176,7 @@ yordle::data::meta::OptionTemplateHotkeys::OptionTemplateHotkeys(const std::shar
         for (const auto &entry : ptr_keys->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                keys.emplace(yordle::data::meta::deserialize<yordle::data::meta::OptionTemplateHotkeysKey>(ptr_entry, 3163647920u));
+                keys.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::OptionTemplateHotkeysKey>(ptr_entry, 3163647920u));
             }
         }
     }
@@ -21430,7 +21430,7 @@ yordle::data::meta::xfbd72d16::xfbd72d16(const std::shared_ptr<yordle::data::pro
 
     auto ptr_x4d31ed46 = prop->cast_prop<yordle::data::prop::reference_prop>(1295117638u);
     if (ptr_x4d31ed46 != nullptr) {
-        x4d31ed46 = ptr_x4d31ed46->value;
+        x4d31ed46.key = ptr_x4d31ed46->value;
     }
 }
 
@@ -21477,7 +21477,7 @@ yordle::data::meta::NotificationSettings::NotificationSettings(const std::shared
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                x89667868[ptr_key->value] = ptr_value->value;
+                x89667868.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -21633,7 +21633,7 @@ yordle::data::meta::SurrenderData::SurrenderData(const std::shared_ptr<yordle::d
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mTypeData[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::SurrenderTypeData>(ptr_value, 740737797u);
+                mTypeData.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::SurrenderTypeData>(ptr_value, 740737797u));
             }
         }
     }
@@ -21691,7 +21691,7 @@ yordle::data::meta::LoadScreenTipSet::LoadScreenTipSet(const std::shared_ptr<yor
         for (const auto &entry : ptr_mTips->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                mTips.emplace(ptr_entry->value);
+                mTips.push_back(yordle::data::meta::bin_ref<yordle::data::meta::LoadScreenTip>(1116466002u, ptr_entry->value));
             }
         }
     }
@@ -21766,7 +21766,7 @@ yordle::data::meta::ViewController::ViewController(const std::shared_ptr<yordle:
 
     auto ptr_xb79c86ae = prop->cast_prop<yordle::data::prop::reference_prop>(3080488622u);
     if (ptr_xb79c86ae != nullptr) {
-        xb79c86ae = ptr_xb79c86ae->value;
+        xb79c86ae.key = ptr_xb79c86ae->value;
     }
 }
 
@@ -21955,7 +21955,7 @@ yordle::data::meta::NeutralTimerData::NeutralTimerData(const std::shared_ptr<yor
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mSourceIcons[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::NeutralTimerSourceIconData>(ptr_value, 230608261u);
+                mSourceIcons.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::NeutralTimerSourceIconData>(ptr_value, 230608261u));
             }
         }
     }
@@ -21982,7 +21982,7 @@ yordle::data::meta::NeutralTimers::NeutralTimers(const std::shared_ptr<yordle::d
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mTimers[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::NeutralTimerData>(ptr_value, 964506025u);
+                mTimers.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::NeutralTimerData>(ptr_value, 964506025u));
             }
         }
     }
@@ -22055,14 +22055,14 @@ yordle::data::meta::UIButtonState::UIButtonState(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_displayElements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                displayElements.emplace(ptr_entry->value);
+                displayElements.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(3202633864u, ptr_entry->value));
             }
         }
     }
 
     auto ptr_TextElement = prop->cast_prop<yordle::data::prop::reference_prop>(4005730134u);
     if (ptr_TextElement != nullptr) {
-        TextElement = ptr_TextElement->value;
+        TextElement.key = ptr_TextElement->value;
     }
 }
 
@@ -22108,12 +22108,12 @@ yordle::data::meta::UIButtonDefinition::UIButtonDefinition(const std::shared_ptr
 
     auto ptr_hitRegionElement = prop->cast_prop<yordle::data::prop::reference_prop>(1811093838u);
     if (ptr_hitRegionElement != nullptr) {
-        hitRegionElement = ptr_hitRegionElement->value;
+        hitRegionElement.key = ptr_hitRegionElement->value;
     }
 
     auto ptr_ClickReleaseParticleElement = prop->cast_prop<yordle::data::prop::reference_prop>(2074868558u);
     if (ptr_ClickReleaseParticleElement != nullptr) {
-        ClickReleaseParticleElement = ptr_ClickReleaseParticleElement->value;
+        ClickReleaseParticleElement.key = ptr_ClickReleaseParticleElement->value;
     }
 
     auto ptr_soundEvents = prop->cast_prop<yordle::data::prop::structure_prop>(2735039949u);
@@ -22147,7 +22147,7 @@ yordle::data::meta::UIButtonAdditionalState::UIButtonAdditionalState(const std::
         for (const auto &entry : ptr_displayElements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                displayElements.emplace(ptr_entry->value);
+                displayElements.push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(3202633864u, ptr_entry->value));
             }
         }
     }
@@ -22253,27 +22253,27 @@ yordle::data::meta::UiComboBoxDefinition::UiComboBoxDefinition(const std::shared
 
     auto ptr_xb2a3be3c = prop->cast_prop<yordle::data::prop::reference_prop>(2997075516u);
     if (ptr_xb2a3be3c != nullptr) {
-        xb2a3be3c = ptr_xb2a3be3c->value;
+        xb2a3be3c.key = ptr_xb2a3be3c->value;
     }
 
     auto ptr_x3487222 = prop->cast_prop<yordle::data::prop::reference_prop>(55079458u);
     if (ptr_x3487222 != nullptr) {
-        x3487222 = ptr_x3487222->value;
+        x3487222.key = ptr_x3487222->value;
     }
 
     auto ptr_x9c4781a2 = prop->cast_prop<yordle::data::prop::reference_prop>(2621931938u);
     if (ptr_x9c4781a2 != nullptr) {
-        x9c4781a2 = ptr_x9c4781a2->value;
+        x9c4781a2.key = ptr_x9c4781a2->value;
     }
 
     auto ptr_x21c9d879 = prop->cast_prop<yordle::data::prop::reference_prop>(566876281u);
     if (ptr_x21c9d879 != nullptr) {
-        x21c9d879 = ptr_x21c9d879->value;
+        x21c9d879.key = ptr_x21c9d879->value;
     }
 
     auto ptr_x337b72d4 = prop->cast_prop<yordle::data::prop::reference_prop>(863728340u);
     if (ptr_x337b72d4 != nullptr) {
-        x337b72d4 = ptr_x337b72d4->value;
+        x337b72d4.key = ptr_x337b72d4->value;
     }
 
     auto ptr_xeb2b67e = prop->cast_prop<yordle::data::prop::uint8_prop>(246593150u);
@@ -22320,17 +22320,17 @@ yordle::data::meta::xf2cfc48c::xf2cfc48c(const std::shared_ptr<yordle::data::pro
 
     auto ptr_BarBackdrop = prop->cast_prop<yordle::data::prop::reference_prop>(2211737984u);
     if (ptr_BarBackdrop != nullptr) {
-        BarBackdrop = ptr_BarBackdrop->value;
+        BarBackdrop.key = ptr_BarBackdrop->value;
     }
 
     auto ptr_BarFill = prop->cast_prop<yordle::data::prop::reference_prop>(2976871175u);
     if (ptr_BarFill != nullptr) {
-        BarFill = ptr_BarFill->value;
+        BarFill.key = ptr_BarFill->value;
     }
 
     auto ptr_sliderIcon = prop->cast_prop<yordle::data::prop::reference_prop>(4149898573u);
     if (ptr_sliderIcon != nullptr) {
-        sliderIcon = ptr_sliderIcon->value;
+        sliderIcon.key = ptr_sliderIcon->value;
     }
 }
 
@@ -22361,12 +22361,12 @@ yordle::data::meta::x9d8138a6::x9d8138a6(const std::shared_ptr<yordle::data::pro
 
     auto ptr_BarHitRegion = prop->cast_prop<yordle::data::prop::reference_prop>(4212105619u);
     if (ptr_BarHitRegion != nullptr) {
-        BarHitRegion = ptr_BarHitRegion->value;
+        BarHitRegion.key = ptr_BarHitRegion->value;
     }
 
     auto ptr_SliderHitRegion = prop->cast_prop<yordle::data::prop::reference_prop>(1034263897u);
     if (ptr_SliderHitRegion != nullptr) {
-        SliderHitRegion = ptr_SliderHitRegion->value;
+        SliderHitRegion.key = ptr_SliderHitRegion->value;
     }
 
     auto ptr_direction = prop->cast_prop<yordle::data::prop::uint8_prop>(3748513642u);
@@ -22411,7 +22411,7 @@ yordle::data::meta::xb35ad9d8::xb35ad9d8(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_items->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                items.emplace(ptr_entry->value);
+                items.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -22465,117 +22465,117 @@ yordle::data::meta::xef05ba42::xef05ba42(const std::shared_ptr<yordle::data::pro
 
     auto ptr_ItemIcon = prop->cast_prop<yordle::data::prop::reference_prop>(3708628627u);
     if (ptr_ItemIcon != nullptr) {
-        ItemIcon = ptr_ItemIcon->value;
+        ItemIcon.key = ptr_ItemIcon->value;
     }
 
     auto ptr_FrameIcon = prop->cast_prop<yordle::data::prop::reference_prop>(3141101907u);
     if (ptr_FrameIcon != nullptr) {
-        FrameIcon = ptr_FrameIcon->value;
+        FrameIcon.key = ptr_FrameIcon->value;
     }
 
     auto ptr_MythicFrameIcon = prop->cast_prop<yordle::data::prop::reference_prop>(162672449u);
     if (ptr_MythicFrameIcon != nullptr) {
-        MythicFrameIcon = ptr_MythicFrameIcon->value;
+        MythicFrameIcon.key = ptr_MythicFrameIcon->value;
     }
 
     auto ptr_HoverFrameIcon = prop->cast_prop<yordle::data::prop::reference_prop>(3383292715u);
     if (ptr_HoverFrameIcon != nullptr) {
-        HoverFrameIcon = ptr_HoverFrameIcon->value;
+        HoverFrameIcon.key = ptr_HoverFrameIcon->value;
     }
 
     auto ptr_x5b96b3bd = prop->cast_prop<yordle::data::prop::reference_prop>(1536603069u);
     if (ptr_x5b96b3bd != nullptr) {
-        x5b96b3bd = ptr_x5b96b3bd->value;
+        x5b96b3bd.key = ptr_x5b96b3bd->value;
     }
 
     auto ptr_HoverIcon = prop->cast_prop<yordle::data::prop::reference_prop>(3707442792u);
     if (ptr_HoverIcon != nullptr) {
-        HoverIcon = ptr_HoverIcon->value;
+        HoverIcon.key = ptr_HoverIcon->value;
     }
 
     auto ptr_SelectedIcon = prop->cast_prop<yordle::data::prop::reference_prop>(2622578581u);
     if (ptr_SelectedIcon != nullptr) {
-        SelectedIcon = ptr_SelectedIcon->value;
+        SelectedIcon.key = ptr_SelectedIcon->value;
     }
 
     auto ptr_UnpurchaseableOverlay = prop->cast_prop<yordle::data::prop::reference_prop>(3907959463u);
     if (ptr_UnpurchaseableOverlay != nullptr) {
-        UnpurchaseableOverlay = ptr_UnpurchaseableOverlay->value;
+        UnpurchaseableOverlay.key = ptr_UnpurchaseableOverlay->value;
     }
 
     auto ptr_PurchasedOverlay = prop->cast_prop<yordle::data::prop::reference_prop>(2999482642u);
     if (ptr_PurchasedOverlay != nullptr) {
-        PurchasedOverlay = ptr_PurchasedOverlay->value;
+        PurchasedOverlay.key = ptr_PurchasedOverlay->value;
     }
 
     auto ptr_LockedIcon = prop->cast_prop<yordle::data::prop::reference_prop>(3506185970u);
     if (ptr_LockedIcon != nullptr) {
-        LockedIcon = ptr_LockedIcon->value;
+        LockedIcon.key = ptr_LockedIcon->value;
     }
 
     auto ptr_LockedHoverIcon = prop->cast_prop<yordle::data::prop::reference_prop>(394911362u);
     if (ptr_LockedHoverIcon != nullptr) {
-        LockedHoverIcon = ptr_LockedHoverIcon->value;
+        LockedHoverIcon.key = ptr_LockedHoverIcon->value;
     }
 
     auto ptr_RecentlyChangedIcon = prop->cast_prop<yordle::data::prop::reference_prop>(1998759362u);
     if (ptr_RecentlyChangedIcon != nullptr) {
-        RecentlyChangedIcon = ptr_RecentlyChangedIcon->value;
+        RecentlyChangedIcon.key = ptr_RecentlyChangedIcon->value;
     }
 
     auto ptr_PopularIcon = prop->cast_prop<yordle::data::prop::reference_prop>(807661563u);
     if (ptr_PopularIcon != nullptr) {
-        PopularIcon = ptr_PopularIcon->value;
+        PopularIcon.key = ptr_PopularIcon->value;
     }
 
     auto ptr_CostText = prop->cast_prop<yordle::data::prop::reference_prop>(4086196895u);
     if (ptr_CostText != nullptr) {
-        CostText = ptr_CostText->value;
+        CostText.key = ptr_CostText->value;
     }
 
     auto ptr_CostTextUnpurchaseable = prop->cast_prop<yordle::data::prop::reference_prop>(3538530743u);
     if (ptr_CostTextUnpurchaseable != nullptr) {
-        CostTextUnpurchaseable = ptr_CostTextUnpurchaseable->value;
+        CostTextUnpurchaseable.key = ptr_CostTextUnpurchaseable->value;
     }
 
     auto ptr_CostTextSelected = prop->cast_prop<yordle::data::prop::reference_prop>(502750510u);
     if (ptr_CostTextSelected != nullptr) {
-        CostTextSelected = ptr_CostTextSelected->value;
+        CostTextSelected.key = ptr_CostTextSelected->value;
     }
 
     auto ptr_NameText = prop->cast_prop<yordle::data::prop::reference_prop>(3587103093u);
     if (ptr_NameText != nullptr) {
-        NameText = ptr_NameText->value;
+        NameText.key = ptr_NameText->value;
     }
 
     auto ptr_HitRegion = prop->cast_prop<yordle::data::prop::reference_prop>(4092291606u);
     if (ptr_HitRegion != nullptr) {
-        HitRegion = ptr_HitRegion->value;
+        HitRegion.key = ptr_HitRegion->value;
     }
 
     auto ptr_OffsetRegion = prop->cast_prop<yordle::data::prop::reference_prop>(493627190u);
     if (ptr_OffsetRegion != nullptr) {
-        OffsetRegion = ptr_OffsetRegion->value;
+        OffsetRegion.key = ptr_OffsetRegion->value;
     }
 
     auto ptr_SelectedVfx = prop->cast_prop<yordle::data::prop::reference_prop>(3877078440u);
     if (ptr_SelectedVfx != nullptr) {
-        SelectedVfx = ptr_SelectedVfx->value;
+        SelectedVfx.key = ptr_SelectedVfx->value;
     }
 
     auto ptr_x987dd59e = prop->cast_prop<yordle::data::prop::reference_prop>(2558383518u);
     if (ptr_x987dd59e != nullptr) {
-        x987dd59e = ptr_x987dd59e->value;
+        x987dd59e.key = ptr_x987dd59e->value;
     }
 
     auto ptr_MythicPurchaseableVfx = prop->cast_prop<yordle::data::prop::reference_prop>(2540444696u);
     if (ptr_MythicPurchaseableVfx != nullptr) {
-        MythicPurchaseableVfx = ptr_MythicPurchaseableVfx->value;
+        MythicPurchaseableVfx.key = ptr_MythicPurchaseableVfx->value;
     }
 
     auto ptr_MythicPurchasedVfx = prop->cast_prop<yordle::data::prop::reference_prop>(3246906724u);
     if (ptr_MythicPurchasedVfx != nullptr) {
-        MythicPurchasedVfx = ptr_MythicPurchasedVfx->value;
+        MythicPurchasedVfx.key = ptr_MythicPurchasedVfx->value;
     }
 }
 
@@ -22586,167 +22586,167 @@ yordle::data::meta::x9205b275::x9205b275(const std::shared_ptr<yordle::data::pro
 
     auto ptr_CardDefault = prop->cast_prop<yordle::data::prop::reference_prop>(2208006024u);
     if (ptr_CardDefault != nullptr) {
-        CardDefault = ptr_CardDefault->value;
+        CardDefault.key = ptr_CardDefault->value;
     }
 
     auto ptr_CardHoverMythic = prop->cast_prop<yordle::data::prop::reference_prop>(558396809u);
     if (ptr_CardHoverMythic != nullptr) {
-        CardHoverMythic = ptr_CardHoverMythic->value;
+        CardHoverMythic.key = ptr_CardHoverMythic->value;
     }
 
     auto ptr_CardHoverNonMythic = prop->cast_prop<yordle::data::prop::reference_prop>(1260157044u);
     if (ptr_CardHoverNonMythic != nullptr) {
-        CardHoverNonMythic = ptr_CardHoverNonMythic->value;
+        CardHoverNonMythic.key = ptr_CardHoverNonMythic->value;
     }
 
     auto ptr_CardSelectedMythic = prop->cast_prop<yordle::data::prop::reference_prop>(2862131044u);
     if (ptr_CardSelectedMythic != nullptr) {
-        CardSelectedMythic = ptr_CardSelectedMythic->value;
+        CardSelectedMythic.key = ptr_CardSelectedMythic->value;
     }
 
     auto ptr_CardSelectedNonMythic = prop->cast_prop<yordle::data::prop::reference_prop>(1210894143u);
     if (ptr_CardSelectedNonMythic != nullptr) {
-        CardSelectedNonMythic = ptr_CardSelectedNonMythic->value;
+        CardSelectedNonMythic.key = ptr_CardSelectedNonMythic->value;
     }
 
     auto ptr_BriefText = prop->cast_prop<yordle::data::prop::reference_prop>(1482017448u);
     if (ptr_BriefText != nullptr) {
-        BriefText = ptr_BriefText->value;
+        BriefText.key = ptr_BriefText->value;
     }
 
     auto ptr_BriefTextBackdrop = prop->cast_prop<yordle::data::prop::reference_prop>(236594122u);
     if (ptr_BriefTextBackdrop != nullptr) {
-        BriefTextBackdrop = ptr_BriefTextBackdrop->value;
+        BriefTextBackdrop.key = ptr_BriefTextBackdrop->value;
     }
 
     auto ptr_AdviceIconDefault = prop->cast_prop<yordle::data::prop::reference_prop>(3315268305u);
     if (ptr_AdviceIconDefault != nullptr) {
-        AdviceIconDefault = ptr_AdviceIconDefault->value;
+        AdviceIconDefault.key = ptr_AdviceIconDefault->value;
     }
 
     auto ptr_x9c2a9d4 = prop->cast_prop<yordle::data::prop::reference_prop>(163752404u);
     if (ptr_x9c2a9d4 != nullptr) {
-        x9c2a9d4 = ptr_x9c2a9d4->value;
+        x9c2a9d4.key = ptr_x9c2a9d4->value;
     }
 
     auto ptr_xc68c22cf = prop->cast_prop<yordle::data::prop::reference_prop>(3331072719u);
     if (ptr_xc68c22cf != nullptr) {
-        xc68c22cf = ptr_xc68c22cf->value;
+        xc68c22cf.key = ptr_xc68c22cf->value;
     }
 
     auto ptr_AdviceLabel = prop->cast_prop<yordle::data::prop::reference_prop>(334720249u);
     if (ptr_AdviceLabel != nullptr) {
-        AdviceLabel = ptr_AdviceLabel->value;
+        AdviceLabel.key = ptr_AdviceLabel->value;
     }
 
     auto ptr_AdviceCharIcon0 = prop->cast_prop<yordle::data::prop::reference_prop>(4107456060u);
     if (ptr_AdviceCharIcon0 != nullptr) {
-        AdviceCharIcon0 = ptr_AdviceCharIcon0->value;
+        AdviceCharIcon0.key = ptr_AdviceCharIcon0->value;
     }
 
     auto ptr_AdviceCharIcon1 = prop->cast_prop<yordle::data::prop::reference_prop>(4124233679u);
     if (ptr_AdviceCharIcon1 != nullptr) {
-        AdviceCharIcon1 = ptr_AdviceCharIcon1->value;
+        AdviceCharIcon1.key = ptr_AdviceCharIcon1->value;
     }
 
     auto ptr_CardHoverMythicVfx = prop->cast_prop<yordle::data::prop::reference_prop>(2061681547u);
     if (ptr_CardHoverMythicVfx != nullptr) {
-        CardHoverMythicVfx = ptr_CardHoverMythicVfx->value;
+        CardHoverMythicVfx.key = ptr_CardHoverMythicVfx->value;
     }
 
     auto ptr_CardHoverNonMythicVfx = prop->cast_prop<yordle::data::prop::reference_prop>(189591720u);
     if (ptr_CardHoverNonMythicVfx != nullptr) {
-        CardHoverNonMythicVfx = ptr_CardHoverNonMythicVfx->value;
+        CardHoverNonMythicVfx.key = ptr_CardHoverNonMythicVfx->value;
     }
 
     auto ptr_CardRefreshMythicVfx = prop->cast_prop<yordle::data::prop::reference_prop>(4072014996u);
     if (ptr_CardRefreshMythicVfx != nullptr) {
-        CardRefreshMythicVfx = ptr_CardRefreshMythicVfx->value;
+        CardRefreshMythicVfx.key = ptr_CardRefreshMythicVfx->value;
     }
 
     auto ptr_CardRefreshNonMythicVfx = prop->cast_prop<yordle::data::prop::reference_prop>(805495209u);
     if (ptr_CardRefreshNonMythicVfx != nullptr) {
-        CardRefreshNonMythicVfx = ptr_CardRefreshNonMythicVfx->value;
+        CardRefreshNonMythicVfx.key = ptr_CardRefreshNonMythicVfx->value;
     }
 
     auto ptr_CardSelectedMythicVfx = prop->cast_prop<yordle::data::prop::reference_prop>(3780699960u);
     if (ptr_CardSelectedMythicVfx != nullptr) {
-        CardSelectedMythicVfx = ptr_CardSelectedMythicVfx->value;
+        CardSelectedMythicVfx.key = ptr_CardSelectedMythicVfx->value;
     }
 
     auto ptr_CardSelectedNonMythicVfx = prop->cast_prop<yordle::data::prop::reference_prop>(3508721437u);
     if (ptr_CardSelectedNonMythicVfx != nullptr) {
-        CardSelectedNonMythicVfx = ptr_CardSelectedNonMythicVfx->value;
+        CardSelectedNonMythicVfx.key = ptr_CardSelectedNonMythicVfx->value;
     }
 
     auto ptr_AdviceEmptyIconDefault = prop->cast_prop<yordle::data::prop::reference_prop>(2932130656u);
     if (ptr_AdviceEmptyIconDefault != nullptr) {
-        AdviceEmptyIconDefault = ptr_AdviceEmptyIconDefault->value;
+        AdviceEmptyIconDefault.key = ptr_AdviceEmptyIconDefault->value;
     }
 
     auto ptr_x59fbbd19 = prop->cast_prop<yordle::data::prop::reference_prop>(1509670169u);
     if (ptr_x59fbbd19 != nullptr) {
-        x59fbbd19 = ptr_x59fbbd19->value;
+        x59fbbd19.key = ptr_x59fbbd19->value;
     }
 
     auto ptr_x9566584e = prop->cast_prop<yordle::data::prop::reference_prop>(2506512462u);
     if (ptr_x9566584e != nullptr) {
-        x9566584e = ptr_x9566584e->value;
+        x9566584e.key = ptr_x9566584e->value;
     }
 
     auto ptr_AdviceEmptyText = prop->cast_prop<yordle::data::prop::reference_prop>(3919620081u);
     if (ptr_AdviceEmptyText != nullptr) {
-        AdviceEmptyText = ptr_AdviceEmptyText->value;
+        AdviceEmptyText.key = ptr_AdviceEmptyText->value;
     }
 
     auto ptr_AdviceEmptyTextHover = prop->cast_prop<yordle::data::prop::reference_prop>(801390377u);
     if (ptr_AdviceEmptyTextHover != nullptr) {
-        AdviceEmptyTextHover = ptr_AdviceEmptyTextHover->value;
+        AdviceEmptyTextHover.key = ptr_AdviceEmptyTextHover->value;
     }
 
     auto ptr_AdviceCharBorder0 = prop->cast_prop<yordle::data::prop::reference_prop>(3347880489u);
     if (ptr_AdviceCharBorder0 != nullptr) {
-        AdviceCharBorder0 = ptr_AdviceCharBorder0->value;
+        AdviceCharBorder0.key = ptr_AdviceCharBorder0->value;
     }
 
     auto ptr_AdviceCharBorderHover0 = prop->cast_prop<yordle::data::prop::reference_prop>(991943513u);
     if (ptr_AdviceCharBorderHover0 != nullptr) {
-        AdviceCharBorderHover0 = ptr_AdviceCharBorderHover0->value;
+        AdviceCharBorderHover0.key = ptr_AdviceCharBorderHover0->value;
     }
 
     auto ptr_AdviceCharBorder1 = prop->cast_prop<yordle::data::prop::reference_prop>(3331102870u);
     if (ptr_AdviceCharBorder1 != nullptr) {
-        AdviceCharBorder1 = ptr_AdviceCharBorder1->value;
+        AdviceCharBorder1.key = ptr_AdviceCharBorder1->value;
     }
 
     auto ptr_AdviceCharBorderHover1 = prop->cast_prop<yordle::data::prop::reference_prop>(975165894u);
     if (ptr_AdviceCharBorderHover1 != nullptr) {
-        AdviceCharBorderHover1 = ptr_AdviceCharBorderHover1->value;
+        AdviceCharBorderHover1.key = ptr_AdviceCharBorderHover1->value;
     }
 
     auto ptr_PlusIcon = prop->cast_prop<yordle::data::prop::reference_prop>(3272552544u);
     if (ptr_PlusIcon != nullptr) {
-        PlusIcon = ptr_PlusIcon->value;
+        PlusIcon.key = ptr_PlusIcon->value;
     }
 
     auto ptr_BundleItemIcon = prop->cast_prop<yordle::data::prop::reference_prop>(1164634323u);
     if (ptr_BundleItemIcon != nullptr) {
-        BundleItemIcon = ptr_BundleItemIcon->value;
+        BundleItemIcon.key = ptr_BundleItemIcon->value;
     }
 
     auto ptr_BundleStackText = prop->cast_prop<yordle::data::prop::reference_prop>(1520341320u);
     if (ptr_BundleStackText != nullptr) {
-        BundleStackText = ptr_BundleStackText->value;
+        BundleStackText.key = ptr_BundleStackText->value;
     }
 
     auto ptr_BundleItemFrameIcon = prop->cast_prop<yordle::data::prop::reference_prop>(1893937750u);
     if (ptr_BundleItemFrameIcon != nullptr) {
-        BundleItemFrameIcon = ptr_BundleItemFrameIcon->value;
+        BundleItemFrameIcon.key = ptr_BundleItemFrameIcon->value;
     }
 
     auto ptr_BundleItemFrameHoverIcon = prop->cast_prop<yordle::data::prop::reference_prop>(1575857030u);
     if (ptr_BundleItemFrameHoverIcon != nullptr) {
-        BundleItemFrameHoverIcon = ptr_BundleItemFrameHoverIcon->value;
+        BundleItemFrameHoverIcon.key = ptr_BundleItemFrameHoverIcon->value;
     }
 }
 
@@ -22760,7 +22760,7 @@ yordle::data::meta::x38691790::x38691790(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_x837fcf93->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(entry);
             if (ptr_entry != nullptr) {
-                x837fcf93.emplace(ptr_entry->value);
+                x837fcf93.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -22786,7 +22786,7 @@ yordle::data::meta::StatFilterDefinition::StatFilterDefinition(const std::shared
         for (const auto &entry : ptr_MatchingCategories->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                MatchingCategories.emplace(ptr_entry->value);
+                MatchingCategories.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -23018,7 +23018,7 @@ yordle::data::meta::HudItemShopData::HudItemShopData(const std::shared_ptr<yordl
         for (const auto &entry : ptr_x79a37750->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                x79a37750.emplace(yordle::data::meta::deserialize<yordle::data::meta::x38691790>(ptr_entry, 946411408u));
+                x79a37750.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x38691790>(ptr_entry, 946411408u));
             }
         }
     }
@@ -23043,7 +23043,7 @@ yordle::data::meta::HudItemShopData::HudItemShopData(const std::shared_ptr<yordl
         for (const auto &entry : ptr_xe00be811->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                xe00be811.emplace(ptr_entry->value);
+                xe00be811.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -23168,7 +23168,7 @@ yordle::data::meta::HudLoadingScreenWidgetCarousel::HudLoadingScreenWidgetCarous
 
     auto ptr_mCarouselData = prop->cast_prop<yordle::data::prop::reference_prop>(878940594u);
     if (ptr_mCarouselData != nullptr) {
-        mCarouselData = ptr_mCarouselData->value;
+        mCarouselData.key = ptr_mCarouselData->value;
     }
 }
 
@@ -23314,7 +23314,7 @@ yordle::data::meta::HudReplaySliderIconData::HudReplaySliderIconData(const std::
         for (const auto &entry : ptr_mTooltipIconNames->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mTooltipIconNames.emplace(ptr_entry->value);
+                mTooltipIconNames.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -23330,7 +23330,7 @@ yordle::data::meta::HudReplaySliderData::HudReplaySliderData(const std::shared_p
         for (const auto &entry : ptr_mIconDataPriorityList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mIconDataPriorityList.emplace(yordle::data::meta::deserialize<yordle::data::meta::HudReplaySliderIconData>(ptr_entry, 3703833425u));
+                mIconDataPriorityList.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::HudReplaySliderIconData>(ptr_entry, 3703833425u));
             }
         }
     }
@@ -23459,7 +23459,7 @@ yordle::data::meta::AnimationGraphData::AnimationGraphData(const std::shared_ptr
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mClipDataMap[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::ClipBaseData>(ptr_value, 3917866950u);
+                mClipDataMap.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ClipBaseData>(ptr_value, 3917866950u));
             }
         }
     }
@@ -23470,7 +23470,7 @@ yordle::data::meta::AnimationGraphData::AnimationGraphData(const std::shared_ptr
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mMaskDataMap[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MaskData>(ptr_value, 725360953u);
+                mMaskDataMap.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaskData>(ptr_value, 725360953u));
             }
         }
     }
@@ -23481,7 +23481,7 @@ yordle::data::meta::AnimationGraphData::AnimationGraphData(const std::shared_ptr
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mTrackDataMap[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::TrackData>(ptr_value, 2552904996u);
+                mTrackDataMap.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::TrackData>(ptr_value, 2552904996u));
             }
         }
     }
@@ -23492,7 +23492,7 @@ yordle::data::meta::AnimationGraphData::AnimationGraphData(const std::shared_ptr
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mSyncGroupDataMap[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::SyncGroupData>(ptr_value, 1718266157u);
+                mSyncGroupDataMap.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::SyncGroupData>(ptr_value, 1718266157u));
             }
         }
     }
@@ -23503,7 +23503,7 @@ yordle::data::meta::AnimationGraphData::AnimationGraphData(const std::shared_ptr
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint64_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mBlendDataTable[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::BaseBlendData>(ptr_value, 3172694155u);
+                mBlendDataTable.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::BaseBlendData>(ptr_value, 3172694155u));
             }
         }
     }
@@ -23535,7 +23535,7 @@ yordle::data::meta::MaskData::MaskData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mWeightList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mWeightList.emplace(ptr_entry->value);
+                mWeightList.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -23602,7 +23602,7 @@ yordle::data::meta::RigResource::RigResource(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_mJointList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mJointList.emplace(yordle::data::meta::deserialize<yordle::data::meta::Joint>(ptr_entry, 2930641015u));
+                mJointList.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::Joint>(ptr_entry, 2930641015u));
             }
         }
     }
@@ -23612,7 +23612,7 @@ yordle::data::meta::RigResource::RigResource(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_mShaderJointList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(entry);
             if (ptr_entry != nullptr) {
-                mShaderJointList.emplace(ptr_entry->value);
+                mShaderJointList.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -23670,7 +23670,7 @@ yordle::data::meta::UpdaterData::UpdaterData(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_mValueProcessorDataList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mValueProcessorDataList.emplace(yordle::data::meta::deserialize<yordle::data::meta::ValueProcessorData>(ptr_entry, 3487022u));
+                mValueProcessorDataList.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ValueProcessorData>(ptr_entry, 3487022u));
             }
         }
     }
@@ -23686,7 +23686,7 @@ yordle::data::meta::UpdaterResourceData::UpdaterResourceData(const std::shared_p
         for (const auto &entry : ptr_mUpdaterDataList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mUpdaterDataList.emplace(yordle::data::meta::deserialize<yordle::data::meta::UpdaterData>(ptr_entry, 3953106978u));
+                mUpdaterDataList.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::UpdaterData>(ptr_entry, 3953106978u));
             }
         }
     }
@@ -23802,7 +23802,7 @@ yordle::data::meta::ClipBaseData::ClipBaseData(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_mAnimationInterruptionGroupNames->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAnimationInterruptionGroupNames.emplace(ptr_entry->value);
+                mAnimationInterruptionGroupNames.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -23956,7 +23956,7 @@ yordle::data::meta::ParticleEventData::ParticleEventData(const std::shared_ptr<y
         for (const auto &entry : ptr_mParticleEventDataPairList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mParticleEventDataPairList.emplace(yordle::data::meta::deserialize<yordle::data::meta::ParticleEventDataPair>(ptr_entry, 1574343673u));
+                mParticleEventDataPairList.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ParticleEventDataPair>(ptr_entry, 1574343673u));
             }
         }
     }
@@ -24034,7 +24034,7 @@ yordle::data::meta::SubmeshVisibilityEventData::SubmeshVisibilityEventData(const
         for (const auto &entry : ptr_mShowSubmeshList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mShowSubmeshList.emplace(ptr_entry->value);
+                mShowSubmeshList.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -24044,7 +24044,7 @@ yordle::data::meta::SubmeshVisibilityEventData::SubmeshVisibilityEventData(const
         for (const auto &entry : ptr_mHideSubmeshList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mHideSubmeshList.emplace(ptr_entry->value);
+                mHideSubmeshList.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -24126,7 +24126,7 @@ yordle::data::meta::MapContainer::MapContainer(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_components->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                components.emplace(yordle::data::meta::deserialize<yordle::data::meta::MapComponent>(ptr_entry, 72326764u));
+                components.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MapComponent>(ptr_entry, 72326764u));
             }
         }
     }
@@ -24157,7 +24157,7 @@ yordle::data::meta::MapContainer::MapContainer(const std::shared_ptr<yordle::dat
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                chunks[ptr_key->value] = ptr_value->value;
+                chunks[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(ptr_value->value, 2992376383u);
             }
         }
     }
@@ -24170,7 +24170,7 @@ yordle::data::meta::MapContainsOtherMaps::MapContainsOtherMaps(const std::shared
 
     auto ptr_MapContainerLocations = prop->cast_prop<yordle::data::prop::reference_prop>(3704860912u);
     if (ptr_MapContainerLocations != nullptr) {
-        MapContainerLocations = ptr_MapContainerLocations->value;
+        MapContainerLocations.key = ptr_MapContainerLocations->value;
     }
 }
 
@@ -24184,7 +24184,7 @@ yordle::data::meta::LaneData::LaneData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mNavigationPoints->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mNavigationPoints.emplace(ptr_entry->value);
+                mNavigationPoints.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -24194,7 +24194,7 @@ yordle::data::meta::LaneData::LaneData(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_mContainedRegions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mContainedRegions.emplace(ptr_entry->value);
+                mContainedRegions.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -24210,7 +24210,7 @@ yordle::data::meta::MapLaneComponent::MapLaneComponent(const std::shared_ptr<yor
         for (const auto &entry : ptr_mLanes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mLanes.emplace(yordle::data::meta::deserialize<yordle::data::meta::LaneData>(ptr_entry, 243000503u));
+                mLanes.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::LaneData>(ptr_entry, 243000503u));
             }
         }
     }
@@ -24298,7 +24298,7 @@ yordle::data::meta::MapPlaceableContainer::MapPlaceableContainer(const std::shar
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                items[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MapPlaceable>(ptr_value, 1502315240u);
+                items.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MapPlaceable>(ptr_value, 1502315240u));
             }
         }
     }
@@ -24311,7 +24311,7 @@ yordle::data::meta::MapPrefabInstance::MapPrefabInstance(const std::shared_ptr<y
 
     auto ptr_prefabDefinition = prop->cast_prop<yordle::data::prop::reference_prop>(2120627422u);
     if (ptr_prefabDefinition != nullptr) {
-        prefabDefinition = ptr_prefabDefinition->value;
+        prefabDefinition.key = ptr_prefabDefinition->value;
     }
 }
 
@@ -24341,7 +24341,7 @@ yordle::data::meta::RegionsThatAllowContent::RegionsThatAllowContent(const std::
         for (const auto &entry : ptr_mRegionList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mRegionList.emplace(ptr_entry->value);
+                mRegionList.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -24358,7 +24358,7 @@ yordle::data::meta::RegionSettings::RegionSettings(const std::shared_ptr<yordle:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mContentTypeAllowedSettings[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::RegionsThatAllowContent>(ptr_value, 2486262273u);
+                mContentTypeAllowedSettings.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::RegionsThatAllowContent>(ptr_value, 2486262273u));
             }
         }
     }
@@ -24436,7 +24436,7 @@ yordle::data::meta::FontLocaleResolutions::FontLocaleResolutions(const std::shar
         for (const auto &entry : ptr_resolutions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                resolutions.emplace(yordle::data::meta::deserialize<yordle::data::meta::FontResolution>(ptr_entry, 3120352850u));
+                resolutions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::FontResolution>(ptr_entry, 3120352850u));
             }
         }
     }
@@ -24452,7 +24452,7 @@ yordle::data::meta::FontType::FontType(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_localeTypes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                localeTypes.emplace(yordle::data::meta::deserialize<yordle::data::meta::FontLocaleType>(ptr_entry, 2600090346u));
+                localeTypes.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::FontLocaleType>(ptr_entry, 2600090346u));
             }
         }
     }
@@ -24473,7 +24473,7 @@ yordle::data::meta::FontResolutionData::FontResolutionData(const std::shared_ptr
         for (const auto &entry : ptr_localeResolutions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                localeResolutions.emplace(yordle::data::meta::deserialize<yordle::data::meta::FontLocaleResolutions>(ptr_entry, 3919875225u));
+                localeResolutions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::FontLocaleResolutions>(ptr_entry, 3919875225u));
             }
         }
     }
@@ -24491,12 +24491,12 @@ yordle::data::meta::GameFontDescription::GameFontDescription(const std::shared_p
 
     auto ptr_typeData = prop->cast_prop<yordle::data::prop::reference_prop>(2066243309u);
     if (ptr_typeData != nullptr) {
-        typeData = ptr_typeData->value;
+        typeData.key = ptr_typeData->value;
     }
 
     auto ptr_resolutionData = prop->cast_prop<yordle::data::prop::reference_prop>(289487383u);
     if (ptr_resolutionData != nullptr) {
-        resolutionData = ptr_resolutionData->value;
+        resolutionData.key = ptr_resolutionData->value;
     }
 
     auto ptr_color = prop->cast_prop<yordle::data::prop::color_prop>(1031692888u);
@@ -24640,7 +24640,7 @@ yordle::data::meta::CSSSheet::CSSSheet(const std::shared_ptr<yordle::data::prop:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                styles[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::CSSStyle>(ptr_value, 1461391717u);
+                styles.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::CSSStyle>(ptr_value, 1461391717u));
             }
         }
     }
@@ -24656,7 +24656,7 @@ yordle::data::meta::CSSSheet::CSSSheet(const std::shared_ptr<yordle::data::prop:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                icons[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::CSSIcon>(ptr_value, 3991255873u);
+                icons.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::CSSIcon>(ptr_value, 3991255873u));
             }
         }
     }
@@ -24678,7 +24678,7 @@ yordle::data::meta::TooltipFormat::TooltipFormat(const std::shared_ptr<yordle::d
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mInputLocKeysWithDefaults[ptr_key->value] = ptr_value->value;
+                mInputLocKeysWithDefaults.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -24688,7 +24688,7 @@ yordle::data::meta::TooltipFormat::TooltipFormat(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_mListNames->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mListNames.emplace(ptr_entry->value);
+                mListNames.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -24699,7 +24699,7 @@ yordle::data::meta::TooltipFormat::TooltipFormat(const std::shared_ptr<yordle::d
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mListTypeChoices[ptr_key->value] = ptr_value->value;
+                mListTypeChoices.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -24710,7 +24710,7 @@ yordle::data::meta::TooltipFormat::TooltipFormat(const std::shared_ptr<yordle::d
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mListStyles[ptr_key->value] = ptr_value->value;
+                mListStyles.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -24746,7 +24746,7 @@ yordle::data::meta::TooltipFormat::TooltipFormat(const std::shared_ptr<yordle::d
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mOutputStrings[ptr_key->value] = ptr_value->value;
+                mOutputStrings.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -24798,7 +24798,7 @@ yordle::data::meta::TooltipInstanceList::TooltipInstanceList(const std::shared_p
         for (const auto &entry : ptr_elements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                elements.emplace(yordle::data::meta::deserialize<yordle::data::meta::TooltipInstanceListElement>(ptr_entry, 2585474309u));
+                elements.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TooltipInstanceListElement>(ptr_entry, 2585474309u));
             }
         }
     }
@@ -24816,7 +24816,7 @@ yordle::data::meta::TooltipInstance::TooltipInstance(const std::shared_ptr<yordl
 
     auto ptr_mFormat = prop->cast_prop<yordle::data::prop::reference_prop>(1471721755u);
     if (ptr_mFormat != nullptr) {
-        mFormat = ptr_mFormat->value;
+        mFormat.key = ptr_mFormat->value;
     }
 
     auto ptr_mLocKeys = prop->cast_prop<yordle::data::prop::map_prop>(58849250u);
@@ -24825,7 +24825,7 @@ yordle::data::meta::TooltipInstance::TooltipInstance(const std::shared_ptr<yordl
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mLocKeys[ptr_key->value] = ptr_value->value;
+                mLocKeys.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -24836,7 +24836,7 @@ yordle::data::meta::TooltipInstance::TooltipInstance(const std::shared_ptr<yordl
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mLists[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::TooltipInstanceList>(ptr_value, 4214485747u);
+                mLists.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::TooltipInstanceList>(ptr_value, 4214485747u));
             }
         }
     }
@@ -24934,7 +24934,7 @@ yordle::data::meta::VfxAnimatedFloatVariableData::VfxAnimatedFloatVariableData(c
         for (const auto &entry : ptr_probabilityTables->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                probabilityTables.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxProbabilityTableData>(ptr_entry, 1403439486u));
+                probabilityTables.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxProbabilityTableData>(ptr_entry, 1403439486u));
             }
         }
     }
@@ -24944,7 +24944,7 @@ yordle::data::meta::VfxAnimatedFloatVariableData::VfxAnimatedFloatVariableData(c
         for (const auto &entry : ptr_times->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                times.emplace(ptr_entry->value);
+                times.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -24954,7 +24954,7 @@ yordle::data::meta::VfxAnimatedFloatVariableData::VfxAnimatedFloatVariableData(c
         for (const auto &entry : ptr_values->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                values.emplace(ptr_entry->value);
+                values.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -24970,7 +24970,7 @@ yordle::data::meta::VfxAnimatedVector2fVariableData::VfxAnimatedVector2fVariable
         for (const auto &entry : ptr_probabilityTables->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                probabilityTables.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxProbabilityTableData>(ptr_entry, 1403439486u));
+                probabilityTables.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxProbabilityTableData>(ptr_entry, 1403439486u));
             }
         }
     }
@@ -24980,7 +24980,7 @@ yordle::data::meta::VfxAnimatedVector2fVariableData::VfxAnimatedVector2fVariable
         for (const auto &entry : ptr_times->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                times.emplace(ptr_entry->value);
+                times.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -24990,7 +24990,7 @@ yordle::data::meta::VfxAnimatedVector2fVariableData::VfxAnimatedVector2fVariable
         for (const auto &entry : ptr_values->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::point_prop>(entry);
             if (ptr_entry != nullptr) {
-                values.emplace(ptr_entry->value);
+                values.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -25006,7 +25006,7 @@ yordle::data::meta::VfxAnimatedVector3fVariableData::VfxAnimatedVector3fVariable
         for (const auto &entry : ptr_probabilityTables->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                probabilityTables.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxProbabilityTableData>(ptr_entry, 1403439486u));
+                probabilityTables.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxProbabilityTableData>(ptr_entry, 1403439486u));
             }
         }
     }
@@ -25016,7 +25016,7 @@ yordle::data::meta::VfxAnimatedVector3fVariableData::VfxAnimatedVector3fVariable
         for (const auto &entry : ptr_times->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                times.emplace(ptr_entry->value);
+                times.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -25026,7 +25026,7 @@ yordle::data::meta::VfxAnimatedVector3fVariableData::VfxAnimatedVector3fVariable
         for (const auto &entry : ptr_values->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(entry);
             if (ptr_entry != nullptr) {
-                values.emplace(ptr_entry->value);
+                values.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -25042,7 +25042,7 @@ yordle::data::meta::VfxAnimatedColorVariableData::VfxAnimatedColorVariableData(c
         for (const auto &entry : ptr_probabilityTables->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                probabilityTables.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxProbabilityTableData>(ptr_entry, 1403439486u));
+                probabilityTables.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxProbabilityTableData>(ptr_entry, 1403439486u));
             }
         }
     }
@@ -25052,7 +25052,7 @@ yordle::data::meta::VfxAnimatedColorVariableData::VfxAnimatedColorVariableData(c
         for (const auto &entry : ptr_times->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                times.emplace(ptr_entry->value);
+                times.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -25062,7 +25062,7 @@ yordle::data::meta::VfxAnimatedColorVariableData::VfxAnimatedColorVariableData(c
         for (const auto &entry : ptr_values->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::quaternion_prop>(entry);
             if (ptr_entry != nullptr) {
-                values.emplace(ptr_entry->value);
+                values.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -25205,7 +25205,7 @@ yordle::data::meta::VfxFieldCollectionDefinitionData::VfxFieldCollectionDefiniti
         for (const auto &entry : ptr_fieldAccelerationDefinitions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                fieldAccelerationDefinitions.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxFieldAccelerationDefinitionData>(ptr_entry, 177533908u));
+                fieldAccelerationDefinitions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxFieldAccelerationDefinitionData>(ptr_entry, 177533908u));
             }
         }
     }
@@ -25215,7 +25215,7 @@ yordle::data::meta::VfxFieldCollectionDefinitionData::VfxFieldCollectionDefiniti
         for (const auto &entry : ptr_fieldAttractionDefinitions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                fieldAttractionDefinitions.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxFieldAttractionDefinitionData>(ptr_entry, 443947005u));
+                fieldAttractionDefinitions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxFieldAttractionDefinitionData>(ptr_entry, 443947005u));
             }
         }
     }
@@ -25225,7 +25225,7 @@ yordle::data::meta::VfxFieldCollectionDefinitionData::VfxFieldCollectionDefiniti
         for (const auto &entry : ptr_fieldDragDefinitions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                fieldDragDefinitions.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxFieldDragDefinitionData>(ptr_entry, 3880844002u));
+                fieldDragDefinitions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxFieldDragDefinitionData>(ptr_entry, 3880844002u));
             }
         }
     }
@@ -25235,7 +25235,7 @@ yordle::data::meta::VfxFieldCollectionDefinitionData::VfxFieldCollectionDefiniti
         for (const auto &entry : ptr_fieldNoiseDefinitions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                fieldNoiseDefinitions.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxFieldNoiseDefinitionData>(ptr_entry, 1666037840u));
+                fieldNoiseDefinitions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxFieldNoiseDefinitionData>(ptr_entry, 1666037840u));
             }
         }
     }
@@ -25245,7 +25245,7 @@ yordle::data::meta::VfxFieldCollectionDefinitionData::VfxFieldCollectionDefiniti
         for (const auto &entry : ptr_fieldOrbitalDefinitions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                fieldOrbitalDefinitions.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxFieldOrbitalDefinitionData>(ptr_entry, 3061509743u));
+                fieldOrbitalDefinitions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxFieldOrbitalDefinitionData>(ptr_entry, 3061509743u));
             }
         }
     }
@@ -25375,7 +25375,7 @@ yordle::data::meta::VfxMaterialOverrideDefinitionData::VfxMaterialOverrideDefini
 
     auto ptr_material = prop->cast_prop<yordle::data::prop::reference_prop>(3538210912u);
     if (ptr_material != nullptr) {
-        material = ptr_material->value;
+        material.key = ptr_material->value;
     }
 }
 
@@ -25389,7 +25389,7 @@ yordle::data::meta::VfxProbabilityTableData::VfxProbabilityTableData(const std::
         for (const auto &entry : ptr_keyTimes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                keyTimes.emplace(ptr_entry->value);
+                keyTimes.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -25399,7 +25399,7 @@ yordle::data::meta::VfxProbabilityTableData::VfxProbabilityTableData(const std::
         for (const auto &entry : ptr_keyValues->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                keyValues.emplace(ptr_entry->value);
+                keyValues.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -25421,7 +25421,7 @@ yordle::data::meta::VfxMigrationResources::VfxMigrationResources(const std::shar
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                resourceMap[ptr_key->value] = ptr_value->value;
+                resourceMap[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(ptr_value->value, 1171098015u);
             }
         }
     }
@@ -25484,7 +25484,7 @@ yordle::data::meta::VfxShape::VfxShape(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_emitRotationAngles->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                emitRotationAngles.emplace(yordle::data::meta::deserialize<yordle::data::meta::ValueFloat>(ptr_entry, 70254680u));
+                emitRotationAngles.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ValueFloat>(ptr_entry, 70254680u));
             }
         }
     }
@@ -25494,7 +25494,7 @@ yordle::data::meta::VfxShape::VfxShape(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_emitRotationAxes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(entry);
             if (ptr_entry != nullptr) {
-                emitRotationAxes.emplace(ptr_entry->value);
+                emitRotationAxes.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -25591,7 +25591,7 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
         for (const auto &entry : ptr_excludedAttachmentTypes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                excludedAttachmentTypes.emplace(ptr_entry->value);
+                excludedAttachmentTypes.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -25697,7 +25697,7 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
         for (const auto &entry : ptr_keywordsRequired->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                keywordsRequired.emplace(ptr_entry->value);
+                keywordsRequired.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -25707,7 +25707,7 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
         for (const auto &entry : ptr_keywordsExcluded->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                keywordsExcluded.emplace(ptr_entry->value);
+                keywordsExcluded.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -25717,7 +25717,7 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
         for (const auto &entry : ptr_keywordsIncluded->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                keywordsIncluded.emplace(ptr_entry->value);
+                keywordsIncluded.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -25867,7 +25867,7 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
 
     auto ptr_material = prop->cast_prop<yordle::data::prop::reference_prop>(3538210912u);
     if (ptr_material != nullptr) {
-        material = ptr_material->value;
+        material.key = ptr_material->value;
     }
 
     auto ptr_materialDrivers = prop->cast_prop<yordle::data::prop::map_prop>(3305964759u);
@@ -25876,7 +25876,7 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                materialDrivers[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::IVfxMaterialDriver>(ptr_value, 37724083u);
+                materialDrivers.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IVfxMaterialDriver>(ptr_value, 37724083u));
             }
         }
     }
@@ -26287,7 +26287,7 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
         for (const auto &entry : ptr_materialOverrideDefinitions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                materialOverrideDefinitions.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxMaterialOverrideDefinitionData>(ptr_entry, 3652726407u));
+                materialOverrideDefinitions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxMaterialOverrideDefinitionData>(ptr_entry, 3652726407u));
             }
         }
     }
@@ -26508,7 +26508,7 @@ yordle::data::meta::VfxChildIdentifier::VfxChildIdentifier(const std::shared_ptr
 
     auto ptr_effect = prop->cast_prop<yordle::data::prop::reference_prop>(1852738900u);
     if (ptr_effect != nullptr) {
-        effect = ptr_effect->value;
+        effect.key = ptr_effect->value;
     }
 
     auto ptr_effectName = prop->cast_prop<yordle::data::prop::string_prop>(1209207887u);
@@ -26527,7 +26527,7 @@ yordle::data::meta::VfxChildParticleSetDefinitionData::VfxChildParticleSetDefini
         for (const auto &entry : ptr_childrenIdentifiers->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                childrenIdentifiers.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxChildIdentifier>(ptr_entry, 2526736020u));
+                childrenIdentifiers.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxChildIdentifier>(ptr_entry, 2526736020u));
             }
         }
     }
@@ -26537,7 +26537,7 @@ yordle::data::meta::VfxChildParticleSetDefinitionData::VfxChildParticleSetDefini
         for (const auto &entry : ptr_boneToSpawnAt->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                boneToSpawnAt.emplace(ptr_entry->value);
+                boneToSpawnAt.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -26876,7 +26876,7 @@ yordle::data::meta::VfxMeshDefinitionData::VfxMeshDefinitionData(const std::shar
         for (const auto &entry : ptr_mAnimationVariants->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAnimationVariants.emplace(ptr_entry->value);
+                mAnimationVariants.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -26886,7 +26886,7 @@ yordle::data::meta::VfxMeshDefinitionData::VfxMeshDefinitionData(const std::shar
         for (const auto &entry : ptr_mSubmeshesToDraw->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSubmeshesToDraw.emplace(ptr_entry->value);
+                mSubmeshesToDraw.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -26896,7 +26896,7 @@ yordle::data::meta::VfxMeshDefinitionData::VfxMeshDefinitionData(const std::shar
         for (const auto &entry : ptr_mSubmeshesToDrawAlways->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSubmeshesToDrawAlways.emplace(ptr_entry->value);
+                mSubmeshesToDrawAlways.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -27087,7 +27087,7 @@ yordle::data::meta::MapParticle::MapParticle(const std::shared_ptr<yordle::data:
 
     auto ptr_system = prop->cast_prop<yordle::data::prop::reference_prop>(1226705564u);
     if (ptr_system != nullptr) {
-        system = ptr_system->value;
+        system.key = ptr_system->value;
     }
 
     auto ptr_eyeCandy = prop->cast_prop<yordle::data::prop::bool_prop>(1435159183u);
@@ -27136,7 +27136,7 @@ yordle::data::meta::MapParticleGroups::MapParticleGroups(const std::shared_ptr<y
         for (const auto &entry : ptr_groups->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(entry);
             if (ptr_entry != nullptr) {
-                groups.emplace(ptr_entry->value);
+                groups.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -27199,7 +27199,7 @@ yordle::data::meta::DynamicMaterialTextureSwapDef::DynamicMaterialTextureSwapDef
         for (const auto &entry : ptr_options->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                options.emplace(yordle::data::meta::deserialize<yordle::data::meta::DynamicMaterialTextureSwapOption>(ptr_entry, 567330916u));
+                options.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::DynamicMaterialTextureSwapOption>(ptr_entry, 567330916u));
             }
         }
     }
@@ -27241,7 +27241,7 @@ yordle::data::meta::DynamicMaterialDef::DynamicMaterialDef(const std::shared_ptr
         for (const auto &entry : ptr_parameters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                parameters.emplace(yordle::data::meta::deserialize<yordle::data::meta::DynamicMaterialParameterDef>(ptr_entry, 121596497u));
+                parameters.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::DynamicMaterialParameterDef>(ptr_entry, 121596497u));
             }
         }
     }
@@ -27251,7 +27251,7 @@ yordle::data::meta::DynamicMaterialDef::DynamicMaterialDef(const std::shared_ptr
         for (const auto &entry : ptr_textures->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                textures.emplace(yordle::data::meta::deserialize<yordle::data::meta::DynamicMaterialTextureSwapDef>(ptr_entry, 1303930364u));
+                textures.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::DynamicMaterialTextureSwapDef>(ptr_entry, 1303930364u));
             }
         }
     }
@@ -27320,7 +27320,7 @@ yordle::data::meta::MaxMaterialDriver::MaxMaterialDriver(const std::shared_ptr<y
         for (const auto &entry : ptr_mDrivers->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mDrivers.emplace(yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialDriver>(ptr_entry, 1009087838u));
+                mDrivers.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialDriver>(ptr_entry, 1009087838u));
             }
         }
     }
@@ -27336,7 +27336,7 @@ yordle::data::meta::MinMaterialDriver::MinMaterialDriver(const std::shared_ptr<y
         for (const auto &entry : ptr_mDrivers->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mDrivers.emplace(yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialDriver>(ptr_entry, 1009087838u));
+                mDrivers.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialDriver>(ptr_entry, 1009087838u));
             }
         }
     }
@@ -27436,7 +27436,7 @@ yordle::data::meta::SwitchMaterialDriver::SwitchMaterialDriver(const std::shared
         for (const auto &entry : ptr_mElements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mElements.emplace(yordle::data::meta::deserialize<yordle::data::meta::SwitchMaterialDriverElement>(ptr_entry, 1173409658u));
+                mElements.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SwitchMaterialDriverElement>(ptr_entry, 1173409658u));
             }
         }
     }
@@ -27462,7 +27462,7 @@ yordle::data::meta::BlendingSwitchMaterialDriver::BlendingSwitchMaterialDriver(c
         for (const auto &entry : ptr_mOverrideBlendTimes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(entry);
             if (ptr_entry != nullptr) {
-                mOverrideBlendTimes.emplace(ptr_entry->value);
+                mOverrideBlendTimes.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -27501,7 +27501,7 @@ yordle::data::meta::HybridMaterialDefPreset::HybridMaterialDefPreset(const std::
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                shaderMacros[ptr_key->value] = ptr_value->value;
+                shaderMacros.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -27654,7 +27654,7 @@ yordle::data::meta::ShaderPhysicalParameter::ShaderPhysicalParameter(const std::
         for (const auto &entry : ptr_logicalParameters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                logicalParameters.emplace(yordle::data::meta::deserialize<yordle::data::meta::ShaderLogicalParameter>(ptr_entry, 346210042u));
+                logicalParameters.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ShaderLogicalParameter>(ptr_entry, 346210042u));
             }
         }
     }
@@ -27702,7 +27702,7 @@ yordle::data::meta::IShaderDef::IShaderDef(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_parameters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                parameters.emplace(yordle::data::meta::deserialize<yordle::data::meta::ShaderPhysicalParameter>(ptr_entry, 2171032536u));
+                parameters.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ShaderPhysicalParameter>(ptr_entry, 2171032536u));
             }
         }
     }
@@ -27712,7 +27712,7 @@ yordle::data::meta::IShaderDef::IShaderDef(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_staticSwitches->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                staticSwitches.emplace(yordle::data::meta::deserialize<yordle::data::meta::ShaderStaticSwitch>(ptr_entry, 1621267174u));
+                staticSwitches.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ShaderStaticSwitch>(ptr_entry, 1621267174u));
             }
         }
     }
@@ -27722,7 +27722,7 @@ yordle::data::meta::IShaderDef::IShaderDef(const std::shared_ptr<yordle::data::p
         for (const auto &entry : ptr_textures->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                textures.emplace(yordle::data::meta::deserialize<yordle::data::meta::ShaderTexture>(ptr_entry, 835838499u));
+                textures.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ShaderTexture>(ptr_entry, 835838499u));
             }
         }
     }
@@ -27733,7 +27733,7 @@ yordle::data::meta::IShaderDef::IShaderDef(const std::shared_ptr<yordle::data::p
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                featureDefines[ptr_key->value] = ptr_value->value;
+                featureDefines.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -27833,7 +27833,7 @@ yordle::data::meta::MaterialParameterDataCollection::MaterialParameterDataCollec
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                Entries[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::IdMappingEntry>(ptr_value, 176045846u);
+                Entries.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IdMappingEntry>(ptr_value, 176045846u));
             }
         }
     }
@@ -27849,7 +27849,7 @@ yordle::data::meta::MaterialParameterDataCollection::MaterialParameterDataCollec
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                data[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MaterialParameterData>(ptr_value, 1407148951u);
+                data.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialParameterData>(ptr_value, 1407148951u));
             }
         }
     }
@@ -27871,7 +27871,7 @@ yordle::data::meta::MaterialTextureDataCollection::MaterialTextureDataCollection
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                Entries[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::IdMappingEntry>(ptr_value, 176045846u);
+                Entries.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IdMappingEntry>(ptr_value, 176045846u));
             }
         }
     }
@@ -27887,7 +27887,7 @@ yordle::data::meta::MaterialTextureDataCollection::MaterialTextureDataCollection
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                data[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MaterialTextureData>(ptr_value, 3791453475u);
+                data.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialTextureData>(ptr_value, 3791453475u));
             }
         }
     }
@@ -27909,7 +27909,7 @@ yordle::data::meta::MaterialSwitchDataCollection::MaterialSwitchDataCollection(c
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                Entries[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::IdMappingEntry>(ptr_value, 176045846u);
+                Entries.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IdMappingEntry>(ptr_value, 176045846u));
             }
         }
     }
@@ -27925,7 +27925,7 @@ yordle::data::meta::MaterialSwitchDataCollection::MaterialSwitchDataCollection(c
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                data[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MaterialSwitchData>(ptr_value, 1327860340u);
+                data.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialSwitchData>(ptr_value, 1327860340u));
             }
         }
     }
@@ -27990,7 +27990,7 @@ yordle::data::meta::MaterialInstanceTextureDef::MaterialInstanceTextureDef(const
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                uncensoredTextures[ptr_key->value] = ptr_value->value;
+                uncensoredTextures.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -28012,7 +28012,7 @@ yordle::data::meta::xf7084b4a::xf7084b4a(const std::shared_ptr<yordle::data::pro
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                shaderMacros[ptr_key->value] = ptr_value->value;
+                shaderMacros.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -28065,7 +28065,7 @@ yordle::data::meta::MaterialInstanceDynamicTexture::MaterialInstanceDynamicTextu
         for (const auto &entry : ptr_options->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                options.emplace(yordle::data::meta::deserialize<yordle::data::meta::DynamicMaterialTextureSwapOption>(ptr_entry, 567330916u));
+                options.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::DynamicMaterialTextureSwapOption>(ptr_entry, 567330916u));
             }
         }
     }
@@ -28124,7 +28124,7 @@ yordle::data::meta::StaticMaterialShaderSamplerDef::StaticMaterialShaderSamplerD
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                uncensoredTextures[ptr_key->value] = ptr_value->value;
+                uncensoredTextures.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -28167,7 +28167,7 @@ yordle::data::meta::StaticMaterialPassDef::StaticMaterialPassDef(const std::shar
 
     auto ptr_shader = prop->cast_prop<yordle::data::prop::reference_prop>(895309160u);
     if (ptr_shader != nullptr) {
-        shader = ptr_shader->value;
+        shader.key = ptr_shader->value;
     }
 
     auto ptr_shaderMacros = prop->cast_prop<yordle::data::prop::map_prop>(3872816621u);
@@ -28176,7 +28176,7 @@ yordle::data::meta::StaticMaterialPassDef::StaticMaterialPassDef(const std::shar
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                shaderMacros[ptr_key->value] = ptr_value->value;
+                shaderMacros.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -28186,7 +28186,7 @@ yordle::data::meta::StaticMaterialPassDef::StaticMaterialPassDef(const std::shar
         for (const auto &entry : ptr_paramValues->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                paramValues.emplace(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialShaderParamDef>(ptr_entry, 3729264367u));
+                paramValues.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialShaderParamDef>(ptr_entry, 3729264367u));
             }
         }
     }
@@ -28312,7 +28312,7 @@ yordle::data::meta::StaticMaterialTechniqueDef::StaticMaterialTechniqueDef(const
         for (const auto &entry : ptr_passes->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                passes.emplace(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialPassDef>(ptr_entry, 2235027650u));
+                passes.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialPassDef>(ptr_entry, 2235027650u));
             }
         }
     }
@@ -28339,7 +28339,7 @@ yordle::data::meta::StaticMaterialChildTechniqueDef::StaticMaterialChildTechniqu
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                shaderMacros[ptr_key->value] = ptr_value->value;
+                shaderMacros.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -28536,7 +28536,7 @@ yordle::data::meta::MapPointLight::MapPointLight(const std::shared_ptr<yordle::d
 
     auto ptr_type = prop->cast_prop<yordle::data::prop::reference_prop>(1361572173u);
     if (ptr_type != nullptr) {
-        type = ptr_type->value;
+        type.key = ptr_type->value;
     }
 
     auto ptr_radiusScale = prop->cast_prop<yordle::data::prop::float32_prop>(4161999371u);
@@ -28722,7 +28722,7 @@ yordle::data::meta::SHData::SHData(const std::shared_ptr<yordle::data::prop::str
         for (const auto &entry : ptr_bandData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(entry);
             if (ptr_entry != nullptr) {
-                bandData.emplace(ptr_entry->value);
+                bandData.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -28735,7 +28735,7 @@ yordle::data::meta::SkinMeshDataProperties_MaterialOverride::SkinMeshDataPropert
 
     auto ptr_material = prop->cast_prop<yordle::data::prop::reference_prop>(3538210912u);
     if (ptr_material != nullptr) {
-        material = ptr_material->value;
+        material.key = ptr_material->value;
     }
 
     auto ptr_texture = prop->cast_prop<yordle::data::prop::string_prop>(1013213428u);
@@ -28820,7 +28820,7 @@ yordle::data::meta::SkinMeshDataProperties::SkinMeshDataProperties(const std::sh
 
     auto ptr_material = prop->cast_prop<yordle::data::prop::reference_prop>(3538210912u);
     if (ptr_material != nullptr) {
-        material = ptr_material->value;
+        material.key = ptr_material->value;
     }
 
     auto ptr_boundingCylinderRadius = prop->cast_prop<yordle::data::prop::float32_prop>(84321477u);
@@ -28921,7 +28921,7 @@ yordle::data::meta::SkinMeshDataProperties::SkinMeshDataProperties(const std::sh
         for (const auto &entry : ptr_materialOverride->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                materialOverride.emplace(yordle::data::meta::deserialize<yordle::data::meta::SkinMeshDataProperties_MaterialOverride>(ptr_entry, 2340045716u));
+                materialOverride.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SkinMeshDataProperties_MaterialOverride>(ptr_entry, 2340045716u));
             }
         }
     }
@@ -28936,7 +28936,7 @@ yordle::data::meta::SkinMeshDataProperties::SkinMeshDataProperties(const std::sh
         for (const auto &entry : ptr_rigPoseModifierData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                rigPoseModifierData.emplace(yordle::data::meta::deserialize<yordle::data::meta::BaseRigPoseModifierData>(ptr_entry, 3000850570u));
+                rigPoseModifierData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::BaseRigPoseModifierData>(ptr_entry, 3000850570u));
             }
         }
     }
@@ -28969,7 +28969,7 @@ yordle::data::meta::FunctionDefinition::FunctionDefinition(const std::shared_ptr
         for (const auto &entry : ptr_InputParameters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                InputParameters.emplace(ptr_entry->value);
+                InputParameters.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -28979,7 +28979,7 @@ yordle::data::meta::FunctionDefinition::FunctionDefinition(const std::shared_ptr
         for (const auto &entry : ptr_OutputParameters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                OutputParameters.emplace(ptr_entry->value);
+                OutputParameters.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -29027,7 +29027,7 @@ yordle::data::meta::SwitchScriptBlock::SwitchScriptBlock(const std::shared_ptr<y
         for (const auto &entry : ptr_Cases->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                Cases.emplace(yordle::data::meta::deserialize<yordle::data::meta::SwitchCase>(ptr_entry, 3460129365u));
+                Cases.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SwitchCase>(ptr_entry, 3460129365u));
             }
         }
     }
@@ -29071,7 +29071,7 @@ yordle::data::meta::AndScriptCondition::AndScriptCondition(const std::shared_ptr
         for (const auto &entry : ptr_Conditions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                Conditions.emplace(yordle::data::meta::deserialize<yordle::data::meta::IScriptCondition>(ptr_entry, 3324095080u));
+                Conditions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IScriptCondition>(ptr_entry, 3324095080u));
             }
         }
     }
@@ -29087,7 +29087,7 @@ yordle::data::meta::OrScriptCondition::OrScriptCondition(const std::shared_ptr<y
         for (const auto &entry : ptr_Conditions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                Conditions.emplace(yordle::data::meta::deserialize<yordle::data::meta::IScriptCondition>(ptr_entry, 3324095080u));
+                Conditions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IScriptCondition>(ptr_entry, 3324095080u));
             }
         }
     }
@@ -29364,7 +29364,7 @@ yordle::data::meta::SceneData::SceneData(const std::shared_ptr<yordle::data::pro
 
     auto ptr_mParentScene = prop->cast_prop<yordle::data::prop::reference_prop>(3830041648u);
     if (ptr_mParentScene != nullptr) {
-        mParentScene = ptr_mParentScene->value;
+        mParentScene.key = ptr_mParentScene->value;
     }
 
     auto ptr_SceneTransitionIn = prop->cast_prop<yordle::data::prop::structure_prop>(2280590099u);
@@ -29528,7 +29528,7 @@ yordle::data::meta::x231dd1a2::x231dd1a2(const std::shared_ptr<yordle::data::pro
 
     auto ptr_mScene = prop->cast_prop<yordle::data::prop::reference_prop>(2391911648u);
     if (ptr_mScene != nullptr) {
-        mScene = ptr_mScene->value;
+        mScene.key = ptr_mScene->value;
     }
 }
 
@@ -29578,14 +29578,14 @@ yordle::data::meta::ElementGroupButtonState::ElementGroupButtonState(const std::
         for (const auto &entry : ptr_displayElements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                displayElements.emplace(ptr_entry->value);
+                displayElements.push_back(yordle::data::meta::bin_ref<yordle::data::meta::x231dd1a2>(589156770u, ptr_entry->value));
             }
         }
     }
 
     auto ptr_TextElement = prop->cast_prop<yordle::data::prop::reference_prop>(4005730134u);
     if (ptr_TextElement != nullptr) {
-        TextElement = ptr_TextElement->value;
+        TextElement.key = ptr_TextElement->value;
     }
 }
 
@@ -29599,7 +29599,7 @@ yordle::data::meta::ElementGroupData::ElementGroupData(const std::shared_ptr<yor
         for (const auto &entry : ptr_elements->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                elements.emplace(ptr_entry->value);
+                elements.push_back(yordle::data::meta::bin_ref<yordle::data::meta::x231dd1a2>(589156770u, ptr_entry->value));
             }
         }
     }
@@ -29612,7 +29612,7 @@ yordle::data::meta::x20d0e681::x20d0e681(const std::shared_ptr<yordle::data::pro
 
     auto ptr_x76ef64de = prop->cast_prop<yordle::data::prop::reference_prop>(1995400414u);
     if (ptr_x76ef64de != nullptr) {
-        x76ef64de = ptr_x76ef64de->value;
+        x76ef64de.key = ptr_x76ef64de->value;
     }
 }
 
@@ -29623,7 +29623,7 @@ yordle::data::meta::ElementGroupGridData::ElementGroupGridData(const std::shared
 
     auto ptr_GridRegion = prop->cast_prop<yordle::data::prop::reference_prop>(3648377257u);
     if (ptr_GridRegion != nullptr) {
-        GridRegion = ptr_GridRegion->value;
+        GridRegion.key = ptr_GridRegion->value;
     }
 
     auto ptr_LayoutType = prop->cast_prop<yordle::data::prop::uint32_prop>(2640041031u);
@@ -29660,17 +29660,17 @@ yordle::data::meta::ElementGroupSliderState::ElementGroupSliderState(const std::
 
     auto ptr_BarBackdrop = prop->cast_prop<yordle::data::prop::reference_prop>(2211737984u);
     if (ptr_BarBackdrop != nullptr) {
-        BarBackdrop = ptr_BarBackdrop->value;
+        BarBackdrop.key = ptr_BarBackdrop->value;
     }
 
     auto ptr_BarFill = prop->cast_prop<yordle::data::prop::reference_prop>(2976871175u);
     if (ptr_BarFill != nullptr) {
-        BarFill = ptr_BarFill->value;
+        BarFill.key = ptr_BarFill->value;
     }
 
     auto ptr_sliderIcon = prop->cast_prop<yordle::data::prop::reference_prop>(4149898573u);
     if (ptr_sliderIcon != nullptr) {
-        sliderIcon = ptr_sliderIcon->value;
+        sliderIcon.key = ptr_sliderIcon->value;
     }
 }
 
@@ -29701,12 +29701,12 @@ yordle::data::meta::ElementGroupSliderData::ElementGroupSliderData(const std::sh
 
     auto ptr_BarHitRegion = prop->cast_prop<yordle::data::prop::reference_prop>(4212105619u);
     if (ptr_BarHitRegion != nullptr) {
-        BarHitRegion = ptr_BarHitRegion->value;
+        BarHitRegion.key = ptr_BarHitRegion->value;
     }
 
     auto ptr_SliderHitRegion = prop->cast_prop<yordle::data::prop::reference_prop>(1034263897u);
     if (ptr_SliderHitRegion != nullptr) {
-        SliderHitRegion = ptr_SliderHitRegion->value;
+        SliderHitRegion.key = ptr_SliderHitRegion->value;
     }
 
     auto ptr_direction = prop->cast_prop<yordle::data::prop::uint8_prop>(3748513642u);
@@ -29777,9 +29777,9 @@ yordle::data::meta::X3DSharedConstantDef::X3DSharedConstantDef(const std::shared
         Count = ptr_Count->value;
     }
 
-    auto ptr__register = prop->cast_prop<yordle::data::prop::int32_prop>(761819584u);
-    if (ptr__register != nullptr) {
-        _register = ptr__register->value;
+    auto ptr_register_register_ = prop->cast_prop<yordle::data::prop::int32_prop>(761819584u);
+    if (ptr_register_register_ != nullptr) {
+        register_register_ = ptr_register_register_->value;
     }
 
     auto ptr_SetManually = prop->cast_prop<yordle::data::prop::bool_prop>(1757672278u);
@@ -29818,7 +29818,7 @@ yordle::data::meta::X3DSharedConstantBufferDef::X3DSharedConstantBufferDef(const
         for (const auto &entry : ptr_constants->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                constants.emplace(yordle::data::meta::deserialize<yordle::data::meta::X3DSharedConstantDef>(ptr_entry, 19256412u));
+                constants.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::X3DSharedConstantDef>(ptr_entry, 19256412u));
             }
         }
     }
@@ -29828,9 +29828,9 @@ yordle::data::meta::X3DSharedConstantBufferDef::X3DSharedConstantBufferDef(const
         xa87049bc = ptr_xa87049bc->value;
     }
 
-    auto ptr__register = prop->cast_prop<yordle::data::prop::int32_prop>(761819584u);
-    if (ptr__register != nullptr) {
-        _register = ptr__register->value;
+    auto ptr_register_register_ = prop->cast_prop<yordle::data::prop::int32_prop>(761819584u);
+    if (ptr_register_register_ != nullptr) {
+        register_register_ = ptr_register_register_->value;
     }
 
     auto ptr_PlatformMask = prop->cast_prop<yordle::data::prop::uint32_prop>(3548357530u);
@@ -29849,7 +29849,7 @@ yordle::data::meta::X3DSharedData::X3DSharedData(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_xe595dd78->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                xe595dd78.emplace(ptr_entry->value);
+                xe595dd78.push_back(yordle::data::meta::bin_ref<yordle::data::meta::X3DSharedConstantBufferDef>(2515485450u, ptr_entry->value));
             }
         }
     }
@@ -29859,7 +29859,7 @@ yordle::data::meta::X3DSharedData::X3DSharedData(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_textures->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                textures.emplace(yordle::data::meta::deserialize<yordle::data::meta::X3DSharedTextureDef>(ptr_entry, 927275163u));
+                textures.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::X3DSharedTextureDef>(ptr_entry, 927275163u));
             }
         }
     }
@@ -29880,9 +29880,9 @@ yordle::data::meta::X3DSharedTextureDef::X3DSharedTextureDef(const std::shared_p
         type = ptr_type->value;
     }
 
-    auto ptr__register = prop->cast_prop<yordle::data::prop::int32_prop>(761819584u);
-    if (ptr__register != nullptr) {
-        _register = ptr__register->value;
+    auto ptr_register_register_ = prop->cast_prop<yordle::data::prop::int32_prop>(761819584u);
+    if (ptr_register_register_ != nullptr) {
+        register_register_ = ptr_register_register_->value;
     }
 
     auto ptr_PlatformMask = prop->cast_prop<yordle::data::prop::uint32_prop>(3548357530u);
@@ -29912,7 +29912,7 @@ yordle::data::meta::ContextualActionData::ContextualActionData(const std::shared
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mSituations[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::ContextualSituation>(ptr_value, 4230456894u);
+                mSituations.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ContextualSituation>(ptr_value, 4230456894u));
             }
         }
     }
@@ -29938,7 +29938,7 @@ yordle::data::meta::Champion::Champion(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_statStoneSets->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                statStoneSets.emplace(ptr_entry->value);
+                statStoneSets.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -29953,7 +29953,7 @@ yordle::data::meta::Champion::Champion(const std::shared_ptr<yordle::data::prop:
         for (const auto &entry : ptr_additionalCharacters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                additionalCharacters.emplace(ptr_entry->value);
+                additionalCharacters.push_back(yordle::data::meta::bin_ref<yordle::data::meta::Character>(2335876880u, ptr_entry->value));
             }
         }
     }
@@ -30120,7 +30120,7 @@ yordle::data::meta::GdsMapObject::GdsMapObject(const std::shared_ptr<yordle::dat
         for (const auto &entry : ptr_extraInfo->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                extraInfo.emplace(yordle::data::meta::deserialize<yordle::data::meta::GDSMapObjectExtraInfo>(ptr_entry, 1222455122u));
+                extraInfo.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::GDSMapObjectExtraInfo>(ptr_entry, 1222455122u));
             }
         }
     }
@@ -30138,7 +30138,7 @@ yordle::data::meta::Map::Map(const std::shared_ptr<yordle::data::prop::structure
 
     auto ptr_BasedOnMap = prop->cast_prop<yordle::data::prop::reference_prop>(3565747657u);
     if (ptr_BasedOnMap != nullptr) {
-        BasedOnMap = ptr_BasedOnMap->value;
+        BasedOnMap.key = ptr_BasedOnMap->value;
     }
 
     auto ptr_characterLists = prop->cast_prop<yordle::data::prop::unordered_set_prop>(137362161u);
@@ -30146,7 +30146,7 @@ yordle::data::meta::Map::Map(const std::shared_ptr<yordle::data::prop::structure
         for (const auto &entry : ptr_characterLists->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                characterLists.emplace(ptr_entry->value);
+                characterLists.push_back(yordle::data::meta::bin_ref<yordle::data::meta::MapCharacterList>(199060396u, ptr_entry->value));
             }
         }
     }
@@ -30182,7 +30182,7 @@ yordle::data::meta::MapBehavior::MapBehavior(const std::shared_ptr<yordle::data:
         for (const auto &entry : ptr_Actions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                Actions.emplace(yordle::data::meta::deserialize<yordle::data::meta::MapAction>(ptr_entry, 3419333123u));
+                Actions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MapAction>(ptr_entry, 3419333123u));
             }
         }
     }
@@ -30518,7 +30518,7 @@ yordle::data::meta::FxActionVfx::FxActionVfx(const std::shared_ptr<yordle::data:
 
     auto ptr_Particle = prop->cast_prop<yordle::data::prop::reference_prop>(2324120511u);
     if (ptr_Particle != nullptr) {
-        Particle = ptr_Particle->value;
+        Particle.key = ptr_Particle->value;
     }
 
     auto ptr_x39d6e480 = prop->cast_prop<yordle::data::prop::float32_prop>(970384512u);
@@ -30558,7 +30558,7 @@ yordle::data::meta::LolSpellScript::LolSpellScript(const std::shared_ptr<yordle:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                sequences[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::ScriptSequence>(ptr_value, 2793907875u);
+                sequences.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ScriptSequence>(ptr_value, 2793907875u));
             }
         }
     }
@@ -30569,7 +30569,7 @@ yordle::data::meta::LolSpellScript::LolSpellScript(const std::shared_ptr<yordle:
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                CustomSequences[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::ScriptSequence>(ptr_value, 2793907875u);
+                CustomSequences.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ScriptSequence>(ptr_value, 2793907875u));
             }
         }
     }
@@ -30808,7 +30808,7 @@ yordle::data::meta::TftUnitShopViewController::TftUnitShopViewController(const s
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                x2781ed6b[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::x2781ed6b>(ptr_value, 662826347u);
+                x2781ed6b.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::x2781ed6b>(ptr_value, 662826347u));
             }
         }
     }
@@ -31137,7 +31137,7 @@ yordle::data::meta::OptionsViewController::OptionsViewController(const std::shar
         for (const auto &entry : ptr_Tabs->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(entry);
             if (ptr_entry != nullptr) {
-                Tabs.emplace(ptr_entry->value);
+                Tabs.push_back(yordle::data::meta::bin_ref<yordle::data::meta::OptionsTab>(2946448300u, ptr_entry->value));
             }
         }
     }
@@ -31173,7 +31173,7 @@ yordle::data::meta::PostGameViewController::PostGameViewController(const std::sh
         for (const auto &entry : ptr_RankIconData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                RankIconData.emplace(yordle::data::meta::deserialize<yordle::data::meta::NamedIconData>(ptr_entry, 2945891227u));
+                RankIconData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::NamedIconData>(ptr_entry, 2945891227u));
             }
         }
     }
@@ -31243,7 +31243,7 @@ yordle::data::meta::PostGameViewController::PostGameViewController(const std::sh
         for (const auto &entry : ptr_RatedIconData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                RatedIconData.emplace(yordle::data::meta::deserialize<yordle::data::meta::NamedIconData>(ptr_entry, 2945891227u));
+                RatedIconData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::NamedIconData>(ptr_entry, 2945891227u));
             }
         }
     }
@@ -31275,7 +31275,7 @@ yordle::data::meta::CelebrationViewController::CelebrationViewController(const s
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                xc4ecb642[ptr_key->value] = ptr_value->value;
+                xc4ecb642.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -31291,7 +31291,7 @@ yordle::data::meta::HomeViewController::HomeViewController(const std::shared_ptr
         for (const auto &entry : ptr_ModeSelectCustomButtonData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                ModeSelectCustomButtonData.emplace(yordle::data::meta::deserialize<yordle::data::meta::ModeSelectButtonData>(ptr_entry, 3056512770u));
+                ModeSelectCustomButtonData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ModeSelectButtonData>(ptr_entry, 3056512770u));
             }
         }
     }
@@ -31362,7 +31362,7 @@ yordle::data::meta::LoadoutSelectViewController::LoadoutSelectViewController(con
         for (const auto &entry : ptr_LoadoutsButtonData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                LoadoutsButtonData.emplace(yordle::data::meta::deserialize<yordle::data::meta::ILoadoutFeatureDataBehavior>(ptr_entry, 2293774348u));
+                LoadoutsButtonData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ILoadoutFeatureDataBehavior>(ptr_entry, 2293774348u));
             }
         }
     }
@@ -31500,7 +31500,7 @@ yordle::data::meta::LobbyViewController::LobbyViewController(const std::shared_p
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int64_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                xbd29d956[ptr_key->value] = ptr_value->value;
+                xbd29d956.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -31522,7 +31522,7 @@ yordle::data::meta::LobbyViewController::LobbyViewController(const std::shared_p
 
     auto ptr_x671c34c8 = prop->cast_prop<yordle::data::prop::reference_prop>(1729901768u);
     if (ptr_x671c34c8 != nullptr) {
-        x671c34c8 = ptr_x671c34c8->value;
+        x671c34c8.key = ptr_x671c34c8->value;
     }
 
     auto ptr_xb3e2f60e = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3017995790u);
@@ -31568,7 +31568,7 @@ yordle::data::meta::ModeSelectViewController::ModeSelectViewController(const std
         for (const auto &entry : ptr_queueDisplayData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                queueDisplayData.emplace(yordle::data::meta::deserialize<yordle::data::meta::QueueDisplayData>(ptr_entry, 1532902214u));
+                queueDisplayData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::QueueDisplayData>(ptr_entry, 1532902214u));
             }
         }
     }
@@ -31603,7 +31603,7 @@ yordle::data::meta::ModeSelectViewController::ModeSelectViewController(const std
         for (const auto &entry : ptr_x71378d8b->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                x71378d8b.emplace(ptr_entry->value);
+                x71378d8b.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -31708,7 +31708,7 @@ yordle::data::meta::StoreViewController::StoreViewController(const std::shared_p
         for (const auto &entry : ptr_StoreCategoryButtonDefinitions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                StoreCategoryButtonDefinitions.emplace(yordle::data::meta::deserialize<yordle::data::meta::StoreCategoryButtonDefinition>(ptr_entry, 4069990911u));
+                StoreCategoryButtonDefinitions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::StoreCategoryButtonDefinition>(ptr_entry, 4069990911u));
             }
         }
     }
@@ -31746,7 +31746,7 @@ yordle::data::meta::TFTBattlepassViewController::TFTBattlepassViewController(con
 
     auto ptr_x56f22512 = prop->cast_prop<yordle::data::prop::reference_prop>(1458709778u);
     if (ptr_x56f22512 != nullptr) {
-        x56f22512 = ptr_x56f22512->value;
+        x56f22512.key = ptr_x56f22512->value;
     }
 }
 
@@ -31766,7 +31766,7 @@ yordle::data::meta::LoadoutCompanionInfoPanel::LoadoutCompanionInfoPanel(const s
         for (const auto &entry : ptr_tierButton->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                tierButton.emplace(ptr_entry->value);
+                tierButton.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -31776,7 +31776,7 @@ yordle::data::meta::LoadoutCompanionInfoPanel::LoadoutCompanionInfoPanel(const s
         for (const auto &entry : ptr_upgradeTierButton->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                upgradeTierButton.emplace(ptr_entry->value);
+                upgradeTierButton.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -31812,7 +31812,7 @@ yordle::data::meta::LoadoutDamageSkinInfoPanel::LoadoutDamageSkinInfoPanel(const
         for (const auto &entry : ptr_tierButton->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                tierButton.emplace(ptr_entry->value);
+                tierButton.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -32037,7 +32037,7 @@ yordle::data::meta::TooltipViewController::TooltipViewController(const std::shar
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                xf5fc1d3a[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::x9e5aed77>(ptr_value, 2656759159u);
+                xf5fc1d3a.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::x9e5aed77>(ptr_value, 2656759159u));
             }
         }
     }
@@ -32085,7 +32085,7 @@ yordle::data::meta::BlendableClipData::BlendableClipData(const std::shared_ptr<y
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                mEventDataMap[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::BaseEventData>(ptr_value, 2039250216u);
+                mEventDataMap.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::BaseEventData>(ptr_value, 2039250216u));
             }
         }
     }
@@ -32142,7 +32142,7 @@ yordle::data::meta::ConditionFloatClipData::ConditionFloatClipData(const std::sh
         for (const auto &entry : ptr_mConditionFloatPairDataList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mConditionFloatPairDataList.emplace(yordle::data::meta::deserialize<yordle::data::meta::ConditionFloatPairData>(ptr_entry, 1675919456u));
+                mConditionFloatPairDataList.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ConditionFloatPairData>(ptr_entry, 1675919456u));
             }
         }
     }
@@ -32183,7 +32183,7 @@ yordle::data::meta::ParallelClipData::ParallelClipData(const std::shared_ptr<yor
         for (const auto &entry : ptr_mClipNameList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mClipNameList.emplace(ptr_entry->value);
+                mClipNameList.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -32204,7 +32204,7 @@ yordle::data::meta::ParametricClipData::ParametricClipData(const std::shared_ptr
         for (const auto &entry : ptr_mParametricPairDataList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mParametricPairDataList.emplace(yordle::data::meta::deserialize<yordle::data::meta::ParametricPairData>(ptr_entry, 3371956895u));
+                mParametricPairDataList.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ParametricPairData>(ptr_entry, 3371956895u));
             }
         }
     }
@@ -32220,7 +32220,7 @@ yordle::data::meta::SelectorClipData::SelectorClipData(const std::shared_ptr<yor
         for (const auto &entry : ptr_mSelectorPairDataList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mSelectorPairDataList.emplace(yordle::data::meta::deserialize<yordle::data::meta::SelectorPairData>(ptr_entry, 1837663416u));
+                mSelectorPairDataList.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::SelectorPairData>(ptr_entry, 1837663416u));
             }
         }
     }
@@ -32236,7 +32236,7 @@ yordle::data::meta::SequencerClipData::SequencerClipData(const std::shared_ptr<y
         for (const auto &entry : ptr_mClipNameList->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mClipNameList.emplace(ptr_entry->value);
+                mClipNameList.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -32377,7 +32377,7 @@ yordle::data::meta::MapMotionPath::MapMotionPath(const std::shared_ptr<yordle::d
         for (const auto &entry : ptr_Segments->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                Segments.emplace(yordle::data::meta::deserialize<yordle::data::meta::MapPathSegment>(ptr_entry, 2603925163u));
+                Segments.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MapPathSegment>(ptr_entry, 2603925163u));
             }
         }
     }
@@ -32425,7 +32425,7 @@ yordle::data::meta::VfxSystemDefinitionData::VfxSystemDefinitionData(const std::
         for (const auto &entry : ptr_materialOverrideDefinitions->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                materialOverrideDefinitions.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxMaterialOverrideDefinitionData>(ptr_entry, 3652726407u));
+                materialOverrideDefinitions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxMaterialOverrideDefinitionData>(ptr_entry, 3652726407u));
             }
         }
     }
@@ -32435,7 +32435,7 @@ yordle::data::meta::VfxSystemDefinitionData::VfxSystemDefinitionData(const std::
         for (const auto &entry : ptr_complexEmitterDefinitionData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                complexEmitterDefinitionData.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxEmitterDefinitionData>(ptr_entry, 164488258u));
+                complexEmitterDefinitionData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxEmitterDefinitionData>(ptr_entry, 164488258u));
             }
         }
     }
@@ -32445,7 +32445,7 @@ yordle::data::meta::VfxSystemDefinitionData::VfxSystemDefinitionData(const std::
         for (const auto &entry : ptr_simpleEmitterDefinitionData->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                simpleEmitterDefinitionData.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxEmitterDefinitionData>(ptr_entry, 164488258u));
+                simpleEmitterDefinitionData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxEmitterDefinitionData>(ptr_entry, 164488258u));
             }
         }
     }
@@ -32528,7 +32528,7 @@ yordle::data::meta::VfxSystemDefinitionData::VfxSystemDefinitionData(const std::
         for (const auto &entry : ptr_assetRemappingTable->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                assetRemappingTable.emplace(yordle::data::meta::deserialize<yordle::data::meta::VfxAssetRemap>(ptr_entry, 4129808802u));
+                assetRemappingTable.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxAssetRemap>(ptr_entry, 4129808802u));
             }
         }
     }
@@ -32638,7 +32638,7 @@ yordle::data::meta::AllTrueMaterialDriver::AllTrueMaterialDriver(const std::shar
         for (const auto &entry : ptr_mDrivers->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mDrivers.emplace(yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialBoolDriver>(ptr_entry, 3663840478u));
+                mDrivers.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialBoolDriver>(ptr_entry, 3663840478u));
             }
         }
     }
@@ -32654,7 +32654,7 @@ yordle::data::meta::OneTrueMaterialDriver::OneTrueMaterialDriver(const std::shar
         for (const auto &entry : ptr_mDrivers->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                mDrivers.emplace(yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialBoolDriver>(ptr_entry, 3663840478u));
+                mDrivers.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialBoolDriver>(ptr_entry, 3663840478u));
             }
         }
     }
@@ -32715,7 +32715,7 @@ yordle::data::meta::HybridMaterialDef::HybridMaterialDef(const std::shared_ptr<y
 
     auto ptr_preset = prop->cast_prop<yordle::data::prop::reference_prop>(4111477022u);
     if (ptr_preset != nullptr) {
-        preset = ptr_preset->value;
+        preset.key = ptr_preset->value;
     }
 
     auto ptr_shaderMacros = prop->cast_prop<yordle::data::prop::map_prop>(3872816621u);
@@ -32724,7 +32724,7 @@ yordle::data::meta::HybridMaterialDef::HybridMaterialDef(const std::shared_ptr<y
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                shaderMacros[ptr_key->value] = ptr_value->value;
+                shaderMacros.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -32747,7 +32747,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
 
     auto ptr_BaseMaterial = prop->cast_prop<yordle::data::prop::reference_prop>(2404001921u);
     if (ptr_BaseMaterial != nullptr) {
-        BaseMaterial = ptr_BaseMaterial->value;
+        BaseMaterial.key = ptr_BaseMaterial->value;
     }
 
     auto ptr_childTechniques = prop->cast_prop<yordle::data::prop::set_prop>(2469455542u);
@@ -32755,7 +32755,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
         for (const auto &entry : ptr_childTechniques->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                childTechniques.emplace(yordle::data::meta::deserialize<yordle::data::meta::xf7084b4a>(ptr_entry, 4144515914u));
+                childTechniques.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::xf7084b4a>(ptr_entry, 4144515914u));
             }
         }
     }
@@ -32766,7 +32766,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                shaderMacros[ptr_key->value] = ptr_value->value;
+                shaderMacros.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -32777,7 +32777,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                params[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceParamDef>(ptr_value, 1496596895u);
+                params.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceParamDef>(ptr_value, 1496596895u));
             }
         }
     }
@@ -32788,7 +32788,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                textures[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceTextureDef>(ptr_value, 1305331905u);
+                textures.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceTextureDef>(ptr_value, 1305331905u));
             }
         }
     }
@@ -32799,7 +32799,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                switches[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceSwitchDef>(ptr_value, 2719807978u);
+                switches.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceSwitchDef>(ptr_value, 2719807978u));
             }
         }
     }
@@ -32810,7 +32810,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                DynamicParams[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceDynamicParam>(ptr_value, 1964830497u);
+                DynamicParams.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceDynamicParam>(ptr_value, 1964830497u));
             }
         }
     }
@@ -32821,7 +32821,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                DynamicTextures[ptr_key->value] = yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceDynamicTexture>(ptr_value, 1083476907u);
+                DynamicTextures.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceDynamicTexture>(ptr_value, 1083476907u));
             }
         }
     }
@@ -32862,7 +32862,7 @@ yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<y
         for (const auto &entry : ptr_samplerValues->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                samplerValues.emplace(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialShaderSamplerDef>(ptr_entry, 151302480u));
+                samplerValues.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialShaderSamplerDef>(ptr_entry, 151302480u));
             }
         }
     }
@@ -32872,7 +32872,7 @@ yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<y
         for (const auto &entry : ptr_paramValues->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                paramValues.emplace(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialShaderParamDef>(ptr_entry, 3729264367u));
+                paramValues.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialShaderParamDef>(ptr_entry, 3729264367u));
             }
         }
     }
@@ -32882,7 +32882,7 @@ yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<y
         for (const auto &entry : ptr_switches->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                switches.emplace(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialSwitchDef>(ptr_entry, 237114017u));
+                switches.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialSwitchDef>(ptr_entry, 237114017u));
             }
         }
     }
@@ -32893,7 +32893,7 @@ yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<y
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                shaderMacros[ptr_key->value] = ptr_value->value;
+                shaderMacros.emplace(ptr_key->value, ptr_value->value);
             }
         }
     }
@@ -32903,7 +32903,7 @@ yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<y
         for (const auto &entry : ptr_techniques->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                techniques.emplace(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialTechniqueDef>(ptr_entry, 101336083u));
+                techniques.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialTechniqueDef>(ptr_entry, 101336083u));
             }
         }
     }
@@ -32913,7 +32913,7 @@ yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<y
         for (const auto &entry : ptr_childTechniques->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                childTechniques.emplace(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialChildTechniqueDef>(ptr_entry, 1935363221u));
+                childTechniques.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialChildTechniqueDef>(ptr_entry, 1935363221u));
             }
         }
     }
@@ -32944,7 +32944,7 @@ yordle::data::meta::MapClouds::MapClouds(const std::shared_ptr<yordle::data::pro
         for (const auto &entry : ptr_Layers->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                Layers.emplace(yordle::data::meta::deserialize<yordle::data::meta::MapCloudsLayer>(ptr_entry, 769601740u));
+                Layers.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::MapCloudsLayer>(ptr_entry, 769601740u));
             }
         }
     }
@@ -32966,7 +32966,7 @@ yordle::data::meta::BaseResourceResolver::BaseResourceResolver(const std::shared
             auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
-                resourceMap[ptr_key->value] = ptr_value->value;
+                resourceMap[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::IResource>(ptr_value->value, 547453112u);
             }
         }
     }
@@ -33247,7 +33247,7 @@ yordle::data::meta::IRunFunctionBlock::IRunFunctionBlock(const std::shared_ptr<y
         for (const auto &entry : ptr_InputParameters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                InputParameters.emplace(yordle::data::meta::deserialize<yordle::data::meta::IScriptValueGet>(ptr_entry, 4142338480u));
+                InputParameters.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IScriptValueGet>(ptr_entry, 4142338480u));
             }
         }
     }
@@ -33257,7 +33257,7 @@ yordle::data::meta::IRunFunctionBlock::IRunFunctionBlock(const std::shared_ptr<y
         for (const auto &entry : ptr_OutputParameters->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                OutputParameters.emplace(yordle::data::meta::deserialize<yordle::data::meta::ScriptTableSet>(ptr_entry, 4139131590u));
+                OutputParameters.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ScriptTableSet>(ptr_entry, 4139131590u));
             }
         }
     }
@@ -33279,7 +33279,7 @@ yordle::data::meta::ScriptSequence::ScriptSequence(const std::shared_ptr<yordle:
         for (const auto &entry : ptr_blocks->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(entry);
             if (ptr_entry != nullptr) {
-                blocks.emplace(yordle::data::meta::deserialize<yordle::data::meta::IScriptBlock>(ptr_entry, 1009431984u));
+                blocks.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IScriptBlock>(ptr_entry, 1009431984u));
             }
         }
     }
@@ -33579,7 +33579,7 @@ yordle::data::meta::BaseElementData::BaseElementData(const std::shared_ptr<yordl
         for (const auto &entry : ptr_mHitTestPolygon->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::point_prop>(entry);
             if (ptr_entry != nullptr) {
-                mHitTestPolygon.emplace(ptr_entry->value);
+                mHitTestPolygon.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -33944,7 +33944,7 @@ yordle::data::meta::EffectInstancedElementData::EffectInstancedElementData(const
         for (const auto &entry : ptr_mAdditionalOffsets->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::point_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAdditionalOffsets.emplace(ptr_entry->value);
+                mAdditionalOffsets.emplace_back(ptr_entry->value);
             }
         }
     }
@@ -33963,7 +33963,7 @@ yordle::data::meta::xf6fd1c96::xf6fd1c96(const std::shared_ptr<yordle::data::pro
 
     auto ptr_mMaterial = prop->cast_prop<yordle::data::prop::reference_prop>(2246894113u);
     if (ptr_mMaterial != nullptr) {
-        mMaterial = ptr_mMaterial->value;
+        mMaterial.key = ptr_mMaterial->value;
     }
 }
 
@@ -34009,12 +34009,12 @@ yordle::data::meta::ElementGroupButtonData::ElementGroupButtonData(const std::sh
 
     auto ptr_hitRegionElement = prop->cast_prop<yordle::data::prop::reference_prop>(1811093838u);
     if (ptr_hitRegionElement != nullptr) {
-        hitRegionElement = ptr_hitRegionElement->value;
+        hitRegionElement.key = ptr_hitRegionElement->value;
     }
 
     auto ptr_ClickReleaseParticleElement = prop->cast_prop<yordle::data::prop::reference_prop>(2074868558u);
     if (ptr_ClickReleaseParticleElement != nullptr) {
-        ClickReleaseParticleElement = ptr_ClickReleaseParticleElement->value;
+        ClickReleaseParticleElement.key = ptr_ClickReleaseParticleElement->value;
     }
 
     auto ptr_soundEvents = prop->cast_prop<yordle::data::prop::structure_prop>(2735039949u);
@@ -34085,7 +34085,7 @@ yordle::data::meta::IconElementData::IconElementData(const std::shared_ptr<yordl
 
     auto ptr_mMaterial = prop->cast_prop<yordle::data::prop::reference_prop>(2246894113u);
     if (ptr_mMaterial != nullptr) {
-        mMaterial = ptr_mMaterial->value;
+        mMaterial.key = ptr_mMaterial->value;
     }
 
     auto ptr_mExtension = prop->cast_prop<yordle::data::prop::structure_prop>(252763365u);
@@ -34101,7 +34101,7 @@ yordle::data::meta::ParticleSystemElementData::ParticleSystemElementData(const s
 
     auto ptr_mVfxSystem = prop->cast_prop<yordle::data::prop::reference_prop>(992664269u);
     if (ptr_mVfxSystem != nullptr) {
-        mVfxSystem = ptr_mVfxSystem->value;
+        mVfxSystem.key = ptr_mVfxSystem->value;
     }
 
     auto ptr_xc47cf6c7 = prop->cast_prop<yordle::data::prop::uint32_prop>(3296523975u);
@@ -34138,7 +34138,7 @@ yordle::data::meta::ScissorRegionElementData::ScissorRegionElementData(const std
 
     auto ptr_xaccc80b5 = prop->cast_prop<yordle::data::prop::reference_prop>(2899083445u);
     if (ptr_xaccc80b5 != nullptr) {
-        xaccc80b5 = ptr_xaccc80b5->value;
+        xaccc80b5.key = ptr_xaccc80b5->value;
     }
 }
 
@@ -34154,7 +34154,7 @@ yordle::data::meta::TextElementData::TextElementData(const std::shared_ptr<yordl
 
     auto ptr_mFontDescription = prop->cast_prop<yordle::data::prop::reference_prop>(2221319337u);
     if (ptr_mFontDescription != nullptr) {
-        mFontDescription = ptr_mFontDescription->value;
+        mFontDescription.key = ptr_mFontDescription->value;
     }
 
     auto ptr_mTextAlignmentHorizontal = prop->cast_prop<yordle::data::prop::uint8_prop>(2685899512u);
@@ -34169,7 +34169,7 @@ yordle::data::meta::TextElementData::TextElementData(const std::shared_ptr<yordl
 
     auto ptr_x7c0a8359 = prop->cast_prop<yordle::data::prop::reference_prop>(2081063769u);
     if (ptr_x7c0a8359 != nullptr) {
-        x7c0a8359 = ptr_x7c0a8359->value;
+        x7c0a8359.key = ptr_x7c0a8359->value;
     }
 
     auto ptr_WrappingMode = prop->cast_prop<yordle::data::prop::uint8_prop>(1778988038u);
@@ -34242,7 +34242,7 @@ yordle::data::meta::IsAnimationPlayingDynamicMaterialBoolDriver::IsAnimationPlay
         for (const auto &entry : ptr_mAnimationNames->value) {
             auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(entry);
             if (ptr_entry != nullptr) {
-                mAnimationNames.emplace(ptr_entry->value);
+                mAnimationNames.emplace_back(ptr_entry->value);
             }
         }
     }
