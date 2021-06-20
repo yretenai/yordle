@@ -278,7 +278,7 @@ void find_source(filesystem::path &target, uint32_t id, const vector<WemSoundban
     }
 }
 
-void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, const vector<filesystem::path> &bankPaths, const set<string> &events, const set<string> &tags, bool isVO) {
+void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, const vector<filesystem::path> &bankPaths, const vector<string> &events, const vector<string> &tags, bool isVO) {
     vector<WemSoundbank> banks;
     vector<wem_pack> wem_packs;
 
@@ -351,7 +351,7 @@ void process(gnar::GnarConfiguration &gnar, const filesystem::path &output, cons
     }
 }
 
-void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const set<shared_ptr<yordle::data::meta::BankUnit>> &bankUnits, set<string> &tags, set<string> &done_units) {
+void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const vector<shared_ptr<yordle::data::meta::BankUnit>> &bankUnits, vector<string> &tags, set<string> &done_units) {
     for (const auto &bankUnit : bankUnits) {
         if (bankUnit == nullptr) {
             continue;
@@ -368,8 +368,8 @@ void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const
 
         cout << "processing bank unit " << name << endl;
 
-        set<string> localTag = tags;
-        localTag.emplace(name);
+        vector<string> localTag = tags;
+        localTag.emplace_back(name);
 
         vector<filesystem::path> bankPaths;
         bankPaths.reserve(bankUnit->bankPath.size());
@@ -378,10 +378,10 @@ void process_bank_units(gnar::GnarConfiguration &gnar, const string &type, const
         }
 
         if (name.ends_with("_VO")) {
-            localTag.emplace(name.substr(0, name.length() - 3));
+            localTag.emplace_back(name.substr(0, name.length() - 3));
         }
         if (name.ends_with("_SFX")) {
-            localTag.emplace(name.substr(0, name.length() - 4));
+            localTag.emplace_back(name.substr(0, name.length() - 4));
         }
 
         if (bankUnit->voiceOver) {
@@ -450,15 +450,15 @@ int main(int argc, char **argv) {
 
                 process_bank_units(gnar, "Skin", skin->skinAudioProperties->bankUnits, skin->skinAudioProperties->tagEventList, done_units);
             } else if (gnar.process_map) {
-                set<string> empty_tags;
+                vector<string> empty_tags;
                 if (obj->class_hash == 0xb36da9ac) {
                     auto map_data = yordle::data::meta::deserialize<yordle::data::meta::MapAudioDataProperties>(obj);
                     if (map_data == nullptr) {
                         continue;
                     }
-                    set<shared_ptr<yordle::data::meta::BankUnit>> bankUnits;
+                    vector<shared_ptr<yordle::data::meta::BankUnit>> bankUnits;
                     for (const auto &bankUnit : map_data->bankUnits) {
-                        bankUnits.insert(std::reinterpret_pointer_cast<yordle::data::meta::BankUnit>(bankUnit));
+                        bankUnits.emplace_back(std::reinterpret_pointer_cast<yordle::data::meta::BankUnit>(bankUnit));
                     }
                     process_bank_units(gnar, "Map", bankUnits, empty_tags, done_units);
                 } else if (obj->class_hash == 0xf2b58198) {
@@ -466,9 +466,9 @@ int main(int argc, char **argv) {
                     if (feature_data == nullptr) {
                         continue;
                     }
-                    set<shared_ptr<yordle::data::meta::BankUnit>> bankUnits;
+                    vector<shared_ptr<yordle::data::meta::BankUnit>> bankUnits;
                     for (const auto &bankUnit : feature_data->bankUnits) {
-                        bankUnits.insert(std::reinterpret_pointer_cast<yordle::data::meta::BankUnit>(bankUnit));
+                        bankUnits.emplace_back(std::reinterpret_pointer_cast<yordle::data::meta::BankUnit>(bankUnit));
                     }
                     process_bank_units(gnar, "Map", bankUnits, empty_tags, done_units);
                 }
