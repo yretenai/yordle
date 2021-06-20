@@ -47,7 +47,7 @@ namespace yordle::data {
             auto obj_hashes = buffer.lpcast<uint32_t>(ptr, obj_count);
 
             for (auto obj_hash : obj_hashes) {
-                objects.emplace(make_shared<prop::structure_prop>(buffer, ptr, version, obj_hash, true));
+                objects[obj_hash] = make_shared<prop::structure_prop>(buffer, ptr, version, obj_hash, true);
             }
         }
     }
@@ -63,7 +63,7 @@ namespace yordle::data {
 
         json objs;
         for (const auto &object : objects) {
-            object->to_json(objs, hashes, {}, store_type_info);
+            object.second->to_json(objs, hashes, {}, store_type_info);
         }
         j["objects"]       = objs;
         j["has_type_info"] = store_type_info;

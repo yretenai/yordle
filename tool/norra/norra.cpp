@@ -150,18 +150,25 @@ string get_type(const yordle::data::prop::prop_type &type, const norra::meta::pr
             return "std::array<uint8_t, 4>";
         case yordle::data::prop::prop_type::string:
             return "std::string";
-        case yordle::data::prop::prop_type::reference:
         case yordle::data::prop::prop_type::fnv_hash:
-            return "uint32_t";
+            return "yordle::data::meta::bin_fnv_hash";
+        case yordle::data::prop::prop_type::reference: {
+            if (defined.contains(prop.other_class)) {
+                auto key_type = hashes->get_string(prop.other_class, "x");
+                return "yordle::data::meta::bin_ref<yordle::data::meta::" + key_type + ">";
+            } else {
+                return "yordle::data::meta::bin_ref<yordle::data::meta::bin_class>";
+            }
+        }
         case yordle::data::prop::prop_type::xx_hash:
-            return "uint64_t";
+            return "yordle::data::meta::bin_xx_hash";
         case yordle::data::prop::prop_type::set:
         case yordle::data::prop::prop_type::unordered_set: {
             if (prop.container_i == nullptr) {
                 throw std::exception("set but no container data");
             }
             auto key_type = get_type(prop.container_i->type, prop, hashes, defined);
-            return "std::set<" + key_type + ">";
+            return "std::vector<" + key_type + ">";
         }
         case yordle::data::prop::prop_type::structure:
         case yordle::data::prop::prop_type::inline_structure: {
@@ -228,10 +235,11 @@ int main(int argc, char **argv) {
                            "#include <array>\n"
                            "#include <cstdint>\n"
                            "#include <memory>\n"
-                           "#include <set>\n"
+                           "#include <vector>\n"
                            "#include <string>\n\n"
                            "#include <yordle/yordle_export.h>\n"
                            "#include <yordle/data/meta/bin_class.hpp>\n"
+                           "#include <yordle/data/meta/bin_ref.hpp>\n"
                            "#include <yordle/data/meta/bin_dispatch.hpp>\n"
                            "#include <yordle/data/prop/inline_structure_prop.hpp>\n"
                            "#include <yordle/data/prop/map_prop.hpp>\n"
@@ -299,7 +307,8 @@ int main(int argc, char **argv) {
             for (const auto &prop : def.properties) {
                 auto prop_name = field_hashes->get_string(prop.hash, "x");
                 if (prop_name == "template" || prop_name == "register") {
-                    prop_name = "_" + prop_name;
+                    prop_name += "_";
+                    prop_name += prop_name;
                 }
                 auto prop_type = get_type(prop.type, prop, type_hashes, done);
 
@@ -324,7 +333,6 @@ int main(int argc, char **argv) {
                     case yordle::data::prop::prop_type::uint64:
                     case yordle::data::prop::prop_type::fnv_hash:
                     case yordle::data::prop::prop_type::xx_hash:
-                    case yordle::data::prop::prop_type::reference:
                         bin_class_def += " = 0;\n";
                         break;
                     case yordle::data::prop::prop_type::float32:
@@ -343,6 +351,9 @@ int main(int argc, char **argv) {
                     case yordle::data::prop::prop_type::optional:
                     case yordle::data::prop::prop_type::map:
                         bin_class_def += " {};\n";
+                        break;
+                    case yordle::data::prop::prop_type::reference:
+                        bin_class_def += " {" + std::to_string(prop.other_class) + "u};\n";
                         break;
                 }
 
@@ -369,7 +380,6 @@ int main(int argc, char **argv) {
                     case yordle::data::prop::prop_type::uint64:
                     case yordle::data::prop::prop_type::fnv_hash:
                     case yordle::data::prop::prop_type::xx_hash:
-                    case yordle::data::prop::prop_type::reference:
                     case yordle::data::prop::prop_type::float32:
                     case yordle::data::prop::prop_type::point:
                     case yordle::data::prop::prop_type::vector:
@@ -381,14 +391,17 @@ int main(int argc, char **argv) {
                         class_def_header += " = ptr_" + prop_name;
                         class_def_header += "->value;\n";
                         break;
+                    case yordle::data::prop::prop_type::reference:
+                        class_def_header += "        " + prop_name;
+                        class_def_header += ".key = ptr_" + prop_name;
+                        class_def_header += "->value;\n";
+                        break;
                     case yordle::data::prop::prop_type::set:
                     case yordle::data::prop::prop_type::unordered_set:
                         class_def_header += "        for (const auto &entry : ptr_" + prop_name;
                         class_def_header += "->value) {\n";
                         class_def_header += "            auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::" + yordle::data::prop::prop_type_name[prop.container_i->type] + "_prop>(entry);\n";
                         class_def_header += "            if (ptr_entry != nullptr) {\n";
-                        class_def_header += "                " + prop_name;
-                        class_def_header += ".emplace(";
                         switch (prop.container_i->type) {
                             case yordle::data::prop::prop_type::set:
                             case yordle::data::prop::prop_type::unordered_set:
@@ -398,12 +411,24 @@ int main(int argc, char **argv) {
                                 break;
                             case yordle::data::prop::prop_type::structure:
                             case yordle::data::prop::prop_type::inline_structure:
-                                class_def_header += "yordle::data::meta::deserialize<yordle::data::meta::" + type_hashes->get_string(prop.other_class, "x");
+                                class_def_header += "                " + prop_name;
+                                class_def_header += ".emplace_back(yordle::data::meta::deserialize<yordle::data::meta::" + type_hashes->get_string(prop.other_class, "x");
                                 class_def_header += ">(ptr_entry, " + to_string(prop.other_class);
                                 class_def_header += "u));\n";
                                 break;
+                            case yordle::data::prop::prop_type::reference:
+                                class_def_header += "                " + prop_name;
+                                if (done.contains(prop.other_class)) {
+                                    class_def_header += ".push_back(yordle::data::meta::bin_ref<yordle::data::meta::" + type_hashes->get_string(prop.other_class, "x");
+                                } else {
+                                    class_def_header += ".push_back(yordle::data::meta::bin_ref<yordle::data::meta::bin_class";
+                                }
+                                class_def_header += ">(" + std::to_string(prop.other_class);
+                                class_def_header += "u, ptr_entry->value));\n";
+                                break;
                             default:
-                                class_def_header += "ptr_entry->value);\n";
+                                class_def_header += "                " + prop_name;
+                                class_def_header += ".emplace_back(ptr_entry->value);\n";
                                 break;
                         }
                         class_def_header += "            }\n";
@@ -423,8 +448,6 @@ int main(int argc, char **argv) {
                         class_def_header += "            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::" + yordle::data::prop::prop_type_name[prop.map_i->key] + "_prop>(pair.first);\n";
                         class_def_header += "            auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::" + yordle::data::prop::prop_type_name[prop.map_i->value] + "_prop>(pair.second);\n";
                         class_def_header += "            if (ptr_key != nullptr && ptr_value != nullptr) {\n";
-                        class_def_header += "                " + prop_name;
-                        class_def_header += "[ptr_key->value] = ";
                         switch (prop.map_i->value) {
                             case yordle::data::prop::prop_type::set:
                             case yordle::data::prop::prop_type::unordered_set:
@@ -434,12 +457,24 @@ int main(int argc, char **argv) {
                                 break;
                             case yordle::data::prop::prop_type::structure:
                             case yordle::data::prop::prop_type::inline_structure:
-                                class_def_header += "yordle::data::meta::deserialize<yordle::data::meta::" + type_hashes->get_string(prop.other_class, "x");
+                                class_def_header += "                " + prop_name;
+                                class_def_header += ".emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::" + type_hashes->get_string(prop.other_class, "x");
                                 class_def_header += ">(ptr_value, " + to_string(prop.other_class);
+                                class_def_header += "u));\n";
+                                break;
+                            case yordle::data::prop::prop_type::reference:
+                                class_def_header += "                " + prop_name;
+                                if (done.contains(prop.other_class)) {
+                                    class_def_header += "[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::" + type_hashes->get_string(prop.other_class, "x");
+                                } else {
+                                    class_def_header += "[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::bin_class";
+                                }
+                                class_def_header += ">(ptr_value->value, " + std::to_string(prop.other_class);
                                 class_def_header += "u);\n";
                                 break;
                             default:
-                                class_def_header += "ptr_value->value;\n";
+                                class_def_header += "                " + prop_name;
+                                class_def_header += ".emplace(ptr_key->value, ptr_value->value);\n";
                                 break;
                         }
                         class_def_header += "            }\n";
@@ -450,8 +485,6 @@ int main(int argc, char **argv) {
                         class_def_header += prop_name;
                         class_def_header += "->value);\n"
                                             "        if(ptr_entry != nullptr) {\n";
-                        class_def_header += "            " + prop_name;
-                        class_def_header += " = ";
                         switch (prop.container_i->type) {
                             case yordle::data::prop::prop_type::set:
                             case yordle::data::prop::prop_type::unordered_set:
@@ -461,12 +494,18 @@ int main(int argc, char **argv) {
                                 break;
                             case yordle::data::prop::prop_type::structure:
                             case yordle::data::prop::prop_type::inline_structure:
-                                class_def_header += "yordle::data::meta::deserialize<yordle::data::meta::" + type_hashes->get_string(prop.other_class, "x");
+                                class_def_header += "            " + prop_name;
+                                class_def_header += " = yordle::data::meta::deserialize<yordle::data::meta::" + type_hashes->get_string(prop.other_class, "x");
                                 class_def_header += ">(ptr_entry, " + to_string(prop.other_class);
                                 class_def_header += "u);\n";
                                 break;
+                            case yordle::data::prop::prop_type::reference:
+                                class_def_header += "            " + prop_name;
+                                class_def_header += ".key = ptr_entry->value);\n";
+                                break;
                             default:
-                                class_def_header += "ptr_entry->value;\n";
+                                class_def_header += "            " + prop_name;
+                                class_def_header += " = ptr_entry->value;\n";
                                 break;
                         }
                         class_def_header += "        }\n";

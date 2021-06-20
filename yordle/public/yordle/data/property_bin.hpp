@@ -25,7 +25,7 @@ namespace yordle::data {
         uint64_t patch_weight = 0;
         uint32_t version      = 0;
         std::vector<std::string> dependencies;
-        std::set<std::shared_ptr<yordle::data::prop::structure_prop>> objects;
+        std::map<uint32_t, std::shared_ptr<yordle::data::prop::structure_prop>> objects;
 
         [[nodiscard]] nlohmann::json to_json(const yordle::cdtb::hashlist_collection &hashes, bool store_type_info) const;
     };

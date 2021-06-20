@@ -436,7 +436,8 @@ int main(int argc, char **argv) {
         auto data = read_file(target);
         auto bin  = property_bin(data);
 
-        for (auto &obj : bin.objects) {
+        for (auto &pair : bin.objects) {
+            auto &obj = pair.second;
             if (gnar.process_champ && obj->class_hash == 0x9b67e9f6) {
                 auto skin = yordle::data::meta::deserialize<yordle::data::meta::SkinCharacterDataProperties>(obj);
                 if (skin == nullptr) {

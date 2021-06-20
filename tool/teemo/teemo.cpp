@@ -404,7 +404,8 @@ int main(int argc, char **argv) {
                 auto buffer = dragon::read_file(target);
                 if (fourcc == data::property_bin::FOURCC || fourcc == data::property_bin::FOURCC_PATCH) {
                     auto prop = data::property_bin(buffer);
-                    for (const auto &obj : prop.objects) {
+                    for (const auto &pair : prop.objects) {
+                        const auto &obj = pair.second;
                         if (obj == nullptr) {
                             continue;
                         }
@@ -455,7 +456,8 @@ int main(int argc, char **argv) {
             }
 
             auto prop = data::property_bin(buffer);
-            for (const auto &obj : prop.objects) {
+            for (const auto &pair : prop.objects) {
+                const auto &obj = pair.second;
                 if (obj == nullptr) {
                     continue;
                 }
