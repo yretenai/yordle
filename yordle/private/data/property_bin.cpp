@@ -47,7 +47,8 @@ namespace yordle::data {
             auto obj_hashes = buffer.lpcast<uint32_t>(ptr, obj_count);
 
             for (auto obj_hash : obj_hashes) {
-                objects[obj_hash] = make_shared<prop::structure_prop>(buffer, ptr, version, obj_hash, true);
+                auto prop          = make_shared<prop::structure_prop>(buffer, ptr, version, obj_hash, true);
+                objects[prop->key] = prop;
             }
         }
     }

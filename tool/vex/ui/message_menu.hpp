@@ -10,7 +10,7 @@ namespace vex::ui {
     class message_menu : public imgui_menu_item {
     public:
         message_menu() {
-            priority = -200;
+            priority = -100000;
         }
 
         ~message_menu() override = default;

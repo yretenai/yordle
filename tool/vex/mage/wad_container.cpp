@@ -2,50 +2,85 @@
 // Created by Lilith on 2021-06-18.
 //
 
-#include "wad_container.hpp"
 #include "../vex.hpp"
 
-void vex::mage::wad_container::load_wad(std::filesystem::path &wad_path) {
-    if (!std::filesystem::exists(wad_path)) {
-        return;
-    }
+#include <yordle/cdtb/xxhashlist.hpp>
 
-    std::ifstream stream(wad_path, std::ios::binary | std::ios::in);
+using namespace std;
+using namespace dragon;
+using namespace vex;
 
-    auto wad = yordle::archive::wad_file::load_wad_file(stream);
-    if (wad == nullptr) {
-        return;
-    }
+namespace vex::mage {
+    void wad_container::load_wad(filesystem::path &wad_path) {
+        if (!filesystem::exists(wad_path)) {
+            return;
+        }
 
-    auto index  = std::distance(paths.begin(), paths.insert(wad_path).first);
-    wads[index] = wad;
-    if (wad->entries != nullptr) {
-        for (auto entry : *wad->entries) {
-            entries[entry.hash] = std::pair<int64_t, yordle::archive::wad_entry>(index, entry);
+        ifstream stream(wad_path, ios::binary | ios::in);
+
+        auto wad = yordle::archive::wad_file::load_wad_file(stream);
+        if (wad == nullptr) {
+            return;
+        }
+
+        auto index = paths.size();
+        paths.emplace_back(wad_path);
+
+        if (wad->entries != nullptr) {
+            for (auto entry : *wad->entries) {
+                entries[entry.hash] = pair<int64_t, yordle::archive::wad_entry>(index, entry);
+            }
         }
     }
-}
 
-void vex::mage::wad_container::load_wads(std::set<std::filesystem::path> &game_paths) {
-    auto que       = std::deque<std::filesystem::path>(game_paths.begin(), game_paths.end());
-    auto wad_paths = dragon::find_paths(que, {".wad", ".client", ".mobile"}, {});
-    auto mut       = vex::g_message_mutex.load();
-    for (auto path : wad_paths) {
+    void wad_container::load_wads(set<filesystem::path> &game_paths) {
+        auto que       = deque<filesystem::path>(game_paths.begin(), game_paths.end());
+        auto wad_paths = find_paths(que, {".wad", ".client", ".mobile"}, {});
+        auto mut       = g_message_mutex.load();
+        paths.reserve(wad_paths.size());
+        for (auto path : wad_paths) {
+            if (mut->try_lock()) {
+                g_message = make_shared<string>(string("loading ") + path.filename().string());
+                mut->unlock();
+            }
+            load_wad(path);
+        }
+
         if (mut->try_lock()) {
-            vex::g_message = std::make_shared<std::string>(std::string("loading ") + path.filename().string());
+            g_message = nullptr;
             mut->unlock();
         }
-        load_wad(path);
     }
 
-    if (mut->try_lock()) {
-        vex::g_message = nullptr;
-        mut->unlock();
+    void wad_container::clear() {
+        paths.clear();
+        entries.clear();
     }
-}
 
-void vex::mage::wad_container::clear() {
-    paths.clear();
-    wads.clear();
-    entries.clear();
-}
+    std::shared_ptr<dragon::Array<uint8_t>> wad_container::read_file(uint64_t hash) {
+        if (!has_file(hash)) {
+            return nullptr;
+        }
+
+        auto pair  = entries[hash];
+        auto index = pair.first;
+        auto entry = pair.second;
+
+        ifstream stream(paths[index], ios::binary | ios::in);
+        auto data = yordle::archive::wad_file::read_file(stream, entry);
+        stream.close();
+        return data;
+    }
+
+    std::shared_ptr<dragon::Array<uint8_t>> wad_container::read_file(const filesystem::path &path) {
+        return read_file(yordle::cdtb::xxhashlist::hash(path.generic_string()));
+    }
+
+    bool wad_container::has_file(uint64_t hash) {
+        return entries.contains(hash);
+    }
+
+    bool wad_container::has_file(const filesystem::path &path) {
+        return has_file(yordle::cdtb::xxhashlist::hash(path.generic_string()));
+    }
+} // namespace vex::mage

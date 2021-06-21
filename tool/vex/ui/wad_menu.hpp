@@ -21,6 +21,8 @@ namespace vex::ui {
 
         std::string name = "open";
 
+        static std::atomic<bool> locked;
+
         bool paint() override;
     };
 } // namespace vex::ui

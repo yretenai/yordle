@@ -14356,6 +14356,7 @@ namespace yordle::data::meta {
         std::string name {};
         std::vector<yordle::data::meta::bin_fnv_hash> statStoneSets {};
         std::shared_ptr<yordle::data::meta::ChampionItemRecommendations> mChampionItemRecommendations {};
+        std::shared_ptr<yordle::data::meta::CatalogEntry> catalogEntry {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::Character>> additionalCharacters {};
         int8_t fixedLoadScreenPosition = 0;
         uint32_t xc7d8a053 = 0;

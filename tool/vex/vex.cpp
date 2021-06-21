@@ -22,6 +22,7 @@
 
 std::atomic<std::shared_ptr<vex::device::render_device_framework>> vex::g_framework(nullptr);
 std::atomic<std::shared_ptr<vex::mage::wad_container>> vex::g_wad(nullptr);
+std::atomic<std::shared_ptr<vex::mage::skin_container>> vex::g_skin(nullptr);
 std::atomic<std::shared_ptr<vex::os::os_layer>> vex::g_os(nullptr);
 std::atomic<std::shared_ptr<std::string>> vex::g_message(nullptr);
 std::atomic<std::shared_ptr<std::mutex>> vex::g_message_mutex(nullptr);
@@ -33,6 +34,7 @@ int main() {
         vex::g_os        = std::make_shared<vex::os::win32_layer>();
 #endif
         vex::g_wad           = std::make_shared<vex::mage::wad_container>();
+        vex::g_skin          = std::make_shared<vex::mage::skin_container>();
         vex::g_message_mutex = std::make_shared<std::mutex>();
     } catch (const std::exception &ex) {
         std::cerr << ex.what() << std::endl;

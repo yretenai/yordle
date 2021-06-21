@@ -29948,6 +29948,11 @@ yordle::data::meta::Champion::Champion(const std::shared_ptr<yordle::data::prop:
         mChampionItemRecommendations = yordle::data::meta::deserialize<yordle::data::meta::ChampionItemRecommendations>(ptr_mChampionItemRecommendations, 3337884263u);
     }
 
+    auto ptr_catalogEntry = prop->cast_prop<yordle::data::prop::inline_structure_prop>(607049692u);
+    if (ptr_catalogEntry != nullptr) {
+        catalogEntry = yordle::data::meta::deserialize<yordle::data::meta::CatalogEntry>(ptr_catalogEntry, 607049692u);
+    }
+
     auto ptr_additionalCharacters = prop->cast_prop<yordle::data::prop::set_prop>(3994493072u);
     if (ptr_additionalCharacters != nullptr) {
         for (const auto &entry : ptr_additionalCharacters->value) {
