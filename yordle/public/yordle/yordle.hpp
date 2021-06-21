@@ -41,12 +41,11 @@
 #include <yordle/data/rst_file_v1.hpp>
 #include <yordle/data/rst_file_v2.hpp>
 #include <yordle/data/rst_file_v4.hpp>
+#include <yordle/lcu/v1/models.hpp>
 #include <yordle/manifest/riot_bundle.hpp>
 #include <yordle/manifest/riot_manifest.hpp>
 #include <yordle/meeps/languages.hpp>
-#include <yordle/sieve/client_config.hpp>
-#include <yordle/sieve/release_channel.hpp>
-#include <yordle/sieve/version_set.hpp>
+#include <yordle/sieve/models.hpp>
 
 namespace yordle {
     YORDLE_EXPORT std::string get_version_str();

@@ -16,7 +16,7 @@ using namespace yordle::sieve;
 using namespace dragon;
 
 namespace poppy {
-    void process_configuration(const filesystem::path &cache, const models::configuration &configuration, PoppyConfiguration &poppy, filesystem::path path) {
+    void process_configuration(const filesystem::path &cache, const configuration &configuration, PoppyConfiguration &poppy, filesystem::path path) {
         auto url = configuration.patch_url == nullptr ? configuration.url : configuration.patch_url;
         if (url == nullptr) {
             cerr << "err: manifest url is null!" << endl;
@@ -71,8 +71,8 @@ namespace poppy {
                 write_file(cache_target, array);
             }
 
-            auto config = client_config(array.to_string());
-            for (const auto &patchline : *config.data) {
+            client_config config = json::parse(array.to_string());
+            for (const auto &patchline : config) {
                 cout << "processing " << *patchline.second.metadata->at("default").full_name << endl;
 
                 if (!patchline.second.platforms->contains(poppy.platform)) {
@@ -140,8 +140,8 @@ namespace poppy {
                     write_file(cache_target, array);
                 }
 
-                auto config = version_set(array.to_string());
-                for (const auto &release : *config.data->releases) {
+                version_set config = json::parse(array.to_string());
+                for (const auto &release : *config.releases) {
                     auto id = *release.compat_version->id;
                     cout << "processing version " << id << endl;
                     auto resolved_path = filesystem::path(id);
