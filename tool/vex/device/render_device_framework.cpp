@@ -4,7 +4,7 @@
 
 #include <algorithm>
 
-#include "render_device_framework.hpp"
+#include "../vex.hpp"
 
 namespace vex::device {
     void render_device_framework::setup_imgui() {
@@ -74,26 +74,34 @@ namespace vex::device {
     }
 
     void render_device_framework::render_imgui() {
-        if (ImGui::BeginMainMenuBar()) {
-            auto new_items = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_menu_item>>>();
-            for (const auto &item : *menu_items) {
-                if (item->paint()) {
-                    new_items->push_back(item);
+        try {
+            if (ImGui::BeginMainMenuBar()) {
+                auto new_items = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_menu_item>>>();
+                for (const auto &item : *menu_items) {
+                    if (item->paint()) {
+                        new_items->push_back(item);
+                    }
                 }
+                ImGui::EndMainMenuBar();
+                menu_items = new_items;
             }
-            ImGui::EndMainMenuBar();
-            menu_items = new_items;
-        }
 
-        auto new_elements = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_element>>>();
-        for (const auto &element : *elements) {
-            ImGui::Begin(element->title.c_str(), &element->open, element->window_flags);
-            if (element->paint() && element->open) {
-                new_elements->push_back(element);
+            auto new_elements = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_element>>>();
+            for (const auto &element : *elements) {
+                ImGui::Begin(element->title.c_str(), &element->open, element->window_flags);
+                if (element->paint() && element->open) {
+                    new_elements->push_back(element);
+                }
+                ImGui::End();
             }
-            ImGui::End();
+            elements = new_elements;
+        } catch (std::exception &e) {
+            auto mut = g_message_mutex.load();
+            if (mut->try_lock()) {
+                g_message = make_shared<std::string>(std::string("error: ") + e.what());
+                mut->unlock();
+            }
         }
-        elements = new_elements;
     }
 
     void render_device_framework::refresh_menu() const {

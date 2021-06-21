@@ -37,6 +37,7 @@ namespace vex::mage {
             std::vector<std::shared_ptr<skin_info>> skins;
         };
 
+        bool is_busy = false;
         std::map<int64_t, std::shared_ptr<champion_info>> champions;
 
         void load_data();
