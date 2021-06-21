@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "imgui_menu_item.hpp"
+#include "../imgui_menu_item.hpp"
 
 namespace vex::ui {
     class message_menu : public imgui_menu_item {

@@ -2,8 +2,13 @@
 // Created by Lilith on 2021-06-18.
 //
 
-#include "win32_layer.hpp"
+#include <windows.h>
+
+#include <psapi.h>
+#include <shobjidl_core.h>
+
 #include "../vex.hpp"
+#include "win32_layer.hpp"
 
 std::set<std::filesystem::path> vex::os::win32_layer::file_dialog(std::set<std::string> extensions, bool folders) {
     IFileOpenDialog *dialog  = nullptr;
@@ -66,4 +71,13 @@ std::set<std::filesystem::path> vex::os::win32_layer::file_dialog(std::set<std::
         }
         throw;
     }
+}
+
+uint64_t vex::os::win32_layer::get_memory() {
+    auto process = GetCurrentProcess();
+    PROCESS_MEMORY_COUNTERS_EX pmc;
+    if (GetProcessMemoryInfo(process, reinterpret_cast<PROCESS_MEMORY_COUNTERS *>(&pmc), sizeof(pmc))) {
+        return pmc.PrivateUsage;
+    }
+    return 0;
 }

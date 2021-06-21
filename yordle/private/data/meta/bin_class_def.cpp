@@ -982,8 +982,8 @@ yordle::data::meta::ContextualRule::ContextualRule(const std::shared_ptr<yordle:
 
     auto ptr_mPriority = prop->cast_prop<yordle::data::prop::optional_prop>(259093296u);
     if (ptr_mPriority != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mPriority->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mPriority->value);
+        if (ptr_entry != nullptr) {
             mPriority = ptr_entry->value;
         }
     }
@@ -1461,7 +1461,7 @@ yordle::data::meta::GlobalStatsUIData::GlobalStatsUIData(const std::shared_ptr<y
     auto ptr_mStatUIData = prop->cast_prop<yordle::data::prop::map_prop>(602756116u);
     if (ptr_mStatUIData != nullptr) {
         for (const auto &pair : ptr_mStatUIData->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mStatUIData.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::StatUIData>(ptr_value, 309827837u));
@@ -1902,7 +1902,7 @@ yordle::data::meta::GlobalAudioDataProperties::GlobalAudioDataProperties(const s
     auto ptr_systems = prop->cast_prop<yordle::data::prop::map_prop>(155924029u);
     if (ptr_systems != nullptr) {
         for (const auto &pair : ptr_systems->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 systems[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::AudioSystemDataProperties>(ptr_value->value, 915602117u);
@@ -1918,7 +1918,7 @@ yordle::data::meta::GlobalAudioDataProperties::GlobalAudioDataProperties(const s
     auto ptr_localPlayerStatusEvents = prop->cast_prop<yordle::data::prop::map_prop>(1580370978u);
     if (ptr_localPlayerStatusEvents != nullptr) {
         for (const auto &pair : ptr_localPlayerStatusEvents->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 localPlayerStatusEvents.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::AudioStatusEvents>(ptr_value, 2254221038u));
@@ -2069,7 +2069,7 @@ yordle::data::meta::CensoredImage::CensoredImage(const std::shared_ptr<yordle::d
     auto ptr_UncensoredImages = prop->cast_prop<yordle::data::prop::map_prop>(862364035u);
     if (ptr_UncensoredImages != nullptr) {
         for (const auto &pair : ptr_UncensoredImages->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 UncensoredImages.emplace(ptr_key->value, ptr_value->value);
@@ -2490,24 +2490,24 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
 
     auto ptr_iconCircle = prop->cast_prop<yordle::data::prop::optional_prop>(3866264820u);
     if (ptr_iconCircle != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_iconCircle->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_iconCircle->value);
+        if (ptr_entry != nullptr) {
             iconCircle = ptr_entry->value;
         }
     }
 
     auto ptr_iconCircleScale = prop->cast_prop<yordle::data::prop::optional_prop>(605984622u);
     if (ptr_iconCircleScale != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_iconCircleScale->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_iconCircleScale->value);
+        if (ptr_entry != nullptr) {
             iconCircleScale = ptr_entry->value;
         }
     }
 
     auto ptr_iconSquare = prop->cast_prop<yordle::data::prop::optional_prop>(2890350575u);
     if (ptr_iconSquare != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_iconSquare->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_iconSquare->value);
+        if (ptr_entry != nullptr) {
             iconSquare = ptr_entry->value;
         }
     }
@@ -2535,7 +2535,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
     auto ptr_uncensoredIconCircles = prop->cast_prop<yordle::data::prop::map_prop>(2363509821u);
     if (ptr_uncensoredIconCircles != nullptr) {
         for (const auto &pair : ptr_uncensoredIconCircles->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 uncensoredIconCircles.emplace(ptr_key->value, ptr_value->value);
@@ -2546,7 +2546,7 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
     auto ptr_uncensoredIconSquares = prop->cast_prop<yordle::data::prop::map_prop>(2784061420u);
     if (ptr_uncensoredIconSquares != nullptr) {
         for (const auto &pair : ptr_uncensoredIconSquares->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 uncensoredIconSquares.emplace(ptr_key->value, ptr_value->value);
@@ -2591,8 +2591,8 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
 
     auto ptr_rarityGemOverride = prop->cast_prop<yordle::data::prop::optional_prop>(2923770897u);
     if (ptr_rarityGemOverride != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_rarityGemOverride->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_rarityGemOverride->value);
+        if (ptr_entry != nullptr) {
             rarityGemOverride = ptr_entry->value;
         }
     }
@@ -2939,16 +2939,16 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
 
     auto ptr_wakeUpRange = prop->cast_prop<yordle::data::prop::optional_prop>(1722962621u);
     if (ptr_wakeUpRange != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_wakeUpRange->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_wakeUpRange->value);
+        if (ptr_entry != nullptr) {
             wakeUpRange = ptr_entry->value;
         }
     }
 
     auto ptr_firstAcquisitionRange = prop->cast_prop<yordle::data::prop::optional_prop>(1679423533u);
     if (ptr_firstAcquisitionRange != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_firstAcquisitionRange->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_firstAcquisitionRange->value);
+        if (ptr_entry != nullptr) {
             firstAcquisitionRange = ptr_entry->value;
         }
     }
@@ -3035,16 +3035,16 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
 
     auto ptr_perceptionBubbleRadius = prop->cast_prop<yordle::data::prop::optional_prop>(2182306178u);
     if (ptr_perceptionBubbleRadius != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_perceptionBubbleRadius->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_perceptionBubbleRadius->value);
+        if (ptr_entry != nullptr) {
             perceptionBubbleRadius = ptr_entry->value;
         }
     }
 
     auto ptr_perceptionBoundingBoxSize = prop->cast_prop<yordle::data::prop::optional_prop>(1352798482u);
     if (ptr_perceptionBoundingBoxSize != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(ptr_perceptionBoundingBoxSize->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(ptr_perceptionBoundingBoxSize->value);
+        if (ptr_entry != nullptr) {
             perceptionBoundingBoxSize = ptr_entry->value;
         }
     }
@@ -3326,8 +3326,8 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
 
     auto ptr_overrideGameplayCollisionRadius = prop->cast_prop<yordle::data::prop::optional_prop>(2129752149u);
     if (ptr_overrideGameplayCollisionRadius != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_overrideGameplayCollisionRadius->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_overrideGameplayCollisionRadius->value);
+        if (ptr_entry != nullptr) {
             overrideGameplayCollisionRadius = ptr_entry->value;
         }
     }
@@ -3475,7 +3475,7 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
     auto ptr_mCharacterCalculations = prop->cast_prop<yordle::data::prop::map_prop>(958843525u);
     if (ptr_mCharacterCalculations != nullptr) {
         for (const auto &pair : ptr_mCharacterCalculations->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mCharacterCalculations.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IGameCalculation>(ptr_value, 389493299u));
@@ -3632,16 +3632,16 @@ yordle::data::meta::AttackSlotData::AttackSlotData(const std::shared_ptr<yordle:
 
     auto ptr_mAttackTotalTime = prop->cast_prop<yordle::data::prop::optional_prop>(2576789951u);
     if (ptr_mAttackTotalTime != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mAttackTotalTime->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mAttackTotalTime->value);
+        if (ptr_entry != nullptr) {
             mAttackTotalTime = ptr_entry->value;
         }
     }
 
     auto ptr_mAttackCastTime = prop->cast_prop<yordle::data::prop::optional_prop>(731577330u);
     if (ptr_mAttackCastTime != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mAttackCastTime->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mAttackCastTime->value);
+        if (ptr_entry != nullptr) {
             mAttackCastTime = ptr_entry->value;
         }
     }
@@ -3653,32 +3653,32 @@ yordle::data::meta::AttackSlotData::AttackSlotData(const std::shared_ptr<yordle:
 
     auto ptr_mAttackDelayCastOffsetPercent = prop->cast_prop<yordle::data::prop::optional_prop>(4176959436u);
     if (ptr_mAttackDelayCastOffsetPercent != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mAttackDelayCastOffsetPercent->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mAttackDelayCastOffsetPercent->value);
+        if (ptr_entry != nullptr) {
             mAttackDelayCastOffsetPercent = ptr_entry->value;
         }
     }
 
     auto ptr_mAttackDelayCastOffsetPercentAttackSpeedRatio = prop->cast_prop<yordle::data::prop::optional_prop>(3839254662u);
     if (ptr_mAttackDelayCastOffsetPercentAttackSpeedRatio != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mAttackDelayCastOffsetPercentAttackSpeedRatio->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mAttackDelayCastOffsetPercentAttackSpeedRatio->value);
+        if (ptr_entry != nullptr) {
             mAttackDelayCastOffsetPercentAttackSpeedRatio = ptr_entry->value;
         }
     }
 
     auto ptr_mAttackProbability = prop->cast_prop<yordle::data::prop::optional_prop>(1567997819u);
     if (ptr_mAttackProbability != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mAttackProbability->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mAttackProbability->value);
+        if (ptr_entry != nullptr) {
             mAttackProbability = ptr_entry->value;
         }
     }
 
     auto ptr_mAttackName = prop->cast_prop<yordle::data::prop::optional_prop>(343796191u);
     if (ptr_mAttackName != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_mAttackName->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_mAttackName->value);
+        if (ptr_entry != nullptr) {
             mAttackName = ptr_entry->value;
         }
     }
@@ -4150,7 +4150,7 @@ yordle::data::meta::ChampionMasteryMap::ChampionMasteryMap(const std::shared_ptr
     auto ptr_masteryData = prop->cast_prop<yordle::data::prop::map_prop>(505623326u);
     if (ptr_masteryData != nullptr) {
         for (const auto &pair : ptr_masteryData->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 masteryData[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::MasteryData>(ptr_value->value, 505623326u);
@@ -4192,16 +4192,16 @@ yordle::data::meta::LoadoutFeatureData::LoadoutFeatureData(const std::shared_ptr
 
     auto ptr_mMutator = prop->cast_prop<yordle::data::prop::optional_prop>(200054682u);
     if (ptr_mMutator != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_mMutator->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_mMutator->value);
+        if (ptr_entry != nullptr) {
             mMutator = ptr_entry->value;
         }
     }
 
     auto ptr_mBinaryFile = prop->cast_prop<yordle::data::prop::optional_prop>(1462592939u);
     if (ptr_mBinaryFile != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_mBinaryFile->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_mBinaryFile->value);
+        if (ptr_entry != nullptr) {
             mBinaryFile = ptr_entry->value;
         }
     }
@@ -4224,7 +4224,7 @@ yordle::data::meta::LoadoutFeatureData::LoadoutFeatureData(const std::shared_ptr
     auto ptr_mGDSObjectPathTemplates = prop->cast_prop<yordle::data::prop::map_prop>(1572692579u);
     if (ptr_mGDSObjectPathTemplates != nullptr) {
         for (const auto &pair : ptr_mGDSObjectPathTemplates->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mGDSObjectPathTemplates.emplace(ptr_key->value, ptr_value->value);
@@ -4666,7 +4666,7 @@ yordle::data::meta::RegaliaRankedCrestEntry::RegaliaRankedCrestEntry(const std::
     auto ptr_xfbb20410 = prop->cast_prop<yordle::data::prop::map_prop>(4222747664u);
     if (ptr_xfbb20410 != nullptr) {
         for (const auto &pair : ptr_xfbb20410->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 xfbb20410[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData>(ptr_value->value, 2286074286u);
@@ -4677,7 +4677,7 @@ yordle::data::meta::RegaliaRankedCrestEntry::RegaliaRankedCrestEntry(const std::
     auto ptr_xaf2e170a = prop->cast_prop<yordle::data::prop::map_prop>(2939033354u);
     if (ptr_xaf2e170a != nullptr) {
         for (const auto &pair : ptr_xaf2e170a->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 xaf2e170a[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData>(ptr_value->value, 2286074286u);
@@ -4694,7 +4694,7 @@ yordle::data::meta::RegaliaRankedCrestMap::RegaliaRankedCrestMap(const std::shar
     auto ptr_x723d6f91 = prop->cast_prop<yordle::data::prop::map_prop>(1916628881u);
     if (ptr_x723d6f91 != nullptr) {
         for (const auto &pair : ptr_x723d6f91->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 x723d6f91.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::RegaliaRankedCrestEntry>(ptr_value, 3828118224u));
@@ -4727,7 +4727,7 @@ yordle::data::meta::RegaliaRankedBannerMap::RegaliaRankedBannerMap(const std::sh
     auto ptr_xc5b8b568 = prop->cast_prop<yordle::data::prop::map_prop>(3317216616u);
     if (ptr_xc5b8b568 != nullptr) {
         for (const auto &pair : ptr_xc5b8b568->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 xc5b8b568[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData>(ptr_value->value, 2286074286u);
@@ -4744,7 +4744,7 @@ yordle::data::meta::x2ba8fc33::x2ba8fc33(const std::shared_ptr<yordle::data::pro
     auto ptr_x5b1fd3c2 = prop->cast_prop<yordle::data::prop::map_prop>(1528812482u);
     if (ptr_x5b1fd3c2 != nullptr) {
         for (const auto &pair : ptr_x5b1fd3c2->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 x5b1fd3c2.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::RegaliaData>(ptr_value, 2286074286u));
@@ -5141,7 +5141,7 @@ yordle::data::meta::xead1b379::xead1b379(const std::shared_ptr<yordle::data::pro
     auto ptr_xfb403eda = prop->cast_prop<yordle::data::prop::map_prop>(4215291610u);
     if (ptr_xfb403eda != nullptr) {
         for (const auto &pair : ptr_xfb403eda->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 xfb403eda[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(ptr_value->value, 1171098015u);
@@ -5158,7 +5158,7 @@ yordle::data::meta::x32be2466::x32be2466(const std::shared_ptr<yordle::data::pro
     auto ptr_x1a28d722 = prop->cast_prop<yordle::data::prop::map_prop>(438884130u);
     if (ptr_x1a28d722 != nullptr) {
         for (const auto &pair : ptr_x1a28d722->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 x1a28d722[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::xead1b379>(ptr_value->value, 3939611513u);
@@ -5641,7 +5641,7 @@ yordle::data::meta::GameModeConstantsGroup::GameModeConstantsGroup(const std::sh
     auto ptr_mConstants = prop->cast_prop<yordle::data::prop::map_prop>(125003421u);
     if (ptr_mConstants != nullptr) {
         for (const auto &pair : ptr_mConstants->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mConstants.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::GameModeConstant>(ptr_value, 1670770484u));
@@ -5658,7 +5658,7 @@ yordle::data::meta::GameModeConstants::GameModeConstants(const std::shared_ptr<y
     auto ptr_mGroups = prop->cast_prop<yordle::data::prop::map_prop>(3699657592u);
     if (ptr_mGroups != nullptr) {
         for (const auto &pair : ptr_mGroups->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mGroups.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::GameModeConstantsGroup>(ptr_value, 720276364u));
@@ -5974,16 +5974,16 @@ yordle::data::meta::x803dae4c::x803dae4c(const std::shared_ptr<yordle::data::pro
 
     auto ptr_mCeiling = prop->cast_prop<yordle::data::prop::optional_prop>(2289025431u);
     if (ptr_mCeiling != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mCeiling->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mCeiling->value);
+        if (ptr_entry != nullptr) {
             mCeiling = ptr_entry->value;
         }
     }
 
     auto ptr_mFloor = prop->cast_prop<yordle::data::prop::optional_prop>(3426554062u);
     if (ptr_mFloor != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mFloor->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mFloor->value);
+        if (ptr_entry != nullptr) {
             mFloor = ptr_entry->value;
         }
     }
@@ -6381,8 +6381,8 @@ yordle::data::meta::GameCalculationModified::GameCalculationModified(const std::
 
     auto ptr_mOverrideSpellLevel = prop->cast_prop<yordle::data::prop::optional_prop>(3931102800u);
     if (ptr_mOverrideSpellLevel != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_mOverrideSpellLevel->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_mOverrideSpellLevel->value);
+        if (ptr_entry != nullptr) {
             mOverrideSpellLevel = ptr_entry->value;
         }
     }
@@ -6864,7 +6864,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
     auto ptr_xfb56608c = prop->cast_prop<yordle::data::prop::map_prop>(4216742028u);
     if (ptr_xfb56608c != nullptr) {
         for (const auto &pair : ptr_xfb56608c->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 xfb56608c.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::x61f8c41c>(ptr_value, 1643693084u));
@@ -6875,7 +6875,7 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
     auto ptr_mItemCalculations = prop->cast_prop<yordle::data::prop::map_prop>(180678869u);
     if (ptr_mItemCalculations != nullptr) {
         for (const auto &pair : ptr_mItemCalculations->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mItemCalculations.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IGameCalculation>(ptr_value, 389493299u));
@@ -7686,7 +7686,7 @@ yordle::data::meta::ItemRecommendationContextList::ItemRecommendationContextList
     auto ptr_mAllStartingItemIds = prop->cast_prop<yordle::data::prop::map_prop>(4112741066u);
     if (ptr_mAllStartingItemIds != nullptr) {
         for (const auto &pair : ptr_mAllStartingItemIds->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mAllStartingItemIds.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationItemList>(ptr_value, 1183984318u));
@@ -7697,7 +7697,7 @@ yordle::data::meta::ItemRecommendationContextList::ItemRecommendationContextList
     auto ptr_xa109530e = prop->cast_prop<yordle::data::prop::map_prop>(2701742862u);
     if (ptr_xa109530e != nullptr) {
         for (const auto &pair : ptr_xa109530e->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 xa109530e.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationItemList>(ptr_value, 1183984318u));
@@ -7801,7 +7801,7 @@ yordle::data::meta::ItemRecommendationMatrixRow::ItemRecommendationMatrixRow(con
     auto ptr_mChoicesMap = prop->cast_prop<yordle::data::prop::map_prop>(1335420358u);
     if (ptr_mChoicesMap != nullptr) {
         for (const auto &pair : ptr_mChoicesMap->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mChoicesMap.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationChoices>(ptr_value, 1589364011u));
@@ -8048,7 +8048,7 @@ yordle::data::meta::ItemShopGameModeData::ItemShopGameModeData(const std::shared
     auto ptr_x897c69b7 = prop->cast_prop<yordle::data::prop::map_prop>(2306632119u);
     if (ptr_x897c69b7 != nullptr) {
         for (const auto &pair : ptr_x897c69b7->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 x897c69b7.emplace(ptr_key->value, ptr_value->value);
@@ -8059,7 +8059,7 @@ yordle::data::meta::ItemShopGameModeData::ItemShopGameModeData(const std::shared
     auto ptr_RecItemsSwaps = prop->cast_prop<yordle::data::prop::map_prop>(3090661733u);
     if (ptr_RecItemsSwaps != nullptr) {
         for (const auto &pair : ptr_RecItemsSwaps->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 RecItemsSwaps.emplace(ptr_key->value, ptr_value->value);
@@ -8916,7 +8916,7 @@ yordle::data::meta::MapNavigationGridOverlays::MapNavigationGridOverlays(const s
     auto ptr_overlays = prop->cast_prop<yordle::data::prop::map_prop>(1884225360u);
     if (ptr_overlays != nullptr) {
         for (const auto &pair : ptr_overlays->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 overlays[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(ptr_value->value, 953399041u);
@@ -9020,7 +9020,7 @@ yordle::data::meta::MapSkin::MapSkin(const std::shared_ptr<yordle::data::prop::s
     auto ptr_mObjectSkinFallbacks = prop->cast_prop<yordle::data::prop::map_prop>(2511100733u);
     if (ptr_mObjectSkinFallbacks != nullptr) {
         for (const auto &pair : ptr_mObjectSkinFallbacks->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mObjectSkinFallbacks.emplace(ptr_key->value, ptr_value->value);
@@ -9146,7 +9146,7 @@ yordle::data::meta::MinimapBackgroundConfig::MinimapBackgroundConfig(const std::
     auto ptr_mCustomMinimapBackgrounds = prop->cast_prop<yordle::data::prop::map_prop>(1864435707u);
     if (ptr_mCustomMinimapBackgrounds != nullptr) {
         for (const auto &pair : ptr_mCustomMinimapBackgrounds->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mCustomMinimapBackgrounds.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MinimapBackground>(ptr_value, 2712490432u));
@@ -9619,7 +9619,7 @@ yordle::data::meta::PerkEffectAmountPerMode::PerkEffectAmountPerMode(const std::
     auto ptr_mEffectAmountPerMode = prop->cast_prop<yordle::data::prop::map_prop>(2562594311u);
     if (ptr_mEffectAmountPerMode != nullptr) {
         for (const auto &pair : ptr_mEffectAmountPerMode->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mEffectAmountPerMode.emplace(ptr_key->value, ptr_value->value);
@@ -9636,7 +9636,7 @@ yordle::data::meta::PerkScriptData::PerkScriptData(const std::shared_ptr<yordle:
     auto ptr_mEffectAmount = prop->cast_prop<yordle::data::prop::map_prop>(622481957u);
     if (ptr_mEffectAmount != nullptr) {
         for (const auto &pair : ptr_mEffectAmount->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mEffectAmount.emplace(ptr_key->value, ptr_value->value);
@@ -9647,7 +9647,7 @@ yordle::data::meta::PerkScriptData::PerkScriptData(const std::shared_ptr<yordle:
     auto ptr_mEffectAmountGameMode = prop->cast_prop<yordle::data::prop::map_prop>(2427468992u);
     if (ptr_mEffectAmountGameMode != nullptr) {
         for (const auto &pair : ptr_mEffectAmountGameMode->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mEffectAmountGameMode.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::PerkEffectAmountPerMode>(ptr_value, 2971960800u));
@@ -9658,7 +9658,7 @@ yordle::data::meta::PerkScriptData::PerkScriptData(const std::shared_ptr<yordle:
     auto ptr_mCalculations = prop->cast_prop<yordle::data::prop::map_prop>(3702070358u);
     if (ptr_mCalculations != nullptr) {
         for (const auto &pair : ptr_mCalculations->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mCalculations.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IGameCalculation>(ptr_value, 389493299u));
@@ -9878,7 +9878,7 @@ yordle::data::meta::PerkStyle::PerkStyle(const std::shared_ptr<yordle::data::pro
     auto ptr_mLCUAssetFileMap = prop->cast_prop<yordle::data::prop::map_prop>(3789342776u);
     if (ptr_mLCUAssetFileMap != nullptr) {
         for (const auto &pair : ptr_mLCUAssetFileMap->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mLCUAssetFileMap.emplace(ptr_key->value, ptr_value->value);
@@ -10503,7 +10503,7 @@ yordle::data::meta::ScriptDataObject::ScriptDataObject(const std::shared_ptr<yor
     auto ptr_mConstants = prop->cast_prop<yordle::data::prop::map_prop>(125003421u);
     if (ptr_mConstants != nullptr) {
         for (const auto &pair : ptr_mConstants->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mConstants.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::GameModeConstant>(ptr_value, 1670770484u));
@@ -11642,16 +11642,16 @@ yordle::data::meta::FixedDistanceIgnoringTerrain::FixedDistanceIgnoringTerrain(c
 
     auto ptr_mMaximumTerrainWallsToSkip = prop->cast_prop<yordle::data::prop::optional_prop>(3775348694u);
     if (ptr_mMaximumTerrainWallsToSkip != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mMaximumTerrainWallsToSkip->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mMaximumTerrainWallsToSkip->value);
+        if (ptr_entry != nullptr) {
             mMaximumTerrainWallsToSkip = ptr_entry->value;
         }
     }
 
     auto ptr_scanWidthOverride = prop->cast_prop<yordle::data::prop::optional_prop>(282150412u);
     if (ptr_scanWidthOverride != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_scanWidthOverride->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_scanWidthOverride->value);
+        if (ptr_entry != nullptr) {
             scanWidthOverride = ptr_entry->value;
         }
     }
@@ -11841,16 +11841,16 @@ yordle::data::meta::ClearTargetAndKeepMoving::ClearTargetAndKeepMoving(const std
 
     auto ptr_mOverrideHeightAugment = prop->cast_prop<yordle::data::prop::optional_prop>(1145244202u);
     if (ptr_mOverrideHeightAugment != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mOverrideHeightAugment->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mOverrideHeightAugment->value);
+        if (ptr_entry != nullptr) {
             mOverrideHeightAugment = ptr_entry->value;
         }
     }
 
     auto ptr_mOverrideRange = prop->cast_prop<yordle::data::prop::optional_prop>(3941935197u);
     if (ptr_mOverrideRange != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mOverrideRange->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mOverrideRange->value);
+        if (ptr_entry != nullptr) {
             mOverrideRange = ptr_entry->value;
         }
     }
@@ -12075,7 +12075,7 @@ yordle::data::meta::MissileMovementSpec::MissileMovementSpec(const std::shared_p
     auto ptr_xa6cb1fa4 = prop->cast_prop<yordle::data::prop::map_prop>(2798329764u);
     if (ptr_xa6cb1fa4 != nullptr) {
         for (const auto &pair : ptr_xa6cb1fa4->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 xa6cb1fa4.emplace(ptr_key->value, ptr_value->value);
@@ -12964,7 +12964,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
     auto ptr_xfb56608c = prop->cast_prop<yordle::data::prop::map_prop>(4216742028u);
     if (ptr_xfb56608c != nullptr) {
         for (const auto &pair : ptr_xfb56608c->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 xfb56608c.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::SpellDataValueVector>(ptr_value, 1798273677u));
@@ -12975,7 +12975,7 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
     auto ptr_mSpellCalculations = prop->cast_prop<yordle::data::prop::map_prop>(2488738436u);
     if (ptr_mSpellCalculations != nullptr) {
         for (const auto &pair : ptr_mSpellCalculations->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mSpellCalculations.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IGameCalculation>(ptr_value, 389493299u));
@@ -13725,8 +13725,8 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
 
     auto ptr_mSpellCooldownOrSealedQueueThreshold = prop->cast_prop<yordle::data::prop::optional_prop>(2085334492u);
     if (ptr_mSpellCooldownOrSealedQueueThreshold != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mSpellCooldownOrSealedQueueThreshold->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_mSpellCooldownOrSealedQueueThreshold->value);
+        if (ptr_entry != nullptr) {
             mSpellCooldownOrSealedQueueThreshold = ptr_entry->value;
         }
     }
@@ -13857,7 +13857,7 @@ yordle::data::meta::SpellDataResourceClient::SpellDataResourceClient(const std::
     auto ptr_mCustomTargeterDefinitions = prop->cast_prop<yordle::data::prop::map_prop>(3988614197u);
     if (ptr_mCustomTargeterDefinitions != nullptr) {
         for (const auto &pair : ptr_mCustomTargeterDefinitions->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mCustomTargeterDefinitions.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::CustomTargeterDefinitions>(ptr_value, 3174223914u));
@@ -14409,16 +14409,16 @@ yordle::data::meta::TargeterDefinitionCone::TargeterDefinitionCone(const std::sh
 
     auto ptr_coneAngleDegrees = prop->cast_prop<yordle::data::prop::optional_prop>(4266228274u);
     if (ptr_coneAngleDegrees != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_coneAngleDegrees->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_coneAngleDegrees->value);
+        if (ptr_entry != nullptr) {
             coneAngleDegrees = ptr_entry->value;
         }
     }
 
     auto ptr_coneRange = prop->cast_prop<yordle::data::prop::optional_prop>(3946108375u);
     if (ptr_coneRange != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_coneRange->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_coneRange->value);
+        if (ptr_entry != nullptr) {
             coneRange = ptr_entry->value;
         }
     }
@@ -14491,8 +14491,8 @@ yordle::data::meta::TargeterDefinitionLine::TargeterDefinitionLine(const std::sh
 
     auto ptr_lineStopsAtEndPosition = prop->cast_prop<yordle::data::prop::optional_prop>(1556474465u);
     if (ptr_lineStopsAtEndPosition != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_lineStopsAtEndPosition->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_lineStopsAtEndPosition->value);
+        if (ptr_entry != nullptr) {
             lineStopsAtEndPosition = ptr_entry->value;
         }
     }
@@ -14610,8 +14610,8 @@ yordle::data::meta::TargeterDefinitionMinimap::TargeterDefinitionMinimap(const s
 
     auto ptr_useCasterBoundingBox = prop->cast_prop<yordle::data::prop::optional_prop>(2821831873u);
     if (ptr_useCasterBoundingBox != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_useCasterBoundingBox->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_useCasterBoundingBox->value);
+        if (ptr_entry != nullptr) {
             useCasterBoundingBox = ptr_entry->value;
         }
     }
@@ -14649,8 +14649,8 @@ yordle::data::meta::TargeterDefinitionRange::TargeterDefinitionRange(const std::
 
     auto ptr_useCasterBoundingBox = prop->cast_prop<yordle::data::prop::optional_prop>(2821831873u);
     if (ptr_useCasterBoundingBox != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_useCasterBoundingBox->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_useCasterBoundingBox->value);
+        if (ptr_entry != nullptr) {
             useCasterBoundingBox = ptr_entry->value;
         }
     }
@@ -14988,7 +14988,7 @@ yordle::data::meta::StatFormulaData::StatFormulaData(const std::shared_ptr<yordl
     auto ptr_StatComponents = prop->cast_prop<yordle::data::prop::map_prop>(3897551059u);
     if (ptr_StatComponents != nullptr) {
         for (const auto &pair : ptr_StatComponents->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 StatComponents.emplace(ptr_key->value, ptr_value->value);
@@ -15005,7 +15005,7 @@ yordle::data::meta::StatFormulaDataList::StatFormulaDataList(const std::shared_p
     auto ptr_StatFormulas = prop->cast_prop<yordle::data::prop::map_prop>(3017488444u);
     if (ptr_StatFormulas != nullptr) {
         for (const auto &pair : ptr_StatFormulas->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 StatFormulas.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::StatFormulaData>(ptr_value, 3086678927u));
@@ -15507,8 +15507,8 @@ yordle::data::meta::TftItemData::TftItemData(const std::shared_ptr<yordle::data:
 
     auto ptr_mColor = prop->cast_prop<yordle::data::prop::optional_prop>(1399972751u);
     if (ptr_mColor != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_mColor->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_mColor->value);
+        if (ptr_entry != nullptr) {
             mColor = ptr_entry->value;
         }
     }
@@ -15788,7 +15788,7 @@ yordle::data::meta::TFTRoundData::TFTRoundData(const std::shared_ptr<yordle::dat
     auto ptr_mStateTooltipsTra = prop->cast_prop<yordle::data::prop::map_prop>(1630940802u);
     if (ptr_mStateTooltipsTra != nullptr) {
         for (const auto &pair : ptr_mStateTooltipsTra->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mStateTooltipsTra.emplace(ptr_key->value, ptr_value->value);
@@ -15874,7 +15874,7 @@ yordle::data::meta::TFTRoundData::TFTRoundData(const std::shared_ptr<yordle::dat
     auto ptr_mScriptData = prop->cast_prop<yordle::data::prop::map_prop>(2029389651u);
     if (ptr_mScriptData != nullptr) {
         for (const auto &pair : ptr_mScriptData->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mScriptData.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::GameModeConstant>(ptr_value, 1670770484u));
@@ -15967,7 +15967,7 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
     auto ptr_DropRateTables = prop->cast_prop<yordle::data::prop::map_prop>(721831827u);
     if (ptr_DropRateTables != nullptr) {
         for (const auto &pair : ptr_DropRateTables->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 DropRateTables[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::xf260c3ae>(ptr_value->value, 4066427822u);
@@ -15978,7 +15978,7 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
     auto ptr_ScriptData = prop->cast_prop<yordle::data::prop::map_prop>(3528691290u);
     if (ptr_ScriptData != nullptr) {
         for (const auto &pair : ptr_ScriptData->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 ScriptData.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::GameModeConstant>(ptr_value, 1670770484u));
@@ -16111,16 +16111,16 @@ yordle::data::meta::TFTStreak::TFTStreak(const std::shared_ptr<yordle::data::pro
 
     auto ptr_mMinimumStreakLength = prop->cast_prop<yordle::data::prop::optional_prop>(2940314578u);
     if (ptr_mMinimumStreakLength != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mMinimumStreakLength->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mMinimumStreakLength->value);
+        if (ptr_entry != nullptr) {
             mMinimumStreakLength = ptr_entry->value;
         }
     }
 
     auto ptr_mMaximumStreakLength = prop->cast_prop<yordle::data::prop::optional_prop>(3076655600u);
     if (ptr_mMaximumStreakLength != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mMaximumStreakLength->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mMaximumStreakLength->value);
+        if (ptr_entry != nullptr) {
             mMaximumStreakLength = ptr_entry->value;
         }
     }
@@ -16195,8 +16195,8 @@ yordle::data::meta::TFTTraitSetData::TFTTraitSetData(const std::shared_ptr<yordl
 
     auto ptr_mMaxUnits = prop->cast_prop<yordle::data::prop::optional_prop>(1685855689u);
     if (ptr_mMaxUnits != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mMaxUnits->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mMaxUnits->value);
+        if (ptr_entry != nullptr) {
             mMaxUnits = ptr_entry->value;
         }
     }
@@ -16213,8 +16213,8 @@ yordle::data::meta::TFTTraitSetData::TFTTraitSetData(const std::shared_ptr<yordl
 
     auto ptr_xa8c51db0 = prop->cast_prop<yordle::data::prop::optional_prop>(2831490480u);
     if (ptr_xa8c51db0 != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_xa8c51db0->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_xa8c51db0->value);
+        if (ptr_entry != nullptr) {
             xa8c51db0 = ptr_entry->value;
         }
     }
@@ -16679,7 +16679,7 @@ yordle::data::meta::NumberFormattingData::NumberFormattingData(const std::shared
     auto ptr_x7a4d89bb = prop->cast_prop<yordle::data::prop::map_prop>(2051901883u);
     if (ptr_x7a4d89bb != nullptr) {
         for (const auto &pair : ptr_x7a4d89bb->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 x7a4d89bb[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::NumberFormattingBehavior>(ptr_value->value, 410617757u);
@@ -16762,7 +16762,7 @@ yordle::data::meta::AnnouncementDefinition::AnnouncementDefinition(const std::sh
     auto ptr_MutatorOverrides = prop->cast_prop<yordle::data::prop::map_prop>(2269448734u);
     if (ptr_MutatorOverrides != nullptr) {
         for (const auto &pair : ptr_MutatorOverrides->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 MutatorOverrides.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::AnnouncementDefinitionData>(ptr_value, 502828211u));
@@ -16909,7 +16909,7 @@ yordle::data::meta::AnnouncementMap::AnnouncementMap(const std::shared_ptr<yordl
     auto ptr_Announcements = prop->cast_prop<yordle::data::prop::map_prop>(502292043u);
     if (ptr_Announcements != nullptr) {
         for (const auto &pair : ptr_Announcements->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 Announcements[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::AnnouncementDefinition>(ptr_value->value, 94368299u);
@@ -17055,8 +17055,8 @@ yordle::data::meta::UnitStatusData::UnitStatusData(const std::shared_ptr<yordle:
 
     auto ptr_textColor = prop->cast_prop<yordle::data::prop::optional_prop>(1244254369u);
     if (ptr_textColor != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_textColor->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_textColor->value);
+        if (ptr_entry != nullptr) {
             textColor = ptr_entry->value;
         }
     }
@@ -17126,320 +17126,320 @@ yordle::data::meta::FloatTextDisplayOverrides::FloatTextDisplayOverrides(const s
 
     auto ptr_priority = prop->cast_prop<yordle::data::prop::optional_prop>(2498028297u);
     if (ptr_priority != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_priority->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_priority->value);
+        if (ptr_entry != nullptr) {
             priority = ptr_entry->value;
         }
     }
 
     auto ptr_maxInstances = prop->cast_prop<yordle::data::prop::optional_prop>(1406454799u);
     if (ptr_maxInstances != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_maxInstances->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_maxInstances->value);
+        if (ptr_entry != nullptr) {
             maxInstances = ptr_entry->value;
         }
     }
 
     auto ptr_isAnimated = prop->cast_prop<yordle::data::prop::optional_prop>(3272805804u);
     if (ptr_isAnimated != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_isAnimated->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_isAnimated->value);
+        if (ptr_entry != nullptr) {
             isAnimated = ptr_entry->value;
         }
     }
 
     auto ptr_disableHorizontalReverse = prop->cast_prop<yordle::data::prop::optional_prop>(296058719u);
     if (ptr_disableHorizontalReverse != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_disableHorizontalReverse->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_disableHorizontalReverse->value);
+        if (ptr_entry != nullptr) {
             disableHorizontalReverse = ptr_entry->value;
         }
     }
 
     auto ptr_disableVerticalReverse = prop->cast_prop<yordle::data::prop::optional_prop>(3542364389u);
     if (ptr_disableVerticalReverse != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_disableVerticalReverse->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_disableVerticalReverse->value);
+        if (ptr_entry != nullptr) {
             disableVerticalReverse = ptr_entry->value;
         }
     }
 
     auto ptr_momentumFromHit = prop->cast_prop<yordle::data::prop::optional_prop>(202591156u);
     if (ptr_momentumFromHit != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_momentumFromHit->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_momentumFromHit->value);
+        if (ptr_entry != nullptr) {
             momentumFromHit = ptr_entry->value;
         }
     }
 
     auto ptr_followSource = prop->cast_prop<yordle::data::prop::optional_prop>(3615228949u);
     if (ptr_followSource != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_followSource->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_followSource->value);
+        if (ptr_entry != nullptr) {
             followSource = ptr_entry->value;
         }
     }
 
     auto ptr_ignoreCombineRules = prop->cast_prop<yordle::data::prop::optional_prop>(765471835u);
     if (ptr_ignoreCombineRules != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_ignoreCombineRules->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_ignoreCombineRules->value);
+        if (ptr_entry != nullptr) {
             ignoreCombineRules = ptr_entry->value;
         }
     }
 
     auto ptr_ignoreQueue = prop->cast_prop<yordle::data::prop::optional_prop>(3901908578u);
     if (ptr_ignoreQueue != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_ignoreQueue->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_ignoreQueue->value);
+        if (ptr_entry != nullptr) {
             ignoreQueue = ptr_entry->value;
         }
     }
 
     auto ptr_alternateRightLeft = prop->cast_prop<yordle::data::prop::optional_prop>(3343255752u);
     if (ptr_alternateRightLeft != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_alternateRightLeft->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_alternateRightLeft->value);
+        if (ptr_entry != nullptr) {
             alternateRightLeft = ptr_entry->value;
         }
     }
 
     auto ptr_combinableCounterDisplay = prop->cast_prop<yordle::data::prop::optional_prop>(1085616689u);
     if (ptr_combinableCounterDisplay != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_combinableCounterDisplay->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_combinableCounterDisplay->value);
+        if (ptr_entry != nullptr) {
             combinableCounterDisplay = ptr_entry->value;
         }
     }
 
     auto ptr_combinableCounterCategory = prop->cast_prop<yordle::data::prop::optional_prop>(1105170965u);
     if (ptr_combinableCounterCategory != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_combinableCounterCategory->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_combinableCounterCategory->value);
+        if (ptr_entry != nullptr) {
             combinableCounterCategory = ptr_entry->value;
         }
     }
 
     auto ptr_overwritePreviousNumber = prop->cast_prop<yordle::data::prop::optional_prop>(1354636454u);
     if (ptr_overwritePreviousNumber != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_overwritePreviousNumber->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_overwritePreviousNumber->value);
+        if (ptr_entry != nullptr) {
             overwritePreviousNumber = ptr_entry->value;
         }
     }
 
     auto ptr_extendTimeOnNewDamage = prop->cast_prop<yordle::data::prop::optional_prop>(1459141968u);
     if (ptr_extendTimeOnNewDamage != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_extendTimeOnNewDamage->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_extendTimeOnNewDamage->value);
+        if (ptr_entry != nullptr) {
             extendTimeOnNewDamage = ptr_entry->value;
         }
     }
 
     auto ptr_maxLifeTime = prop->cast_prop<yordle::data::prop::optional_prop>(2637798290u);
     if (ptr_maxLifeTime != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_maxLifeTime->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_maxLifeTime->value);
+        if (ptr_entry != nullptr) {
             maxLifeTime = ptr_entry->value;
         }
     }
 
     auto ptr_colorOffsetR = prop->cast_prop<yordle::data::prop::optional_prop>(4063022363u);
     if (ptr_colorOffsetR != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_colorOffsetR->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_colorOffsetR->value);
+        if (ptr_entry != nullptr) {
             colorOffsetR = ptr_entry->value;
         }
     }
 
     auto ptr_colorOffsetG = prop->cast_prop<yordle::data::prop::optional_prop>(3844913316u);
     if (ptr_colorOffsetG != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_colorOffsetG->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_colorOffsetG->value);
+        if (ptr_entry != nullptr) {
             colorOffsetG = ptr_entry->value;
         }
     }
 
     auto ptr_colorOffsetB = prop->cast_prop<yordle::data::prop::optional_prop>(3794580459u);
     if (ptr_colorOffsetB != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_colorOffsetB->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_colorOffsetB->value);
+        if (ptr_entry != nullptr) {
             colorOffsetB = ptr_entry->value;
         }
     }
 
     auto ptr_scale = prop->cast_prop<yordle::data::prop::optional_prop>(2190941297u);
     if (ptr_scale != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_scale->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_scale->value);
+        if (ptr_entry != nullptr) {
             scale = ptr_entry->value;
         }
     }
 
     auto ptr_decay = prop->cast_prop<yordle::data::prop::optional_prop>(3541427549u);
     if (ptr_decay != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_decay->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_decay->value);
+        if (ptr_entry != nullptr) {
             decay = ptr_entry->value;
         }
     }
 
     auto ptr_decayDelay = prop->cast_prop<yordle::data::prop::optional_prop>(3417245824u);
     if (ptr_decayDelay != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_decayDelay->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_decayDelay->value);
+        if (ptr_entry != nullptr) {
             decayDelay = ptr_entry->value;
         }
     }
 
     auto ptr_shrinkTime = prop->cast_prop<yordle::data::prop::optional_prop>(2788916873u);
     if (ptr_shrinkTime != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_shrinkTime->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_shrinkTime->value);
+        if (ptr_entry != nullptr) {
             shrinkTime = ptr_entry->value;
         }
     }
 
     auto ptr_shrinkScale = prop->cast_prop<yordle::data::prop::optional_prop>(3132959154u);
     if (ptr_shrinkScale != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_shrinkScale->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_shrinkScale->value);
+        if (ptr_entry != nullptr) {
             shrinkScale = ptr_entry->value;
         }
     }
 
     auto ptr_hangTime = prop->cast_prop<yordle::data::prop::optional_prop>(2368716048u);
     if (ptr_hangTime != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_hangTime->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_hangTime->value);
+        if (ptr_entry != nullptr) {
             hangTime = ptr_entry->value;
         }
     }
 
     auto ptr_randomOffsetMinX = prop->cast_prop<yordle::data::prop::optional_prop>(3528603037u);
     if (ptr_randomOffsetMinX != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_randomOffsetMinX->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_randomOffsetMinX->value);
+        if (ptr_entry != nullptr) {
             randomOffsetMinX = ptr_entry->value;
         }
     }
 
     auto ptr_randomOffsetMaxX = prop->cast_prop<yordle::data::prop::optional_prop>(758398547u);
     if (ptr_randomOffsetMaxX != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_randomOffsetMaxX->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_randomOffsetMaxX->value);
+        if (ptr_entry != nullptr) {
             randomOffsetMaxX = ptr_entry->value;
         }
     }
 
     auto ptr_randomOffsetMinY = prop->cast_prop<yordle::data::prop::optional_prop>(3511825418u);
     if (ptr_randomOffsetMinY != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_randomOffsetMinY->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_randomOffsetMinY->value);
+        if (ptr_entry != nullptr) {
             randomOffsetMinY = ptr_entry->value;
         }
     }
 
     auto ptr_randomOffsetMaxY = prop->cast_prop<yordle::data::prop::optional_prop>(741620928u);
     if (ptr_randomOffsetMaxY != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_randomOffsetMaxY->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_randomOffsetMaxY->value);
+        if (ptr_entry != nullptr) {
             randomOffsetMaxY = ptr_entry->value;
         }
     }
 
     auto ptr_startOffsetX = prop->cast_prop<yordle::data::prop::optional_prop>(3170333012u);
     if (ptr_startOffsetX != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_startOffsetX->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_startOffsetX->value);
+        if (ptr_entry != nullptr) {
             startOffsetX = ptr_entry->value;
         }
     }
 
     auto ptr_startOffsetY = prop->cast_prop<yordle::data::prop::optional_prop>(3187110631u);
     if (ptr_startOffsetY != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_startOffsetY->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_startOffsetY->value);
+        if (ptr_entry != nullptr) {
             startOffsetY = ptr_entry->value;
         }
     }
 
     auto ptr_relativeOffsetMin = prop->cast_prop<yordle::data::prop::optional_prop>(1011761094u);
     if (ptr_relativeOffsetMin != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_relativeOffsetMin->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_relativeOffsetMin->value);
+        if (ptr_entry != nullptr) {
             relativeOffsetMin = ptr_entry->value;
         }
     }
 
     auto ptr_relativeOffsetMax = prop->cast_prop<yordle::data::prop::optional_prop>(1315038164u);
     if (ptr_relativeOffsetMax != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_relativeOffsetMax->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_relativeOffsetMax->value);
+        if (ptr_entry != nullptr) {
             relativeOffsetMax = ptr_entry->value;
         }
     }
 
     auto ptr_minXVelocity = prop->cast_prop<yordle::data::prop::optional_prop>(2016356458u);
     if (ptr_minXVelocity != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_minXVelocity->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_minXVelocity->value);
+        if (ptr_entry != nullptr) {
             minXVelocity = ptr_entry->value;
         }
     }
 
     auto ptr_maxXVelocity = prop->cast_prop<yordle::data::prop::optional_prop>(2577084868u);
     if (ptr_maxXVelocity != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_maxXVelocity->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_maxXVelocity->value);
+        if (ptr_entry != nullptr) {
             maxXVelocity = ptr_entry->value;
         }
     }
 
     auto ptr_minYVelocity = prop->cast_prop<yordle::data::prop::optional_prop>(871508849u);
     if (ptr_minYVelocity != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_minYVelocity->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_minYVelocity->value);
+        if (ptr_entry != nullptr) {
             minYVelocity = ptr_entry->value;
         }
     }
 
     auto ptr_maxYVelocity = prop->cast_prop<yordle::data::prop::optional_prop>(3339261459u);
     if (ptr_maxYVelocity != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_maxYVelocity->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_maxYVelocity->value);
+        if (ptr_entry != nullptr) {
             maxYVelocity = ptr_entry->value;
         }
     }
 
     auto ptr_continualForceX = prop->cast_prop<yordle::data::prop::optional_prop>(3136461269u);
     if (ptr_continualForceX != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_continualForceX->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_continualForceX->value);
+        if (ptr_entry != nullptr) {
             continualForceX = ptr_entry->value;
         }
     }
 
     auto ptr_continualForceY = prop->cast_prop<yordle::data::prop::optional_prop>(3119683650u);
     if (ptr_continualForceY != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_continualForceY->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_continualForceY->value);
+        if (ptr_entry != nullptr) {
             continualForceY = ptr_entry->value;
         }
     }
 
     auto ptr_growthXScalar = prop->cast_prop<yordle::data::prop::optional_prop>(3578687498u);
     if (ptr_growthXScalar != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_growthXScalar->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_growthXScalar->value);
+        if (ptr_entry != nullptr) {
             growthXScalar = ptr_entry->value;
         }
     }
 
     auto ptr_growthYScalar = prop->cast_prop<yordle::data::prop::optional_prop>(1351440085u);
     if (ptr_growthYScalar != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_growthYScalar->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_growthYScalar->value);
+        if (ptr_entry != nullptr) {
             growthYScalar = ptr_entry->value;
         }
     }
@@ -18103,7 +18103,7 @@ yordle::data::meta::FloatingTextOverride::FloatingTextOverride(const std::shared
     auto ptr_OverriddenFloatingTextTypes = prop->cast_prop<yordle::data::prop::map_prop>(1397360953u);
     if (ptr_OverriddenFloatingTextTypes != nullptr) {
         for (const auto &pair : ptr_OverriddenFloatingTextTypes->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 OverriddenFloatingTextTypes.emplace(ptr_key->value, ptr_value->value);
@@ -18772,8 +18772,8 @@ yordle::data::meta::MinimapIconTextureData::MinimapIconTextureData(const std::sh
 
     auto ptr_mColorblind = prop->cast_prop<yordle::data::prop::optional_prop>(3786188562u);
     if (ptr_mColorblind != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_mColorblind->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_mColorblind->value);
+        if (ptr_entry != nullptr) {
             mColorblind = ptr_entry->value;
         }
     }
@@ -18791,8 +18791,8 @@ yordle::data::meta::MinimapIconColorData::MinimapIconColorData(const std::shared
 
     auto ptr_mColorblind = prop->cast_prop<yordle::data::prop::optional_prop>(3786188562u);
     if (ptr_mColorblind != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_mColorblind->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_mColorblind->value);
+        if (ptr_entry != nullptr) {
             mColorblind = ptr_entry->value;
         }
     }
@@ -18831,7 +18831,7 @@ yordle::data::meta::MinimapIcon::MinimapIcon(const std::shared_ptr<yordle::data:
     auto ptr_mTeamTextures = prop->cast_prop<yordle::data::prop::map_prop>(1068735961u);
     if (ptr_mTeamTextures != nullptr) {
         for (const auto &pair : ptr_mTeamTextures->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mTeamTextures.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MinimapIconTextureData>(ptr_value, 3732824828u));
@@ -18847,7 +18847,7 @@ yordle::data::meta::MinimapIcon::MinimapIcon(const std::shared_ptr<yordle::data:
     auto ptr_mTeamColors = prop->cast_prop<yordle::data::prop::map_prop>(2670666677u);
     if (ptr_mTeamColors != nullptr) {
         for (const auto &pair : ptr_mTeamColors->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mTeamColors.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MinimapIconColorData>(ptr_value, 59888480u));
@@ -18864,7 +18864,7 @@ yordle::data::meta::MinimapData::MinimapData(const std::shared_ptr<yordle::data:
     auto ptr_mIcons = prop->cast_prop<yordle::data::prop::map_prop>(3577153550u);
     if (ptr_mIcons != nullptr) {
         for (const auto &pair : ptr_mIcons->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mIcons.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MinimapIcon>(ptr_value, 525225061u));
@@ -18875,7 +18875,7 @@ yordle::data::meta::MinimapData::MinimapData(const std::shared_ptr<yordle::data:
     auto ptr_mCustomIcons = prop->cast_prop<yordle::data::prop::map_prop>(377978355u);
     if (ptr_mCustomIcons != nullptr) {
         for (const auto &pair : ptr_mCustomIcons->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mCustomIcons.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MinimapIcon>(ptr_value, 525225061u));
@@ -20239,8 +20239,8 @@ yordle::data::meta::TextureAndColorData::TextureAndColorData(const std::shared_p
 
     auto ptr_colorblindColor = prop->cast_prop<yordle::data::prop::optional_prop>(4042010374u);
     if (ptr_colorblindColor != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_colorblindColor->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_colorblindColor->value);
+        if (ptr_entry != nullptr) {
             colorblindColor = ptr_entry->value;
         }
     }
@@ -20301,7 +20301,7 @@ yordle::data::meta::MinimapPingData::MinimapPingData(const std::shared_ptr<yordl
     auto ptr_mOMWPingRangeCutoffs = prop->cast_prop<yordle::data::prop::map_prop>(1244758992u);
     if (ptr_mOMWPingRangeCutoffs != nullptr) {
         for (const auto &pair : ptr_mOMWPingRangeCutoffs->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mOMWPingRangeCutoffs.emplace(ptr_key->value, ptr_value->value);
@@ -20356,7 +20356,7 @@ yordle::data::meta::LoadingScreenRankedData::LoadingScreenRankedData(const std::
     auto ptr_mRankedData = prop->cast_prop<yordle::data::prop::map_prop>(1751568959u);
     if (ptr_mRankedData != nullptr) {
         for (const auto &pair : ptr_mRankedData->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mRankedData.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::LoadingScreenRankedProperties>(ptr_value, 1700895677u));
@@ -21474,7 +21474,7 @@ yordle::data::meta::NotificationSettings::NotificationSettings(const std::shared
     auto ptr_x89667868 = prop->cast_prop<yordle::data::prop::map_prop>(2305194088u);
     if (ptr_x89667868 != nullptr) {
         for (const auto &pair : ptr_x89667868->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 x89667868.emplace(ptr_key->value, ptr_value->value);
@@ -21630,7 +21630,7 @@ yordle::data::meta::SurrenderData::SurrenderData(const std::shared_ptr<yordle::d
     auto ptr_mTypeData = prop->cast_prop<yordle::data::prop::map_prop>(321593752u);
     if (ptr_mTypeData != nullptr) {
         for (const auto &pair : ptr_mTypeData->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mTypeData.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::SurrenderTypeData>(ptr_value, 740737797u));
@@ -21656,16 +21656,16 @@ yordle::data::meta::LoadScreenTip::LoadScreenTip(const std::shared_ptr<yordle::d
 
     auto ptr_mMinimumSummonerLevel = prop->cast_prop<yordle::data::prop::optional_prop>(225965586u);
     if (ptr_mMinimumSummonerLevel != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mMinimumSummonerLevel->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mMinimumSummonerLevel->value);
+        if (ptr_entry != nullptr) {
             mMinimumSummonerLevel = ptr_entry->value;
         }
     }
 
     auto ptr_mMaximumSummonerLevel = prop->cast_prop<yordle::data::prop::optional_prop>(109186948u);
     if (ptr_mMaximumSummonerLevel != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mMaximumSummonerLevel->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(ptr_mMaximumSummonerLevel->value);
+        if (ptr_entry != nullptr) {
             mMaximumSummonerLevel = ptr_entry->value;
         }
     }
@@ -21952,7 +21952,7 @@ yordle::data::meta::NeutralTimerData::NeutralTimerData(const std::shared_ptr<yor
     auto ptr_mSourceIcons = prop->cast_prop<yordle::data::prop::map_prop>(1512598209u);
     if (ptr_mSourceIcons != nullptr) {
         for (const auto &pair : ptr_mSourceIcons->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mSourceIcons.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::NeutralTimerSourceIconData>(ptr_value, 230608261u));
@@ -21979,7 +21979,7 @@ yordle::data::meta::NeutralTimers::NeutralTimers(const std::shared_ptr<yordle::d
     auto ptr_mTimers = prop->cast_prop<yordle::data::prop::map_prop>(3936695518u);
     if (ptr_mTimers != nullptr) {
         for (const auto &pair : ptr_mTimers->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mTimers.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::NeutralTimerData>(ptr_value, 964506025u));
@@ -23456,7 +23456,7 @@ yordle::data::meta::AnimationGraphData::AnimationGraphData(const std::shared_ptr
     auto ptr_mClipDataMap = prop->cast_prop<yordle::data::prop::map_prop>(1172382456u);
     if (ptr_mClipDataMap != nullptr) {
         for (const auto &pair : ptr_mClipDataMap->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mClipDataMap.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ClipBaseData>(ptr_value, 3917866950u));
@@ -23467,7 +23467,7 @@ yordle::data::meta::AnimationGraphData::AnimationGraphData(const std::shared_ptr
     auto ptr_mMaskDataMap = prop->cast_prop<yordle::data::prop::map_prop>(3724833902u);
     if (ptr_mMaskDataMap != nullptr) {
         for (const auto &pair : ptr_mMaskDataMap->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mMaskDataMap.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaskData>(ptr_value, 725360953u));
@@ -23478,7 +23478,7 @@ yordle::data::meta::AnimationGraphData::AnimationGraphData(const std::shared_ptr
     auto ptr_mTrackDataMap = prop->cast_prop<yordle::data::prop::map_prop>(954893735u);
     if (ptr_mTrackDataMap != nullptr) {
         for (const auto &pair : ptr_mTrackDataMap->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mTrackDataMap.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::TrackData>(ptr_value, 2552904996u));
@@ -23489,7 +23489,7 @@ yordle::data::meta::AnimationGraphData::AnimationGraphData(const std::shared_ptr
     auto ptr_mSyncGroupDataMap = prop->cast_prop<yordle::data::prop::map_prop>(2944942468u);
     if (ptr_mSyncGroupDataMap != nullptr) {
         for (const auto &pair : ptr_mSyncGroupDataMap->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mSyncGroupDataMap.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::SyncGroupData>(ptr_value, 1718266157u));
@@ -23500,7 +23500,7 @@ yordle::data::meta::AnimationGraphData::AnimationGraphData(const std::shared_ptr
     auto ptr_mBlendDataTable = prop->cast_prop<yordle::data::prop::map_prop>(814814125u);
     if (ptr_mBlendDataTable != nullptr) {
         for (const auto &pair : ptr_mBlendDataTable->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint64_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint64_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mBlendDataTable.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::BaseBlendData>(ptr_value, 3172694155u));
@@ -24154,7 +24154,7 @@ yordle::data::meta::MapContainer::MapContainer(const std::shared_ptr<yordle::dat
     auto ptr_chunks = prop->cast_prop<yordle::data::prop::map_prop>(1577983395u);
     if (ptr_chunks != nullptr) {
         for (const auto &pair : ptr_chunks->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 chunks[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(ptr_value->value, 2992376383u);
@@ -24295,7 +24295,7 @@ yordle::data::meta::MapPlaceableContainer::MapPlaceableContainer(const std::shar
     auto ptr_items = prop->cast_prop<yordle::data::prop::map_prop>(981021583u);
     if (ptr_items != nullptr) {
         for (const auto &pair : ptr_items->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 items.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MapPlaceable>(ptr_value, 1502315240u));
@@ -24355,7 +24355,7 @@ yordle::data::meta::RegionSettings::RegionSettings(const std::shared_ptr<yordle:
     auto ptr_mContentTypeAllowedSettings = prop->cast_prop<yordle::data::prop::map_prop>(2189143518u);
     if (ptr_mContentTypeAllowedSettings != nullptr) {
         for (const auto &pair : ptr_mContentTypeAllowedSettings->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mContentTypeAllowedSettings.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::RegionsThatAllowContent>(ptr_value, 2486262273u));
@@ -24526,40 +24526,40 @@ yordle::data::meta::GameFontDescription::GameFontDescription(const std::shared_p
 
     auto ptr_colorblindColor = prop->cast_prop<yordle::data::prop::optional_prop>(4042010374u);
     if (ptr_colorblindColor != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_colorblindColor->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_colorblindColor->value);
+        if (ptr_entry != nullptr) {
             colorblindColor = ptr_entry->value;
         }
     }
 
     auto ptr_colorblindOutlineColor = prop->cast_prop<yordle::data::prop::optional_prop>(2346750194u);
     if (ptr_colorblindOutlineColor != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_colorblindOutlineColor->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_colorblindOutlineColor->value);
+        if (ptr_entry != nullptr) {
             colorblindOutlineColor = ptr_entry->value;
         }
     }
 
     auto ptr_colorblindShadowColor = prop->cast_prop<yordle::data::prop::optional_prop>(2607664878u);
     if (ptr_colorblindShadowColor != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_colorblindShadowColor->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_colorblindShadowColor->value);
+        if (ptr_entry != nullptr) {
             colorblindShadowColor = ptr_entry->value;
         }
     }
 
     auto ptr_colorblindGlowColor = prop->cast_prop<yordle::data::prop::optional_prop>(926840181u);
     if (ptr_colorblindGlowColor != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_colorblindGlowColor->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_colorblindGlowColor->value);
+        if (ptr_entry != nullptr) {
             colorblindGlowColor = ptr_entry->value;
         }
     }
 
     auto ptr_xc2008b7b = prop->cast_prop<yordle::data::prop::optional_prop>(3254815611u);
     if (ptr_xc2008b7b != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_xc2008b7b->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_xc2008b7b->value);
+        if (ptr_entry != nullptr) {
             xc2008b7b = ptr_entry->value;
         }
     }
@@ -24577,32 +24577,32 @@ yordle::data::meta::CSSStyle::CSSStyle(const std::shared_ptr<yordle::data::prop:
 
     auto ptr_color = prop->cast_prop<yordle::data::prop::optional_prop>(1031692888u);
     if (ptr_color != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_color->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::color_prop>(ptr_color->value);
+        if (ptr_entry != nullptr) {
             color = ptr_entry->value;
         }
     }
 
     auto ptr_bold = prop->cast_prop<yordle::data::prop::optional_prop>(3734435446u);
     if (ptr_bold != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_bold->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_bold->value);
+        if (ptr_entry != nullptr) {
             bold = ptr_entry->value;
         }
     }
 
     auto ptr_italics = prop->cast_prop<yordle::data::prop::optional_prop>(2924892218u);
     if (ptr_italics != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_italics->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_italics->value);
+        if (ptr_entry != nullptr) {
             italics = ptr_entry->value;
         }
     }
 
     auto ptr_underline = prop->cast_prop<yordle::data::prop::optional_prop>(3850515583u);
     if (ptr_underline != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_underline->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_underline->value);
+        if (ptr_entry != nullptr) {
             underline = ptr_entry->value;
         }
     }
@@ -24637,7 +24637,7 @@ yordle::data::meta::CSSSheet::CSSSheet(const std::shared_ptr<yordle::data::prop:
     auto ptr_styles = prop->cast_prop<yordle::data::prop::map_prop>(3042401727u);
     if (ptr_styles != nullptr) {
         for (const auto &pair : ptr_styles->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 styles.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::CSSStyle>(ptr_value, 1461391717u));
@@ -24653,7 +24653,7 @@ yordle::data::meta::CSSSheet::CSSSheet(const std::shared_ptr<yordle::data::prop:
     auto ptr_icons = prop->cast_prop<yordle::data::prop::map_prop>(4192329017u);
     if (ptr_icons != nullptr) {
         for (const auto &pair : ptr_icons->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 icons.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::CSSIcon>(ptr_value, 3991255873u));
@@ -24675,7 +24675,7 @@ yordle::data::meta::TooltipFormat::TooltipFormat(const std::shared_ptr<yordle::d
     auto ptr_mInputLocKeysWithDefaults = prop->cast_prop<yordle::data::prop::map_prop>(3505929588u);
     if (ptr_mInputLocKeysWithDefaults != nullptr) {
         for (const auto &pair : ptr_mInputLocKeysWithDefaults->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mInputLocKeysWithDefaults.emplace(ptr_key->value, ptr_value->value);
@@ -24696,7 +24696,7 @@ yordle::data::meta::TooltipFormat::TooltipFormat(const std::shared_ptr<yordle::d
     auto ptr_mListTypeChoices = prop->cast_prop<yordle::data::prop::map_prop>(1590857024u);
     if (ptr_mListTypeChoices != nullptr) {
         for (const auto &pair : ptr_mListTypeChoices->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mListTypeChoices.emplace(ptr_key->value, ptr_value->value);
@@ -24707,7 +24707,7 @@ yordle::data::meta::TooltipFormat::TooltipFormat(const std::shared_ptr<yordle::d
     auto ptr_mListStyles = prop->cast_prop<yordle::data::prop::map_prop>(991429346u);
     if (ptr_mListStyles != nullptr) {
         for (const auto &pair : ptr_mListStyles->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mListStyles.emplace(ptr_key->value, ptr_value->value);
@@ -24743,7 +24743,7 @@ yordle::data::meta::TooltipFormat::TooltipFormat(const std::shared_ptr<yordle::d
     auto ptr_mOutputStrings = prop->cast_prop<yordle::data::prop::map_prop>(392320929u);
     if (ptr_mOutputStrings != nullptr) {
         for (const auto &pair : ptr_mOutputStrings->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mOutputStrings.emplace(ptr_key->value, ptr_value->value);
@@ -24822,7 +24822,7 @@ yordle::data::meta::TooltipInstance::TooltipInstance(const std::shared_ptr<yordl
     auto ptr_mLocKeys = prop->cast_prop<yordle::data::prop::map_prop>(58849250u);
     if (ptr_mLocKeys != nullptr) {
         for (const auto &pair : ptr_mLocKeys->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mLocKeys.emplace(ptr_key->value, ptr_value->value);
@@ -24833,7 +24833,7 @@ yordle::data::meta::TooltipInstance::TooltipInstance(const std::shared_ptr<yordl
     auto ptr_mLists = prop->cast_prop<yordle::data::prop::map_prop>(2448230345u);
     if (ptr_mLists != nullptr) {
         for (const auto &pair : ptr_mLists->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mLists.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::TooltipInstanceList>(ptr_value, 4214485747u));
@@ -25337,8 +25337,8 @@ yordle::data::meta::VfxMaterialOverrideDefinitionData::VfxMaterialOverrideDefini
 
     auto ptr_subMeshName = prop->cast_prop<yordle::data::prop::optional_prop>(820886375u);
     if (ptr_subMeshName != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_subMeshName->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_subMeshName->value);
+        if (ptr_entry != nullptr) {
             subMeshName = ptr_entry->value;
         }
     }
@@ -25418,7 +25418,7 @@ yordle::data::meta::VfxMigrationResources::VfxMigrationResources(const std::shar
     auto ptr_resourceMap = prop->cast_prop<yordle::data::prop::map_prop>(3539306273u);
     if (ptr_resourceMap != nullptr) {
         for (const auto &pair : ptr_resourceMap->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 resourceMap[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::bin_class>(ptr_value->value, 1171098015u);
@@ -25558,16 +25558,16 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
 
     auto ptr_particleLinger = prop->cast_prop<yordle::data::prop::optional_prop>(607245356u);
     if (ptr_particleLinger != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_particleLinger->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_particleLinger->value);
+        if (ptr_entry != nullptr) {
             particleLinger = ptr_entry->value;
         }
     }
 
     auto ptr_lifetime = prop->cast_prop<yordle::data::prop::optional_prop>(1376955374u);
     if (ptr_lifetime != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_lifetime->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_lifetime->value);
+        if (ptr_entry != nullptr) {
             lifetime = ptr_entry->value;
         }
     }
@@ -25580,8 +25580,8 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
 
     auto ptr_emitterLinger = prop->cast_prop<yordle::data::prop::optional_prop>(1002806966u);
     if (ptr_emitterLinger != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_emitterLinger->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_emitterLinger->value);
+        if (ptr_entry != nullptr) {
             emitterLinger = ptr_entry->value;
         }
     }
@@ -25598,16 +25598,16 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
 
     auto ptr_period = prop->cast_prop<yordle::data::prop::optional_prop>(2580104964u);
     if (ptr_period != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_period->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_period->value);
+        if (ptr_entry != nullptr) {
             period = ptr_entry->value;
         }
     }
 
     auto ptr_timeActiveDuringPeriod = prop->cast_prop<yordle::data::prop::optional_prop>(400147918u);
     if (ptr_timeActiveDuringPeriod != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_timeActiveDuringPeriod->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_timeActiveDuringPeriod->value);
+        if (ptr_entry != nullptr) {
             timeActiveDuringPeriod = ptr_entry->value;
         }
     }
@@ -25619,8 +25619,8 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
 
     auto ptr_MaximumRateByVelocity = prop->cast_prop<yordle::data::prop::optional_prop>(3338279773u);
     if (ptr_MaximumRateByVelocity != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_MaximumRateByVelocity->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_MaximumRateByVelocity->value);
+        if (ptr_entry != nullptr) {
             MaximumRateByVelocity = ptr_entry->value;
         }
     }
@@ -25873,7 +25873,7 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
     auto ptr_materialDrivers = prop->cast_prop<yordle::data::prop::map_prop>(3305964759u);
     if (ptr_materialDrivers != nullptr) {
         for (const auto &pair : ptr_materialDrivers->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 materialDrivers.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IVfxMaterialDriver>(ptr_value, 37724083u));
@@ -27498,7 +27498,7 @@ yordle::data::meta::HybridMaterialDefPreset::HybridMaterialDefPreset(const std::
     auto ptr_shaderMacros = prop->cast_prop<yordle::data::prop::map_prop>(3872816621u);
     if (ptr_shaderMacros != nullptr) {
         for (const auto &pair : ptr_shaderMacros->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 shaderMacros.emplace(ptr_key->value, ptr_value->value);
@@ -27730,7 +27730,7 @@ yordle::data::meta::IShaderDef::IShaderDef(const std::shared_ptr<yordle::data::p
     auto ptr_featureDefines = prop->cast_prop<yordle::data::prop::map_prop>(2921932923u);
     if (ptr_featureDefines != nullptr) {
         for (const auto &pair : ptr_featureDefines->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 featureDefines.emplace(ptr_key->value, ptr_value->value);
@@ -27830,7 +27830,7 @@ yordle::data::meta::MaterialParameterDataCollection::MaterialParameterDataCollec
     auto ptr_Entries = prop->cast_prop<yordle::data::prop::map_prop>(1868071667u);
     if (ptr_Entries != nullptr) {
         for (const auto &pair : ptr_Entries->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 Entries.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IdMappingEntry>(ptr_value, 176045846u));
@@ -27846,7 +27846,7 @@ yordle::data::meta::MaterialParameterDataCollection::MaterialParameterDataCollec
     auto ptr_data = prop->cast_prop<yordle::data::prop::map_prop>(3631407781u);
     if (ptr_data != nullptr) {
         for (const auto &pair : ptr_data->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 data.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialParameterData>(ptr_value, 1407148951u));
@@ -27868,7 +27868,7 @@ yordle::data::meta::MaterialTextureDataCollection::MaterialTextureDataCollection
     auto ptr_Entries = prop->cast_prop<yordle::data::prop::map_prop>(1868071667u);
     if (ptr_Entries != nullptr) {
         for (const auto &pair : ptr_Entries->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 Entries.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IdMappingEntry>(ptr_value, 176045846u));
@@ -27884,7 +27884,7 @@ yordle::data::meta::MaterialTextureDataCollection::MaterialTextureDataCollection
     auto ptr_data = prop->cast_prop<yordle::data::prop::map_prop>(3631407781u);
     if (ptr_data != nullptr) {
         for (const auto &pair : ptr_data->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 data.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialTextureData>(ptr_value, 3791453475u));
@@ -27906,7 +27906,7 @@ yordle::data::meta::MaterialSwitchDataCollection::MaterialSwitchDataCollection(c
     auto ptr_Entries = prop->cast_prop<yordle::data::prop::map_prop>(1868071667u);
     if (ptr_Entries != nullptr) {
         for (const auto &pair : ptr_Entries->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 Entries.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::IdMappingEntry>(ptr_value, 176045846u));
@@ -27922,7 +27922,7 @@ yordle::data::meta::MaterialSwitchDataCollection::MaterialSwitchDataCollection(c
     auto ptr_data = prop->cast_prop<yordle::data::prop::map_prop>(3631407781u);
     if (ptr_data != nullptr) {
         for (const auto &pair : ptr_data->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 data.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialSwitchData>(ptr_value, 1327860340u));
@@ -27987,7 +27987,7 @@ yordle::data::meta::MaterialInstanceTextureDef::MaterialInstanceTextureDef(const
     auto ptr_uncensoredTextures = prop->cast_prop<yordle::data::prop::map_prop>(1284590733u);
     if (ptr_uncensoredTextures != nullptr) {
         for (const auto &pair : ptr_uncensoredTextures->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 uncensoredTextures.emplace(ptr_key->value, ptr_value->value);
@@ -28009,7 +28009,7 @@ yordle::data::meta::xf7084b4a::xf7084b4a(const std::shared_ptr<yordle::data::pro
     auto ptr_shaderMacros = prop->cast_prop<yordle::data::prop::map_prop>(3872816621u);
     if (ptr_shaderMacros != nullptr) {
         for (const auto &pair : ptr_shaderMacros->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 shaderMacros.emplace(ptr_key->value, ptr_value->value);
@@ -28121,7 +28121,7 @@ yordle::data::meta::StaticMaterialShaderSamplerDef::StaticMaterialShaderSamplerD
     auto ptr_uncensoredTextures = prop->cast_prop<yordle::data::prop::map_prop>(1284590733u);
     if (ptr_uncensoredTextures != nullptr) {
         for (const auto &pair : ptr_uncensoredTextures->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 uncensoredTextures.emplace(ptr_key->value, ptr_value->value);
@@ -28173,7 +28173,7 @@ yordle::data::meta::StaticMaterialPassDef::StaticMaterialPassDef(const std::shar
     auto ptr_shaderMacros = prop->cast_prop<yordle::data::prop::map_prop>(3872816621u);
     if (ptr_shaderMacros != nullptr) {
         for (const auto &pair : ptr_shaderMacros->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 shaderMacros.emplace(ptr_key->value, ptr_value->value);
@@ -28336,7 +28336,7 @@ yordle::data::meta::StaticMaterialChildTechniqueDef::StaticMaterialChildTechniqu
     auto ptr_shaderMacros = prop->cast_prop<yordle::data::prop::map_prop>(3872816621u);
     if (ptr_shaderMacros != nullptr) {
         for (const auto &pair : ptr_shaderMacros->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 shaderMacros.emplace(ptr_key->value, ptr_value->value);
@@ -28457,8 +28457,8 @@ yordle::data::meta::MapLightingVolume::MapLightingVolume(const std::shared_ptr<y
 
     auto ptr_xa04bd9bf = prop->cast_prop<yordle::data::prop::optional_prop>(2689325503u);
     if (ptr_xa04bd9bf != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(ptr_xa04bd9bf->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(ptr_xa04bd9bf->value);
+        if (ptr_entry != nullptr) {
             xa04bd9bf = ptr_entry->value;
         }
     }
@@ -28551,16 +28551,16 @@ yordle::data::meta::MapPointLight::MapPointLight(const std::shared_ptr<yordle::d
 
     auto ptr_overrideCastStaticShadows = prop->cast_prop<yordle::data::prop::optional_prop>(511307017u);
     if (ptr_overrideCastStaticShadows != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_overrideCastStaticShadows->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_overrideCastStaticShadows->value);
+        if (ptr_entry != nullptr) {
             overrideCastStaticShadows = ptr_entry->value;
         }
     }
 
     auto ptr_overrideUseSpecular = prop->cast_prop<yordle::data::prop::optional_prop>(1878817909u);
     if (ptr_overrideUseSpecular != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_overrideUseSpecular->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_overrideUseSpecular->value);
+        if (ptr_entry != nullptr) {
             overrideUseSpecular = ptr_entry->value;
         }
     }
@@ -28619,8 +28619,8 @@ yordle::data::meta::MapSunProperties::MapSunProperties(const std::shared_ptr<yor
 
     auto ptr_xa04bd9bf = prop->cast_prop<yordle::data::prop::optional_prop>(2689325503u);
     if (ptr_xa04bd9bf != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(ptr_xa04bd9bf->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(ptr_xa04bd9bf->value);
+        if (ptr_entry != nullptr) {
             xa04bd9bf = ptr_entry->value;
         }
     }
@@ -28812,8 +28812,8 @@ yordle::data::meta::SkinMeshDataProperties::SkinMeshDataProperties(const std::sh
 
     auto ptr_overrideBoundingBox = prop->cast_prop<yordle::data::prop::optional_prop>(1551500082u);
     if (ptr_overrideBoundingBox != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(ptr_overrideBoundingBox->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(ptr_overrideBoundingBox->value);
+        if (ptr_entry != nullptr) {
             overrideBoundingBox = ptr_entry->value;
         }
     }
@@ -28835,8 +28835,8 @@ yordle::data::meta::SkinMeshDataProperties::SkinMeshDataProperties(const std::sh
 
     auto ptr_boundingSphereRadius = prop->cast_prop<yordle::data::prop::optional_prop>(2518064342u);
     if (ptr_boundingSphereRadius != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_boundingSphereRadius->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_boundingSphereRadius->value);
+        if (ptr_entry != nullptr) {
             boundingSphereRadius = ptr_entry->value;
         }
     }
@@ -29241,8 +29241,8 @@ yordle::data::meta::StringTableGet::StringTableGet(const std::shared_ptr<yordle:
 
     auto ptr_Default = prop->cast_prop<yordle::data::prop::optional_prop>(2470140894u);
     if (ptr_Default != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_Default->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(ptr_Default->value);
+        if (ptr_entry != nullptr) {
             Default = ptr_entry->value;
         }
     }
@@ -29282,8 +29282,8 @@ yordle::data::meta::VectorTableGet::VectorTableGet(const std::shared_ptr<yordle:
 
     auto ptr_Default = prop->cast_prop<yordle::data::prop::optional_prop>(2470140894u);
     if (ptr_Default != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(ptr_Default->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::vector_prop>(ptr_Default->value);
+        if (ptr_entry != nullptr) {
             Default = ptr_entry->value;
         }
     }
@@ -29909,7 +29909,7 @@ yordle::data::meta::ContextualActionData::ContextualActionData(const std::shared
     auto ptr_mSituations = prop->cast_prop<yordle::data::prop::map_prop>(1868478721u);
     if (ptr_mSituations != nullptr) {
         for (const auto &pair : ptr_mSituations->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mSituations.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ContextualSituation>(ptr_value, 4230456894u));
@@ -30560,7 +30560,7 @@ yordle::data::meta::LolSpellScript::LolSpellScript(const std::shared_ptr<yordle:
     auto ptr_sequences = prop->cast_prop<yordle::data::prop::map_prop>(4193347457u);
     if (ptr_sequences != nullptr) {
         for (const auto &pair : ptr_sequences->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 sequences.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ScriptSequence>(ptr_value, 2793907875u));
@@ -30571,7 +30571,7 @@ yordle::data::meta::LolSpellScript::LolSpellScript(const std::shared_ptr<yordle:
     auto ptr_CustomSequences = prop->cast_prop<yordle::data::prop::map_prop>(3141702788u);
     if (ptr_CustomSequences != nullptr) {
         for (const auto &pair : ptr_CustomSequences->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 CustomSequences.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::ScriptSequence>(ptr_value, 2793907875u));
@@ -30810,7 +30810,7 @@ yordle::data::meta::TftUnitShopViewController::TftUnitShopViewController(const s
     auto ptr_x2781ed6b = prop->cast_prop<yordle::data::prop::map_prop>(662826347u);
     if (ptr_x2781ed6b != nullptr) {
         for (const auto &pair : ptr_x2781ed6b->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 x2781ed6b.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::x2781ed6b>(ptr_value, 662826347u));
@@ -31277,7 +31277,7 @@ yordle::data::meta::CelebrationViewController::CelebrationViewController(const s
     auto ptr_xc4ecb642 = prop->cast_prop<yordle::data::prop::map_prop>(3303847490u);
     if (ptr_xc4ecb642 != nullptr) {
         for (const auto &pair : ptr_xc4ecb642->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 xc4ecb642.emplace(ptr_key->value, ptr_value->value);
@@ -31502,7 +31502,7 @@ yordle::data::meta::LobbyViewController::LobbyViewController(const std::shared_p
     auto ptr_xbd29d956 = prop->cast_prop<yordle::data::prop::map_prop>(3173636438u);
     if (ptr_xbd29d956 != nullptr) {
         for (const auto &pair : ptr_xbd29d956->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int64_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int64_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 xbd29d956.emplace(ptr_key->value, ptr_value->value);
@@ -32039,7 +32039,7 @@ yordle::data::meta::TooltipViewController::TooltipViewController(const std::shar
     auto ptr_xf5fc1d3a = prop->cast_prop<yordle::data::prop::map_prop>(4126940474u);
     if (ptr_xf5fc1d3a != nullptr) {
         for (const auto &pair : ptr_xf5fc1d3a->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 xf5fc1d3a.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::x9e5aed77>(ptr_value, 2656759159u));
@@ -32087,7 +32087,7 @@ yordle::data::meta::BlendableClipData::BlendableClipData(const std::shared_ptr<y
     auto ptr_mEventDataMap = prop->cast_prop<yordle::data::prop::map_prop>(4120397374u);
     if (ptr_mEventDataMap != nullptr) {
         for (const auto &pair : ptr_mEventDataMap->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 mEventDataMap.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::BaseEventData>(ptr_value, 2039250216u));
@@ -32472,8 +32472,8 @@ yordle::data::meta::VfxSystemDefinitionData::VfxSystemDefinitionData(const std::
 
     auto ptr_overrideScaleCap = prop->cast_prop<yordle::data::prop::optional_prop>(984499975u);
     if (ptr_overrideScaleCap != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_overrideScaleCap->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_overrideScaleCap->value);
+        if (ptr_entry != nullptr) {
             overrideScaleCap = ptr_entry->value;
         }
     }
@@ -32726,7 +32726,7 @@ yordle::data::meta::HybridMaterialDef::HybridMaterialDef(const std::shared_ptr<y
     auto ptr_shaderMacros = prop->cast_prop<yordle::data::prop::map_prop>(3872816621u);
     if (ptr_shaderMacros != nullptr) {
         for (const auto &pair : ptr_shaderMacros->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 shaderMacros.emplace(ptr_key->value, ptr_value->value);
@@ -32768,7 +32768,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
     auto ptr_shaderMacros = prop->cast_prop<yordle::data::prop::map_prop>(3872816621u);
     if (ptr_shaderMacros != nullptr) {
         for (const auto &pair : ptr_shaderMacros->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 shaderMacros.emplace(ptr_key->value, ptr_value->value);
@@ -32779,7 +32779,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
     auto ptr_params = prop->cast_prop<yordle::data::prop::map_prop>(559900755u);
     if (ptr_params != nullptr) {
         for (const auto &pair : ptr_params->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 params.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceParamDef>(ptr_value, 1496596895u));
@@ -32790,7 +32790,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
     auto ptr_textures = prop->cast_prop<yordle::data::prop::map_prop>(2567998597u);
     if (ptr_textures != nullptr) {
         for (const auto &pair : ptr_textures->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 textures.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceTextureDef>(ptr_value, 1305331905u));
@@ -32801,7 +32801,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
     auto ptr_switches = prop->cast_prop<yordle::data::prop::map_prop>(3716012957u);
     if (ptr_switches != nullptr) {
         for (const auto &pair : ptr_switches->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 switches.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceSwitchDef>(ptr_value, 2719807978u));
@@ -32812,7 +32812,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
     auto ptr_DynamicParams = prop->cast_prop<yordle::data::prop::map_prop>(2233445620u);
     if (ptr_DynamicParams != nullptr) {
         for (const auto &pair : ptr_DynamicParams->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 DynamicParams.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceDynamicParam>(ptr_value, 1964830497u));
@@ -32823,7 +32823,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
     auto ptr_DynamicTextures = prop->cast_prop<yordle::data::prop::map_prop>(1873541542u);
     if (ptr_DynamicTextures != nullptr) {
         for (const auto &pair : ptr_DynamicTextures->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint16_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 DynamicTextures.emplace(ptr_key->value, yordle::data::meta::deserialize<yordle::data::meta::MaterialInstanceDynamicTexture>(ptr_value, 1083476907u));
@@ -32895,7 +32895,7 @@ yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<y
     auto ptr_shaderMacros = prop->cast_prop<yordle::data::prop::map_prop>(3872816621u);
     if (ptr_shaderMacros != nullptr) {
         for (const auto &pair : ptr_shaderMacros->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 shaderMacros.emplace(ptr_key->value, ptr_value->value);
@@ -32968,7 +32968,7 @@ yordle::data::meta::BaseResourceResolver::BaseResourceResolver(const std::shared
     auto ptr_resourceMap = prop->cast_prop<yordle::data::prop::map_prop>(3539306273u);
     if (ptr_resourceMap != nullptr) {
         for (const auto &pair : ptr_resourceMap->value) {
-            auto ptr_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
+            auto ptr_key   = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(pair.first);
             auto ptr_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(pair.second);
             if (ptr_key != nullptr && ptr_value != nullptr) {
                 resourceMap[ptr_key->value] = yordle::data::meta::bin_ref<yordle::data::meta::IResource>(ptr_value->value, 547453112u);
@@ -33324,8 +33324,8 @@ yordle::data::meta::BoolTableGet::BoolTableGet(const std::shared_ptr<yordle::dat
 
     auto ptr_Default = prop->cast_prop<yordle::data::prop::optional_prop>(2470140894u);
     if (ptr_Default != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_Default->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_Default->value);
+        if (ptr_entry != nullptr) {
             Default = ptr_entry->value;
         }
     }
@@ -33381,8 +33381,8 @@ yordle::data::meta::FloatTableGet::FloatTableGet(const std::shared_ptr<yordle::d
 
     auto ptr_Default = prop->cast_prop<yordle::data::prop::optional_prop>(2470140894u);
     if (ptr_Default != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_Default->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::float32_prop>(ptr_Default->value);
+        if (ptr_entry != nullptr) {
             Default = ptr_entry->value;
         }
     }
@@ -33465,8 +33465,8 @@ yordle::data::meta::IntTableGet::IntTableGet(const std::shared_ptr<yordle::data:
 
     auto ptr_Default = prop->cast_prop<yordle::data::prop::optional_prop>(2470140894u);
     if (ptr_Default != nullptr) {
-    auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_Default->value);
-        if(ptr_entry != nullptr) {
+        auto ptr_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int32_prop>(ptr_Default->value);
+        if (ptr_entry != nullptr) {
             Default = ptr_entry->value;
         }
     }

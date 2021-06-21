@@ -39,7 +39,7 @@
 #include <yordle/lcu/v1/ward_skins.hpp>
 
 namespace yordle::lcu::v1 {
-    using clash_vo [[maybe_unused]] = std::map<std::string, std::string>;
+    using clash_vo [[maybe_unused]]        = std::map<std::string, std::string>;
     using discord_strings [[maybe_unused]] = std::map<std::string, std::string>;
-    using generic_assets [[maybe_unused]] = std::map<std::string, std::map<std::string, std::string>>;
-}
+    using generic_assets [[maybe_unused]]  = std::map<std::string, std::map<std::string, std::string>>;
+} // namespace yordle::lcu::v1

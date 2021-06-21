@@ -25,7 +25,7 @@ namespace vex::mage {
         };
 
         struct skin_info : chroma_info {
-            std::vector<chroma_info> chromas;
+            std::map<int64_t, std::shared_ptr<chroma_info>> chromas;
         };
 
         struct champion_info {
@@ -34,13 +34,19 @@ namespace vex::mage {
             uint64_t bin_path;
             std::string name;
             uint64_t image;
-            std::vector<std::shared_ptr<skin_info>> skins;
+            std::map<int64_t, std::shared_ptr<skin_info>> skins;
         };
 
         bool is_busy = false;
         std::map<int64_t, std::shared_ptr<champion_info>> champions;
 
+        int64_t selected_champion = -1;
+        int64_t selected_skin     = -1;
+        int64_t selected_chroma   = -1;
+
         void load_data();
         void clear();
+        chroma_info get_skin();
+        champion_info get_champion();
     };
 } // namespace vex::mage

@@ -6,6 +6,8 @@
 #include <xxhash.h>
 
 #include "../vex.hpp"
+#include "skin_container.hpp"
+
 
 #include <yordle/data/meta/bin_class_def.hpp>
 #include <yordle/yordle.hpp>
@@ -21,6 +23,7 @@ namespace vex::mage {
 
     void skin_container::load_data() {
         is_busy = true;
+
         try {
             auto wad                = g_wad.load();
             auto champions_bin_data = wad->read_file(CHAMPIONS_BIN);
@@ -104,10 +107,10 @@ namespace vex::mage {
                             auto chroma_bin_path  = filesystem::path("DATA") / "Characters" / champion->name / "Skins" / (string("Skin") + to_string(chroma_id) + ".bin");
                             auto chroma_tile_path = filesystem::path("rcp-be-lol-game-data") / "global" / "default" / chroma.chroma_path.substr(22);
                             chroma_info skin_chroma {chroma_id, chroma.id, yordle::cdtb::xxhashlist::hash(chroma_bin_path.generic_string()), "Chroma " + to_string(info.chromas.size() + 1), yordle::cdtb::xxhashlist::hash(chroma_tile_path.generic_string())};
-                            info.chromas.emplace_back(skin_chroma);
+                            info.chromas[skin_chroma.id] = make_shared<chroma_info>(skin_chroma);
                         }
                     }
-                    champion->skins.emplace_back(make_shared<skin_info>(info));
+                    champion->skins[info.id] = make_shared<skin_info>(info);
                 }
             }
 
@@ -115,6 +118,7 @@ namespace vex::mage {
                 g_message = nullptr;
                 mut->unlock();
             }
+            is_busy = false;
         } catch (std::exception &e) {
             is_busy = false;
             throw;
@@ -122,6 +126,35 @@ namespace vex::mage {
     }
 
     void skin_container::clear() {
+        selected_champion = -1;
+        selected_skin     = -1;
+        selected_chroma   = -1;
+
         champions.clear();
+    }
+
+    skin_container::champion_info skin_container::get_champion() {
+        if (selected_champion == -1 || !champions.contains(selected_champion)) {
+            return {-1};
+        }
+
+        return *champions[selected_champion];
+    }
+
+    skin_container::chroma_info skin_container::get_skin() {
+        if (selected_champion == -1) {
+            return {-1};
+        }
+
+        auto champ = get_champion();
+        if (selected_skin == -1 || champ.id == -1 || !champ.skins.contains(selected_skin)) {
+            return {-1};
+        }
+
+        auto skin = *champ.skins[selected_skin];
+        if (selected_chroma > -1 && skin.chromas.size() > selected_chroma) {
+            return *skin.chromas[selected_chroma];
+        }
+        return skin_container::chroma_info(skin);
     }
 } // namespace vex::mage

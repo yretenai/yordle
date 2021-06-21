@@ -4,9 +4,8 @@
 
 #pragma once
 
-#include "imgui_menu_item.hpp"
-
-#include "../vex.hpp"
+#include "../../vex.hpp"
+#include "../imgui_menu_item.hpp"
 
 #include <yordle/yordle.hpp>
 

@@ -4,9 +4,7 @@
 
 #pragma once
 
-#include "../mage/wad_container.hpp"
-#include "../os/os_layer.hpp"
-#include "imgui_menu_item.hpp"
+#include "../imgui_menu_item.hpp"
 
 #include <thread>
 

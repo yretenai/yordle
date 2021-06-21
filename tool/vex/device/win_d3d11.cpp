@@ -2,6 +2,8 @@
 // Created by Lilith on 2021-05-08.
 //
 
+#include <chrono>
+#include <ctime>
 #include <d3d11.h>
 #include <d3dcompiler.h>
 #include <imgui.h>
@@ -11,7 +13,6 @@
 
 #include "../common_win.hpp"
 #include "win_d3d11.hpp"
-
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
@@ -50,6 +51,7 @@ namespace vex::device {
 
     void win_d3d11::run() {
         while (!is_exiting) {
+            auto hrtime = std::chrono::high_resolution_clock::now();
             MSG msg;
             while (PeekMessageW(&msg, nullptr, 0U, 0U, PM_REMOVE)) {
                 TranslateMessage(&msg);
@@ -78,6 +80,8 @@ namespace vex::device {
             ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
             dx_swap->Present(1, 0);
+            auto hrend = std::chrono::high_resolution_clock::now();
+            frame_time = std::chrono::duration_cast<std::chrono::duration<double>>(hrend - hrtime).count() * 1000;
         }
     }
 

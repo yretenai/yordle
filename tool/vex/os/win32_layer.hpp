@@ -4,10 +4,6 @@
 
 #pragma once
 
-#define WIN32_LEAN_AND_MEAN
-#include <shobjidl_core.h>
-#include <windows.h>
-
 #include "../device/win_d3d11.hpp"
 
 #include "os_layer.hpp"
@@ -19,5 +15,6 @@ namespace vex::os {
         ~win32_layer()         = default;
 
         std::set<std::filesystem::path> file_dialog(std::set<std::string> extensions, bool folders) override;
+        uint64_t get_memory() override;
     };
 } // namespace vex::os

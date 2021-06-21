@@ -25,6 +25,8 @@ namespace vex::device {
         std::shared_ptr<std::vector<std::shared_ptr<vex::ui::imgui_element>>> elements;
         std::shared_ptr<std::vector<std::shared_ptr<vex::ui::imgui_menu_item>>> menu_items;
 
+        double frame_time = 0.0;
+
         virtual ~render_device_framework() = default;
         virtual void run()                 = 0;
         virtual void close()               = 0;

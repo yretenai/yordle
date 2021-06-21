@@ -41,7 +41,7 @@ namespace poppy {
             auto bundles = deque<filesystem::path>();
             dragon::find_paths(cache, bundles, {".bundle"}, {});
             for (const auto &bundle_path : bundles) {
-                auto file = ifstream(bundle_path, ios::binary | ios::in);
+                auto file   = ifstream(bundle_path, ios::binary | ios::in);
                 auto bundle = riot_bundle(file);
                 for (const auto &bundle_block : *bundle.blocks) {
                     if (manifest.block_to_bundle_map.contains(bundle_block.block_id)) {

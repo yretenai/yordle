@@ -3,7 +3,8 @@
 //
 
 #include "message_menu.hpp"
-#include "../vex.hpp"
+
+#include "../../vex.hpp"
 
 bool vex::ui::message_menu::paint() {
     auto mut = vex::g_message_mutex.load();

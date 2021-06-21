@@ -1,7 +1,6 @@
 # RiotManifest
 
-RMAN files are flatbuffer objects, to compile the RiotManifest.fbs file into the header 
-file use the following command:
+RMAN files are flatbuffer objects, to compile the RiotManifest.fbs file into the header file use the following command:
 
 ```sh
 flatc -o yordle/public/yordle/manifest yordle/public/yordle/manifest/RiotManifest.fbs \

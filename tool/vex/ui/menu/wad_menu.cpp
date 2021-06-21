@@ -3,7 +3,10 @@
 //
 
 #include "wad_menu.hpp"
-#include "../vex.hpp"
+
+#include "../../mage/wad_container.hpp"
+#include "../../os/os_layer.hpp"
+#include "../../vex.hpp"
 
 std::atomic<bool> vex::ui::wad_menu::locked(false);
 

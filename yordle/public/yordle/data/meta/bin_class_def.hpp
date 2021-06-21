@@ -4,13 +4,12 @@
 #include <array>
 #include <cstdint>
 #include <memory>
-#include <vector>
 #include <string>
+#include <vector>
 
-#include <yordle/yordle_export.h>
 #include <yordle/data/meta/bin_class.hpp>
-#include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/meta/bin_dispatch.hpp>
+#include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
 #include <yordle/data/prop/map_prop.hpp>
 #include <yordle/data/prop/optional_prop.hpp>
@@ -19,9 +18,10 @@
 #include <yordle/data/prop/set_prop.hpp>
 #include <yordle/data/prop/string_prop.hpp>
 #include <yordle/data/prop/unordered_set_prop.hpp>
+#include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-    class YORDLE_EXPORT WardSkinDisabler : public bin_class { 
+    class YORDLE_EXPORT WardSkinDisabler : public bin_class {
     public:
         explicit WardSkinDisabler(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -33,7 +33,7 @@ namespace yordle::data::meta {
         std::vector<uint32_t> DisabledIds {};
     };
 
-    class YORDLE_EXPORT IContextualAction : public bin_class { 
+    class YORDLE_EXPORT IContextualAction : public bin_class {
     public:
         explicit IContextualAction(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -42,10 +42,10 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mHashedSituationTrigger = 0;
-        uint32_t mMaxOccurences = 0;
+        uint32_t mMaxOccurences                                  = 0;
     };
 
-    class YORDLE_EXPORT ContextualActionPlayAnimation : public IContextualAction { 
+    class YORDLE_EXPORT ContextualActionPlayAnimation : public IContextualAction {
     public:
         explicit ContextualActionPlayAnimation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -54,20 +54,19 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mHashedAnimationName = 0;
-        bool mPlayAsEmote = false;
+        bool mPlayAsEmote                                     = false;
     };
 
-    class YORDLE_EXPORT ContextualActionTriggerEvent : public IContextualAction { 
+    class YORDLE_EXPORT ContextualActionTriggerEvent : public IContextualAction {
     public:
         explicit ContextualActionTriggerEvent(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 500070696 || IContextualAction::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ContextualActionPlayAudio : public IContextualAction { 
+    class YORDLE_EXPORT ContextualActionPlayAudio : public IContextualAction {
     public:
         explicit ContextualActionPlayAudio(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -80,33 +79,31 @@ namespace yordle::data::meta {
         std::string mEnemyEventName {};
         std::string mSpectatorEventName {};
         bool mWaitForAnnouncerQueue = false;
-        bool x54cd5fca = false;
-        bool xbeb655b5 = false;
+        bool x54cd5fca              = false;
+        bool xbeb655b5              = false;
         std::string x66a1c28b {};
         float mWaitTimeout = 0.0;
     };
 
-    class YORDLE_EXPORT ContextualActionPlayVO : public ContextualActionPlayAudio { 
+    class YORDLE_EXPORT ContextualActionPlayVO : public ContextualActionPlayAudio {
     public:
         explicit ContextualActionPlayVO(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 696305421 || ContextualActionPlayAudio::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IContextualCondition : public bin_class { 
+    class YORDLE_EXPORT IContextualCondition : public bin_class {
     public:
         explicit IContextualCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3400586476 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ContextualConditionNegation : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionNegation : public IContextualCondition {
     public:
         explicit ContextualConditionNegation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -117,7 +114,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IContextualCondition> mChildCondition {};
     };
 
-    class YORDLE_EXPORT ContextualConditionItemID : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionItemID : public IContextualCondition {
     public:
         explicit ContextualConditionItemID(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -128,7 +125,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mItems {};
     };
 
-    class YORDLE_EXPORT ContextualConditionMultikillSize : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionMultikillSize : public IContextualCondition {
     public:
         explicit ContextualConditionMultikillSize(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -139,7 +136,7 @@ namespace yordle::data::meta {
         uint8_t mMultikillSize = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionKillCount : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionKillCount : public IContextualCondition {
     public:
         explicit ContextualConditionKillCount(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -148,10 +145,10 @@ namespace yordle::data::meta {
         }
 
         uint16_t mTotalKills = 0;
-        uint8_t mCompareOp = 0;
+        uint8_t mCompareOp   = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionItemVOGroup : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionItemVOGroup : public IContextualCondition {
     public:
         explicit ContextualConditionItemVOGroup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -162,7 +159,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mItemVOGroupHash = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionHasItemFromVOGroup : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionHasItemFromVOGroup : public IContextualCondition {
     public:
         explicit ContextualConditionHasItemFromVOGroup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -173,7 +170,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mItemVOGroupHash = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionLastBoughtItem : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionLastBoughtItem : public IContextualCondition {
     public:
         explicit ContextualConditionLastBoughtItem(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -184,7 +181,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mItem = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionRuleCooldown : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionRuleCooldown : public IContextualCondition {
     public:
         explicit ContextualConditionRuleCooldown(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -195,7 +192,7 @@ namespace yordle::data::meta {
         float mRuleCooldown = 0.0;
     };
 
-    class YORDLE_EXPORT ContextualConditionChanceToPlay : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionChanceToPlay : public IContextualCondition {
     public:
         explicit ContextualConditionChanceToPlay(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -206,7 +203,7 @@ namespace yordle::data::meta {
         uint8_t mPercentChanceToPlay = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionMoveDistance : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionMoveDistance : public IContextualCondition {
     public:
         explicit ContextualConditionMoveDistance(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -214,11 +211,11 @@ namespace yordle::data::meta {
             return type == 1605316801 || IContextualCondition::is_type(type);
         }
 
-        float mDistance = 0.0;
+        float mDistance    = 0.0;
         uint8_t mCompareOp = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterLevel : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterLevel : public IContextualCondition {
     public:
         explicit ContextualConditionCharacterLevel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -227,10 +224,10 @@ namespace yordle::data::meta {
         }
 
         uint8_t mCharacterLevel = 0;
-        uint8_t mCompareOp = 0;
+        uint8_t mCompareOp      = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionTimeSinceStealthStateChange : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionTimeSinceStealthStateChange : public IContextualCondition {
     public:
         explicit ContextualConditionTimeSinceStealthStateChange(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -239,11 +236,11 @@ namespace yordle::data::meta {
         }
 
         uint8_t mStateToCheck = 0;
-        uint8_t mCompareOp = 0;
-        float mTimeThreshold = 0.0;
+        uint8_t mCompareOp    = 0;
+        float mTimeThreshold  = 0.0;
     };
 
-    class YORDLE_EXPORT ContextualConditionMarkerName : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionMarkerName : public IContextualCondition {
     public:
         explicit ContextualConditionMarkerName(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -254,7 +251,7 @@ namespace yordle::data::meta {
         std::vector<std::string> mMarkerNames {};
     };
 
-    class YORDLE_EXPORT ContextualConditionNeutralMinionMapSide : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionNeutralMinionMapSide : public IContextualCondition {
     public:
         explicit ContextualConditionNeutralMinionMapSide(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -265,7 +262,7 @@ namespace yordle::data::meta {
         uint8_t mTeamCompareOp = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionNeutralMinionCampName : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionNeutralMinionCampName : public IContextualCondition {
     public:
         explicit ContextualConditionNeutralMinionCampName(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -276,7 +273,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mCampName = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionNeutralMinionCampIsAlive : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionNeutralMinionCampIsAlive : public IContextualCondition {
     public:
         explicit ContextualConditionNeutralMinionCampIsAlive(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -287,7 +284,7 @@ namespace yordle::data::meta {
         bool mCampIsAlive = false;
     };
 
-    class YORDLE_EXPORT ContextualConditionNeutralCampId : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionNeutralCampId : public IContextualCondition {
     public:
         explicit ContextualConditionNeutralCampId(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -298,7 +295,7 @@ namespace yordle::data::meta {
         uint8_t mCampId = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionSituationHasRecentlyRun : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionSituationHasRecentlyRun : public IContextualCondition {
     public:
         explicit ContextualConditionSituationHasRecentlyRun(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -307,10 +304,10 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mSituationNameHash = 0;
-        float mTime = 0.0;
+        float mTime                                         = 0.0;
     };
 
-    class YORDLE_EXPORT ContextualConditionMapID : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionMapID : public IContextualCondition {
     public:
         explicit ContextualConditionMapID(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -321,7 +318,7 @@ namespace yordle::data::meta {
         uint32_t mMapIDs = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionObjectiveTakeByMyTeam : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionObjectiveTakeByMyTeam : public IContextualCondition {
     public:
         explicit ContextualConditionObjectiveTakeByMyTeam(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -332,7 +329,7 @@ namespace yordle::data::meta {
         uint32_t mTakenObjective = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionMapRegionName : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionMapRegionName : public IContextualCondition {
     public:
         explicit ContextualConditionMapRegionName(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -344,7 +341,7 @@ namespace yordle::data::meta {
         std::string mRegionName {};
     };
 
-    class YORDLE_EXPORT ContextualConditionTurretPosition : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionTurretPosition : public IContextualCondition {
     public:
         explicit ContextualConditionTurretPosition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -355,7 +352,7 @@ namespace yordle::data::meta {
         uint8_t mTurretPosition = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionHasGold : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionHasGold : public IContextualCondition {
     public:
         explicit ContextualConditionHasGold(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -366,7 +363,7 @@ namespace yordle::data::meta {
         float mGold = 0.0;
     };
 
-    class YORDLE_EXPORT ContextualConditionCustomTimer : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionCustomTimer : public IContextualCondition {
     public:
         explicit ContextualConditionCustomTimer(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -377,7 +374,7 @@ namespace yordle::data::meta {
         float mCustomTimer = 0.0;
     };
 
-    class YORDLE_EXPORT ContextualConditionGameTimer : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionGameTimer : public IContextualCondition {
     public:
         explicit ContextualConditionGameTimer(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -386,10 +383,10 @@ namespace yordle::data::meta {
         }
 
         float mGameTimeInMinutes = 0.0;
-        uint8_t mCompareOp = 0;
+        uint8_t mCompareOp       = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionShopOpenCount : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionShopOpenCount : public IContextualCondition {
     public:
         explicit ContextualConditionShopOpenCount(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -400,7 +397,7 @@ namespace yordle::data::meta {
         uint32_t mShopOpenCount = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionShopCloseCount : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionShopCloseCount : public IContextualCondition {
     public:
         explicit ContextualConditionShopCloseCount(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -411,7 +408,7 @@ namespace yordle::data::meta {
         uint32_t mShopCloseCount = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionItemPurchased : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionItemPurchased : public IContextualCondition {
     public:
         explicit ContextualConditionItemPurchased(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -422,7 +419,7 @@ namespace yordle::data::meta {
         bool mItemPurchased = false;
     };
 
-    class YORDLE_EXPORT ContextualConditionItemCanBePurchased : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionItemCanBePurchased : public IContextualCondition {
     public:
         explicit ContextualConditionItemCanBePurchased(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -433,7 +430,7 @@ namespace yordle::data::meta {
         bool mItemCanBePurchased = false;
     };
 
-    class YORDLE_EXPORT ContextualConditionItemPriceMinimum : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionItemPriceMinimum : public IContextualCondition {
     public:
         explicit ContextualConditionItemPriceMinimum(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -444,7 +441,7 @@ namespace yordle::data::meta {
         uint32_t mItemPriceMinimum = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionOwnerTeamNetChampionKills : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionOwnerTeamNetChampionKills : public IContextualCondition {
     public:
         explicit ContextualConditionOwnerTeamNetChampionKills(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -453,11 +450,11 @@ namespace yordle::data::meta {
         }
 
         int32_t mOwnerTeamNetKillAdvantage = 0;
-        uint8_t mKillAdvantageCompareOp = 0;
-        float mTimeFrameSeconds = 0.0;
+        uint8_t mKillAdvantageCompareOp    = 0;
+        float mTimeFrameSeconds            = 0.0;
     };
 
-    class YORDLE_EXPORT ContextualConditionNearbyChampionCount : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionNearbyChampionCount : public IContextualCondition {
     public:
         explicit ContextualConditionNearbyChampionCount(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -466,11 +463,11 @@ namespace yordle::data::meta {
         }
 
         uint8_t mTeamCompareOp = 0;
-        uint32_t mCount = 0;
-        uint8_t mCompareOp = 0;
+        uint32_t mCount        = 0;
+        uint8_t mCompareOp     = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionNumberOfCharactersNearTargetPos : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionNumberOfCharactersNearTargetPos : public IContextualCondition {
     public:
         explicit ContextualConditionNumberOfCharactersNearTargetPos(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -479,11 +476,11 @@ namespace yordle::data::meta {
         }
 
         uint32_t mNumberOfCharacters = 0;
-        uint8_t mCompareOp = 0;
-        uint8_t mTeamCompareOp = 0;
+        uint8_t mCompareOp           = 0;
+        uint8_t mTeamCompareOp       = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionEnemyDeathsNearby : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionEnemyDeathsNearby : public IContextualCondition {
     public:
         explicit ContextualConditionEnemyDeathsNearby(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -494,7 +491,7 @@ namespace yordle::data::meta {
         uint32_t mEnemyDeaths = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionTeammateDeathsNearby : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionTeammateDeathsNearby : public IContextualCondition {
     public:
         explicit ContextualConditionTeammateDeathsNearby(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -505,7 +502,7 @@ namespace yordle::data::meta {
         uint32_t mTeammateDeaths = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacter : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionCharacter : public IContextualCondition {
     public:
         explicit ContextualConditionCharacter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -517,7 +514,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mChildConditions {};
     };
 
-    class YORDLE_EXPORT ContextualConditionAnyOtherHero : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionAnyOtherHero : public IContextualCondition {
     public:
         explicit ContextualConditionAnyOtherHero(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -528,17 +525,16 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mChildConditions {};
     };
 
-    class YORDLE_EXPORT ICharacterSubcondition : public bin_class { 
+    class YORDLE_EXPORT ICharacterSubcondition : public bin_class {
     public:
         explicit ICharacterSubcondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3725269960 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterName : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterName : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterName(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -549,7 +545,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mCharacters {};
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterFormName : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterFormName : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterFormName(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -560,7 +556,7 @@ namespace yordle::data::meta {
         std::string mFormName {};
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterSkinID : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterSkinID : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterSkinID(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -571,7 +567,7 @@ namespace yordle::data::meta {
         std::vector<int32_t> mSkinIDs {};
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterMetadata : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterMetadata : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterMetadata(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -583,7 +579,7 @@ namespace yordle::data::meta {
         std::string mData {};
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterUnitTags : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterUnitTags : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterUnitTags(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -595,7 +591,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mUnitTags {};
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterHealth : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterHealth : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterHealth(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -604,10 +600,10 @@ namespace yordle::data::meta {
         }
 
         float mTargetHealth = 0.0;
-        uint8_t mCompareOp = 0;
+        uint8_t mCompareOp  = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionIsAlly : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionIsAlly : public ICharacterSubcondition {
     public:
         explicit ContextualConditionIsAlly(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -618,7 +614,7 @@ namespace yordle::data::meta {
         bool mIsAlly = false;
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterPlayingEmote : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterPlayingEmote : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterPlayingEmote(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -629,7 +625,7 @@ namespace yordle::data::meta {
         uint8_t mEmoteID = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterPlayingAnimation : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterPlayingAnimation : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterPlayingAnimation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -640,7 +636,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mAnimationNameHash = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterDistance : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterDistance : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterDistance(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -648,22 +644,21 @@ namespace yordle::data::meta {
             return type == 1680964441 || ICharacterSubcondition::is_type(type);
         }
 
-        float mDistance = 0.0;
-        uint8_t mCompareOp = 0;
+        float mDistance         = 0.0;
+        uint8_t mCompareOp      = 0;
         uint8_t mDistanceTarget = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterInRangeForSyncedAnimation : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterInRangeForSyncedAnimation : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterInRangeForSyncedAnimation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3402679647 || ICharacterSubcondition::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterHasTimeRemainingForAnimation : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterHasTimeRemainingForAnimation : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterHasTimeRemainingForAnimation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -672,20 +667,19 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mAnimationName = 0;
-        float mMinRemainingTime = 0.0;
+        float mMinRemainingTime                         = 0.0;
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterIsCastingRecall : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterIsCastingRecall : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterIsCastingRecall(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1618442710 || ICharacterSubcondition::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterRole : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterRole : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterRole(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -696,7 +690,7 @@ namespace yordle::data::meta {
         uint8_t mRole = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionCharacterHasCAC : public ICharacterSubcondition { 
+    class YORDLE_EXPORT ContextualConditionCharacterHasCAC : public ICharacterSubcondition {
     public:
         explicit ContextualConditionCharacterHasCAC(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -707,17 +701,16 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mCacs {};
     };
 
-    class YORDLE_EXPORT IContextualConditionSpell : public IContextualCondition { 
+    class YORDLE_EXPORT IContextualConditionSpell : public IContextualCondition {
     public:
         explicit IContextualConditionSpell(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 576452982 || IContextualCondition::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ContextualConditionSpell : public IContextualCondition { 
+    class YORDLE_EXPORT ContextualConditionSpell : public IContextualCondition {
     public:
         explicit ContextualConditionSpell(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -729,7 +722,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IContextualConditionSpell>> mChildConditions {};
     };
 
-    class YORDLE_EXPORT ContextualConditionSpellName : public IContextualConditionSpell { 
+    class YORDLE_EXPORT ContextualConditionSpellName : public IContextualConditionSpell {
     public:
         explicit ContextualConditionSpellName(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -740,7 +733,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mSpell = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionSpellSlot : public IContextualConditionSpell { 
+    class YORDLE_EXPORT ContextualConditionSpellSlot : public IContextualConditionSpell {
     public:
         explicit ContextualConditionSpellSlot(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -751,7 +744,7 @@ namespace yordle::data::meta {
         uint32_t mSpellSlot = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionSpellLevel : public IContextualConditionSpell { 
+    class YORDLE_EXPORT ContextualConditionSpellLevel : public IContextualConditionSpell {
     public:
         explicit ContextualConditionSpellLevel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -760,10 +753,10 @@ namespace yordle::data::meta {
         }
 
         uint8_t mSpellLevel = 0;
-        uint8_t mCompareOp = 0;
+        uint8_t mCompareOp  = 0;
     };
 
-    class YORDLE_EXPORT ContextualConditionSpellIsReady : public IContextualConditionSpell { 
+    class YORDLE_EXPORT ContextualConditionSpellIsReady : public IContextualConditionSpell {
     public:
         explicit ContextualConditionSpellIsReady(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -774,17 +767,16 @@ namespace yordle::data::meta {
         bool mSpellIsReady = false;
     };
 
-    class YORDLE_EXPORT IContextualConditionBuff : public IContextualCondition { 
+    class YORDLE_EXPORT IContextualConditionBuff : public IContextualCondition {
     public:
         explicit IContextualConditionBuff(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4210162581 || IContextualCondition::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT x418b95a : public IContextualConditionBuff { 
+    class YORDLE_EXPORT x418b95a : public IContextualConditionBuff {
     public:
         explicit x418b95a(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -793,10 +785,10 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mBuff = 0;
-        uint8_t x11206e1a = 0;
+        uint8_t x11206e1a                      = 0;
     };
 
-    class YORDLE_EXPORT xb8d75e45 : public IContextualConditionBuff { 
+    class YORDLE_EXPORT xb8d75e45 : public IContextualConditionBuff {
     public:
         explicit xb8d75e45(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -805,10 +797,10 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mBuff = 0;
-        uint8_t x11206e1a = 0;
+        uint8_t x11206e1a                      = 0;
     };
 
-    class YORDLE_EXPORT ContextualRule : public bin_class { 
+    class YORDLE_EXPORT ContextualRule : public bin_class {
     public:
         explicit ContextualRule(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -825,7 +817,7 @@ namespace yordle::data::meta {
         bool x68fee3c4 = false;
     };
 
-    class YORDLE_EXPORT ContextualSituation : public bin_class { 
+    class YORDLE_EXPORT ContextualSituation : public bin_class {
     public:
         explicit ContextualSituation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -834,11 +826,11 @@ namespace yordle::data::meta {
         }
 
         bool mChooseRandomValidRule = false;
-        float mCoolDownTime = 0.0;
+        float mCoolDownTime         = 0.0;
         std::vector<std::shared_ptr<yordle::data::meta::ContextualRule>> mRules {};
     };
 
-    class YORDLE_EXPORT DamageSourceTemplate : public bin_class { 
+    class YORDLE_EXPORT DamageSourceTemplate : public bin_class {
     public:
         explicit DamageSourceTemplate(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -851,7 +843,7 @@ namespace yordle::data::meta {
         std::vector<std::string> DamageTags {};
     };
 
-    class YORDLE_EXPORT DamageSourceSettings : public bin_class { 
+    class YORDLE_EXPORT DamageSourceSettings : public bin_class {
     public:
         explicit DamageSourceSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -863,7 +855,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::DamageSourceTemplate>> templateDefinition {};
     };
 
-    class YORDLE_EXPORT DeathTimesScalingPoint : public bin_class { 
+    class YORDLE_EXPORT DeathTimesScalingPoint : public bin_class {
     public:
         explicit DeathTimesScalingPoint(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -871,11 +863,11 @@ namespace yordle::data::meta {
             return type == 2583264988 || bin_class::is_type(type);
         }
 
-        uint32_t mStartTime = 0;
+        uint32_t mStartTime    = 0;
         float mPercentIncrease = 0.0;
     };
 
-    class YORDLE_EXPORT DeathTimes : public bin_class { 
+    class YORDLE_EXPORT DeathTimes : public bin_class {
     public:
         explicit DeathTimes(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -884,16 +876,16 @@ namespace yordle::data::meta {
         }
 
         std::vector<float> mTimeDeadPerLevel {};
-        uint32_t mScalingStartTime = 0;
+        uint32_t mScalingStartTime     = 0;
         uint32_t mScalingIncrementTime = 0;
-        float mScalingPercentIncrease = 0.0;
-        float mScalingPercentCap = 0.0;
+        float mScalingPercentIncrease  = 0.0;
+        float mScalingPercentCap       = 0.0;
         std::vector<std::shared_ptr<yordle::data::meta::DeathTimesScalingPoint>> mScalingPoints {};
-        bool mAllowRespawnMods = false;
+        bool mAllowRespawnMods          = false;
         bool mStartDeathTimerForZombies = false;
     };
 
-    class YORDLE_EXPORT AbilityResourceStateColorOptions : public bin_class { 
+    class YORDLE_EXPORT AbilityResourceStateColorOptions : public bin_class {
     public:
         explicit AbilityResourceStateColorOptions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -905,7 +897,7 @@ namespace yordle::data::meta {
         std::array<uint8_t, 4> fadeColor {};
     };
 
-    class YORDLE_EXPORT AbilityResourceStateData : public bin_class { 
+    class YORDLE_EXPORT AbilityResourceStateData : public bin_class {
     public:
         explicit AbilityResourceStateData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -919,7 +911,7 @@ namespace yordle::data::meta {
         std::string animationSuffix {};
     };
 
-    class YORDLE_EXPORT AbilityResourceThresholdIndicatorRange : public bin_class { 
+    class YORDLE_EXPORT AbilityResourceThresholdIndicatorRange : public bin_class {
     public:
         explicit AbilityResourceThresholdIndicatorRange(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -928,10 +920,10 @@ namespace yordle::data::meta {
         }
 
         float rangeStart = 0.0;
-        float rangeEnd = 0.0;
+        float rangeEnd   = 0.0;
     };
 
-    class YORDLE_EXPORT AbilityResourceTypeData : public bin_class { 
+    class YORDLE_EXPORT AbilityResourceTypeData : public bin_class {
     public:
         explicit AbilityResourceTypeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -941,11 +933,11 @@ namespace yordle::data::meta {
 
         std::vector<std::shared_ptr<yordle::data::meta::AbilityResourceStateData>> states {};
         bool showAbilityResource = false;
-        bool showRegen = false;
+        bool showRegen           = false;
         std::vector<std::shared_ptr<yordle::data::meta::AbilityResourceThresholdIndicatorRange>> ThresholdIndicatorRanges {};
     };
 
-    class YORDLE_EXPORT AbilityResourceTypeConfig : public bin_class { 
+    class YORDLE_EXPORT AbilityResourceTypeConfig : public bin_class {
     public:
         explicit AbilityResourceTypeConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -970,7 +962,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::AbilityResourceTypeData> Other {};
     };
 
-    class YORDLE_EXPORT EvolutionDescription : public bin_class { 
+    class YORDLE_EXPORT EvolutionDescription : public bin_class {
     public:
         explicit EvolutionDescription(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -984,7 +976,7 @@ namespace yordle::data::meta {
         std::vector<std::string> mIconNames {};
     };
 
-    class YORDLE_EXPORT ExperienceCurveData : public bin_class { 
+    class YORDLE_EXPORT ExperienceCurveData : public bin_class {
     public:
         explicit ExperienceCurveData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -995,12 +987,12 @@ namespace yordle::data::meta {
         std::vector<float> mExperienceRequiredPerLevel {};
         std::vector<float> mExperienceGrantedForKillPerLevel {};
         std::vector<float> x9980fa2e {};
-        float mBaseExperienceMultiplier = 0.0;
+        float mBaseExperienceMultiplier            = 0.0;
         float mLevelDifferenceExperienceMultiplier = 0.0;
-        float mMinimumExperienceMultiplier = 0.0;
+        float mMinimumExperienceMultiplier         = 0.0;
     };
 
-    class YORDLE_EXPORT ExperienceModData : public bin_class { 
+    class YORDLE_EXPORT ExperienceModData : public bin_class {
     public:
         explicit ExperienceModData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1011,7 +1003,7 @@ namespace yordle::data::meta {
         std::vector<float> mPlayerMinionSplitXp {};
     };
 
-    class YORDLE_EXPORT StatUIData : public bin_class { 
+    class YORDLE_EXPORT StatUIData : public bin_class {
     public:
         explicit StatUIData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1026,7 +1018,7 @@ namespace yordle::data::meta {
         std::string mScalingTagKey {};
     };
 
-    class YORDLE_EXPORT GlobalStatsUIData : public bin_class { 
+    class YORDLE_EXPORT GlobalStatsUIData : public bin_class {
     public:
         explicit GlobalStatsUIData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1062,7 +1054,7 @@ namespace yordle::data::meta {
         uint8_t x97343c80 = 0;
     };
 
-    class YORDLE_EXPORT CameraTrapezoid : public bin_class { 
+    class YORDLE_EXPORT CameraTrapezoid : public bin_class {
     public:
         explicit CameraTrapezoid(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1070,13 +1062,13 @@ namespace yordle::data::meta {
             return type == 1207715590 || bin_class::is_type(type);
         }
 
-        float x9811eb50 = 0.0;
-        float x82cb6669 = 0.0;
-        float mMaxXTop = 0.0;
+        float x9811eb50   = 0.0;
+        float x82cb6669   = 0.0;
+        float mMaxXTop    = 0.0;
         float mMaxXBottom = 0.0;
     };
 
-    class YORDLE_EXPORT CameraConfig : public bin_class { 
+    class YORDLE_EXPORT CameraConfig : public bin_class {
     public:
         explicit CameraConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1085,26 +1077,26 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::CameraTrapezoid> x671c887 {};
-        float mAccelerationTimeMouse = 0.0;
-        float mDecelerationTimeMouse = 0.0;
-        float mAccelerationTimeKeyboard = 0.0;
-        float mDecelerationTimeKeyboard = 0.0;
-        float mTopdownZoom = 0.0;
-        float mZoomMinDistance = 0.0;
-        float mZoomMaxDistance = 0.0;
-        float mZoomEaseTime = 0.0;
-        float mZoomMinSpeed = 0.0;
-        float mDragScale = 0.0;
-        float mDragMomentumDecay = 0.0;
-        float mDragMomentumRecencyWeight = 0.0;
-        float mLockedCameraEasingDistance = 0.0;
+        float mAccelerationTimeMouse               = 0.0;
+        float mDecelerationTimeMouse               = 0.0;
+        float mAccelerationTimeKeyboard            = 0.0;
+        float mDecelerationTimeKeyboard            = 0.0;
+        float mTopdownZoom                         = 0.0;
+        float mZoomMinDistance                     = 0.0;
+        float mZoomMaxDistance                     = 0.0;
+        float mZoomEaseTime                        = 0.0;
+        float mZoomMinSpeed                        = 0.0;
+        float mDragScale                           = 0.0;
+        float mDragMomentumDecay                   = 0.0;
+        float mDragMomentumRecencyWeight           = 0.0;
+        float mLockedCameraEasingDistance          = 0.0;
         float mTransitionDurationIntoCinematicMode = 0.0;
         std::shared_ptr<yordle::data::meta::CameraTrapezoid> x71c9323a {};
         std::shared_ptr<yordle::data::meta::CameraTrapezoid> xf7617555 {};
         float x383f51a8 = 0.0;
     };
 
-    class YORDLE_EXPORT MapAudioDataProperties : public bin_class { 
+    class YORDLE_EXPORT MapAudioDataProperties : public bin_class {
     public:
         explicit MapAudioDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1117,7 +1109,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> features {};
     };
 
-    class YORDLE_EXPORT ClientStateAudioDataProperties : public bin_class { 
+    class YORDLE_EXPORT ClientStateAudioDataProperties : public bin_class {
     public:
         explicit ClientStateAudioDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1129,7 +1121,7 @@ namespace yordle::data::meta {
         std::string themeMusic {};
     };
 
-    class YORDLE_EXPORT FeatureAudioDataProperties : public bin_class { 
+    class YORDLE_EXPORT FeatureAudioDataProperties : public bin_class {
     public:
         explicit FeatureAudioDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1142,7 +1134,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash feature = 0;
     };
 
-    class YORDLE_EXPORT BankUnit : public bin_class { 
+    class YORDLE_EXPORT BankUnit : public bin_class {
     public:
         explicit BankUnit(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1154,10 +1146,10 @@ namespace yordle::data::meta {
         std::vector<std::string> bankPath {};
         std::vector<std::string> events {};
         bool asynchrone = false;
-        bool voiceOver = false;
+        bool voiceOver  = false;
     };
 
-    class YORDLE_EXPORT AudioTagListProperties : public bin_class { 
+    class YORDLE_EXPORT AudioTagListProperties : public bin_class {
     public:
         explicit AudioTagListProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1169,7 +1161,7 @@ namespace yordle::data::meta {
         std::string Key {};
     };
 
-    class YORDLE_EXPORT AudioSystemDataProperties : public bin_class { 
+    class YORDLE_EXPORT AudioSystemDataProperties : public bin_class {
     public:
         explicit AudioSystemDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1180,7 +1172,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::AudioTagListProperties>> systemTagEventList {};
     };
 
-    class YORDLE_EXPORT AudioStatusEvents : public bin_class { 
+    class YORDLE_EXPORT AudioStatusEvents : public bin_class {
     public:
         explicit AudioStatusEvents(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1193,7 +1185,7 @@ namespace yordle::data::meta {
         std::string stopEvent {};
     };
 
-    class YORDLE_EXPORT GlobalAudioDataProperties : public bin_class { 
+    class YORDLE_EXPORT GlobalAudioDataProperties : public bin_class {
     public:
         explicit GlobalAudioDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1207,7 +1199,7 @@ namespace yordle::data::meta {
         uint32_t x103e4044 = 0;
     };
 
-    class YORDLE_EXPORT MusicAudioDataProperties : public bin_class { 
+    class YORDLE_EXPORT MusicAudioDataProperties : public bin_class {
     public:
         explicit MusicAudioDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1229,7 +1221,7 @@ namespace yordle::data::meta {
         std::string GameQuitEvent {};
     };
 
-    class YORDLE_EXPORT EVOSettings : public bin_class { 
+    class YORDLE_EXPORT EVOSettings : public bin_class {
     public:
         explicit EVOSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1237,24 +1229,23 @@ namespace yordle::data::meta {
             return type == 1597933322 || bin_class::is_type(type);
         }
 
-        bool mEnableChatVO = false;
-        bool mEnableAnnouncerVOReplacement = false;
+        bool mEnableChatVO                      = false;
+        bool mEnableAnnouncerVOReplacement      = false;
         int32_t mChatVOThrottleCounterThreshold = 0;
-        float mChatVOThrottleCounterDecayTime = 0.0;
-        float mPingVOThrottleThreshold = 0.0;
+        float mChatVOThrottleCounterDecayTime   = 0.0;
+        float mPingVOThrottleThreshold          = 0.0;
     };
 
-    class YORDLE_EXPORT ICatalogEntryOwner : public bin_class { 
+    class YORDLE_EXPORT ICatalogEntryOwner : public bin_class {
     public:
         explicit ICatalogEntryOwner(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2479546740 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT CatalogEntry : public bin_class { 
+    class YORDLE_EXPORT CatalogEntry : public bin_class {
     public:
         explicit CatalogEntry(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1267,7 +1258,7 @@ namespace yordle::data::meta {
         std::string offerId {};
     };
 
-    class YORDLE_EXPORT CensoredImage : public bin_class { 
+    class YORDLE_EXPORT CensoredImage : public bin_class {
     public:
         explicit CensoredImage(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1279,7 +1270,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::string> UncensoredImages {};
     };
 
-    class YORDLE_EXPORT Character : public bin_class { 
+    class YORDLE_EXPORT Character : public bin_class {
     public:
         explicit Character(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1290,7 +1281,7 @@ namespace yordle::data::meta {
         std::string name {};
     };
 
-    class YORDLE_EXPORT SkinCharacterDataProperties_CharacterIdleEffect : public bin_class { 
+    class YORDLE_EXPORT SkinCharacterDataProperties_CharacterIdleEffect : public bin_class {
     public:
         explicit SkinCharacterDataProperties_CharacterIdleEffect(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1305,7 +1296,7 @@ namespace yordle::data::meta {
         std::string targetBoneName {};
     };
 
-    class YORDLE_EXPORT SkinCharacterMetaDataProperties_SpawningSkinOffset : public bin_class { 
+    class YORDLE_EXPORT SkinCharacterMetaDataProperties_SpawningSkinOffset : public bin_class {
     public:
         explicit SkinCharacterMetaDataProperties_SpawningSkinOffset(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1317,7 +1308,7 @@ namespace yordle::data::meta {
         int32_t offset = 0;
     };
 
-    class YORDLE_EXPORT ESportTeamEntry : public bin_class { 
+    class YORDLE_EXPORT ESportTeamEntry : public bin_class {
     public:
         explicit ESportTeamEntry(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1330,7 +1321,7 @@ namespace yordle::data::meta {
         std::string textureName {};
     };
 
-    class YORDLE_EXPORT ESportLeagueEntry : public bin_class { 
+    class YORDLE_EXPORT ESportLeagueEntry : public bin_class {
     public:
         explicit ESportLeagueEntry(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1342,7 +1333,7 @@ namespace yordle::data::meta {
         std::string textureName {};
     };
 
-    class YORDLE_EXPORT SkinCharacterMetaDataProperties : public bin_class { 
+    class YORDLE_EXPORT SkinCharacterMetaDataProperties : public bin_class {
     public:
         explicit SkinCharacterMetaDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1354,14 +1345,14 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ESportTeamEntry>> eSportTeamTable {};
         std::vector<std::shared_ptr<yordle::data::meta::ESportLeagueEntry>> eSportLeagueTable {};
         bool skinBasedRelativeColorScheme = false;
-        bool isRelativeColorCharacter = false;
+        bool isRelativeColorCharacter     = false;
         std::vector<int32_t> relativeColorSwapTable {};
         bool useAudioProperties = false;
         std::vector<std::shared_ptr<yordle::data::meta::SkinCharacterMetaDataProperties_SpawningSkinOffset>> spawningSkinOffsets {};
         bool useGDSBinaries = false;
     };
 
-    class YORDLE_EXPORT SkinAudioProperties : public bin_class { 
+    class YORDLE_EXPORT SkinAudioProperties : public bin_class {
     public:
         explicit SkinAudioProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1373,7 +1364,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::BankUnit>> bankUnits {};
     };
 
-    class YORDLE_EXPORT SkinAnimationProperties : public bin_class { 
+    class YORDLE_EXPORT SkinAnimationProperties : public bin_class {
     public:
         explicit SkinAnimationProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1384,7 +1375,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> animationGraphData {4126869447u};
     };
 
-    class YORDLE_EXPORT SkinEmblem : public bin_class { 
+    class YORDLE_EXPORT SkinEmblem : public bin_class {
     public:
         explicit SkinEmblem(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1396,7 +1387,7 @@ namespace yordle::data::meta {
         uint32_t mLoadingScreenAnchor = 0;
     };
 
-    class YORDLE_EXPORT SkinSummonerEmoteLoadout : public bin_class { 
+    class YORDLE_EXPORT SkinSummonerEmoteLoadout : public bin_class {
     public:
         explicit SkinSummonerEmoteLoadout(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1407,7 +1398,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mEmotes {};
     };
 
-    class YORDLE_EXPORT SkinCharacterDataProperties : public bin_class { 
+    class YORDLE_EXPORT SkinCharacterDataProperties : public bin_class {
     public:
         explicit SkinCharacterDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1418,7 +1409,7 @@ namespace yordle::data::meta {
         uint32_t skinClassification = 0;
         std::string championSkinName {};
         uint32_t attributeFlags = 0;
-        int32_t skinParent = 0;
+        int32_t skinParent      = 0;
         std::string metaDataTags {};
         yordle::data::meta::bin_fnv_hash emoteLoadout = 0;
         std::shared_ptr<yordle::data::meta::bin_class> skinUpgradeData {};
@@ -1465,7 +1456,7 @@ namespace yordle::data::meta {
         uint32_t x25f9aa72 = 0;
     };
 
-    class YORDLE_EXPORT SkinFilterData : public bin_class { 
+    class YORDLE_EXPORT SkinFilterData : public bin_class {
     public:
         explicit SkinFilterData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1474,11 +1465,11 @@ namespace yordle::data::meta {
         }
 
         uint32_t FilterType = 0;
-        bool xc176d167 = false;
+        bool xc176d167      = false;
         std::vector<uint32_t> skinIds {};
     };
 
-    class YORDLE_EXPORT CharacterPassiveData : public bin_class { 
+    class YORDLE_EXPORT CharacterPassiveData : public bin_class {
     public:
         explicit CharacterPassiveData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1490,11 +1481,11 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mComponentBuffs {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mChildSpells {};
         uint8_t mDisplayFlags = 0;
-        bool x6346a946 = false;
+        bool x6346a946        = false;
         std::shared_ptr<yordle::data::meta::SkinFilterData> SkinFilter {};
     };
 
-    class YORDLE_EXPORT GlobalPerLevelStatsFactor : public bin_class { 
+    class YORDLE_EXPORT GlobalPerLevelStatsFactor : public bin_class {
     public:
         explicit GlobalPerLevelStatsFactor(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1505,7 +1496,7 @@ namespace yordle::data::meta {
         std::vector<float> mPerLevelStatsFactor {};
     };
 
-    class YORDLE_EXPORT OverrideAutoAttackCastTimeData : public bin_class { 
+    class YORDLE_EXPORT OverrideAutoAttackCastTimeData : public bin_class {
     public:
         explicit OverrideAutoAttackCastTimeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1516,7 +1507,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mOverrideAutoattackCastTimeCalculation {};
     };
 
-    class YORDLE_EXPORT CharacterRecord : public bin_class { 
+    class YORDLE_EXPORT CharacterRecord : public bin_class {
     public:
         explicit CharacterRecord(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1530,12 +1521,12 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> DisabledTargetLaserEffects {};
         std::shared_ptr<yordle::data::meta::EvolutionDescription> evolutionData {};
         std::shared_ptr<yordle::data::meta::bin_class> useableData {};
-        float baseHP = 0.0;
-        float hpPerLevel = 0.0;
-        float baseStaticHPRegen = 0.0;
-        float baseFactorHPRegen = 0.0;
-        float hpRegenPerLevel = 0.0;
-        float healthBarHeight = 0.0;
+        float baseHP               = 0.0;
+        float hpPerLevel           = 0.0;
+        float baseStaticHPRegen    = 0.0;
+        float baseFactorHPRegen    = 0.0;
+        float hpRegenPerLevel      = 0.0;
+        float healthBarHeight      = 0.0;
         bool healthBarFullParallax = false;
         std::string selfChampSpecificHealthSuffix {};
         std::string selfCBChampSpecificHealthSuffix {};
@@ -1544,54 +1535,54 @@ namespace yordle::data::meta {
         bool highlightHealthbarIcons = false;
         std::shared_ptr<yordle::data::meta::bin_class> primaryAbilityResource {};
         std::shared_ptr<yordle::data::meta::bin_class> secondaryAbilityResource {};
-        float baseDamage = 0.0;
-        float damagePerLevel = 0.0;
-        float baseArmor = 0.0;
-        float armorPerLevel = 0.0;
-        float baseSpellBlock = 0.0;
-        float spellBlockPerLevel = 0.0;
-        float baseDodge = 0.0;
-        float DodgePerLevel = 0.0;
-        float baseMissChance = 0.0;
-        float baseCritChance = 0.0;
-        float critDamageMultiplier = 0.0;
-        float critPerLevel = 0.0;
-        float baseMoveSpeed = 0.0;
-        float xcb4451d3 = 0.0;
-        float attackRange = 0.0;
-        float attackSpeed = 0.0;
-        float attackSpeedRatio = 0.0;
-        float attackSpeedPerLevel = 0.0;
-        float AbilityPowerIncPerLevel = 0.0;
+        float baseDamage                         = 0.0;
+        float damagePerLevel                     = 0.0;
+        float baseArmor                          = 0.0;
+        float armorPerLevel                      = 0.0;
+        float baseSpellBlock                     = 0.0;
+        float spellBlockPerLevel                 = 0.0;
+        float baseDodge                          = 0.0;
+        float DodgePerLevel                      = 0.0;
+        float baseMissChance                     = 0.0;
+        float baseCritChance                     = 0.0;
+        float critDamageMultiplier               = 0.0;
+        float critPerLevel                       = 0.0;
+        float baseMoveSpeed                      = 0.0;
+        float xcb4451d3                          = 0.0;
+        float attackRange                        = 0.0;
+        float attackSpeed                        = 0.0;
+        float attackSpeedRatio                   = 0.0;
+        float attackSpeedPerLevel                = 0.0;
+        float AbilityPowerIncPerLevel            = 0.0;
         float mAdaptiveForceToAbilityPowerWeight = 0.0;
-        float attackAutoInterruptPercent = 0.0;
-        float acquisitionRange = 0.0;
+        float attackAutoInterruptPercent         = 0.0;
+        float acquisitionRange                   = 0.0;
         std::optional<float> wakeUpRange {};
         std::optional<float> firstAcquisitionRange {};
         std::shared_ptr<yordle::data::meta::bin_class> basicAttack {};
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> extraAttacks {};
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> critAttacks {};
         float towerTargetingPriorityBoost = 0.0;
-        float expGivenOnDeath = 0.0;
-        float goldGivenOnDeath = 0.0;
-        float goldRadius = 0.0;
-        float experienceRadius = 0.0;
-        float deathEventListeningRadius = 0.0;
-        float localGoldGivenOnDeath = 0.0;
-        float localExpGivenOnDeath = 0.0;
+        float expGivenOnDeath             = 0.0;
+        float goldGivenOnDeath            = 0.0;
+        float goldRadius                  = 0.0;
+        float experienceRadius            = 0.0;
+        float deathEventListeningRadius   = 0.0;
+        float localGoldGivenOnDeath       = 0.0;
+        float localExpGivenOnDeath        = 0.0;
         bool localGoldSplitWithLastHitter = false;
-        float globalGoldGivenOnDeath = 0.0;
-        float globalExpGivenOnDeath = 0.0;
+        float globalGoldGivenOnDeath      = 0.0;
+        float globalExpGivenOnDeath       = 0.0;
         std::optional<float> perceptionBubbleRadius {};
         std::optional<std::array<float, 3>> perceptionBoundingBoxSize {};
-        float significance = 0.0;
+        float significance          = 0.0;
         float untargetableSpawnTime = 0.0;
-        float abilityPower = 0.0;
+        float abilityPower          = 0.0;
         std::vector<std::string> spellNames {};
         std::vector<std::string> extraSpells {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mAbilities {};
-        uint32_t onKillEvent = 0;
-        uint32_t OnKillEventSteal = 0;
+        uint32_t onKillEvent             = 0;
+        uint32_t OnKillEventSteal        = 0;
         uint32_t onKillEventForSpectator = 0;
         std::string criticalAttack {};
         std::string passiveName {};
@@ -1612,28 +1603,28 @@ namespace yordle::data::meta {
         float hoverIndicatorRadius = 0.0;
         std::string hoverLineIndicatorBaseTextureName {};
         std::string hoverLineIndicatorTargetTextureName {};
-        float hoverLineIndicatorWidth = 0.0;
+        float hoverLineIndicatorWidth     = 0.0;
         bool hoverIndicatorRotateToPlayer = false;
         std::string hoverIndicatorMinimapOverride {};
         std::string minimapIconOverride {};
-        float hoverIndicatorRadiusMinimap = 0.0;
+        float hoverIndicatorRadiusMinimap    = 0.0;
         float hoverLineIndicatorWidthMinimap = 0.0;
-        float areaIndicatorRadius = 0.0;
-        float areaIndicatorMinRadius = 0.0;
-        float areaIndicatorMaxDistance = 0.0;
-        float areaIndicatorTargetDistance = 0.0;
-        float areaIndicatorMinDistance = 0.0;
+        float areaIndicatorRadius            = 0.0;
+        float areaIndicatorMinRadius         = 0.0;
+        float areaIndicatorMaxDistance       = 0.0;
+        float areaIndicatorTargetDistance    = 0.0;
+        float areaIndicatorMinDistance       = 0.0;
         std::string areaIndicatorTextureName {};
         float areaIndicatorTextureSize = 0.0;
         std::string charAudioNameOverride {};
-        bool x104d2294 = false;
+        bool x104d2294        = false;
         bool mUseCCAnimations = false;
         std::string jointForAnimAdjustedSelection {};
         float outlineBBoxExpansion = 0.0;
         std::string silhouetteAttachmentAnim {};
-        float hitFxScale = 0.0;
-        float selectionHeight = 0.0;
-        float selectionRadius = 0.0;
+        float hitFxScale                 = 0.0;
+        float selectionHeight            = 0.0;
+        float selectionRadius            = 0.0;
         float pathfindingCollisionRadius = 0.0;
         std::optional<float> overrideGameplayCollisionRadius {};
         std::string unitTagsString {};
@@ -1646,18 +1637,18 @@ namespace yordle::data::meta {
         bool platformEnabled = false;
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> spellLevelUpInfo {};
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> recSpellRankUpInfo {};
-        bool recordAsWard = false;
-        float minionScoreValue = 0.0;
+        bool recordAsWard         = false;
+        float minionScoreValue    = 0.0;
         bool useRiotRelationships = false;
-        uint32_t flags = 0;
-        uint32_t minionFlags = 0;
+        uint32_t flags            = 0;
+        uint32_t minionFlags      = 0;
         std::string assetCategory {};
         std::vector<yordle::data::meta::bin_fnv_hash> purchaseIdentities {};
         std::vector<yordle::data::meta::bin_fnv_hash> mClientSideItemInventory {};
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mPreferredPerkStyle {240569694u};
         std::shared_ptr<yordle::data::meta::bin_class> mPerkReplacements {};
-        float deathTime = 0.0;
-        float occludedUnitSelectableDistance = 0.0;
+        float deathTime                        = 0.0;
+        float occludedUnitSelectableDistance   = 0.0;
         float MovingTowardEnemyActivationAngle = 0.0;
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::bin_class>> mCharacterCalculations {};
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mCharacterPassiveSpell {1585338886u};
@@ -1665,7 +1656,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mDefaultStatOverrides {};
     };
 
-    class YORDLE_EXPORT AbilityResourceSlotInfo : public bin_class { 
+    class YORDLE_EXPORT AbilityResourceSlotInfo : public bin_class {
     public:
         explicit AbilityResourceSlotInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1673,32 +1664,32 @@ namespace yordle::data::meta {
             return type == 3459369333 || bin_class::is_type(type);
         }
 
-        uint8_t arType = 0;
-        float arBase = 0.0;
-        float arPerLevel = 0.0;
-        float arBaseStaticRegen = 0.0;
-        float arBaseFactorRegen = 0.0;
-        float arRegenPerLevel = 0.0;
-        float arIncrements = 0.0;
-        int32_t arMaxSegments = 0;
-        bool arHasRegenText = false;
+        uint8_t arType                     = 0;
+        float arBase                       = 0.0;
+        float arPerLevel                   = 0.0;
+        float arBaseStaticRegen            = 0.0;
+        float arBaseFactorRegen            = 0.0;
+        float arRegenPerLevel              = 0.0;
+        float arIncrements                 = 0.0;
+        int32_t arMaxSegments              = 0;
+        bool arHasRegenText                = false;
         bool arAllowMaxValueToBeOverridden = false;
-        bool arContributesToHealthValues = false;
-        bool arPreventRegenWhileAtZero = false;
-        bool arDisplayAsPips = false;
-        bool arIsShown = false;
-        bool arIsShownOnlyOnLocalPlayer = false;
+        bool arContributesToHealthValues   = false;
+        bool arPreventRegenWhileAtZero     = false;
+        bool arDisplayAsPips               = false;
+        bool arIsShown                     = false;
+        bool arIsShownOnlyOnLocalPlayer    = false;
         std::string arOverrideSmallPipName {};
         std::string arOverrideMediumPipName {};
         std::string arOverrideLargePipName {};
         std::string arOverrideEmptyPipName {};
         std::string arOverrideSpacerName {};
         bool arNegativeSpacer = false;
-        bool x5ca738c0 = false;
-        bool xa9d3a87c = false;
+        bool x5ca738c0        = false;
+        bool xa9d3a87c        = false;
     };
 
-    class YORDLE_EXPORT AttackSlotData : public bin_class { 
+    class YORDLE_EXPORT AttackSlotData : public bin_class {
     public:
         explicit AttackSlotData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1715,7 +1706,7 @@ namespace yordle::data::meta {
         std::optional<std::string> mAttackName {};
     };
 
-    class YORDLE_EXPORT TargetLaserComponentEffects : public bin_class { 
+    class YORDLE_EXPORT TargetLaserComponentEffects : public bin_class {
     public:
         explicit TargetLaserComponentEffects(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1728,7 +1719,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::SkinCharacterDataProperties_CharacterIdleEffect> champTargetingEffectDefinition {};
     };
 
-    class YORDLE_EXPORT ToolEducationData : public bin_class { 
+    class YORDLE_EXPORT ToolEducationData : public bin_class {
     public:
         explicit ToolEducationData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1736,11 +1727,11 @@ namespace yordle::data::meta {
             return type == 2970707127 || bin_class::is_type(type);
         }
 
-        int32_t firstItem = 0;
+        int32_t firstItem  = 0;
         int32_t skillOrder = 0;
     };
 
-    class YORDLE_EXPORT CharacterToolData : public bin_class { 
+    class YORDLE_EXPORT CharacterToolData : public bin_class {
     public:
         explicit CharacterToolData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1752,17 +1743,16 @@ namespace yordle::data::meta {
         std::string searchTagsSecondary {};
     };
 
-    class YORDLE_EXPORT Companion : public Character { 
+    class YORDLE_EXPORT Companion : public Character {
     public:
         explicit Companion(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2573155477 || Character::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT InteractionData : public bin_class { 
+    class YORDLE_EXPORT InteractionData : public bin_class {
     public:
         explicit InteractionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1774,27 +1764,25 @@ namespace yordle::data::meta {
         bool shouldRandomizeIdleAnimPhase = false;
     };
 
-    class YORDLE_EXPORT ISpellRankUpRequirement : public bin_class { 
+    class YORDLE_EXPORT ISpellRankUpRequirement : public bin_class {
     public:
         explicit ISpellRankUpRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1708005576 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT HasSkillPointRequirement : public ISpellRankUpRequirement { 
+    class YORDLE_EXPORT HasSkillPointRequirement : public ISpellRankUpRequirement {
     public:
         explicit HasSkillPointRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4223600025 || ISpellRankUpRequirement::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT CharacterLevelRequirement : public ISpellRankUpRequirement { 
+    class YORDLE_EXPORT CharacterLevelRequirement : public ISpellRankUpRequirement {
     public:
         explicit CharacterLevelRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1805,7 +1793,7 @@ namespace yordle::data::meta {
         uint32_t mLevel = 0;
     };
 
-    class YORDLE_EXPORT HasBuffRequirement : public ISpellRankUpRequirement { 
+    class YORDLE_EXPORT HasBuffRequirement : public ISpellRankUpRequirement {
     public:
         explicit HasBuffRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1814,10 +1802,10 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mBuffName = 0;
-        bool mFromAnyone = false;
+        bool mFromAnyone                           = false;
     };
 
-    class YORDLE_EXPORT SpellRankUpRequirements : public bin_class { 
+    class YORDLE_EXPORT SpellRankUpRequirements : public bin_class {
     public:
         explicit SpellRankUpRequirements(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1828,7 +1816,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ISpellRankUpRequirement>> mRequirements {};
     };
 
-    class YORDLE_EXPORT SpellLevelUpInfo : public bin_class { 
+    class YORDLE_EXPORT SpellLevelUpInfo : public bin_class {
     public:
         explicit SpellLevelUpInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1839,7 +1827,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::SpellRankUpRequirements>> mRequirements {};
     };
 
-    class YORDLE_EXPORT RecSpellRankUpInfo : public bin_class { 
+    class YORDLE_EXPORT RecSpellRankUpInfo : public bin_class {
     public:
         explicit RecSpellRankUpInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1851,7 +1839,7 @@ namespace yordle::data::meta {
         std::vector<uint8_t> mEarlyLevelOverrides {};
     };
 
-    class YORDLE_EXPORT UseableData : public bin_class { 
+    class YORDLE_EXPORT UseableData : public bin_class {
     public:
         explicit UseableData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1865,7 +1853,7 @@ namespace yordle::data::meta {
         int32_t useCooldownSpellSlot = 0;
     };
 
-    class YORDLE_EXPORT CharacterHealthBarDataRecord : public bin_class { 
+    class YORDLE_EXPORT CharacterHealthBarDataRecord : public bin_class {
     public:
         explicit CharacterHealthBarDataRecord(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1877,14 +1865,14 @@ namespace yordle::data::meta {
         std::string attachToBone {};
         uint8_t unitHealthBarStyle = 0;
         bool showWhileUntargetable = false;
-        bool x9c5124c0 = false;
-        uint32_t xe784dd2f = 0;
-        bool x66a7d70a = false;
-        bool x8bdcfa04 = false;
-        bool x7f0b706e = false;
+        bool x9c5124c0             = false;
+        uint32_t xe784dd2f         = 0;
+        bool x66a7d70a             = false;
+        bool x8bdcfa04             = false;
+        bool x7f0b706e             = false;
     };
 
-    class YORDLE_EXPORT SponsoredBanner : public bin_class { 
+    class YORDLE_EXPORT SponsoredBanner : public bin_class {
     public:
         explicit SponsoredBanner(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1896,7 +1884,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_xx_hash SponsorTexturePath = 0;
     };
 
-    class YORDLE_EXPORT EsportsBannerConfiguration : public bin_class { 
+    class YORDLE_EXPORT EsportsBannerConfiguration : public bin_class {
     public:
         explicit EsportsBannerConfiguration(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1912,7 +1900,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::SponsoredBanner>> IndividualBannerOverrides {};
     };
 
-    class YORDLE_EXPORT EsportsBannerData : public bin_class { 
+    class YORDLE_EXPORT EsportsBannerData : public bin_class {
     public:
         explicit EsportsBannerData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1924,7 +1912,7 @@ namespace yordle::data::meta {
         uint32_t Team = 0;
     };
 
-    class YORDLE_EXPORT EsportsData : public bin_class { 
+    class YORDLE_EXPORT EsportsData : public bin_class {
     public:
         explicit EsportsData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1935,7 +1923,7 @@ namespace yordle::data::meta {
         std::vector<std::string> leagues {};
     };
 
-    class YORDLE_EXPORT ClashLogo : public bin_class { 
+    class YORDLE_EXPORT ClashLogo : public bin_class {
     public:
         explicit ClashLogo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1943,12 +1931,12 @@ namespace yordle::data::meta {
             return type == 1951208621 || bin_class::is_type(type);
         }
 
-        uint32_t mClashLogoId = 0;
+        uint32_t mClashLogoId      = 0;
         uint32_t mClashLogoColorId = 0;
         std::string mLogoPath {};
     };
 
-    class YORDLE_EXPORT EsportsBannerOptions : public bin_class { 
+    class YORDLE_EXPORT EsportsBannerOptions : public bin_class {
     public:
         explicit EsportsBannerOptions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1957,12 +1945,12 @@ namespace yordle::data::meta {
         }
 
         std::string subMeshName {};
-        bool IsSpectatorOnly = false;
+        bool IsSpectatorOnly                               = false;
         yordle::data::meta::bin_xx_hash defaultTexturePath = 0;
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> DefaultBlankMaterial {3975636772u};
     };
 
-    class YORDLE_EXPORT MasteryBadgeData : public bin_class { 
+    class YORDLE_EXPORT MasteryBadgeData : public bin_class {
     public:
         explicit MasteryBadgeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1972,13 +1960,13 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash mName = 0;
         std::string mParticleName {};
-        float mRenderScale = 0.0;
-        float mVerticalOffset = 0.0;
+        float mRenderScale      = 0.0;
+        float mVerticalOffset   = 0.0;
         int32_t mSummonerIconId = 0;
-        uint32_t mMasteryLevel = 0;
+        uint32_t mMasteryLevel  = 0;
     };
 
-    class YORDLE_EXPORT MasteryBadgeConfig : public bin_class { 
+    class YORDLE_EXPORT MasteryBadgeConfig : public bin_class {
     public:
         explicit MasteryBadgeConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -1989,7 +1977,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::MasteryBadgeData>> mBadges {};
     };
 
-    class YORDLE_EXPORT MasteryData : public bin_class { 
+    class YORDLE_EXPORT MasteryData : public bin_class {
     public:
         explicit MasteryData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2002,7 +1990,7 @@ namespace yordle::data::meta {
         std::string DetailsTraKey {};
     };
 
-    class YORDLE_EXPORT ChampionMasteryMap : public bin_class { 
+    class YORDLE_EXPORT ChampionMasteryMap : public bin_class {
     public:
         explicit ChampionMasteryMap(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2013,7 +2001,7 @@ namespace yordle::data::meta {
         std::map<int32_t, yordle::data::meta::bin_ref<yordle::data::meta::MasteryData>> masteryData {};
     };
 
-    class YORDLE_EXPORT BaseLoadoutData : public bin_class { 
+    class YORDLE_EXPORT BaseLoadoutData : public bin_class {
     public:
         explicit BaseLoadoutData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2026,7 +2014,7 @@ namespace yordle::data::meta {
         std::string mDescriptionTraKey {};
     };
 
-    class YORDLE_EXPORT LoadoutFeatureData : public bin_class { 
+    class YORDLE_EXPORT LoadoutFeatureData : public bin_class {
     public:
         explicit LoadoutFeatureData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2043,7 +2031,7 @@ namespace yordle::data::meta {
         bool mLoadFromContentIds = false;
     };
 
-    class YORDLE_EXPORT RecallDecalData : public bin_class { 
+    class YORDLE_EXPORT RecallDecalData : public bin_class {
     public:
         explicit RecallDecalData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2058,7 +2046,7 @@ namespace yordle::data::meta {
         uint32_t recallDecalId = 0;
     };
 
-    class YORDLE_EXPORT GearSkinUpgrade : public bin_class { 
+    class YORDLE_EXPORT GearSkinUpgrade : public bin_class {
     public:
         explicit GearSkinUpgrade(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2070,7 +2058,7 @@ namespace yordle::data::meta {
         std::string x358d080b {};
     };
 
-    class YORDLE_EXPORT SkinUpgradeData : public bin_class { 
+    class YORDLE_EXPORT SkinUpgradeData : public bin_class {
     public:
         explicit SkinUpgradeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2081,7 +2069,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::GearSkinUpgrade>> mGearSkinUpgrades {};
     };
 
-    class YORDLE_EXPORT TFTCompanionBucket : public bin_class { 
+    class YORDLE_EXPORT TFTCompanionBucket : public bin_class {
     public:
         explicit TFTCompanionBucket(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2092,7 +2080,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> Companions {};
     };
 
-    class YORDLE_EXPORT TFTBotLoadoutConfiguration : public bin_class { 
+    class YORDLE_EXPORT TFTBotLoadoutConfiguration : public bin_class {
     public:
         explicit TFTBotLoadoutConfiguration(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2104,7 +2092,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mapSkins {};
     };
 
-    class YORDLE_EXPORT BannerFlagData : public bin_class { 
+    class YORDLE_EXPORT BannerFlagData : public bin_class {
     public:
         explicit BannerFlagData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2116,7 +2104,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> skinMeshProperties {};
     };
 
-    class YORDLE_EXPORT BannerFrameData : public bin_class { 
+    class YORDLE_EXPORT BannerFrameData : public bin_class {
     public:
         explicit BannerFrameData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2128,7 +2116,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> skinMeshProperties {};
     };
 
-    class YORDLE_EXPORT CompanionData : public BaseLoadoutData { 
+    class YORDLE_EXPORT CompanionData : public BaseLoadoutData {
     public:
         explicit CompanionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2136,11 +2124,11 @@ namespace yordle::data::meta {
             return type == 2093092437 || BaseLoadoutData::is_type(type);
         }
 
-        uint32_t rarity = 0;
-        uint32_t level = 0;
-        bool mDisabled = false;
+        uint32_t rarity                             = 0;
+        uint32_t level                              = 0;
+        bool mDisabled                              = false;
         yordle::data::meta::bin_fnv_hash mCharacter = 0;
-        uint32_t mSkinId = 0;
+        uint32_t mSkinId                            = 0;
         std::string speciesLink {};
         std::string mStandaloneCircleIcon {};
         std::string mStandaloneLoadoutsIcon {};
@@ -2148,7 +2136,7 @@ namespace yordle::data::meta {
         std::string mLoadScreen {};
     };
 
-    class YORDLE_EXPORT CompanionSpeciesData : public bin_class { 
+    class YORDLE_EXPORT CompanionSpeciesData : public bin_class {
     public:
         explicit CompanionSpeciesData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2160,7 +2148,7 @@ namespace yordle::data::meta {
         uint32_t mSpeciesId = 0;
     };
 
-    class YORDLE_EXPORT SummonerEmote : public bin_class { 
+    class YORDLE_EXPORT SummonerEmote : public bin_class {
     public:
         explicit SummonerEmote(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2172,12 +2160,12 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> vfxSystem {1171098015u};
         std::string announcementIcon {};
         std::string selectionIcon {};
-        float renderScale = 0.0;
+        float renderScale    = 0.0;
         float verticalOffset = 0.0;
         std::string visibleSelectionName {};
     };
 
-    class YORDLE_EXPORT SummonerEmoteSettings : public bin_class { 
+    class YORDLE_EXPORT SummonerEmoteSettings : public bin_class {
     public:
         explicit SummonerEmoteSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2189,7 +2177,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::SummonerEmote> mAce {1950165531u};
     };
 
-    class YORDLE_EXPORT GearData : public bin_class { 
+    class YORDLE_EXPORT GearData : public bin_class {
     public:
         explicit GearData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2207,7 +2195,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> x21b6167e {};
     };
 
-    class YORDLE_EXPORT ModeProgressionRewardData : public BaseLoadoutData { 
+    class YORDLE_EXPORT ModeProgressionRewardData : public BaseLoadoutData {
     public:
         explicit ModeProgressionRewardData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2220,7 +2208,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mVFXResourceResolver {};
     };
 
-    class YORDLE_EXPORT RegaliaData : public BaseLoadoutData { 
+    class YORDLE_EXPORT RegaliaData : public BaseLoadoutData {
     public:
         explicit RegaliaData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2231,7 +2219,7 @@ namespace yordle::data::meta {
         std::string texture {};
     };
 
-    class YORDLE_EXPORT RegaliaLookup : public bin_class { 
+    class YORDLE_EXPORT RegaliaLookup : public bin_class {
     public:
         explicit RegaliaLookup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2251,7 +2239,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData> regaliaSplit3 {2286074286u};
     };
 
-    class YORDLE_EXPORT RegaliaRankedCrestEntry : public bin_class { 
+    class YORDLE_EXPORT RegaliaRankedCrestEntry : public bin_class {
     public:
         explicit RegaliaRankedCrestEntry(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2264,7 +2252,7 @@ namespace yordle::data::meta {
         std::map<int32_t, yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData>> xaf2e170a {};
     };
 
-    class YORDLE_EXPORT RegaliaRankedCrestMap : public bin_class { 
+    class YORDLE_EXPORT RegaliaRankedCrestMap : public bin_class {
     public:
         explicit RegaliaRankedCrestMap(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2275,7 +2263,7 @@ namespace yordle::data::meta {
         std::map<std::string, std::shared_ptr<yordle::data::meta::RegaliaRankedCrestEntry>> x723d6f91 {};
     };
 
-    class YORDLE_EXPORT RegaliaPrestigeCrestList : public bin_class { 
+    class YORDLE_EXPORT RegaliaPrestigeCrestList : public bin_class {
     public:
         explicit RegaliaPrestigeCrestList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2286,7 +2274,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData>> PrestigeCrests {};
     };
 
-    class YORDLE_EXPORT RegaliaRankedBannerMap : public bin_class { 
+    class YORDLE_EXPORT RegaliaRankedBannerMap : public bin_class {
     public:
         explicit RegaliaRankedBannerMap(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2297,7 +2285,7 @@ namespace yordle::data::meta {
         std::map<std::string, yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData>> xc5b8b568 {};
     };
 
-    class YORDLE_EXPORT x2ba8fc33 : public bin_class { 
+    class YORDLE_EXPORT x2ba8fc33 : public bin_class {
     public:
         explicit x2ba8fc33(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2308,7 +2296,7 @@ namespace yordle::data::meta {
         std::map<std::string, std::shared_ptr<yordle::data::meta::RegaliaData>> x5b1fd3c2 {};
     };
 
-    class YORDLE_EXPORT StatStoneEventToTrack : public bin_class { 
+    class YORDLE_EXPORT StatStoneEventToTrack : public bin_class {
     public:
         explicit StatStoneEventToTrack(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2320,7 +2308,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> StatFilters {};
     };
 
-    class YORDLE_EXPORT StatStoneData : public BaseLoadoutData { 
+    class YORDLE_EXPORT StatStoneData : public BaseLoadoutData {
     public:
         explicit StatStoneData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2333,25 +2321,24 @@ namespace yordle::data::meta {
         uint32_t xfb2a56ef = 0;
         uint32_t x286fc9c3 = 0;
         std::vector<uint64_t> Milestones {};
-        bool EpicStatStone = false;
+        bool EpicStatStone       = false;
         bool TriggeredFromScript = false;
-        bool IsRetired = false;
-        uint8_t trackingType = 0;
+        bool IsRetired           = false;
+        uint8_t trackingType     = 0;
         std::string stoneName {};
         bool x92bd18ab = false;
     };
 
-    class YORDLE_EXPORT IStatStoneLogicDriver : public bin_class { 
+    class YORDLE_EXPORT IStatStoneLogicDriver : public bin_class {
     public:
         explicit IStatStoneLogicDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3276314181 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TargetHasUnitTagFilter : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT TargetHasUnitTagFilter : public IStatStoneLogicDriver {
     public:
         explicit TargetHasUnitTagFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2362,17 +2349,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> UnitTags {};
     };
 
-    class YORDLE_EXPORT TrueDamageGivenFilter : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT TrueDamageGivenFilter : public IStatStoneLogicDriver {
     public:
         explicit TrueDamageGivenFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2925773367 || IStatStoneLogicDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT CrowdControlFilter : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT CrowdControlFilter : public IStatStoneLogicDriver {
     public:
         explicit CrowdControlFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2384,7 +2370,7 @@ namespace yordle::data::meta {
         bool TrackDuration = false;
     };
 
-    class YORDLE_EXPORT TargetHasBuffFilter : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT TargetHasBuffFilter : public IStatStoneLogicDriver {
     public:
         explicit TargetHasBuffFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2395,7 +2381,7 @@ namespace yordle::data::meta {
         std::vector<uint8_t> ValidBuffs {};
     };
 
-    class YORDLE_EXPORT SourceTypeFilter : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT SourceTypeFilter : public IStatStoneLogicDriver {
     public:
         explicit SourceTypeFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2408,7 +2394,7 @@ namespace yordle::data::meta {
         bool xd5e57340 = false;
     };
 
-    class YORDLE_EXPORT TargetTypeFilter : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT TargetTypeFilter : public IStatStoneLogicDriver {
     public:
         explicit TargetTypeFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2421,7 +2407,7 @@ namespace yordle::data::meta {
         bool xd5e57340 = false;
     };
 
-    class YORDLE_EXPORT TargetTeamFilter : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT TargetTeamFilter : public IStatStoneLogicDriver {
     public:
         explicit TargetTeamFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2429,12 +2415,12 @@ namespace yordle::data::meta {
             return type == 3663270019 || IStatStoneLogicDriver::is_type(type);
         }
 
-        bool ally = false;
+        bool ally  = false;
         bool enemy = false;
-        bool Self = false;
+        bool Self  = false;
     };
 
-    class YORDLE_EXPORT SourceLessThanHealthPercentageFilter : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT SourceLessThanHealthPercentageFilter : public IStatStoneLogicDriver {
     public:
         explicit SourceLessThanHealthPercentageFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2445,7 +2431,7 @@ namespace yordle::data::meta {
         float healthPercentage = 0.0;
     };
 
-    class YORDLE_EXPORT AssistCountFilter : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT AssistCountFilter : public IStatStoneLogicDriver {
     public:
         explicit AssistCountFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2456,17 +2442,16 @@ namespace yordle::data::meta {
         uint8_t assistCount = 0;
     };
 
-    class YORDLE_EXPORT MultiKillLogic : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT MultiKillLogic : public IStatStoneLogicDriver {
     public:
         explicit MultiKillLogic(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3987305908 || IStatStoneLogicDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT DamageShieldedLogic : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT DamageShieldedLogic : public IStatStoneLogicDriver {
     public:
         explicit DamageShieldedLogic(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2484,7 +2469,7 @@ namespace yordle::data::meta {
         bool x1701ca0a = false;
     };
 
-    class YORDLE_EXPORT GoldSourceFilter : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT GoldSourceFilter : public IStatStoneLogicDriver {
     public:
         explicit GoldSourceFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2495,7 +2480,7 @@ namespace yordle::data::meta {
         uint8_t ValidGoldSource = 0;
     };
 
-    class YORDLE_EXPORT KillingSpreeFilter : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT KillingSpreeFilter : public IStatStoneLogicDriver {
     public:
         explicit KillingSpreeFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2506,27 +2491,25 @@ namespace yordle::data::meta {
         int32_t KillingSpreeCount = 0;
     };
 
-    class YORDLE_EXPORT NeutralMinionCampClearedLogic : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT NeutralMinionCampClearedLogic : public IStatStoneLogicDriver {
     public:
         explicit NeutralMinionCampClearedLogic(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2516419817 || IStatStoneLogicDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TurretFirstBloodLogic : public IStatStoneLogicDriver { 
+    class YORDLE_EXPORT TurretFirstBloodLogic : public IStatStoneLogicDriver {
     public:
         explicit TurretFirstBloodLogic(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1203614713 || IStatStoneLogicDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT StatStoneSet : public bin_class { 
+    class YORDLE_EXPORT StatStoneSet : public bin_class {
     public:
         explicit StatStoneSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2539,7 +2522,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::StatStoneData>> statStones {};
     };
 
-    class YORDLE_EXPORT StatStoneCategory : public bin_class { 
+    class YORDLE_EXPORT StatStoneCategory : public bin_class {
     public:
         explicit StatStoneCategory(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2554,7 +2537,7 @@ namespace yordle::data::meta {
         std::array<uint8_t, 4> CategoryColor {};
     };
 
-    class YORDLE_EXPORT xead1b379 : public bin_class { 
+    class YORDLE_EXPORT xead1b379 : public bin_class {
     public:
         explicit xead1b379(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2565,7 +2548,7 @@ namespace yordle::data::meta {
         std::map<uint32_t, yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> xfb403eda {};
     };
 
-    class YORDLE_EXPORT x32be2466 : public bin_class { 
+    class YORDLE_EXPORT x32be2466 : public bin_class {
     public:
         explicit x32be2466(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2576,7 +2559,7 @@ namespace yordle::data::meta {
         std::map<uint32_t, yordle::data::meta::bin_ref<yordle::data::meta::xead1b379>> x1a28d722 {};
     };
 
-    class YORDLE_EXPORT TFTDamageSkin : public BaseLoadoutData { 
+    class YORDLE_EXPORT TFTDamageSkin : public BaseLoadoutData {
     public:
         explicit TFTDamageSkin(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2587,8 +2570,8 @@ namespace yordle::data::meta {
         std::string mName {};
         uint32_t rarity = 0;
         std::string DamageBuffName {};
-        uint32_t level = 0;
-        bool disabled = false;
+        uint32_t level  = 0;
+        bool disabled   = false;
         uint32_t SkinID = 0;
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> x31af5dc6 {};
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> VfxResourceResolver {4013559603u};
@@ -2598,7 +2581,7 @@ namespace yordle::data::meta {
         float x7ed5b4a7 = 0.0;
     };
 
-    class YORDLE_EXPORT TftDamageSkinDescriptor : public bin_class { 
+    class YORDLE_EXPORT TftDamageSkinDescriptor : public bin_class {
     public:
         explicit TftDamageSkinDescriptor(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2607,13 +2590,13 @@ namespace yordle::data::meta {
         }
 
         uint32_t EffectType = 0;
-        uint32_t x9d0cca5b = 0;
+        uint32_t x9d0cca5b  = 0;
         std::string effectKey {};
         uint32_t AttachedToBone = 0;
-        float EffectDelay = 0.0;
+        float EffectDelay       = 0.0;
     };
 
-    class YORDLE_EXPORT TftMapGroupData : public bin_class { 
+    class YORDLE_EXPORT TftMapGroupData : public bin_class {
     public:
         explicit TftMapGroupData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2625,7 +2608,7 @@ namespace yordle::data::meta {
         uint32_t mId = 0;
     };
 
-    class YORDLE_EXPORT TftMapSkin : public BaseLoadoutData { 
+    class YORDLE_EXPORT TftMapSkin : public BaseLoadoutData {
     public:
         explicit TftMapSkin(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2644,7 +2627,7 @@ namespace yordle::data::meta {
         uint16_t x6e39b04a = 0;
     };
 
-    class YORDLE_EXPORT TrophyData : public BaseLoadoutData { 
+    class YORDLE_EXPORT TrophyData : public BaseLoadoutData {
     public:
         explicit TrophyData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2659,7 +2642,7 @@ namespace yordle::data::meta {
         std::string mBracketTRAKey {};
     };
 
-    class YORDLE_EXPORT TrophyPedestalData : public BaseLoadoutData { 
+    class YORDLE_EXPORT TrophyPedestalData : public BaseLoadoutData {
     public:
         explicit TrophyPedestalData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2673,17 +2656,16 @@ namespace yordle::data::meta {
         std::string mTierTRAKey {};
     };
 
-    class YORDLE_EXPORT x1650a4ce : public bin_class { 
+    class YORDLE_EXPORT x1650a4ce : public bin_class {
     public:
         explicit x1650a4ce(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 374383822 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT EmblemPosition : public bin_class { 
+    class YORDLE_EXPORT EmblemPosition : public bin_class {
     public:
         explicit EmblemPosition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2695,7 +2677,7 @@ namespace yordle::data::meta {
         std::string mHorizontal {};
     };
 
-    class YORDLE_EXPORT EmblemData : public bin_class { 
+    class YORDLE_EXPORT EmblemData : public bin_class {
     public:
         explicit EmblemData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2708,7 +2690,7 @@ namespace yordle::data::meta {
         std::string mImagePath {};
     };
 
-    class YORDLE_EXPORT EmblemSettings : public bin_class { 
+    class YORDLE_EXPORT EmblemSettings : public bin_class {
     public:
         explicit EmblemSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2716,11 +2698,11 @@ namespace yordle::data::meta {
             return type == 381157638 || bin_class::is_type(type);
         }
 
-        float mBottomFraction = 0.0;
+        float mBottomFraction  = 0.0;
         bool mDebugDrawEmblems = false;
     };
 
-    class YORDLE_EXPORT GameModeAutoItemPurchasingConfig : public bin_class { 
+    class YORDLE_EXPORT GameModeAutoItemPurchasingConfig : public bin_class {
     public:
         explicit GameModeAutoItemPurchasingConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2735,7 +2717,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x14596d09 = 0;
     };
 
-    class YORDLE_EXPORT GameModeChampionList : public bin_class { 
+    class YORDLE_EXPORT GameModeChampionList : public bin_class {
     public:
         explicit GameModeChampionList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2746,17 +2728,16 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mChampions {};
     };
 
-    class YORDLE_EXPORT GameModeConstant : public bin_class { 
+    class YORDLE_EXPORT GameModeConstant : public bin_class {
     public:
         explicit GameModeConstant(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1670770484 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT GameModeConstantFloat : public GameModeConstant { 
+    class YORDLE_EXPORT GameModeConstantFloat : public GameModeConstant {
     public:
         explicit GameModeConstantFloat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2767,7 +2748,7 @@ namespace yordle::data::meta {
         float mValue = 0.0;
     };
 
-    class YORDLE_EXPORT GameModeConstantInteger : public GameModeConstant { 
+    class YORDLE_EXPORT GameModeConstantInteger : public GameModeConstant {
     public:
         explicit GameModeConstantInteger(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2778,7 +2759,7 @@ namespace yordle::data::meta {
         int32_t mValue = 0;
     };
 
-    class YORDLE_EXPORT GameModeConstantBool : public GameModeConstant { 
+    class YORDLE_EXPORT GameModeConstantBool : public GameModeConstant {
     public:
         explicit GameModeConstantBool(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2789,7 +2770,7 @@ namespace yordle::data::meta {
         bool mValue = false;
     };
 
-    class YORDLE_EXPORT GameModeConstantString : public GameModeConstant { 
+    class YORDLE_EXPORT GameModeConstantString : public GameModeConstant {
     public:
         explicit GameModeConstantString(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2800,7 +2781,7 @@ namespace yordle::data::meta {
         std::string mValue {};
     };
 
-    class YORDLE_EXPORT GameModeConstantStringVector : public GameModeConstant { 
+    class YORDLE_EXPORT GameModeConstantStringVector : public GameModeConstant {
     public:
         explicit GameModeConstantStringVector(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2811,7 +2792,7 @@ namespace yordle::data::meta {
         std::vector<std::string> mValue {};
     };
 
-    class YORDLE_EXPORT GameModeConstantTRAKey : public GameModeConstant { 
+    class YORDLE_EXPORT GameModeConstantTRAKey : public GameModeConstant {
     public:
         explicit GameModeConstantTRAKey(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2822,7 +2803,7 @@ namespace yordle::data::meta {
         std::string mValue {};
     };
 
-    class YORDLE_EXPORT GameModeConstantVector3f : public GameModeConstant { 
+    class YORDLE_EXPORT GameModeConstantVector3f : public GameModeConstant {
     public:
         explicit GameModeConstantVector3f(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2833,7 +2814,7 @@ namespace yordle::data::meta {
         std::array<float, 3> mValue {};
     };
 
-    class YORDLE_EXPORT GameModeConstantFloatPerLevel : public GameModeConstant { 
+    class YORDLE_EXPORT GameModeConstantFloatPerLevel : public GameModeConstant {
     public:
         explicit GameModeConstantFloatPerLevel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2844,7 +2825,7 @@ namespace yordle::data::meta {
         std::vector<float> mValues {};
     };
 
-    class YORDLE_EXPORT GameModeConstantsGroup : public bin_class { 
+    class YORDLE_EXPORT GameModeConstantsGroup : public bin_class {
     public:
         explicit GameModeConstantsGroup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2855,7 +2836,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::GameModeConstant>> mConstants {};
     };
 
-    class YORDLE_EXPORT GameModeConstants : public bin_class { 
+    class YORDLE_EXPORT GameModeConstants : public bin_class {
     public:
         explicit GameModeConstants(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2866,7 +2847,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::GameModeConstantsGroup>> mGroups {};
     };
 
-    class YORDLE_EXPORT GameModeItemList : public bin_class { 
+    class YORDLE_EXPORT GameModeItemList : public bin_class {
     public:
         explicit GameModeItemList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2877,7 +2858,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mItems {};
     };
 
-    class YORDLE_EXPORT GameModeMapData : public bin_class { 
+    class YORDLE_EXPORT GameModeMapData : public bin_class {
     public:
         explicit GameModeMapData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2893,14 +2874,14 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> AnnouncementsMapping {224929220u};
         bool mRelativeColorization = false;
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mNeutralTimersDisplay {1283176254u};
-        yordle::data::meta::bin_fnv_hash mCursorConfig = 0;
+        yordle::data::meta::bin_fnv_hash mCursorConfig       = 0;
         yordle::data::meta::bin_fnv_hash mCursorConfigUpdate = 0;
-        yordle::data::meta::bin_fnv_hash mHudScoreData = 0;
+        yordle::data::meta::bin_fnv_hash mHudScoreData       = 0;
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mRenderStyle {4227680462u};
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mFloatingTextOverride {1059987028u};
         yordle::data::meta::bin_ref<yordle::data::meta::GlobalStatsUIData> mStatsUiData {4087817779u};
         bool mChampionIndicatorEnabled = false;
-        bool ItemShopEnabled = false;
+        bool ItemShopEnabled           = false;
         yordle::data::meta::bin_ref<yordle::data::meta::ExperienceCurveData> mExperienceCurveData {2482357264u};
         yordle::data::meta::bin_ref<yordle::data::meta::ExperienceModData> mExperienceModData {4040137199u};
         yordle::data::meta::bin_ref<yordle::data::meta::DeathTimes> mDeathTimes {319277549u};
@@ -2918,7 +2899,7 @@ namespace yordle::data::meta {
         std::string mLoadingScreenBackground {};
     };
 
-    class YORDLE_EXPORT GameMutatorExpansions : public bin_class { 
+    class YORDLE_EXPORT GameMutatorExpansions : public bin_class {
     public:
         explicit GameMutatorExpansions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2930,17 +2911,16 @@ namespace yordle::data::meta {
         std::vector<std::string> mMutators {};
     };
 
-    class YORDLE_EXPORT IGameCalculationPart : public bin_class { 
+    class YORDLE_EXPORT IGameCalculationPart : public bin_class {
     public:
         explicit IGameCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3053458126 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT EffectValueCalculationPart : public IGameCalculationPart { 
+    class YORDLE_EXPORT EffectValueCalculationPart : public IGameCalculationPart {
     public:
         explicit EffectValueCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2951,7 +2931,7 @@ namespace yordle::data::meta {
         int32_t mEffectIndex = 0;
     };
 
-    class YORDLE_EXPORT NamedDataValueCalculationPart : public IGameCalculationPart { 
+    class YORDLE_EXPORT NamedDataValueCalculationPart : public IGameCalculationPart {
     public:
         explicit NamedDataValueCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2962,17 +2942,16 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mDataValue = 0;
     };
 
-    class YORDLE_EXPORT CooldownMultiplierCalculationPart : public IGameCalculationPart { 
+    class YORDLE_EXPORT CooldownMultiplierCalculationPart : public IGameCalculationPart {
     public:
         explicit CooldownMultiplierCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 515850313 || IGameCalculationPart::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT CustomReductionMultiplierCalculationPart : public IGameCalculationPart { 
+    class YORDLE_EXPORT CustomReductionMultiplierCalculationPart : public IGameCalculationPart {
     public:
         explicit CustomReductionMultiplierCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2984,7 +2963,7 @@ namespace yordle::data::meta {
         float mMaximumReductionPercent = 0.0;
     };
 
-    class YORDLE_EXPORT ProductOfSubPartsCalculationPart : public IGameCalculationPart { 
+    class YORDLE_EXPORT ProductOfSubPartsCalculationPart : public IGameCalculationPart {
     public:
         explicit ProductOfSubPartsCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -2996,7 +2975,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IGameCalculationPart> mPart2 {};
     };
 
-    class YORDLE_EXPORT SumOfSubPartsCalculationPart : public IGameCalculationPart { 
+    class YORDLE_EXPORT SumOfSubPartsCalculationPart : public IGameCalculationPart {
     public:
         explicit SumOfSubPartsCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3007,7 +2986,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IGameCalculationPart>> mSubparts {};
     };
 
-    class YORDLE_EXPORT x803dae4c : public IGameCalculationPart { 
+    class YORDLE_EXPORT x803dae4c : public IGameCalculationPart {
     public:
         explicit x803dae4c(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3020,7 +2999,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IGameCalculationPart>> mSubparts {};
     };
 
-    class YORDLE_EXPORT NumberCalculationPart : public IGameCalculationPart { 
+    class YORDLE_EXPORT NumberCalculationPart : public IGameCalculationPart {
     public:
         explicit NumberCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3031,7 +3010,7 @@ namespace yordle::data::meta {
         float mNumber = 0.0;
     };
 
-    class YORDLE_EXPORT IGameCalculationPartWithStats : public IGameCalculationPart { 
+    class YORDLE_EXPORT IGameCalculationPartWithStats : public IGameCalculationPart {
     public:
         explicit IGameCalculationPartWithStats(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3039,11 +3018,11 @@ namespace yordle::data::meta {
             return type == 3052837161 || IGameCalculationPart::is_type(type);
         }
 
-        uint8_t mStat = 0;
+        uint8_t mStat        = 0;
         uint8_t mStatFormula = 0;
     };
 
-    class YORDLE_EXPORT StatByCoefficientCalculationPart : public IGameCalculationPartWithStats { 
+    class YORDLE_EXPORT StatByCoefficientCalculationPart : public IGameCalculationPartWithStats {
     public:
         explicit StatByCoefficientCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3054,7 +3033,7 @@ namespace yordle::data::meta {
         float mCoefficient = 0.0;
     };
 
-    class YORDLE_EXPORT StatBySubPartCalculationPart : public IGameCalculationPartWithStats { 
+    class YORDLE_EXPORT StatBySubPartCalculationPart : public IGameCalculationPartWithStats {
     public:
         explicit StatBySubPartCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3065,7 +3044,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IGameCalculationPart> mSubpart {};
     };
 
-    class YORDLE_EXPORT StatByNamedDataValueCalculationPart : public IGameCalculationPartWithStats { 
+    class YORDLE_EXPORT StatByNamedDataValueCalculationPart : public IGameCalculationPartWithStats {
     public:
         explicit StatByNamedDataValueCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3076,7 +3055,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mDataValue = 0;
     };
 
-    class YORDLE_EXPORT x5abdfab : public IGameCalculationPart { 
+    class YORDLE_EXPORT x5abdfab : public IGameCalculationPart {
     public:
         explicit x5abdfab(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3084,13 +3063,13 @@ namespace yordle::data::meta {
             return type == 95149995 || IGameCalculationPart::is_type(type);
         }
 
-        uint8_t mStat = 0;
-        uint8_t mStatFormula = 0;
-        float xbfe6ad01 = 0.0;
+        uint8_t mStat                               = 0;
+        uint8_t mStatFormula                        = 0;
+        float xbfe6ad01                             = 0.0;
         yordle::data::meta::bin_fnv_hash mDataValue = 0;
     };
 
-    class YORDLE_EXPORT xe9fb4d18 : public IGameCalculationPart { 
+    class YORDLE_EXPORT xe9fb4d18 : public IGameCalculationPart {
     public:
         explicit xe9fb4d18(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3103,7 +3082,7 @@ namespace yordle::data::meta {
         uint8_t x27833dcc = 0;
     };
 
-    class YORDLE_EXPORT SubPartScaledProportionalToStat : public IGameCalculationPart { 
+    class YORDLE_EXPORT SubPartScaledProportionalToStat : public IGameCalculationPart {
     public:
         explicit SubPartScaledProportionalToStat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3112,14 +3091,14 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IGameCalculationPart> mSubpart {};
-        float mRatio = 0.0;
-        uint8_t mStat = 0;
+        float mRatio         = 0.0;
+        uint8_t mStat        = 0;
         uint8_t mStatFormula = 0;
         std::string mStyleTag {};
         std::string xa5749b52 {};
     };
 
-    class YORDLE_EXPORT AbilityResourceByCoefficientCalculationPart : public IGameCalculationPart { 
+    class YORDLE_EXPORT AbilityResourceByCoefficientCalculationPart : public IGameCalculationPart {
     public:
         explicit AbilityResourceByCoefficientCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3127,12 +3106,12 @@ namespace yordle::data::meta {
             return type == 1983743771 || IGameCalculationPart::is_type(type);
         }
 
-        float mCoefficient = 0.0;
+        float mCoefficient       = 0.0;
         uint8_t mAbilityResource = 0;
-        uint8_t mStatFormula = 0;
+        uint8_t mStatFormula     = 0;
     };
 
-    class YORDLE_EXPORT IGameCalculationPartWithBuffCounter : public IGameCalculationPart { 
+    class YORDLE_EXPORT IGameCalculationPartWithBuffCounter : public IGameCalculationPart {
     public:
         explicit IGameCalculationPartWithBuffCounter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3145,7 +3124,7 @@ namespace yordle::data::meta {
         std::string mScalingTagKey {};
     };
 
-    class YORDLE_EXPORT BuffCounterByCoefficientCalculationPart : public IGameCalculationPartWithBuffCounter { 
+    class YORDLE_EXPORT BuffCounterByCoefficientCalculationPart : public IGameCalculationPartWithBuffCounter {
     public:
         explicit BuffCounterByCoefficientCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3156,7 +3135,7 @@ namespace yordle::data::meta {
         float mCoefficient = 0.0;
     };
 
-    class YORDLE_EXPORT BuffCounterByNamedDataValueCalculationPart : public IGameCalculationPartWithBuffCounter { 
+    class YORDLE_EXPORT BuffCounterByNamedDataValueCalculationPart : public IGameCalculationPartWithBuffCounter {
     public:
         explicit BuffCounterByNamedDataValueCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3167,17 +3146,16 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mDataValue = 0;
     };
 
-    class YORDLE_EXPORT IGameCalculationPartByCharLevel : public IGameCalculationPart { 
+    class YORDLE_EXPORT IGameCalculationPartByCharLevel : public IGameCalculationPart {
     public:
         explicit IGameCalculationPartByCharLevel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 308440063 || IGameCalculationPart::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ByCharLevelInterpolationCalculationPart : public IGameCalculationPartByCharLevel { 
+    class YORDLE_EXPORT ByCharLevelInterpolationCalculationPart : public IGameCalculationPartByCharLevel {
     public:
         explicit ByCharLevelInterpolationCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3186,12 +3164,12 @@ namespace yordle::data::meta {
         }
 
         float mStartValue = 0.0;
-        float mEndValue = 0.0;
-        bool x7fe8e3b3 = false;
-        bool xa331f6bf = false;
+        float mEndValue   = 0.0;
+        bool x7fe8e3b3    = false;
+        bool xa331f6bf    = false;
     };
 
-    class YORDLE_EXPORT ByCharLevelBreakpointsCalculationPart : public IGameCalculationPartByCharLevel { 
+    class YORDLE_EXPORT ByCharLevelBreakpointsCalculationPart : public IGameCalculationPartByCharLevel {
     public:
         explicit ByCharLevelBreakpointsCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3200,11 +3178,11 @@ namespace yordle::data::meta {
         }
 
         float mLevel1Value = 0.0;
-        float x2deb550 = 0.0;
+        float x2deb550     = 0.0;
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mBreakpoints {};
     };
 
-    class YORDLE_EXPORT Breakpoint : public bin_class { 
+    class YORDLE_EXPORT Breakpoint : public bin_class {
     public:
         explicit Breakpoint(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3217,7 +3195,7 @@ namespace yordle::data::meta {
         float x57fdc438 = 0.0;
     };
 
-    class YORDLE_EXPORT ByCharLevelFormulaCalculationPart : public IGameCalculationPartByCharLevel { 
+    class YORDLE_EXPORT ByCharLevelFormulaCalculationPart : public IGameCalculationPartByCharLevel {
     public:
         explicit ByCharLevelFormulaCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3228,7 +3206,7 @@ namespace yordle::data::meta {
         std::vector<float> mValues {};
     };
 
-    class YORDLE_EXPORT x663d5e00 : public IGameCalculationPart { 
+    class YORDLE_EXPORT x663d5e00 : public IGameCalculationPart {
     public:
         explicit x663d5e00(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3237,10 +3215,10 @@ namespace yordle::data::meta {
         }
 
         float Coefficient = 0.0;
-        uint8_t epicness = 0;
+        uint8_t epicness  = 0;
     };
 
-    class YORDLE_EXPORT IGameCalculation : public bin_class { 
+    class YORDLE_EXPORT IGameCalculation : public bin_class {
     public:
         explicit IGameCalculation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3252,10 +3230,10 @@ namespace yordle::data::meta {
         uint8_t xcbcac618 = 0;
         uint8_t x37070a8d = 0;
         uint8_t xe6eebb2f = 0;
-        bool tooltipOnly = false;
+        bool tooltipOnly  = false;
     };
 
-    class YORDLE_EXPORT GameCalculation : public IGameCalculation { 
+    class YORDLE_EXPORT GameCalculation : public IGameCalculation {
     public:
         explicit GameCalculation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3265,10 +3243,10 @@ namespace yordle::data::meta {
 
         std::vector<std::shared_ptr<yordle::data::meta::IGameCalculationPart>> mFormulaParts {};
         bool mDisplayAsPercent = false;
-        int32_t mPrecision = 0;
+        int32_t mPrecision     = 0;
     };
 
-    class YORDLE_EXPORT GameCalculationModified : public IGameCalculation { 
+    class YORDLE_EXPORT GameCalculationModified : public IGameCalculation {
     public:
         explicit GameCalculationModified(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3280,7 +3258,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mModifiedGameCalculation = 0;
     };
 
-    class YORDLE_EXPORT GameCalculationConditional : public IGameCalculation { 
+    class YORDLE_EXPORT GameCalculationConditional : public IGameCalculation {
     public:
         explicit GameCalculationConditional(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3288,12 +3266,12 @@ namespace yordle::data::meta {
             return type == 3922646404 || IGameCalculation::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash mDefaultGameCalculation = 0;
+        yordle::data::meta::bin_fnv_hash mDefaultGameCalculation     = 0;
         yordle::data::meta::bin_fnv_hash mConditionalGameCalculation = 0;
         std::shared_ptr<yordle::data::meta::bin_class> xc0482365 {};
     };
 
-    class YORDLE_EXPORT GameplayConfig : public bin_class { 
+    class YORDLE_EXPORT GameplayConfig : public bin_class {
     public:
         explicit GameplayConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3301,34 +3279,34 @@ namespace yordle::data::meta {
             return type == 3168105463 || bin_class::is_type(type);
         }
 
-        float mSpellPostponeTimeoutSec = 0.0;
-        float mAutoAttackMinPreCastLockoutDeltaTimeSec = 0.0;
+        float mSpellPostponeTimeoutSec                  = 0.0;
+        float mAutoAttackMinPreCastLockoutDeltaTimeSec  = 0.0;
         float mAutoAttackMinPostCastLockoutDeltaTimeSec = 0.0;
-        float mLethalityPercentGivenAtLevel0 = 0.0;
-        int32_t mLethalityScalesToLevel = 0;
-        int32_t mLethalityScalesCapsAtLevel = 0;
-        float mLethalityRatioFromTarget = 0.0;
-        float mLethalityRatioFromAttacker = 0.0;
-        float AbilityHasteMax = 0.0;
-        float mCritTotalArmorPenPercent = 0.0;
-        float mCritBonusArmorPenPercent = 0.0;
-        float mCritGlobalDamageMultiplier = 0.0;
-        float mAdaptiveForceAbilityPowerScale = 0.0;
-        float mAdaptiveForceAttackDamageScale = 0.0;
-        float mMinionDeathDelay = 0.0;
-        float mMinionAutoLeeway = 0.0;
-        float mMinionAAHelperLimit = 0.0;
-        float mItemSellQueueTime = 0.0;
+        float mLethalityPercentGivenAtLevel0            = 0.0;
+        int32_t mLethalityScalesToLevel                 = 0;
+        int32_t mLethalityScalesCapsAtLevel             = 0;
+        float mLethalityRatioFromTarget                 = 0.0;
+        float mLethalityRatioFromAttacker               = 0.0;
+        float AbilityHasteMax                           = 0.0;
+        float mCritTotalArmorPenPercent                 = 0.0;
+        float mCritBonusArmorPenPercent                 = 0.0;
+        float mCritGlobalDamageMultiplier               = 0.0;
+        float mAdaptiveForceAbilityPowerScale           = 0.0;
+        float mAdaptiveForceAttackDamageScale           = 0.0;
+        float mMinionDeathDelay                         = 0.0;
+        float mMinionAutoLeeway                         = 0.0;
+        float mMinionAAHelperLimit                      = 0.0;
+        float mItemSellQueueTime                        = 0.0;
         std::shared_ptr<yordle::data::meta::bin_class> mCCScoreMultipliers {};
         bool mPerSlotCDRIsAdditive = false;
         std::vector<yordle::data::meta::bin_fnv_hash> mSummonerSpells {};
         std::vector<yordle::data::meta::bin_fnv_hash> mLegacySummonerSpells {};
         std::shared_ptr<yordle::data::meta::IGameCalculation> mBasicAttackCalculation {};
         yordle::data::meta::bin_fnv_hash ItemsRolesPerRow = 0;
-        yordle::data::meta::bin_fnv_hash xa64802f2 = 0;
+        yordle::data::meta::bin_fnv_hash xa64802f2        = 0;
     };
 
-    class YORDLE_EXPORT EnchantmentGroup : public bin_class { 
+    class YORDLE_EXPORT EnchantmentGroup : public bin_class {
     public:
         explicit EnchantmentGroup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3338,12 +3316,12 @@ namespace yordle::data::meta {
 
         std::vector<int32_t> mEnchantments {};
         std::vector<int32_t> mBaseItems {};
-        bool mCanSidegrade = false;
+        bool mCanSidegrade          = false;
         int32_t mItemIdRangeMinimum = 0;
         int32_t mItemIdRangeMaximum = 0;
     };
 
-    class YORDLE_EXPORT ItemData : public bin_class { 
+    class YORDLE_EXPORT ItemData : public bin_class {
     public:
         explicit ItemData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3361,29 +3339,29 @@ namespace yordle::data::meta {
         std::string mDisabledDescriptionOverride {};
         std::string mParentEnchantmentGroup {};
         std::string mDeathRecapName {};
-        int32_t itemID = 0;
+        int32_t itemID   = 0;
         int32_t maxStack = 0;
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mItemGroups {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mItemAdviceAttributes {};
         yordle::data::meta::bin_fnv_hash itemVOGroup = 0;
-        int32_t price = 0;
+        int32_t price                                = 0;
         std::string mRequiredBuffCurrencyName {};
         int32_t mRequiredBuffCurrencyCost = 0;
-        float mSidegradeCredit = 0.0;
-        bool consumed = false;
-        bool usableInStore = false;
-        bool consumeOnAcquire = false;
-        bool clickable = false;
-        bool mMajorActiveItem = false;
-        bool mItemCalloutPlayer = false;
-        bool mItemCalloutSpectator = false;
-        uint8_t clearUndoHistory = 0;
-        bool mCanBeSold = false;
-        bool mHiddenFromOpponents = false;
-        bool mIsEnchantment = false;
-        int32_t specialRecipe = 0;
-        uint8_t epicness = 0;
-        uint8_t SecondaryEpicness = 0;
+        float mSidegradeCredit            = 0.0;
+        bool consumed                     = false;
+        bool usableInStore                = false;
+        bool consumeOnAcquire             = false;
+        bool clickable                    = false;
+        bool mMajorActiveItem             = false;
+        bool mItemCalloutPlayer           = false;
+        bool mItemCalloutSpectator        = false;
+        uint8_t clearUndoHistory          = 0;
+        bool mCanBeSold                   = false;
+        bool mHiddenFromOpponents         = false;
+        bool mIsEnchantment               = false;
+        int32_t specialRecipe             = 0;
+        uint8_t epicness                  = 0;
+        uint8_t SecondaryEpicness         = 0;
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::ItemData>> recipeItemLinks {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::ItemData>> requiredItemLinks {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::ItemData>> sidegradeItemLinks {};
@@ -3397,64 +3375,64 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::IGameCalculation>> mItemCalculations {};
         std::vector<float> mEnchantmentEffectAmount {};
         std::vector<float> mEffectByLevelAmount {};
-        float mFlatCooldownMod = 0.0;
-        float mPercentCooldownMod = 0.0;
-        float mAbilityHasteMod = 0.0;
-        float mFlatHPPoolMod = 0.0;
-        float mPercentHPPoolMod = 0.0;
-        float mFlatHPRegenMod = 0.0;
-        float mPercentHPRegenMod = 0.0;
-        float mPercentBaseHPRegenMod = 0.0;
-        float mPercentTenacityItemMod = 0.0;
-        float mPercentSlowResistMod = 0.0;
-        float mFlatMovementSpeedMod = 0.0;
-        float mPercentMovementSpeedMod = 0.0;
+        float mFlatCooldownMod                       = 0.0;
+        float mPercentCooldownMod                    = 0.0;
+        float mAbilityHasteMod                       = 0.0;
+        float mFlatHPPoolMod                         = 0.0;
+        float mPercentHPPoolMod                      = 0.0;
+        float mFlatHPRegenMod                        = 0.0;
+        float mPercentHPRegenMod                     = 0.0;
+        float mPercentBaseHPRegenMod                 = 0.0;
+        float mPercentTenacityItemMod                = 0.0;
+        float mPercentSlowResistMod                  = 0.0;
+        float mFlatMovementSpeedMod                  = 0.0;
+        float mPercentMovementSpeedMod               = 0.0;
         float mPercentMultiplicativeMovementSpeedMod = 0.0;
-        float mFlatArmorMod = 0.0;
-        float mPercentArmorMod = 0.0;
-        float mFlatArmorPenetrationMod = 0.0;
-        float mPercentArmorPenetrationMod = 0.0;
-        float mPercentBonusArmorPenetrationMod = 0.0;
-        float mFlatMagicPenetrationMod = 0.0;
-        float mPercentMagicPenetrationMod = 0.0;
-        float mPercentBonusMagicPenetrationMod = 0.0;
-        float mFlatSpellBlockMod = 0.0;
-        float mPercentSpellBlockMod = 0.0;
-        float mFlatDodgeMod = 0.0;
-        float mFlatCritChanceMod = 0.0;
-        float mFlatMissChanceMod = 0.0;
-        float mFlatCritDamageMod = 0.0;
-        float mPercentCritDamageMod = 0.0;
-        float mFlatPhysicalDamageMod = 0.0;
-        float mPercentPhysicalDamageMod = 0.0;
-        float mFlatMagicDamageMod = 0.0;
-        float mPercentMagicDamageMod = 0.0;
-        float mFlatPhysicalReduction = 0.0;
-        float mPercentPhysicalReduction = 0.0;
-        float mFlatMagicReduction = 0.0;
-        float mPercentMagicReduction = 0.0;
-        float mPercentEXPBonus = 0.0;
-        float mFlatAttackRangeMod = 0.0;
-        float mPercentAttackRangeMod = 0.0;
-        float mFlatCastRangeMod = 0.0;
-        float mPercentCastRangeMod = 0.0;
-        float mPercentAttackSpeedMod = 0.0;
-        float mPercentMultiplicativeAttackSpeedMod = 0.0;
-        float mPercentHealingAmountMod = 0.0;
-        float mPercentLifeStealMod = 0.0;
-        float mPercentSpellVampMod = 0.0;
-        float PercentPhysicalVampMod = 0.0;
-        float PercentOmnivampMod = 0.0;
-        float mPercentSpellEffectivenessMod = 0.0;
-        float mFlatBubbleRadiusMod = 0.0;
-        float mPercentBubbleRadiusMod = 0.0;
-        float sellBackModifier = 0.0;
-        float mCooldownShowDisabledDuration = 0.0;
-        float flatMPPoolMod = 0.0;
-        float PercentMPPoolMod = 0.0;
-        float flatMPRegenMod = 0.0;
-        float PercentMPRegenMod = 0.0;
-        float percentBaseMPRegenMod = 0.0;
+        float mFlatArmorMod                          = 0.0;
+        float mPercentArmorMod                       = 0.0;
+        float mFlatArmorPenetrationMod               = 0.0;
+        float mPercentArmorPenetrationMod            = 0.0;
+        float mPercentBonusArmorPenetrationMod       = 0.0;
+        float mFlatMagicPenetrationMod               = 0.0;
+        float mPercentMagicPenetrationMod            = 0.0;
+        float mPercentBonusMagicPenetrationMod       = 0.0;
+        float mFlatSpellBlockMod                     = 0.0;
+        float mPercentSpellBlockMod                  = 0.0;
+        float mFlatDodgeMod                          = 0.0;
+        float mFlatCritChanceMod                     = 0.0;
+        float mFlatMissChanceMod                     = 0.0;
+        float mFlatCritDamageMod                     = 0.0;
+        float mPercentCritDamageMod                  = 0.0;
+        float mFlatPhysicalDamageMod                 = 0.0;
+        float mPercentPhysicalDamageMod              = 0.0;
+        float mFlatMagicDamageMod                    = 0.0;
+        float mPercentMagicDamageMod                 = 0.0;
+        float mFlatPhysicalReduction                 = 0.0;
+        float mPercentPhysicalReduction              = 0.0;
+        float mFlatMagicReduction                    = 0.0;
+        float mPercentMagicReduction                 = 0.0;
+        float mPercentEXPBonus                       = 0.0;
+        float mFlatAttackRangeMod                    = 0.0;
+        float mPercentAttackRangeMod                 = 0.0;
+        float mFlatCastRangeMod                      = 0.0;
+        float mPercentCastRangeMod                   = 0.0;
+        float mPercentAttackSpeedMod                 = 0.0;
+        float mPercentMultiplicativeAttackSpeedMod   = 0.0;
+        float mPercentHealingAmountMod               = 0.0;
+        float mPercentLifeStealMod                   = 0.0;
+        float mPercentSpellVampMod                   = 0.0;
+        float PercentPhysicalVampMod                 = 0.0;
+        float PercentOmnivampMod                     = 0.0;
+        float mPercentSpellEffectivenessMod          = 0.0;
+        float mFlatBubbleRadiusMod                   = 0.0;
+        float mPercentBubbleRadiusMod                = 0.0;
+        float sellBackModifier                       = 0.0;
+        float mCooldownShowDisabledDuration          = 0.0;
+        float flatMPPoolMod                          = 0.0;
+        float PercentMPPoolMod                       = 0.0;
+        float flatMPRegenMod                         = 0.0;
+        float PercentMPRegenMod                      = 0.0;
+        float percentBaseMPRegenMod                  = 0.0;
         std::shared_ptr<yordle::data::meta::bin_class> mItemDataBuild {};
         std::vector<std::string> mCategories {};
         std::shared_ptr<yordle::data::meta::bin_class> mItemDataAvailability {};
@@ -3467,7 +3445,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mVFXResourceResolver {};
     };
 
-    class YORDLE_EXPORT ItemDataValue : public bin_class { 
+    class YORDLE_EXPORT ItemDataValue : public bin_class {
     public:
         explicit ItemDataValue(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3479,7 +3457,7 @@ namespace yordle::data::meta {
         float mValue = 0.0;
     };
 
-    class YORDLE_EXPORT x61f8c41c : public bin_class { 
+    class YORDLE_EXPORT x61f8c41c : public bin_class {
     public:
         explicit x61f8c41c(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3490,7 +3468,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ItemDataValue>> x6afef1b {};
     };
 
-    class YORDLE_EXPORT ItemDataAvailability : public bin_class { 
+    class YORDLE_EXPORT ItemDataAvailability : public bin_class {
     public:
         explicit ItemDataAvailability(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3498,12 +3476,12 @@ namespace yordle::data::meta {
             return type == 3225152729 || bin_class::is_type(type);
         }
 
-        bool mInStore = false;
-        bool mForceLoad = false;
+        bool mInStore     = false;
+        bool mForceLoad   = false;
         bool mHidefromAll = false;
     };
 
-    class YORDLE_EXPORT ItemDataBuild : public bin_class { 
+    class YORDLE_EXPORT ItemDataBuild : public bin_class {
     public:
         explicit ItemDataBuild(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3514,7 +3492,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::ItemData>> itemLinks {};
     };
 
-    class YORDLE_EXPORT ItemGroup : public bin_class { 
+    class YORDLE_EXPORT ItemGroup : public bin_class {
     public:
         explicit ItemGroup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3523,15 +3501,15 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mItemGroupID = 0;
-        int32_t mMaxGroupOwnable = 0;
-        int32_t mInventorySlotMin = 0;
-        int32_t mInventorySlotMax = 0;
-        float mPurchaseCooldown = 0.0;
-        bool mCooldownExtendedByAmbientGoldStart = false;
+        int32_t mMaxGroupOwnable                      = 0;
+        int32_t mInventorySlotMin                     = 0;
+        int32_t mInventorySlotMax                     = 0;
+        float mPurchaseCooldown                       = 0.0;
+        bool mCooldownExtendedByAmbientGoldStart      = false;
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mItemModifiers {};
     };
 
-    class YORDLE_EXPORT ItemModifier : public bin_class { 
+    class YORDLE_EXPORT ItemModifier : public bin_class {
     public:
         explicit ItemModifier(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3545,21 +3523,21 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::ItemData> mModifiedIfBuildsFromItem {608970470u};
         int32_t mMinimumModifierInstancesToBeActive = 0;
         int32_t mMaximumModifierInstancesToBeActive = 0;
-        int32_t mMaximumDeltasToStack = 0;
-        bool mShowAsModifiedInUI = false;
+        int32_t mMaximumDeltasToStack               = 0;
+        bool mShowAsModifiedInUI                    = false;
         bool mModifierIsInheritedByOwnedParentItems = false;
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::ItemData>> mAddedBuildFrom {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::ItemData>> mRemovedBuildFrom {};
-        bool mReplaceInsteadOfAddingBuildFrom = false;
-        bool mIgnoreMaxGroupOwnable = false;
+        bool mReplaceInsteadOfAddingBuildFrom                           = false;
+        bool mIgnoreMaxGroupOwnable                                     = false;
         yordle::data::meta::bin_fnv_hash mIgnoreSpecificMaxGroupOwnable = 0;
-        float mDeltaGoldCost = 0.0;
-        float mDeltaGoldCostPercent = 0.0;
-        float mDeltaBuffCurrencyCostPercent = 0.0;
-        int32_t mDeltaRequiredLevel = 0;
-        int32_t mDeltaBuffCurrencyCost = 0;
-        int32_t mDeltaMaxStacks = 0;
-        int32_t mVisualPriority = 0;
+        float mDeltaGoldCost                                            = 0.0;
+        float mDeltaGoldCostPercent                                     = 0.0;
+        float mDeltaBuffCurrencyCostPercent                             = 0.0;
+        int32_t mDeltaRequiredLevel                                     = 0;
+        int32_t mDeltaBuffCurrencyCost                                  = 0;
+        int32_t mDeltaMaxStacks                                         = 0;
+        int32_t mVisualPriority                                         = 0;
         std::string inventoryIconToOverlay {};
         std::string mDescriptionToAppend {};
         std::string mDescriptionToPrepend {};
@@ -3570,12 +3548,12 @@ namespace yordle::data::meta {
         std::string mDisplayNameToAppend {};
         std::string mDisplayNameToPrepend {};
         std::string mDisplayNameToReplace {};
-        bool mClickableToEnable = false;
+        bool mClickableToEnable       = false;
         bool mMajorActiveItemToEnable = false;
         std::string mSpellNameToReplace {};
     };
 
-    class YORDLE_EXPORT ItemDataClient : public bin_class { 
+    class YORDLE_EXPORT ItemDataClient : public bin_class {
     public:
         explicit ItemDataClient(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3592,12 +3570,12 @@ namespace yordle::data::meta {
         std::string InventoryIconSmall {};
         std::string InventoryIconLarge {};
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> InventoryIconMaterial {4288492553u};
-        uint8_t epicness = 0;
+        uint8_t epicness   = 0;
         float effectRadius = 0.0;
         std::vector<int32_t> mFloatVarsDecimals {};
     };
 
-    class YORDLE_EXPORT ChampionItemRecommendations : public bin_class { 
+    class YORDLE_EXPORT ChampionItemRecommendations : public bin_class {
     public:
         explicit ChampionItemRecommendations(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3605,13 +3583,13 @@ namespace yordle::data::meta {
             return type == 3337884263 || bin_class::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash xcc35ff18 = 0;
+        yordle::data::meta::bin_fnv_hash xcc35ff18        = 0;
         yordle::data::meta::bin_fnv_hash mContextListLink = 0;
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> xad6d25a8 {};
         std::vector<yordle::data::meta::bin_fnv_hash> x2d7fd821 {};
     };
 
-    class YORDLE_EXPORT ItemRecommendationItemList : public bin_class { 
+    class YORDLE_EXPORT ItemRecommendationItemList : public bin_class {
     public:
         explicit ItemRecommendationItemList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3622,7 +3600,7 @@ namespace yordle::data::meta {
         std::vector<uint32_t> mItemList {};
     };
 
-    class YORDLE_EXPORT ItemRecommendationContextList : public bin_class { 
+    class YORDLE_EXPORT ItemRecommendationContextList : public bin_class {
     public:
         explicit ItemRecommendationContextList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3635,7 +3613,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mContexts {};
     };
 
-    class YORDLE_EXPORT ItemRecommendationContext : public bin_class { 
+    class YORDLE_EXPORT ItemRecommendationContext : public bin_class {
     public:
         explicit ItemRecommendationContext(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3643,18 +3621,18 @@ namespace yordle::data::meta {
             return type == 4266457040 || bin_class::is_type(type);
         }
 
-        uint32_t mChampionId = 0;
-        uint32_t mMapID = 0;
+        uint32_t mChampionId                       = 0;
+        uint32_t mMapID                            = 0;
         yordle::data::meta::bin_fnv_hash x37b75f5c = 0;
         yordle::data::meta::bin_fnv_hash mPosition = 0;
-        bool mIsDefaultPosition = false;
+        bool mIsDefaultPosition                    = false;
         std::shared_ptr<yordle::data::meta::bin_class> mStartingItemMatrix {};
         std::vector<std::shared_ptr<yordle::data::meta::ItemRecommendationItemList>> mStartingItemBundles {};
         std::vector<yordle::data::meta::bin_fnv_hash> mPopularItems {};
         std::shared_ptr<yordle::data::meta::bin_class> mCompletedItemMatrix {};
     };
 
-    class YORDLE_EXPORT ItemRecommendationChoices : public bin_class { 
+    class YORDLE_EXPORT ItemRecommendationChoices : public bin_class {
     public:
         explicit ItemRecommendationChoices(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3665,7 +3643,7 @@ namespace yordle::data::meta {
         std::vector<uint32_t> mChoices {};
     };
 
-    class YORDLE_EXPORT ItemRecommendationMatrixRow : public bin_class { 
+    class YORDLE_EXPORT ItemRecommendationMatrixRow : public bin_class {
     public:
         explicit ItemRecommendationMatrixRow(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3676,7 +3654,7 @@ namespace yordle::data::meta {
         std::map<std::string, std::shared_ptr<yordle::data::meta::ItemRecommendationChoices>> mChoicesMap {};
     };
 
-    class YORDLE_EXPORT ItemRecommendationMatrix : public bin_class { 
+    class YORDLE_EXPORT ItemRecommendationMatrix : public bin_class {
     public:
         explicit ItemRecommendationMatrix(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3687,7 +3665,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ItemRecommendationMatrixRow>> mrows {};
     };
 
-    class YORDLE_EXPORT x5a3bc52d : public bin_class { 
+    class YORDLE_EXPORT x5a3bc52d : public bin_class {
     public:
         explicit x5a3bc52d(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3699,7 +3677,7 @@ namespace yordle::data::meta {
         uint32_t x50ef1a22 = 0;
     };
 
-    class YORDLE_EXPORT ItemRecommendationCondition : public bin_class { 
+    class YORDLE_EXPORT ItemRecommendationCondition : public bin_class {
     public:
         explicit ItemRecommendationCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3708,11 +3686,11 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mItem = 0;
-        uint32_t mDisplayLimit = 0;
-        uint8_t mGroupId = 0;
+        uint32_t mDisplayLimit                 = 0;
+        uint8_t mGroupId                       = 0;
     };
 
-    class YORDLE_EXPORT ItemRecommendationOverrideContext : public bin_class { 
+    class YORDLE_EXPORT ItemRecommendationOverrideContext : public bin_class {
     public:
         explicit ItemRecommendationOverrideContext(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3720,12 +3698,12 @@ namespace yordle::data::meta {
             return type == 3898055584 || bin_class::is_type(type);
         }
 
-        uint32_t mMapID = 0;
+        uint32_t mMapID                            = 0;
         yordle::data::meta::bin_fnv_hash x37b75f5c = 0;
         yordle::data::meta::bin_fnv_hash mPosition = 0;
     };
 
-    class YORDLE_EXPORT ItemRecommendationOverrideStartingItemSet : public bin_class { 
+    class YORDLE_EXPORT ItemRecommendationOverrideStartingItemSet : public bin_class {
     public:
         explicit ItemRecommendationOverrideStartingItemSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3736,7 +3714,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mStartingItems {};
     };
 
-    class YORDLE_EXPORT ItemRecommendationOverride : public bin_class { 
+    class YORDLE_EXPORT ItemRecommendationOverride : public bin_class {
     public:
         explicit ItemRecommendationOverride(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3752,7 +3730,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ItemRecommendationCondition>> mRecommendedItems {};
     };
 
-    class YORDLE_EXPORT ItemRecommendationOverrideSet : public bin_class { 
+    class YORDLE_EXPORT ItemRecommendationOverrideSet : public bin_class {
     public:
         explicit ItemRecommendationOverrideSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3763,7 +3741,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ItemRecommendationOverride>> mOverrides {};
     };
 
-    class YORDLE_EXPORT ItemAdviceAttribute : public bin_class { 
+    class YORDLE_EXPORT ItemAdviceAttribute : public bin_class {
     public:
         explicit ItemAdviceAttribute(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3774,7 +3752,7 @@ namespace yordle::data::meta {
         std::string mAttribute {};
     };
 
-    class YORDLE_EXPORT ItemCareyOverrideStartingItemSet : public bin_class { 
+    class YORDLE_EXPORT ItemCareyOverrideStartingItemSet : public bin_class {
     public:
         explicit ItemCareyOverrideStartingItemSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3785,7 +3763,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mAttribute = 0;
     };
 
-    class YORDLE_EXPORT ItemCareyOverrideStartingItemSetSet : public bin_class { 
+    class YORDLE_EXPORT ItemCareyOverrideStartingItemSetSet : public bin_class {
     public:
         explicit ItemCareyOverrideStartingItemSetSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3796,7 +3774,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ItemCareyOverrideStartingItemSet>> x6ca781cd {};
     };
 
-    class YORDLE_EXPORT ItemShopGameModeData : public bin_class { 
+    class YORDLE_EXPORT ItemShopGameModeData : public bin_class {
     public:
         explicit ItemShopGameModeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3805,13 +3783,13 @@ namespace yordle::data::meta {
         }
 
         std::vector<yordle::data::meta::bin_fnv_hash> xc561f8e9 {};
-        uint32_t xc3b3430a = 0;
+        uint32_t xc3b3430a                         = 0;
         yordle::data::meta::bin_fnv_hash x51a18bc3 = 0;
         std::map<yordle::data::meta::bin_fnv_hash, yordle::data::meta::bin_fnv_hash> x897c69b7 {};
         std::map<uint32_t, uint32_t> RecItemsSwaps {};
     };
 
-    class YORDLE_EXPORT CollectiblesEsportsTeamData : public bin_class { 
+    class YORDLE_EXPORT CollectiblesEsportsTeamData : public bin_class {
     public:
         explicit CollectiblesEsportsTeamData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3825,7 +3803,7 @@ namespace yordle::data::meta {
         std::string leagueName {};
     };
 
-    class YORDLE_EXPORT SummonerIconData : public bin_class { 
+    class YORDLE_EXPORT SummonerIconData : public bin_class {
     public:
         explicit SummonerIconData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3840,7 +3818,7 @@ namespace yordle::data::meta {
         std::string eSportsEventMutator {};
     };
 
-    class YORDLE_EXPORT LiveFeatureToggles : public bin_class { 
+    class YORDLE_EXPORT LiveFeatureToggles : public bin_class {
     public:
         explicit LiveFeatureToggles(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3853,7 +3831,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mEngineToggles {};
     };
 
-    class YORDLE_EXPORT LoLFeatureToggles : public bin_class { 
+    class YORDLE_EXPORT LoLFeatureToggles : public bin_class {
     public:
         explicit LoLFeatureToggles(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3861,61 +3839,60 @@ namespace yordle::data::meta {
             return type == 3353146463 || bin_class::is_type(type);
         }
 
-        bool NewSpellScript = false;
-        bool xf2505841 = false;
-        bool x6dbee4b7 = false;
-        bool xa3820b10 = false;
-        bool ItemUndo = false;
-        bool xf1125a78 = false;
+        bool NewSpellScript                   = false;
+        bool xf2505841                        = false;
+        bool x6dbee4b7                        = false;
+        bool xa3820b10                        = false;
+        bool ItemUndo                         = false;
+        bool xf1125a78                        = false;
         bool queuedOrdersTriggerPreIssueOrder = false;
-        bool EnableCustomPlayerScoreColoring = false;
-        bool closeOnEndGameAfterDelay = false;
-        bool PromoController = false;
-        bool cooldownSpellQueueing = false;
-        bool useNewAttackSpeed = false;
-        bool UseNewFireBBEvents = false;
-        bool abilityResetUI = false;
-        bool xa6cc4da4 = false;
-        bool xa6000d17 = false;
-        bool xed504579 = false;
-        bool xd3323ebc = false;
-        bool x8cd3b1f9 = false;
-        bool x8bab003a = false;
-        bool x3e3c2065 = false;
-        bool x6f0ba2b0 = false;
-        bool x69b85d1 = false;
-        bool x59e03167 = false;
-        bool x6d9b5c59 = false;
-        bool xcc5e3f8d = false;
-        bool x82799f80 = false;
-        bool x92187457 = false;
-        bool x768400a9 = false;
-        bool xa28bbddc = false;
-        bool x76e809b = false;
-        bool x9b710bf6 = false;
-        bool x68c9483d = false;
-        bool xc779da22 = false;
-        bool x9cfc57ba = false;
-        bool xcd2f9591 = false;
-        bool x85af0cb5 = false;
-        bool x84fe7ccf = false;
-        bool x90e08cc7 = false;
-        bool x2f0e955a = false;
-        bool xefe584bb = false;
-        bool xc25a56fb = false;
+        bool EnableCustomPlayerScoreColoring  = false;
+        bool closeOnEndGameAfterDelay         = false;
+        bool PromoController                  = false;
+        bool cooldownSpellQueueing            = false;
+        bool useNewAttackSpeed                = false;
+        bool UseNewFireBBEvents               = false;
+        bool abilityResetUI                   = false;
+        bool xa6cc4da4                        = false;
+        bool xa6000d17                        = false;
+        bool xed504579                        = false;
+        bool xd3323ebc                        = false;
+        bool x8cd3b1f9                        = false;
+        bool x8bab003a                        = false;
+        bool x3e3c2065                        = false;
+        bool x6f0ba2b0                        = false;
+        bool x69b85d1                         = false;
+        bool x59e03167                        = false;
+        bool x6d9b5c59                        = false;
+        bool xcc5e3f8d                        = false;
+        bool x82799f80                        = false;
+        bool x92187457                        = false;
+        bool x768400a9                        = false;
+        bool xa28bbddc                        = false;
+        bool x76e809b                         = false;
+        bool x9b710bf6                        = false;
+        bool x68c9483d                        = false;
+        bool xc779da22                        = false;
+        bool x9cfc57ba                        = false;
+        bool xcd2f9591                        = false;
+        bool x85af0cb5                        = false;
+        bool x84fe7ccf                        = false;
+        bool x90e08cc7                        = false;
+        bool x2f0e955a                        = false;
+        bool xefe584bb                        = false;
+        bool xc25a56fb                        = false;
     };
 
-    class YORDLE_EXPORT GDSMapObjectExtraInfo : public bin_class { 
+    class YORDLE_EXPORT GDSMapObjectExtraInfo : public bin_class {
     public:
         explicit GDSMapObjectExtraInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1222455122 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT GDSMapObjectAnimationInfo : public GDSMapObjectExtraInfo { 
+    class YORDLE_EXPORT GDSMapObjectAnimationInfo : public GDSMapObjectExtraInfo {
     public:
         explicit GDSMapObjectAnimationInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3924,12 +3901,12 @@ namespace yordle::data::meta {
         }
 
         std::string defaultAnimation {};
-        bool looping = false;
+        bool looping             = false;
         bool destroyOnCompletion = false;
-        float duration = 0.0;
+        float duration           = 0.0;
     };
 
-    class YORDLE_EXPORT GDSMapObjectLightingInfo : public GDSMapObjectExtraInfo { 
+    class YORDLE_EXPORT GDSMapObjectLightingInfo : public GDSMapObjectExtraInfo {
     public:
         explicit GDSMapObjectLightingInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3940,7 +3917,7 @@ namespace yordle::data::meta {
         std::vector<std::array<float, 4>> colors {};
     };
 
-    class YORDLE_EXPORT GDSMapObjectBannerInfo : public GDSMapObjectExtraInfo { 
+    class YORDLE_EXPORT GDSMapObjectBannerInfo : public GDSMapObjectExtraInfo {
     public:
         explicit GDSMapObjectBannerInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3951,17 +3928,16 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::EsportsBannerData> BannerData {761042637u};
     };
 
-    class YORDLE_EXPORT LootOutputBase : public bin_class { 
+    class YORDLE_EXPORT LootOutputBase : public bin_class {
     public:
         explicit LootOutputBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2506702743 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT LootItemDetails : public bin_class { 
+    class YORDLE_EXPORT LootItemDetails : public bin_class {
     public:
         explicit LootItemDetails(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3970,11 +3946,11 @@ namespace yordle::data::meta {
         }
 
         uint32_t mStoreId = 0;
-        uint32_t mRarity = 0;
-        uint32_t mValue = 0;
+        uint32_t mRarity  = 0;
+        uint32_t mValue   = 0;
     };
 
-    class YORDLE_EXPORT LootStatus : public bin_class { 
+    class YORDLE_EXPORT LootStatus : public bin_class {
     public:
         explicit LootStatus(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -3987,11 +3963,11 @@ namespace yordle::data::meta {
         std::string mActiveDate {};
         std::string mInactiveDate {};
         int32_t mLifetimeMax = 0;
-        bool mAutoRedeem = false;
-        bool mActive = false;
+        bool mAutoRedeem     = false;
+        bool mActive         = false;
     };
 
-    class YORDLE_EXPORT LootItem : public LootOutputBase { 
+    class YORDLE_EXPORT LootItem : public LootOutputBase {
     public:
         explicit LootItem(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4007,7 +3983,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::LootItemDetails> mDetails {};
     };
 
-    class YORDLE_EXPORT ClientStateCommonSettings : public bin_class { 
+    class YORDLE_EXPORT ClientStateCommonSettings : public bin_class {
     public:
         explicit ClientStateCommonSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4020,7 +3996,7 @@ namespace yordle::data::meta {
         uint32_t xefe9214c = 0;
     };
 
-    class YORDLE_EXPORT IdentityInstance : public bin_class { 
+    class YORDLE_EXPORT IdentityInstance : public bin_class {
     public:
         explicit IdentityInstance(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4031,7 +4007,7 @@ namespace yordle::data::meta {
         std::string mItemTexturePath {};
     };
 
-    class YORDLE_EXPORT x4d31ed46 : public bin_class { 
+    class YORDLE_EXPORT x4d31ed46 : public bin_class {
     public:
         explicit x4d31ed46(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4043,7 +4019,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::CatalogEntry> mCatalogEntry {};
     };
 
-    class YORDLE_EXPORT x14aef50c : public bin_class { 
+    class YORDLE_EXPORT x14aef50c : public bin_class {
     public:
         explicit x14aef50c(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4057,7 +4033,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::x14aef50c>> mInventoryFilters {};
     };
 
-    class YORDLE_EXPORT x9f59e92d : public bin_class { 
+    class YORDLE_EXPORT x9f59e92d : public bin_class {
     public:
         explicit x9f59e92d(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4067,11 +4043,11 @@ namespace yordle::data::meta {
 
         std::string mName {};
         uint8_t mOrder = 0;
-        bool mEnabled = false;
+        bool mEnabled  = false;
         std::vector<std::shared_ptr<yordle::data::meta::x14aef50c>> mInventoryFilters {};
     };
 
-    class YORDLE_EXPORT MapAction : public bin_class { 
+    class YORDLE_EXPORT MapAction : public bin_class {
     public:
         explicit MapAction(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4082,7 +4058,7 @@ namespace yordle::data::meta {
         float startTime = 0.0;
     };
 
-    class YORDLE_EXPORT xaf23408c : public MapAction { 
+    class YORDLE_EXPORT xaf23408c : public MapAction {
     public:
         explicit xaf23408c(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4093,10 +4069,10 @@ namespace yordle::data::meta {
         std::vector<std::string> x5c042946 {};
         std::string x15db0d85 {};
         float x29a7efc6 = 0.0;
-        bool Shuffle = false;
+        bool Shuffle    = false;
     };
 
-    class YORDLE_EXPORT x8c0d80f5 : public MapAction { 
+    class YORDLE_EXPORT x8c0d80f5 : public MapAction {
     public:
         explicit x8c0d80f5(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4108,7 +4084,7 @@ namespace yordle::data::meta {
         bool Shuffle = false;
     };
 
-    class YORDLE_EXPORT x6cdbb71d : public MapAction { 
+    class YORDLE_EXPORT x6cdbb71d : public MapAction {
     public:
         explicit x6cdbb71d(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4124,7 +4100,7 @@ namespace yordle::data::meta {
         bool xeefb990f = false;
     };
 
-    class YORDLE_EXPORT MapActionPlayAnimation : public MapAction { 
+    class YORDLE_EXPORT MapActionPlayAnimation : public MapAction {
     public:
         explicit MapActionPlayAnimation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4137,7 +4113,7 @@ namespace yordle::data::meta {
         bool looping = false;
     };
 
-    class YORDLE_EXPORT MapActionPlaySoundAtLocation : public MapAction { 
+    class YORDLE_EXPORT MapActionPlaySoundAtLocation : public MapAction {
     public:
         explicit MapActionPlaySoundAtLocation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4149,7 +4125,7 @@ namespace yordle::data::meta {
         std::string LocationName {};
     };
 
-    class YORDLE_EXPORT x49da656e : public MapAction { 
+    class YORDLE_EXPORT x49da656e : public MapAction {
     public:
         explicit x49da656e(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4162,7 +4138,7 @@ namespace yordle::data::meta {
         float value = 0.0;
     };
 
-    class YORDLE_EXPORT xced6ab09 : public MapAction { 
+    class YORDLE_EXPORT xced6ab09 : public MapAction {
     public:
         explicit xced6ab09(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4174,17 +4150,16 @@ namespace yordle::data::meta {
         bool shown = false;
     };
 
-    class YORDLE_EXPORT xe1bb8efb : public MapAction { 
+    class YORDLE_EXPORT xe1bb8efb : public MapAction {
     public:
         explicit xe1bb8efb(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3787165435 || MapAction::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT MapAlternateAsset : public bin_class { 
+    class YORDLE_EXPORT MapAlternateAsset : public bin_class {
     public:
         explicit MapAlternateAsset(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4199,7 +4174,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x97472c4d = 0;
     };
 
-    class YORDLE_EXPORT MapAlternateAssets : public bin_class { 
+    class YORDLE_EXPORT MapAlternateAssets : public bin_class {
     public:
         explicit MapAlternateAssets(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4210,7 +4185,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::MapAlternateAsset>> mAlternateAssets {};
     };
 
-    class YORDLE_EXPORT MapCharacterList : public bin_class { 
+    class YORDLE_EXPORT MapCharacterList : public bin_class {
     public:
         explicit MapCharacterList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4221,7 +4196,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::Character>> characters {};
     };
 
-    class YORDLE_EXPORT MapLocatorArray : public bin_class { 
+    class YORDLE_EXPORT MapLocatorArray : public bin_class {
     public:
         explicit MapLocatorArray(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4232,7 +4207,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> locators {};
     };
 
-    class YORDLE_EXPORT MapNavigationGridOverlays : public bin_class { 
+    class YORDLE_EXPORT MapNavigationGridOverlays : public bin_class {
     public:
         explicit MapNavigationGridOverlays(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4243,7 +4218,7 @@ namespace yordle::data::meta {
         std::map<std::string, yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> overlays {};
     };
 
-    class YORDLE_EXPORT MapNavigationGridOverlay : public bin_class { 
+    class YORDLE_EXPORT MapNavigationGridOverlay : public bin_class {
     public:
         explicit MapNavigationGridOverlay(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4255,7 +4230,7 @@ namespace yordle::data::meta {
         std::string regionsFilename {};
     };
 
-    class YORDLE_EXPORT MapSkinColorizationPostEffect : public bin_class { 
+    class YORDLE_EXPORT MapSkinColorizationPostEffect : public bin_class {
     public:
         explicit MapSkinColorizationPostEffect(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4267,7 +4242,7 @@ namespace yordle::data::meta {
         float mMultipliersSaturation = 0.0;
     };
 
-    class YORDLE_EXPORT MapSkin : public bin_class { 
+    class YORDLE_EXPORT MapSkin : public bin_class {
     public:
         explicit MapSkin(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4290,7 +4265,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mResourceResolvers {};
     };
 
-    class YORDLE_EXPORT MapVisibilityFlagRange : public bin_class { 
+    class YORDLE_EXPORT MapVisibilityFlagRange : public bin_class {
     public:
         explicit MapVisibilityFlagRange(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4302,7 +4277,7 @@ namespace yordle::data::meta {
         uint8_t maxIndex = 0;
     };
 
-    class YORDLE_EXPORT MapVisibilityFlagDefinition : public bin_class { 
+    class YORDLE_EXPORT MapVisibilityFlagDefinition : public bin_class {
     public:
         explicit MapVisibilityFlagDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4312,11 +4287,11 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash name = 0;
         std::string PublicName {};
-        uint8_t BitIndex = 0;
+        uint8_t BitIndex     = 0;
         float transitionTime = 0.0;
     };
 
-    class YORDLE_EXPORT MapVisibilityFlagDefinitions : public bin_class { 
+    class YORDLE_EXPORT MapVisibilityFlagDefinitions : public bin_class {
     public:
         explicit MapVisibilityFlagDefinitions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4330,7 +4305,7 @@ namespace yordle::data::meta {
         bool x5ffc00df = false;
     };
 
-    class YORDLE_EXPORT MinimapBackground : public bin_class { 
+    class YORDLE_EXPORT MinimapBackground : public bin_class {
     public:
         explicit MinimapBackground(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4343,7 +4318,7 @@ namespace yordle::data::meta {
         std::string mTextureName {};
     };
 
-    class YORDLE_EXPORT MinimapBackgroundConfig : public bin_class { 
+    class YORDLE_EXPORT MinimapBackgroundConfig : public bin_class {
     public:
         explicit MinimapBackgroundConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4355,7 +4330,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::MinimapBackground>> mCustomMinimapBackgrounds {};
     };
 
-    class YORDLE_EXPORT MissionAsset : public bin_class { 
+    class YORDLE_EXPORT MissionAsset : public bin_class {
     public:
         explicit MissionAsset(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4368,7 +4343,7 @@ namespace yordle::data::meta {
         bool xf82efec6 = false;
     };
 
-    class YORDLE_EXPORT CheatPage : public bin_class { 
+    class YORDLE_EXPORT CheatPage : public bin_class {
     public:
         explicit CheatPage(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4379,7 +4354,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mCheats {};
     };
 
-    class YORDLE_EXPORT CheatSet : public bin_class { 
+    class YORDLE_EXPORT CheatSet : public bin_class {
     public:
         explicit CheatSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4394,10 +4369,10 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mAssociatedChampion {3931724966u};
         std::vector<std::shared_ptr<yordle::data::meta::CheatPage>> mCheatPages {};
         bool mUseIconsForButtons = false;
-        bool mIsUIAlwaysShown = false;
+        bool mIsUIAlwaysShown    = false;
     };
 
-    class YORDLE_EXPORT CheatMenuUIData : public bin_class { 
+    class YORDLE_EXPORT CheatMenuUIData : public bin_class {
     public:
         explicit CheatMenuUIData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4414,7 +4389,7 @@ namespace yordle::data::meta {
         bool mIsToggleCheat = false;
     };
 
-    class YORDLE_EXPORT Cheat : public bin_class { 
+    class YORDLE_EXPORT Cheat : public bin_class {
     public:
         explicit Cheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4428,7 +4403,7 @@ namespace yordle::data::meta {
         float mRecastFrequency = 0.0;
     };
 
-    class YORDLE_EXPORT ScriptCheat : public Cheat { 
+    class YORDLE_EXPORT ScriptCheat : public Cheat {
     public:
         explicit ScriptCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4436,11 +4411,11 @@ namespace yordle::data::meta {
             return type == 3690099329 || Cheat::is_type(type);
         }
 
-        uint32_t mTarget = 0;
+        uint32_t mTarget                                 = 0;
         yordle::data::meta::bin_fnv_hash mScriptCallback = 0;
     };
 
-    class YORDLE_EXPORT AddGoldCheat : public Cheat { 
+    class YORDLE_EXPORT AddGoldCheat : public Cheat {
     public:
         explicit AddGoldCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4449,10 +4424,10 @@ namespace yordle::data::meta {
         }
 
         float mGoldAmount = 0.0;
-        uint32_t mTarget = 0;
+        uint32_t mTarget  = 0;
     };
 
-    class YORDLE_EXPORT MaxAllSkillsCheat : public Cheat { 
+    class YORDLE_EXPORT MaxAllSkillsCheat : public Cheat {
     public:
         explicit MaxAllSkillsCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4461,10 +4436,10 @@ namespace yordle::data::meta {
         }
 
         bool mOnlyOnePointEach = false;
-        uint32_t mTarget = 0;
+        uint32_t mTarget       = 0;
     };
 
-    class YORDLE_EXPORT AddExperienceCheat : public Cheat { 
+    class YORDLE_EXPORT AddExperienceCheat : public Cheat {
     public:
         explicit AddExperienceCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4472,11 +4447,11 @@ namespace yordle::data::meta {
             return type == 947718767 || Cheat::is_type(type);
         }
 
-        uint32_t mTarget = 0;
+        uint32_t mTarget   = 0;
         bool mGiveMaxLevel = false;
     };
 
-    class YORDLE_EXPORT ToggleBuffCheat : public Cheat { 
+    class YORDLE_EXPORT ToggleBuffCheat : public Cheat {
     public:
         explicit ToggleBuffCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4489,7 +4464,7 @@ namespace yordle::data::meta {
         bool UseTargetAsCaster = false;
     };
 
-    class YORDLE_EXPORT AddHealthCheat : public Cheat { 
+    class YORDLE_EXPORT AddHealthCheat : public Cheat {
     public:
         explicit AddHealthCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4498,10 +4473,10 @@ namespace yordle::data::meta {
         }
 
         uint32_t mTarget = 0;
-        float mAmount = 0.0;
+        float mAmount    = 0.0;
     };
 
-    class YORDLE_EXPORT AddPARCheat : public Cheat { 
+    class YORDLE_EXPORT AddPARCheat : public Cheat {
     public:
         explicit AddPARCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4510,10 +4485,10 @@ namespace yordle::data::meta {
         }
 
         uint32_t mTarget = 0;
-        float mAmount = 0.0;
+        float mAmount    = 0.0;
     };
 
-    class YORDLE_EXPORT ToggleRegenCheat : public Cheat { 
+    class YORDLE_EXPORT ToggleRegenCheat : public Cheat {
     public:
         explicit ToggleRegenCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4522,11 +4497,11 @@ namespace yordle::data::meta {
         }
 
         uint32_t mTarget = 0;
-        bool mToggleHP = false;
-        bool mTogglePAR = false;
+        bool mToggleHP   = false;
+        bool mTogglePAR  = false;
     };
 
-    class YORDLE_EXPORT ClearTargetCooldownCheat : public Cheat { 
+    class YORDLE_EXPORT ClearTargetCooldownCheat : public Cheat {
     public:
         explicit ClearTargetCooldownCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4537,7 +4512,7 @@ namespace yordle::data::meta {
         uint32_t mTarget = 0;
     };
 
-    class YORDLE_EXPORT TimeMultiplierCheat : public Cheat { 
+    class YORDLE_EXPORT TimeMultiplierCheat : public Cheat {
     public:
         explicit TimeMultiplierCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4545,11 +4520,11 @@ namespace yordle::data::meta {
             return type == 308619146 || Cheat::is_type(type);
         }
 
-        bool mSpeedUp = false;
+        bool mSpeedUp   = false;
         bool mSpeedDown = false;
     };
 
-    class YORDLE_EXPORT DamageUnitCheat : public Cheat { 
+    class YORDLE_EXPORT DamageUnitCheat : public Cheat {
     public:
         explicit DamageUnitCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4557,14 +4532,14 @@ namespace yordle::data::meta {
             return type == 3963713437 || Cheat::is_type(type);
         }
 
-        uint32_t mTarget = 0;
-        uint32_t mDamageAmount = 0;
+        uint32_t mTarget          = 0;
+        uint32_t mDamageAmount    = 0;
         float mPercentageOfAttack = 0.0;
-        uint32_t mDamageType = 0;
-        uint32_t mHitResult = 0;
+        uint32_t mDamageType      = 0;
+        uint32_t mHitResult       = 0;
     };
 
-    class YORDLE_EXPORT ToggleBarracksCheat : public Cheat { 
+    class YORDLE_EXPORT ToggleBarracksCheat : public Cheat {
     public:
         explicit ToggleBarracksCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4573,10 +4548,10 @@ namespace yordle::data::meta {
         }
 
         bool mKillExistingMinions = false;
-        bool mKillWards = false;
+        bool mKillWards           = false;
     };
 
-    class YORDLE_EXPORT ToggleTeamCheat : public Cheat { 
+    class YORDLE_EXPORT ToggleTeamCheat : public Cheat {
     public:
         explicit ToggleTeamCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4587,7 +4562,7 @@ namespace yordle::data::meta {
         uint32_t mTarget = 0;
     };
 
-    class YORDLE_EXPORT SetRespawnTimerCheat : public Cheat { 
+    class YORDLE_EXPORT SetRespawnTimerCheat : public Cheat {
     public:
         explicit SetRespawnTimerCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4595,11 +4570,11 @@ namespace yordle::data::meta {
             return type == 1050508117 || Cheat::is_type(type);
         }
 
-        uint32_t mTarget = 0;
+        uint32_t mTarget  = 0;
         float mTimerValue = 0.0;
     };
 
-    class YORDLE_EXPORT ToggleInvulnerableCheat : public Cheat { 
+    class YORDLE_EXPORT ToggleInvulnerableCheat : public Cheat {
     public:
         explicit ToggleInvulnerableCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4610,17 +4585,16 @@ namespace yordle::data::meta {
         uint32_t mTarget = 0;
     };
 
-    class YORDLE_EXPORT KillAllTurretsCheat : public Cheat { 
+    class YORDLE_EXPORT KillAllTurretsCheat : public Cheat {
     public:
         explicit KillAllTurretsCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 691714906 || Cheat::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ForceSpawnNeutralCampsCheat : public Cheat { 
+    class YORDLE_EXPORT ForceSpawnNeutralCampsCheat : public Cheat {
     public:
         explicit ForceSpawnNeutralCampsCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4631,7 +4605,7 @@ namespace yordle::data::meta {
         bool mSpawnBaron = false;
     };
 
-    class YORDLE_EXPORT ResetGoldCheat : public Cheat { 
+    class YORDLE_EXPORT ResetGoldCheat : public Cheat {
     public:
         explicit ResetGoldCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4642,37 +4616,34 @@ namespace yordle::data::meta {
         uint32_t mTarget = 0;
     };
 
-    class YORDLE_EXPORT TogglePlantFastRespawnCheat : public Cheat { 
+    class YORDLE_EXPORT TogglePlantFastRespawnCheat : public Cheat {
     public:
         explicit TogglePlantFastRespawnCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2818226507 || Cheat::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT SwapChampionCheat : public Cheat { 
+    class YORDLE_EXPORT SwapChampionCheat : public Cheat {
     public:
         explicit SwapChampionCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1887008704 || Cheat::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ToggleAfkDetectionCheat : public Cheat { 
+    class YORDLE_EXPORT ToggleAfkDetectionCheat : public Cheat {
     public:
         explicit ToggleAfkDetectionCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1458280349 || Cheat::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT PerkEffectAmountPerMode : public bin_class { 
+    class YORDLE_EXPORT PerkEffectAmountPerMode : public bin_class {
     public:
         explicit PerkEffectAmountPerMode(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4683,7 +4654,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, float> mEffectAmountPerMode {};
     };
 
-    class YORDLE_EXPORT PerkScriptData : public bin_class { 
+    class YORDLE_EXPORT PerkScriptData : public bin_class {
     public:
         explicit PerkScriptData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4696,7 +4667,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::IGameCalculation>> mCalculations {};
     };
 
-    class YORDLE_EXPORT PerkScript : public bin_class { 
+    class YORDLE_EXPORT PerkScript : public bin_class {
     public:
         explicit PerkScript(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4709,7 +4680,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::PerkScriptData> mSpellScriptData {};
     };
 
-    class YORDLE_EXPORT PerkBuff : public bin_class { 
+    class YORDLE_EXPORT PerkBuff : public bin_class {
     public:
         explicit PerkBuff(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4721,7 +4692,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mBuffSpellObject {};
     };
 
-    class YORDLE_EXPORT BasePerk : public bin_class { 
+    class YORDLE_EXPORT BasePerk : public bin_class {
     public:
         explicit BasePerk(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4739,7 +4710,7 @@ namespace yordle::data::meta {
         std::vector<std::string> mEndOfGameStatDescriptions {};
         std::string mDisplayStatLocalizationKey {};
         std::string mIconTextureName {};
-        bool mEnabled = false;
+        bool mEnabled   = false;
         bool mStackable = false;
         std::shared_ptr<yordle::data::meta::PerkScript> mScript {};
         std::vector<std::shared_ptr<yordle::data::meta::PerkBuff>> mBuffs {};
@@ -4747,7 +4718,7 @@ namespace yordle::data::meta {
         std::vector<std::string> mCharacters {};
     };
 
-    class YORDLE_EXPORT PerkStyle : public bin_class { 
+    class YORDLE_EXPORT PerkStyle : public bin_class {
     public:
         explicit PerkStyle(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4762,7 +4733,7 @@ namespace yordle::data::meta {
         std::string mDefaultPageLocalizationKey {};
         std::string mPingTextLocalizationKey {};
         std::string mIconTextureName {};
-        bool mEnabled = false;
+        bool mEnabled         = false;
         bool mIsAdvancedStyle = false;
         std::vector<uint32_t> mAllowedSubStyles {};
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mSubStyleBonus {};
@@ -4778,7 +4749,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mStyleVFXResourceResolver {};
     };
 
-    class YORDLE_EXPORT PerkSlot : public bin_class { 
+    class YORDLE_EXPORT PerkSlot : public bin_class {
     public:
         explicit PerkSlot(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4791,7 +4762,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mPerks {};
     };
 
-    class YORDLE_EXPORT DefaultSplashedPerkStyle : public bin_class { 
+    class YORDLE_EXPORT DefaultSplashedPerkStyle : public bin_class {
     public:
         explicit DefaultSplashedPerkStyle(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4804,7 +4775,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mPerk2 {3069197533u};
     };
 
-    class YORDLE_EXPORT DefaultStatModPerkSet : public bin_class { 
+    class YORDLE_EXPORT DefaultStatModPerkSet : public bin_class {
     public:
         explicit DefaultStatModPerkSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4816,7 +4787,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mPerks {};
     };
 
-    class YORDLE_EXPORT PerkSubStyleBonus : public bin_class { 
+    class YORDLE_EXPORT PerkSubStyleBonus : public bin_class {
     public:
         explicit PerkSubStyleBonus(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4828,7 +4799,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mPerk {3069197533u};
     };
 
-    class YORDLE_EXPORT SummonerSpellPerkReplacement : public bin_class { 
+    class YORDLE_EXPORT SummonerSpellPerkReplacement : public bin_class {
     public:
         explicit SummonerSpellPerkReplacement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4837,10 +4808,10 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mSummonerSpellRequired = 0;
-        yordle::data::meta::bin_fnv_hash xd48a5ef1 = 0;
+        yordle::data::meta::bin_fnv_hash xd48a5ef1              = 0;
     };
 
-    class YORDLE_EXPORT SummonerSpellPerkReplacementList : public bin_class { 
+    class YORDLE_EXPORT SummonerSpellPerkReplacementList : public bin_class {
     public:
         explicit SummonerSpellPerkReplacementList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4851,7 +4822,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::SummonerSpellPerkReplacement>> mReplacements {};
     };
 
-    class YORDLE_EXPORT Perk : public BasePerk { 
+    class YORDLE_EXPORT Perk : public BasePerk {
     public:
         explicit Perk(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4864,7 +4835,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::SummonerSpellPerkReplacementList> mSummonerPerkReplacements {};
     };
 
-    class YORDLE_EXPORT PerkReplacement : public bin_class { 
+    class YORDLE_EXPORT PerkReplacement : public bin_class {
     public:
         explicit PerkReplacement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4873,10 +4844,10 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mReplaceTarget = 0;
-        yordle::data::meta::bin_fnv_hash mReplaceWith = 0;
+        yordle::data::meta::bin_fnv_hash mReplaceWith   = 0;
     };
 
-    class YORDLE_EXPORT PerkReplacementList : public bin_class { 
+    class YORDLE_EXPORT PerkReplacementList : public bin_class {
     public:
         explicit PerkReplacementList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4887,7 +4858,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::PerkReplacement>> mReplacements {};
     };
 
-    class YORDLE_EXPORT PerkConfig : public bin_class { 
+    class YORDLE_EXPORT PerkConfig : public bin_class {
     public:
         explicit PerkConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4900,7 +4871,7 @@ namespace yordle::data::meta {
         uint32_t x108e746d = 0;
     };
 
-    class YORDLE_EXPORT OverridePerkSelectionSet : public bin_class { 
+    class YORDLE_EXPORT OverridePerkSelectionSet : public bin_class {
     public:
         explicit OverridePerkSelectionSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4913,7 +4884,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::Perk>> mPerks {};
     };
 
-    class YORDLE_EXPORT ToonInkingFilterParams : public bin_class { 
+    class YORDLE_EXPORT ToonInkingFilterParams : public bin_class {
     public:
         explicit ToonInkingFilterParams(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4921,13 +4892,13 @@ namespace yordle::data::meta {
             return type == 2533312697 || bin_class::is_type(type);
         }
 
-        float mPixelSize = 0.0;
-        float mMinVal = 0.0;
-        float mMaxVal = 0.0;
+        float mPixelSize   = 0.0;
+        float mMinVal      = 0.0;
+        float mMaxVal      = 0.0;
         float mResultScale = 0.0;
     };
 
-    class YORDLE_EXPORT RenderStyleData : public bin_class { 
+    class YORDLE_EXPORT RenderStyleData : public bin_class {
     public:
         explicit RenderStyleData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4940,17 +4911,16 @@ namespace yordle::data::meta {
         bool mUnitStyleUseInking = false;
     };
 
-    class YORDLE_EXPORT MaterialOverrideCallbackDynamicMaterial : public bin_class { 
+    class YORDLE_EXPORT MaterialOverrideCallbackDynamicMaterial : public bin_class {
     public:
         explicit MaterialOverrideCallbackDynamicMaterial(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1441690361 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT MouseOverEffectData : public bin_class { 
+    class YORDLE_EXPORT MouseOverEffectData : public bin_class {
     public:
         explicit MouseOverEffectData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4962,24 +4932,24 @@ namespace yordle::data::meta {
         std::array<uint8_t, 4> mEnemyColor {};
         std::array<uint8_t, 4> mNeutralColor {};
         std::array<uint8_t, 4> mSelfColor {};
-        int32_t mMouseOverSize = 0;
-        float mMouseOverColorFactor = 0.0;
+        int32_t mMouseOverSize           = 0;
+        float mMouseOverColorFactor      = 0.0;
         uint32_t mMouseOverBlurPassCount = 0;
-        int32_t mSelectedSize = 0;
-        float mSelectedColorFactor = 0.0;
-        uint32_t mSelectedBlurPassCount = 0;
-        int32_t mAvatarSize = 0;
-        float mAvatarColorFactor = 0.0;
+        int32_t mSelectedSize            = 0;
+        float mSelectedColorFactor       = 0.0;
+        uint32_t mSelectedBlurPassCount  = 0;
+        int32_t mAvatarSize              = 0;
+        float mAvatarColorFactor         = 0.0;
         std::array<uint8_t, 4> mAvatarColor {};
         uint32_t mAvatarBlurPassCount = 0;
-        int32_t mKillerSize = 0;
-        float mKillerColorFactor = 0.0;
+        int32_t mKillerSize           = 0;
+        float mKillerColorFactor      = 0.0;
         uint32_t mKillerBlurPassCount = 0;
         std::vector<float> mInteractionTimes {};
         std::vector<int32_t> mInteractionSizes {};
     };
 
-    class YORDLE_EXPORT FxSequence : public bin_class { 
+    class YORDLE_EXPORT FxSequence : public bin_class {
     public:
         explicit FxSequence(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -4990,7 +4960,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> Actions {};
     };
 
-    class YORDLE_EXPORT FxTableEntry : public bin_class { 
+    class YORDLE_EXPORT FxTableEntry : public bin_class {
     public:
         explicit FxTableEntry(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5002,7 +4972,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::FxSequence> Sequence {729255394u};
     };
 
-    class YORDLE_EXPORT FxTable : public bin_class { 
+    class YORDLE_EXPORT FxTable : public bin_class {
     public:
         explicit FxTable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5013,7 +4983,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::FxTableEntry>> Entries {};
     };
 
-    class YORDLE_EXPORT FxTarget : public bin_class { 
+    class YORDLE_EXPORT FxTarget : public bin_class {
     public:
         explicit FxTarget(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5025,7 +4995,7 @@ namespace yordle::data::meta {
         int32_t Index = 0;
     };
 
-    class YORDLE_EXPORT FxTiming : public bin_class { 
+    class YORDLE_EXPORT FxTiming : public bin_class {
     public:
         explicit FxTiming(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5034,11 +5004,11 @@ namespace yordle::data::meta {
         }
 
         uint32_t anchor = 0;
-        uint32_t type = 0;
-        float offset = 0.0;
+        uint32_t type   = 0;
+        float offset    = 0.0;
     };
 
-    class YORDLE_EXPORT FxTransform : public bin_class { 
+    class YORDLE_EXPORT FxTransform : public bin_class {
     public:
         explicit FxTransform(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5051,7 +5021,7 @@ namespace yordle::data::meta {
         std::string AttachmentName {};
     };
 
-    class YORDLE_EXPORT IFxAction : public bin_class { 
+    class YORDLE_EXPORT IFxAction : public bin_class {
     public:
         explicit IFxAction(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5063,7 +5033,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::FxTiming> End {};
     };
 
-    class YORDLE_EXPORT GameplayFeatureToggles : public bin_class { 
+    class YORDLE_EXPORT GameplayFeatureToggles : public bin_class {
     public:
         explicit GameplayFeatureToggles(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5071,14 +5041,14 @@ namespace yordle::data::meta {
             return type == 3021260058 || bin_class::is_type(type);
         }
 
-        bool NewActorStuckPathfinding = false;
-        bool fowCastRayAccurate = false;
+        bool NewActorStuckPathfinding            = false;
+        bool fowCastRayAccurate                  = false;
         bool disableSpellLevelMinimumProtections = false;
-        bool IndividualItemVisibility = false;
-        bool AFKDetection2 = false;
+        bool IndividualItemVisibility            = false;
+        bool AFKDetection2                       = false;
     };
 
-    class YORDLE_EXPORT ScriptDataObject : public bin_class { 
+    class YORDLE_EXPORT ScriptDataObject : public bin_class {
     public:
         explicit ScriptDataObject(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5091,7 +5061,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::GameModeConstantsGroup> x9be36761 {720276364u};
     };
 
-    class YORDLE_EXPORT ScriptDataObjectList : public bin_class { 
+    class YORDLE_EXPORT ScriptDataObjectList : public bin_class {
     public:
         explicit ScriptDataObjectList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5103,7 +5073,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::ScriptDataObject>> mScriptDataObjects {};
     };
 
-    class YORDLE_EXPORT ICastRequirement : public bin_class { 
+    class YORDLE_EXPORT ICastRequirement : public bin_class {
     public:
         explicit ICastRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5114,7 +5084,7 @@ namespace yordle::data::meta {
         bool mInvertResult = false;
     };
 
-    class YORDLE_EXPORT HasAllSubRequirementsCastRequirement : public ICastRequirement { 
+    class YORDLE_EXPORT HasAllSubRequirementsCastRequirement : public ICastRequirement {
     public:
         explicit HasAllSubRequirementsCastRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5125,7 +5095,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ICastRequirement>> mSubRequirements {};
     };
 
-    class YORDLE_EXPORT HasNNearbyUnitsRequirement : public ICastRequirement { 
+    class YORDLE_EXPORT HasNNearbyUnitsRequirement : public ICastRequirement {
     public:
         explicit HasNNearbyUnitsRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5135,11 +5105,11 @@ namespace yordle::data::meta {
 
         std::vector<std::shared_ptr<yordle::data::meta::ICastRequirement>> mUnitsRequirements {};
         uint32_t mUnitsRequired = 0;
-        float mRange = 0.0;
-        uint32_t mDistanceType = 0;
+        float mRange            = 0.0;
+        uint32_t mDistanceType  = 0;
     };
 
-    class YORDLE_EXPORT HasNNearbyVisibleUnitsRequirement : public ICastRequirement { 
+    class YORDLE_EXPORT HasNNearbyVisibleUnitsRequirement : public ICastRequirement {
     public:
         explicit HasNNearbyVisibleUnitsRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5149,11 +5119,11 @@ namespace yordle::data::meta {
 
         std::vector<std::shared_ptr<yordle::data::meta::ICastRequirement>> mUnitsRequirements {};
         uint32_t mUnitsRequired = 0;
-        float mRange = 0.0;
-        uint32_t mDistanceType = 0;
+        float mRange            = 0.0;
+        uint32_t mDistanceType  = 0;
     };
 
-    class YORDLE_EXPORT HasTypeAndStatusFlags : public ICastRequirement { 
+    class YORDLE_EXPORT HasTypeAndStatusFlags : public ICastRequirement {
     public:
         explicit HasTypeAndStatusFlags(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5161,11 +5131,11 @@ namespace yordle::data::meta {
             return type == 4095662801 || ICastRequirement::is_type(type);
         }
 
-        uint32_t mAffectsTypeFlags = 0;
+        uint32_t mAffectsTypeFlags   = 0;
         uint32_t mAffectsStatusFlags = 0;
     };
 
-    class YORDLE_EXPORT HasAtleastNSubRequirementsCastRequirement : public ICastRequirement { 
+    class YORDLE_EXPORT HasAtleastNSubRequirementsCastRequirement : public ICastRequirement {
     public:
         explicit HasAtleastNSubRequirementsCastRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5177,7 +5147,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ICastRequirement>> mSubRequirements {};
     };
 
-    class YORDLE_EXPORT HasUnitTagsCastRequirement : public ICastRequirement { 
+    class YORDLE_EXPORT HasUnitTagsCastRequirement : public ICastRequirement {
     public:
         explicit HasUnitTagsCastRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5188,17 +5158,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mUnitTags {};
     };
 
-    class YORDLE_EXPORT SameTeamCastRequirement : public ICastRequirement { 
+    class YORDLE_EXPORT SameTeamCastRequirement : public ICastRequirement {
     public:
         explicit SameTeamCastRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1622554532 || ICastRequirement::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT HasBuffCastRequirement : public ICastRequirement { 
+    class YORDLE_EXPORT HasBuffCastRequirement : public ICastRequirement {
     public:
         explicit HasBuffCastRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5207,10 +5176,10 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mBuffName = 0;
-        bool mFromAnyone = false;
+        bool mFromAnyone                           = false;
     };
 
-    class YORDLE_EXPORT AboveHealthPercentCastRequirement : public ICastRequirement { 
+    class YORDLE_EXPORT AboveHealthPercentCastRequirement : public ICastRequirement {
     public:
         explicit AboveHealthPercentCastRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5221,7 +5190,7 @@ namespace yordle::data::meta {
         float mCurrentPercentHealth = 0.0;
     };
 
-    class YORDLE_EXPORT AbovePARPercentCastRequirement : public ICastRequirement { 
+    class YORDLE_EXPORT AbovePARPercentCastRequirement : public ICastRequirement {
     public:
         explicit AbovePARPercentCastRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5229,11 +5198,11 @@ namespace yordle::data::meta {
             return type == 795738052 || ICastRequirement::is_type(type);
         }
 
-        uint8_t mPARType = 0;
+        uint8_t mPARType         = 0;
         float mCurrentPercentPAR = 0.0;
     };
 
-    class YORDLE_EXPORT IsSpecifiedUnitCastRequirement : public ICastRequirement { 
+    class YORDLE_EXPORT IsSpecifiedUnitCastRequirement : public ICastRequirement {
     public:
         explicit IsSpecifiedUnitCastRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5244,37 +5213,34 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mUnit = 0;
     };
 
-    class YORDLE_EXPORT x10f4d0bf : public ICastRequirement { 
+    class YORDLE_EXPORT x10f4d0bf : public ICastRequirement {
     public:
         explicit x10f4d0bf(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 284479679 || ICastRequirement::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT xdc65ffe4 : public ICastRequirement { 
+    class YORDLE_EXPORT xdc65ffe4 : public ICastRequirement {
     public:
         explicit xdc65ffe4(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3697672164 || ICastRequirement::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ItemSlotHasChargesCastRequirement : public ICastRequirement { 
+    class YORDLE_EXPORT ItemSlotHasChargesCastRequirement : public ICastRequirement {
     public:
         explicit ItemSlotHasChargesCastRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3151502687 || ICastRequirement::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT x2e7c5eda : public ICastRequirement { 
+    class YORDLE_EXPORT x2e7c5eda : public ICastRequirement {
     public:
         explicit x2e7c5eda(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5285,7 +5251,7 @@ namespace yordle::data::meta {
         uint32_t level = 0;
     };
 
-    class YORDLE_EXPORT x48284759 : public ICastRequirement { 
+    class YORDLE_EXPORT x48284759 : public ICastRequirement {
     public:
         explicit x48284759(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5296,7 +5262,7 @@ namespace yordle::data::meta {
         float Distance = 0.0;
     };
 
-    class YORDLE_EXPORT CCScoreMultipliers : public bin_class { 
+    class YORDLE_EXPORT CCScoreMultipliers : public bin_class {
     public:
         explicit CCScoreMultipliers(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5304,28 +5270,28 @@ namespace yordle::data::meta {
             return type == 2006398389 || bin_class::is_type(type);
         }
 
-        float stun = 0.0;
-        float taunt = 0.0;
-        float fear = 0.0;
-        float flee = 0.0;
-        float suppression = 0.0;
-        float knockup = 0.0;
-        float knockback = 0.0;
-        float polymorph = 0.0;
-        float root = 0.0;
-        float silence = 0.0;
-        float charm = 0.0;
-        float slow = 0.0;
+        float stun            = 0.0;
+        float taunt           = 0.0;
+        float fear            = 0.0;
+        float flee            = 0.0;
+        float suppression     = 0.0;
+        float knockup         = 0.0;
+        float knockback       = 0.0;
+        float polymorph       = 0.0;
+        float root            = 0.0;
+        float silence         = 0.0;
+        float charm           = 0.0;
+        float slow            = 0.0;
         float attackSpeedSlow = 0.0;
-        float blind = 0.0;
-        float disarm = 0.0;
-        float grounded = 0.0;
-        float nearsight = 0.0;
-        float drowsy = 0.0;
-        float asleep = 0.0;
+        float blind           = 0.0;
+        float disarm          = 0.0;
+        float grounded        = 0.0;
+        float nearsight       = 0.0;
+        float drowsy          = 0.0;
+        float asleep          = 0.0;
     };
 
-    class YORDLE_EXPORT BuffData : public bin_class { 
+    class YORDLE_EXPORT BuffData : public bin_class {
     public:
         explicit BuffData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5336,14 +5302,14 @@ namespace yordle::data::meta {
         std::string mDescription {};
         std::shared_ptr<yordle::data::meta::bin_class> mTooltipData {};
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mVfxSpawnConditions {};
-        bool x62e282aa = false;
+        bool x62e282aa     = false;
         bool mShowDuration = false;
-        bool xd019c1 = false;
+        bool xd019c1       = false;
         std::vector<int32_t> mFloatVarsDecimals {};
         uint8_t mBuffAttributeFlag = 0;
     };
 
-    class YORDLE_EXPORT TeamBuffData : public bin_class { 
+    class YORDLE_EXPORT TeamBuffData : public bin_class {
     public:
         explicit TeamBuffData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5356,7 +5322,7 @@ namespace yordle::data::meta {
         bool x9a53f442 = false;
     };
 
-    class YORDLE_EXPORT MissionBuffData : public bin_class { 
+    class YORDLE_EXPORT MissionBuffData : public bin_class {
     public:
         explicit MissionBuffData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5382,7 +5348,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::TeamBuffData> xbbbe4f6a {};
     };
 
-    class YORDLE_EXPORT BuffStackingTemplate : public bin_class { 
+    class YORDLE_EXPORT BuffStackingTemplate : public bin_class {
     public:
         explicit BuffStackingTemplate(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5391,13 +5357,13 @@ namespace yordle::data::meta {
         }
 
         std::string name {};
-        int32_t maxStacks = 0;
-        int32_t xb36eae8c = 0;
+        int32_t maxStacks    = 0;
+        int32_t xb36eae8c    = 0;
         bool StacksExclusive = false;
         uint32_t BuffAddType = 0;
     };
 
-    class YORDLE_EXPORT BuffStackingSettings : public bin_class { 
+    class YORDLE_EXPORT BuffStackingSettings : public bin_class {
     public:
         explicit BuffStackingSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5408,7 +5374,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::BuffStackingTemplate>> templateDefinition {};
     };
 
-    class YORDLE_EXPORT VFXSpawnConditionData : public bin_class { 
+    class YORDLE_EXPORT VFXSpawnConditionData : public bin_class {
     public:
         explicit VFXSpawnConditionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5419,17 +5385,16 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mPersistentVfxs {};
     };
 
-    class YORDLE_EXPORT VFXDefaultSpawnConditionData : public VFXSpawnConditionData { 
+    class YORDLE_EXPORT VFXDefaultSpawnConditionData : public VFXSpawnConditionData {
     public:
         explicit VFXDefaultSpawnConditionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 922712184 || VFXSpawnConditionData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT HasBuffData : public bin_class { 
+    class YORDLE_EXPORT HasBuffData : public bin_class {
     public:
         explicit HasBuffData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5438,12 +5403,12 @@ namespace yordle::data::meta {
         }
 
         std::string mBuffName {};
-        bool mFromAnyone = false;
-        bool mFromOwner = false;
+        bool mFromAnyone   = false;
+        bool mFromOwner    = false;
         bool mFromAttacker = false;
     };
 
-    class YORDLE_EXPORT HasBuffComparisonData : public bin_class { 
+    class YORDLE_EXPORT HasBuffComparisonData : public bin_class {
     public:
         explicit HasBuffComparisonData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5455,7 +5420,7 @@ namespace yordle::data::meta {
         uint8_t mCompareOp = 0;
     };
 
-    class YORDLE_EXPORT HasBuffSpawnConditionData : public VFXSpawnConditionData { 
+    class YORDLE_EXPORT HasBuffSpawnConditionData : public VFXSpawnConditionData {
     public:
         explicit HasBuffSpawnConditionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5466,7 +5431,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::HasBuffComparisonData> mBuffComparisons {};
     };
 
-    class YORDLE_EXPORT IsSkinSpawnConditionData : public VFXSpawnConditionData { 
+    class YORDLE_EXPORT IsSkinSpawnConditionData : public VFXSpawnConditionData {
     public:
         explicit IsSkinSpawnConditionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5477,27 +5442,25 @@ namespace yordle::data::meta {
         uint32_t mSkinId = 0;
     };
 
-    class YORDLE_EXPORT IsOwnerHeroConditionData : public VFXSpawnConditionData { 
+    class YORDLE_EXPORT IsOwnerHeroConditionData : public VFXSpawnConditionData {
     public:
         explicit IsOwnerHeroConditionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3706207649 || VFXSpawnConditionData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IsOwnerAliveConditionData : public VFXSpawnConditionData { 
+    class YORDLE_EXPORT IsOwnerAliveConditionData : public VFXSpawnConditionData {
     public:
         explicit IsOwnerAliveConditionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3575093694 || VFXSpawnConditionData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT HasSpellRankSpawnConditionData : public VFXSpawnConditionData { 
+    class YORDLE_EXPORT HasSpellRankSpawnConditionData : public VFXSpawnConditionData {
     public:
         explicit HasSpellRankSpawnConditionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5509,7 +5472,7 @@ namespace yordle::data::meta {
         int32_t mSpellLevel = 0;
     };
 
-    class YORDLE_EXPORT VfxSpawnConditions : public bin_class { 
+    class YORDLE_EXPORT VfxSpawnConditions : public bin_class {
     public:
         explicit VfxSpawnConditions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5521,17 +5484,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VFXDefaultSpawnConditionData> mDefaultVfxData {};
     };
 
-    class YORDLE_EXPORT IVFXSpawnConditions : public bin_class { 
+    class YORDLE_EXPORT IVFXSpawnConditions : public bin_class {
     public:
         explicit IVFXSpawnConditions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3813882857 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT AlwaysSpawnCondition : public IVFXSpawnConditions { 
+    class YORDLE_EXPORT AlwaysSpawnCondition : public IVFXSpawnConditions {
     public:
         explicit AlwaysSpawnCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5542,7 +5504,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VFXDefaultSpawnConditionData> mDefaultVfxData {};
     };
 
-    class YORDLE_EXPORT HasBuffNameSpawnConditions : public IVFXSpawnConditions { 
+    class YORDLE_EXPORT HasBuffNameSpawnConditions : public IVFXSpawnConditions {
     public:
         explicit HasBuffNameSpawnConditions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5554,7 +5516,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VFXDefaultSpawnConditionData> mDefaultVfxData {};
     };
 
-    class YORDLE_EXPORT HasSkinIDSpawnConditions : public IVFXSpawnConditions { 
+    class YORDLE_EXPORT HasSkinIDSpawnConditions : public IVFXSpawnConditions {
     public:
         explicit HasSkinIDSpawnConditions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5566,7 +5528,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VFXDefaultSpawnConditionData> mDefaultVfxData {};
     };
 
-    class YORDLE_EXPORT IsOwnerHeroSpawnConditions : public IVFXSpawnConditions { 
+    class YORDLE_EXPORT IsOwnerHeroSpawnConditions : public IVFXSpawnConditions {
     public:
         explicit IsOwnerHeroSpawnConditions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5578,7 +5540,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VFXDefaultSpawnConditionData> mDefaultVfxData {};
     };
 
-    class YORDLE_EXPORT IsOwnerAliveSpawnConditions : public IVFXSpawnConditions { 
+    class YORDLE_EXPORT IsOwnerAliveSpawnConditions : public IVFXSpawnConditions {
     public:
         explicit IsOwnerAliveSpawnConditions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5590,7 +5552,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VFXDefaultSpawnConditionData> mDefaultVfxData {};
     };
 
-    class YORDLE_EXPORT EffectCreationData : public bin_class { 
+    class YORDLE_EXPORT EffectCreationData : public bin_class {
     public:
         explicit EffectCreationData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5604,17 +5566,17 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mEffectKey = 0;
         std::string xfe758550 {};
         yordle::data::meta::bin_fnv_hash xa03a9542 = 0;
-        bool xc42cf88d = false;
-        float mPlaySpeedModifier = 0.0;
-        bool xa45eda7b = false;
-        uint32_t x87596a93 = 0;
-        bool x62f57c79 = false;
-        bool mFaceTarget = false;
-        bool xfd1e1bb4 = false;
-        bool x453384e6 = false;
+        bool xc42cf88d                             = false;
+        float mPlaySpeedModifier                   = 0.0;
+        bool xa45eda7b                             = false;
+        uint32_t x87596a93                         = 0;
+        bool x62f57c79                             = false;
+        bool mFaceTarget                           = false;
+        bool xfd1e1bb4                             = false;
+        bool x453384e6                             = false;
     };
 
-    class YORDLE_EXPORT RatioConversion : public bin_class { 
+    class YORDLE_EXPORT RatioConversion : public bin_class {
     public:
         explicit RatioConversion(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5622,14 +5584,14 @@ namespace yordle::data::meta {
             return type == 3393100796 || bin_class::is_type(type);
         }
 
-        uint8_t mSourceStatType = 0;
-        uint8_t mSourceStatOutput = 0;
-        uint8_t mResultingStatType = 0;
+        uint8_t mSourceStatType      = 0;
+        uint8_t mSourceStatOutput    = 0;
+        uint8_t mResultingStatType   = 0;
         uint8_t mResultingStatOutput = 0;
-        float x9227ce44 = 0.0;
+        float x9227ce44              = 0.0;
     };
 
-    class YORDLE_EXPORT x4379a5b2 : public bin_class { 
+    class YORDLE_EXPORT x4379a5b2 : public bin_class {
     public:
         explicit x4379a5b2(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5642,7 +5604,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IGameCalculationPart>> x583da425 {};
     };
 
-    class YORDLE_EXPORT SpellModifier : public bin_class { 
+    class YORDLE_EXPORT SpellModifier : public bin_class {
     public:
         explicit SpellModifier(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5651,14 +5613,14 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mModifierID = 0;
-        uint8_t xa9cc2bf6 = 0;
-        uint8_t xa47f56d7 = 0;
-        uint32_t x5b1192f5 = 0;
+        uint8_t xa9cc2bf6                            = 0;
+        uint8_t xa47f56d7                            = 0;
+        uint32_t x5b1192f5                           = 0;
         std::vector<std::shared_ptr<yordle::data::meta::RatioConversion>> x441a3020 {};
         std::vector<std::shared_ptr<yordle::data::meta::x4379a5b2>> xddbea054 {};
     };
 
-    class YORDLE_EXPORT AbilityObject : public bin_class { 
+    class YORDLE_EXPORT AbilityObject : public bin_class {
     public:
         explicit AbilityObject(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5673,7 +5635,7 @@ namespace yordle::data::meta {
         uint8_t mType = 0;
     };
 
-    class YORDLE_EXPORT SpellObject : public bin_class { 
+    class YORDLE_EXPORT SpellObject : public bin_class {
     public:
         explicit SpellObject(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5687,7 +5649,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::BuffData> mBuff {};
     };
 
-    class YORDLE_EXPORT MissileSpecification : public bin_class { 
+    class YORDLE_EXPORT MissileSpecification : public bin_class {
     public:
         explicit MissileSpecification(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5704,17 +5666,16 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> behaviors {};
     };
 
-    class YORDLE_EXPORT MissileBehaviorSpec : public bin_class { 
+    class YORDLE_EXPORT MissileBehaviorSpec : public bin_class {
     public:
         explicit MissileBehaviorSpec(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 369826590 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT FixedDistanceIgnoringTerrain : public MissileBehaviorSpec { 
+    class YORDLE_EXPORT FixedDistanceIgnoringTerrain : public MissileBehaviorSpec {
     public:
         explicit FixedDistanceIgnoringTerrain(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5722,24 +5683,23 @@ namespace yordle::data::meta {
             return type == 3184228220 || MissileBehaviorSpec::is_type(type);
         }
 
-        float mMaximumDistance = 0.0;
+        float mMaximumDistance               = 0.0;
         float mMinimumGapBetweenTerrainWalls = 0.0;
         std::optional<uint32_t> mMaximumTerrainWallsToSkip {};
         std::optional<float> scanWidthOverride {};
         std::shared_ptr<yordle::data::meta::bin_class> mTargeterDefinition {};
     };
 
-    class YORDLE_EXPORT ScaleByScaleSkinCoef : public MissileBehaviorSpec { 
+    class YORDLE_EXPORT ScaleByScaleSkinCoef : public MissileBehaviorSpec {
     public:
         explicit ScaleByScaleSkinCoef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 384088054 || MissileBehaviorSpec::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT WidthPerSecond : public MissileBehaviorSpec { 
+    class YORDLE_EXPORT WidthPerSecond : public MissileBehaviorSpec {
     public:
         explicit WidthPerSecond(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5750,7 +5710,7 @@ namespace yordle::data::meta {
         float mWidthPerSecond = 0.0;
     };
 
-    class YORDLE_EXPORT MissileTriggerSpec : public MissileBehaviorSpec { 
+    class YORDLE_EXPORT MissileTriggerSpec : public MissileBehaviorSpec {
     public:
         explicit MissileTriggerSpec(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5761,7 +5721,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mActions {};
     };
 
-    class YORDLE_EXPORT TriggerOnMovementComplete : public MissileTriggerSpec { 
+    class YORDLE_EXPORT TriggerOnMovementComplete : public MissileTriggerSpec {
     public:
         explicit TriggerOnMovementComplete(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5772,7 +5732,7 @@ namespace yordle::data::meta {
         int32_t mDelay = 0;
     };
 
-    class YORDLE_EXPORT TriggerOnDelay : public MissileTriggerSpec { 
+    class YORDLE_EXPORT TriggerOnDelay : public MissileTriggerSpec {
     public:
         explicit TriggerOnDelay(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5783,7 +5743,7 @@ namespace yordle::data::meta {
         float mDelay = 0.0;
     };
 
-    class YORDLE_EXPORT DelayStart : public MissileBehaviorSpec { 
+    class YORDLE_EXPORT DelayStart : public MissileBehaviorSpec {
     public:
         explicit DelayStart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5794,7 +5754,7 @@ namespace yordle::data::meta {
         float mDelayTime = 0.0;
     };
 
-    class YORDLE_EXPORT x798277f : public MissileBehaviorSpec { 
+    class YORDLE_EXPORT x798277f : public MissileBehaviorSpec {
     public:
         explicit x798277f(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5802,32 +5762,30 @@ namespace yordle::data::meta {
             return type == 127412095 || MissileBehaviorSpec::is_type(type);
         }
 
-        float x5e19cde2 = 0.0;
+        float x5e19cde2    = 0.0;
         uint32_t x6bfae91c = 0;
         uint32_t x754a85a6 = 0;
     };
 
-    class YORDLE_EXPORT TriggerOnStart : public MissileTriggerSpec { 
+    class YORDLE_EXPORT TriggerOnStart : public MissileTriggerSpec {
     public:
         explicit TriggerOnStart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1023490542 || MissileTriggerSpec::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TriggerOnHit : public MissileTriggerSpec { 
+    class YORDLE_EXPORT TriggerOnHit : public MissileTriggerSpec {
     public:
         explicit TriggerOnHit(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 447874143 || MissileTriggerSpec::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TriggerOnDistanceFromCaster : public MissileTriggerSpec { 
+    class YORDLE_EXPORT TriggerOnDistanceFromCaster : public MissileTriggerSpec {
     public:
         explicit TriggerOnDistanceFromCaster(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5838,7 +5796,7 @@ namespace yordle::data::meta {
         float mDistance = 0.0;
     };
 
-    class YORDLE_EXPORT TriggerFromScript : public MissileTriggerSpec { 
+    class YORDLE_EXPORT TriggerFromScript : public MissileTriggerSpec {
     public:
         explicit TriggerFromScript(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5847,40 +5805,37 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mTriggerName = 0;
-        float mDelay = 0.0;
+        float mDelay                                  = 0.0;
     };
 
-    class YORDLE_EXPORT MissileTriggeredActionSpec : public bin_class { 
+    class YORDLE_EXPORT MissileTriggeredActionSpec : public bin_class {
     public:
         explicit MissileTriggeredActionSpec(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1405067729 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT Cast : public MissileTriggeredActionSpec { 
+    class YORDLE_EXPORT Cast : public MissileTriggeredActionSpec {
     public:
         explicit Cast(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2854572110 || MissileTriggeredActionSpec::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT Destroy : public MissileTriggeredActionSpec { 
+    class YORDLE_EXPORT Destroy : public MissileTriggeredActionSpec {
     public:
         explicit Destroy(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3294324549 || MissileTriggeredActionSpec::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ReturnToCaster : public MissileTriggeredActionSpec { 
+    class YORDLE_EXPORT ReturnToCaster : public MissileTriggeredActionSpec {
     public:
         explicit ReturnToCaster(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5892,27 +5847,25 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mOverrideSpec {};
     };
 
-    class YORDLE_EXPORT ClearAlreadyHitTracking : public MissileTriggeredActionSpec { 
+    class YORDLE_EXPORT ClearAlreadyHitTracking : public MissileTriggeredActionSpec {
     public:
         explicit ClearAlreadyHitTracking(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2263200418 || MissileTriggeredActionSpec::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT CallOnMissileBounce : public MissileTriggeredActionSpec { 
+    class YORDLE_EXPORT CallOnMissileBounce : public MissileTriggeredActionSpec {
     public:
         explicit CallOnMissileBounce(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2611874788 || MissileTriggeredActionSpec::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ClearTargetAndKeepMoving : public MissileTriggeredActionSpec { 
+    class YORDLE_EXPORT ClearTargetAndKeepMoving : public MissileTriggeredActionSpec {
     public:
         explicit ClearTargetAndKeepMoving(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5925,7 +5878,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mOverrideMovement {};
     };
 
-    class YORDLE_EXPORT ChangeMissileSpeed : public MissileTriggeredActionSpec { 
+    class YORDLE_EXPORT ChangeMissileSpeed : public MissileTriggeredActionSpec {
     public:
         explicit ChangeMissileSpeed(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5934,10 +5887,10 @@ namespace yordle::data::meta {
         }
 
         uint32_t mSpeedChangeType = 0;
-        float mSpeedValue = 0.0;
+        float mSpeedValue         = 0.0;
     };
 
-    class YORDLE_EXPORT ChangeTurnRadius : public MissileTriggeredActionSpec { 
+    class YORDLE_EXPORT ChangeTurnRadius : public MissileTriggeredActionSpec {
     public:
         explicit ChangeTurnRadius(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5948,7 +5901,7 @@ namespace yordle::data::meta {
         std::vector<float> x84bb076a {};
     };
 
-    class YORDLE_EXPORT ChangeHeightSolver : public MissileTriggeredActionSpec { 
+    class YORDLE_EXPORT ChangeHeightSolver : public MissileTriggeredActionSpec {
     public:
         explicit ChangeHeightSolver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5959,17 +5912,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mOverrideHeightSolver {};
     };
 
-    class YORDLE_EXPORT DestroyOnHit : public MissileBehaviorSpec { 
+    class YORDLE_EXPORT DestroyOnHit : public MissileBehaviorSpec {
     public:
         explicit DestroyOnHit(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 107695717 || MissileBehaviorSpec::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT DestroyOnMovementComplete : public MissileBehaviorSpec { 
+    class YORDLE_EXPORT DestroyOnMovementComplete : public MissileBehaviorSpec {
     public:
         explicit DestroyOnMovementComplete(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -5980,37 +5932,34 @@ namespace yordle::data::meta {
         int32_t mDelay = 0;
     };
 
-    class YORDLE_EXPORT xe357c116 : public MissileBehaviorSpec { 
+    class YORDLE_EXPORT xe357c116 : public MissileBehaviorSpec {
     public:
         explicit xe357c116(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3814179094 || MissileBehaviorSpec::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT CastOnHit : public MissileBehaviorSpec { 
+    class YORDLE_EXPORT CastOnHit : public MissileBehaviorSpec {
     public:
         explicit CastOnHit(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3656718200 || MissileBehaviorSpec::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT CastOnMovementComplete : public MissileBehaviorSpec { 
+    class YORDLE_EXPORT CastOnMovementComplete : public MissileBehaviorSpec {
     public:
         explicit CastOnMovementComplete(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2645302597 || MissileBehaviorSpec::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ReturnToCasterOnMovementComplete : public MissileBehaviorSpec { 
+    class YORDLE_EXPORT ReturnToCasterOnMovementComplete : public MissileBehaviorSpec {
     public:
         explicit ReturnToCasterOnMovementComplete(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6022,7 +5971,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mOverrideSpec {};
     };
 
-    class YORDLE_EXPORT MissileGroupSpawnerSpec : public bin_class { 
+    class YORDLE_EXPORT MissileGroupSpawnerSpec : public bin_class {
     public:
         explicit MissileGroupSpawnerSpec(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6033,17 +5982,16 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::SpellObject> mChildMissileSpell {1585338886u};
     };
 
-    class YORDLE_EXPORT HeightSolverType : public bin_class { 
+    class YORDLE_EXPORT HeightSolverType : public bin_class {
     public:
         explicit HeightSolverType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 974318101 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT GravityHeightSolver : public HeightSolverType { 
+    class YORDLE_EXPORT GravityHeightSolver : public HeightSolverType {
     public:
         explicit GravityHeightSolver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6054,7 +6002,7 @@ namespace yordle::data::meta {
         float mGravity = 0.0;
     };
 
-    class YORDLE_EXPORT FollowTerrainHeightSolver : public HeightSolverType { 
+    class YORDLE_EXPORT FollowTerrainHeightSolver : public HeightSolverType {
     public:
         explicit FollowTerrainHeightSolver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6063,20 +6011,19 @@ namespace yordle::data::meta {
         }
 
         float mHeightOffset = 0.0;
-        float mMaxSlope = 0.0;
+        float mMaxSlope     = 0.0;
     };
 
-    class YORDLE_EXPORT BlendedLinearHeightSolver : public HeightSolverType { 
+    class YORDLE_EXPORT BlendedLinearHeightSolver : public HeightSolverType {
     public:
         explicit BlendedLinearHeightSolver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 692892064 || HeightSolverType::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT SinusoidalHeightSolver : public HeightSolverType { 
+    class YORDLE_EXPORT SinusoidalHeightSolver : public HeightSolverType {
     public:
         explicit SinusoidalHeightSolver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6084,12 +6031,12 @@ namespace yordle::data::meta {
             return type == 4027168330 || HeightSolverType::is_type(type);
         }
 
-        float mVerticalOffset = 0.0;
-        float mAmplitude = 0.0;
+        float mVerticalOffset  = 0.0;
+        float mAmplitude       = 0.0;
         float mNumberOfPeriods = 0.0;
     };
 
-    class YORDLE_EXPORT CurveTheDifferenceHeightSolver : public HeightSolverType { 
+    class YORDLE_EXPORT CurveTheDifferenceHeightSolver : public HeightSolverType {
     public:
         explicit CurveTheDifferenceHeightSolver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6100,7 +6047,7 @@ namespace yordle::data::meta {
         float mInitialTargetHeightOffset = 0.0;
     };
 
-    class YORDLE_EXPORT MissileMovementSpec : public bin_class { 
+    class YORDLE_EXPORT MissileMovementSpec : public bin_class {
     public:
         explicit MissileMovementSpec(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6108,10 +6055,10 @@ namespace yordle::data::meta {
             return type == 1798110077 || bin_class::is_type(type);
         }
 
-        bool mUseHeightOffsetAtEnd = false;
-        bool mTracksTarget = false;
-        bool xaa44f99e = false;
-        float mTargetHeightAugment = 0.0;
+        bool mUseHeightOffsetAtEnd       = false;
+        bool mTracksTarget               = false;
+        bool xaa44f99e                   = false;
+        float mTargetHeightAugment       = 0.0;
         float mOffsetInitialTargetHeight = 0.0;
         std::string mStartBoneName {};
         std::map<uint32_t, std::string> xa6cb1fa4 {};
@@ -6119,7 +6066,7 @@ namespace yordle::data::meta {
         float mStartDelay = 0.0;
     };
 
-    class YORDLE_EXPORT CircleMovement : public MissileMovementSpec { 
+    class YORDLE_EXPORT CircleMovement : public MissileMovementSpec {
     public:
         explicit CircleMovement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6127,13 +6074,13 @@ namespace yordle::data::meta {
             return type == 60513980 || MissileMovementSpec::is_type(type);
         }
 
-        float mRadialVelocity = 0.0;
+        float mRadialVelocity  = 0.0;
         float mAngularVelocity = 0.0;
-        float mLinearVelocity = 0.0;
-        float mLifetime = 0.0;
+        float mLinearVelocity  = 0.0;
+        float mLifetime        = 0.0;
     };
 
-    class YORDLE_EXPORT SyncCircleMovement : public MissileMovementSpec { 
+    class YORDLE_EXPORT SyncCircleMovement : public MissileMovementSpec {
     public:
         explicit SyncCircleMovement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6142,12 +6089,12 @@ namespace yordle::data::meta {
         }
 
         float mAngularVelocity = 0.0;
-        float mLifetime = 0.0;
-        uint8_t x2630302a = 0;
-        bool x16d0a895 = false;
+        float mLifetime        = 0.0;
+        uint8_t x2630302a      = 0;
+        bool x16d0a895         = false;
     };
 
-    class YORDLE_EXPORT NullMovement : public MissileMovementSpec { 
+    class YORDLE_EXPORT NullMovement : public MissileMovementSpec {
     public:
         explicit NullMovement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6156,10 +6103,10 @@ namespace yordle::data::meta {
         }
 
         bool mWaitForChildren = false;
-        float mDelayTime = 0.0;
+        float mDelayTime      = 0.0;
     };
 
-    class YORDLE_EXPORT AcceleratingMovement : public MissileMovementSpec { 
+    class YORDLE_EXPORT AcceleratingMovement : public MissileMovementSpec {
     public:
         explicit AcceleratingMovement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6168,25 +6115,24 @@ namespace yordle::data::meta {
         }
 
         bool mInferDirectionFromFacingIfNeeded = false;
-        bool mProjectTargetToCastRange = false;
-        bool mUseGroundHeightAtTarget = false;
-        float mAcceleration = 0.0;
-        float mMinSpeed = 0.0;
-        float mMaxSpeed = 0.0;
-        float mInitialSpeed = 0.0;
+        bool mProjectTargetToCastRange         = false;
+        bool mUseGroundHeightAtTarget          = false;
+        float mAcceleration                    = 0.0;
+        float mMinSpeed                        = 0.0;
+        float mMaxSpeed                        = 0.0;
+        float mInitialSpeed                    = 0.0;
     };
 
-    class YORDLE_EXPORT DecelToLocationMovement : public AcceleratingMovement { 
+    class YORDLE_EXPORT DecelToLocationMovement : public AcceleratingMovement {
     public:
         explicit DecelToLocationMovement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2993585533 || AcceleratingMovement::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT FixedTimeMovement : public MissileMovementSpec { 
+    class YORDLE_EXPORT FixedTimeMovement : public MissileMovementSpec {
     public:
         explicit FixedTimeMovement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6195,12 +6141,12 @@ namespace yordle::data::meta {
         }
 
         bool mInferDirectionFromFacingIfNeeded = false;
-        bool mProjectTargetToCastRange = false;
-        bool mUseGroundHeightAtTarget = false;
-        float mTravelTime = 0.0;
+        bool mProjectTargetToCastRange         = false;
+        bool mUseGroundHeightAtTarget          = false;
+        float mTravelTime                      = 0.0;
     };
 
-    class YORDLE_EXPORT FixedSpeedMovement : public MissileMovementSpec { 
+    class YORDLE_EXPORT FixedSpeedMovement : public MissileMovementSpec {
     public:
         explicit FixedSpeedMovement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6209,12 +6155,12 @@ namespace yordle::data::meta {
         }
 
         bool mInferDirectionFromFacingIfNeeded = false;
-        bool mProjectTargetToCastRange = false;
-        bool mUseGroundHeightAtTarget = false;
-        float mSpeed = 0.0;
+        bool mProjectTargetToCastRange         = false;
+        bool mUseGroundHeightAtTarget          = false;
+        float mSpeed                           = 0.0;
     };
 
-    class YORDLE_EXPORT PhysicsMovement : public MissileMovementSpec { 
+    class YORDLE_EXPORT PhysicsMovement : public MissileMovementSpec {
     public:
         explicit PhysicsMovement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6222,14 +6168,14 @@ namespace yordle::data::meta {
             return type == 470290435 || MissileMovementSpec::is_type(type);
         }
 
-        float mLifetime = 0.0;
+        float mLifetime     = 0.0;
         float mInitialSpeed = 0.0;
-        float mDrag = 0.0;
-        bool mWallSliding = false;
-        float xca771747 = 0.0;
+        float mDrag         = 0.0;
+        bool mWallSliding   = false;
+        float xca771747     = 0.0;
     };
 
-    class YORDLE_EXPORT TrackMouseMovement : public MissileMovementSpec { 
+    class YORDLE_EXPORT TrackMouseMovement : public MissileMovementSpec {
     public:
         explicit TrackMouseMovement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6239,16 +6185,16 @@ namespace yordle::data::meta {
 
         std::vector<float> x84bb076a {};
         bool mInferDirectionFromFacingIfNeeded = false;
-        bool mProjectTargetToCastRange = false;
-        bool mUseGroundHeightAtTarget = false;
-        float mAcceleration = 0.0;
-        float mMinSpeed = 0.0;
-        float mMaxSpeed = 0.0;
-        float mInitialSpeed = 0.0;
-        float x604989cf = 0.0;
+        bool mProjectTargetToCastRange         = false;
+        bool mUseGroundHeightAtTarget          = false;
+        float mAcceleration                    = 0.0;
+        float mMinSpeed                        = 0.0;
+        float mMaxSpeed                        = 0.0;
+        float mInitialSpeed                    = 0.0;
+        float x604989cf                        = 0.0;
     };
 
-    class YORDLE_EXPORT GenericSplineMovementSpec : public MissileMovementSpec { 
+    class YORDLE_EXPORT GenericSplineMovementSpec : public MissileMovementSpec {
     public:
         explicit GenericSplineMovementSpec(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6260,7 +6206,7 @@ namespace yordle::data::meta {
         bool mUseMissilePositionAsOrigin = false;
     };
 
-    class YORDLE_EXPORT FixedTimeSplineMovement : public GenericSplineMovementSpec { 
+    class YORDLE_EXPORT FixedTimeSplineMovement : public GenericSplineMovementSpec {
     public:
         explicit FixedTimeSplineMovement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6271,7 +6217,7 @@ namespace yordle::data::meta {
         float mTravelTime = 0.0;
     };
 
-    class YORDLE_EXPORT FixedSpeedSplineMovement : public GenericSplineMovementSpec { 
+    class YORDLE_EXPORT FixedSpeedSplineMovement : public GenericSplineMovementSpec {
     public:
         explicit FixedSpeedSplineMovement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6282,7 +6228,7 @@ namespace yordle::data::meta {
         float mSpeed = 0.0;
     };
 
-    class YORDLE_EXPORT WallFollowMovement : public MissileMovementSpec { 
+    class YORDLE_EXPORT WallFollowMovement : public MissileMovementSpec {
     public:
         explicit WallFollowMovement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6291,48 +6237,45 @@ namespace yordle::data::meta {
         }
 
         bool mInferDirectionFromFacingIfNeeded = false;
-        bool mProjectTargetToCastRange = false;
-        bool mUseGroundHeightAtTarget = false;
-        float mSpeed = 0.0;
-        bool mCounterClockwise = false;
-        float mWallOffset = 0.0;
-        float mWallLength = 0.0;
-        float mWallSearchRadius = 0.0;
-        bool xbcff2ee1 = false;
-        bool x38872364 = false;
+        bool mProjectTargetToCastRange         = false;
+        bool mUseGroundHeightAtTarget          = false;
+        float mSpeed                           = 0.0;
+        bool mCounterClockwise                 = false;
+        float mWallOffset                      = 0.0;
+        float mWallLength                      = 0.0;
+        float mWallSearchRadius                = 0.0;
+        bool xbcff2ee1                         = false;
+        bool x38872364                         = false;
     };
 
-    class YORDLE_EXPORT VerticalFacingType : public bin_class { 
+    class YORDLE_EXPORT VerticalFacingType : public bin_class {
     public:
         explicit VerticalFacingType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3891808829 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VeritcalFacingMatchVelocity : public VerticalFacingType { 
+    class YORDLE_EXPORT VeritcalFacingMatchVelocity : public VerticalFacingType {
     public:
         explicit VeritcalFacingMatchVelocity(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3974501911 || VerticalFacingType::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VerticalFacingFaceTarget : public VerticalFacingType { 
+    class YORDLE_EXPORT VerticalFacingFaceTarget : public VerticalFacingType {
     public:
         explicit VerticalFacingFaceTarget(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 577189237 || VerticalFacingType::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT MissileVisibilitySpec : public bin_class { 
+    class YORDLE_EXPORT MissileVisibilitySpec : public bin_class {
     public:
         explicit MissileVisibilitySpec(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6341,22 +6284,21 @@ namespace yordle::data::meta {
         }
 
         bool mTargetControlsVisibility = false;
-        bool mVisibleToOwnerTeamOnly = false;
-        float mPerceptionBubbleRadius = 0.0;
-        float xbb639057 = 0.0;
+        bool mVisibleToOwnerTeamOnly   = false;
+        float mPerceptionBubbleRadius  = 0.0;
+        float xbb639057                = 0.0;
     };
 
-    class YORDLE_EXPORT Defaultvisibility : public MissileVisibilitySpec { 
+    class YORDLE_EXPORT Defaultvisibility : public MissileVisibilitySpec {
     public:
         explicit Defaultvisibility(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3535923758 || MissileVisibilitySpec::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT EnterFOWVisibility : public MissileVisibilitySpec { 
+    class YORDLE_EXPORT EnterFOWVisibility : public MissileVisibilitySpec {
     public:
         explicit EnterFOWVisibility(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6364,11 +6306,11 @@ namespace yordle::data::meta {
             return type == 2461751699 || MissileVisibilitySpec::is_type(type);
         }
 
-        bool mMissileClientExitFOWPrediction = false;
+        bool mMissileClientExitFOWPrediction                    = false;
         bool mMissileClientWaitForTargetUpdateBeforeMissileShow = false;
     };
 
-    class YORDLE_EXPORT MissileAttachedTargetingDefinition : public bin_class { 
+    class YORDLE_EXPORT MissileAttachedTargetingDefinition : public bin_class {
     public:
         explicit MissileAttachedTargetingDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6380,11 +6322,11 @@ namespace yordle::data::meta {
         std::string mLineTextureName {};
         float mLineTextureWidth = 0.0;
         std::string mLineEndTextureName {};
-        float mLineEndTextureWidth = 0.0;
+        float mLineEndTextureWidth  = 0.0;
         float mLineEndTextureHeight = 0.0;
     };
 
-    class YORDLE_EXPORT AISpellData : public bin_class { 
+    class YORDLE_EXPORT AISpellData : public bin_class {
     public:
         explicit AISpellData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6392,16 +6334,16 @@ namespace yordle::data::meta {
             return type == 4010062211 || bin_class::is_type(type);
         }
 
-        bool mSendAIEvent = false;
-        float mRadius = 0.0;
-        float mLifetime = 0.0;
-        float mRange = 0.0;
-        float mSpeed = 0.0;
-        bool mEndOnly = false;
+        bool mSendAIEvent   = false;
+        float mRadius       = 0.0;
+        float mLifetime     = 0.0;
+        float mRange        = 0.0;
+        float mSpeed        = 0.0;
+        bool mEndOnly       = false;
         uint8_t mBlockLevel = 0;
     };
 
-    class YORDLE_EXPORT SpellEffectAmount : public bin_class { 
+    class YORDLE_EXPORT SpellEffectAmount : public bin_class {
     public:
         explicit SpellEffectAmount(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6412,7 +6354,7 @@ namespace yordle::data::meta {
         std::vector<float> value {};
     };
 
-    class YORDLE_EXPORT SpellDataValue : public bin_class { 
+    class YORDLE_EXPORT SpellDataValue : public bin_class {
     public:
         explicit SpellDataValue(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6424,7 +6366,7 @@ namespace yordle::data::meta {
         std::vector<float> mValues {};
     };
 
-    class YORDLE_EXPORT SpellDataValueVector : public bin_class { 
+    class YORDLE_EXPORT SpellDataValueVector : public bin_class {
     public:
         explicit SpellDataValueVector(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6435,7 +6377,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::SpellDataValue>> SpellDataValues {};
     };
 
-    class YORDLE_EXPORT PlatformSpellInfo : public bin_class { 
+    class YORDLE_EXPORT PlatformSpellInfo : public bin_class {
     public:
         explicit PlatformSpellInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6444,12 +6386,12 @@ namespace yordle::data::meta {
         }
 
         int32_t mAvatarLevelRequired = 0;
-        int32_t mSpellID = 0;
-        bool mPlatformEnabled = false;
+        int32_t mSpellID             = 0;
+        bool mPlatformEnabled        = false;
         std::vector<std::string> mGameModes {};
     };
 
-    class YORDLE_EXPORT ISplineInfo : public bin_class { 
+    class YORDLE_EXPORT ISplineInfo : public bin_class {
     public:
         explicit ISplineInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6461,7 +6403,7 @@ namespace yordle::data::meta {
         bool mUseMissilePositionAsOrigin = false;
     };
 
-    class YORDLE_EXPORT HermiteSplineInfo : public ISplineInfo { 
+    class YORDLE_EXPORT HermiteSplineInfo : public ISplineInfo {
     public:
         explicit HermiteSplineInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6473,7 +6415,7 @@ namespace yordle::data::meta {
         std::array<float, 3> mControlPoint2 {};
     };
 
-    class YORDLE_EXPORT OverrideAttackTimeData : public bin_class { 
+    class YORDLE_EXPORT OverrideAttackTimeData : public bin_class {
     public:
         explicit OverrideAttackTimeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6485,7 +6427,7 @@ namespace yordle::data::meta {
         float mCastTimePercent = 0.0;
     };
 
-    class YORDLE_EXPORT UseAutoattackCastTimeData : public bin_class { 
+    class YORDLE_EXPORT UseAutoattackCastTimeData : public bin_class {
     public:
         explicit UseAutoattackCastTimeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6497,7 +6439,7 @@ namespace yordle::data::meta {
         bool x862fbe94 = false;
     };
 
-    class YORDLE_EXPORT SpellLockDeltaTimeData : public bin_class { 
+    class YORDLE_EXPORT SpellLockDeltaTimeData : public bin_class {
     public:
         explicit SpellLockDeltaTimeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6508,7 +6450,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IGameCalculation> mSpellLockDeltaTimeCalculation {};
     };
 
-    class YORDLE_EXPORT x7a9e7d89 : public bin_class { 
+    class YORDLE_EXPORT x7a9e7d89 : public bin_class {
     public:
         explicit x7a9e7d89(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6519,12 +6461,12 @@ namespace yordle::data::meta {
         float x55205acb = 0.0;
         std::vector<std::shared_ptr<yordle::data::meta::ICastRequirement>> x166d5141 {};
         std::vector<std::shared_ptr<yordle::data::meta::ICastRequirement>> x175e6650 {};
-        bool xda83e690 = false;
-        uint32_t mAffectsTypeOverride = 0;
+        bool xda83e690                  = false;
+        uint32_t mAffectsTypeOverride   = 0;
         uint32_t mAffectsStatusOverride = 0;
     };
 
-    class YORDLE_EXPORT AlternateSpellAssets : public bin_class { 
+    class YORDLE_EXPORT AlternateSpellAssets : public bin_class {
     public:
         explicit AlternateSpellAssets(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6536,10 +6478,10 @@ namespace yordle::data::meta {
         std::string mAnimationLoopName {};
         std::string mAnimationWinddownName {};
         std::string mAnimationLeadOutName {};
-        bool mUseAnimatorFramerate = false;
+        bool mUseAnimatorFramerate    = false;
         uint32_t mHitEffectOrientType = 0;
-        bool mHaveHitEffect = false;
-        bool mHaveHitBone = false;
+        bool mHaveHitEffect           = false;
+        bool mHaveHitBone             = false;
         std::string mHitBoneName {};
         yordle::data::meta::bin_fnv_hash mHitEffectKey = 0;
         std::string mHitEffectName {};
@@ -6549,7 +6491,7 @@ namespace yordle::data::meta {
         std::string mAfterEffectName {};
     };
 
-    class YORDLE_EXPORT SpellDataResource : public bin_class { 
+    class YORDLE_EXPORT SpellDataResource : public bin_class {
     public:
         explicit SpellDataResource(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6557,8 +6499,8 @@ namespace yordle::data::meta {
             return type == 1127646569 || bin_class::is_type(type);
         }
 
-        uint32_t flags = 0;
-        uint32_t mAffectsTypeFlags = 0;
+        uint32_t flags               = 0;
+        uint32_t mAffectsTypeFlags   = 0;
         uint32_t mAffectsStatusFlags = 0;
         std::shared_ptr<yordle::data::meta::bin_class> mRequiredUnitTags {};
         std::shared_ptr<yordle::data::meta::bin_class> mExcludedUnitTags {};
@@ -6571,7 +6513,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::SpellDataValue>> mDataValues {};
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::SpellDataValueVector>> xfb56608c {};
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::IGameCalculation>> mSpellCalculations {};
-        float mCoefficient = 0.0;
+        float mCoefficient  = 0.0;
         float mCoefficient2 = 0.0;
         std::vector<std::shared_ptr<yordle::data::meta::AlternateSpellAssets>> mAlternateSpellAssets {};
         std::string mAnimationName {};
@@ -6584,101 +6526,101 @@ namespace yordle::data::meta {
         float mCastTime = 0.0;
         std::vector<float> mChannelDuration {};
         std::vector<float> cooldownTime {};
-        float delayCastOffsetPercent = 0.0;
-        float delayTotalTimePercent = 0.0;
+        float delayCastOffsetPercent   = 0.0;
+        float delayTotalTimePercent    = 0.0;
         float mPreCastLockoutDeltaTime = 0.0;
         std::shared_ptr<yordle::data::meta::SpellLockDeltaTimeData> mPreCastLockoutDeltaTimeData {};
         float mPostCastLockoutDeltaTime = 0.0;
         std::shared_ptr<yordle::data::meta::SpellLockDeltaTimeData> mPostCastLockoutDeltaTimeData {};
         bool mIsDelayedByCastLocked = false;
-        float mStartCooldown = 0.0;
+        float mStartCooldown        = 0.0;
         std::vector<float> mCastRangeGrowthMax {};
         std::vector<float> mCastRangeGrowthStartTime {};
         std::vector<float> mCastRangeGrowthDuration {};
-        float mChargeUpdateInterval = 0.0;
+        float mChargeUpdateInterval     = 0.0;
         float mCancelChargeOnRecastTime = 0.0;
-        uint8_t x3d746f1f = 0;
+        uint8_t x3d746f1f               = 0;
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> x1632f6fc {};
         std::vector<std::shared_ptr<yordle::data::meta::CharacterPassiveData>> mCharacterPassiveBuffs {};
         std::vector<int32_t> mMaxAmmo {};
         std::vector<int32_t> mAmmoUsed {};
         std::vector<float> mAmmoRechargeTime {};
-        bool mAmmoNotAffectedByCDR = false;
-        bool mCooldownNotAffectedByCDR = false;
-        bool mAmmoCountHiddenInUI = false;
-        bool mCostAlwaysShownInUI = false;
-        bool x9fb86dc4 = false;
-        bool cannotBeSuppressed = false;
-        bool canCastWhileDisabled = false;
+        bool mAmmoNotAffectedByCDR               = false;
+        bool mCooldownNotAffectedByCDR           = false;
+        bool mAmmoCountHiddenInUI                = false;
+        bool mCostAlwaysShownInUI                = false;
+        bool x9fb86dc4                           = false;
+        bool cannotBeSuppressed                  = false;
+        bool canCastWhileDisabled                = false;
         bool mCanTriggerChargeSpellWhileDisabled = false;
-        bool canCastOrQueueWhileCasting = false;
-        bool canOnlyCastWhileDisabled = false;
-        bool mCantCancelWhileWindingUp = false;
-        bool x7e3432a0 = false;
-        bool mCantCancelWhileChanneling = false;
-        bool cantCastWhileRooted = false;
-        bool mChannelIsInterruptedByDisables = false;
-        bool mChannelIsInterruptedByAttacking = false;
-        bool mApplyAttackDamage = false;
-        bool mApplyAttackEffect = false;
-        bool mApplyMaterialOnHitSound = false;
-        bool mDoesntBreakChannels = false;
-        bool mBelongsToAvatar = false;
-        bool mIsDisabledWhileDead = false;
-        bool canOnlyCastWhileDead = false;
-        bool mCursorChangesInGrass = false;
-        bool mCursorChangesInTerrain = false;
-        bool mProjectTargetToCastRange = false;
-        bool mSpellRevealsChampion = false;
-        bool mUseMinimapTargeting = false;
-        bool castRangeUseBoundingBoxes = false;
-        bool mMinimapIconRotation = false;
-        bool mUseChargeChanneling = false;
-        bool mCanMoveWhileChanneling = false;
-        bool mDisableCastBar = false;
-        bool mShowChannelBar = false;
-        bool alwaysSnapFacing = false;
-        bool useAnimatorFramerate = false;
-        bool bHaveHitEffect = false;
-        bool bIsToggleSpell = false;
-        bool mDoNotNeedToFaceTarget = false;
-        float mTurnSpeedScalar = 0.0;
-        bool mNoWinddownIfCancelled = false;
-        bool mIgnoreRangeCheck = false;
-        bool mOrientRadiusTextureFromPlayer = false;
+        bool canCastOrQueueWhileCasting          = false;
+        bool canOnlyCastWhileDisabled            = false;
+        bool mCantCancelWhileWindingUp           = false;
+        bool x7e3432a0                           = false;
+        bool mCantCancelWhileChanneling          = false;
+        bool cantCastWhileRooted                 = false;
+        bool mChannelIsInterruptedByDisables     = false;
+        bool mChannelIsInterruptedByAttacking    = false;
+        bool mApplyAttackDamage                  = false;
+        bool mApplyAttackEffect                  = false;
+        bool mApplyMaterialOnHitSound            = false;
+        bool mDoesntBreakChannels                = false;
+        bool mBelongsToAvatar                    = false;
+        bool mIsDisabledWhileDead                = false;
+        bool canOnlyCastWhileDead                = false;
+        bool mCursorChangesInGrass               = false;
+        bool mCursorChangesInTerrain             = false;
+        bool mProjectTargetToCastRange           = false;
+        bool mSpellRevealsChampion               = false;
+        bool mUseMinimapTargeting                = false;
+        bool castRangeUseBoundingBoxes           = false;
+        bool mMinimapIconRotation                = false;
+        bool mUseChargeChanneling                = false;
+        bool mCanMoveWhileChanneling             = false;
+        bool mDisableCastBar                     = false;
+        bool mShowChannelBar                     = false;
+        bool alwaysSnapFacing                    = false;
+        bool useAnimatorFramerate                = false;
+        bool bHaveHitEffect                      = false;
+        bool bIsToggleSpell                      = false;
+        bool mDoNotNeedToFaceTarget              = false;
+        float mTurnSpeedScalar                   = 0.0;
+        bool mNoWinddownIfCancelled              = false;
+        bool mIgnoreRangeCheck                   = false;
+        bool mOrientRadiusTextureFromPlayer      = false;
         std::shared_ptr<yordle::data::meta::OverrideAttackTimeData> mOverrideAttackTime {};
         std::shared_ptr<yordle::data::meta::UseAutoattackCastTimeData> mUseAutoattackCastTimeData {};
         bool mIgnoreAnimContinueUntilCastFrame = false;
-        bool mHideRangeIndicatorWhenCasting = false;
-        bool mUpdateRotationWhenCasting = false;
-        bool mPingableWhileDisabled = false;
-        bool mConsideredAsAutoAttack = false;
-        bool mDoesNotConsumeMana = false;
-        bool mDoesNotConsumeCooldown = false;
-        bool mLockedSpellOriginationCastID = false;
-        bool x898fbad4 = false;
-        uint16_t mMinimapIconDisplayFlag = 0;
+        bool mHideRangeIndicatorWhenCasting    = false;
+        bool mUpdateRotationWhenCasting        = false;
+        bool mPingableWhileDisabled            = false;
+        bool mConsideredAsAutoAttack           = false;
+        bool mDoesNotConsumeMana               = false;
+        bool mDoesNotConsumeCooldown           = false;
+        bool mLockedSpellOriginationCastID     = false;
+        bool x898fbad4                         = false;
+        uint16_t mMinimapIconDisplayFlag       = 0;
         std::vector<float> castRange {};
         std::vector<float> castRangeDisplayOverride {};
         std::vector<float> castRadius {};
         std::vector<float> castRadiusSecondary {};
-        float castConeAngle = 0.0;
-        float castConeDistance = 0.0;
-        float castTargetAdditionalUnitsRadius = 0.0;
+        float castConeAngle                      = 0.0;
+        float castConeDistance                   = 0.0;
+        float castTargetAdditionalUnitsRadius    = 0.0;
         float luaOnMissileUpdateDistanceInterval = 0.0;
         std::shared_ptr<yordle::data::meta::MissileSpecification> mMissileSpec {};
-        uint32_t mCastType = 0;
-        float castFrame = 0.0;
-        float missileSpeed = 0.0;
+        uint32_t mCastType                                 = 0;
+        float castFrame                                    = 0.0;
+        float missileSpeed                                 = 0.0;
         yordle::data::meta::bin_fnv_hash mMissileEffectKey = 0;
         std::string mMissileEffectName {};
         yordle::data::meta::bin_fnv_hash mMissileEffectPlayerKey = 0;
         std::string mMissileEffectPlayerName {};
         yordle::data::meta::bin_fnv_hash mMissileEffectEnemyKey = 0;
         std::string mMissileEffectEnemyName {};
-        float mLineWidth = 0.0;
-        float mLineDragLength = 0.0;
-        uint32_t mLookAtPolicy = 0;
+        float mLineWidth              = 0.0;
+        float mLineDragLength         = 0.0;
+        uint32_t mLookAtPolicy        = 0;
         uint32_t mHitEffectOrientType = 0;
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mResourceResolvers {};
         yordle::data::meta::bin_fnv_hash mHitEffectKey = 0;
@@ -6700,14 +6642,14 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::AISpellData> mAIData {};
         std::optional<float> mSpellCooldownOrSealedQueueThreshold {};
         uint8_t x3f432a6 = 0;
-        bool xf7e5bc = false;
-        bool x39381720 = false;
-        bool xa8eb09d1 = false;
-        bool x24b763c2 = false;
+        bool xf7e5bc     = false;
+        bool x39381720   = false;
+        bool xa8eb09d1   = false;
+        bool x24b763c2   = false;
         std::shared_ptr<yordle::data::meta::bin_class> mClientData {};
     };
 
-    class YORDLE_EXPORT SpellPassiveData : public bin_class { 
+    class YORDLE_EXPORT SpellPassiveData : public bin_class {
     public:
         explicit SpellPassiveData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6716,15 +6658,15 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::SpellObject> mBuff {1585338886u};
-        uint32_t x8692e24a = 0;
-        bool x76b67bcc = false;
-        bool xcbdf3af2 = false;
-        bool xf862632b = false;
-        bool x7aa0fed6 = false;
+        uint32_t x8692e24a    = 0;
+        bool x76b67bcc        = false;
+        bool xcbdf3af2        = false;
+        bool xf862632b        = false;
+        bool x7aa0fed6        = false;
         uint8_t mDisplayFlags = 0;
     };
 
-    class YORDLE_EXPORT CustomTargeterDefinitions : public bin_class { 
+    class YORDLE_EXPORT CustomTargeterDefinitions : public bin_class {
     public:
         explicit CustomTargeterDefinitions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6735,7 +6677,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mTargeterDefinitions {};
     };
 
-    class YORDLE_EXPORT SpellDataResourceClient : public bin_class { 
+    class YORDLE_EXPORT SpellDataResourceClient : public bin_class {
     public:
         explicit SpellDataResourceClient(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6750,11 +6692,11 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mTargeterDefinitions {};
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::CustomTargeterDefinitions>> mCustomTargeterDefinitions {};
         std::vector<std::shared_ptr<yordle::data::meta::MissileAttachedTargetingDefinition>> mMissileTargeterDefinitions {};
-        uint32_t mLeftClickSpellAction = 0;
+        uint32_t mLeftClickSpellAction  = 0;
         uint32_t mRightClickSpellAction = 0;
     };
 
-    class YORDLE_EXPORT SpawningUIDefinition : public bin_class { 
+    class YORDLE_EXPORT SpawningUIDefinition : public bin_class {
     public:
         explicit SpawningUIDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6766,17 +6708,16 @@ namespace yordle::data::meta {
         int32_t maxNumberOfUnits = 0;
     };
 
-    class YORDLE_EXPORT IScriptPreload : public bin_class { 
+    class YORDLE_EXPORT IScriptPreload : public bin_class {
     public:
         explicit IScriptPreload(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3560905284 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ScriptPreloadCharacter : public bin_class { 
+    class YORDLE_EXPORT ScriptPreloadCharacter : public bin_class {
     public:
         explicit ScriptPreloadCharacter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6787,7 +6728,7 @@ namespace yordle::data::meta {
         std::string PreloadResourceName {};
     };
 
-    class YORDLE_EXPORT ScriptPreloadSpell : public bin_class { 
+    class YORDLE_EXPORT ScriptPreloadSpell : public bin_class {
     public:
         explicit ScriptPreloadSpell(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6798,7 +6739,7 @@ namespace yordle::data::meta {
         std::string PreloadResourceName {};
     };
 
-    class YORDLE_EXPORT ScriptPreloadModule : public bin_class { 
+    class YORDLE_EXPORT ScriptPreloadModule : public bin_class {
     public:
         explicit ScriptPreloadModule(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6809,7 +6750,7 @@ namespace yordle::data::meta {
         std::string PreloadResourceName {};
     };
 
-    class YORDLE_EXPORT ScriptPreloadParticle : public bin_class { 
+    class YORDLE_EXPORT ScriptPreloadParticle : public bin_class {
     public:
         explicit ScriptPreloadParticle(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6820,7 +6761,7 @@ namespace yordle::data::meta {
         std::string PreloadResourceName {};
     };
 
-    class YORDLE_EXPORT LoLSpellPreloadData : public bin_class { 
+    class YORDLE_EXPORT LoLSpellPreloadData : public bin_class {
     public:
         explicit LoLSpellPreloadData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6834,7 +6775,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ScriptPreloadParticle>> ParticlePreloads {};
     };
 
-    class YORDLE_EXPORT ScriptGlobalProperties : public bin_class { 
+    class YORDLE_EXPORT ScriptGlobalProperties : public bin_class {
     public:
         explicit ScriptGlobalProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6842,46 +6783,44 @@ namespace yordle::data::meta {
             return type == 3193997900 || bin_class::is_type(type);
         }
 
-        bool PersistsThroughDeath = false;
-        bool NonDispellable = false;
+        bool PersistsThroughDeath   = false;
+        bool NonDispellable         = false;
         int32_t OnPreDamagePriority = 0;
-        uint32_t DeathEventType = 0;
-        float CastTime = 0.0;
-        float ChannelDuration = 0.0;
+        uint32_t DeathEventType     = 0;
+        float CastTime              = 0.0;
+        float ChannelDuration       = 0.0;
         std::string buffName {};
         std::string buffTextureName {};
         std::string displayName {};
         std::vector<std::string> AutoBuffActivateEffects {};
         std::vector<std::string> AutoBuffActivateAttachBoneNames {};
-        bool IsDeathRecapSource = false;
+        bool IsDeathRecapSource  = false;
         uint32_t SpellToggleSlot = 0;
-        bool IsItemToggled = false;
+        bool IsItemToggled       = false;
         std::vector<std::string> SpellFXOverrideSkins {};
         std::vector<std::string> SpellVOOverrideSkins {};
         std::vector<std::string> PopupMessages {};
     };
 
-    class YORDLE_EXPORT ILineIndicatorType : public bin_class { 
+    class YORDLE_EXPORT ILineIndicatorType : public bin_class {
     public:
         explicit ILineIndicatorType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4153143643 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IndicatorTypeLocal : public ILineIndicatorType { 
+    class YORDLE_EXPORT IndicatorTypeLocal : public ILineIndicatorType {
     public:
         explicit IndicatorTypeLocal(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1062280453 || ILineIndicatorType::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IndicatorTypeGlobal : public ILineIndicatorType { 
+    class YORDLE_EXPORT IndicatorTypeGlobal : public ILineIndicatorType {
     public:
         explicit IndicatorTypeGlobal(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6892,17 +6831,16 @@ namespace yordle::data::meta {
         bool mIsFloating = false;
     };
 
-    class YORDLE_EXPORT ITargeterFadeBehavior : public bin_class { 
+    class YORDLE_EXPORT ITargeterFadeBehavior : public bin_class {
     public:
         explicit ITargeterFadeBehavior(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1348413282 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT FadeOverTimeBehavior : public ITargeterFadeBehavior { 
+    class YORDLE_EXPORT FadeOverTimeBehavior : public ITargeterFadeBehavior {
     public:
         explicit FadeOverTimeBehavior(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6910,13 +6848,13 @@ namespace yordle::data::meta {
             return type == 2433758018 || ITargeterFadeBehavior::is_type(type);
         }
 
-        float mTimeStart = 0.0;
-        float mTimeEnd = 0.0;
+        float mTimeStart  = 0.0;
+        float mTimeEnd    = 0.0;
         float mStartAlpha = 0.0;
-        float mEndAlpha = 0.0;
+        float mEndAlpha   = 0.0;
     };
 
-    class YORDLE_EXPORT FadeByMouseRangeBehavior : public ITargeterFadeBehavior { 
+    class YORDLE_EXPORT FadeByMouseRangeBehavior : public ITargeterFadeBehavior {
     public:
         explicit FadeByMouseRangeBehavior(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6924,13 +6862,13 @@ namespace yordle::data::meta {
             return type == 3193505140 || ITargeterFadeBehavior::is_type(type);
         }
 
-        float x76a72ad1 = 0.0;
-        float x65183440 = 0.0;
+        float x76a72ad1   = 0.0;
+        float x65183440   = 0.0;
         float mStartAlpha = 0.0;
-        float mEndAlpha = 0.0;
+        float mEndAlpha   = 0.0;
     };
 
-    class YORDLE_EXPORT FadeToExplicitValueBehavior : public ITargeterFadeBehavior { 
+    class YORDLE_EXPORT FadeToExplicitValueBehavior : public ITargeterFadeBehavior {
     public:
         explicit FadeToExplicitValueBehavior(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6941,7 +6879,7 @@ namespace yordle::data::meta {
         float mAlpha = 0.0;
     };
 
-    class YORDLE_EXPORT x29dfd7ad : public bin_class { 
+    class YORDLE_EXPORT x29dfd7ad : public bin_class {
     public:
         explicit x29dfd7ad(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6954,7 +6892,7 @@ namespace yordle::data::meta {
         float x64e4f9f9 = 0.0;
     };
 
-    class YORDLE_EXPORT FloatPerSpellLevel : public bin_class { 
+    class YORDLE_EXPORT FloatPerSpellLevel : public bin_class {
     public:
         explicit FloatPerSpellLevel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6966,7 +6904,7 @@ namespace yordle::data::meta {
         uint32_t mValueType = 0;
     };
 
-    class YORDLE_EXPORT DrawablePositionLocator : public bin_class { 
+    class YORDLE_EXPORT DrawablePositionLocator : public bin_class {
     public:
         explicit DrawablePositionLocator(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6974,13 +6912,13 @@ namespace yordle::data::meta {
             return type == 3451066870 || bin_class::is_type(type);
         }
 
-        uint32_t basePosition = 0;
-        float distanceOffset = 0.0;
-        float angleOffsetRadian = 0.0;
+        uint32_t basePosition    = 0;
+        float distanceOffset     = 0.0;
+        float angleOffsetRadian  = 0.0;
         uint32_t orientationType = 0;
     };
 
-    class YORDLE_EXPORT TargeterDefinition : public bin_class { 
+    class YORDLE_EXPORT TargeterDefinition : public bin_class {
     public:
         explicit TargeterDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -6991,7 +6929,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ITargeterFadeBehavior> mFadeBehavior {};
     };
 
-    class YORDLE_EXPORT TargeterDefinitionAoe : public TargeterDefinition { 
+    class YORDLE_EXPORT TargeterDefinitionAoe : public TargeterDefinition {
     public:
         explicit TargeterDefinitionAoe(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7001,7 +6939,7 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::DrawablePositionLocator> centerLocator {};
         uint32_t textureOrientation = 0;
-        bool isConstrainedToRange = false;
+        bool isConstrainedToRange   = false;
         std::shared_ptr<yordle::data::meta::DrawablePositionLocator> constraintPosLocator {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> constraintRange {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> overrideRadius {};
@@ -7009,7 +6947,7 @@ namespace yordle::data::meta {
         std::string textureRadiusOverrideName {};
     };
 
-    class YORDLE_EXPORT TargeterDefinitionArc : public TargeterDefinition { 
+    class YORDLE_EXPORT TargeterDefinitionArc : public TargeterDefinition {
     public:
         explicit TargeterDefinitionArc(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7019,7 +6957,7 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::DrawablePositionLocator> startLocator {};
         std::shared_ptr<yordle::data::meta::DrawablePositionLocator> endLocator {};
-        bool isClockwiseArc = false;
+        bool isClockwiseArc       = false;
         bool isConstrainedToRange = false;
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> constraintRange {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> overrideRadius {};
@@ -7027,7 +6965,7 @@ namespace yordle::data::meta {
         float thicknessOffset = 0.0;
     };
 
-    class YORDLE_EXPORT TargeterDefinitionCone : public TargeterDefinition { 
+    class YORDLE_EXPORT TargeterDefinitionCone : public TargeterDefinition {
     public:
         explicit TargeterDefinitionCone(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7038,8 +6976,8 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::DrawablePositionLocator> startLocator {};
         std::shared_ptr<yordle::data::meta::DrawablePositionLocator> endLocator {};
         uint32_t fallbackDirection = 0;
-        bool hasMaxGrowRange = false;
-        bool coneFollowsEnd = false;
+        bool hasMaxGrowRange       = false;
+        bool coneFollowsEnd        = false;
         std::optional<float> coneAngleDegrees {};
         std::optional<float> coneRange {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> rangeGrowthStartTime {};
@@ -7049,7 +6987,7 @@ namespace yordle::data::meta {
         std::string textureConeMaxGrowName {};
     };
 
-    class YORDLE_EXPORT TargeterDefinitionLine : public TargeterDefinition { 
+    class YORDLE_EXPORT TargeterDefinitionLine : public TargeterDefinition {
     public:
         explicit TargeterDefinitionLine(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7060,13 +6998,13 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ILineIndicatorType> indicatorType {};
         std::shared_ptr<yordle::data::meta::DrawablePositionLocator> startLocator {};
         std::shared_ptr<yordle::data::meta::DrawablePositionLocator> endLocator {};
-        uint32_t fallbackDirection = 0;
-        bool alwaysDraw = false;
-        bool hasMaxGrowRange = false;
+        uint32_t fallbackDirection  = 0;
+        bool alwaysDraw             = false;
+        bool hasMaxGrowRange        = false;
         bool useGlobalLineIndicator = false;
         std::optional<bool> lineStopsAtEndPosition {};
         float minimumDisplayedRange = 0.0;
-        float arrowSize = 0.0;
+        float arrowSize             = 0.0;
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> lineWidth {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> overrideBaseRange {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> rangeGrowthStartTime {};
@@ -7077,17 +7015,17 @@ namespace yordle::data::meta {
         std::string textureBaseMaxGrowName {};
         std::string textureTargetMaxGrowName {};
         bool mAngleLineToEndpointHeight = false;
-        bool mCenterArrowToEndPoint = false;
-        bool facingLine = false;
-        float minAngle = 0.0;
-        float maxAngle = 0.0;
-        float minAngleRangeFactor = 0.0;
-        float maxAngleRangeFactor = 0.0;
-        bool fade = false;
-        float fadeAngle = 0.0;
+        bool mCenterArrowToEndPoint     = false;
+        bool facingLine                 = false;
+        float minAngle                  = 0.0;
+        float maxAngle                  = 0.0;
+        float minAngleRangeFactor       = 0.0;
+        float maxAngleRangeFactor       = 0.0;
+        bool fade                       = false;
+        float fadeAngle                 = 0.0;
     };
 
-    class YORDLE_EXPORT TargeterDefinitionMinimap : public TargeterDefinition { 
+    class YORDLE_EXPORT TargeterDefinitionMinimap : public TargeterDefinition {
     public:
         explicit TargeterDefinitionMinimap(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7100,7 +7038,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> overrideBaseRange {};
     };
 
-    class YORDLE_EXPORT TargeterDefinitionRange : public TargeterDefinition { 
+    class YORDLE_EXPORT TargeterDefinitionRange : public TargeterDefinition {
     public:
         explicit TargeterDefinitionRange(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7110,8 +7048,8 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::DrawablePositionLocator> centerLocator {};
         uint32_t textureOrientation = 0;
-        bool hideWithLineIndicator = false;
-        bool hasMaxGrowRange = false;
+        bool hideWithLineIndicator  = false;
+        bool hasMaxGrowRange        = false;
         std::optional<bool> useCasterBoundingBox {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> overrideBaseRange {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> rangeGrowthStartTime {};
@@ -7121,7 +7059,7 @@ namespace yordle::data::meta {
         std::string textureMaxGrowName {};
     };
 
-    class YORDLE_EXPORT TargeterDefinitionWall : public TargeterDefinition { 
+    class YORDLE_EXPORT TargeterDefinitionWall : public TargeterDefinition {
     public:
         explicit TargeterDefinitionWall(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7131,13 +7069,13 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::DrawablePositionLocator> centerLocator {};
         uint32_t wallOrientation = 0;
-        float wallRotation = 0.0;
+        float wallRotation       = 0.0;
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> thickness {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> length {};
         std::string textureWallOverrideName {};
     };
 
-    class YORDLE_EXPORT TargeterDefinitionMultiAOE : public TargeterDefinition { 
+    class YORDLE_EXPORT TargeterDefinitionMultiAOE : public TargeterDefinition {
     public:
         explicit TargeterDefinitionMultiAOE(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7150,13 +7088,13 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> overrideMinCastRange {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> overrideMaxCastRange {};
         float angelOffsetRadian = 0.0;
-        uint32_t numOfInnerAOE = 0;
+        uint32_t numOfInnerAOE  = 0;
         std::string leftTextureName {};
         std::string rightTextureName {};
         std::string innerTextureName {};
     };
 
-    class YORDLE_EXPORT TargeterDefinitionSpline : public TargeterDefinition { 
+    class YORDLE_EXPORT TargeterDefinitionSpline : public TargeterDefinition {
     public:
         explicit TargeterDefinitionSpline(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7170,13 +7108,13 @@ namespace yordle::data::meta {
         std::string frontTextureName {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> splineWidth {};
         std::shared_ptr<yordle::data::meta::ISplineInfo> overrideSpline {};
-        uint32_t minSegmentCount = 0;
-        float maxSegmentLength = 0.0;
+        uint32_t minSegmentCount  = 0;
+        float maxSegmentLength    = 0.0;
         bool isConstrainedToRange = false;
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> constraintRange {};
     };
 
-    class YORDLE_EXPORT TargeterDefinitionSkipTerrain : public TargeterDefinition { 
+    class YORDLE_EXPORT TargeterDefinitionSkipTerrain : public TargeterDefinition {
     public:
         explicit TargeterDefinitionSkipTerrain(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7189,31 +7127,29 @@ namespace yordle::data::meta {
         std::string mBaseTextureName {};
         std::string mTerrainTextureName {};
         std::string mTargetTextureName {};
-        float mTargetTextureRadius = 0.0;
+        float mTargetTextureRadius  = 0.0;
         uint32_t mFallbackDirection = 0;
     };
 
-    class YORDLE_EXPORT TargetingTypeData : public bin_class { 
+    class YORDLE_EXPORT TargetingTypeData : public bin_class {
     public:
         explicit TargetingTypeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2144288560 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT Self : public TargetingTypeData { 
+    class YORDLE_EXPORT Self : public TargetingTypeData {
     public:
         explicit Self(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1683726967 || TargetingTypeData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT Target : public TargetingTypeData { 
+    class YORDLE_EXPORT Target : public TargetingTypeData {
     public:
         explicit Target(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7224,117 +7160,106 @@ namespace yordle::data::meta {
         bool x6f92d6b3 = false;
     };
 
-    class YORDLE_EXPORT Area : public TargetingTypeData { 
+    class YORDLE_EXPORT Area : public TargetingTypeData {
     public:
         explicit Area(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2601460036 || TargetingTypeData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT Cone : public TargetingTypeData { 
+    class YORDLE_EXPORT Cone : public TargetingTypeData {
     public:
         explicit Cone(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3711978346 || TargetingTypeData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT SelfAoe : public TargetingTypeData { 
+    class YORDLE_EXPORT SelfAoe : public TargetingTypeData {
     public:
         explicit SelfAoe(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3931936918 || TargetingTypeData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TargetOrLocation : public TargetingTypeData { 
+    class YORDLE_EXPORT TargetOrLocation : public TargetingTypeData {
     public:
         explicit TargetOrLocation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 530745462 || TargetingTypeData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT Location : public TargetingTypeData { 
+    class YORDLE_EXPORT Location : public TargetingTypeData {
     public:
         explicit Location(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 200649126 || TargetingTypeData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT Direction : public TargetingTypeData { 
+    class YORDLE_EXPORT Direction : public TargetingTypeData {
     public:
         explicit Direction(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3748513642 || TargetingTypeData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT DragDirection : public TargetingTypeData { 
+    class YORDLE_EXPORT DragDirection : public TargetingTypeData {
     public:
         explicit DragDirection(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 183658092 || TargetingTypeData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT LineTargetToCaster : public TargetingTypeData { 
+    class YORDLE_EXPORT LineTargetToCaster : public TargetingTypeData {
     public:
         explicit LineTargetToCaster(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 752642599 || TargetingTypeData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT AreaClamped : public TargetingTypeData { 
+    class YORDLE_EXPORT AreaClamped : public TargetingTypeData {
     public:
         explicit AreaClamped(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 808547418 || TargetingTypeData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT LocationClamped : public TargetingTypeData { 
+    class YORDLE_EXPORT LocationClamped : public TargetingTypeData {
     public:
         explicit LocationClamped(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1986849908 || TargetingTypeData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TerrainLocation : public TargetingTypeData { 
+    class YORDLE_EXPORT TerrainLocation : public TargetingTypeData {
     public:
         explicit TerrainLocation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2104163269 || TargetingTypeData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TerrainType : public TargetingTypeData { 
+    class YORDLE_EXPORT TerrainType : public TargetingTypeData {
     public:
         explicit TerrainType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7347,7 +7272,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mWallCursor {};
     };
 
-    class YORDLE_EXPORT StatFormulaData : public bin_class { 
+    class YORDLE_EXPORT StatFormulaData : public bin_class {
     public:
         explicit StatFormulaData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7358,7 +7283,7 @@ namespace yordle::data::meta {
         std::map<uint8_t, float> StatComponents {};
     };
 
-    class YORDLE_EXPORT StatFormulaDataList : public bin_class { 
+    class YORDLE_EXPORT StatFormulaDataList : public bin_class {
     public:
         explicit StatFormulaDataList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7369,7 +7294,7 @@ namespace yordle::data::meta {
         std::map<uint32_t, std::shared_ptr<yordle::data::meta::StatFormulaData>> StatFormulas {};
     };
 
-    class YORDLE_EXPORT GameModeDefaultStats : public bin_class { 
+    class YORDLE_EXPORT GameModeDefaultStats : public bin_class {
     public:
         explicit GameModeDefaultStats(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7380,27 +7305,25 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::StatFormulaDataList> DefaultCharacterStats {};
     };
 
-    class YORDLE_EXPORT TftSurrenderCheat : public Cheat { 
+    class YORDLE_EXPORT TftSurrenderCheat : public Cheat {
     public:
         explicit TftSurrenderCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1005214616 || Cheat::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TftChangeDamageSkinCheat : public Cheat { 
+    class YORDLE_EXPORT TftChangeDamageSkinCheat : public Cheat {
     public:
         explicit TftChangeDamageSkinCheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3415378836 || Cheat::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TftMapCharacterRecordData : public bin_class { 
+    class YORDLE_EXPORT TftMapCharacterRecordData : public bin_class {
     public:
         explicit TftMapCharacterRecordData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7411,7 +7334,7 @@ namespace yordle::data::meta {
         uint8_t tier = 0;
     };
 
-    class YORDLE_EXPORT TftMapCharacterSkinData : public bin_class { 
+    class YORDLE_EXPORT TftMapCharacterSkinData : public bin_class {
     public:
         explicit TftMapCharacterSkinData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7422,7 +7345,7 @@ namespace yordle::data::meta {
         std::string SquareIconTexturePath {};
     };
 
-    class YORDLE_EXPORT TftMapCharacterData : public bin_class { 
+    class YORDLE_EXPORT TftMapCharacterData : public bin_class {
     public:
         explicit TftMapCharacterData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7435,7 +7358,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::TftMapCharacterRecordData>> charData {};
     };
 
-    class YORDLE_EXPORT TftMapCharacterList : public bin_class { 
+    class YORDLE_EXPORT TftMapCharacterList : public bin_class {
     public:
         explicit TftMapCharacterList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7447,7 +7370,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::TftMapCharacterData>> characters {};
     };
 
-    class YORDLE_EXPORT TFTMapCharacterLists : public bin_class { 
+    class YORDLE_EXPORT TFTMapCharacterLists : public bin_class {
     public:
         explicit TFTMapCharacterLists(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7459,7 +7382,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::TftMapCharacterList>> characterLists {};
     };
 
-    class YORDLE_EXPORT TFTAnnouncementData : public bin_class { 
+    class YORDLE_EXPORT TFTAnnouncementData : public bin_class {
     public:
         explicit TFTAnnouncementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7470,10 +7393,10 @@ namespace yordle::data::meta {
         std::string mIconPath {};
         std::string mTitleTra {};
         float mDuration = 0.0;
-        float mDelay = 0.0;
+        float mDelay    = 0.0;
     };
 
-    class YORDLE_EXPORT TFTAttachmentSlotStyleData : public bin_class { 
+    class YORDLE_EXPORT TFTAttachmentSlotStyleData : public bin_class {
     public:
         explicit TFTAttachmentSlotStyleData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7486,7 +7409,7 @@ namespace yordle::data::meta {
         std::string mSubtextTra {};
     };
 
-    class YORDLE_EXPORT TFTCharacterRecord : public CharacterRecord { 
+    class YORDLE_EXPORT TFTCharacterRecord : public CharacterRecord {
     public:
         explicit TFTCharacterRecord(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7497,21 +7420,21 @@ namespace yordle::data::meta {
         std::string PortraitIcon {};
         uint8_t tier = 0;
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mLinkedTraits {};
-        float mMoveInterval = 0.0;
+        float mMoveInterval  = 0.0;
         float mMoveProximity = 0.0;
-        float mMoveRange = 0.0;
-        float mMoveHeight = 0.0;
-        float mInitialMana = 0.0;
+        float mMoveRange     = 0.0;
+        float mMoveHeight    = 0.0;
+        float mInitialMana   = 0.0;
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mShopData {3844837213u};
         std::string x4e28a666 {};
         std::array<float, 3> xd9439003 {};
-        bool x4a52410b = false;
-        bool xef57098f = false;
-        bool xbb71cb89 = false;
+        bool x4a52410b  = false;
+        bool xef57098f  = false;
+        bool xbb71cb89  = false;
         float x7cbc4762 = 0.0;
     };
 
-    class YORDLE_EXPORT TFTDragData : public bin_class { 
+    class YORDLE_EXPORT TFTDragData : public bin_class {
     public:
         explicit TFTDragData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7519,24 +7442,24 @@ namespace yordle::data::meta {
             return type == 1414729207 || bin_class::is_type(type);
         }
 
-        bool mHoldToHover = false;
-        bool mHoldToDrag = false;
-        bool x44ab329e = false;
-        float xd1296e95 = 0.0;
-        float x6d90172b = 0.0;
-        float x59129cbe = 0.0;
-        float xe2567252 = 0.0;
-        float mDragBlendTime = 0.0;
-        float mDragPickupHeight = 0.0;
-        float mDragPickupDuration = 0.0;
-        float mDragReleaseDuration = 0.0;
+        bool mHoldToHover            = false;
+        bool mHoldToDrag             = false;
+        bool x44ab329e               = false;
+        float xd1296e95              = 0.0;
+        float x6d90172b              = 0.0;
+        float x59129cbe              = 0.0;
+        float xe2567252              = 0.0;
+        float mDragBlendTime         = 0.0;
+        float mDragPickupHeight      = 0.0;
+        float mDragPickupDuration    = 0.0;
+        float mDragReleaseDuration   = 0.0;
         float mDragOvershootDuration = 0.0;
-        float mDragOvershootHeight = 0.0;
+        float mDragOvershootHeight   = 0.0;
         std::string mDragSoundEvent {};
         std::string mDropSoundEvent {};
     };
 
-    class YORDLE_EXPORT TftDropRates : public bin_class { 
+    class YORDLE_EXPORT TftDropRates : public bin_class {
     public:
         explicit TftDropRates(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7547,7 +7470,7 @@ namespace yordle::data::meta {
         std::vector<float> mDropRatesByTier {};
     };
 
-    class YORDLE_EXPORT xf260c3ae : public bin_class { 
+    class YORDLE_EXPORT xf260c3ae : public bin_class {
     public:
         explicit xf260c3ae(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7558,7 +7481,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::TftDropRates>> mDropRatesByLevel {};
     };
 
-    class YORDLE_EXPORT TftEffectAmount : public bin_class { 
+    class YORDLE_EXPORT TftEffectAmount : public bin_class {
     public:
         explicit TftEffectAmount(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7567,11 +7490,11 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash name = 0;
-        float value = 0.0;
+        float value                           = 0.0;
         std::string formatString {};
     };
 
-    class YORDLE_EXPORT TftItemComposition : public bin_class { 
+    class YORDLE_EXPORT TftItemComposition : public bin_class {
     public:
         explicit TftItemComposition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7582,7 +7505,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mComponents {};
     };
 
-    class YORDLE_EXPORT TftItemData : public bin_class { 
+    class YORDLE_EXPORT TftItemData : public bin_class {
     public:
         explicit TftItemData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7608,7 +7531,7 @@ namespace yordle::data::meta {
         int32_t x6d8fceed = 0;
     };
 
-    class YORDLE_EXPORT TFTItemList : public bin_class { 
+    class YORDLE_EXPORT TFTItemList : public bin_class {
     public:
         explicit TFTItemList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7620,7 +7543,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> VfxResourceResolver {4013559603u};
     };
 
-    class YORDLE_EXPORT x3604b3e3 : public bin_class { 
+    class YORDLE_EXPORT x3604b3e3 : public bin_class {
     public:
         explicit x3604b3e3(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7629,10 +7552,10 @@ namespace yordle::data::meta {
         }
 
         uint32_t x79dafa57 = 0;
-        float xae9687e = 0.0;
+        float xae9687e     = 0.0;
     };
 
-    class YORDLE_EXPORT TFTModeData : public bin_class { 
+    class YORDLE_EXPORT TFTModeData : public bin_class {
     public:
         explicit TFTModeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7645,16 +7568,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::TFTDragData> mMobileDragData {};
         float x3caeb7b4 = 0.0;
         yordle::data::meta::bin_ref<yordle::data::meta::TFTBotLoadoutConfiguration> x4a191241 {2097505044u};
-        yordle::data::meta::bin_fnv_hash mTftMapSkinDefault = 0;
+        yordle::data::meta::bin_fnv_hash mTftMapSkinDefault    = 0;
         yordle::data::meta::bin_fnv_hash mTftDamageSkinDefault = 0;
-        yordle::data::meta::bin_fnv_hash mDefaultTftCompanion = 0;
+        yordle::data::meta::bin_fnv_hash mDefaultTftCompanion  = 0;
         yordle::data::meta::bin_fnv_hash mTutorialTftCompanion = 0;
-        float xb75a7951 = 0.0;
+        float xb75a7951                                        = 0.0;
         std::vector<std::shared_ptr<yordle::data::meta::x3604b3e3>> xe13c7aa {};
         std::vector<yordle::data::meta::bin_fnv_hash> x12aaf1d8 {};
     };
 
-    class YORDLE_EXPORT TFTGameVariationData : public bin_class { 
+    class YORDLE_EXPORT TFTGameVariationData : public bin_class {
     public:
         explicit TFTGameVariationData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7670,7 +7593,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::TFTAnnouncementData> mAnnouncementData {3519409590u};
     };
 
-    class YORDLE_EXPORT TFTNotificationData : public bin_class { 
+    class YORDLE_EXPORT TFTNotificationData : public bin_class {
     public:
         explicit TFTNotificationData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7688,7 +7611,7 @@ namespace yordle::data::meta {
         std::string xa6874a6e {};
     };
 
-    class YORDLE_EXPORT TFTPhaseData : public bin_class { 
+    class YORDLE_EXPORT TFTPhaseData : public bin_class {
     public:
         explicit TFTPhaseData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7696,14 +7619,14 @@ namespace yordle::data::meta {
             return type == 634061068 || bin_class::is_type(type);
         }
 
-        bool mEnabled = false;
-        float mDuration = 0.0;
+        bool mEnabled     = false;
+        float mDuration   = 0.0;
         uint32_t mDisplay = 0;
         std::string mLabel {};
         yordle::data::meta::bin_ref<yordle::data::meta::TFTAnnouncementData> mAnnouncementData {3519409590u};
     };
 
-    class YORDLE_EXPORT TFTRoundData : public bin_class { 
+    class YORDLE_EXPORT TFTRoundData : public bin_class {
     public:
         explicit TFTRoundData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7735,7 +7658,7 @@ namespace yordle::data::meta {
         std::map<std::string, std::shared_ptr<yordle::data::meta::GameModeConstant>> mScriptData {};
     };
 
-    class YORDLE_EXPORT TFTStageData : public bin_class { 
+    class YORDLE_EXPORT TFTStageData : public bin_class {
     public:
         explicit TFTStageData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7746,7 +7669,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::TFTRoundData>> mRounds {};
     };
 
-    class YORDLE_EXPORT TFTSetData : public bin_class { 
+    class YORDLE_EXPORT TFTSetData : public bin_class {
     public:
         explicit TFTSetData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7755,7 +7678,7 @@ namespace yordle::data::meta {
         }
 
         uint32_t TftGameType = 0;
-        uint32_t number = 0;
+        uint32_t number      = 0;
         std::string Mutator {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::MapCharacterList>> DebugCharacterLists {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::MapCharacterList>> characterLists {};
@@ -7770,7 +7693,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> VfxResourceResolver {4013559603u};
     };
 
-    class YORDLE_EXPORT TftShopData : public bin_class { 
+    class YORDLE_EXPORT TftShopData : public bin_class {
     public:
         explicit TftShopData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7789,7 +7712,7 @@ namespace yordle::data::meta {
         std::string mDescriptionTra {};
     };
 
-    class YORDLE_EXPORT TFTStatData : public bin_class { 
+    class YORDLE_EXPORT TFTStatData : public bin_class {
     public:
         explicit TFTStatData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7798,13 +7721,13 @@ namespace yordle::data::meta {
         }
 
         std::string mName {};
-        uint32_t mType = 0;
-        uint32_t mContext = 0;
+        uint32_t mType     = 0;
+        uint32_t mContext  = 0;
         uint32_t mLifetime = 0;
-        int32_t xf3a339c = 0;
+        int32_t xf3a339c   = 0;
     };
 
-    class YORDLE_EXPORT TFTStreak : public bin_class { 
+    class YORDLE_EXPORT TFTStreak : public bin_class {
     public:
         explicit TFTStreak(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7818,7 +7741,7 @@ namespace yordle::data::meta {
         std::string mStreakFormat {};
     };
 
-    class YORDLE_EXPORT TFTStreakData : public bin_class { 
+    class YORDLE_EXPORT TFTStreakData : public bin_class {
     public:
         explicit TFTStreakData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7830,7 +7753,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::TFTStreak>> mLossStreaks {};
     };
 
-    class YORDLE_EXPORT TFTTraitContributionData : public bin_class { 
+    class YORDLE_EXPORT TFTTraitContributionData : public bin_class {
     public:
         explicit TFTTraitContributionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7843,7 +7766,7 @@ namespace yordle::data::meta {
         bool xa91037f5 = false;
     };
 
-    class YORDLE_EXPORT TFTTraitSetData : public bin_class { 
+    class YORDLE_EXPORT TFTTraitSetData : public bin_class {
     public:
         explicit TFTTraitSetData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7853,7 +7776,7 @@ namespace yordle::data::meta {
 
         uint32_t mMinUnits = 0;
         std::optional<uint32_t> mMaxUnits {};
-        uint8_t mTeamToBuff = 0;
+        uint8_t mTeamToBuff     = 0;
         uint8_t mTargetStrategy = 0;
         std::optional<uint32_t> xa8c51db0 {};
         uint8_t mStyle = 0;
@@ -7862,7 +7785,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::TftEffectAmount>> effectAmounts {};
     };
 
-    class YORDLE_EXPORT TftTraitData : public bin_class { 
+    class YORDLE_EXPORT TftTraitData : public bin_class {
     public:
         explicit TftTraitData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7879,7 +7802,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::TFTTraitSetData>> mTraitSets {};
     };
 
-    class YORDLE_EXPORT TftTraitList : public bin_class { 
+    class YORDLE_EXPORT TftTraitList : public bin_class {
     public:
         explicit TftTraitList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7891,7 +7814,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> VfxResourceResolver {4013559603u};
     };
 
-    class YORDLE_EXPORT TFTUnitUpgradeData : public bin_class { 
+    class YORDLE_EXPORT TFTUnitUpgradeData : public bin_class {
     public:
         explicit TFTUnitUpgradeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7903,7 +7826,7 @@ namespace yordle::data::meta {
         uint8_t xd6debdbe = 0;
     };
 
-    class YORDLE_EXPORT TFTHudAnnouncementData : public bin_class { 
+    class YORDLE_EXPORT TFTHudAnnouncementData : public bin_class {
     public:
         explicit TFTHudAnnouncementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7915,7 +7838,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mSceneTransitionOut {};
     };
 
-    class YORDLE_EXPORT TFTHudCombatRecapData : public bin_class { 
+    class YORDLE_EXPORT TFTHudCombatRecapData : public bin_class {
     public:
         explicit TFTHudCombatRecapData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7927,7 +7850,7 @@ namespace yordle::data::meta {
         float x4544719b = 0.0;
     };
 
-    class YORDLE_EXPORT TFTHudNotificationsData : public bin_class { 
+    class YORDLE_EXPORT TFTHudNotificationsData : public bin_class {
     public:
         explicit TFTHudNotificationsData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7939,7 +7862,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mSceneTransitionOut {};
     };
 
-    class YORDLE_EXPORT xda3c6dc6 : public bin_class { 
+    class YORDLE_EXPORT xda3c6dc6 : public bin_class {
     public:
         explicit xda3c6dc6(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7951,7 +7874,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mSceneTransitionOut {};
     };
 
-    class YORDLE_EXPORT TFTHudScoreboardData : public bin_class { 
+    class YORDLE_EXPORT TFTHudScoreboardData : public bin_class {
     public:
         explicit TFTHudScoreboardData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7964,7 +7887,7 @@ namespace yordle::data::meta {
         float xf504817a = 0.0;
     };
 
-    class YORDLE_EXPORT TFTHudStageData : public bin_class { 
+    class YORDLE_EXPORT TFTHudStageData : public bin_class {
     public:
         explicit TFTHudStageData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7975,7 +7898,7 @@ namespace yordle::data::meta {
         float xa11246b8 = 0.0;
     };
 
-    class YORDLE_EXPORT TFTHudUnitShopData : public bin_class { 
+    class YORDLE_EXPORT TFTHudUnitShopData : public bin_class {
     public:
         explicit TFTHudUnitShopData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7987,7 +7910,7 @@ namespace yordle::data::meta {
         float xc38c6ba9 = 0.0;
     };
 
-    class YORDLE_EXPORT TFTHudMobileDownscaleData : public bin_class { 
+    class YORDLE_EXPORT TFTHudMobileDownscaleData : public bin_class {
     public:
         explicit TFTHudMobileDownscaleData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -7995,11 +7918,11 @@ namespace yordle::data::meta {
             return type == 3672021242 || bin_class::is_type(type);
         }
 
-        float xd4d2ea52 = 0.0;
+        float xd4d2ea52  = 0.0;
         float mDownscale = 0.0;
     };
 
-    class YORDLE_EXPORT TFTHudTunables : public bin_class { 
+    class YORDLE_EXPORT TFTHudTunables : public bin_class {
     public:
         explicit TFTHudTunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8018,7 +7941,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::TFTHudUnitShopData> mUnitShopData {};
     };
 
-    class YORDLE_EXPORT x2610e5a7 : public bin_class { 
+    class YORDLE_EXPORT x2610e5a7 : public bin_class {
     public:
         explicit x2610e5a7(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8027,14 +7950,14 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash xfa144e3e = 0;
-        yordle::data::meta::bin_fnv_hash ItemIcon = 0;
+        yordle::data::meta::bin_fnv_hash ItemIcon  = 0;
         yordle::data::meta::bin_fnv_hash xbdcceafd = 0;
         yordle::data::meta::bin_fnv_hash x7af87ddd = 0;
         yordle::data::meta::bin_fnv_hash x791b47a2 = 0;
         yordle::data::meta::bin_fnv_hash x30145a7e = 0;
     };
 
-    class YORDLE_EXPORT x2781ed6b : public bin_class { 
+    class YORDLE_EXPORT x2781ed6b : public bin_class {
     public:
         explicit x2781ed6b(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8046,7 +7969,7 @@ namespace yordle::data::meta {
         std::string BodyKey {};
     };
 
-    class YORDLE_EXPORT ObjectTags : public bin_class { 
+    class YORDLE_EXPORT ObjectTags : public bin_class {
     public:
         explicit ObjectTags(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8057,7 +7980,7 @@ namespace yordle::data::meta {
         std::string mTagList {};
     };
 
-    class YORDLE_EXPORT NumberFormattingBehavior : public bin_class { 
+    class YORDLE_EXPORT NumberFormattingBehavior : public bin_class {
     public:
         explicit NumberFormattingBehavior(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8066,11 +7989,11 @@ namespace yordle::data::meta {
         }
 
         uint32_t x6a015824 = 0;
-        bool x9892a348 = false;
-        bool x35feae85 = false;
+        bool x9892a348     = false;
+        bool x35feae85     = false;
     };
 
-    class YORDLE_EXPORT NumberFormattingData : public bin_class { 
+    class YORDLE_EXPORT NumberFormattingData : public bin_class {
     public:
         explicit NumberFormattingData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8097,7 +8020,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, yordle::data::meta::bin_ref<yordle::data::meta::NumberFormattingBehavior>> x7a4d89bb {};
     };
 
-    class YORDLE_EXPORT AnnouncementDefinitionData : public bin_class { 
+    class YORDLE_EXPORT AnnouncementDefinitionData : public bin_class {
     public:
         explicit AnnouncementDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8105,8 +8028,8 @@ namespace yordle::data::meta {
             return type == 502828211 || bin_class::is_type(type);
         }
 
-        uint16_t priority = 0;
-        bool CanBeMadeObsolete = false;
+        uint16_t priority                    = 0;
+        bool CanBeMadeObsolete               = false;
         bool MakeLowerPriorityEventsObsolete = false;
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> Style {3731372071u};
         std::string TextKey {};
@@ -8115,10 +8038,10 @@ namespace yordle::data::meta {
         std::string SpectatorSoundKey {};
         yordle::data::meta::bin_fnv_hash CommonElements = 0;
         yordle::data::meta::bin_fnv_hash AlliedElements = 0;
-        yordle::data::meta::bin_fnv_hash EnemyElements = 0;
+        yordle::data::meta::bin_fnv_hash EnemyElements  = 0;
     };
 
-    class YORDLE_EXPORT AnnouncementDefinition : public bin_class { 
+    class YORDLE_EXPORT AnnouncementDefinition : public bin_class {
     public:
         explicit AnnouncementDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8130,17 +8053,16 @@ namespace yordle::data::meta {
         std::map<std::string, std::shared_ptr<yordle::data::meta::AnnouncementDefinitionData>> MutatorOverrides {};
     };
 
-    class YORDLE_EXPORT x78387eb5 : public AnnouncementDefinition { 
+    class YORDLE_EXPORT x78387eb5 : public AnnouncementDefinition {
     public:
         explicit x78387eb5(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2016968373 || AnnouncementDefinition::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT AnnouncementStyleBasic : public bin_class { 
+    class YORDLE_EXPORT AnnouncementStyleBasic : public bin_class {
     public:
         explicit AnnouncementStyleBasic(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8149,12 +8071,12 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash TextField = 0;
-        float MinAnnouncementDuration = 0.0;
+        float MinAnnouncementDuration              = 0.0;
         std::shared_ptr<yordle::data::meta::bin_class> x3f43172e {};
         std::shared_ptr<yordle::data::meta::bin_class> xcc99a2db {};
     };
 
-    class YORDLE_EXPORT x48c9ff38 : public AnnouncementStyleBasic { 
+    class YORDLE_EXPORT x48c9ff38 : public AnnouncementStyleBasic {
     public:
         explicit x48c9ff38(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8165,7 +8087,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> SourceIcon {728839351u};
     };
 
-    class YORDLE_EXPORT xaa95a271 : public AnnouncementStyleBasic { 
+    class YORDLE_EXPORT xaa95a271 : public AnnouncementStyleBasic {
     public:
         explicit xaa95a271(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8177,7 +8099,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> RightIcon {728839351u};
     };
 
-    class YORDLE_EXPORT AnnouncementIcon : public bin_class { 
+    class YORDLE_EXPORT AnnouncementIcon : public bin_class {
     public:
         explicit AnnouncementIcon(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8185,18 +8107,18 @@ namespace yordle::data::meta {
             return type == 728839351 || bin_class::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash x108e8710 = 0;
-        yordle::data::meta::bin_fnv_hash xc2e2a2df = 0;
-        yordle::data::meta::bin_fnv_hash x3e37c63b = 0;
+        yordle::data::meta::bin_fnv_hash x108e8710          = 0;
+        yordle::data::meta::bin_fnv_hash xc2e2a2df          = 0;
+        yordle::data::meta::bin_fnv_hash x3e37c63b          = 0;
         yordle::data::meta::bin_fnv_hash AlliedElementGroup = 0;
-        yordle::data::meta::bin_fnv_hash EnemyElementGroup = 0;
-        yordle::data::meta::bin_fnv_hash xdd749512 = 0;
-        yordle::data::meta::bin_fnv_hash xde7496a5 = 0;
-        yordle::data::meta::bin_fnv_hash xdb7491ec = 0;
-        yordle::data::meta::bin_fnv_hash xdc74937f = 0;
+        yordle::data::meta::bin_fnv_hash EnemyElementGroup  = 0;
+        yordle::data::meta::bin_fnv_hash xdd749512          = 0;
+        yordle::data::meta::bin_fnv_hash xde7496a5          = 0;
+        yordle::data::meta::bin_fnv_hash xdb7491ec          = 0;
+        yordle::data::meta::bin_fnv_hash xdc74937f          = 0;
     };
 
-    class YORDLE_EXPORT AnnouncementMap : public bin_class { 
+    class YORDLE_EXPORT AnnouncementMap : public bin_class {
     public:
         explicit AnnouncementMap(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8211,7 +8133,7 @@ namespace yordle::data::meta {
         std::map<std::string, yordle::data::meta::bin_ref<yordle::data::meta::AnnouncementDefinition>> Announcements {};
     };
 
-    class YORDLE_EXPORT CursorData : public bin_class { 
+    class YORDLE_EXPORT CursorData : public bin_class {
     public:
         explicit CursorData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8226,7 +8148,7 @@ namespace yordle::data::meta {
         std::string xf6536c51 {};
     };
 
-    class YORDLE_EXPORT CursorDataTeamContext : public bin_class { 
+    class YORDLE_EXPORT CursorDataTeamContext : public bin_class {
     public:
         explicit CursorDataTeamContext(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8237,7 +8159,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::CursorData>> mData {};
     };
 
-    class YORDLE_EXPORT CursorDataCaptureCooldownContext : public bin_class { 
+    class YORDLE_EXPORT CursorDataCaptureCooldownContext : public bin_class {
     public:
         explicit CursorDataCaptureCooldownContext(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8248,7 +8170,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::CursorData>> mData {};
     };
 
-    class YORDLE_EXPORT CursorConfig : public bin_class { 
+    class YORDLE_EXPORT CursorConfig : public bin_class {
     public:
         explicit CursorConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8261,7 +8183,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::CursorDataCaptureCooldownContext> mHoverNotUseableCursor {};
     };
 
-    class YORDLE_EXPORT HealthbarImageInfo : public bin_class { 
+    class YORDLE_EXPORT HealthbarImageInfo : public bin_class {
     public:
         explicit HealthbarImageInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8274,7 +8196,7 @@ namespace yordle::data::meta {
         std::array<float, 4> mTextureUvs {};
     };
 
-    class YORDLE_EXPORT UnitStatusData : public bin_class { 
+    class YORDLE_EXPORT UnitStatusData : public bin_class {
     public:
         explicit UnitStatusData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8282,14 +8204,14 @@ namespace yordle::data::meta {
             return type == 1273755329 || bin_class::is_type(type);
         }
 
-        uint32_t locType = 0;
+        uint32_t locType                  = 0;
         uint32_t attackableUnitStatusType = 0;
         std::string statusName {};
         std::optional<std::array<uint8_t, 4>> textColor {};
         std::shared_ptr<yordle::data::meta::HealthbarImageInfo> imageInfo {};
     };
 
-    class YORDLE_EXPORT UnitStatusPriorityList : public bin_class { 
+    class YORDLE_EXPORT UnitStatusPriorityList : public bin_class {
     public:
         explicit UnitStatusPriorityList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8301,7 +8223,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::UnitStatusData>> mPrioritizedUnitStatusData {};
     };
 
-    class YORDLE_EXPORT FloatTextIconData : public bin_class { 
+    class YORDLE_EXPORT FloatTextIconData : public bin_class {
     public:
         explicit FloatTextIconData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8316,7 +8238,7 @@ namespace yordle::data::meta {
         uint32_t mAlignment = 0;
     };
 
-    class YORDLE_EXPORT FloatTextDisplayOverrides : public bin_class { 
+    class YORDLE_EXPORT FloatTextDisplayOverrides : public bin_class {
     public:
         explicit FloatTextDisplayOverrides(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8366,7 +8288,7 @@ namespace yordle::data::meta {
         std::optional<float> growthYScalar {};
     };
 
-    class YORDLE_EXPORT FloatingTextTunables : public bin_class { 
+    class YORDLE_EXPORT FloatingTextTunables : public bin_class {
     public:
         explicit FloatingTextTunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8374,21 +8296,21 @@ namespace yordle::data::meta {
             return type == 395898060 || bin_class::is_type(type);
         }
 
-        uint32_t mMaxFloatingTextItems = 0;
-        float mIntervalInPix = 0.0;
-        float mScrollSpeed = 0.0;
-        float mAnimatedTextQueueDelay = 0.0;
-        float mYResolutionBaseline = 0.0;
-        float mMinimumDynamicScale = 0.0;
-        float mMaximumDynamicScale = 0.0;
-        float xccf713a7 = 0.0;
-        float xf56f095c = 0.0;
-        float mMinionComparisonMultiplier = 0.0;
+        uint32_t mMaxFloatingTextItems     = 0;
+        float mIntervalInPix               = 0.0;
+        float mScrollSpeed                 = 0.0;
+        float mAnimatedTextQueueDelay      = 0.0;
+        float mYResolutionBaseline         = 0.0;
+        float mMinimumDynamicScale         = 0.0;
+        float mMaximumDynamicScale         = 0.0;
+        float xccf713a7                    = 0.0;
+        float xf56f095c                    = 0.0;
+        float mMinionComparisonMultiplier  = 0.0;
         float mLocalPlayerHealthComparison = 0.0;
         std::vector<float> mComparisonByLevel {};
     };
 
-    class YORDLE_EXPORT FloatingTextDamageDisplayTypeList : public bin_class { 
+    class YORDLE_EXPORT FloatingTextDamageDisplayTypeList : public bin_class {
     public:
         explicit FloatingTextDamageDisplayTypeList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8414,7 +8336,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::FloatTextDisplayOverrides> SelfMagicalDamageCounter {267762117u};
     };
 
-    class YORDLE_EXPORT FloatTextFormattingData : public bin_class { 
+    class YORDLE_EXPORT FloatTextFormattingData : public bin_class {
     public:
         explicit FloatTextFormattingData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8423,62 +8345,62 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mTypeName = 0;
-        int32_t colorOffsetR = 0;
-        int32_t colorOffsetG = 0;
-        int32_t colorOffsetB = 0;
+        int32_t colorOffsetR                       = 0;
+        int32_t colorOffsetG                       = 0;
+        int32_t colorOffsetB                       = 0;
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mFontDescription {3812866480u};
         bool ignoreCombineRules = false;
         std::string combinableNumberFormat {};
         std::string combinableNegativeNumberFormat {};
-        int32_t priority = 0;
-        float height = 0.0;
-        float decay = 0.0;
-        float decayDelay = 0.0;
-        bool disabled = false;
-        bool isAnimated = false;
-        bool momentumFromHit = false;
-        bool followSource = false;
-        bool disableHorizontalReverse = false;
-        bool disableVerticalReverse = false;
-        bool combinableCounterDisplay = false;
+        int32_t priority                  = 0;
+        float height                      = 0.0;
+        float decay                       = 0.0;
+        float decayDelay                  = 0.0;
+        bool disabled                     = false;
+        bool isAnimated                   = false;
+        bool momentumFromHit              = false;
+        bool followSource                 = false;
+        bool disableHorizontalReverse     = false;
+        bool disableVerticalReverse       = false;
+        bool combinableCounterDisplay     = false;
         int32_t combinableCounterCategory = 0;
-        bool overwritePreviousNumber = false;
-        float minXVelocity = 0.0;
-        float maxXVelocity = 0.0;
-        float minYVelocity = 0.0;
-        float maxYVelocity = 0.0;
-        float startOffsetX = 0.0;
-        float startOffsetY = 0.0;
-        float hangTime = 0.0;
-        float randomStartOffsetMinX = 0.0;
-        float randomStartOffsetMaxX = 0.0;
-        float randomStartOffsetMinY = 0.0;
-        float randomStartOffsetMaxY = 0.0;
-        float growthYScalar = 0.0;
-        float growthXScalar = 0.0;
-        float relativeOffsetMin = 0.0;
-        float relativeOffsetMax = 0.0;
-        float continualForceX = 0.0;
-        float continualForceY = 0.0;
-        float continualForceXBase = 0.0;
-        float continualForceYBase = 0.0;
-        float shrinkTime = 0.0;
-        float scale = 0.0;
-        float extendTimeOnNewDamage = 0.0;
-        float maxLifeTime = 0.0;
-        bool ignoreQueue = false;
-        bool alternateRightLeft = false;
-        int32_t maxInstances = 0;
-        float shrinkScale = 0.0;
-        bool refreshExisting = false;
-        bool attachToHealthBar = false;
-        bool offsetByBoundingBox = false;
-        uint8_t horizontalAlignment = 0;
-        uint8_t verticalAlignment = 0;
+        bool overwritePreviousNumber      = false;
+        float minXVelocity                = 0.0;
+        float maxXVelocity                = 0.0;
+        float minYVelocity                = 0.0;
+        float maxYVelocity                = 0.0;
+        float startOffsetX                = 0.0;
+        float startOffsetY                = 0.0;
+        float hangTime                    = 0.0;
+        float randomStartOffsetMinX       = 0.0;
+        float randomStartOffsetMaxX       = 0.0;
+        float randomStartOffsetMinY       = 0.0;
+        float randomStartOffsetMaxY       = 0.0;
+        float growthYScalar               = 0.0;
+        float growthXScalar               = 0.0;
+        float relativeOffsetMin           = 0.0;
+        float relativeOffsetMax           = 0.0;
+        float continualForceX             = 0.0;
+        float continualForceY             = 0.0;
+        float continualForceXBase         = 0.0;
+        float continualForceYBase         = 0.0;
+        float shrinkTime                  = 0.0;
+        float scale                       = 0.0;
+        float extendTimeOnNewDamage       = 0.0;
+        float maxLifeTime                 = 0.0;
+        bool ignoreQueue                  = false;
+        bool alternateRightLeft           = false;
+        int32_t maxInstances              = 0;
+        float shrinkScale                 = 0.0;
+        bool refreshExisting              = false;
+        bool attachToHealthBar            = false;
+        bool offsetByBoundingBox          = false;
+        uint8_t horizontalAlignment       = 0;
+        uint8_t verticalAlignment         = 0;
         std::vector<std::shared_ptr<yordle::data::meta::FloatTextIconData>> icons {};
     };
 
-    class YORDLE_EXPORT FloatingTextTypeList : public bin_class { 
+    class YORDLE_EXPORT FloatingTextTypeList : public bin_class {
     public:
         explicit FloatingTextTypeList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8525,7 +8447,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::FloatTextFormattingData> TFTUnitLabel {585161597u};
     };
 
-    class YORDLE_EXPORT FloatingTextGlobalConfig : public bin_class { 
+    class YORDLE_EXPORT FloatingTextGlobalConfig : public bin_class {
     public:
         explicit FloatingTextGlobalConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8538,7 +8460,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::FloatingTextTypeList> mFloatingTextTypes {};
     };
 
-    class YORDLE_EXPORT FloatingTextOverride : public bin_class { 
+    class YORDLE_EXPORT FloatingTextOverride : public bin_class {
     public:
         explicit FloatingTextOverride(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8549,7 +8471,7 @@ namespace yordle::data::meta {
         std::map<uint32_t, bool> OverriddenFloatingTextTypes {};
     };
 
-    class YORDLE_EXPORT HudColorData : public bin_class { 
+    class YORDLE_EXPORT HudColorData : public bin_class {
     public:
         explicit HudColorData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8633,7 +8555,7 @@ namespace yordle::data::meta {
         std::array<uint8_t, 4> xca1d9872 {};
     };
 
-    class YORDLE_EXPORT HudFeedbackDamageData : public bin_class { 
+    class YORDLE_EXPORT HudFeedbackDamageData : public bin_class {
     public:
         explicit HudFeedbackDamageData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8641,17 +8563,17 @@ namespace yordle::data::meta {
             return type == 3939670256 || bin_class::is_type(type);
         }
 
-        float mPercentageDamageForFlash = 0.0;
-        float mOverTimeForFlashSeconds = 0.0;
-        float mMaxPercentageForMostReadHealth = 0.0;
-        float mFlashDuration = 0.0;
-        float mStartFlashAlpha = 0.0;
+        float mPercentageDamageForFlash          = 0.0;
+        float mOverTimeForFlashSeconds           = 0.0;
+        float mMaxPercentageForMostReadHealth    = 0.0;
+        float mFlashDuration                     = 0.0;
+        float mStartFlashAlpha                   = 0.0;
         float mLowHealthFlashThresholdPercentage = 0.0;
-        float mLowHealthFlashDuration = 0.0;
-        float mLowHealthFlashOpacityStrength = 0.0;
+        float mLowHealthFlashDuration            = 0.0;
+        float mLowHealthFlashOpacityStrength     = 0.0;
     };
 
-    class YORDLE_EXPORT TeamScoreMeterUITunables : public bin_class { 
+    class YORDLE_EXPORT TeamScoreMeterUITunables : public bin_class {
     public:
         explicit TeamScoreMeterUITunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8662,12 +8584,12 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mSceneTransition {};
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mTeamScoreMeterProperties {};
         uint32_t mTeamScoreMeterMaxRoundsPerTeam = 0;
-        bool mAllowDynamicVisibility = false;
-        bool mCountdownTimer = false;
-        uint8_t xdff2794f = 0;
+        bool mAllowDynamicVisibility             = false;
+        bool mCountdownTimer                     = false;
+        uint8_t xdff2794f                        = 0;
     };
 
-    class YORDLE_EXPORT HudTeamScoreMeterProperties : public bin_class { 
+    class YORDLE_EXPORT HudTeamScoreMeterProperties : public bin_class {
     public:
         explicit HudTeamScoreMeterProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8676,12 +8598,12 @@ namespace yordle::data::meta {
         }
 
         uint8_t mTeamScoreMeterType = 0;
-        bool mShowScoreText = false;
+        bool mShowScoreText         = false;
         std::string x86864fbc {};
         std::string x6044a790 {};
     };
 
-    class YORDLE_EXPORT EncounterUITunables : public bin_class { 
+    class YORDLE_EXPORT EncounterUITunables : public bin_class {
     public:
         explicit EncounterUITunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8694,13 +8616,13 @@ namespace yordle::data::meta {
         std::string mProgressMeterSuffix {};
         std::string mTimerMeterSuffix {};
         float mUnitBarFadeSpeed = 0.0;
-        bool x3fc8ecec = false;
+        bool x3fc8ecec          = false;
         std::string mProgressMeterHoverText {};
         std::string mProgressMeterPingText {};
         std::string mPipsHoverText {};
     };
 
-    class YORDLE_EXPORT QuestUITunables : public bin_class { 
+    class YORDLE_EXPORT QuestUITunables : public bin_class {
     public:
         explicit QuestUITunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8711,7 +8633,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mSceneTransition {};
     };
 
-    class YORDLE_EXPORT DragonUITunables : public bin_class { 
+    class YORDLE_EXPORT DragonUITunables : public bin_class {
     public:
         explicit DragonUITunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8723,7 +8645,7 @@ namespace yordle::data::meta {
         std::vector<std::string> mDragonBaseNames {};
     };
 
-    class YORDLE_EXPORT HudGameModeScoreData : public bin_class { 
+    class YORDLE_EXPORT HudGameModeScoreData : public bin_class {
     public:
         explicit HudGameModeScoreData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8743,7 +8665,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mOptionalBins {};
     };
 
-    class YORDLE_EXPORT MinimapIconTextureData : public bin_class { 
+    class YORDLE_EXPORT MinimapIconTextureData : public bin_class {
     public:
         explicit MinimapIconTextureData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8755,7 +8677,7 @@ namespace yordle::data::meta {
         std::optional<std::string> mColorblind {};
     };
 
-    class YORDLE_EXPORT MinimapIconColorData : public bin_class { 
+    class YORDLE_EXPORT MinimapIconColorData : public bin_class {
     public:
         explicit MinimapIconColorData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8767,7 +8689,7 @@ namespace yordle::data::meta {
         std::optional<std::array<uint8_t, 4>> mColorblind {};
     };
 
-    class YORDLE_EXPORT MinimapIcon : public bin_class { 
+    class YORDLE_EXPORT MinimapIcon : public bin_class {
     public:
         explicit MinimapIcon(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8785,7 +8707,7 @@ namespace yordle::data::meta {
         std::map<uint8_t, std::shared_ptr<yordle::data::meta::MinimapIconColorData>> mTeamColors {};
     };
 
-    class YORDLE_EXPORT MinimapData : public bin_class { 
+    class YORDLE_EXPORT MinimapData : public bin_class {
     public:
         explicit MinimapData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8797,7 +8719,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::MinimapIcon>> mCustomIcons {};
     };
 
-    class YORDLE_EXPORT HudOptionalBinData : public bin_class { 
+    class YORDLE_EXPORT HudOptionalBinData : public bin_class {
     public:
         explicit HudOptionalBinData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8809,7 +8731,7 @@ namespace yordle::data::meta {
         uint32_t mPriority = 0;
     };
 
-    class YORDLE_EXPORT HudTunables : public bin_class { 
+    class YORDLE_EXPORT HudTunables : public bin_class {
     public:
         explicit HudTunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8847,7 +8769,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> FightRecapUiData {};
     };
 
-    class YORDLE_EXPORT HudScaleSettingsData : public bin_class { 
+    class YORDLE_EXPORT HudScaleSettingsData : public bin_class {
     public:
         explicit HudScaleSettingsData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8855,19 +8777,19 @@ namespace yordle::data::meta {
             return type == 2979455577 || bin_class::is_type(type);
         }
 
-        float maximumGlobalScale = 0.0;
-        float minimumGlobalScale = 0.0;
-        float maximumMinimapScale = 0.0;
-        float minimumMinimapScale = 0.0;
-        float x6b8896b6 = 0.0;
-        float xb565cf40 = 0.0;
+        float maximumGlobalScale       = 0.0;
+        float minimumGlobalScale       = 0.0;
+        float maximumMinimapScale      = 0.0;
+        float minimumMinimapScale      = 0.0;
+        float x6b8896b6                = 0.0;
+        float xb565cf40                = 0.0;
         float maximumPracticeToolScale = 0.0;
         float minimumPracticeToolScale = 0.0;
-        float maximumChatScale = 0.0;
-        float minimumChatScale = 0.0;
+        float maximumChatScale         = 0.0;
+        float minimumChatScale         = 0.0;
     };
 
-    class YORDLE_EXPORT HudLevelUpData : public bin_class { 
+    class YORDLE_EXPORT HudLevelUpData : public bin_class {
     public:
         explicit HudLevelUpData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8875,18 +8797,18 @@ namespace yordle::data::meta {
             return type == 2124320233 || bin_class::is_type(type);
         }
 
-        uint8_t minAlpha = 0;
-        uint8_t maxAlpha = 0;
-        float maxOffset = 0.0;
-        float animTime = 0.0;
-        float delay = 0.0;
-        float overshoot = 0.0;
-        float inertia = 0.0;
+        uint8_t minAlpha        = 0;
+        uint8_t maxAlpha        = 0;
+        float maxOffset         = 0.0;
+        float animTime          = 0.0;
+        float delay             = 0.0;
+        float overshoot         = 0.0;
+        float inertia           = 0.0;
         float playerBuffsOffset = 0.0;
         float idleSheenInterval = 0.0;
     };
 
-    class YORDLE_EXPORT HudBannerData : public bin_class { 
+    class YORDLE_EXPORT HudBannerData : public bin_class {
     public:
         explicit HudBannerData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8894,17 +8816,17 @@ namespace yordle::data::meta {
             return type == 2731869740 || bin_class::is_type(type);
         }
 
-        float transitionTime = 0.0;
+        float transitionTime       = 0.0;
         uint8_t TransitionMinAlpha = 0;
         uint8_t TransitionMaxAlpha = 0;
         std::array<float, 2> transitionOffset {};
         std::array<float, 2> pulseOffset {};
-        float pulseTime = 0.0;
+        float pulseTime     = 0.0;
         float pulseDuration = 0.0;
         float pulseInterval = 0.0;
     };
 
-    class YORDLE_EXPORT HudAbilityPromptData : public bin_class { 
+    class YORDLE_EXPORT HudAbilityPromptData : public bin_class {
     public:
         explicit HudAbilityPromptData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8915,11 +8837,11 @@ namespace yordle::data::meta {
         std::array<uint8_t, 4> PulseStartColor {};
         std::array<uint8_t, 4> PulseEndColor {};
         std::array<float, 2> pulseOffset {};
-        float pulseTime = 0.0;
+        float pulseTime     = 0.0;
         float pulseInterval = 0.0;
     };
 
-    class YORDLE_EXPORT HudMenuTransitionData : public bin_class { 
+    class YORDLE_EXPORT HudMenuTransitionData : public bin_class {
     public:
         explicit HudMenuTransitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8928,12 +8850,12 @@ namespace yordle::data::meta {
         }
 
         float transitionTime = 0.0;
-        uint8_t minAlpha = 0;
-        uint8_t maxAlpha = 0;
-        uint8_t EasingType = 0;
+        uint8_t minAlpha     = 0;
+        uint8_t maxAlpha     = 0;
+        uint8_t EasingType   = 0;
     };
 
-    class YORDLE_EXPORT HudElementalSectionUIData : public bin_class { 
+    class YORDLE_EXPORT HudElementalSectionUIData : public bin_class {
     public:
         explicit HudElementalSectionUIData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8951,13 +8873,13 @@ namespace yordle::data::meta {
         std::array<uint8_t, 4> lightColoration {};
         std::array<uint8_t, 4> magmaColoration {};
         std::array<uint8_t, 4> stormColoration {};
-        float meterFilledButtonFadeInDelay = 0.0;
-        float firstSelectionAnimationDelay = 0.0;
+        float meterFilledButtonFadeInDelay  = 0.0;
+        float firstSelectionAnimationDelay  = 0.0;
         float secondSelectionAnimationDelay = 0.0;
-        float glowingRingCycleTime = 0.0;
+        float glowingRingCycleTime          = 0.0;
     };
 
-    class YORDLE_EXPORT HudEmotePopupData : public bin_class { 
+    class YORDLE_EXPORT HudEmotePopupData : public bin_class {
     public:
         explicit HudEmotePopupData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8969,15 +8891,15 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mEmotePopupTransitionOutro {};
         std::string mUiSound {};
         float mEmotePopupDisplayTime = 0.0;
-        float x728d935f = 0.0;
-        float x7cd0d83 = 0.0;
-        float x75d54c28 = 0.0;
-        float xf680b7d9 = 0.0;
-        float x6bd76883 = 0.0;
-        bool mEmoteFloatEnabled = false;
+        float x728d935f              = 0.0;
+        float x7cd0d83               = 0.0;
+        float x75d54c28              = 0.0;
+        float xf680b7d9              = 0.0;
+        float x6bd76883              = 0.0;
+        bool mEmoteFloatEnabled      = false;
     };
 
-    class YORDLE_EXPORT HudGearSelectionUIData : public bin_class { 
+    class YORDLE_EXPORT HudGearSelectionUIData : public bin_class {
     public:
         explicit HudGearSelectionUIData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -8987,13 +8909,13 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mGearSelectionTransitionIntro {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mGearSelectionTransitionOutro {};
-        float selectionButtonDelayTime = 0.0;
-        bool timerEnabled = false;
-        float timerCountdownDuration = 0.0;
+        float selectionButtonDelayTime   = 0.0;
+        bool timerEnabled                = false;
+        float timerCountdownDuration     = 0.0;
         float timerCountdownWarningStart = 0.0;
     };
 
-    class YORDLE_EXPORT HudRadialWheelData : public bin_class { 
+    class YORDLE_EXPORT HudRadialWheelData : public bin_class {
     public:
         explicit HudRadialWheelData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9007,7 +8929,7 @@ namespace yordle::data::meta {
         float activateWheelDelayTime = 0.0;
     };
 
-    class YORDLE_EXPORT HudTeamFightOffScreenDifferentiationData : public bin_class { 
+    class YORDLE_EXPORT HudTeamFightOffScreenDifferentiationData : public bin_class {
     public:
         explicit HudTeamFightOffScreenDifferentiationData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9015,12 +8937,12 @@ namespace yordle::data::meta {
             return type == 4224366477 || bin_class::is_type(type);
         }
 
-        float x40e3864f = 0.0;
-        float x3f035ddd = 0.0;
+        float x40e3864f   = 0.0;
+        float x3f035ddd   = 0.0;
         uint8_t x23086737 = 0;
     };
 
-    class YORDLE_EXPORT HudTeamFightData : public bin_class { 
+    class YORDLE_EXPORT HudTeamFightData : public bin_class {
     public:
         explicit HudTeamFightData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9033,7 +8955,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::HudTeamFightOffScreenDifferentiationData> xa7620c86 {};
     };
 
-    class YORDLE_EXPORT HudReplayData : public bin_class { 
+    class YORDLE_EXPORT HudReplayData : public bin_class {
     public:
         explicit HudReplayData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9045,7 +8967,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::HudTeamFightData> TeamFightData {};
     };
 
-    class YORDLE_EXPORT HudCheatMenuData : public bin_class { 
+    class YORDLE_EXPORT HudCheatMenuData : public bin_class {
     public:
         explicit HudCheatMenuData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9053,12 +8975,12 @@ namespace yordle::data::meta {
             return type == 2036195162 || bin_class::is_type(type);
         }
 
-        float tooltipDelay = 0.0;
+        float tooltipDelay        = 0.0;
         float groupDividerGapSize = 0.0;
         uint8_t groupDividerIndex = 0;
     };
 
-    class YORDLE_EXPORT HudPingData : public bin_class { 
+    class YORDLE_EXPORT HudPingData : public bin_class {
     public:
         explicit HudPingData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9067,10 +8989,10 @@ namespace yordle::data::meta {
         }
 
         float distanceToNotTrollPingCorpses = 0.0;
-        float timeToNotTrollPingCorpses = 0.0;
+        float timeToNotTrollPingCorpses     = 0.0;
     };
 
-    class YORDLE_EXPORT HudVoiceChatData : public bin_class { 
+    class YORDLE_EXPORT HudVoiceChatData : public bin_class {
     public:
         explicit HudVoiceChatData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9081,7 +9003,7 @@ namespace yordle::data::meta {
         float highlightTimeoutSeconds = 0.0;
     };
 
-    class YORDLE_EXPORT HudInputBoxData : public bin_class { 
+    class YORDLE_EXPORT HudInputBoxData : public bin_class {
     public:
         explicit HudInputBoxData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9090,16 +9012,16 @@ namespace yordle::data::meta {
         }
 
         uint8_t inputTextLengthMax = 0;
-        float caretAlphaMax = 0.0;
-        float caretBlinkTime = 0.0;
-        float markedOffsetY = 0.0;
-        float markedLineSizePx = 0.0;
-        float selectedOffsetY = 0.0;
-        float selectedLineSizePx = 0.0;
-        float xbeabf2d8 = 0.0;
+        float caretAlphaMax        = 0.0;
+        float caretBlinkTime       = 0.0;
+        float markedOffsetY        = 0.0;
+        float markedLineSizePx     = 0.0;
+        float selectedOffsetY      = 0.0;
+        float selectedLineSizePx   = 0.0;
+        float xbeabf2d8            = 0.0;
     };
 
-    class YORDLE_EXPORT HudHealthBarBurstData : public bin_class { 
+    class YORDLE_EXPORT HudHealthBarBurstData : public bin_class {
     public:
         explicit HudHealthBarBurstData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9107,21 +9029,21 @@ namespace yordle::data::meta {
             return type == 234651109 || bin_class::is_type(type);
         }
 
-        float burstTimeWindow = 0.0;
+        float burstTimeWindow     = 0.0;
         float burstTriggerPercent = 0.0;
         float flashTriggerPercent = 0.0;
-        float flashDuration = 0.0;
-        float shakeDuration = 0.0;
+        float flashDuration       = 0.0;
+        float shakeDuration       = 0.0;
         std::array<float, 2> shakeBox {};
         std::array<float, 2> shakeReferenceResolution {};
         float shakeTriggerPercent = 0.0;
-        float shakeFrequency = 0.0;
-        float fadeSpeed = 0.0;
-        float fadeAcceleration = 0.0;
-        float fadeHoldTime = 0.0;
+        float shakeFrequency      = 0.0;
+        float fadeSpeed           = 0.0;
+        float fadeAcceleration    = 0.0;
+        float fadeHoldTime        = 0.0;
     };
 
-    class YORDLE_EXPORT HudHealthBarFadeData : public bin_class { 
+    class YORDLE_EXPORT HudHealthBarFadeData : public bin_class {
     public:
         explicit HudHealthBarFadeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9129,12 +9051,12 @@ namespace yordle::data::meta {
             return type == 1035555423 || bin_class::is_type(type);
         }
 
-        float fadeSpeed = 0.0;
+        float fadeSpeed        = 0.0;
         float fadeAcceleration = 0.0;
-        float fadeHoldTime = 0.0;
+        float fadeHoldTime     = 0.0;
     };
 
-    class YORDLE_EXPORT HudHealthBarDefenseModifierData : public bin_class { 
+    class YORDLE_EXPORT HudHealthBarDefenseModifierData : public bin_class {
     public:
         explicit HudHealthBarDefenseModifierData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9142,13 +9064,13 @@ namespace yordle::data::meta {
             return type == 749793326 || bin_class::is_type(type);
         }
 
-        float defenseUpPercent = 0.0;
+        float defenseUpPercent     = 0.0;
         float defenseDownL1Percent = 0.0;
         float defenseDownL2Percent = 0.0;
         float defenseDownL3Percent = 0.0;
     };
 
-    class YORDLE_EXPORT HudHealthBarBurstHealData : public bin_class { 
+    class YORDLE_EXPORT HudHealthBarBurstHealData : public bin_class {
     public:
         explicit HudHealthBarBurstHealData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9156,12 +9078,12 @@ namespace yordle::data::meta {
             return type == 4246198531 || bin_class::is_type(type);
         }
 
-        float healTimeWindow = 0.0;
+        float healTimeWindow     = 0.0;
         float healTriggerPercent = 0.0;
-        float healFadeDuration = 0.0;
+        float healFadeDuration   = 0.0;
     };
 
-    class YORDLE_EXPORT HudHealthBarDefenseIconData : public bin_class { 
+    class YORDLE_EXPORT HudHealthBarDefenseIconData : public bin_class {
     public:
         explicit HudHealthBarDefenseIconData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9171,10 +9093,10 @@ namespace yordle::data::meta {
 
         float enlargeTime = 0.0;
         float enlargeSize = 0.0;
-        float settleTime = 0.0;
+        float settleTime  = 0.0;
     };
 
-    class YORDLE_EXPORT MicroTicksPerTickData : public bin_class { 
+    class YORDLE_EXPORT MicroTicksPerTickData : public bin_class {
     public:
         explicit MicroTicksPerTickData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9182,11 +9104,11 @@ namespace yordle::data::meta {
             return type == 105644319 || bin_class::is_type(type);
         }
 
-        float minHealth = 0.0;
+        float minHealth            = 0.0;
         uint32_t microTicksBetween = 0;
     };
 
-    class YORDLE_EXPORT HudHealthBarProgressiveTickData : public bin_class { 
+    class YORDLE_EXPORT HudHealthBarProgressiveTickData : public bin_class {
     public:
         explicit HudHealthBarProgressiveTickData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9198,7 +9120,7 @@ namespace yordle::data::meta {
         float healthPerTick = 0.0;
     };
 
-    class YORDLE_EXPORT HudHealthBarData : public bin_class { 
+    class YORDLE_EXPORT HudHealthBarData : public bin_class {
     public:
         explicit HudHealthBarData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9217,7 +9139,7 @@ namespace yordle::data::meta {
         float resurrectingAlpha = 0.0;
     };
 
-    class YORDLE_EXPORT HudSpellSlotResetFeedbackData : public bin_class { 
+    class YORDLE_EXPORT HudSpellSlotResetFeedbackData : public bin_class {
     public:
         explicit HudSpellSlotResetFeedbackData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9225,12 +9147,12 @@ namespace yordle::data::meta {
             return type == 1323252584 || bin_class::is_type(type);
         }
 
-        float spellResetFlashFadeDuration = 0.0;
+        float spellResetFlashFadeDuration      = 0.0;
         float spellResetFlashScaleDownDuration = 0.0;
-        float spellResetScaleMultiplier = 0.0;
+        float spellResetScaleMultiplier        = 0.0;
     };
 
-    class YORDLE_EXPORT HudLoadingScreenProgressBarData : public bin_class { 
+    class YORDLE_EXPORT HudLoadingScreenProgressBarData : public bin_class {
     public:
         explicit HudLoadingScreenProgressBarData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9244,7 +9166,7 @@ namespace yordle::data::meta {
         float xb550de8d = 0.0;
     };
 
-    class YORDLE_EXPORT HudLoadingScreenData : public bin_class { 
+    class YORDLE_EXPORT HudLoadingScreenData : public bin_class {
     public:
         explicit HudLoadingScreenData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9253,13 +9175,13 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::HudLoadingScreenProgressBarData> mProgressBarData {};
-        bool x9d17e9e3 = false;
-        float mLoadingSpinnerSpeed = 0.0;
+        bool x9d17e9e3                = false;
+        float mLoadingSpinnerSpeed    = 0.0;
         uint8_t mLoadingSpinnerFrames = 0;
-        uint8_t mLoadingSpinnerRows = 0;
+        uint8_t mLoadingSpinnerRows   = 0;
     };
 
-    class YORDLE_EXPORT HudStatPanelStatStoneData : public bin_class { 
+    class YORDLE_EXPORT HudStatPanelStatStoneData : public bin_class {
     public:
         explicit HudStatPanelStatStoneData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9267,8 +9189,8 @@ namespace yordle::data::meta {
             return type == 2341739189 || bin_class::is_type(type);
         }
 
-        float xca84776a = 0.0;
-        float xf675a6b7 = 0.0;
+        float xca84776a           = 0.0;
+        float xf675a6b7           = 0.0;
         float mAnimationDelayTime = 0.0;
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> x77d83159 {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> x4ae65dfa {};
@@ -9276,7 +9198,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mSlideTransitionOut {};
     };
 
-    class YORDLE_EXPORT HudStatStoneData : public bin_class { 
+    class YORDLE_EXPORT HudStatStoneData : public bin_class {
     public:
         explicit HudStatStoneData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9288,7 +9210,7 @@ namespace yordle::data::meta {
         std::string x3c8fa9e9 {};
     };
 
-    class YORDLE_EXPORT HudStatStoneDeathRecapData : public bin_class { 
+    class YORDLE_EXPORT HudStatStoneDeathRecapData : public bin_class {
     public:
         explicit HudStatStoneDeathRecapData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9303,7 +9225,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> DeathRecapTransitionOut {};
     };
 
-    class YORDLE_EXPORT HudStatStoneMilestoneData : public bin_class { 
+    class YORDLE_EXPORT HudStatStoneMilestoneData : public bin_class {
     public:
         explicit HudStatStoneMilestoneData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9315,20 +9237,20 @@ namespace yordle::data::meta {
         std::string xedf950c1 {};
         std::string x4f7fe3a3 {};
         std::string xbb713ae8 {};
-        float MilestoneDisplayTime = 0.0;
-        float xdd1c30ab = 0.0;
-        float MilestoneSelfIntroTime = 0.0;
+        float MilestoneDisplayTime    = 0.0;
+        float xdd1c30ab               = 0.0;
+        float MilestoneSelfIntroTime  = 0.0;
         float MilestoneOtherIntroTime = 0.0;
-        float PersonalBestIntroTime = 0.0;
-        float x39fecf93 = 0.0;
-        uint32_t xdb4c4cf = 0;
+        float PersonalBestIntroTime   = 0.0;
+        float x39fecf93               = 0.0;
+        uint32_t xdb4c4cf             = 0;
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> xa6d1b459 {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> MilestoneTransitionIn {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> MilestoneTransitionOut {};
         bool x4ea59d14 = false;
     };
 
-    class YORDLE_EXPORT HudEndOfGameData : public bin_class { 
+    class YORDLE_EXPORT HudEndOfGameData : public bin_class {
     public:
         explicit HudEndOfGameData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9340,7 +9262,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mDefeatTransitionIn {};
     };
 
-    class YORDLE_EXPORT HudMessageDisplayData : public bin_class { 
+    class YORDLE_EXPORT HudMessageDisplayData : public bin_class {
     public:
         explicit HudMessageDisplayData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9353,7 +9275,7 @@ namespace yordle::data::meta {
         uint32_t messageCount = 0;
     };
 
-    class YORDLE_EXPORT HudDamageDisplayData : public bin_class { 
+    class YORDLE_EXPORT HudDamageDisplayData : public bin_class {
     public:
         explicit HudDamageDisplayData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9364,7 +9286,7 @@ namespace yordle::data::meta {
         float xdfcea7db = 0.0;
     };
 
-    class YORDLE_EXPORT HudFightRecapUIData : public bin_class { 
+    class YORDLE_EXPORT HudFightRecapUIData : public bin_class {
     public:
         explicit HudFightRecapUIData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9378,7 +9300,7 @@ namespace yordle::data::meta {
         std::string mRuneDamageIconTextureName {};
     };
 
-    class YORDLE_EXPORT MinimapPingEffectDefinition : public bin_class { 
+    class YORDLE_EXPORT MinimapPingEffectDefinition : public bin_class {
     public:
         explicit MinimapPingEffectDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9386,18 +9308,18 @@ namespace yordle::data::meta {
             return type == 1803253536 || bin_class::is_type(type);
         }
 
-        uint32_t alphaStart = 0;
-        float alphaFadeSpeed = 0.0;
-        float scaleStart = 0.0;
-        float scaleSpeed = 0.0;
-        float startDelay = 0.0;
-        float life = 0.0;
+        uint32_t alphaStart    = 0;
+        float alphaFadeSpeed   = 0.0;
+        float scaleStart       = 0.0;
+        float scaleSpeed       = 0.0;
+        float startDelay       = 0.0;
+        float life             = 0.0;
         float onDeathFadeSpeed = 0.0;
-        uint32_t repeatCount = 0;
-        bool blendWithAlpha = false;
+        uint32_t repeatCount   = 0;
+        bool blendWithAlpha    = false;
     };
 
-    class YORDLE_EXPORT TextureAndColorData : public bin_class { 
+    class YORDLE_EXPORT TextureAndColorData : public bin_class {
     public:
         explicit TextureAndColorData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9411,7 +9333,7 @@ namespace yordle::data::meta {
         std::optional<std::array<uint8_t, 4>> colorblindColor {};
     };
 
-    class YORDLE_EXPORT MinimapPingEffectAndTextureData : public bin_class { 
+    class YORDLE_EXPORT MinimapPingEffectAndTextureData : public bin_class {
     public:
         explicit MinimapPingEffectAndTextureData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9426,7 +9348,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::TextureAndColorData> mChaos {};
     };
 
-    class YORDLE_EXPORT MinimapPingTypeContainer : public bin_class { 
+    class YORDLE_EXPORT MinimapPingTypeContainer : public bin_class {
     public:
         explicit MinimapPingTypeContainer(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9437,7 +9359,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::MinimapPingEffectAndTextureData>> pingEffectList {};
     };
 
-    class YORDLE_EXPORT MinimapPingData : public bin_class { 
+    class YORDLE_EXPORT MinimapPingData : public bin_class {
     public:
         explicit MinimapPingData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9449,27 +9371,25 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::MinimapPingTypeContainer>> mPings {};
     };
 
-    class YORDLE_EXPORT ISecondaryResourceDisplayData : public bin_class { 
+    class YORDLE_EXPORT ISecondaryResourceDisplayData : public bin_class {
     public:
         explicit ISecondaryResourceDisplayData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1239842284 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT SecondaryResourceDisplayFractional : public ISecondaryResourceDisplayData { 
+    class YORDLE_EXPORT SecondaryResourceDisplayFractional : public ISecondaryResourceDisplayData {
     public:
         explicit SecondaryResourceDisplayFractional(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2725259578 || ISecondaryResourceDisplayData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT LoadingScreenRankedProperties : public bin_class { 
+    class YORDLE_EXPORT LoadingScreenRankedProperties : public bin_class {
     public:
         explicit LoadingScreenRankedProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9481,7 +9401,7 @@ namespace yordle::data::meta {
         uint8_t mDivision = 0;
     };
 
-    class YORDLE_EXPORT LoadingScreenRankedData : public bin_class { 
+    class YORDLE_EXPORT LoadingScreenRankedData : public bin_class {
     public:
         explicit LoadingScreenRankedData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9492,7 +9412,7 @@ namespace yordle::data::meta {
         std::map<std::string, std::shared_ptr<yordle::data::meta::LoadingScreenRankedProperties>> mRankedData {};
     };
 
-    class YORDLE_EXPORT QualitySetting : public bin_class { 
+    class YORDLE_EXPORT QualitySetting : public bin_class {
     public:
         explicit QualitySetting(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9501,16 +9421,16 @@ namespace yordle::data::meta {
         }
 
         std::string mName {};
-        float x33eb38d = 0.0;
-        uint32_t mFrameCap = 0;
+        float x33eb38d               = 0.0;
+        uint32_t mFrameCap           = 0;
         uint32_t mEnvironmentQuality = 0;
-        uint32_t xa8d99737 = 0;
-        uint32_t mEffectsQuality = 0;
-        uint32_t mShadowQuality = 0;
-        bool mFxAa = false;
+        uint32_t xa8d99737           = 0;
+        uint32_t mEffectsQuality     = 0;
+        uint32_t mShadowQuality      = 0;
+        bool mFxAa                   = false;
     };
 
-    class YORDLE_EXPORT IOptionItem : public bin_class { 
+    class YORDLE_EXPORT IOptionItem : public bin_class {
     public:
         explicit IOptionItem(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9518,12 +9438,12 @@ namespace yordle::data::meta {
             return type == 2037513198 || bin_class::is_type(type);
         }
 
-        bool LiveUpdate = false;
+        bool LiveUpdate        = false;
         uint8_t ShowOnPlatform = 0;
         std::shared_ptr<yordle::data::meta::bin_class> Filter {};
     };
 
-    class YORDLE_EXPORT IOptionTemplate : public bin_class { 
+    class YORDLE_EXPORT IOptionTemplate : public bin_class {
     public:
         explicit IOptionTemplate(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9534,7 +9454,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash boundsElement = 0;
     };
 
-    class YORDLE_EXPORT OptionItemBorder : public IOptionItem { 
+    class YORDLE_EXPORT OptionItemBorder : public IOptionItem {
     public:
         explicit OptionItemBorder(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9546,7 +9466,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IOptionItem>> items {};
     };
 
-    class YORDLE_EXPORT OptionItemCheckbox : public IOptionItem { 
+    class YORDLE_EXPORT OptionItemCheckbox : public IOptionItem {
     public:
         explicit OptionItemCheckbox(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9554,14 +9474,14 @@ namespace yordle::data::meta {
             return type == 2624893466 || IOptionItem::is_type(type);
         }
 
-        uint16_t option = 0;
-        bool Negate = false;
+        uint16_t option                                     = 0;
+        bool Negate                                         = false;
         yordle::data::meta::bin_fnv_hash template_template_ = 0;
         std::string LabelTraKey {};
         std::string TooltipTraKey {};
     };
 
-    class YORDLE_EXPORT OptionItemColumns : public IOptionItem { 
+    class YORDLE_EXPORT OptionItemColumns : public IOptionItem {
     public:
         explicit OptionItemColumns(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9574,7 +9494,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IOptionItem>> itemsRight {};
     };
 
-    class YORDLE_EXPORT OptionItemDropdownItem : public bin_class { 
+    class YORDLE_EXPORT OptionItemDropdownItem : public bin_class {
     public:
         explicit OptionItemDropdownItem(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9586,7 +9506,7 @@ namespace yordle::data::meta {
         int32_t value = 0;
     };
 
-    class YORDLE_EXPORT OptionItemDropdown : public IOptionItem { 
+    class YORDLE_EXPORT OptionItemDropdown : public IOptionItem {
     public:
         explicit OptionItemDropdown(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9594,24 +9514,23 @@ namespace yordle::data::meta {
             return type == 2993708970 || IOptionItem::is_type(type);
         }
 
-        uint16_t option = 0;
+        uint16_t option                                     = 0;
         yordle::data::meta::bin_fnv_hash template_template_ = 0;
         std::string LabelTraKey {};
         std::string TooltipTraKey {};
         std::vector<std::shared_ptr<yordle::data::meta::OptionItemDropdownItem>> items {};
     };
 
-    class YORDLE_EXPORT IOptionItemFilter : public bin_class { 
+    class YORDLE_EXPORT IOptionItemFilter : public bin_class {
     public:
         explicit IOptionItemFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3415079880 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT xa6743a7 : public IOptionItemFilter { 
+    class YORDLE_EXPORT xa6743a7 : public IOptionItemFilter {
     public:
         explicit xa6743a7(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9622,7 +9541,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IOptionItemFilter>> Filters {};
     };
 
-    class YORDLE_EXPORT xcd391c99 : public IOptionItemFilter { 
+    class YORDLE_EXPORT xcd391c99 : public IOptionItemFilter {
     public:
         explicit xcd391c99(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9630,13 +9549,13 @@ namespace yordle::data::meta {
             return type == 3443072153 || IOptionItemFilter::is_type(type);
         }
 
-        bool ShowInLolGame = false;
+        bool ShowInLolGame   = false;
         bool ShowInLolReplay = false;
-        bool ShowInTftGame = false;
+        bool ShowInTftGame   = false;
         bool ShowInTftReplay = false;
     };
 
-    class YORDLE_EXPORT x3e59e2ca : public IOptionItemFilter { 
+    class YORDLE_EXPORT x3e59e2ca : public IOptionItemFilter {
     public:
         explicit x3e59e2ca(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9649,7 +9568,7 @@ namespace yordle::data::meta {
         bool x37985b59 = false;
     };
 
-    class YORDLE_EXPORT xd90e7018 : public IOptionItemFilter { 
+    class YORDLE_EXPORT xd90e7018 : public IOptionItemFilter {
     public:
         explicit xd90e7018(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9660,7 +9579,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash Map = 0;
     };
 
-    class YORDLE_EXPORT xee4d1304 : public IOptionItemFilter { 
+    class YORDLE_EXPORT xee4d1304 : public IOptionItemFilter {
     public:
         explicit xee4d1304(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9671,27 +9590,25 @@ namespace yordle::data::meta {
         std::string Mutator {};
     };
 
-    class YORDLE_EXPORT xf8026218 : public IOptionItemFilter { 
+    class YORDLE_EXPORT xf8026218 : public IOptionItemFilter {
     public:
         explicit xf8026218(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4160905752 || IOptionItemFilter::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT xa4941383 : public IOptionItemFilter { 
+    class YORDLE_EXPORT xa4941383 : public IOptionItemFilter {
     public:
         explicit xa4941383(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2761167747 || IOptionItemFilter::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT xc58386 : public IOptionItemFilter { 
+    class YORDLE_EXPORT xc58386 : public IOptionItemFilter {
     public:
         explicit xc58386(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9702,17 +9619,16 @@ namespace yordle::data::meta {
         bool xc77c4866 = false;
     };
 
-    class YORDLE_EXPORT xa6a54243 : public IOptionItemFilter { 
+    class YORDLE_EXPORT xa6a54243 : public IOptionItemFilter {
     public:
         explicit xa6a54243(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2795848259 || IOptionItemFilter::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT OptionItemGroup : public IOptionItem { 
+    class YORDLE_EXPORT OptionItemGroup : public IOptionItem {
     public:
         explicit OptionItemGroup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9726,7 +9642,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IOptionItem>> items {};
     };
 
-    class YORDLE_EXPORT OptionItemHotkeys : public IOptionItem { 
+    class YORDLE_EXPORT OptionItemHotkeys : public IOptionItem {
     public:
         explicit OptionItemHotkeys(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9737,7 +9653,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash template_template_ = 0;
     };
 
-    class YORDLE_EXPORT OptionItemLabel : public IOptionItem { 
+    class YORDLE_EXPORT OptionItemLabel : public IOptionItem {
     public:
         explicit OptionItemLabel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9750,17 +9666,16 @@ namespace yordle::data::meta {
         std::string Label2TraKey {};
     };
 
-    class YORDLE_EXPORT OptionItemResolutionDropdown : public OptionItemDropdown { 
+    class YORDLE_EXPORT OptionItemResolutionDropdown : public OptionItemDropdown {
     public:
         explicit OptionItemResolutionDropdown(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1259449812 || OptionItemDropdown::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT x55212361 : public bin_class { 
+    class YORDLE_EXPORT x55212361 : public bin_class {
     public:
         explicit x55212361(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9772,7 +9687,7 @@ namespace yordle::data::meta {
         std::string Column1LabelTraKey {};
     };
 
-    class YORDLE_EXPORT x518d5fc0 : public bin_class { 
+    class YORDLE_EXPORT x518d5fc0 : public bin_class {
     public:
         explicit x518d5fc0(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9784,7 +9699,7 @@ namespace yordle::data::meta {
         std::string EventName {};
     };
 
-    class YORDLE_EXPORT OptionItemSecondaryHotkeys1Column : public IOptionItem { 
+    class YORDLE_EXPORT OptionItemSecondaryHotkeys1Column : public IOptionItem {
     public:
         explicit OptionItemSecondaryHotkeys1Column(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9797,7 +9712,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::x518d5fc0>> Rows {};
     };
 
-    class YORDLE_EXPORT xea321356 : public bin_class { 
+    class YORDLE_EXPORT xea321356 : public bin_class {
     public:
         explicit xea321356(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9810,7 +9725,7 @@ namespace yordle::data::meta {
         std::string Column2LabelTraKey {};
     };
 
-    class YORDLE_EXPORT x430dd10d : public bin_class { 
+    class YORDLE_EXPORT x430dd10d : public bin_class {
     public:
         explicit x430dd10d(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9823,7 +9738,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IOptionItemFilter> Filter {};
     };
 
-    class YORDLE_EXPORT OptionItemSecondaryHotkeys2Column : public IOptionItem { 
+    class YORDLE_EXPORT OptionItemSecondaryHotkeys2Column : public IOptionItem {
     public:
         explicit OptionItemSecondaryHotkeys2Column(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9836,7 +9751,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::x430dd10d>> Rows {};
     };
 
-    class YORDLE_EXPORT OptionItemSlider : public IOptionItem { 
+    class YORDLE_EXPORT OptionItemSlider : public IOptionItem {
     public:
         explicit OptionItemSlider(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9849,7 +9764,7 @@ namespace yordle::data::meta {
         std::string TooltipTraKey {};
     };
 
-    class YORDLE_EXPORT OptionItemSliderFloat : public OptionItemSlider { 
+    class YORDLE_EXPORT OptionItemSliderFloat : public OptionItemSlider {
     public:
         explicit OptionItemSliderFloat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9857,22 +9772,21 @@ namespace yordle::data::meta {
             return type == 2846603080 || OptionItemSlider::is_type(type);
         }
 
-        uint16_t option = 0;
+        uint16_t option   = 0;
         bool UpdateOnDrag = false;
-        float scale = 0.0;
+        float scale       = 0.0;
     };
 
-    class YORDLE_EXPORT OptionItemSliderGraphicsQuality : public OptionItemSlider { 
+    class YORDLE_EXPORT OptionItemSliderGraphicsQuality : public OptionItemSlider {
     public:
         explicit OptionItemSliderGraphicsQuality(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1524323892 || OptionItemSlider::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT OptionItemSliderInt : public OptionItemSlider { 
+    class YORDLE_EXPORT OptionItemSliderInt : public OptionItemSlider {
     public:
         explicit OptionItemSliderInt(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9880,11 +9794,11 @@ namespace yordle::data::meta {
             return type == 641011299 || OptionItemSlider::is_type(type);
         }
 
-        uint16_t option = 0;
+        uint16_t option      = 0;
         uint32_t optionScale = 0;
     };
 
-    class YORDLE_EXPORT OptionItemSliderVolume : public OptionItemSliderFloat { 
+    class YORDLE_EXPORT OptionItemSliderVolume : public OptionItemSliderFloat {
     public:
         explicit OptionItemSliderVolume(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9893,20 +9807,19 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash MuteButtonTemplate = 0;
-        uint16_t MuteOption = 0;
+        uint16_t MuteOption                                 = 0;
     };
 
-    class YORDLE_EXPORT xf5324e2a : public OptionItemDropdown { 
+    class YORDLE_EXPORT xf5324e2a : public OptionItemDropdown {
     public:
         explicit xf5324e2a(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4113714730 || OptionItemDropdown::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT OptionsTab : public bin_class { 
+    class YORDLE_EXPORT OptionsTab : public bin_class {
     public:
         explicit OptionsTab(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9921,7 +9834,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IOptionItem>> items {};
     };
 
-    class YORDLE_EXPORT OptionTemplateBorder : public IOptionTemplate { 
+    class YORDLE_EXPORT OptionTemplateBorder : public IOptionTemplate {
     public:
         explicit OptionTemplateBorder(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9932,7 +9845,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash border = 0;
     };
 
-    class YORDLE_EXPORT OptionTemplateCheckbox : public IOptionTemplate { 
+    class YORDLE_EXPORT OptionTemplateCheckbox : public IOptionTemplate {
     public:
         explicit OptionTemplateCheckbox(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9941,10 +9854,10 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash buttonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash labelElement = 0;
+        yordle::data::meta::bin_fnv_hash labelElement     = 0;
     };
 
-    class YORDLE_EXPORT OptionTemplateDropdown : public IOptionTemplate { 
+    class YORDLE_EXPORT OptionTemplateDropdown : public IOptionTemplate {
     public:
         explicit OptionTemplateDropdown(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9952,11 +9865,11 @@ namespace yordle::data::meta {
             return type == 2120591967 || IOptionTemplate::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash labelElement = 0;
+        yordle::data::meta::bin_fnv_hash labelElement       = 0;
         yordle::data::meta::bin_fnv_hash ComboBoxDefinition = 0;
     };
 
-    class YORDLE_EXPORT OptionTemplateGroup : public IOptionTemplate { 
+    class YORDLE_EXPORT OptionTemplateGroup : public IOptionTemplate {
     public:
         explicit OptionTemplateGroup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9965,12 +9878,12 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash ExpandButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash labelElement = 0;
-        yordle::data::meta::bin_fnv_hash xe76606d7 = 0;
-        float x999669b3 = 0.0;
+        yordle::data::meta::bin_fnv_hash labelElement           = 0;
+        yordle::data::meta::bin_fnv_hash xe76606d7              = 0;
+        float x999669b3                                         = 0.0;
     };
 
-    class YORDLE_EXPORT OptionTemplateHotkeysLabel : public bin_class { 
+    class YORDLE_EXPORT OptionTemplateHotkeysLabel : public bin_class {
     public:
         explicit OptionTemplateHotkeysLabel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9981,7 +9894,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash Label = 0;
     };
 
-    class YORDLE_EXPORT OptionTemplateHotkeysKey : public bin_class { 
+    class YORDLE_EXPORT OptionTemplateHotkeysKey : public bin_class {
     public:
         explicit OptionTemplateHotkeysKey(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -9994,7 +9907,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash position = 0;
     };
 
-    class YORDLE_EXPORT OptionTemplateHotkeys : public IOptionTemplate { 
+    class YORDLE_EXPORT OptionTemplateHotkeys : public IOptionTemplate {
     public:
         explicit OptionTemplateHotkeys(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10002,18 +9915,18 @@ namespace yordle::data::meta {
             return type == 704287001 || IOptionTemplate::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash HotkeyButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash HotkeyButtonTextSmall = 0;
-        yordle::data::meta::bin_fnv_hash hotkeyModifierText = 0;
+        yordle::data::meta::bin_fnv_hash HotkeyButtonDefinition          = 0;
+        yordle::data::meta::bin_fnv_hash HotkeyButtonTextSmall           = 0;
+        yordle::data::meta::bin_fnv_hash hotkeyModifierText              = 0;
         yordle::data::meta::bin_fnv_hash HotkeyQuickCastButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash CastAllButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash x2f11f1cb = 0;
-        yordle::data::meta::bin_fnv_hash xa8e4f979 = 0;
+        yordle::data::meta::bin_fnv_hash CastAllButtonDefinition         = 0;
+        yordle::data::meta::bin_fnv_hash x2f11f1cb                       = 0;
+        yordle::data::meta::bin_fnv_hash xa8e4f979                       = 0;
         std::vector<std::shared_ptr<yordle::data::meta::OptionTemplateHotkeysLabel>> Labels {};
         std::vector<std::shared_ptr<yordle::data::meta::OptionTemplateHotkeysKey>> keys {};
     };
 
-    class YORDLE_EXPORT OptionTemplateLabel : public IOptionTemplate { 
+    class YORDLE_EXPORT OptionTemplateLabel : public IOptionTemplate {
     public:
         explicit OptionTemplateLabel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10025,7 +9938,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash Label2 = 0;
     };
 
-    class YORDLE_EXPORT OptionTemplateMuteButton : public IOptionTemplate { 
+    class YORDLE_EXPORT OptionTemplateMuteButton : public IOptionTemplate {
     public:
         explicit OptionTemplateMuteButton(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10036,7 +9949,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash buttonDefinition = 0;
     };
 
-    class YORDLE_EXPORT xceb70e5a : public bin_class { 
+    class YORDLE_EXPORT xceb70e5a : public bin_class {
     public:
         explicit xceb70e5a(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10045,10 +9958,10 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash backgroundElement = 0;
-        yordle::data::meta::bin_fnv_hash TextElement = 0;
+        yordle::data::meta::bin_fnv_hash TextElement       = 0;
     };
 
-    class YORDLE_EXPORT x354988a8 : public bin_class { 
+    class YORDLE_EXPORT x354988a8 : public bin_class {
     public:
         explicit x354988a8(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10059,7 +9972,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash buttonDefinition = 0;
     };
 
-    class YORDLE_EXPORT OptionTemplateSecondaryHotkeys1Column : public IOptionTemplate { 
+    class YORDLE_EXPORT OptionTemplateSecondaryHotkeys1Column : public IOptionTemplate {
     public:
         explicit OptionTemplateSecondaryHotkeys1Column(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10073,7 +9986,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::x354988a8> x545758a8 {};
     };
 
-    class YORDLE_EXPORT OptionTemplateSecondaryHotkeys2Column : public IOptionTemplate { 
+    class YORDLE_EXPORT OptionTemplateSecondaryHotkeys2Column : public IOptionTemplate {
     public:
         explicit OptionTemplateSecondaryHotkeys2Column(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10089,7 +10002,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::x354988a8> x57575d61 {};
     };
 
-    class YORDLE_EXPORT OptionTemplateSlider : public IOptionTemplate { 
+    class YORDLE_EXPORT OptionTemplateSlider : public IOptionTemplate {
     public:
         explicit OptionTemplateSlider(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10099,10 +10012,10 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash labelElement = 0;
         yordle::data::meta::bin_fnv_hash valueElement = 0;
-        yordle::data::meta::bin_fnv_hash x6a05258c = 0;
+        yordle::data::meta::bin_fnv_hash x6a05258c    = 0;
     };
 
-    class YORDLE_EXPORT NamedIconData : public bin_class { 
+    class YORDLE_EXPORT NamedIconData : public bin_class {
     public:
         explicit NamedIconData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10114,7 +10027,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash Icon = 0;
     };
 
-    class YORDLE_EXPORT ModeSelectButtonData : public bin_class { 
+    class YORDLE_EXPORT ModeSelectButtonData : public bin_class {
     public:
         explicit ModeSelectButtonData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10122,11 +10035,11 @@ namespace yordle::data::meta {
             return type == 3056512770 || bin_class::is_type(type);
         }
 
-        int64_t queueId = 0;
+        int64_t queueId                                   = 0;
         yordle::data::meta::bin_fnv_hash buttonDefinition = 0;
     };
 
-    class YORDLE_EXPORT ILoadoutFeatureDataBehavior : public bin_class { 
+    class YORDLE_EXPORT ILoadoutFeatureDataBehavior : public bin_class {
     public:
         explicit ILoadoutFeatureDataBehavior(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10135,14 +10048,14 @@ namespace yordle::data::meta {
         }
 
         std::string DisplayNameTraKey {};
-        uint32_t LoadoutType = 0;
-        yordle::data::meta::bin_fnv_hash x4e2c59d6 = 0;
+        uint32_t LoadoutType                              = 0;
+        yordle::data::meta::bin_fnv_hash x4e2c59d6        = 0;
         yordle::data::meta::bin_fnv_hash IllustrationIcon = 0;
-        yordle::data::meta::bin_fnv_hash Region = 0;
+        yordle::data::meta::bin_fnv_hash Region           = 0;
         yordle::data::meta::bin_fnv_hash buttonDefinition = 0;
     };
 
-    class YORDLE_EXPORT QueueDisplayData : public bin_class { 
+    class YORDLE_EXPORT QueueDisplayData : public bin_class {
     public:
         explicit QueueDisplayData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10150,15 +10063,15 @@ namespace yordle::data::meta {
             return type == 1532902214 || bin_class::is_type(type);
         }
 
-        int64_t queueId = 0;
-        yordle::data::meta::bin_fnv_hash xce96bffc = 0;
-        yordle::data::meta::bin_fnv_hash xf221c7d2 = 0;
-        yordle::data::meta::bin_fnv_hash x21eaf8b = 0;
+        int64_t queueId                                          = 0;
+        yordle::data::meta::bin_fnv_hash xce96bffc               = 0;
+        yordle::data::meta::bin_fnv_hash xf221c7d2               = 0;
+        yordle::data::meta::bin_fnv_hash x21eaf8b                = 0;
         yordle::data::meta::bin_fnv_hash IllustrationIconElement = 0;
         std::string DisplayNameTraKey {};
     };
 
-    class YORDLE_EXPORT xfbd72d16 : public bin_class { 
+    class YORDLE_EXPORT xfbd72d16 : public bin_class {
     public:
         explicit xfbd72d16(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10169,7 +10082,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::x4d31ed46> x4d31ed46 {1295117638u};
     };
 
-    class YORDLE_EXPORT StoreCategoryButtonDefinition : public bin_class { 
+    class YORDLE_EXPORT StoreCategoryButtonDefinition : public bin_class {
     public:
         explicit StoreCategoryButtonDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10177,11 +10090,11 @@ namespace yordle::data::meta {
             return type == 4069990911 || bin_class::is_type(type);
         }
 
-        uint32_t category = 0;
+        uint32_t category                                 = 0;
         yordle::data::meta::bin_fnv_hash buttonDefinition = 0;
     };
 
-    class YORDLE_EXPORT ILoadoutInfoPanel : public bin_class { 
+    class YORDLE_EXPORT ILoadoutInfoPanel : public bin_class {
     public:
         explicit ILoadoutInfoPanel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10192,7 +10105,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> ViewPaneDefinition {};
     };
 
-    class YORDLE_EXPORT NotificationSettings : public bin_class { 
+    class YORDLE_EXPORT NotificationSettings : public bin_class {
     public:
         explicit NotificationSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10204,7 +10117,7 @@ namespace yordle::data::meta {
         std::map<uint8_t, std::string> x89667868 {};
     };
 
-    class YORDLE_EXPORT QuestDefinition : public bin_class { 
+    class YORDLE_EXPORT QuestDefinition : public bin_class {
     public:
         explicit QuestDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10219,7 +10132,7 @@ namespace yordle::data::meta {
         std::string failedSoundPath {};
     };
 
-    class YORDLE_EXPORT x46533086 : public bin_class { 
+    class YORDLE_EXPORT x46533086 : public bin_class {
     public:
         explicit x46533086(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10235,7 +10148,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::QuestDefinition> scoreDisplayQuest {};
     };
 
-    class YORDLE_EXPORT GeneralSettingsGroup : public bin_class { 
+    class YORDLE_EXPORT GeneralSettingsGroup : public bin_class {
     public:
         explicit GeneralSettingsGroup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10243,12 +10156,12 @@ namespace yordle::data::meta {
             return type == 4110481513 || bin_class::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash PromoteAccountButton = 0;
-        yordle::data::meta::bin_fnv_hash SignOutButton = 0;
+        yordle::data::meta::bin_fnv_hash PromoteAccountButton  = 0;
+        yordle::data::meta::bin_fnv_hash SignOutButton         = 0;
         yordle::data::meta::bin_fnv_hash restorePurchaseButton = 0;
     };
 
-    class YORDLE_EXPORT SurrenderTypeData : public bin_class { 
+    class YORDLE_EXPORT SurrenderTypeData : public bin_class {
     public:
         explicit SurrenderTypeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10256,14 +10169,14 @@ namespace yordle::data::meta {
             return type == 740737797 || bin_class::is_type(type);
         }
 
-        float VoteTimeout = 0.0;
-        float windowLength = 0.0;
-        float startTime = 0.0;
+        float VoteTimeout        = 0.0;
+        float windowLength       = 0.0;
+        float startTime          = 0.0;
         float percentageRequired = 0.0;
-        float x3f72f07a = 0.0;
+        float x3f72f07a          = 0.0;
     };
 
-    class YORDLE_EXPORT SurrenderData : public bin_class { 
+    class YORDLE_EXPORT SurrenderData : public bin_class {
     public:
         explicit SurrenderData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10272,13 +10185,13 @@ namespace yordle::data::meta {
         }
 
         float x43f7599b = 0.0;
-        float xe98993c = 0.0;
+        float xe98993c  = 0.0;
         float xcc805103 = 0.0;
         float x3afeacf3 = 0.0;
         std::map<uint8_t, std::shared_ptr<yordle::data::meta::SurrenderTypeData>> mTypeData {};
     };
 
-    class YORDLE_EXPORT LoadScreenTip : public bin_class { 
+    class YORDLE_EXPORT LoadScreenTip : public bin_class {
     public:
         explicit LoadScreenTip(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10293,7 +10206,7 @@ namespace yordle::data::meta {
         std::string mLocalizationKey {};
     };
 
-    class YORDLE_EXPORT LoadScreenTipSet : public bin_class { 
+    class YORDLE_EXPORT LoadScreenTipSet : public bin_class {
     public:
         explicit LoadScreenTipSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10305,7 +10218,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::LoadScreenTip>> mTips {};
     };
 
-    class YORDLE_EXPORT LoadScreenTipConfiguration : public bin_class { 
+    class YORDLE_EXPORT LoadScreenTipConfiguration : public bin_class {
     public:
         explicit LoadScreenTipConfiguration(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10313,13 +10226,13 @@ namespace yordle::data::meta {
             return type == 3188575920 || bin_class::is_type(type);
         }
 
-        bool mShowInCustomGames = false;
-        bool mShowPBITipsOnLoadingScreen = false;
+        bool mShowInCustomGames              = false;
+        bool mShowPBITipsOnLoadingScreen     = false;
         float mPBITipDurationOnLoadingScreen = 0.0;
-        float mDurationInGame = 0.0;
+        float mDurationInGame                = 0.0;
     };
 
-    class YORDLE_EXPORT x9e5aed77 : public bin_class { 
+    class YORDLE_EXPORT x9e5aed77 : public bin_class {
     public:
         explicit x9e5aed77(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10335,7 +10248,7 @@ namespace yordle::data::meta {
         int32_t x47bdbbe9 = 0;
     };
 
-    class YORDLE_EXPORT ViewController : public bin_class { 
+    class YORDLE_EXPORT ViewController : public bin_class {
     public:
         explicit ViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10346,7 +10259,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::ViewController> xb79c86ae {3981513104u};
     };
 
-    class YORDLE_EXPORT VoiceChatViewController : public ViewController { 
+    class YORDLE_EXPORT VoiceChatViewController : public ViewController {
     public:
         explicit VoiceChatViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10355,16 +10268,16 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash PanelSceneHandle = 0;
-        yordle::data::meta::bin_fnv_hash Backdrop = 0;
-        yordle::data::meta::bin_fnv_hash errorText = 0;
-        yordle::data::meta::bin_fnv_hash x8c45eb46 = 0;
-        yordle::data::meta::bin_fnv_hash x788862bd = 0;
+        yordle::data::meta::bin_fnv_hash Backdrop         = 0;
+        yordle::data::meta::bin_fnv_hash errorText        = 0;
+        yordle::data::meta::bin_fnv_hash x8c45eb46        = 0;
+        yordle::data::meta::bin_fnv_hash x788862bd        = 0;
         std::shared_ptr<yordle::data::meta::bin_class> SelfSlot {};
         yordle::data::meta::bin_fnv_hash PlayerGrid = 0;
         std::shared_ptr<yordle::data::meta::bin_class> PlayerSlotData {};
     };
 
-    class YORDLE_EXPORT x86504cef : public bin_class { 
+    class YORDLE_EXPORT x86504cef : public bin_class {
     public:
         explicit x86504cef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10372,16 +10285,16 @@ namespace yordle::data::meta {
             return type == 2253409519 || bin_class::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash Group = 0;
-        yordle::data::meta::bin_fnv_hash Portrait = 0;
-        yordle::data::meta::bin_fnv_hash Halo = 0;
-        yordle::data::meta::bin_fnv_hash NameText = 0;
-        yordle::data::meta::bin_fnv_hash VolumeText = 0;
+        yordle::data::meta::bin_fnv_hash Group           = 0;
+        yordle::data::meta::bin_fnv_hash Portrait        = 0;
+        yordle::data::meta::bin_fnv_hash Halo            = 0;
+        yordle::data::meta::bin_fnv_hash NameText        = 0;
+        yordle::data::meta::bin_fnv_hash VolumeText      = 0;
         yordle::data::meta::bin_fnv_hash VolumeSliderBar = 0;
-        yordle::data::meta::bin_fnv_hash MuteButton = 0;
+        yordle::data::meta::bin_fnv_hash MuteButton      = 0;
     };
 
-    class YORDLE_EXPORT VoiceChatViewSelfSlot : public bin_class { 
+    class YORDLE_EXPORT VoiceChatViewSelfSlot : public bin_class {
     public:
         explicit VoiceChatViewSelfSlot(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10389,16 +10302,16 @@ namespace yordle::data::meta {
             return type == 2730017800 || bin_class::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash Portrait = 0;
-        yordle::data::meta::bin_fnv_hash Halo = 0;
-        yordle::data::meta::bin_fnv_hash NameText = 0;
-        yordle::data::meta::bin_fnv_hash MicVolumeText = 0;
+        yordle::data::meta::bin_fnv_hash Portrait           = 0;
+        yordle::data::meta::bin_fnv_hash Halo               = 0;
+        yordle::data::meta::bin_fnv_hash NameText           = 0;
+        yordle::data::meta::bin_fnv_hash MicVolumeText      = 0;
         yordle::data::meta::bin_fnv_hash MicVolumeSliderBar = 0;
-        yordle::data::meta::bin_fnv_hash MuteButton = 0;
-        yordle::data::meta::bin_fnv_hash ConnectionButton = 0;
+        yordle::data::meta::bin_fnv_hash MuteButton         = 0;
+        yordle::data::meta::bin_fnv_hash ConnectionButton   = 0;
     };
 
-    class YORDLE_EXPORT NeutralTimerSourceIconData : public bin_class { 
+    class YORDLE_EXPORT NeutralTimerSourceIconData : public bin_class {
     public:
         explicit NeutralTimerSourceIconData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10410,7 +10323,7 @@ namespace yordle::data::meta {
         std::string mIconName {};
     };
 
-    class YORDLE_EXPORT NeutralTimerData : public bin_class { 
+    class YORDLE_EXPORT NeutralTimerData : public bin_class {
     public:
         explicit NeutralTimerData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10427,7 +10340,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::NeutralTimerSourceIconData>> mSourceIcons {};
     };
 
-    class YORDLE_EXPORT NeutralTimers : public bin_class { 
+    class YORDLE_EXPORT NeutralTimers : public bin_class {
     public:
         explicit NeutralTimers(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10440,7 +10353,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::NeutralTimerData>> mTimers {};
     };
 
-    class YORDLE_EXPORT CommonUiTunables : public bin_class { 
+    class YORDLE_EXPORT CommonUiTunables : public bin_class {
     public:
         explicit CommonUiTunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10448,11 +10361,11 @@ namespace yordle::data::meta {
             return type == 2733481098 || bin_class::is_type(type);
         }
 
-        float x472b866d = 0.0;
+        float x472b866d   = 0.0;
         uint8_t xb3f4a621 = 0;
     };
 
-    class YORDLE_EXPORT ViewPaneDefinition : public bin_class { 
+    class YORDLE_EXPORT ViewPaneDefinition : public bin_class {
     public:
         explicit ViewPaneDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10460,16 +10373,16 @@ namespace yordle::data::meta {
             return type == 2330109623 || bin_class::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash x6a05258c = 0;
-        yordle::data::meta::bin_fnv_hash dragRegionElement = 0;
-        yordle::data::meta::bin_fnv_hash scrollRegionElement = 0;
+        yordle::data::meta::bin_fnv_hash x6a05258c            = 0;
+        yordle::data::meta::bin_fnv_hash dragRegionElement    = 0;
+        yordle::data::meta::bin_fnv_hash scrollRegionElement  = 0;
         yordle::data::meta::bin_fnv_hash scissorRegionElement = 0;
-        yordle::data::meta::bin_fnv_hash scrollingScene = 0;
-        uint8_t scrollDirection = 0;
-        yordle::data::meta::bin_fnv_hash objectPath = 0;
+        yordle::data::meta::bin_fnv_hash scrollingScene       = 0;
+        uint8_t scrollDirection                               = 0;
+        yordle::data::meta::bin_fnv_hash objectPath           = 0;
     };
 
-    class YORDLE_EXPORT UIButtonState : public bin_class { 
+    class YORDLE_EXPORT UIButtonState : public bin_class {
     public:
         explicit UIButtonState(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10481,7 +10394,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> TextElement {2622984950u};
     };
 
-    class YORDLE_EXPORT UIButtonDefinition : public bin_class { 
+    class YORDLE_EXPORT UIButtonDefinition : public bin_class {
     public:
         explicit UIButtonDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10504,7 +10417,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash objectPath = 0;
     };
 
-    class YORDLE_EXPORT UIButtonAdditionalState : public bin_class { 
+    class YORDLE_EXPORT UIButtonAdditionalState : public bin_class {
     public:
         explicit UIButtonAdditionalState(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10515,7 +10428,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> displayElements {};
     };
 
-    class YORDLE_EXPORT UIButtonAdditionalElements : public bin_class { 
+    class YORDLE_EXPORT UIButtonAdditionalElements : public bin_class {
     public:
         explicit UIButtonAdditionalElements(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10532,7 +10445,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::UIButtonAdditionalState> SelectedClickedStateElements {};
     };
 
-    class YORDLE_EXPORT x209b0277 : public bin_class { 
+    class YORDLE_EXPORT x209b0277 : public bin_class {
     public:
         explicit x209b0277(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10548,7 +10461,7 @@ namespace yordle::data::meta {
         std::string xb49ca145 {};
     };
 
-    class YORDLE_EXPORT xe262e6be : public bin_class { 
+    class YORDLE_EXPORT xe262e6be : public bin_class {
     public:
         explicit xe262e6be(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10559,7 +10472,7 @@ namespace yordle::data::meta {
         std::string OnSelectionEvent {};
     };
 
-    class YORDLE_EXPORT UiComboBoxDefinition : public bin_class { 
+    class YORDLE_EXPORT UiComboBoxDefinition : public bin_class {
     public:
         explicit UiComboBoxDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10578,7 +10491,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash objectPath = 0;
     };
 
-    class YORDLE_EXPORT x2da50c9f : public bin_class { 
+    class YORDLE_EXPORT x2da50c9f : public bin_class {
     public:
         explicit x2da50c9f(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10591,7 +10504,7 @@ namespace yordle::data::meta {
         std::string x73dbef7a {};
     };
 
-    class YORDLE_EXPORT xf2cfc48c : public bin_class { 
+    class YORDLE_EXPORT xf2cfc48c : public bin_class {
     public:
         explicit xf2cfc48c(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10604,7 +10517,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> sliderIcon {1005588128u};
     };
 
-    class YORDLE_EXPORT x9d8138a6 : public bin_class { 
+    class YORDLE_EXPORT x9d8138a6 : public bin_class {
     public:
         explicit x9d8138a6(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10623,7 +10536,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash objectPath = 0;
     };
 
-    class YORDLE_EXPORT xd149dd3f : public bin_class { 
+    class YORDLE_EXPORT xd149dd3f : public bin_class {
     public:
         explicit xd149dd3f(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10632,10 +10545,10 @@ namespace yordle::data::meta {
         }
 
         int32_t FromSlotId = 0;
-        int32_t ToSlotId = 0;
+        int32_t ToSlotId   = 0;
     };
 
-    class YORDLE_EXPORT xb35ad9d8 : public bin_class { 
+    class YORDLE_EXPORT xb35ad9d8 : public bin_class {
     public:
         explicit xb35ad9d8(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10645,12 +10558,12 @@ namespace yordle::data::meta {
 
         std::vector<yordle::data::meta::bin_fnv_hash> items {};
         uint32_t ItemsPerRow = 0;
-        bool xd8bea346 = false;
+        bool xd8bea346       = false;
         int32_t defaultIndex = 0;
         std::shared_ptr<yordle::data::meta::xd149dd3f> SwapData {};
     };
 
-    class YORDLE_EXPORT xd20000f6 : public bin_class { 
+    class YORDLE_EXPORT xd20000f6 : public bin_class {
     public:
         explicit xd20000f6(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10663,7 +10576,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::xb35ad9d8> x434952b4 {};
     };
 
-    class YORDLE_EXPORT xef05ba42 : public bin_class { 
+    class YORDLE_EXPORT xef05ba42 : public bin_class {
     public:
         explicit xef05ba42(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10696,7 +10609,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> MythicPurchasedVfx {3202633864u};
     };
 
-    class YORDLE_EXPORT x9205b275 : public xef05ba42 { 
+    class YORDLE_EXPORT x9205b275 : public xef05ba42 {
     public:
         explicit x9205b275(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10739,7 +10652,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> BundleItemFrameHoverIcon {3202633864u};
     };
 
-    class YORDLE_EXPORT x38691790 : public bin_class { 
+    class YORDLE_EXPORT x38691790 : public bin_class {
     public:
         explicit x38691790(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10751,7 +10664,7 @@ namespace yordle::data::meta {
         std::string groupName {};
     };
 
-    class YORDLE_EXPORT StatFilterDefinition : public bin_class { 
+    class YORDLE_EXPORT StatFilterDefinition : public bin_class {
     public:
         explicit StatFilterDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10763,7 +10676,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> MatchingCategories {};
     };
 
-    class YORDLE_EXPORT x77595aa9 : public bin_class { 
+    class YORDLE_EXPORT x77595aa9 : public bin_class {
     public:
         explicit x77595aa9(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10788,7 +10701,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::StatFilterDefinition> DisableStatFilters {};
     };
 
-    class YORDLE_EXPORT HudItemShopData : public bin_class { 
+    class YORDLE_EXPORT HudItemShopData : public bin_class {
     public:
         explicit HudItemShopData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10796,57 +10709,57 @@ namespace yordle::data::meta {
             return type == 2696268697 || bin_class::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash TabButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash CloseButtonDefinition = 0;
+        yordle::data::meta::bin_fnv_hash TabButtonDefinition      = 0;
+        yordle::data::meta::bin_fnv_hash CloseButtonDefinition    = 0;
         yordle::data::meta::bin_fnv_hash PurchaseButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash SellButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash UndoButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash x616b3a84 = 0;
-        yordle::data::meta::bin_fnv_hash x1ee195a0 = 0;
-        yordle::data::meta::bin_fnv_hash xdcf2bbe3 = 0;
-        yordle::data::meta::bin_fnv_hash xaa05f252 = 0;
-        yordle::data::meta::bin_fnv_hash x6d532c7a = 0;
-        yordle::data::meta::bin_fnv_hash x655c70a4 = 0;
-        yordle::data::meta::bin_fnv_hash xf1b77de6 = 0;
-        yordle::data::meta::bin_fnv_hash xd2202861 = 0;
-        yordle::data::meta::bin_fnv_hash x6ff1fabe = 0;
-        yordle::data::meta::bin_fnv_hash xa1f85097 = 0;
-        yordle::data::meta::bin_fnv_hash x77595aa9 = 0;
+        yordle::data::meta::bin_fnv_hash SellButtonDefinition     = 0;
+        yordle::data::meta::bin_fnv_hash UndoButtonDefinition     = 0;
+        yordle::data::meta::bin_fnv_hash x616b3a84                = 0;
+        yordle::data::meta::bin_fnv_hash x1ee195a0                = 0;
+        yordle::data::meta::bin_fnv_hash xdcf2bbe3                = 0;
+        yordle::data::meta::bin_fnv_hash xaa05f252                = 0;
+        yordle::data::meta::bin_fnv_hash x6d532c7a                = 0;
+        yordle::data::meta::bin_fnv_hash x655c70a4                = 0;
+        yordle::data::meta::bin_fnv_hash xf1b77de6                = 0;
+        yordle::data::meta::bin_fnv_hash xd2202861                = 0;
+        yordle::data::meta::bin_fnv_hash x6ff1fabe                = 0;
+        yordle::data::meta::bin_fnv_hash xa1f85097                = 0;
+        yordle::data::meta::bin_fnv_hash x77595aa9                = 0;
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> x71d17542 {};
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> xce14c25 {};
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> xb3e9d346 {};
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> SearchViewPaneDefinition {};
         yordle::data::meta::bin_fnv_hash AllItemsHeaderRegion = 0;
-        yordle::data::meta::bin_fnv_hash AllItemsItemRegion = 0;
+        yordle::data::meta::bin_fnv_hash AllItemsItemRegion   = 0;
         yordle::data::meta::bin_fnv_hash ItemSetsHeaderRegion = 0;
-        yordle::data::meta::bin_fnv_hash ItemSetsItemRegion = 0;
-        yordle::data::meta::bin_fnv_hash AllItemsHeaderText = 0;
-        yordle::data::meta::bin_fnv_hash xf481f566 = 0;
-        yordle::data::meta::bin_fnv_hash x4823f71d = 0;
+        yordle::data::meta::bin_fnv_hash ItemSetsItemRegion   = 0;
+        yordle::data::meta::bin_fnv_hash AllItemsHeaderText   = 0;
+        yordle::data::meta::bin_fnv_hash xf481f566            = 0;
+        yordle::data::meta::bin_fnv_hash x4823f71d            = 0;
         std::vector<std::shared_ptr<yordle::data::meta::x38691790>> x79a37750 {};
         std::shared_ptr<yordle::data::meta::xd20000f6> BootsPanelDefinition {};
         std::shared_ptr<yordle::data::meta::xd20000f6> ConsumablesPanelDefinition {};
         std::shared_ptr<yordle::data::meta::xd20000f6> InventoryPanelDefinition {};
         std::vector<yordle::data::meta::bin_fnv_hash> xe00be811 {};
-        float xf8310aa = 0.0;
-        yordle::data::meta::bin_fnv_hash BuildsIntoIconDefinition = 0;
-        yordle::data::meta::bin_fnv_hash BuildTreeIconDefinition = 0;
-        yordle::data::meta::bin_fnv_hash QuickBuyIconDefinition = 0;
-        yordle::data::meta::bin_fnv_hash InventoryIconDefinition = 0;
-        yordle::data::meta::bin_fnv_hash AllItemsIconDefinition = 0;
-        yordle::data::meta::bin_fnv_hash ItemSetsIconDefinition = 0;
-        yordle::data::meta::bin_fnv_hash SearchIconDefinition = 0;
-        yordle::data::meta::bin_fnv_hash x494a4b42 = 0;
+        float xf8310aa                                               = 0.0;
+        yordle::data::meta::bin_fnv_hash BuildsIntoIconDefinition    = 0;
+        yordle::data::meta::bin_fnv_hash BuildTreeIconDefinition     = 0;
+        yordle::data::meta::bin_fnv_hash QuickBuyIconDefinition      = 0;
+        yordle::data::meta::bin_fnv_hash InventoryIconDefinition     = 0;
+        yordle::data::meta::bin_fnv_hash AllItemsIconDefinition      = 0;
+        yordle::data::meta::bin_fnv_hash ItemSetsIconDefinition      = 0;
+        yordle::data::meta::bin_fnv_hash SearchIconDefinition        = 0;
+        yordle::data::meta::bin_fnv_hash x494a4b42                   = 0;
         yordle::data::meta::bin_fnv_hash CommonlyBuiltIconDefinition = 0;
-        yordle::data::meta::bin_fnv_hash x5ab9b659 = 0;
-        yordle::data::meta::bin_fnv_hash xf8e1342c = 0;
-        yordle::data::meta::bin_fnv_hash x69988db6 = 0;
-        yordle::data::meta::bin_fnv_hash ItemDetailsScene = 0;
-        yordle::data::meta::bin_fnv_hash xaa352f81 = 0;
+        yordle::data::meta::bin_fnv_hash x5ab9b659                   = 0;
+        yordle::data::meta::bin_fnv_hash xf8e1342c                   = 0;
+        yordle::data::meta::bin_fnv_hash x69988db6                   = 0;
+        yordle::data::meta::bin_fnv_hash ItemDetailsScene            = 0;
+        yordle::data::meta::bin_fnv_hash xaa352f81                   = 0;
         std::string xd6f8b1fa {};
     };
 
-    class YORDLE_EXPORT IHudLoadingScreenWidget : public bin_class { 
+    class YORDLE_EXPORT IHudLoadingScreenWidget : public bin_class {
     public:
         explicit IHudLoadingScreenWidget(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10857,7 +10770,7 @@ namespace yordle::data::meta {
         std::string mSceneName {};
     };
 
-    class YORDLE_EXPORT HudLoadingScreenCarouselData : public bin_class { 
+    class YORDLE_EXPORT HudLoadingScreenCarouselData : public bin_class {
     public:
         explicit HudLoadingScreenCarouselData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10869,7 +10782,7 @@ namespace yordle::data::meta {
         uint8_t mTipType = 0;
     };
 
-    class YORDLE_EXPORT HudLoadingScreenWidgetCarousel : public IHudLoadingScreenWidget { 
+    class YORDLE_EXPORT HudLoadingScreenWidgetCarousel : public IHudLoadingScreenWidget {
     public:
         explicit HudLoadingScreenWidgetCarousel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10881,17 +10794,16 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::HudLoadingScreenCarouselData> mCarouselData {470840304u};
     };
 
-    class YORDLE_EXPORT HudLoadingScreenWidgetClash : public IHudLoadingScreenWidget { 
+    class YORDLE_EXPORT HudLoadingScreenWidgetClash : public IHudLoadingScreenWidget {
     public:
         explicit HudLoadingScreenWidgetClash(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1107815263 || IHudLoadingScreenWidget::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT HudLoadingScreenWidgetPing : public IHudLoadingScreenWidget { 
+    class YORDLE_EXPORT HudLoadingScreenWidgetPing : public IHudLoadingScreenWidget {
     public:
         explicit HudLoadingScreenWidgetPing(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10899,14 +10811,14 @@ namespace yordle::data::meta {
             return type == 3421140098 || IHudLoadingScreenWidget::is_type(type);
         }
 
-        uint32_t mDebugPing = 0;
-        uint32_t mPingThresholdGreen = 0;
+        uint32_t mDebugPing           = 0;
+        uint32_t mPingThresholdGreen  = 0;
         uint32_t mPingThresholdYellow = 0;
         uint32_t mPingThresholdOrange = 0;
-        uint32_t mPingThresholdRed = 0;
+        uint32_t mPingThresholdRed    = 0;
     };
 
-    class YORDLE_EXPORT HudLoadingScreenWidgetPlayers : public IHudLoadingScreenWidget { 
+    class YORDLE_EXPORT HudLoadingScreenWidgetPlayers : public IHudLoadingScreenWidget {
     public:
         explicit HudLoadingScreenWidgetPlayers(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10917,27 +10829,25 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> mCardConfig {};
     };
 
-    class YORDLE_EXPORT HudLoadingScreenWidgetProgressBar : public IHudLoadingScreenWidget { 
+    class YORDLE_EXPORT HudLoadingScreenWidgetProgressBar : public IHudLoadingScreenWidget {
     public:
         explicit HudLoadingScreenWidgetProgressBar(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 428271402 || IHudLoadingScreenWidget::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT HudLoadingScreenWidgetTutorial : public IHudLoadingScreenWidget { 
+    class YORDLE_EXPORT HudLoadingScreenWidgetTutorial : public IHudLoadingScreenWidget {
     public:
         explicit HudLoadingScreenWidgetTutorial(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4123015996 || IHudLoadingScreenWidget::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT PlayerCardWidgetConfig : public bin_class { 
+    class YORDLE_EXPORT PlayerCardWidgetConfig : public bin_class {
     public:
         explicit PlayerCardWidgetConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10945,12 +10855,12 @@ namespace yordle::data::meta {
             return type == 1376467180 || bin_class::is_type(type);
         }
 
-        bool mTeamBased = false;
-        uint8_t mCardType = 0;
+        bool mTeamBased    = false;
+        uint8_t mCardType  = 0;
         uint32_t x7b9b52c3 = 0;
     };
 
-    class YORDLE_EXPORT x97599ad3 : public bin_class { 
+    class YORDLE_EXPORT x97599ad3 : public bin_class {
     public:
         explicit x97599ad3(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10962,7 +10872,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x299164e2 = 0;
     };
 
-    class YORDLE_EXPORT HudReplaySliderIconData : public bin_class { 
+    class YORDLE_EXPORT HudReplaySliderIconData : public bin_class {
     public:
         explicit HudReplaySliderIconData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10971,16 +10881,16 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mType = 0;
-        uint8_t mTooltipStyle = 0;
+        uint8_t mTooltipStyle                  = 0;
         std::string mElementName {};
-        float mElementSpacer = 0.0;
-        float mElementAlphaDefault = 0.0;
-        float mElementAlphaSelected = 0.0;
+        float mElementSpacer          = 0.0;
+        float mElementAlphaDefault    = 0.0;
+        float mElementAlphaSelected   = 0.0;
         float mElementAlphaUnselected = 0.0;
         std::vector<std::string> mTooltipIconNames {};
     };
 
-    class YORDLE_EXPORT HudReplaySliderData : public bin_class { 
+    class YORDLE_EXPORT HudReplaySliderData : public bin_class {
     public:
         explicit HudReplaySliderData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -10992,27 +10902,25 @@ namespace yordle::data::meta {
         float mTooltipEventWindow = 0.0;
     };
 
-    class YORDLE_EXPORT WadFileDescriptor : public bin_class { 
+    class YORDLE_EXPORT WadFileDescriptor : public bin_class {
     public:
         explicit WadFileDescriptor(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2741896024 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT BaseRigPoseModifierData : public bin_class { 
+    class YORDLE_EXPORT BaseRigPoseModifierData : public bin_class {
     public:
         explicit BaseRigPoseModifierData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3000850570 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ConformToPathRigPoseModifierData : public BaseRigPoseModifierData { 
+    class YORDLE_EXPORT ConformToPathRigPoseModifierData : public BaseRigPoseModifierData {
     public:
         explicit ConformToPathRigPoseModifierData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11021,45 +10929,42 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mStartingJointName = 0;
-        yordle::data::meta::bin_fnv_hash mEndingJointName = 0;
-        yordle::data::meta::bin_fnv_hash mDefaultMaskName = 0;
-        float mMaxBoneAngle = 0.0;
-        float mDampingValue = 0.0;
-        float mVelMultiplier = 0.0;
-        float mFrequency = 0.0;
+        yordle::data::meta::bin_fnv_hash mEndingJointName   = 0;
+        yordle::data::meta::bin_fnv_hash mDefaultMaskName   = 0;
+        float mMaxBoneAngle                                 = 0.0;
+        float mDampingValue                                 = 0.0;
+        float mVelMultiplier                                = 0.0;
+        float mFrequency                                    = 0.0;
     };
 
-    class YORDLE_EXPORT JointSnapRigPoseModifilerData : public BaseRigPoseModifierData { 
+    class YORDLE_EXPORT JointSnapRigPoseModifilerData : public BaseRigPoseModifierData {
     public:
         explicit JointSnapRigPoseModifilerData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3010810975 || BaseRigPoseModifierData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT LockRootOrientationRigPoseModifierData : public BaseRigPoseModifierData { 
+    class YORDLE_EXPORT LockRootOrientationRigPoseModifierData : public BaseRigPoseModifierData {
     public:
         explicit LockRootOrientationRigPoseModifierData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 847419898 || BaseRigPoseModifierData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT SyncedAnimationRigPoseModifierData : public BaseRigPoseModifierData { 
+    class YORDLE_EXPORT SyncedAnimationRigPoseModifierData : public BaseRigPoseModifierData {
     public:
         explicit SyncedAnimationRigPoseModifierData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1085106335 || BaseRigPoseModifierData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VertexAnimationRigPoseModifierData : public BaseRigPoseModifierData { 
+    class YORDLE_EXPORT VertexAnimationRigPoseModifierData : public BaseRigPoseModifierData {
     public:
         explicit VertexAnimationRigPoseModifierData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11067,13 +10972,13 @@ namespace yordle::data::meta {
             return type == 3410773763 || BaseRigPoseModifierData::is_type(type);
         }
 
-        float mMaxSpeed = 0.0;
+        float mMaxSpeed  = 0.0;
         float mStiffness = 0.0;
-        float mMass = 0.0;
-        float mDamping = 0.0;
+        float mMass      = 0.0;
+        float mDamping   = 0.0;
     };
 
-    class YORDLE_EXPORT AnimationGraphData : public bin_class { 
+    class YORDLE_EXPORT AnimationGraphData : public bin_class {
     public:
         explicit AnimationGraphData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11081,7 +10986,7 @@ namespace yordle::data::meta {
             return type == 4126869447 || bin_class::is_type(type);
         }
 
-        bool mUseCascadeBlend = false;
+        bool mUseCascadeBlend    = false;
         float mCascadeBlendValue = 0.0;
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::bin_class>> mClipDataMap {};
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::bin_class>> mMaskDataMap {};
@@ -11090,7 +10995,7 @@ namespace yordle::data::meta {
         std::map<uint64_t, std::shared_ptr<yordle::data::meta::bin_class>> mBlendDataTable {};
     };
 
-    class YORDLE_EXPORT AnimationResourceData : public bin_class { 
+    class YORDLE_EXPORT AnimationResourceData : public bin_class {
     public:
         explicit AnimationResourceData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11101,7 +11006,7 @@ namespace yordle::data::meta {
         std::string mAnimationFilePath {};
     };
 
-    class YORDLE_EXPORT MaskData : public bin_class { 
+    class YORDLE_EXPORT MaskData : public bin_class {
     public:
         explicit MaskData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11113,7 +11018,7 @@ namespace yordle::data::meta {
         std::vector<float> mWeightList {};
     };
 
-    class YORDLE_EXPORT Joint : public bin_class { 
+    class YORDLE_EXPORT Joint : public bin_class {
     public:
         explicit Joint(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11123,13 +11028,13 @@ namespace yordle::data::meta {
 
         uint16_t mIndex = 0;
         std::string mName {};
-        uint32_t mNameHash = 0;
-        uint16_t mFlags = 0;
-        float mRadius = 0.0;
+        uint32_t mNameHash   = 0;
+        uint16_t mFlags      = 0;
+        float mRadius        = 0.0;
         int16_t mParentIndex = 0;
     };
 
-    class YORDLE_EXPORT RigResource : public bin_class { 
+    class YORDLE_EXPORT RigResource : public bin_class {
     public:
         explicit RigResource(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11144,7 +11049,7 @@ namespace yordle::data::meta {
         std::vector<uint16_t> mShaderJointList {};
     };
 
-    class YORDLE_EXPORT SyncGroupData : public bin_class { 
+    class YORDLE_EXPORT SyncGroupData : public bin_class {
     public:
         explicit SyncGroupData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11155,7 +11060,7 @@ namespace yordle::data::meta {
         uint32_t mType = 0;
     };
 
-    class YORDLE_EXPORT TrackData : public bin_class { 
+    class YORDLE_EXPORT TrackData : public bin_class {
     public:
         explicit TrackData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11163,12 +11068,12 @@ namespace yordle::data::meta {
             return type == 2552904996 || bin_class::is_type(type);
         }
 
-        uint32_t mPriority = 0;
-        float mBlendWeight = 0.0;
+        uint32_t mPriority  = 0;
+        float mBlendWeight  = 0.0;
         uint32_t mBlendMode = 0;
     };
 
-    class YORDLE_EXPORT UpdaterData : public bin_class { 
+    class YORDLE_EXPORT UpdaterData : public bin_class {
     public:
         explicit UpdaterData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11176,12 +11081,12 @@ namespace yordle::data::meta {
             return type == 3953106978 || bin_class::is_type(type);
         }
 
-        uint32_t mInputType = 0;
+        uint32_t mInputType  = 0;
         uint32_t mOutputType = 0;
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mValueProcessorDataList {};
     };
 
-    class YORDLE_EXPORT UpdaterResourceData : public bin_class { 
+    class YORDLE_EXPORT UpdaterResourceData : public bin_class {
     public:
         explicit UpdaterResourceData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11192,7 +11097,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::UpdaterData>> mUpdaterDataList {};
     };
 
-    class YORDLE_EXPORT ConditionFloatPairData : public bin_class { 
+    class YORDLE_EXPORT ConditionFloatPairData : public bin_class {
     public:
         explicit ConditionFloatPairData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11201,12 +11106,12 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mClipName = 0;
-        float mValue = 0.0;
-        float mHoldAnimationToHigher = 0.0;
-        float mHoldAnimationToLower = 0.0;
+        float mValue                               = 0.0;
+        float mHoldAnimationToHigher               = 0.0;
+        float mHoldAnimationToLower                = 0.0;
     };
 
-    class YORDLE_EXPORT ParametricPairData : public bin_class { 
+    class YORDLE_EXPORT ParametricPairData : public bin_class {
     public:
         explicit ParametricPairData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11215,10 +11120,10 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mClipName = 0;
-        float mValue = 0.0;
+        float mValue                               = 0.0;
     };
 
-    class YORDLE_EXPORT SelectorPairData : public bin_class { 
+    class YORDLE_EXPORT SelectorPairData : public bin_class {
     public:
         explicit SelectorPairData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11227,20 +11132,19 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mClipName = 0;
-        float mProbability = 0.0;
+        float mProbability                         = 0.0;
     };
 
-    class YORDLE_EXPORT BaseBlendData : public bin_class { 
+    class YORDLE_EXPORT BaseBlendData : public bin_class {
     public:
         explicit BaseBlendData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3172694155 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT BaseEventData : public bin_class { 
+    class YORDLE_EXPORT BaseEventData : public bin_class {
     public:
         explicit BaseEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11249,13 +11153,13 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mName = 0;
-        float mStartFrame = 0.0;
-        float mEndFrame = 0.0;
-        bool mIsSelfOnly = false;
-        bool mFireIfAnimationEndsEarly = false;
+        float mStartFrame                      = 0.0;
+        float mEndFrame                        = 0.0;
+        bool mIsSelfOnly                       = false;
+        bool mFireIfAnimationEndsEarly         = false;
     };
 
-    class YORDLE_EXPORT ClipBaseData : public bin_class { 
+    class YORDLE_EXPORT ClipBaseData : public bin_class {
     public:
         explicit ClipBaseData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11267,7 +11171,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mAnimationInterruptionGroupNames {};
     };
 
-    class YORDLE_EXPORT ConformToPathEventData : public BaseEventData { 
+    class YORDLE_EXPORT ConformToPathEventData : public BaseEventData {
     public:
         explicit ConformToPathEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11276,11 +11180,11 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mMaskDataName = 0;
-        float mBlendInTime = 0.0;
-        float mBlendOutTime = 0.0;
+        float mBlendInTime                             = 0.0;
+        float mBlendOutTime                            = 0.0;
     };
 
-    class YORDLE_EXPORT EnableLookAtEventData : public BaseEventData { 
+    class YORDLE_EXPORT EnableLookAtEventData : public BaseEventData {
     public:
         explicit EnableLookAtEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11288,11 +11192,11 @@ namespace yordle::data::meta {
             return type == 126228632 || BaseEventData::is_type(type);
         }
 
-        bool mEnableLookAt = false;
+        bool mEnableLookAt      = false;
         bool mLockCurrentValues = false;
     };
 
-    class YORDLE_EXPORT FaceCameraEventData : public BaseEventData { 
+    class YORDLE_EXPORT FaceCameraEventData : public BaseEventData {
     public:
         explicit FaceCameraEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11300,12 +11204,12 @@ namespace yordle::data::meta {
             return type == 1991855177 || BaseEventData::is_type(type);
         }
 
-        float xb9cfc1ab = 0.0;
-        float BlendInTime = 0.0;
+        float xb9cfc1ab    = 0.0;
+        float BlendInTime  = 0.0;
         float BlendOutTime = 0.0;
     };
 
-    class YORDLE_EXPORT FadeEventData : public BaseEventData { 
+    class YORDLE_EXPORT FadeEventData : public BaseEventData {
     public:
         explicit FadeEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11313,11 +11217,11 @@ namespace yordle::data::meta {
             return type == 1280605585 || BaseEventData::is_type(type);
         }
 
-        float mTimeToFade = 0.0;
+        float mTimeToFade  = 0.0;
         float mTargetAlpha = 0.0;
     };
 
-    class YORDLE_EXPORT IdleParticlesVisibilityEventData : public BaseEventData { 
+    class YORDLE_EXPORT IdleParticlesVisibilityEventData : public BaseEventData {
     public:
         explicit IdleParticlesVisibilityEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11328,7 +11232,7 @@ namespace yordle::data::meta {
         bool mShow = false;
     };
 
-    class YORDLE_EXPORT JointSnapEventData : public BaseEventData { 
+    class YORDLE_EXPORT JointSnapEventData : public BaseEventData {
     public:
         explicit JointSnapEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11337,20 +11241,19 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mJointNameToOverride = 0;
-        yordle::data::meta::bin_fnv_hash mJointNameToSnapTo = 0;
+        yordle::data::meta::bin_fnv_hash mJointNameToSnapTo   = 0;
     };
 
-    class YORDLE_EXPORT LockRootOrientationEventData : public BaseEventData { 
+    class YORDLE_EXPORT LockRootOrientationEventData : public BaseEventData {
     public:
         explicit LockRootOrientationEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3239264152 || BaseEventData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ParticleEventDataPair : public bin_class { 
+    class YORDLE_EXPORT ParticleEventDataPair : public bin_class {
     public:
         explicit ParticleEventDataPair(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11358,11 +11261,11 @@ namespace yordle::data::meta {
             return type == 1574343673 || bin_class::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash mBoneName = 0;
+        yordle::data::meta::bin_fnv_hash mBoneName       = 0;
         yordle::data::meta::bin_fnv_hash mTargetBoneName = 0;
     };
 
-    class YORDLE_EXPORT ParticleEventData : public BaseEventData { 
+    class YORDLE_EXPORT ParticleEventData : public BaseEventData {
     public:
         explicit ParticleEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11370,18 +11273,18 @@ namespace yordle::data::meta {
             return type == 88265757 || BaseEventData::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash mEffectKey = 0;
+        yordle::data::meta::bin_fnv_hash mEffectKey      = 0;
         yordle::data::meta::bin_fnv_hash mEnemyEffectKey = 0;
         std::string mEffectName {};
         std::vector<std::shared_ptr<yordle::data::meta::ParticleEventDataPair>> mParticleEventDataPairList {};
-        bool mIsLoop = false;
-        bool mIsKillEvent = false;
-        bool mIsDetachable = false;
+        bool mIsLoop                      = false;
+        bool mIsKillEvent                 = false;
+        bool mIsDetachable                = false;
         bool mScalePlaySpeedWithAnimation = false;
-        bool xa3826203 = false;
+        bool xa3826203                    = false;
     };
 
-    class YORDLE_EXPORT SoundEventData : public BaseEventData { 
+    class YORDLE_EXPORT SoundEventData : public BaseEventData {
     public:
         explicit SoundEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11390,12 +11293,12 @@ namespace yordle::data::meta {
         }
 
         std::string mSoundName {};
-        bool mIsLoop = false;
+        bool mIsLoop      = false;
         bool mIsKillEvent = false;
-        bool x67227d6 = false;
+        bool x67227d6     = false;
     };
 
-    class YORDLE_EXPORT StopAnimationEventData : public BaseEventData { 
+    class YORDLE_EXPORT StopAnimationEventData : public BaseEventData {
     public:
         explicit StopAnimationEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11406,7 +11309,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mStopAnimationName = 0;
     };
 
-    class YORDLE_EXPORT SubmeshVisibilityEventData : public BaseEventData { 
+    class YORDLE_EXPORT SubmeshVisibilityEventData : public BaseEventData {
     public:
         explicit SubmeshVisibilityEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11418,7 +11321,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mHideSubmeshList {};
     };
 
-    class YORDLE_EXPORT SyncedAnimationEventData : public BaseEventData { 
+    class YORDLE_EXPORT SyncedAnimationEventData : public BaseEventData {
     public:
         explicit SyncedAnimationEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11429,7 +11332,7 @@ namespace yordle::data::meta {
         float mLerpTime = 0.0;
     };
 
-    class YORDLE_EXPORT TimeBlendData : public BaseBlendData { 
+    class YORDLE_EXPORT TimeBlendData : public BaseBlendData {
     public:
         explicit TimeBlendData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11440,7 +11343,7 @@ namespace yordle::data::meta {
         float mTime = 0.0;
     };
 
-    class YORDLE_EXPORT TransitionClipBlendData : public BaseBlendData { 
+    class YORDLE_EXPORT TransitionClipBlendData : public BaseBlendData {
     public:
         explicit TransitionClipBlendData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11451,17 +11354,16 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mClipName = 0;
     };
 
-    class YORDLE_EXPORT ValueProcessorData : public bin_class { 
+    class YORDLE_EXPORT ValueProcessorData : public bin_class {
     public:
         explicit ValueProcessorData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3487022 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT EngineFeatureToggles : public bin_class { 
+    class YORDLE_EXPORT EngineFeatureToggles : public bin_class {
     public:
         explicit EngineFeatureToggles(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11469,21 +11371,20 @@ namespace yordle::data::meta {
             return type == 2790085136 || bin_class::is_type(type);
         }
 
-        bool x5fe6e49 = false;
+        bool x5fe6e49  = false;
         bool xcdbbc6e1 = false;
     };
 
-    class YORDLE_EXPORT MapComponent : public bin_class { 
+    class YORDLE_EXPORT MapComponent : public bin_class {
     public:
         explicit MapComponent(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 72326764 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT MapContainer : public bin_class { 
+    class YORDLE_EXPORT MapContainer : public bin_class {
     public:
         explicit MapContainer(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11496,11 +11397,11 @@ namespace yordle::data::meta {
         std::array<float, 2> boundsMin {};
         std::array<float, 2> boundsMax {};
         float lowestWalkableHeight = 0.0;
-        float xf010defb = 0.0;
+        float xf010defb            = 0.0;
         std::map<yordle::data::meta::bin_fnv_hash, yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> chunks {};
     };
 
-    class YORDLE_EXPORT MapContainsOtherMaps : public MapComponent { 
+    class YORDLE_EXPORT MapContainsOtherMaps : public MapComponent {
     public:
         explicit MapContainsOtherMaps(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11511,7 +11412,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> MapContainerLocations {2992376383u};
     };
 
-    class YORDLE_EXPORT LaneData : public bin_class { 
+    class YORDLE_EXPORT LaneData : public bin_class {
     public:
         explicit LaneData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11523,7 +11424,7 @@ namespace yordle::data::meta {
         std::vector<std::string> mContainedRegions {};
     };
 
-    class YORDLE_EXPORT MapLaneComponent : public MapComponent { 
+    class YORDLE_EXPORT MapLaneComponent : public MapComponent {
     public:
         explicit MapLaneComponent(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11534,7 +11435,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::LaneData>> mLanes {};
     };
 
-    class YORDLE_EXPORT MapPathSegment : public bin_class { 
+    class YORDLE_EXPORT MapPathSegment : public bin_class {
     public:
         explicit MapPathSegment(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11545,17 +11446,16 @@ namespace yordle::data::meta {
         std::array<float, 3> EndPosition {};
     };
 
-    class YORDLE_EXPORT MapPathLineSegment : public MapPathSegment { 
+    class YORDLE_EXPORT MapPathLineSegment : public MapPathSegment {
     public:
         explicit MapPathLineSegment(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2574492633 || MapPathSegment::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT MapPathCurveSegment : public MapPathSegment { 
+    class YORDLE_EXPORT MapPathCurveSegment : public MapPathSegment {
     public:
         explicit MapPathCurveSegment(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11567,7 +11467,7 @@ namespace yordle::data::meta {
         std::array<float, 3> ControlPoint2 {};
     };
 
-    class YORDLE_EXPORT MapNavGrid : public MapComponent { 
+    class YORDLE_EXPORT MapNavGrid : public MapComponent {
     public:
         explicit MapNavGrid(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11578,7 +11478,7 @@ namespace yordle::data::meta {
         std::string NavGridPath {};
     };
 
-    class YORDLE_EXPORT MapPlaceable : public bin_class { 
+    class YORDLE_EXPORT MapPlaceable : public bin_class {
     public:
         explicit MapPlaceable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11591,17 +11491,16 @@ namespace yordle::data::meta {
         uint8_t mVisibilityFlags = 0;
     };
 
-    class YORDLE_EXPORT GenericMapPlaceable : public MapPlaceable { 
+    class YORDLE_EXPORT GenericMapPlaceable : public MapPlaceable {
     public:
         explicit GenericMapPlaceable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2347595275 || MapPlaceable::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT MapPlaceableContainer : public bin_class { 
+    class YORDLE_EXPORT MapPlaceableContainer : public bin_class {
     public:
         explicit MapPlaceableContainer(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11612,7 +11511,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::MapPlaceable>> items {};
     };
 
-    class YORDLE_EXPORT MapPrefabInstance : public MapPlaceable { 
+    class YORDLE_EXPORT MapPrefabInstance : public MapPlaceable {
     public:
         explicit MapPrefabInstance(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11623,7 +11522,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::MapPlaceableContainer> prefabDefinition {2992376383u};
     };
 
-    class YORDLE_EXPORT MapThemeMusic : public MapComponent { 
+    class YORDLE_EXPORT MapThemeMusic : public MapComponent {
     public:
         explicit MapThemeMusic(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11635,7 +11534,7 @@ namespace yordle::data::meta {
         std::string ThemeMusicTransitionEvent {};
     };
 
-    class YORDLE_EXPORT RegionsThatAllowContent : public bin_class { 
+    class YORDLE_EXPORT RegionsThatAllowContent : public bin_class {
     public:
         explicit RegionsThatAllowContent(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11646,7 +11545,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mRegionList {};
     };
 
-    class YORDLE_EXPORT RegionSettings : public bin_class { 
+    class YORDLE_EXPORT RegionSettings : public bin_class {
     public:
         explicit RegionSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11657,7 +11556,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::RegionsThatAllowContent>> mContentTypeAllowedSettings {};
     };
 
-    class YORDLE_EXPORT FontLocaleType : public bin_class { 
+    class YORDLE_EXPORT FontLocaleType : public bin_class {
     public:
         explicit FontLocaleType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11671,7 +11570,7 @@ namespace yordle::data::meta {
         std::string FontFilePathItalics {};
     };
 
-    class YORDLE_EXPORT FontResolution : public bin_class { 
+    class YORDLE_EXPORT FontResolution : public bin_class {
     public:
         explicit FontResolution(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11680,13 +11579,13 @@ namespace yordle::data::meta {
         }
 
         uint32_t screenHeight = 0;
-        uint32_t fontSize = 0;
-        uint32_t outlineSize = 0;
-        int32_t shadowDepthX = 0;
-        int32_t shadowDepthY = 0;
+        uint32_t fontSize     = 0;
+        uint32_t outlineSize  = 0;
+        int32_t shadowDepthX  = 0;
+        int32_t shadowDepthY  = 0;
     };
 
-    class YORDLE_EXPORT FontLocaleResolutions : public bin_class { 
+    class YORDLE_EXPORT FontLocaleResolutions : public bin_class {
     public:
         explicit FontLocaleResolutions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11698,7 +11597,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::FontResolution>> resolutions {};
     };
 
-    class YORDLE_EXPORT FontType : public bin_class { 
+    class YORDLE_EXPORT FontType : public bin_class {
     public:
         explicit FontType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11709,7 +11608,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::FontLocaleType>> localeTypes {};
     };
 
-    class YORDLE_EXPORT FontResolutionData : public bin_class { 
+    class YORDLE_EXPORT FontResolutionData : public bin_class {
     public:
         explicit FontResolutionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11721,7 +11620,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::FontLocaleResolutions>> localeResolutions {};
     };
 
-    class YORDLE_EXPORT GameFontDescription : public bin_class { 
+    class YORDLE_EXPORT GameFontDescription : public bin_class {
     public:
         explicit GameFontDescription(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11745,7 +11644,7 @@ namespace yordle::data::meta {
         std::string fillTextureName {};
     };
 
-    class YORDLE_EXPORT CSSStyle : public bin_class { 
+    class YORDLE_EXPORT CSSStyle : public bin_class {
     public:
         explicit CSSStyle(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11759,7 +11658,7 @@ namespace yordle::data::meta {
         std::optional<bool> underline {};
     };
 
-    class YORDLE_EXPORT CSSIcon : public bin_class { 
+    class YORDLE_EXPORT CSSIcon : public bin_class {
     public:
         explicit CSSIcon(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11772,7 +11671,7 @@ namespace yordle::data::meta {
         float x81e208ef = 0.0;
     };
 
-    class YORDLE_EXPORT CSSSheet : public bin_class { 
+    class YORDLE_EXPORT CSSSheet : public bin_class {
     public:
         explicit CSSSheet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11785,7 +11684,7 @@ namespace yordle::data::meta {
         std::map<std::string, std::shared_ptr<yordle::data::meta::CSSIcon>> icons {};
     };
 
-    class YORDLE_EXPORT TooltipFormat : public bin_class { 
+    class YORDLE_EXPORT TooltipFormat : public bin_class {
     public:
         explicit TooltipFormat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11806,7 +11705,7 @@ namespace yordle::data::meta {
         std::map<std::string, std::string> mOutputStrings {};
     };
 
-    class YORDLE_EXPORT TooltipInstanceListElement : public bin_class { 
+    class YORDLE_EXPORT TooltipInstanceListElement : public bin_class {
     public:
         explicit TooltipInstanceListElement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11816,12 +11715,12 @@ namespace yordle::data::meta {
 
         std::string type {};
         int32_t typeIndex = 0;
-        float multiplier = 0.0;
+        float multiplier  = 0.0;
         std::string nameOverride {};
         uint32_t Style = 0;
     };
 
-    class YORDLE_EXPORT TooltipInstanceList : public bin_class { 
+    class YORDLE_EXPORT TooltipInstanceList : public bin_class {
     public:
         explicit TooltipInstanceList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11833,7 +11732,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::TooltipInstanceListElement>> elements {};
     };
 
-    class YORDLE_EXPORT TooltipInstance : public bin_class { 
+    class YORDLE_EXPORT TooltipInstance : public bin_class {
     public:
         explicit TooltipInstance(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11847,7 +11746,7 @@ namespace yordle::data::meta {
         std::map<std::string, std::shared_ptr<yordle::data::meta::TooltipInstanceList>> mLists {};
     };
 
-    class YORDLE_EXPORT ValueFloat : public bin_class { 
+    class YORDLE_EXPORT ValueFloat : public bin_class {
     public:
         explicit ValueFloat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11859,17 +11758,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> dynamics {};
     };
 
-    class YORDLE_EXPORT IntegratedValueFloat : public ValueFloat { 
+    class YORDLE_EXPORT IntegratedValueFloat : public ValueFloat {
     public:
         explicit IntegratedValueFloat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3515916773 || ValueFloat::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ValueVector2 : public bin_class { 
+    class YORDLE_EXPORT ValueVector2 : public bin_class {
     public:
         explicit ValueVector2(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11881,17 +11779,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> dynamics {};
     };
 
-    class YORDLE_EXPORT IntegratedValueVector2 : public ValueVector2 { 
+    class YORDLE_EXPORT IntegratedValueVector2 : public ValueVector2 {
     public:
         explicit IntegratedValueVector2(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1808563568 || ValueVector2::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ValueVector3 : public bin_class { 
+    class YORDLE_EXPORT ValueVector3 : public bin_class {
     public:
         explicit ValueVector3(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11903,17 +11800,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> dynamics {};
     };
 
-    class YORDLE_EXPORT IntegratedValueVector3 : public ValueVector3 { 
+    class YORDLE_EXPORT IntegratedValueVector3 : public ValueVector3 {
     public:
         explicit IntegratedValueVector3(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1825341187 || ValueVector3::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ValueColor : public bin_class { 
+    class YORDLE_EXPORT ValueColor : public bin_class {
     public:
         explicit ValueColor(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11925,7 +11821,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> dynamics {};
     };
 
-    class YORDLE_EXPORT VfxAnimatedFloatVariableData : public bin_class { 
+    class YORDLE_EXPORT VfxAnimatedFloatVariableData : public bin_class {
     public:
         explicit VfxAnimatedFloatVariableData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11938,7 +11834,7 @@ namespace yordle::data::meta {
         std::vector<float> values {};
     };
 
-    class YORDLE_EXPORT VfxAnimatedVector2fVariableData : public bin_class { 
+    class YORDLE_EXPORT VfxAnimatedVector2fVariableData : public bin_class {
     public:
         explicit VfxAnimatedVector2fVariableData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11951,7 +11847,7 @@ namespace yordle::data::meta {
         std::vector<std::array<float, 2>> values {};
     };
 
-    class YORDLE_EXPORT VfxAnimatedVector3fVariableData : public bin_class { 
+    class YORDLE_EXPORT VfxAnimatedVector3fVariableData : public bin_class {
     public:
         explicit VfxAnimatedVector3fVariableData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11964,7 +11860,7 @@ namespace yordle::data::meta {
         std::vector<std::array<float, 3>> values {};
     };
 
-    class YORDLE_EXPORT VfxAnimatedColorVariableData : public bin_class { 
+    class YORDLE_EXPORT VfxAnimatedColorVariableData : public bin_class {
     public:
         explicit VfxAnimatedColorVariableData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11977,7 +11873,7 @@ namespace yordle::data::meta {
         std::vector<std::array<float, 4>> values {};
     };
 
-    class YORDLE_EXPORT VfxSoftParticleDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxSoftParticleDefinitionData : public bin_class {
     public:
         explicit VfxSoftParticleDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -11985,13 +11881,13 @@ namespace yordle::data::meta {
             return type == 497696688 || bin_class::is_type(type);
         }
 
-        float beginIn = 0.0;
+        float beginIn  = 0.0;
         float beginOut = 0.0;
-        float deltaIn = 0.0;
+        float deltaIn  = 0.0;
         float deltaOut = 0.0;
     };
 
-    class YORDLE_EXPORT FlexValueVector3 : public bin_class { 
+    class YORDLE_EXPORT FlexValueVector3 : public bin_class {
     public:
         explicit FlexValueVector3(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12003,7 +11899,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ValueVector3> mValue {};
     };
 
-    class YORDLE_EXPORT FlexValueVector2 : public bin_class { 
+    class YORDLE_EXPORT FlexValueVector2 : public bin_class {
     public:
         explicit FlexValueVector2(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12015,7 +11911,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ValueVector2> mValue {};
     };
 
-    class YORDLE_EXPORT FlexValueFloat : public bin_class { 
+    class YORDLE_EXPORT FlexValueFloat : public bin_class {
     public:
         explicit FlexValueFloat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12027,7 +11923,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ValueFloat> mValue {};
     };
 
-    class YORDLE_EXPORT FlexTypeFloat : public bin_class { 
+    class YORDLE_EXPORT FlexTypeFloat : public bin_class {
     public:
         explicit FlexTypeFloat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12036,10 +11932,10 @@ namespace yordle::data::meta {
         }
 
         uint32_t mFlexID = 0;
-        float mValue = 0.0;
+        float mValue     = 0.0;
     };
 
-    class YORDLE_EXPORT VfxFieldAccelerationDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxFieldAccelerationDefinitionData : public bin_class {
     public:
         explicit VfxFieldAccelerationDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12051,7 +11947,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ValueVector3> acceleration {};
     };
 
-    class YORDLE_EXPORT VfxFieldAttractionDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxFieldAttractionDefinitionData : public bin_class {
     public:
         explicit VfxFieldAttractionDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12064,7 +11960,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ValueFloat> acceleration {};
     };
 
-    class YORDLE_EXPORT VfxFieldCollectionDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxFieldCollectionDefinitionData : public bin_class {
     public:
         explicit VfxFieldCollectionDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12079,7 +11975,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> fieldOrbitalDefinitions {};
     };
 
-    class YORDLE_EXPORT VfxFieldDragDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxFieldDragDefinitionData : public bin_class {
     public:
         explicit VfxFieldDragDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12092,7 +11988,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ValueFloat> strength {};
     };
 
-    class YORDLE_EXPORT VfxFieldNoiseDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxFieldNoiseDefinitionData : public bin_class {
     public:
         explicit VfxFieldNoiseDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12107,7 +12003,7 @@ namespace yordle::data::meta {
         std::array<float, 3> axisFraction {};
     };
 
-    class YORDLE_EXPORT VfxFieldOrbitalDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxFieldOrbitalDefinitionData : public bin_class {
     public:
         explicit VfxFieldOrbitalDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12119,17 +12015,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ValueVector3> direction {};
     };
 
-    class YORDLE_EXPORT IVfxMaterialDriver : public bin_class { 
+    class YORDLE_EXPORT IVfxMaterialDriver : public bin_class {
     public:
         explicit IVfxMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 37724083 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VfxMaterialOverrideDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxMaterialOverrideDefinitionData : public bin_class {
     public:
         explicit VfxMaterialOverrideDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12143,12 +12038,12 @@ namespace yordle::data::meta {
         std::string baseTexture {};
         std::string glossTexture {};
         std::string transitionTexture {};
-        float transitionSample = 0.0;
+        float transitionSample    = 0.0;
         uint32_t transitionSource = 0;
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> material {3975636772u};
     };
 
-    class YORDLE_EXPORT VfxProbabilityTableData : public bin_class { 
+    class YORDLE_EXPORT VfxProbabilityTableData : public bin_class {
     public:
         explicit VfxProbabilityTableData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12161,7 +12056,7 @@ namespace yordle::data::meta {
         float singleValue = 0.0;
     };
 
-    class YORDLE_EXPORT VfxMigrationResources : public bin_class { 
+    class YORDLE_EXPORT VfxMigrationResources : public bin_class {
     public:
         explicit VfxMigrationResources(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12172,7 +12067,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> resourceMap {};
     };
 
-    class YORDLE_EXPORT VfxAssetRemap : public bin_class { 
+    class YORDLE_EXPORT VfxAssetRemap : public bin_class {
     public:
         explicit VfxAssetRemap(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12180,12 +12075,12 @@ namespace yordle::data::meta {
             return type == 4129808802 || bin_class::is_type(type);
         }
 
-        uint32_t type = 0;
+        uint32_t type                             = 0;
         yordle::data::meta::bin_fnv_hash oldAsset = 0;
         std::string newAsset {};
     };
 
-    class YORDLE_EXPORT VfxColorOverLifeMaterialDriver : public IVfxMaterialDriver { 
+    class YORDLE_EXPORT VfxColorOverLifeMaterialDriver : public IVfxMaterialDriver {
     public:
         explicit VfxColorOverLifeMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12197,7 +12092,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VfxAnimatedColorVariableData> colors {};
     };
 
-    class YORDLE_EXPORT VfxShape : public bin_class { 
+    class YORDLE_EXPORT VfxShape : public bin_class {
     public:
         explicit VfxShape(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12211,7 +12106,7 @@ namespace yordle::data::meta {
         std::vector<std::array<float, 3>> emitRotationAxes {};
     };
 
-    class YORDLE_EXPORT VfxEmitterDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxEmitterDefinitionData : public bin_class {
     public:
         explicit VfxEmitterDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12224,7 +12119,7 @@ namespace yordle::data::meta {
         std::string voiceOverOnCreateName {};
         std::string voiceOverPersistentName {};
         float timeBeforeFirstEmission = 0.0;
-        float xcef2ba70 = 0.0;
+        float xcef2ba70               = 0.0;
         std::shared_ptr<yordle::data::meta::ValueFloat> rate {};
         bool x538effa4 = false;
         std::shared_ptr<yordle::data::meta::ValueFloat> particleLifetime {};
@@ -12240,7 +12135,7 @@ namespace yordle::data::meta {
         std::optional<float> MaximumRateByVelocity {};
         std::array<float, 3> offsetLifetimeScaling {};
         uint8_t offsetLifeScalingSymmetryMode = 0;
-        bool doesLifetimeScale = false;
+        bool doesLifetimeScale                = false;
         std::shared_ptr<yordle::data::meta::FlexValueFloat> flexRate {};
         std::shared_ptr<yordle::data::meta::FlexValueFloat> flexParticleLifetime {};
         bool doesParticleLifetimeScale = false;
@@ -12248,14 +12143,14 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> childParticleSetDefinition {};
         std::shared_ptr<yordle::data::meta::VfxFieldCollectionDefinitionData> fieldCollectionDefinition {};
         std::string emitterName {};
-        bool disabled = false;
-        uint8_t importance = 0;
+        bool disabled                = false;
+        uint8_t importance           = 0;
         uint8_t colorblindVisibility = 0;
         std::vector<std::string> keywordsRequired {};
         std::vector<std::string> keywordsExcluded {};
         std::vector<std::string> keywordsIncluded {};
         uint8_t spectatorPolicy = 0;
-        uint8_t censorPolicy = 0;
+        uint8_t censorPolicy    = 0;
         std::array<float, 3> translationOverride {};
         std::array<float, 3> rotationOverride {};
         std::shared_ptr<yordle::data::meta::ValueVector3> birthOrbitalVelocity {};
@@ -12276,7 +12171,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VfxShape> shape {};
         std::shared_ptr<yordle::data::meta::ValueFloat> bindWeight {};
         float scaleEmitOffsetByBoundObjectSize = 0.0;
-        float emissionMeshScale = 0.0;
+        float emissionMeshScale                = 0.0;
         std::string emissionMeshName {};
         float scaleEmitOffsetByBoundObjectHeight = 0.0;
         float scaleEmitOffsetByBoundObjectRadius = 0.0;
@@ -12293,8 +12188,8 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ValueColor> color {};
         bool useLingerColor = false;
         std::shared_ptr<yordle::data::meta::ValueColor> lingerColor {};
-        int16_t pass = 0;
-        uint8_t meshRenderFlags = 0;
+        int16_t pass             = 0;
+        uint8_t meshRenderFlags  = 0;
         uint8_t colorLookUpTypeX = 0;
         uint8_t colorLookUpTypeY = 0;
         std::array<float, 2> colorLookUpScales {};
@@ -12309,35 +12204,35 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> reflectionDefinition {};
         std::shared_ptr<yordle::data::meta::bin_class> distortionDefinition {};
         bool isTexturePixelated = false;
-        float uvParallaxScale = 0.0;
+        float uvParallaxScale   = 0.0;
         std::array<float, 2> depthBiasFactors {};
-        bool disableBackfaceCull = false;
-        uint8_t miscRenderFlags = 0;
-        uint8_t stencilMode = 0;
-        uint8_t stencilRef = 0;
-        bool uvScrollAlphaMult = false;
-        bool particleIsLocalOrientation = false;
-        bool isDirectionOriented = false;
-        bool isUniformScale = false;
-        bool hasPostRotateOrientation = false;
-        bool isRandomStartFrame = false;
-        bool isRandomStartFrameMult = false;
-        bool doesCastShadow = false;
-        bool isRotationEnabled = false;
-        bool uvScrollClamp = false;
-        bool uvScrollClampMult = false;
-        bool isFollowingTerrain = false;
-        bool isGroundLayer = false;
+        bool disableBackfaceCull           = false;
+        uint8_t miscRenderFlags            = 0;
+        uint8_t stencilMode                = 0;
+        uint8_t stencilRef                 = 0;
+        bool uvScrollAlphaMult             = false;
+        bool particleIsLocalOrientation    = false;
+        bool isDirectionOriented           = false;
+        bool isUniformScale                = false;
+        bool hasPostRotateOrientation      = false;
+        bool isRandomStartFrame            = false;
+        bool isRandomStartFrameMult        = false;
+        bool doesCastShadow                = false;
+        bool isRotationEnabled             = false;
+        bool uvScrollClamp                 = false;
+        bool uvScrollClampMult             = false;
+        bool isFollowingTerrain            = false;
+        bool isGroundLayer                 = false;
         bool useEmissionMeshNormalForBirth = false;
-        bool useNavmeshMask = false;
-        bool x676949a1 = false;
-        bool xbd9b83c7 = false;
+        bool useNavmeshMask                = false;
+        bool x676949a1                     = false;
+        bool xbd9b83c7                     = false;
         std::shared_ptr<yordle::data::meta::ValueVector3> birthRotation0 {};
         std::shared_ptr<yordle::data::meta::ValueVector3> birthRotationalVelocity0 {};
         bool UseLingerRotation = false;
         std::shared_ptr<yordle::data::meta::ValueVector3> LingerRotation0 {};
-        bool isLocalOrientation = false;
-        float directionVelocityScale = 0.0;
+        bool isLocalOrientation         = false;
+        float directionVelocityScale    = 0.0;
         float directionVelocityMinScale = 0.0;
         std::array<float, 3> postRotateOrientationAxis {};
         std::shared_ptr<yordle::data::meta::ValueVector3> birthRotationalAcceleration {};
@@ -12347,7 +12242,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ValueVector3> scale0 {};
         bool UseLingerScale = false;
         std::shared_ptr<yordle::data::meta::ValueVector3> LingerScale0 {};
-        float scaleBirthScaleByBoundObjectSize = 0.0;
+        float scaleBirthScaleByBoundObjectSize   = 0.0;
         float scaleBirthScaleByBoundObjectRadius = 0.0;
         std::shared_ptr<yordle::data::meta::FlexTypeFloat> flexScaleBirthScale {};
         std::shared_ptr<yordle::data::meta::FlexTypeFloat> flexScaleEmitOffset {};
@@ -12356,9 +12251,9 @@ namespace yordle::data::meta {
         std::string texture {};
         float frameRate = 0.0;
         std::shared_ptr<yordle::data::meta::ValueFloat> birthFrameRate {};
-        uint16_t numFrames = 0;
+        uint16_t numFrames  = 0;
         uint16_t startFrame = 0;
-        uint8_t uvMode = 0;
+        uint8_t uvMode      = 0;
         std::shared_ptr<yordle::data::meta::bin_class> paletteDefinition {};
         std::vector<std::shared_ptr<yordle::data::meta::VfxMaterialOverrideDefinitionData>> materialOverrideDefinitions {};
         std::shared_ptr<yordle::data::meta::ValueVector2> birthUvScrollRate {};
@@ -12396,14 +12291,14 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ValueFloat> rotation1 {};
         std::array<float, 2> scaleBias {};
         std::array<float, 2> uvScrollRate1 {};
-        bool hasFixedOrbit = false;
+        bool hasFixedOrbit     = false;
         uint8_t fixedOrbitType = 0;
         bool scaleUpFromOrigin = false;
-        bool lockedToEmitter = false;
+        bool lockedToEmitter   = false;
         std::shared_ptr<yordle::data::meta::FlexValueFloat> flexBirthRotationalVelocity1 {};
     };
 
-    class YORDLE_EXPORT VfxChildIdentifier : public bin_class { 
+    class YORDLE_EXPORT VfxChildIdentifier : public bin_class {
     public:
         explicit VfxChildIdentifier(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12416,7 +12311,7 @@ namespace yordle::data::meta {
         std::string effectName {};
     };
 
-    class YORDLE_EXPORT VfxChildParticleSetDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxChildParticleSetDefinitionData : public bin_class {
     public:
         explicit VfxChildParticleSetDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12430,7 +12325,7 @@ namespace yordle::data::meta {
         bool childEmitOnDeath = false;
     };
 
-    class YORDLE_EXPORT VfxAlphaErosionDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxAlphaErosionDefinitionData : public bin_class {
     public:
         explicit VfxAlphaErosionDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12439,10 +12334,10 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::ValueFloat> erosionDriveCurve {};
-        uint32_t erosionDriveSource = 0;
+        uint32_t erosionDriveSource     = 0;
         bool UseLingerErosionDriveCurve = false;
         std::shared_ptr<yordle::data::meta::ValueFloat> LingerErosionDriveCurve {};
-        float erosionFeatherIn = 0.0;
+        float erosionFeatherIn  = 0.0;
         float erosionFeatherOut = 0.0;
         float erosionSliceWidth = 0.0;
         std::string erosionMapName {};
@@ -12450,7 +12345,7 @@ namespace yordle::data::meta {
         uint8_t erosionMapAddressMode = 0;
     };
 
-    class YORDLE_EXPORT VfxPaletteDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxPaletteDefinitionData : public bin_class {
     public:
         explicit VfxPaletteDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12467,7 +12362,7 @@ namespace yordle::data::meta {
         int32_t paletteCount = 0;
     };
 
-    class YORDLE_EXPORT VfxReflectionDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxReflectionDefinitionData : public bin_class {
     public:
         explicit VfxReflectionDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12476,15 +12371,15 @@ namespace yordle::data::meta {
         }
 
         std::string reflectionMapTexture {};
-        float reflectionOpacityDirect = 0.0;
+        float reflectionOpacityDirect   = 0.0;
         float reflectionOpacityGlancing = 0.0;
-        float reflectionFresnel = 0.0;
+        float reflectionFresnel         = 0.0;
         std::array<float, 4> reflectionFresnelColor {};
         float fresnel = 0.0;
         std::array<float, 4> fresnelColor {};
     };
 
-    class YORDLE_EXPORT VfxDistortionDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxDistortionDefinitionData : public bin_class {
     public:
         explicit VfxDistortionDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12492,12 +12387,12 @@ namespace yordle::data::meta {
             return type == 1238702953 || bin_class::is_type(type);
         }
 
-        float distortion = 0.0;
+        float distortion       = 0.0;
         uint8_t distortionMode = 0;
         std::string normalMapTexture {};
     };
 
-    class YORDLE_EXPORT VfxProjectionDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxProjectionDefinitionData : public bin_class {
     public:
         explicit VfxProjectionDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12509,7 +12404,7 @@ namespace yordle::data::meta {
         float mFading = 0.0;
     };
 
-    class YORDLE_EXPORT VfxTrailDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxTrailDefinitionData : public bin_class {
     public:
         explicit VfxTrailDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12520,11 +12415,11 @@ namespace yordle::data::meta {
         uint8_t mMode = 0;
         float mCutoff = 0.0;
         std::shared_ptr<yordle::data::meta::ValueVector3> mBirthTilingSize {};
-        uint8_t mSmoothingMode = 0;
+        uint8_t mSmoothingMode    = 0;
         int32_t mMaxAddedPerFrame = 0;
     };
 
-    class YORDLE_EXPORT VfxBeamDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxBeamDefinitionData : public bin_class {
     public:
         explicit VfxBeamDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12539,10 +12434,10 @@ namespace yordle::data::meta {
         std::array<float, 3> mLocalSpaceSourceOffset {};
         std::array<float, 3> mLocalSpaceTargetOffset {};
         uint8_t mTrailMode = 0;
-        uint8_t mMode = 0;
+        uint8_t mMode      = 0;
     };
 
-    class YORDLE_EXPORT VfxEmissionSurfaceData : public bin_class { 
+    class YORDLE_EXPORT VfxEmissionSurfaceData : public bin_class {
     public:
         explicit VfxEmissionSurfaceData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12553,13 +12448,13 @@ namespace yordle::data::meta {
         std::string meshName {};
         std::string skeletonName {};
         std::string animationName {};
-        float meshScale = 0.0;
-        uint16_t maxJointWeights = 0;
-        bool useAvatarPose = false;
+        float meshScale                      = 0.0;
+        uint16_t maxJointWeights             = 0;
+        bool useAvatarPose                   = false;
         bool useSurfaceNormalForBirthPhysics = false;
     };
 
-    class YORDLE_EXPORT VfxMeshDefinitionData : public bin_class { 
+    class YORDLE_EXPORT VfxMeshDefinitionData : public bin_class {
     public:
         explicit VfxMeshDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12577,47 +12472,43 @@ namespace yordle::data::meta {
         bool mLockMeshToAttachment = false;
     };
 
-    class YORDLE_EXPORT VfxPrimitiveBase : public bin_class { 
+    class YORDLE_EXPORT VfxPrimitiveBase : public bin_class {
     public:
         explicit VfxPrimitiveBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3801322209 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VfxPrimitiveCameraQuad : public VfxPrimitiveBase { 
+    class YORDLE_EXPORT VfxPrimitiveCameraQuad : public VfxPrimitiveBase {
     public:
         explicit VfxPrimitiveCameraQuad(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2531114100 || VfxPrimitiveBase::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VfxPrimitiveArbitraryQuad : public VfxPrimitiveBase { 
+    class YORDLE_EXPORT VfxPrimitiveArbitraryQuad : public VfxPrimitiveBase {
     public:
         explicit VfxPrimitiveArbitraryQuad(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1273725437 || VfxPrimitiveBase::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VfxPrimitiveRay : public VfxPrimitiveBase { 
+    class YORDLE_EXPORT VfxPrimitiveRay : public VfxPrimitiveBase {
     public:
         explicit VfxPrimitiveRay(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2706101456 || VfxPrimitiveBase::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VfxPrimitiveProjectionBase : public VfxPrimitiveBase { 
+    class YORDLE_EXPORT VfxPrimitiveProjectionBase : public VfxPrimitiveBase {
     public:
         explicit VfxPrimitiveProjectionBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12628,17 +12519,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VfxProjectionDefinitionData> mProjection {};
     };
 
-    class YORDLE_EXPORT VfxPrimitivePlanarProjection : public VfxPrimitiveProjectionBase { 
+    class YORDLE_EXPORT VfxPrimitivePlanarProjection : public VfxPrimitiveProjectionBase {
     public:
         explicit VfxPrimitivePlanarProjection(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3918814637 || VfxPrimitiveProjectionBase::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VfxPrimitiveTrailBase : public VfxPrimitiveBase { 
+    class YORDLE_EXPORT VfxPrimitiveTrailBase : public VfxPrimitiveBase {
     public:
         explicit VfxPrimitiveTrailBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12649,27 +12539,25 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VfxTrailDefinitionData> mTrail {};
     };
 
-    class YORDLE_EXPORT VfxPrimitiveCameraTrail : public VfxPrimitiveTrailBase { 
+    class YORDLE_EXPORT VfxPrimitiveCameraTrail : public VfxPrimitiveTrailBase {
     public:
         explicit VfxPrimitiveCameraTrail(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 678973881 || VfxPrimitiveTrailBase::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VfxPrimitiveArbitraryTrail : public VfxPrimitiveTrailBase { 
+    class YORDLE_EXPORT VfxPrimitiveArbitraryTrail : public VfxPrimitiveTrailBase {
     public:
         explicit VfxPrimitiveArbitraryTrail(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1459970650 || VfxPrimitiveTrailBase::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VfxPrimitiveBeamBase : public VfxPrimitiveBase { 
+    class YORDLE_EXPORT VfxPrimitiveBeamBase : public VfxPrimitiveBase {
     public:
         explicit VfxPrimitiveBeamBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12680,27 +12568,25 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VfxBeamDefinitionData> mBeam {};
     };
 
-    class YORDLE_EXPORT VfxPrimitiveCameraSegmentBeam : public VfxPrimitiveBeamBase { 
+    class YORDLE_EXPORT VfxPrimitiveCameraSegmentBeam : public VfxPrimitiveBeamBase {
     public:
         explicit VfxPrimitiveCameraSegmentBeam(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4048547755 || VfxPrimitiveBeamBase::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VfxPrimitiveArbitrarySegmentBeam : public VfxPrimitiveBeamBase { 
+    class YORDLE_EXPORT VfxPrimitiveArbitrarySegmentBeam : public VfxPrimitiveBeamBase {
     public:
         explicit VfxPrimitiveArbitrarySegmentBeam(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 668179872 || VfxPrimitiveBeamBase::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VfxPrimitiveMeshBase : public VfxPrimitiveBase { 
+    class YORDLE_EXPORT VfxPrimitiveMeshBase : public VfxPrimitiveBase {
     public:
         explicit VfxPrimitiveMeshBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12713,27 +12599,25 @@ namespace yordle::data::meta {
         bool xea861daa = false;
     };
 
-    class YORDLE_EXPORT VfxPrimitiveMesh : public VfxPrimitiveMeshBase { 
+    class YORDLE_EXPORT VfxPrimitiveMesh : public VfxPrimitiveMeshBase {
     public:
         explicit VfxPrimitiveMesh(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2241128505 || VfxPrimitiveMeshBase::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VfxPrimitiveAttachedMesh : public VfxPrimitiveMeshBase { 
+    class YORDLE_EXPORT VfxPrimitiveAttachedMesh : public VfxPrimitiveMeshBase {
     public:
         explicit VfxPrimitiveAttachedMesh(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2762908325 || VfxPrimitiveMeshBase::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VfxPrimitiveBeam : public VfxPrimitiveBase { 
+    class YORDLE_EXPORT VfxPrimitiveBeam : public VfxPrimitiveBase {
     public:
         explicit VfxPrimitiveBeam(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12745,7 +12629,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VfxBeamDefinitionData> mBeam {};
     };
 
-    class YORDLE_EXPORT VfxFloatOverLifeMaterialDriver : public IVfxMaterialDriver { 
+    class YORDLE_EXPORT VfxFloatOverLifeMaterialDriver : public IVfxMaterialDriver {
     public:
         explicit VfxFloatOverLifeMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12757,7 +12641,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VfxAnimatedFloatVariableData> graph {};
     };
 
-    class YORDLE_EXPORT VfxSineMaterialDriver : public IVfxMaterialDriver { 
+    class YORDLE_EXPORT VfxSineMaterialDriver : public IVfxMaterialDriver {
     public:
         explicit VfxSineMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12766,11 +12650,11 @@ namespace yordle::data::meta {
         }
 
         float mFrequency = 0.0;
-        float mScale = 0.0;
-        float mBias = 0.0;
+        float mScale     = 0.0;
+        float mBias      = 0.0;
     };
 
-    class YORDLE_EXPORT MapParticle : public MapPlaceable { 
+    class YORDLE_EXPORT MapParticle : public MapPlaceable {
     public:
         explicit MapParticle(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12779,16 +12663,16 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> system {1171098015u};
-        bool eyeCandy = false;
-        bool Transitional = false;
-        int32_t quality = 0;
+        bool eyeCandy           = false;
+        bool Transitional       = false;
+        int32_t quality         = 0;
         uint32_t visibilityMode = 0;
         std::array<float, 4> colorModulate {};
         std::string groupName {};
         bool startDisabled = false;
     };
 
-    class YORDLE_EXPORT MapParticleGroups : public bin_class { 
+    class YORDLE_EXPORT MapParticleGroups : public bin_class {
     public:
         explicit MapParticleGroups(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12799,7 +12683,7 @@ namespace yordle::data::meta {
         std::vector<std::string> groups {};
     };
 
-    class YORDLE_EXPORT DynamicMaterialParameterDef : public bin_class { 
+    class YORDLE_EXPORT DynamicMaterialParameterDef : public bin_class {
     public:
         explicit DynamicMaterialParameterDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12812,7 +12696,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> driver {};
     };
 
-    class YORDLE_EXPORT DynamicMaterialTextureSwapOption : public bin_class { 
+    class YORDLE_EXPORT DynamicMaterialTextureSwapOption : public bin_class {
     public:
         explicit DynamicMaterialTextureSwapOption(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12824,7 +12708,7 @@ namespace yordle::data::meta {
         std::string textureName {};
     };
 
-    class YORDLE_EXPORT DynamicMaterialTextureSwapDef : public bin_class { 
+    class YORDLE_EXPORT DynamicMaterialTextureSwapDef : public bin_class {
     public:
         explicit DynamicMaterialTextureSwapDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12837,7 +12721,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::DynamicMaterialTextureSwapOption>> options {};
     };
 
-    class YORDLE_EXPORT DynamicMaterialStaticSwitch : public bin_class { 
+    class YORDLE_EXPORT DynamicMaterialStaticSwitch : public bin_class {
     public:
         explicit DynamicMaterialStaticSwitch(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12850,7 +12734,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> driver {};
     };
 
-    class YORDLE_EXPORT DynamicMaterialDef : public bin_class { 
+    class YORDLE_EXPORT DynamicMaterialDef : public bin_class {
     public:
         explicit DynamicMaterialDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12864,27 +12748,25 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::DynamicMaterialStaticSwitch> staticSwitch {};
     };
 
-    class YORDLE_EXPORT IDynamicMaterialDriver : public bin_class { 
+    class YORDLE_EXPORT IDynamicMaterialDriver : public bin_class {
     public:
         explicit IDynamicMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1009087838 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IDynamicMaterialFloatDriver : public IDynamicMaterialDriver { 
+    class YORDLE_EXPORT IDynamicMaterialFloatDriver : public IDynamicMaterialDriver {
     public:
         explicit IDynamicMaterialFloatDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1090223300 || IDynamicMaterialDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT LerpMaterialDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT LerpMaterialDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit LerpMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12893,14 +12775,14 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mBoolDriver {};
-        float mOnValue = 0.0;
-        float mOffValue = 0.0;
-        float mTurnOnTimeSec = 0.0;
+        float mOnValue        = 0.0;
+        float mOffValue       = 0.0;
+        float mTurnOnTimeSec  = 0.0;
         float mTurnOffTimeSec = 0.0;
-        bool xa452be9f = false;
+        bool xa452be9f        = false;
     };
 
-    class YORDLE_EXPORT MaxMaterialDriver : public IDynamicMaterialDriver { 
+    class YORDLE_EXPORT MaxMaterialDriver : public IDynamicMaterialDriver {
     public:
         explicit MaxMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12911,7 +12793,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IDynamicMaterialDriver>> mDrivers {};
     };
 
-    class YORDLE_EXPORT MinMaterialDriver : public IDynamicMaterialDriver { 
+    class YORDLE_EXPORT MinMaterialDriver : public IDynamicMaterialDriver {
     public:
         explicit MinMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12922,7 +12804,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IDynamicMaterialDriver>> mDrivers {};
     };
 
-    class YORDLE_EXPORT RemapFloatMaterialDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT RemapFloatMaterialDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit RemapFloatMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12931,13 +12813,13 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IDynamicMaterialFloatDriver> mDriver {};
-        float mMinValue = 0.0;
-        float mMaxValue = 0.0;
+        float mMinValue       = 0.0;
+        float mMaxValue       = 0.0;
         float mOutputMinValue = 0.0;
         float mOutputMaxValue = 0.0;
     };
 
-    class YORDLE_EXPORT SineMaterialDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT SineMaterialDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit SineMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12947,11 +12829,11 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::IDynamicMaterialFloatDriver> mDriver {};
         float mFrequency = 0.0;
-        float mScale = 0.0;
-        float mBias = 0.0;
+        float mScale     = 0.0;
+        float mBias      = 0.0;
     };
 
-    class YORDLE_EXPORT SpecificColorMaterialDriver : public IDynamicMaterialDriver { 
+    class YORDLE_EXPORT SpecificColorMaterialDriver : public IDynamicMaterialDriver {
     public:
         explicit SpecificColorMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12962,7 +12844,7 @@ namespace yordle::data::meta {
         std::array<float, 4> mColor {};
     };
 
-    class YORDLE_EXPORT SwitchMaterialDriverElement : public bin_class { 
+    class YORDLE_EXPORT SwitchMaterialDriverElement : public bin_class {
     public:
         explicit SwitchMaterialDriverElement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12974,7 +12856,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IDynamicMaterialDriver> mValue {};
     };
 
-    class YORDLE_EXPORT SwitchMaterialDriver : public IDynamicMaterialDriver { 
+    class YORDLE_EXPORT SwitchMaterialDriver : public IDynamicMaterialDriver {
     public:
         explicit SwitchMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12986,7 +12868,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IDynamicMaterialDriver> mDefaultValue {};
     };
 
-    class YORDLE_EXPORT BlendingSwitchMaterialDriver : public SwitchMaterialDriver { 
+    class YORDLE_EXPORT BlendingSwitchMaterialDriver : public SwitchMaterialDriver {
     public:
         explicit BlendingSwitchMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -12998,17 +12880,16 @@ namespace yordle::data::meta {
         std::vector<float> mOverrideBlendTimes {};
     };
 
-    class YORDLE_EXPORT TimeMaterialDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT TimeMaterialDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit TimeMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4084077559 || IDynamicMaterialFloatDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IdMappingEntry : public bin_class { 
+    class YORDLE_EXPORT IdMappingEntry : public bin_class {
     public:
         explicit IdMappingEntry(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13016,11 +12897,11 @@ namespace yordle::data::meta {
             return type == 176045846 || bin_class::is_type(type);
         }
 
-        uint16_t ID = 0;
+        uint16_t ID    = 0;
         uint16_t Count = 0;
     };
 
-    class YORDLE_EXPORT HybridMaterialDefPreset : public bin_class { 
+    class YORDLE_EXPORT HybridMaterialDefPreset : public bin_class {
     public:
         explicit HybridMaterialDefPreset(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13029,40 +12910,39 @@ namespace yordle::data::meta {
         }
 
         std::map<std::string, std::string> shaderMacros {};
-        bool depthEnable = false;
-        bool stencilEnable = false;
-        bool blendEnable = false;
-        bool cullEnable = false;
-        bool xaab4104c = false;
-        uint8_t depthCompareFunc = 0;
-        uint8_t stencilCompareFunc = 0;
-        uint32_t stencilReferenceVal = 0;
-        uint32_t stencilMask = 0;
-        uint8_t stencilFailOp = 0;
+        bool depthEnable               = false;
+        bool stencilEnable             = false;
+        bool blendEnable               = false;
+        bool cullEnable                = false;
+        bool xaab4104c                 = false;
+        uint8_t depthCompareFunc       = 0;
+        uint8_t stencilCompareFunc     = 0;
+        uint32_t stencilReferenceVal   = 0;
+        uint32_t stencilMask           = 0;
+        uint8_t stencilFailOp          = 0;
         uint8_t stencilPassDepthFailOp = 0;
         uint8_t stencilPassDepthPassOp = 0;
-        uint8_t srcColorBlendFactor = 0;
-        uint8_t srcAlphaBlendFactor = 0;
-        uint8_t dstColorBlendFactor = 0;
-        uint8_t dstAlphaBlendFactor = 0;
-        uint8_t blendEquation = 0;
-        uint8_t windingToCull = 0;
-        uint8_t writeMask = 0;
-        float depthOffsetSlope = 0.0;
-        float depthOffsetBias = 0.0;
+        uint8_t srcColorBlendFactor    = 0;
+        uint8_t srcAlphaBlendFactor    = 0;
+        uint8_t dstColorBlendFactor    = 0;
+        uint8_t dstAlphaBlendFactor    = 0;
+        uint8_t blendEquation          = 0;
+        uint8_t windingToCull          = 0;
+        uint8_t writeMask              = 0;
+        float depthOffsetSlope         = 0.0;
+        float depthOffsetBias          = 0.0;
     };
 
-    class YORDLE_EXPORT IMaterialDef : public bin_class { 
+    class YORDLE_EXPORT IMaterialDef : public bin_class {
     public:
         explicit IMaterialDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3975636772 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ShaderLogicalParameter : public bin_class { 
+    class YORDLE_EXPORT ShaderLogicalParameter : public bin_class {
     public:
         explicit ShaderLogicalParameter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13074,7 +12954,7 @@ namespace yordle::data::meta {
         uint32_t fields = 0;
     };
 
-    class YORDLE_EXPORT ShaderPhysicalParameter : public bin_class { 
+    class YORDLE_EXPORT ShaderPhysicalParameter : public bin_class {
     public:
         explicit ShaderPhysicalParameter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13087,7 +12967,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ShaderLogicalParameter>> logicalParameters {};
     };
 
-    class YORDLE_EXPORT ShaderStaticSwitch : public bin_class { 
+    class YORDLE_EXPORT ShaderStaticSwitch : public bin_class {
     public:
         explicit ShaderStaticSwitch(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13099,7 +12979,7 @@ namespace yordle::data::meta {
         bool onByDefault = false;
     };
 
-    class YORDLE_EXPORT ShaderTexture : public bin_class { 
+    class YORDLE_EXPORT ShaderTexture : public bin_class {
     public:
         explicit ShaderTexture(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13111,7 +12991,7 @@ namespace yordle::data::meta {
         std::string defaultTexturePath {};
     };
 
-    class YORDLE_EXPORT IShaderDef : public bin_class { 
+    class YORDLE_EXPORT IShaderDef : public bin_class {
     public:
         explicit IShaderDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13124,10 +13004,10 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ShaderTexture>> textures {};
         std::map<std::string, std::string> featureDefines {};
         uint32_t featureMask = 0;
-        uint32_t x9bfe7d81 = 0;
+        uint32_t x9bfe7d81   = 0;
     };
 
-    class YORDLE_EXPORT MaterialParameterData : public bin_class { 
+    class YORDLE_EXPORT MaterialParameterData : public bin_class {
     public:
         explicit MaterialParameterData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13139,7 +13019,7 @@ namespace yordle::data::meta {
         std::array<float, 4> DefaultValue {};
     };
 
-    class YORDLE_EXPORT MaterialTextureData : public bin_class { 
+    class YORDLE_EXPORT MaterialTextureData : public bin_class {
     public:
         explicit MaterialTextureData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13148,15 +13028,15 @@ namespace yordle::data::meta {
         }
 
         std::string defaultTexturePath {};
-        uint8_t addressU = 0;
-        uint8_t addressV = 0;
-        uint8_t addressW = 0;
+        uint8_t addressU  = 0;
+        uint8_t addressV  = 0;
+        uint8_t addressW  = 0;
         uint8_t filterMin = 0;
         uint8_t filterMip = 0;
         uint8_t filterMag = 0;
     };
 
-    class YORDLE_EXPORT MaterialSwitchData : public bin_class { 
+    class YORDLE_EXPORT MaterialSwitchData : public bin_class {
     public:
         explicit MaterialSwitchData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13167,7 +13047,7 @@ namespace yordle::data::meta {
         bool on = false;
     };
 
-    class YORDLE_EXPORT MaterialParameterDataCollection : public bin_class { 
+    class YORDLE_EXPORT MaterialParameterDataCollection : public bin_class {
     public:
         explicit MaterialParameterDataCollection(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13181,7 +13061,7 @@ namespace yordle::data::meta {
         std::map<uint16_t, std::shared_ptr<yordle::data::meta::MaterialParameterData>> data {};
     };
 
-    class YORDLE_EXPORT MaterialTextureDataCollection : public bin_class { 
+    class YORDLE_EXPORT MaterialTextureDataCollection : public bin_class {
     public:
         explicit MaterialTextureDataCollection(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13195,7 +13075,7 @@ namespace yordle::data::meta {
         std::map<uint16_t, std::shared_ptr<yordle::data::meta::MaterialTextureData>> data {};
     };
 
-    class YORDLE_EXPORT MaterialSwitchDataCollection : public bin_class { 
+    class YORDLE_EXPORT MaterialSwitchDataCollection : public bin_class {
     public:
         explicit MaterialSwitchDataCollection(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13209,7 +13089,7 @@ namespace yordle::data::meta {
         std::map<uint16_t, std::shared_ptr<yordle::data::meta::MaterialSwitchData>> data {};
     };
 
-    class YORDLE_EXPORT MaterialDataCollections : public bin_class { 
+    class YORDLE_EXPORT MaterialDataCollections : public bin_class {
     public:
         explicit MaterialDataCollections(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13222,7 +13102,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::MaterialSwitchDataCollection> switchData {};
     };
 
-    class YORDLE_EXPORT MaterialInstanceParamDef : public bin_class { 
+    class YORDLE_EXPORT MaterialInstanceParamDef : public bin_class {
     public:
         explicit MaterialInstanceParamDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13233,7 +13113,7 @@ namespace yordle::data::meta {
         std::array<float, 4> value {};
     };
 
-    class YORDLE_EXPORT MaterialInstanceSwitchDef : public bin_class { 
+    class YORDLE_EXPORT MaterialInstanceSwitchDef : public bin_class {
     public:
         explicit MaterialInstanceSwitchDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13244,7 +13124,7 @@ namespace yordle::data::meta {
         bool on = false;
     };
 
-    class YORDLE_EXPORT MaterialInstanceTextureDef : public bin_class { 
+    class YORDLE_EXPORT MaterialInstanceTextureDef : public bin_class {
     public:
         explicit MaterialInstanceTextureDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13256,7 +13136,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::string> uncensoredTextures {};
     };
 
-    class YORDLE_EXPORT xf7084b4a : public bin_class { 
+    class YORDLE_EXPORT xf7084b4a : public bin_class {
     public:
         explicit xf7084b4a(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13268,7 +13148,7 @@ namespace yordle::data::meta {
         std::map<std::string, std::string> shaderMacros {};
     };
 
-    class YORDLE_EXPORT MaterialInstanceDynamicParam : public bin_class { 
+    class YORDLE_EXPORT MaterialInstanceDynamicParam : public bin_class {
     public:
         explicit MaterialInstanceDynamicParam(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13280,7 +13160,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IDynamicMaterialDriver> driver {};
     };
 
-    class YORDLE_EXPORT MaterialInstanceDynamicSwitch : public bin_class { 
+    class YORDLE_EXPORT MaterialInstanceDynamicSwitch : public bin_class {
     public:
         explicit MaterialInstanceDynamicSwitch(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13292,7 +13172,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> driver {};
     };
 
-    class YORDLE_EXPORT MaterialInstanceDynamicTexture : public bin_class { 
+    class YORDLE_EXPORT MaterialInstanceDynamicTexture : public bin_class {
     public:
         explicit MaterialInstanceDynamicTexture(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13304,7 +13184,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::DynamicMaterialTextureSwapOption>> options {};
     };
 
-    class YORDLE_EXPORT StaticMaterialShaderParamDef : public bin_class { 
+    class YORDLE_EXPORT StaticMaterialShaderParamDef : public bin_class {
     public:
         explicit StaticMaterialShaderParamDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13316,7 +13196,7 @@ namespace yordle::data::meta {
         std::array<float, 4> value {};
     };
 
-    class YORDLE_EXPORT StaticMaterialSwitchDef : public bin_class { 
+    class YORDLE_EXPORT StaticMaterialSwitchDef : public bin_class {
     public:
         explicit StaticMaterialSwitchDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13328,7 +13208,7 @@ namespace yordle::data::meta {
         bool on = false;
     };
 
-    class YORDLE_EXPORT StaticMaterialShaderSamplerDef : public bin_class { 
+    class YORDLE_EXPORT StaticMaterialShaderSamplerDef : public bin_class {
     public:
         explicit StaticMaterialShaderSamplerDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13339,15 +13219,15 @@ namespace yordle::data::meta {
         std::string samplerName {};
         std::string textureName {};
         std::map<yordle::data::meta::bin_fnv_hash, std::string> uncensoredTextures {};
-        uint32_t addressU = 0;
-        uint32_t addressV = 0;
-        uint32_t addressW = 0;
+        uint32_t addressU  = 0;
+        uint32_t addressV  = 0;
+        uint32_t addressW  = 0;
         uint32_t filterMin = 0;
         uint32_t filterMip = 0;
         uint32_t filterMag = 0;
     };
 
-    class YORDLE_EXPORT StaticMaterialPassDef : public bin_class { 
+    class YORDLE_EXPORT StaticMaterialPassDef : public bin_class {
     public:
         explicit StaticMaterialPassDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13358,30 +13238,30 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::IShaderDef> shader {196890972u};
         std::map<std::string, std::string> shaderMacros {};
         std::vector<std::shared_ptr<yordle::data::meta::StaticMaterialShaderParamDef>> paramValues {};
-        bool depthEnable = false;
-        bool stencilEnable = false;
-        bool blendEnable = false;
-        bool cullEnable = false;
-        bool xaab4104c = false;
-        uint32_t depthCompareFunc = 0;
-        uint32_t stencilCompareFunc = 0;
-        uint32_t stencilReferenceVal = 0;
-        uint32_t stencilMask = 0;
-        uint32_t stencilFailOp = 0;
+        bool depthEnable                = false;
+        bool stencilEnable              = false;
+        bool blendEnable                = false;
+        bool cullEnable                 = false;
+        bool xaab4104c                  = false;
+        uint32_t depthCompareFunc       = 0;
+        uint32_t stencilCompareFunc     = 0;
+        uint32_t stencilReferenceVal    = 0;
+        uint32_t stencilMask            = 0;
+        uint32_t stencilFailOp          = 0;
         uint32_t stencilPassDepthFailOp = 0;
         uint32_t stencilPassDepthPassOp = 0;
-        uint32_t srcColorBlendFactor = 0;
-        uint32_t srcAlphaBlendFactor = 0;
-        uint32_t dstColorBlendFactor = 0;
-        uint32_t dstAlphaBlendFactor = 0;
-        uint32_t blendEquation = 0;
-        uint32_t windingToCull = 0;
-        uint32_t writeMask = 0;
-        float depthOffsetSlope = 0.0;
-        float depthOffsetBias = 0.0;
+        uint32_t srcColorBlendFactor    = 0;
+        uint32_t srcAlphaBlendFactor    = 0;
+        uint32_t dstColorBlendFactor    = 0;
+        uint32_t dstAlphaBlendFactor    = 0;
+        uint32_t blendEquation          = 0;
+        uint32_t windingToCull          = 0;
+        uint32_t writeMask              = 0;
+        float depthOffsetSlope          = 0.0;
+        float depthOffsetBias           = 0.0;
     };
 
-    class YORDLE_EXPORT StaticMaterialTechniqueDef : public bin_class { 
+    class YORDLE_EXPORT StaticMaterialTechniqueDef : public bin_class {
     public:
         explicit StaticMaterialTechniqueDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13393,7 +13273,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::StaticMaterialPassDef>> passes {};
     };
 
-    class YORDLE_EXPORT StaticMaterialChildTechniqueDef : public bin_class { 
+    class YORDLE_EXPORT StaticMaterialChildTechniqueDef : public bin_class {
     public:
         explicit StaticMaterialChildTechniqueDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13406,7 +13286,7 @@ namespace yordle::data::meta {
         std::map<std::string, std::string> shaderMacros {};
     };
 
-    class YORDLE_EXPORT MapPerInstanceInfo : public bin_class { 
+    class YORDLE_EXPORT MapPerInstanceInfo : public bin_class {
     public:
         explicit MapPerInstanceInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13418,7 +13298,7 @@ namespace yordle::data::meta {
         std::array<float, 4> shadowMapUVScaleAndBias {};
     };
 
-    class YORDLE_EXPORT MapBakeProperties : public MapComponent { 
+    class YORDLE_EXPORT MapBakeProperties : public MapComponent {
     public:
         explicit MapBakeProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13426,15 +13306,15 @@ namespace yordle::data::meta {
             return type == 1783247881 || MapComponent::is_type(type);
         }
 
-        uint32_t lightGridSize = 0;
-        float x22d24a9a = 0.0;
+        uint32_t lightGridSize                      = 0;
+        float x22d24a9a                             = 0.0;
         float lightGridCharacterFullBrightIntensity = 0.0;
-        float xea4e5cc8 = 0.0;
-        float x2f3b5471 = 0.0;
+        float xea4e5cc8                             = 0.0;
+        float x2f3b5471                             = 0.0;
         std::string lightGridFileName {};
     };
 
-    class YORDLE_EXPORT MapCloudsLayer : public bin_class { 
+    class YORDLE_EXPORT MapCloudsLayer : public bin_class {
     public:
         explicit MapCloudsLayer(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13447,17 +13327,16 @@ namespace yordle::data::meta {
         std::array<float, 2> direction {};
     };
 
-    class YORDLE_EXPORT MapGraphicsFeature : public MapComponent { 
+    class YORDLE_EXPORT MapGraphicsFeature : public MapComponent {
     public:
         explicit MapGraphicsFeature(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 66354938 || MapComponent::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT MapLightingV2 : public MapGraphicsFeature { 
+    class YORDLE_EXPORT MapLightingV2 : public MapGraphicsFeature {
     public:
         explicit MapLightingV2(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13469,7 +13348,7 @@ namespace yordle::data::meta {
         float xc916a9fc = 0.0;
     };
 
-    class YORDLE_EXPORT MapLightingVolume : public MapPlaceable { 
+    class YORDLE_EXPORT MapLightingVolume : public MapPlaceable {
     public:
         explicit MapLightingVolume(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13485,17 +13364,17 @@ namespace yordle::data::meta {
         std::array<float, 4> skyLightColor {};
         std::array<float, 4> horizonColor {};
         std::array<float, 4> groundColor {};
-        float skyLightScale = 0.0;
+        float skyLightScale      = 0.0;
         float lightMapColorScale = 0.0;
-        bool fogEnabled = false;
+        bool fogEnabled          = false;
         std::array<float, 4> fogColor {};
         std::array<float, 4> fogAlternateColor {};
         std::array<float, 2> fogStartAndEnd {};
-        float fogEmissiveRemap = 0.0;
+        float fogEmissiveRemap               = 0.0;
         float fogLowQualityModeEmissiveRemap = 0.0;
     };
 
-    class YORDLE_EXPORT MapPointLight : public MapPlaceable { 
+    class YORDLE_EXPORT MapPointLight : public MapPlaceable {
     public:
         explicit MapPointLight(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13504,13 +13383,13 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> type {668199599u};
-        float radiusScale = 0.0;
+        float radiusScale    = 0.0;
         float intensityScale = 0.0;
         std::optional<bool> overrideCastStaticShadows {};
         std::optional<bool> overrideUseSpecular {};
     };
 
-    class YORDLE_EXPORT MapPointLightType : public bin_class { 
+    class YORDLE_EXPORT MapPointLightType : public bin_class {
     public:
         explicit MapPointLightType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13520,13 +13399,13 @@ namespace yordle::data::meta {
 
         std::array<float, 4> lightColor {};
         std::array<float, 4> falloffColor {};
-        float radius = 0.0;
+        float radius           = 0.0;
         bool castStaticShadows = false;
-        bool specular = false;
-        int32_t Impact = 0;
+        bool specular          = false;
+        int32_t Impact         = 0;
     };
 
-    class YORDLE_EXPORT MapSunProperties : public MapComponent { 
+    class YORDLE_EXPORT MapSunProperties : public MapComponent {
     public:
         explicit MapSunProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13542,19 +13421,19 @@ namespace yordle::data::meta {
         std::array<float, 4> skyLightColor {};
         std::array<float, 4> horizonColor {};
         std::array<float, 4> groundColor {};
-        float skyLightScale = 0.0;
+        float skyLightScale      = 0.0;
         float lightMapColorScale = 0.0;
-        bool fogEnabled = false;
+        bool fogEnabled          = false;
         std::array<float, 4> fogColor {};
         std::array<float, 4> fogAlternateColor {};
         std::array<float, 2> fogStartAndEnd {};
-        float fogEmissiveRemap = 0.0;
+        float fogEmissiveRemap               = 0.0;
         float fogLowQualityModeEmissiveRemap = 0.0;
-        bool useBloom = false;
-        float surfaceAreaToShadowMapScale = 0.0;
+        bool useBloom                        = false;
+        float surfaceAreaToShadowMapScale    = 0.0;
     };
 
-    class YORDLE_EXPORT MapTerrainPaint : public MapGraphicsFeature { 
+    class YORDLE_EXPORT MapTerrainPaint : public MapGraphicsFeature {
     public:
         explicit MapTerrainPaint(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13565,7 +13444,7 @@ namespace yordle::data::meta {
         std::string TerrainPaintTexturePath {};
     };
 
-    class YORDLE_EXPORT SHData : public bin_class { 
+    class YORDLE_EXPORT SHData : public bin_class {
     public:
         explicit SHData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13576,7 +13455,7 @@ namespace yordle::data::meta {
         std::vector<std::array<float, 3>> bandData {};
     };
 
-    class YORDLE_EXPORT SkinMeshDataProperties_MaterialOverride : public bin_class { 
+    class YORDLE_EXPORT SkinMeshDataProperties_MaterialOverride : public bin_class {
     public:
         explicit SkinMeshDataProperties_MaterialOverride(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13590,17 +13469,16 @@ namespace yordle::data::meta {
         std::string submesh {};
     };
 
-    class YORDLE_EXPORT SkinnedMeshDataMaterialController : public bin_class { 
+    class YORDLE_EXPORT SkinnedMeshDataMaterialController : public bin_class {
     public:
         explicit SkinnedMeshDataMaterialController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3460011047 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT SkinMeshDataProperties : public bin_class { 
+    class YORDLE_EXPORT SkinMeshDataProperties : public bin_class {
     public:
         explicit SkinMeshDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13614,8 +13492,8 @@ namespace yordle::data::meta {
         std::string texture {};
         std::string emissiveTexture {};
         std::string glossTexture {};
-        float skinScale = 0.0;
-        float selfIllumination = 0.0;
+        float skinScale          = 0.0;
+        float selfIllumination   = 0.0;
         float brushAlphaOverride = 0.0;
         std::optional<std::array<float, 3>> overrideBoundingBox {};
         yordle::data::meta::bin_ref<yordle::data::meta::IMaterialDef> material {3975636772u};
@@ -13623,14 +13501,14 @@ namespace yordle::data::meta {
         float boundingCylinderHeight = 0.0;
         std::optional<float> boundingSphereRadius {};
         std::array<uint8_t, 4> fresnelColor {};
-        float fresnel = 0.0;
-        bool usesSkinVO = false;
-        bool castShadows = false;
+        float fresnel             = 0.0;
+        bool usesSkinVO           = false;
+        bool castShadows          = false;
         bool allowCharacterInking = false;
         std::string reflectionMap {};
-        float reflectionOpacityDirect = 0.0;
+        float reflectionOpacityDirect   = 0.0;
         float reflectionOpacityGlancing = 0.0;
-        float reflectionFresnel = 0.0;
+        float reflectionFresnel         = 0.0;
         std::array<uint8_t, 4> reflectionFresnelColor {};
         std::string initialSubmeshToHide {};
         std::string initialSubmeshShadowsToHide {};
@@ -13642,27 +13520,25 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::BaseRigPoseModifierData>> rigPoseModifierData {};
     };
 
-    class YORDLE_EXPORT IResource : public bin_class { 
+    class YORDLE_EXPORT IResource : public bin_class {
     public:
         explicit IResource(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 547453112 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IResourceResolver : public bin_class { 
+    class YORDLE_EXPORT IResourceResolver : public bin_class {
     public:
         explicit IResourceResolver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3911265650 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT FunctionDefinition : public bin_class { 
+    class YORDLE_EXPORT FunctionDefinition : public bin_class {
     public:
         explicit FunctionDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13675,7 +13551,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> OutputParameters {};
     };
 
-    class YORDLE_EXPORT IScriptBlock : public bin_class { 
+    class YORDLE_EXPORT IScriptBlock : public bin_class {
     public:
         explicit IScriptBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13686,7 +13562,7 @@ namespace yordle::data::meta {
         bool IsDisabled = false;
     };
 
-    class YORDLE_EXPORT SwitchCase : public bin_class { 
+    class YORDLE_EXPORT SwitchCase : public bin_class {
     public:
         explicit SwitchCase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13699,7 +13575,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> Sequence {};
     };
 
-    class YORDLE_EXPORT SwitchScriptBlock : public IScriptBlock { 
+    class YORDLE_EXPORT SwitchScriptBlock : public IScriptBlock {
     public:
         explicit SwitchScriptBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13710,17 +13586,16 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::SwitchCase>> Cases {};
     };
 
-    class YORDLE_EXPORT IScriptCondition : public bin_class { 
+    class YORDLE_EXPORT IScriptCondition : public bin_class {
     public:
         explicit IScriptCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3324095080 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TableValueExistsScriptCondition : public IScriptCondition { 
+    class YORDLE_EXPORT TableValueExistsScriptCondition : public IScriptCondition {
     public:
         explicit TableValueExistsScriptCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13731,7 +13606,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> TableValue {};
     };
 
-    class YORDLE_EXPORT RandomChanceScriptCondition : public IScriptCondition { 
+    class YORDLE_EXPORT RandomChanceScriptCondition : public IScriptCondition {
     public:
         explicit RandomChanceScriptCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13742,7 +13617,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> Chance {};
     };
 
-    class YORDLE_EXPORT AndScriptCondition : public IScriptCondition { 
+    class YORDLE_EXPORT AndScriptCondition : public IScriptCondition {
     public:
         explicit AndScriptCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13753,7 +13628,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IScriptCondition>> Conditions {};
     };
 
-    class YORDLE_EXPORT OrScriptCondition : public IScriptCondition { 
+    class YORDLE_EXPORT OrScriptCondition : public IScriptCondition {
     public:
         explicit OrScriptCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13764,7 +13639,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IScriptCondition>> Conditions {};
     };
 
-    class YORDLE_EXPORT NotScriptCondition : public IScriptCondition { 
+    class YORDLE_EXPORT NotScriptCondition : public IScriptCondition {
     public:
         explicit NotScriptCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13775,7 +13650,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IScriptCondition> Condition {};
     };
 
-    class YORDLE_EXPORT ComparisonScriptCondition : public IScriptCondition { 
+    class YORDLE_EXPORT ComparisonScriptCondition : public IScriptCondition {
     public:
         explicit ComparisonScriptCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13788,37 +13663,34 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> Value2 {};
     };
 
-    class YORDLE_EXPORT RScript : public bin_class { 
+    class YORDLE_EXPORT RScript : public bin_class {
     public:
         explicit RScript(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3134806650 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ScriptTable : public bin_class { 
+    class YORDLE_EXPORT ScriptTable : public bin_class {
     public:
         explicit ScriptTable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 619916734 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT PassThroughParamsTable : public ScriptTable { 
+    class YORDLE_EXPORT PassThroughParamsTable : public ScriptTable {
     public:
         explicit PassThroughParamsTable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1411410857 || ScriptTable::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ScriptTableSet : public bin_class { 
+    class YORDLE_EXPORT ScriptTableSet : public bin_class {
     public:
         explicit ScriptTableSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13830,97 +13702,88 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash Var = 0;
     };
 
-    class YORDLE_EXPORT IntTableSet : public ScriptTableSet { 
+    class YORDLE_EXPORT IntTableSet : public ScriptTableSet {
     public:
         explicit IntTableSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 663538050 || ScriptTableSet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT BoolTableSet : public ScriptTableSet { 
+    class YORDLE_EXPORT BoolTableSet : public ScriptTableSet {
     public:
         explicit BoolTableSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2728914349 || ScriptTableSet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT FloatTableSet : public ScriptTableSet { 
+    class YORDLE_EXPORT FloatTableSet : public ScriptTableSet {
     public:
         explicit FloatTableSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3570109893 || ScriptTableSet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT StringTableSet : public ScriptTableSet { 
+    class YORDLE_EXPORT StringTableSet : public ScriptTableSet {
     public:
         explicit StringTableSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3580363220 || ScriptTableSet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VectorTableSet : public ScriptTableSet { 
+    class YORDLE_EXPORT VectorTableSet : public ScriptTableSet {
     public:
         explicit VectorTableSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2465524974 || ScriptTableSet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT FunctionTableSet : public ScriptTableSet { 
+    class YORDLE_EXPORT FunctionTableSet : public ScriptTableSet {
     public:
         explicit FunctionTableSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1262223041 || ScriptTableSet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT CustomTableSet : public ScriptTableSet { 
+    class YORDLE_EXPORT CustomTableSet : public ScriptTableSet {
     public:
         explicit CustomTableSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2864404146 || ScriptTableSet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IScriptValueGet : public bin_class { 
+    class YORDLE_EXPORT IScriptValueGet : public bin_class {
     public:
         explicit IScriptValueGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4142338480 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IStringGet : public IScriptValueGet { 
+    class YORDLE_EXPORT IStringGet : public IScriptValueGet {
     public:
         explicit IStringGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1166962967 || IScriptValueGet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT StringGet : public IStringGet { 
+    class YORDLE_EXPORT StringGet : public IStringGet {
     public:
         explicit StringGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13931,7 +13794,7 @@ namespace yordle::data::meta {
         std::string value {};
     };
 
-    class YORDLE_EXPORT StringTableGet : public IStringGet { 
+    class YORDLE_EXPORT StringTableGet : public IStringGet {
     public:
         explicit StringTableGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13944,17 +13807,16 @@ namespace yordle::data::meta {
         std::optional<std::string> Default {};
     };
 
-    class YORDLE_EXPORT IVectorGet : public IScriptValueGet { 
+    class YORDLE_EXPORT IVectorGet : public IScriptValueGet {
     public:
         explicit IVectorGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3682319469 || IScriptValueGet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT VectorGet : public IVectorGet { 
+    class YORDLE_EXPORT VectorGet : public IVectorGet {
     public:
         explicit VectorGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13965,7 +13827,7 @@ namespace yordle::data::meta {
         std::array<float, 3> value {};
     };
 
-    class YORDLE_EXPORT VectorTableGet : public IVectorGet { 
+    class YORDLE_EXPORT VectorTableGet : public IVectorGet {
     public:
         explicit VectorTableGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13978,7 +13840,7 @@ namespace yordle::data::meta {
         std::optional<std::array<float, 3>> Default {};
     };
 
-    class YORDLE_EXPORT xd1951f45 : public bin_class { 
+    class YORDLE_EXPORT xd1951f45 : public bin_class {
     public:
         explicit xd1951f45(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -13987,22 +13849,21 @@ namespace yordle::data::meta {
         }
 
         float transitionTime = 0.0;
-        uint8_t EasingType = 0;
-        uint8_t startAlpha = 0;
-        uint8_t endAlpha = 0;
+        uint8_t EasingType   = 0;
+        uint8_t startAlpha   = 0;
+        uint8_t endAlpha     = 0;
     };
 
-    class YORDLE_EXPORT x8f1e6a22 : public xd1951f45 { 
+    class YORDLE_EXPORT x8f1e6a22 : public xd1951f45 {
     public:
         explicit x8f1e6a22(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2401135138 || xd1951f45::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT x6ce97639 : public xd1951f45 { 
+    class YORDLE_EXPORT x6ce97639 : public xd1951f45 {
     public:
         explicit x6ce97639(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14013,7 +13874,7 @@ namespace yordle::data::meta {
         uint8_t Edge = 0;
     };
 
-    class YORDLE_EXPORT SceneData : public bin_class { 
+    class YORDLE_EXPORT SceneData : public bin_class {
     public:
         explicit SceneData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14022,27 +13883,26 @@ namespace yordle::data::meta {
         }
 
         std::string mName {};
-        bool mEnabled = false;
+        bool mEnabled   = false;
         uint32_t mLayer = 0;
         bool mHealthBar = false;
-        bool x22413173 = false;
+        bool x22413173  = false;
         yordle::data::meta::bin_ref<yordle::data::meta::SceneData> mParentScene {2867346523u};
         std::shared_ptr<yordle::data::meta::xd1951f45> SceneTransitionIn {};
         std::shared_ptr<yordle::data::meta::xd1951f45> SceneTransitionOut {};
         bool xf80397ee = false;
     };
 
-    class YORDLE_EXPORT AnchorBase : public bin_class { 
+    class YORDLE_EXPORT AnchorBase : public bin_class {
     public:
         explicit AnchorBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2131369601 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT AnchorSingle : public AnchorBase { 
+    class YORDLE_EXPORT AnchorSingle : public AnchorBase {
     public:
         explicit AnchorSingle(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14053,7 +13913,7 @@ namespace yordle::data::meta {
         std::array<float, 2> anchor {};
     };
 
-    class YORDLE_EXPORT AnchorDouble : public AnchorBase { 
+    class YORDLE_EXPORT AnchorDouble : public AnchorBase {
     public:
         explicit AnchorDouble(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14065,7 +13925,7 @@ namespace yordle::data::meta {
         std::array<float, 2> anchorRight {};
     };
 
-    class YORDLE_EXPORT AtlasDataBase : public bin_class { 
+    class YORDLE_EXPORT AtlasDataBase : public bin_class {
     public:
         explicit AtlasDataBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14074,11 +13934,11 @@ namespace yordle::data::meta {
         }
 
         std::string mTextureName {};
-        uint32_t mTextureSourceResolutionWidth = 0;
+        uint32_t mTextureSourceResolutionWidth  = 0;
         uint32_t mTextureSourceResolutionHeight = 0;
     };
 
-    class YORDLE_EXPORT AtlasData : public AtlasDataBase { 
+    class YORDLE_EXPORT AtlasData : public AtlasDataBase {
     public:
         explicit AtlasData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14089,7 +13949,7 @@ namespace yordle::data::meta {
         std::array<float, 4> mTextureUV {};
     };
 
-    class YORDLE_EXPORT xb5d136db : public AtlasDataBase { 
+    class YORDLE_EXPORT xb5d136db : public AtlasDataBase {
     public:
         explicit xb5d136db(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14102,7 +13962,7 @@ namespace yordle::data::meta {
         std::array<float, 2> x1b57cc27 {};
     };
 
-    class YORDLE_EXPORT xa3d11a85 : public AtlasDataBase { 
+    class YORDLE_EXPORT xa3d11a85 : public AtlasDataBase {
     public:
         explicit xa3d11a85(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14115,7 +13975,7 @@ namespace yordle::data::meta {
         std::array<float, 2> x15ec9181 {};
     };
 
-    class YORDLE_EXPORT xab3d1567 : public AtlasDataBase { 
+    class YORDLE_EXPORT xab3d1567 : public AtlasDataBase {
     public:
         explicit xab3d1567(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14129,7 +13989,7 @@ namespace yordle::data::meta {
         std::array<float, 2> x1b57cc27 {};
     };
 
-    class YORDLE_EXPORT x231dd1a2 : public bin_class { 
+    class YORDLE_EXPORT x231dd1a2 : public bin_class {
     public:
         explicit x231dd1a2(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14141,7 +14001,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::SceneData> mScene {2867346523u};
     };
 
-    class YORDLE_EXPORT ElementSoundEvents : public bin_class { 
+    class YORDLE_EXPORT ElementSoundEvents : public bin_class {
     public:
         explicit ElementSoundEvents(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14157,7 +14017,7 @@ namespace yordle::data::meta {
         std::string xb49ca145 {};
     };
 
-    class YORDLE_EXPORT ElementGroupButtonState : public bin_class { 
+    class YORDLE_EXPORT ElementGroupButtonState : public bin_class {
     public:
         explicit ElementGroupButtonState(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14169,7 +14029,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> TextElement {2622984950u};
     };
 
-    class YORDLE_EXPORT ElementGroupData : public x231dd1a2 { 
+    class YORDLE_EXPORT ElementGroupData : public x231dd1a2 {
     public:
         explicit ElementGroupData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14180,7 +14040,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::x231dd1a2>> elements {};
     };
 
-    class YORDLE_EXPORT x20d0e681 : public ElementGroupData { 
+    class YORDLE_EXPORT x20d0e681 : public ElementGroupData {
     public:
         explicit x20d0e681(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14191,7 +14051,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> x76ef64de {1005588128u};
     };
 
-    class YORDLE_EXPORT ElementGroupGridData : public ElementGroupData { 
+    class YORDLE_EXPORT ElementGroupGridData : public ElementGroupData {
     public:
         explicit ElementGroupGridData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14203,7 +14063,7 @@ namespace yordle::data::meta {
         uint32_t LayoutType = 0;
     };
 
-    class YORDLE_EXPORT xaf7ac937 : public bin_class { 
+    class YORDLE_EXPORT xaf7ac937 : public bin_class {
     public:
         explicit xaf7ac937(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14216,7 +14076,7 @@ namespace yordle::data::meta {
         std::string x73dbef7a {};
     };
 
-    class YORDLE_EXPORT ElementGroupSliderState : public bin_class { 
+    class YORDLE_EXPORT ElementGroupSliderState : public bin_class {
     public:
         explicit ElementGroupSliderState(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14229,7 +14089,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> sliderIcon {1005588128u};
     };
 
-    class YORDLE_EXPORT ElementGroupSliderData : public ElementGroupData { 
+    class YORDLE_EXPORT ElementGroupSliderData : public ElementGroupData {
     public:
         explicit ElementGroupSliderData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14247,17 +14107,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::xaf7ac937> soundEvents {};
     };
 
-    class YORDLE_EXPORT IconElementDataExtension : public bin_class { 
+    class YORDLE_EXPORT IconElementDataExtension : public bin_class {
     public:
         explicit IconElementDataExtension(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3681459597 || bin_class::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IconElementGradientExtension : public IconElementDataExtension { 
+    class YORDLE_EXPORT IconElementGradientExtension : public IconElementDataExtension {
     public:
         explicit IconElementGradientExtension(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14272,7 +14131,7 @@ namespace yordle::data::meta {
         std::string mAlphaTexture {};
     };
 
-    class YORDLE_EXPORT X3DSharedConstantDef : public bin_class { 
+    class YORDLE_EXPORT X3DSharedConstantDef : public bin_class {
     public:
         explicit X3DSharedConstantDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14281,14 +14140,14 @@ namespace yordle::data::meta {
         }
 
         std::string name {};
-        uint32_t type = 0;
-        uint32_t Count = 0;
+        uint32_t type              = 0;
+        uint32_t Count             = 0;
         int32_t register_register_ = 0;
-        bool SetManually = false;
-        uint32_t PlatformMask = 0;
+        bool SetManually           = false;
+        uint32_t PlatformMask      = 0;
     };
 
-    class YORDLE_EXPORT X3DSharedConstantBufferDef : public bin_class { 
+    class YORDLE_EXPORT X3DSharedConstantBufferDef : public bin_class {
     public:
         explicit X3DSharedConstantBufferDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14297,15 +14156,15 @@ namespace yordle::data::meta {
         }
 
         std::string name {};
-        uint32_t type = 0;
+        uint32_t type      = 0;
         uint32_t frequency = 0;
         std::vector<std::shared_ptr<yordle::data::meta::X3DSharedConstantDef>> constants {};
-        bool xa87049bc = false;
+        bool xa87049bc             = false;
         int32_t register_register_ = 0;
-        uint32_t PlatformMask = 0;
+        uint32_t PlatformMask      = 0;
     };
 
-    class YORDLE_EXPORT X3DSharedData : public bin_class { 
+    class YORDLE_EXPORT X3DSharedData : public bin_class {
     public:
         explicit X3DSharedData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14317,7 +14176,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> textures {};
     };
 
-    class YORDLE_EXPORT X3DSharedTextureDef : public bin_class { 
+    class YORDLE_EXPORT X3DSharedTextureDef : public bin_class {
     public:
         explicit X3DSharedTextureDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14326,12 +14185,12 @@ namespace yordle::data::meta {
         }
 
         std::string name {};
-        uint32_t type = 0;
+        uint32_t type              = 0;
         int32_t register_register_ = 0;
-        uint32_t PlatformMask = 0;
+        uint32_t PlatformMask      = 0;
     };
 
-    class YORDLE_EXPORT ContextualActionData : public IResource { 
+    class YORDLE_EXPORT ContextualActionData : public IResource {
     public:
         explicit ContextualActionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14345,7 +14204,7 @@ namespace yordle::data::meta {
         std::string mObjectPath {};
     };
 
-    class YORDLE_EXPORT Champion : public WadFileDescriptor { 
+    class YORDLE_EXPORT Champion : public WadFileDescriptor {
     public:
         explicit Champion(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14359,10 +14218,10 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::CatalogEntry> catalogEntry {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::Character>> additionalCharacters {};
         int8_t fixedLoadScreenPosition = 0;
-        uint32_t xc7d8a053 = 0;
+        uint32_t xc7d8a053             = 0;
     };
 
-    class YORDLE_EXPORT AbilityResourceDynamicMaterialFloatDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT AbilityResourceDynamicMaterialFloatDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit AbilityResourceDynamicMaterialFloatDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14373,7 +14232,7 @@ namespace yordle::data::meta {
         uint8_t slot = 0;
     };
 
-    class YORDLE_EXPORT AnimationFractionDynamicMaterialFloatDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT AnimationFractionDynamicMaterialFloatDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit AnimationFractionDynamicMaterialFloatDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14384,7 +14243,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mAnimationName = 0;
     };
 
-    class YORDLE_EXPORT BuffCounterDynamicMaterialFloatDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT BuffCounterDynamicMaterialFloatDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit BuffCounterDynamicMaterialFloatDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14395,7 +14254,7 @@ namespace yordle::data::meta {
         std::string mScriptName {};
     };
 
-    class YORDLE_EXPORT DistanceToPlayerMaterialFloatDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT DistanceToPlayerMaterialFloatDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit DistanceToPlayerMaterialFloatDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14407,7 +14266,7 @@ namespace yordle::data::meta {
         float maxDistance = 0.0;
     };
 
-    class YORDLE_EXPORT x1e6c47fe : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT x1e6c47fe : public IDynamicMaterialFloatDriver {
     public:
         explicit x1e6c47fe(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14418,7 +14277,7 @@ namespace yordle::data::meta {
         std::string mKeyName {};
     };
 
-    class YORDLE_EXPORT xe856a498 : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT xe856a498 : public IDynamicMaterialFloatDriver {
     public:
         explicit xe856a498(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14429,27 +14288,25 @@ namespace yordle::data::meta {
         std::string mKeyName {};
     };
 
-    class YORDLE_EXPORT HealthDynamicMaterialFloatDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT HealthDynamicMaterialFloatDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit HealthDynamicMaterialFloatDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3630502631 || IDynamicMaterialFloatDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT x1fbea063 : public IDynamicMaterialDriver { 
+    class YORDLE_EXPORT x1fbea063 : public IDynamicMaterialDriver {
     public:
         explicit x1fbea063(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 532586595 || IDynamicMaterialDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT UVScaleBiasFromAnimationDynamicMaterialDriver : public IDynamicMaterialDriver { 
+    class YORDLE_EXPORT UVScaleBiasFromAnimationDynamicMaterialDriver : public IDynamicMaterialDriver {
     public:
         explicit UVScaleBiasFromAnimationDynamicMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14461,27 +14318,25 @@ namespace yordle::data::meta {
         uint32_t xdbad132e = 0;
     };
 
-    class YORDLE_EXPORT VelocityDynamicMaterialFloatDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT VelocityDynamicMaterialFloatDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit VelocityDynamicMaterialFloatDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2561383746 || IDynamicMaterialFloatDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ParticleWadFileDescriptor : public WadFileDescriptor { 
+    class YORDLE_EXPORT ParticleWadFileDescriptor : public WadFileDescriptor {
     public:
         explicit ParticleWadFileDescriptor(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3162079434 || WadFileDescriptor::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT GdsMapObject : public GenericMapPlaceable { 
+    class YORDLE_EXPORT GdsMapObject : public GenericMapPlaceable {
     public:
         explicit GdsMapObject(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14489,16 +14344,16 @@ namespace yordle::data::meta {
             return type == 3667811340 || GenericMapPlaceable::is_type(type);
         }
 
-        uint8_t type = 0;
+        uint8_t type                    = 0;
         bool ignoreCollisionOnPlacement = false;
-        bool eyeCandy = false;
+        bool eyeCandy                   = false;
         std::array<float, 3> boxMin {};
         std::array<float, 3> boxMax {};
         uint32_t mapObjectSkinID = 0;
         std::vector<std::shared_ptr<yordle::data::meta::GDSMapObjectExtraInfo>> extraInfo {};
     };
 
-    class YORDLE_EXPORT Map : public WadFileDescriptor { 
+    class YORDLE_EXPORT Map : public WadFileDescriptor {
     public:
         explicit Map(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14514,7 +14369,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::MapNavigationGridOverlays> NavigationGridOverlays {};
     };
 
-    class YORDLE_EXPORT MapBehavior : public GenericMapPlaceable { 
+    class YORDLE_EXPORT MapBehavior : public GenericMapPlaceable {
     public:
         explicit MapBehavior(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14526,7 +14381,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::MapAction>> Actions {};
     };
 
-    class YORDLE_EXPORT FxActionAnimate : public IFxAction { 
+    class YORDLE_EXPORT FxActionAnimate : public IFxAction {
     public:
         explicit FxActionAnimate(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14536,12 +14391,12 @@ namespace yordle::data::meta {
 
         std::string animName {};
         std::shared_ptr<yordle::data::meta::FxTarget> TargetObject {};
-        bool xee7cd89a = false;
-        bool Loop = false;
+        bool xee7cd89a  = false;
+        bool Loop       = false;
         bool PauseOnEnd = false;
     };
 
-    class YORDLE_EXPORT x55d03617 : public IFxAction { 
+    class YORDLE_EXPORT x55d03617 : public IFxAction {
     public:
         explicit x55d03617(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14552,7 +14407,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::FxTransform> position {};
     };
 
-    class YORDLE_EXPORT xda3ab4c4 : public IFxAction { 
+    class YORDLE_EXPORT xda3ab4c4 : public IFxAction {
     public:
         explicit xda3ab4c4(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14560,13 +14415,13 @@ namespace yordle::data::meta {
             return type == 3661280452 || IFxAction::is_type(type);
         }
 
-        float Magnitude = 0.0;
-        float xc4afd6f9 = 0.0;
+        float Magnitude   = 0.0;
+        float xc4afd6f9   = 0.0;
         float FalloffRate = 0.0;
         std::array<float, 3> direction {};
     };
 
-    class YORDLE_EXPORT xd082b191 : public IFxAction { 
+    class YORDLE_EXPORT xd082b191 : public IFxAction {
     public:
         explicit xd082b191(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14575,17 +14430,17 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::FxTransform> position {};
-        float fov = 0.0;
-        float yaw = 0.0;
-        float pitch = 0.0;
-        float x5a439ba5 = 0.0;
-        float ZoomInTime = 0.0;
-        float ZoomOutTime = 0.0;
-        uint8_t ZoomInEase = 0;
+        float fov           = 0.0;
+        float yaw           = 0.0;
+        float pitch         = 0.0;
+        float x5a439ba5     = 0.0;
+        float ZoomInTime    = 0.0;
+        float ZoomOutTime   = 0.0;
+        uint8_t ZoomInEase  = 0;
         uint8_t ZoomOutEase = 0;
     };
 
-    class YORDLE_EXPORT xa05a9472 : public IFxAction { 
+    class YORDLE_EXPORT xa05a9472 : public IFxAction {
     public:
         explicit xa05a9472(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14594,15 +14449,15 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::FxTransform> position {};
-        float fov = 0.0;
-        float yaw = 0.0;
-        float pitch = 0.0;
-        float x5a439ba5 = 0.0;
-        bool follow = false;
+        float fov        = 0.0;
+        float yaw        = 0.0;
+        float pitch      = 0.0;
+        float x5a439ba5  = 0.0;
+        bool follow      = false;
         uint8_t ZoomEase = 0;
     };
 
-    class YORDLE_EXPORT x99cce3c : public IFxAction { 
+    class YORDLE_EXPORT x99cce3c : public IFxAction {
     public:
         explicit x99cce3c(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14613,17 +14468,16 @@ namespace yordle::data::meta {
         uint8_t ZoomEase = 0;
     };
 
-    class YORDLE_EXPORT FxActionContinue : public IFxAction { 
+    class YORDLE_EXPORT FxActionContinue : public IFxAction {
     public:
         explicit FxActionContinue(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 554443936 || IFxAction::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT FxActionMove : public IFxAction { 
+    class YORDLE_EXPORT FxActionMove : public IFxAction {
     public:
         explicit FxActionMove(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14633,13 +14487,13 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::FxTarget> TargetObject {};
         std::shared_ptr<yordle::data::meta::FxTransform> Destination {};
-        uint8_t EasingType = 0;
+        uint8_t EasingType      = 0;
         float OvershootDistance = 0.0;
-        bool FaceVelocity = false;
-        bool xd935fe42 = false;
+        bool FaceVelocity       = false;
+        bool xd935fe42          = false;
     };
 
-    class YORDLE_EXPORT FxActionMoveBase : public IFxAction { 
+    class YORDLE_EXPORT FxActionMoveBase : public IFxAction {
     public:
         explicit FxActionMoveBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14648,12 +14502,12 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::FxTarget> TargetObject {};
-        uint8_t EasingType = 0;
+        uint8_t EasingType      = 0;
         float OvershootDistance = 0.0;
-        bool FaceVelocity = false;
+        bool FaceVelocity       = false;
     };
 
-    class YORDLE_EXPORT FxActionMoveTo : public FxActionMoveBase { 
+    class YORDLE_EXPORT FxActionMoveTo : public FxActionMoveBase {
     public:
         explicit FxActionMoveTo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14664,17 +14518,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::FxTransform> Destination {};
     };
 
-    class YORDLE_EXPORT FxActionMoveReset : public FxActionMoveBase { 
+    class YORDLE_EXPORT FxActionMoveReset : public FxActionMoveBase {
     public:
         explicit FxActionMoveReset(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1873184927 || FxActionMoveBase::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT FxActionSfx : public IFxAction { 
+    class YORDLE_EXPORT FxActionSfx : public IFxAction {
     public:
         explicit FxActionSfx(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14686,7 +14539,7 @@ namespace yordle::data::meta {
         std::string EventName {};
     };
 
-    class YORDLE_EXPORT FxActionTimeDilate : public IFxAction { 
+    class YORDLE_EXPORT FxActionTimeDilate : public IFxAction {
     public:
         explicit FxActionTimeDilate(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14695,13 +14548,13 @@ namespace yordle::data::meta {
         }
 
         float TimeDilation = 0.0;
-        float intime = 0.0;
-        uint8_t InEase = 0;
-        float OutTime = 0.0;
-        uint8_t OutEase = 0;
+        float intime       = 0.0;
+        uint8_t InEase     = 0;
+        float OutTime      = 0.0;
+        uint8_t OutEase    = 0;
     };
 
-    class YORDLE_EXPORT FxActionVfx : public IFxAction { 
+    class YORDLE_EXPORT FxActionVfx : public IFxAction {
     public:
         explicit FxActionVfx(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14720,7 +14573,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ISplineInfo> SplineInfo {};
     };
 
-    class YORDLE_EXPORT LolSpellScript : public RScript { 
+    class YORDLE_EXPORT LolSpellScript : public RScript {
     public:
         explicit LolSpellScript(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14734,107 +14587,97 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::LoLSpellPreloadData> PreloadData {};
     };
 
-    class YORDLE_EXPORT InstanceVarsTable : public ScriptTable { 
+    class YORDLE_EXPORT InstanceVarsTable : public ScriptTable {
     public:
         explicit InstanceVarsTable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4055000216 || ScriptTable::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT CharacterVarsTable : public ScriptTable { 
+    class YORDLE_EXPORT CharacterVarsTable : public ScriptTable {
     public:
         explicit CharacterVarsTable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1154861162 || ScriptTable::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT NextBuffVarsTable : public ScriptTable { 
+    class YORDLE_EXPORT NextBuffVarsTable : public ScriptTable {
     public:
         explicit NextBuffVarsTable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 840789541 || ScriptTable::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT WorldVarsTable : public ScriptTable { 
+    class YORDLE_EXPORT WorldVarsTable : public ScriptTable {
     public:
         explicit WorldVarsTable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1416785227 || ScriptTable::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT AvatarVarsTable : public ScriptTable { 
+    class YORDLE_EXPORT AvatarVarsTable : public ScriptTable {
     public:
         explicit AvatarVarsTable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 500954198 || ScriptTable::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT NextSpellVarsTable : public ScriptTable { 
+    class YORDLE_EXPORT NextSpellVarsTable : public ScriptTable {
     public:
         explicit NextSpellVarsTable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2012327816 || ScriptTable::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TempTable1Table : public ScriptTable { 
+    class YORDLE_EXPORT TempTable1Table : public ScriptTable {
     public:
         explicit TempTable1Table(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1745220956 || ScriptTable::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TempTable2Table : public ScriptTable { 
+    class YORDLE_EXPORT TempTable2Table : public ScriptTable {
     public:
         explicit TempTable2Table(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 285936043 || ScriptTable::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TempTable3Table : public ScriptTable { 
+    class YORDLE_EXPORT TempTable3Table : public ScriptTable {
     public:
         explicit TempTable3Table(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1662218770 || ScriptTable::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TFTItemMaterialController : public SkinnedMeshDataMaterialController { 
+    class YORDLE_EXPORT TFTItemMaterialController : public SkinnedMeshDataMaterialController {
     public:
         explicit TFTItemMaterialController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2243645043 || SkinnedMeshDataMaterialController::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT x9e2b8a86 : public ViewController { 
+    class YORDLE_EXPORT x9e2b8a86 : public ViewController {
     public:
         explicit x9e2b8a86(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14852,15 +14695,15 @@ namespace yordle::data::meta {
         std::string xf7ee4522 {};
         yordle::data::meta::bin_fnv_hash x4babd89d = 0;
         yordle::data::meta::bin_fnv_hash xf5b8026a = 0;
-        yordle::data::meta::bin_fnv_hash xc5c5ca0 = 0;
+        yordle::data::meta::bin_fnv_hash xc5c5ca0  = 0;
         std::shared_ptr<yordle::data::meta::x2610e5a7> xf2024d92 {};
-        yordle::data::meta::bin_fnv_hash Scene = 0;
+        yordle::data::meta::bin_fnv_hash Scene     = 0;
         yordle::data::meta::bin_fnv_hash x9dcf971d = 0;
-        float xba1d038c = 0.0;
+        float xba1d038c                            = 0.0;
         yordle::data::meta::bin_fnv_hash x75f9cc79 = 0;
     };
 
-    class YORDLE_EXPORT TftGameStartViewController : public ViewController { 
+    class YORDLE_EXPORT TftGameStartViewController : public ViewController {
     public:
         explicit TftGameStartViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14871,12 +14714,12 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x81317ee6 = 0;
         yordle::data::meta::bin_fnv_hash xfc59b058 = 0;
         yordle::data::meta::bin_fnv_hash xf6a44ab6 = 0;
-        float x56b85896 = 0.0;
-        float x14713b68 = 0.0;
-        float x87f66219 = 0.0;
+        float x56b85896                            = 0.0;
+        float x14713b68                            = 0.0;
+        float x87f66219                            = 0.0;
     };
 
-    class YORDLE_EXPORT TftUnitShopViewController : public ViewController { 
+    class YORDLE_EXPORT TftUnitShopViewController : public ViewController {
     public:
         explicit TftUnitShopViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14885,16 +14728,16 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash ToggleShopButton = 0;
-        yordle::data::meta::bin_fnv_hash LockButton = 0;
-        yordle::data::meta::bin_fnv_hash BuyExpButton = 0;
-        yordle::data::meta::bin_fnv_hash RerollButton = 0;
-        yordle::data::meta::bin_fnv_hash InfoButton = 0;
-        yordle::data::meta::bin_fnv_hash xa0ae7cfa = 0;
-        float xc43a3d1f = 0.0;
+        yordle::data::meta::bin_fnv_hash LockButton       = 0;
+        yordle::data::meta::bin_fnv_hash BuyExpButton     = 0;
+        yordle::data::meta::bin_fnv_hash RerollButton     = 0;
+        yordle::data::meta::bin_fnv_hash InfoButton       = 0;
+        yordle::data::meta::bin_fnv_hash xa0ae7cfa        = 0;
+        float xc43a3d1f                                   = 0.0;
         std::map<uint32_t, std::shared_ptr<yordle::data::meta::x2781ed6b>> x2781ed6b {};
     };
 
-    class YORDLE_EXPORT AnnouncementsViewController : public ViewController { 
+    class YORDLE_EXPORT AnnouncementsViewController : public ViewController {
     public:
         explicit AnnouncementsViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14905,27 +14748,25 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x34b17566 = 0;
     };
 
-    class YORDLE_EXPORT InvalidDeviceViewController : public ViewController { 
+    class YORDLE_EXPORT InvalidDeviceViewController : public ViewController {
     public:
         explicit InvalidDeviceViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1813912031 || ViewController::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT LoginViewController : public ViewController { 
+    class YORDLE_EXPORT LoginViewController : public ViewController {
     public:
         explicit LoginViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1830754775 || ViewController::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT PatchingViewController : public ViewController { 
+    class YORDLE_EXPORT PatchingViewController : public ViewController {
     public:
         explicit PatchingViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14933,11 +14774,11 @@ namespace yordle::data::meta {
             return type == 161679594 || ViewController::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash BeginPatchingButtonDefinition = 0;
+        yordle::data::meta::bin_fnv_hash BeginPatchingButtonDefinition   = 0;
         yordle::data::meta::bin_fnv_hash OpenTeamPlannerButtonDefinition = 0;
     };
 
-    class YORDLE_EXPORT SummonerNameCreateViewController : public ViewController { 
+    class YORDLE_EXPORT SummonerNameCreateViewController : public ViewController {
     public:
         explicit SummonerNameCreateViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14949,7 +14790,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash SubmitButtonDefinition = 0;
     };
 
-    class YORDLE_EXPORT TftTeamPlannerViewController : public ViewController { 
+    class YORDLE_EXPORT TftTeamPlannerViewController : public ViewController {
     public:
         explicit TftTeamPlannerViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14959,17 +14800,17 @@ namespace yordle::data::meta {
 
         float x6ee3bd2e = 0.0;
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
-        yordle::data::meta::bin_fnv_hash ChampionButtonTemplate = 0;
-        yordle::data::meta::bin_fnv_hash xa88951d0 = 0;
-        yordle::data::meta::bin_fnv_hash ActiveTraitButtonTemplate = 0;
+        yordle::data::meta::bin_fnv_hash ChampionButtonTemplate      = 0;
+        yordle::data::meta::bin_fnv_hash xa88951d0                   = 0;
+        yordle::data::meta::bin_fnv_hash ActiveTraitButtonTemplate   = 0;
         yordle::data::meta::bin_fnv_hash PaginateTraitButtonTemplate = 0;
-        yordle::data::meta::bin_fnv_hash CloseButtonTemplate = 0;
-        yordle::data::meta::bin_fnv_hash ClearButtonTemplate = 0;
-        uint8_t ChampionsPerRow = 0;
-        uint8_t TraitsPerRow = 0;
+        yordle::data::meta::bin_fnv_hash CloseButtonTemplate         = 0;
+        yordle::data::meta::bin_fnv_hash ClearButtonTemplate         = 0;
+        uint8_t ChampionsPerRow                                      = 0;
+        uint8_t TraitsPerRow                                         = 0;
     };
 
-    class YORDLE_EXPORT ChatViewController : public ViewController { 
+    class YORDLE_EXPORT ChatViewController : public ViewController {
     public:
         explicit ChatViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14978,14 +14819,14 @@ namespace yordle::data::meta {
         }
 
         uint8_t defaultWordWrapMargin = 0;
-        float hideAfterSeconds = 0.0;
+        float hideAfterSeconds        = 0.0;
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
         yordle::data::meta::bin_fnv_hash SceneChat = 0;
         yordle::data::meta::bin_fnv_hash x8284ebb3 = 0;
         yordle::data::meta::bin_fnv_hash xbc8c4eed = 0;
     };
 
-    class YORDLE_EXPORT VfxProbabilityTableDataGrande : public ViewController { 
+    class YORDLE_EXPORT VfxProbabilityTableDataGrande : public ViewController {
     public:
         explicit VfxProbabilityTableDataGrande(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -14993,13 +14834,13 @@ namespace yordle::data::meta {
             return type == 2261862267 || ViewController::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash Scene = 0;
+        yordle::data::meta::bin_fnv_hash Scene    = 0;
         yordle::data::meta::bin_fnv_hash Backdrop = 0;
-        float authoredWidth = 0.0;
-        float SourceResolutionWidth = 0.0;
+        float authoredWidth                       = 0.0;
+        float SourceResolutionWidth               = 0.0;
     };
 
-    class YORDLE_EXPORT x75259ad3 : public ViewController { 
+    class YORDLE_EXPORT x75259ad3 : public ViewController {
     public:
         explicit x75259ad3(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15007,14 +14848,14 @@ namespace yordle::data::meta {
             return type == 1965398739 || ViewController::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash CloseButtonDefinition = 0;
+        yordle::data::meta::bin_fnv_hash CloseButtonDefinition   = 0;
         yordle::data::meta::bin_fnv_hash ConfirmButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash CancelButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash ContentScene = 0;
+        yordle::data::meta::bin_fnv_hash CancelButtonDefinition  = 0;
+        yordle::data::meta::bin_fnv_hash ContentScene            = 0;
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
     };
 
-    class YORDLE_EXPORT ItemShopViewController : public ViewController { 
+    class YORDLE_EXPORT ItemShopViewController : public ViewController {
     public:
         explicit ItemShopViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15022,33 +14863,31 @@ namespace yordle::data::meta {
             return type == 3842081615 || ViewController::is_type(type);
         }
 
-        float MaximumShopScale = 0.0;
-        float MinimumShopScale = 0.0;
-        yordle::data::meta::bin_fnv_hash DragRegion = 0;
+        float MaximumShopScale                            = 0.0;
+        float MinimumShopScale                            = 0.0;
+        yordle::data::meta::bin_fnv_hash DragRegion       = 0;
         yordle::data::meta::bin_fnv_hash ResizeDragRegion = 0;
     };
 
-    class YORDLE_EXPORT xe0e70cfc : public ViewController { 
+    class YORDLE_EXPORT xe0e70cfc : public ViewController {
     public:
         explicit xe0e70cfc(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3773238524 || ViewController::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT x4e4bbc2b : public ViewController { 
+    class YORDLE_EXPORT x4e4bbc2b : public ViewController {
     public:
         explicit x4e4bbc2b(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1313586219 || ViewController::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT NavHeaderViewController : public ViewController { 
+    class YORDLE_EXPORT NavHeaderViewController : public ViewController {
     public:
         explicit NavHeaderViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15056,17 +14895,17 @@ namespace yordle::data::meta {
             return type == 2972878046 || ViewController::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash backButton = 0;
-        yordle::data::meta::bin_fnv_hash socialButton = 0;
+        yordle::data::meta::bin_fnv_hash backButton          = 0;
+        yordle::data::meta::bin_fnv_hash socialButton        = 0;
         yordle::data::meta::bin_fnv_hash notificationsButton = 0;
-        yordle::data::meta::bin_fnv_hash settingsButton = 0;
-        yordle::data::meta::bin_fnv_hash MissionsButton = 0;
-        yordle::data::meta::bin_fnv_hash StarShardsButton = 0;
-        yordle::data::meta::bin_fnv_hash x93a118fb = 0;
-        yordle::data::meta::bin_fnv_hash x7b8e8695 = 0;
+        yordle::data::meta::bin_fnv_hash settingsButton      = 0;
+        yordle::data::meta::bin_fnv_hash MissionsButton      = 0;
+        yordle::data::meta::bin_fnv_hash StarShardsButton    = 0;
+        yordle::data::meta::bin_fnv_hash x93a118fb           = 0;
+        yordle::data::meta::bin_fnv_hash x7b8e8695           = 0;
     };
 
-    class YORDLE_EXPORT OptionsViewController : public ViewController { 
+    class YORDLE_EXPORT OptionsViewController : public ViewController {
     public:
         explicit OptionsViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15076,15 +14915,15 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
         yordle::data::meta::bin_fnv_hash CloseButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash TabButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash Button1Definition = 0;
-        yordle::data::meta::bin_fnv_hash Button2Definition = 0;
+        yordle::data::meta::bin_fnv_hash TabButtonDefinition   = 0;
+        yordle::data::meta::bin_fnv_hash Button1Definition     = 0;
+        yordle::data::meta::bin_fnv_hash Button2Definition     = 0;
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::OptionsTab>> Tabs {};
-        yordle::data::meta::bin_fnv_hash x5a46f90c = 0;
+        yordle::data::meta::bin_fnv_hash x5a46f90c       = 0;
         yordle::data::meta::bin_fnv_hash LastItemPadding = 0;
     };
 
-    class YORDLE_EXPORT PostGameViewController : public ViewController { 
+    class YORDLE_EXPORT PostGameViewController : public ViewController {
     public:
         explicit PostGameViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15093,25 +14932,25 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash PlayAgainButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash QuitButtonDefinition = 0;
+        yordle::data::meta::bin_fnv_hash QuitButtonDefinition      = 0;
         std::vector<std::shared_ptr<yordle::data::meta::NamedIconData>> RankIconData {};
-        yordle::data::meta::bin_fnv_hash RankText = 0;
-        yordle::data::meta::bin_fnv_hash CurrentExpText = 0;
-        yordle::data::meta::bin_fnv_hash GainedExpText = 0;
-        yordle::data::meta::bin_fnv_hash LostExpText = 0;
-        yordle::data::meta::bin_fnv_hash PlacementTextRight = 0;
-        yordle::data::meta::bin_fnv_hash ProvisionalTextRight = 0;
-        yordle::data::meta::bin_fnv_hash BackgroundTexture = 0;
+        yordle::data::meta::bin_fnv_hash RankText               = 0;
+        yordle::data::meta::bin_fnv_hash CurrentExpText         = 0;
+        yordle::data::meta::bin_fnv_hash GainedExpText          = 0;
+        yordle::data::meta::bin_fnv_hash LostExpText            = 0;
+        yordle::data::meta::bin_fnv_hash PlacementTextRight     = 0;
+        yordle::data::meta::bin_fnv_hash ProvisionalTextRight   = 0;
+        yordle::data::meta::bin_fnv_hash BackgroundTexture      = 0;
         yordle::data::meta::bin_fnv_hash CurrentPlayerHighlight = 0;
-        yordle::data::meta::bin_fnv_hash GainedRatingText = 0;
-        yordle::data::meta::bin_fnv_hash LostRatingText = 0;
-        yordle::data::meta::bin_fnv_hash CurrentRatingText = 0;
-        yordle::data::meta::bin_fnv_hash x1abf4b19 = 0;
+        yordle::data::meta::bin_fnv_hash GainedRatingText       = 0;
+        yordle::data::meta::bin_fnv_hash LostRatingText         = 0;
+        yordle::data::meta::bin_fnv_hash CurrentRatingText      = 0;
+        yordle::data::meta::bin_fnv_hash x1abf4b19              = 0;
         std::vector<std::shared_ptr<yordle::data::meta::NamedIconData>> RatedIconData {};
         yordle::data::meta::bin_fnv_hash x8ecd9248 = 0;
     };
 
-    class YORDLE_EXPORT CelebrationViewController : public ViewController { 
+    class YORDLE_EXPORT CelebrationViewController : public ViewController {
     public:
         explicit CelebrationViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15124,7 +14963,7 @@ namespace yordle::data::meta {
         std::map<std::string, std::string> xc4ecb642 {};
     };
 
-    class YORDLE_EXPORT HomeViewController : public ViewController { 
+    class YORDLE_EXPORT HomeViewController : public ViewController {
     public:
         explicit HomeViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15133,20 +14972,20 @@ namespace yordle::data::meta {
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::ModeSelectButtonData>> ModeSelectCustomButtonData {};
-        yordle::data::meta::bin_fnv_hash ModeSelectDefaultButtonData = 0;
-        yordle::data::meta::bin_fnv_hash PlayGameButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash BattlepassButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash StoreButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash TeamPlannerButtonDefinition = 0;
+        yordle::data::meta::bin_fnv_hash ModeSelectDefaultButtonData  = 0;
+        yordle::data::meta::bin_fnv_hash PlayGameButtonDefinition     = 0;
+        yordle::data::meta::bin_fnv_hash BattlepassButtonDefinition   = 0;
+        yordle::data::meta::bin_fnv_hash StoreButtonDefinition        = 0;
+        yordle::data::meta::bin_fnv_hash TeamPlannerButtonDefinition  = 0;
         yordle::data::meta::bin_fnv_hash SpecialOfferButtonDefinition = 0;
         std::shared_ptr<yordle::data::meta::xfbd72d16> SpecialOfferController {};
         std::string ThemeMusicStateGroup {};
         std::string ThemeMusicState {};
-        float xdc1d621e = 0.0;
+        float xdc1d621e   = 0.0;
         uint8_t x86a69e37 = 0;
     };
 
-    class YORDLE_EXPORT LoadoutSelectViewController : public ViewController { 
+    class YORDLE_EXPORT LoadoutSelectViewController : public ViewController {
     public:
         explicit LoadoutSelectViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15157,7 +14996,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ILoadoutFeatureDataBehavior>> LoadoutsButtonData {};
     };
 
-    class YORDLE_EXPORT LoadoutViewController : public ViewController { 
+    class YORDLE_EXPORT LoadoutViewController : public ViewController {
     public:
         explicit LoadoutViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15169,17 +15008,17 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> ArenaInfoPanel {};
         std::shared_ptr<yordle::data::meta::bin_class> EmoteInfoPanel {};
         std::shared_ptr<yordle::data::meta::bin_class> DamageSkinInfoPanel {};
-        yordle::data::meta::bin_fnv_hash equipButton = 0;
+        yordle::data::meta::bin_fnv_hash equipButton    = 0;
         yordle::data::meta::bin_fnv_hash gridItemButton = 0;
-        yordle::data::meta::bin_fnv_hash closeButton = 0;
-        yordle::data::meta::bin_fnv_hash upgradeButton = 0;
-        yordle::data::meta::bin_fnv_hash x91672418 = 0;
-        yordle::data::meta::bin_fnv_hash xd1abeb9d = 0;
+        yordle::data::meta::bin_fnv_hash closeButton    = 0;
+        yordle::data::meta::bin_fnv_hash upgradeButton  = 0;
+        yordle::data::meta::bin_fnv_hash x91672418      = 0;
+        yordle::data::meta::bin_fnv_hash xd1abeb9d      = 0;
         std::string SoundOnActivate {};
         std::string SoundOnDeActivate {};
     };
 
-    class YORDLE_EXPORT LobbyViewController : public ViewController { 
+    class YORDLE_EXPORT LobbyViewController : public ViewController {
     public:
         explicit LobbyViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15187,13 +15026,13 @@ namespace yordle::data::meta {
             return type == 144791174 || ViewController::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash ReadyCheckAcceptButton = 0;
+        yordle::data::meta::bin_fnv_hash ReadyCheckAcceptButton  = 0;
         yordle::data::meta::bin_fnv_hash ReadyCheckDeclineButton = 0;
-        yordle::data::meta::bin_fnv_hash xd5989aae = 0;
-        yordle::data::meta::bin_fnv_hash LobbyCloseButton = 0;
-        yordle::data::meta::bin_fnv_hash FriendInviteButton = 0;
-        yordle::data::meta::bin_fnv_hash FriendEditButton = 0;
-        yordle::data::meta::bin_fnv_hash loadoutsButton = 0;
+        yordle::data::meta::bin_fnv_hash xd5989aae               = 0;
+        yordle::data::meta::bin_fnv_hash LobbyCloseButton        = 0;
+        yordle::data::meta::bin_fnv_hash FriendInviteButton      = 0;
+        yordle::data::meta::bin_fnv_hash FriendEditButton        = 0;
+        yordle::data::meta::bin_fnv_hash loadoutsButton          = 0;
         std::string ThemeMusicStateGroup {};
         std::string LobbyMusicState {};
         std::string InQueueMusicState {};
@@ -15206,17 +15045,16 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash xb3e2f60e = 0;
     };
 
-    class YORDLE_EXPORT LootTableDialogViewController : public x75259ad3 { 
+    class YORDLE_EXPORT LootTableDialogViewController : public x75259ad3 {
     public:
         explicit LootTableDialogViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1013446472 || x75259ad3::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT MissionsPanelViewController : public ViewController { 
+    class YORDLE_EXPORT MissionsPanelViewController : public ViewController {
     public:
         explicit MissionsPanelViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15225,11 +15063,11 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
-        float xfa7c8443 = 0.0;
+        float xfa7c8443   = 0.0;
         uint8_t xec740d9e = 0;
     };
 
-    class YORDLE_EXPORT ModeSelectViewController : public ViewController { 
+    class YORDLE_EXPORT ModeSelectViewController : public ViewController {
     public:
         explicit ModeSelectViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15238,15 +15076,15 @@ namespace yordle::data::meta {
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::QueueDisplayData>> queueDisplayData {};
-        yordle::data::meta::bin_fnv_hash x9e4be5ed = 0;
-        yordle::data::meta::bin_fnv_hash PageLeftButtonDefinition = 0;
+        yordle::data::meta::bin_fnv_hash x9e4be5ed                 = 0;
+        yordle::data::meta::bin_fnv_hash PageLeftButtonDefinition  = 0;
         yordle::data::meta::bin_fnv_hash PageRightButtonDefinition = 0;
         std::string SoundOnActivate {};
         std::string SoundOnDeActivate {};
         std::vector<yordle::data::meta::bin_fnv_hash> x71378d8b {};
     };
 
-    class YORDLE_EXPORT NotificationsPanelViewController : public ViewController { 
+    class YORDLE_EXPORT NotificationsPanelViewController : public ViewController {
     public:
         explicit NotificationsPanelViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15258,7 +15096,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash ClearAllButtonDefinition = 0;
     };
 
-    class YORDLE_EXPORT PurchaseDialog : public x75259ad3 { 
+    class YORDLE_EXPORT PurchaseDialog : public x75259ad3 {
     public:
         explicit PurchaseDialog(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15268,10 +15106,10 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash purchaseButton = 0;
         yordle::data::meta::bin_fnv_hash moreInfoButton = 0;
-        yordle::data::meta::bin_fnv_hash x88f6a038 = 0;
+        yordle::data::meta::bin_fnv_hash x88f6a038      = 0;
     };
 
-    class YORDLE_EXPORT x39bbca88 : public x75259ad3 { 
+    class YORDLE_EXPORT x39bbca88 : public x75259ad3 {
     public:
         explicit x39bbca88(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15282,7 +15120,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash ActionButtonDefinition = 0;
     };
 
-    class YORDLE_EXPORT SocialPanelViewController : public ViewController { 
+    class YORDLE_EXPORT SocialPanelViewController : public ViewController {
     public:
         explicit SocialPanelViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15292,11 +15130,11 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
         yordle::data::meta::bin_fnv_hash AddFriendButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash InviteButtonDefinition = 0;
-        yordle::data::meta::bin_fnv_hash FriendButtonDefinition = 0;
+        yordle::data::meta::bin_fnv_hash InviteButtonDefinition    = 0;
+        yordle::data::meta::bin_fnv_hash FriendButtonDefinition    = 0;
     };
 
-    class YORDLE_EXPORT StoreViewController : public ViewController { 
+    class YORDLE_EXPORT StoreViewController : public ViewController {
     public:
         explicit StoreViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15310,7 +15148,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::StoreCategoryButtonDefinition>> StoreCategoryButtonDefinitions {};
     };
 
-    class YORDLE_EXPORT TFTBattlepassViewController : public ViewController { 
+    class YORDLE_EXPORT TFTBattlepassViewController : public ViewController {
     public:
         explicit TFTBattlepassViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15320,23 +15158,22 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
         yordle::data::meta::bin_fnv_hash upgradePassButton = 0;
-        yordle::data::meta::bin_fnv_hash lootTableButton = 0;
-        float xc034af02 = 0.0;
+        yordle::data::meta::bin_fnv_hash lootTableButton   = 0;
+        float xc034af02                                    = 0.0;
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> x650b36b5 {};
         yordle::data::meta::bin_ref<yordle::data::meta::x75259ad3> x56f22512 {1965398739u};
     };
 
-    class YORDLE_EXPORT LoadoutArenaSkinInfoPanel : public ILoadoutInfoPanel { 
+    class YORDLE_EXPORT LoadoutArenaSkinInfoPanel : public ILoadoutInfoPanel {
     public:
         explicit LoadoutArenaSkinInfoPanel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2807723955 || ILoadoutInfoPanel::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT LoadoutCompanionInfoPanel : public ILoadoutInfoPanel { 
+    class YORDLE_EXPORT LoadoutCompanionInfoPanel : public ILoadoutInfoPanel {
     public:
         explicit LoadoutCompanionInfoPanel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15346,13 +15183,13 @@ namespace yordle::data::meta {
 
         std::vector<yordle::data::meta::bin_fnv_hash> tierButton {};
         std::vector<yordle::data::meta::bin_fnv_hash> upgradeTierButton {};
-        yordle::data::meta::bin_fnv_hash upgradeInfoText = 0;
+        yordle::data::meta::bin_fnv_hash upgradeInfoText  = 0;
         yordle::data::meta::bin_fnv_hash upgradeErrorText = 0;
-        yordle::data::meta::bin_fnv_hash x6a5635f2 = 0;
-        yordle::data::meta::bin_fnv_hash x90dd73ef = 0;
+        yordle::data::meta::bin_fnv_hash x6a5635f2        = 0;
+        yordle::data::meta::bin_fnv_hash x90dd73ef        = 0;
     };
 
-    class YORDLE_EXPORT LoadoutDamageSkinInfoPanel : public ILoadoutInfoPanel { 
+    class YORDLE_EXPORT LoadoutDamageSkinInfoPanel : public ILoadoutInfoPanel {
     public:
         explicit LoadoutDamageSkinInfoPanel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15363,7 +15200,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> tierButton {};
     };
 
-    class YORDLE_EXPORT LoadoutEmoteInfoPanel : public ILoadoutInfoPanel { 
+    class YORDLE_EXPORT LoadoutEmoteInfoPanel : public ILoadoutInfoPanel {
     public:
         explicit LoadoutEmoteInfoPanel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15371,16 +15208,16 @@ namespace yordle::data::meta {
             return type == 4100634241 || ILoadoutInfoPanel::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash EmoteWheelUpperButton = 0;
-        yordle::data::meta::bin_fnv_hash EmoteWheelLeftButton = 0;
-        yordle::data::meta::bin_fnv_hash EmoteWheelLowerButton = 0;
-        yordle::data::meta::bin_fnv_hash EmoteWheelRightButton = 0;
+        yordle::data::meta::bin_fnv_hash EmoteWheelUpperButton  = 0;
+        yordle::data::meta::bin_fnv_hash EmoteWheelLeftButton   = 0;
+        yordle::data::meta::bin_fnv_hash EmoteWheelLowerButton  = 0;
+        yordle::data::meta::bin_fnv_hash EmoteWheelRightButton  = 0;
         yordle::data::meta::bin_fnv_hash EmoteWheelCenterButton = 0;
-        yordle::data::meta::bin_fnv_hash emoteStartButton = 0;
-        yordle::data::meta::bin_fnv_hash emoteVictoryButton = 0;
+        yordle::data::meta::bin_fnv_hash emoteStartButton       = 0;
+        yordle::data::meta::bin_fnv_hash emoteVictoryButton     = 0;
     };
 
-    class YORDLE_EXPORT x759a8c58 : public x75259ad3 { 
+    class YORDLE_EXPORT x759a8c58 : public x75259ad3 {
     public:
         explicit x759a8c58(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15388,18 +15225,18 @@ namespace yordle::data::meta {
             return type == 1973062744 || x75259ad3::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash upgradeText = 0;
-        yordle::data::meta::bin_fnv_hash errorText = 0;
-        yordle::data::meta::bin_fnv_hash ItemIcon = 0;
-        yordle::data::meta::bin_fnv_hash ItemFrame = 0;
-        yordle::data::meta::bin_fnv_hash RarityFrameCommon = 0;
-        yordle::data::meta::bin_fnv_hash RarityFrameEpic = 0;
+        yordle::data::meta::bin_fnv_hash upgradeText          = 0;
+        yordle::data::meta::bin_fnv_hash errorText            = 0;
+        yordle::data::meta::bin_fnv_hash ItemIcon             = 0;
+        yordle::data::meta::bin_fnv_hash ItemFrame            = 0;
+        yordle::data::meta::bin_fnv_hash RarityFrameCommon    = 0;
+        yordle::data::meta::bin_fnv_hash RarityFrameEpic      = 0;
         yordle::data::meta::bin_fnv_hash RarityFrameLegendary = 0;
-        yordle::data::meta::bin_fnv_hash xda8bcd33 = 0;
-        yordle::data::meta::bin_fnv_hash x41ed38a6 = 0;
+        yordle::data::meta::bin_fnv_hash xda8bcd33            = 0;
+        yordle::data::meta::bin_fnv_hash x41ed38a6            = 0;
     };
 
-    class YORDLE_EXPORT QuestTrackerViewController : public ViewController { 
+    class YORDLE_EXPORT QuestTrackerViewController : public ViewController {
     public:
         explicit QuestTrackerViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15417,17 +15254,16 @@ namespace yordle::data::meta {
         float xc67a95a4 = 0.0;
     };
 
-    class YORDLE_EXPORT xe20be0be : public ViewController { 
+    class YORDLE_EXPORT xe20be0be : public ViewController {
     public:
         explicit xe20be0be(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3792429246 || ViewController::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT SettingsViewController : public ViewController { 
+    class YORDLE_EXPORT SettingsViewController : public ViewController {
     public:
         explicit SettingsViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15437,12 +15273,12 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::GeneralSettingsGroup> GeneralSettings {};
         yordle::data::meta::bin_fnv_hash closeButton = 0;
-        yordle::data::meta::bin_fnv_hash tabButton = 0;
+        yordle::data::meta::bin_fnv_hash tabButton   = 0;
         std::string SoundOnActivate {};
         std::string SoundOnDeActivate {};
     };
 
-    class YORDLE_EXPORT TooltipInstanceSpell : public TooltipInstance { 
+    class YORDLE_EXPORT TooltipInstanceSpell : public TooltipInstance {
     public:
         explicit TooltipInstanceSpell(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15453,7 +15289,7 @@ namespace yordle::data::meta {
         bool EnableExtendedTooltip = false;
     };
 
-    class YORDLE_EXPORT TooltipInstanceBuff : public TooltipInstance { 
+    class YORDLE_EXPORT TooltipInstanceBuff : public TooltipInstance {
     public:
         explicit TooltipInstanceBuff(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15464,17 +15300,16 @@ namespace yordle::data::meta {
         bool mEnableExtendedTooltip = false;
     };
 
-    class YORDLE_EXPORT TooltipInstanceItem : public TooltipInstance { 
+    class YORDLE_EXPORT TooltipInstanceItem : public TooltipInstance {
     public:
         explicit TooltipInstanceItem(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 905298284 || TooltipInstance::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT TooltipViewController : public ViewController { 
+    class YORDLE_EXPORT TooltipViewController : public ViewController {
     public:
         explicit TooltipViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15488,17 +15323,16 @@ namespace yordle::data::meta {
         float x750ad235 = 0.0;
     };
 
-    class YORDLE_EXPORT EsportsBannerMaterialController : public SkinnedMeshDataMaterialController { 
+    class YORDLE_EXPORT EsportsBannerMaterialController : public SkinnedMeshDataMaterialController {
     public:
         explicit EsportsBannerMaterialController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4231349552 || SkinnedMeshDataMaterialController::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT BlendableClipData : public ClipBaseData { 
+    class YORDLE_EXPORT BlendableClipData : public ClipBaseData {
     public:
         explicit BlendableClipData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15506,13 +15340,13 @@ namespace yordle::data::meta {
             return type == 1348327734 || ClipBaseData::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash mMaskDataName = 0;
-        yordle::data::meta::bin_fnv_hash mTrackDataName = 0;
+        yordle::data::meta::bin_fnv_hash mMaskDataName      = 0;
+        yordle::data::meta::bin_fnv_hash mTrackDataName     = 0;
         yordle::data::meta::bin_fnv_hash mSyncGroupDataName = 0;
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::BaseEventData>> mEventDataMap {};
     };
 
-    class YORDLE_EXPORT ConditionBoolClipData : public ClipBaseData { 
+    class YORDLE_EXPORT ConditionBoolClipData : public ClipBaseData {
     public:
         explicit ConditionBoolClipData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15520,16 +15354,16 @@ namespace yordle::data::meta {
             return type == 358669516 || ClipBaseData::is_type(type);
         }
 
-        uint32_t mUpdaterType = 0;
-        bool mChangeAnimationMidPlay = false;
-        bool x31db4e6a = false;
-        bool x92213dee = false;
-        yordle::data::meta::bin_fnv_hash mTrueConditionClipName = 0;
+        uint32_t mUpdaterType                                    = 0;
+        bool mChangeAnimationMidPlay                             = false;
+        bool x31db4e6a                                           = false;
+        bool x92213dee                                           = false;
+        yordle::data::meta::bin_fnv_hash mTrueConditionClipName  = 0;
         yordle::data::meta::bin_fnv_hash mFalseConditionClipName = 0;
-        float mChildAnimDelaySwitchTime = 0.0;
+        float mChildAnimDelaySwitchTime                          = 0.0;
     };
 
-    class YORDLE_EXPORT ConditionFloatClipData : public ClipBaseData { 
+    class YORDLE_EXPORT ConditionFloatClipData : public ClipBaseData {
     public:
         explicit ConditionFloatClipData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15538,14 +15372,14 @@ namespace yordle::data::meta {
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::ConditionFloatPairData>> mConditionFloatPairDataList {};
-        uint32_t mUpdaterType = 0;
-        bool mChangeAnimationMidPlay = false;
-        bool x31db4e6a = false;
-        bool x92213dee = false;
+        uint32_t mUpdaterType           = 0;
+        bool mChangeAnimationMidPlay    = false;
+        bool x31db4e6a                  = false;
+        bool x92213dee                  = false;
         float mChildAnimDelaySwitchTime = 0.0;
     };
 
-    class YORDLE_EXPORT ParallelClipData : public ClipBaseData { 
+    class YORDLE_EXPORT ParallelClipData : public ClipBaseData {
     public:
         explicit ParallelClipData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15556,7 +15390,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mClipNameList {};
     };
 
-    class YORDLE_EXPORT ParametricClipData : public BlendableClipData { 
+    class YORDLE_EXPORT ParametricClipData : public BlendableClipData {
     public:
         explicit ParametricClipData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15568,7 +15402,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ParametricPairData>> mParametricPairDataList {};
     };
 
-    class YORDLE_EXPORT SelectorClipData : public ClipBaseData { 
+    class YORDLE_EXPORT SelectorClipData : public ClipBaseData {
     public:
         explicit SelectorClipData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15579,7 +15413,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::SelectorPairData>> mSelectorPairDataList {};
     };
 
-    class YORDLE_EXPORT SequencerClipData : public ClipBaseData { 
+    class YORDLE_EXPORT SequencerClipData : public ClipBaseData {
     public:
         explicit SequencerClipData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15590,7 +15424,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mClipNameList {};
     };
 
-    class YORDLE_EXPORT LinearTransformProcessorData : public ValueProcessorData { 
+    class YORDLE_EXPORT LinearTransformProcessorData : public ValueProcessorData {
     public:
         explicit LinearTransformProcessorData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15599,10 +15433,10 @@ namespace yordle::data::meta {
         }
 
         float mMultiplier = 0.0;
-        float mIncrement = 0.0;
+        float mIncrement  = 0.0;
     };
 
-    class YORDLE_EXPORT xc0c056f1 : public GenericMapPlaceable { 
+    class YORDLE_EXPORT xc0c056f1 : public GenericMapPlaceable {
     public:
         explicit xc0c056f1(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15613,13 +15447,13 @@ namespace yordle::data::meta {
         std::string PropName {};
         bool PlayIdleAnimation = false;
         std::string IdleAnimationName {};
-        bool eyeCandy = false;
-        uint32_t SkinID = 0;
-        int32_t quality = 0;
+        bool eyeCandy    = false;
+        uint32_t SkinID  = 0;
+        int32_t quality  = 0;
         bool isClickable = false;
     };
 
-    class YORDLE_EXPORT MapAudio : public GenericMapPlaceable { 
+    class YORDLE_EXPORT MapAudio : public GenericMapPlaceable {
     public:
         explicit MapAudio(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15629,12 +15463,12 @@ namespace yordle::data::meta {
 
         std::string EventName {};
         uint32_t AudioType = 0;
-        float startTime = 0.0;
-        float xdf1b8a47 = 0.0;
-        float x518f49b9 = 0.0;
+        float startTime    = 0.0;
+        float xdf1b8a47    = 0.0;
+        float x518f49b9    = 0.0;
     };
 
-    class YORDLE_EXPORT MapCamera : public MapPlaceable { 
+    class YORDLE_EXPORT MapCamera : public MapPlaceable {
     public:
         explicit MapCamera(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15642,24 +15476,23 @@ namespace yordle::data::meta {
             return type == 1316167258 || MapPlaceable::is_type(type);
         }
 
-        float x6f3e4327 = 0.0;
-        float x563a1941 = 0.0;
-        float pitch = 0.0;
-        float yaw = 0.0;
+        float x6f3e4327   = 0.0;
+        float x563a1941   = 0.0;
+        float pitch       = 0.0;
+        float yaw         = 0.0;
         float FieldOfView = 0.0;
     };
 
-    class YORDLE_EXPORT MapLocator : public GenericMapPlaceable { 
+    class YORDLE_EXPORT MapLocator : public GenericMapPlaceable {
     public:
         explicit MapLocator(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2823085921 || GenericMapPlaceable::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT MapMotionPath : public MapPlaceable { 
+    class YORDLE_EXPORT MapMotionPath : public MapPlaceable {
     public:
         explicit MapMotionPath(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15670,7 +15503,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::MapPathSegment>> Segments {};
     };
 
-    class YORDLE_EXPORT ColorGraphMaterialDriver : public IDynamicMaterialDriver { 
+    class YORDLE_EXPORT ColorGraphMaterialDriver : public IDynamicMaterialDriver {
     public:
         explicit ColorGraphMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15682,7 +15515,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VfxAnimatedColorVariableData> colors {};
     };
 
-    class YORDLE_EXPORT FloatGraphMaterialDriver : public IDynamicMaterialDriver { 
+    class YORDLE_EXPORT FloatGraphMaterialDriver : public IDynamicMaterialDriver {
     public:
         explicit FloatGraphMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15694,7 +15527,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::VfxAnimatedFloatVariableData> graph {};
     };
 
-    class YORDLE_EXPORT VfxSystemDefinitionData : public IResource { 
+    class YORDLE_EXPORT VfxSystemDefinitionData : public IResource {
     public:
         explicit VfxSystemDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15714,24 +15547,24 @@ namespace yordle::data::meta {
         std::string soundPersistentDefault {};
         std::string voiceOverPersistentDefault {};
         std::string assetCategory {};
-        int32_t audioParameterFlexID = 0;
+        int32_t audioParameterFlexID           = 0;
         float audioParameterTimeScaledDuration = 0.0;
-        uint8_t flags = 0;
-        float buildUpTime = 0.0;
-        float selfIllumination = 0.0;
+        uint8_t flags                          = 0;
+        float buildUpTime                      = 0.0;
+        float selfIllumination                 = 0.0;
         std::vector<std::shared_ptr<yordle::data::meta::VfxAssetRemap>> assetRemappingTable {};
         std::array<float, 3> systemTranslation {};
         std::array<float, 3> systemScale {};
-        uint8_t drawingLayer = 0;
-        float hudLayerDimension = 0.0;
-        float HudLayerAspect = 0.0;
+        uint8_t drawingLayer                      = 0;
+        float hudLayerDimension                   = 0.0;
+        float HudLayerAspect                      = 0.0;
         bool hudAnchorPositionFromWorldProjection = false;
-        bool scaleDynamicallyWithAttachedBone = false;
-        bool mEyeCandy = false;
-        bool xcf08f8e6 = false;
+        bool scaleDynamicallyWithAttachedBone     = false;
+        bool mEyeCandy                            = false;
+        bool xcf08f8e6                            = false;
     };
 
-    class YORDLE_EXPORT ColorChooserMaterialDriver : public IDynamicMaterialDriver { 
+    class YORDLE_EXPORT ColorChooserMaterialDriver : public IDynamicMaterialDriver {
     public:
         explicit ColorChooserMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15744,7 +15577,7 @@ namespace yordle::data::meta {
         std::array<float, 4> mColorOff {};
     };
 
-    class YORDLE_EXPORT FloatLiteralMaterialDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT FloatLiteralMaterialDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit FloatLiteralMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15755,7 +15588,7 @@ namespace yordle::data::meta {
         float mValue = 0.0;
     };
 
-    class YORDLE_EXPORT FloorFloatMaterialDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT FloorFloatMaterialDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit FloorFloatMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15766,17 +15599,16 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IDynamicMaterialFloatDriver> mDriver {};
     };
 
-    class YORDLE_EXPORT IDynamicMaterialBoolDriver : public IDynamicMaterialFloatDriver { 
+    class YORDLE_EXPORT IDynamicMaterialBoolDriver : public IDynamicMaterialFloatDriver {
     public:
         explicit IDynamicMaterialBoolDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3663840478 || IDynamicMaterialFloatDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT AllTrueMaterialDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT AllTrueMaterialDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit AllTrueMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15787,7 +15619,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver>> mDrivers {};
     };
 
-    class YORDLE_EXPORT OneTrueMaterialDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT OneTrueMaterialDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit OneTrueMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15798,7 +15630,7 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver>> mDrivers {};
     };
 
-    class YORDLE_EXPORT NotMaterialDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT NotMaterialDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit NotMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15809,7 +15641,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver> mDriver {};
     };
 
-    class YORDLE_EXPORT CustomShaderDef : public IShaderDef { 
+    class YORDLE_EXPORT CustomShaderDef : public IShaderDef {
     public:
         explicit CustomShaderDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15820,7 +15652,7 @@ namespace yordle::data::meta {
         std::string objectPath {};
     };
 
-    class YORDLE_EXPORT FixedShaderDef : public IShaderDef { 
+    class YORDLE_EXPORT FixedShaderDef : public IShaderDef {
     public:
         explicit FixedShaderDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15832,7 +15664,7 @@ namespace yordle::data::meta {
         std::string pixelShader {};
     };
 
-    class YORDLE_EXPORT HybridMaterialDef : public CustomShaderDef { 
+    class YORDLE_EXPORT HybridMaterialDef : public CustomShaderDef {
     public:
         explicit HybridMaterialDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15847,7 +15679,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::MaterialDataCollections> DataCollections {};
     };
 
-    class YORDLE_EXPORT MaterialInstanceDef : public IResource { 
+    class YORDLE_EXPORT MaterialInstanceDef : public IResource {
     public:
         explicit MaterialInstanceDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15868,7 +15700,7 @@ namespace yordle::data::meta {
         uint16_t DynamicSwitchId = 0;
     };
 
-    class YORDLE_EXPORT StaticMaterialDef : public IResource { 
+    class YORDLE_EXPORT StaticMaterialDef : public IResource {
     public:
         explicit StaticMaterialDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15888,7 +15720,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::DynamicMaterialDef> dynamicMaterial {};
     };
 
-    class YORDLE_EXPORT MapClouds : public MapGraphicsFeature { 
+    class YORDLE_EXPORT MapClouds : public MapGraphicsFeature {
     public:
         explicit MapClouds(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15902,7 +15734,7 @@ namespace yordle::data::meta {
         bool IsEyeCandy = false;
     };
 
-    class YORDLE_EXPORT BaseResourceResolver : public IResourceResolver { 
+    class YORDLE_EXPORT BaseResourceResolver : public IResourceResolver {
     public:
         explicit BaseResourceResolver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15913,27 +15745,25 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, yordle::data::meta::bin_ref<yordle::data::meta::IResource>> resourceMap {};
     };
 
-    class YORDLE_EXPORT GlobalResourceResolver : public BaseResourceResolver { 
+    class YORDLE_EXPORT GlobalResourceResolver : public BaseResourceResolver {
     public:
         explicit GlobalResourceResolver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 199624956 || BaseResourceResolver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ResourceResolver : public BaseResourceResolver { 
+    class YORDLE_EXPORT ResourceResolver : public BaseResourceResolver {
     public:
         explicit ResourceResolver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4013559603 || BaseResourceResolver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT SetVarInTableBlock : public IScriptBlock { 
+    class YORDLE_EXPORT SetVarInTableBlock : public IScriptBlock {
     public:
         explicit SetVarInTableBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15945,7 +15775,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ScriptTableSet> Dest {};
     };
 
-    class YORDLE_EXPORT ScriptCommentBlock : public IScriptBlock { 
+    class YORDLE_EXPORT ScriptCommentBlock : public IScriptBlock {
     public:
         explicit ScriptCommentBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15956,7 +15786,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> Sequence {};
     };
 
-    class YORDLE_EXPORT ConcatenateStringsBlock : public IScriptBlock { 
+    class YORDLE_EXPORT ConcatenateStringsBlock : public IScriptBlock {
     public:
         explicit ConcatenateStringsBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15969,7 +15799,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::StringTableSet> Result {};
     };
 
-    class YORDLE_EXPORT CreateCustomTableBlock : public IScriptBlock { 
+    class YORDLE_EXPORT CreateCustomTableBlock : public IScriptBlock {
     public:
         explicit CreateCustomTableBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15980,7 +15810,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::CustomTableSet> CustomTable {};
     };
 
-    class YORDLE_EXPORT DestroyCustomTableBlock : public IScriptBlock { 
+    class YORDLE_EXPORT DestroyCustomTableBlock : public IScriptBlock {
     public:
         explicit DestroyCustomTableBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -15991,7 +15821,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::CustomTableSet> CustomTable {};
     };
 
-    class YORDLE_EXPORT SetKeyValueInCustomTableBlock : public IScriptBlock { 
+    class YORDLE_EXPORT SetKeyValueInCustomTableBlock : public IScriptBlock {
     public:
         explicit SetKeyValueInCustomTableBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16004,7 +15834,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IScriptValueGet> value {};
     };
 
-    class YORDLE_EXPORT GetKeyValueInCustomTableBlock : public IScriptBlock { 
+    class YORDLE_EXPORT GetKeyValueInCustomTableBlock : public IScriptBlock {
     public:
         explicit GetKeyValueInCustomTableBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16017,7 +15847,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ScriptTableSet> OutValue {};
     };
 
-    class YORDLE_EXPORT InsertIntoCustomTableBlock : public IScriptBlock { 
+    class YORDLE_EXPORT InsertIntoCustomTableBlock : public IScriptBlock {
     public:
         explicit InsertIntoCustomTableBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16031,7 +15861,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IntTableSet> OutIndex {};
     };
 
-    class YORDLE_EXPORT RemoveFromCustomTableBlock : public IScriptBlock { 
+    class YORDLE_EXPORT RemoveFromCustomTableBlock : public IScriptBlock {
     public:
         explicit RemoveFromCustomTableBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16044,7 +15874,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> Index {};
     };
 
-    class YORDLE_EXPORT GetSizeOfCustomTableBlock : public IScriptBlock { 
+    class YORDLE_EXPORT GetSizeOfCustomTableBlock : public IScriptBlock {
     public:
         explicit GetSizeOfCustomTableBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16056,7 +15886,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ScriptTableSet> OutSize {};
     };
 
-    class YORDLE_EXPORT ForEachInCustomTableBlock : public IScriptBlock { 
+    class YORDLE_EXPORT ForEachInCustomTableBlock : public IScriptBlock {
     public:
         explicit ForEachInCustomTableBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16071,7 +15901,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::bin_class> Sequence {};
     };
 
-    class YORDLE_EXPORT CustomTableContainsValueBlock : public IScriptBlock { 
+    class YORDLE_EXPORT CustomTableContainsValueBlock : public IScriptBlock {
     public:
         explicit CustomTableContainsValueBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16085,7 +15915,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::BoolTableSet> OutWasFound {};
     };
 
-    class YORDLE_EXPORT CreateFunctionBlock : public IScriptBlock { 
+    class YORDLE_EXPORT CreateFunctionBlock : public IScriptBlock {
     public:
         explicit CreateFunctionBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16097,7 +15927,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::FunctionDefinition> FunctionDefinition {};
     };
 
-    class YORDLE_EXPORT IRunFunctionBlock : public IScriptBlock { 
+    class YORDLE_EXPORT IRunFunctionBlock : public IScriptBlock {
     public:
         explicit IRunFunctionBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16110,17 +15940,16 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::ScriptTableSet>> OutputParameters {};
     };
 
-    class YORDLE_EXPORT IScriptSequence : public RScript { 
+    class YORDLE_EXPORT IScriptSequence : public RScript {
     public:
         explicit IScriptSequence(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 903266502 || RScript::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ScriptSequence : public IScriptSequence { 
+    class YORDLE_EXPORT ScriptSequence : public IScriptSequence {
     public:
         explicit ScriptSequence(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16131,17 +15960,16 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::IScriptBlock>> blocks {};
     };
 
-    class YORDLE_EXPORT IBoolGet : public IScriptValueGet { 
+    class YORDLE_EXPORT IBoolGet : public IScriptValueGet {
     public:
         explicit IBoolGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2922520200 || IScriptValueGet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT BoolGet : public IBoolGet { 
+    class YORDLE_EXPORT BoolGet : public IBoolGet {
     public:
         explicit BoolGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16152,7 +15980,7 @@ namespace yordle::data::meta {
         bool value = false;
     };
 
-    class YORDLE_EXPORT BoolTableGet : public IBoolGet { 
+    class YORDLE_EXPORT BoolTableGet : public IBoolGet {
     public:
         explicit BoolTableGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16165,7 +15993,7 @@ namespace yordle::data::meta {
         std::optional<bool> Default {};
     };
 
-    class YORDLE_EXPORT CustomTableGet : public IScriptValueGet { 
+    class YORDLE_EXPORT CustomTableGet : public IScriptValueGet {
     public:
         explicit CustomTableGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16177,17 +16005,16 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash Var = 0;
     };
 
-    class YORDLE_EXPORT IFloatGet : public IScriptValueGet { 
+    class YORDLE_EXPORT IFloatGet : public IScriptValueGet {
     public:
         explicit IFloatGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2798892082 || IScriptValueGet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT FloatGet : public IFloatGet { 
+    class YORDLE_EXPORT FloatGet : public IFloatGet {
     public:
         explicit FloatGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16198,7 +16025,7 @@ namespace yordle::data::meta {
         float value = 0.0;
     };
 
-    class YORDLE_EXPORT FloatTableGet : public IFloatGet { 
+    class YORDLE_EXPORT FloatTableGet : public IFloatGet {
     public:
         explicit FloatTableGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16211,7 +16038,7 @@ namespace yordle::data::meta {
         std::optional<float> Default {};
     };
 
-    class YORDLE_EXPORT FloatOffsetTableGet : public IFloatGet { 
+    class YORDLE_EXPORT FloatOffsetTableGet : public IFloatGet {
     public:
         explicit FloatOffsetTableGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16221,20 +16048,19 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::ScriptTable> Table {};
         yordle::data::meta::bin_fnv_hash Var = 0;
-        float offset = 0.0;
+        float offset                         = 0.0;
     };
 
-    class YORDLE_EXPORT IFunctionGet : public IScriptValueGet { 
+    class YORDLE_EXPORT IFunctionGet : public IScriptValueGet {
     public:
         explicit IFunctionGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4245932760 || IScriptValueGet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT FunctionTableGet : public IFunctionGet { 
+    class YORDLE_EXPORT FunctionTableGet : public IFunctionGet {
     public:
         explicit FunctionTableGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16246,17 +16072,16 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash Var = 0;
     };
 
-    class YORDLE_EXPORT IIntGet : public IScriptValueGet { 
+    class YORDLE_EXPORT IIntGet : public IScriptValueGet {
     public:
         explicit IIntGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3256124575 || IScriptValueGet::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IntGet : public IIntGet { 
+    class YORDLE_EXPORT IntGet : public IIntGet {
     public:
         explicit IntGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16267,7 +16092,7 @@ namespace yordle::data::meta {
         int32_t value = 0;
     };
 
-    class YORDLE_EXPORT IntTableGet : public IIntGet { 
+    class YORDLE_EXPORT IntTableGet : public IIntGet {
     public:
         explicit IntTableGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16280,7 +16105,7 @@ namespace yordle::data::meta {
         std::optional<int32_t> Default {};
     };
 
-    class YORDLE_EXPORT IntOffsetTableGet : public IIntGet { 
+    class YORDLE_EXPORT IntOffsetTableGet : public IIntGet {
     public:
         explicit IntOffsetTableGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16290,10 +16115,10 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::ScriptTable> Table {};
         yordle::data::meta::bin_fnv_hash Var = 0;
-        int32_t offset = 0;
+        int32_t offset                       = 0;
     };
 
-    class YORDLE_EXPORT ScriptTableGet : public IScriptValueGet { 
+    class YORDLE_EXPORT ScriptTableGet : public IScriptValueGet {
     public:
         explicit ScriptTableGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16305,7 +16130,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash Var = 0;
     };
 
-    class YORDLE_EXPORT BaseElementData : public x231dd1a2 { 
+    class YORDLE_EXPORT BaseElementData : public x231dd1a2 {
     public:
         explicit BaseElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16313,34 +16138,33 @@ namespace yordle::data::meta {
             return type == 3202633864 || x231dd1a2::is_type(type);
         }
 
-        bool mEnabled = false;
+        bool mEnabled       = false;
         uint32_t mDraggable = 0;
-        bool StickyDrag = false;
-        uint32_t mLayer = 0;
+        bool StickyDrag     = false;
+        uint32_t mLayer     = 0;
         std::shared_ptr<yordle::data::meta::AnchorBase> mAnchors {};
         bool mNoPixelSnappingX = false;
         bool mNoPixelSnappingY = false;
         std::array<float, 4> mRect {};
         bool mUseRectSourceResolutionAsFloor = false;
-        uint16_t mRectSourceResolutionWidth = 0;
+        uint16_t mRectSourceResolutionWidth  = 0;
         uint16_t mRectSourceResolutionHeight = 0;
-        bool mKeepMaxScale = false;
-        bool mFullscreen = false;
+        bool mKeepMaxScale                   = false;
+        bool mFullscreen                     = false;
         std::vector<std::array<float, 2>> mHitTestPolygon {};
         bool x258bae9a = false;
     };
 
-    class YORDLE_EXPORT EffectElementData : public BaseElementData { 
+    class YORDLE_EXPORT EffectElementData : public BaseElementData {
     public:
         explicit EffectElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2739628964 || BaseElementData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT EffectCooldownElementData : public EffectElementData { 
+    class YORDLE_EXPORT EffectCooldownElementData : public EffectElementData {
     public:
         explicit EffectCooldownElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16352,7 +16176,7 @@ namespace yordle::data::meta {
         std::array<uint8_t, 4> mEffectColor1 {};
     };
 
-    class YORDLE_EXPORT EffectCircleMaskCooldownElementData : public EffectElementData { 
+    class YORDLE_EXPORT EffectCircleMaskCooldownElementData : public EffectElementData {
     public:
         explicit EffectCircleMaskCooldownElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16364,7 +16188,7 @@ namespace yordle::data::meta {
         std::array<uint8_t, 4> mEffectColor1 {};
     };
 
-    class YORDLE_EXPORT EffectCooldownRadialElementData : public EffectElementData { 
+    class YORDLE_EXPORT EffectCooldownRadialElementData : public EffectElementData {
     public:
         explicit EffectCooldownRadialElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16372,14 +16196,14 @@ namespace yordle::data::meta {
             return type == 2174290526 || EffectElementData::is_type(type);
         }
 
-        bool mIsFill = false;
-        bool mFlipX = false;
-        bool mFlipY = false;
+        bool mIsFill       = false;
+        bool mFlipX        = false;
+        bool mFlipY        = false;
         bool mPerPixelUvsX = false;
         std::shared_ptr<yordle::data::meta::AtlasData> mAtlas {};
     };
 
-    class YORDLE_EXPORT EffectArcFillElementData : public EffectElementData { 
+    class YORDLE_EXPORT EffectArcFillElementData : public EffectElementData {
     public:
         explicit EffectArcFillElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16387,13 +16211,13 @@ namespace yordle::data::meta {
             return type == 2608359503 || EffectElementData::is_type(type);
         }
 
-        bool mFlipX = false;
-        bool mFlipY = false;
+        bool mFlipX        = false;
+        bool mFlipY        = false;
         bool mPerPixelUvsX = false;
         std::shared_ptr<yordle::data::meta::AtlasData> mAtlas {};
     };
 
-    class YORDLE_EXPORT EffectAmmoElementData : public EffectElementData { 
+    class YORDLE_EXPORT EffectAmmoElementData : public EffectElementData {
     public:
         explicit EffectAmmoElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16405,7 +16229,7 @@ namespace yordle::data::meta {
         std::array<uint8_t, 4> mEffectColor1 {};
     };
 
-    class YORDLE_EXPORT EffectGlowElementData : public EffectElementData { 
+    class YORDLE_EXPORT EffectGlowElementData : public EffectElementData {
     public:
         explicit EffectGlowElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16413,17 +16237,17 @@ namespace yordle::data::meta {
             return type == 3998066495 || EffectElementData::is_type(type);
         }
 
-        bool mFlipX = false;
-        bool mFlipY = false;
+        bool mFlipX        = false;
+        bool mFlipY        = false;
         bool mPerPixelUvsX = false;
         std::shared_ptr<yordle::data::meta::AtlasData> mAtlas {};
-        float CycleTime = 0.0;
-        float BaseScale = 0.0;
+        float CycleTime               = 0.0;
+        float BaseScale               = 0.0;
         float CycleBasedScaleAddition = 0.0;
-        float MinimumAlpha = 0.0;
+        float MinimumAlpha            = 0.0;
     };
 
-    class YORDLE_EXPORT EffectAnimationElementData : public EffectElementData { 
+    class YORDLE_EXPORT EffectAnimationElementData : public EffectElementData {
     public:
         explicit EffectAnimationElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16431,18 +16255,18 @@ namespace yordle::data::meta {
             return type == 1913369002 || EffectElementData::is_type(type);
         }
 
-        bool mFlipX = false;
-        bool mFlipY = false;
+        bool mFlipX        = false;
+        bool mFlipY        = false;
         bool mPerPixelUvsX = false;
         std::shared_ptr<yordle::data::meta::AtlasData> mAtlas {};
-        float FramesPerSecond = 0.0;
-        float TotalNumberOfFrames = 0.0;
+        float FramesPerSecond             = 0.0;
+        float TotalNumberOfFrames         = 0.0;
         float NumberOfFramesPerRowInAtlas = 0.0;
-        bool mLooping = false;
-        uint8_t mFinishBehavior = 0;
+        bool mLooping                     = false;
+        uint8_t mFinishBehavior           = 0;
     };
 
-    class YORDLE_EXPORT EffectFillPercentageElementData : public EffectElementData { 
+    class YORDLE_EXPORT EffectFillPercentageElementData : public EffectElementData {
     public:
         explicit EffectFillPercentageElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16450,13 +16274,13 @@ namespace yordle::data::meta {
             return type == 220339975 || EffectElementData::is_type(type);
         }
 
-        bool mFlipX = false;
-        bool mFlipY = false;
+        bool mFlipX        = false;
+        bool mFlipY        = false;
         bool mPerPixelUvsX = false;
         std::shared_ptr<yordle::data::meta::AtlasData> mAtlas {};
     };
 
-    class YORDLE_EXPORT EffectDesaturateElementData : public EffectElementData { 
+    class YORDLE_EXPORT EffectDesaturateElementData : public EffectElementData {
     public:
         explicit EffectDesaturateElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16464,15 +16288,15 @@ namespace yordle::data::meta {
             return type == 1335813830 || EffectElementData::is_type(type);
         }
 
-        bool mFlipX = false;
-        bool mFlipY = false;
+        bool mFlipX        = false;
+        bool mFlipY        = false;
         bool mPerPixelUvsX = false;
         std::shared_ptr<yordle::data::meta::AtlasData> mAtlas {};
         float MinimumSaturation = 0.0;
         float MaximumSaturation = 0.0;
     };
 
-    class YORDLE_EXPORT EffectRotatingIconElementData : public EffectElementData { 
+    class YORDLE_EXPORT EffectRotatingIconElementData : public EffectElementData {
     public:
         explicit EffectRotatingIconElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16483,7 +16307,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::AtlasData> mAtlas {};
     };
 
-    class YORDLE_EXPORT EffectGlowingRotatingIconElementData : public EffectRotatingIconElementData { 
+    class YORDLE_EXPORT EffectGlowingRotatingIconElementData : public EffectRotatingIconElementData {
     public:
         explicit EffectGlowingRotatingIconElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16492,20 +16316,19 @@ namespace yordle::data::meta {
         }
 
         float CycleTime = 0.0;
-        float x54c178e = 0.0;
+        float x54c178e  = 0.0;
     };
 
-    class YORDLE_EXPORT EffectAnimatedRotatingIconElementData : public EffectAnimationElementData { 
+    class YORDLE_EXPORT EffectAnimatedRotatingIconElementData : public EffectAnimationElementData {
     public:
         explicit EffectAnimatedRotatingIconElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 2170661496 || EffectAnimationElementData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT EffectLineElementData : public EffectElementData { 
+    class YORDLE_EXPORT EffectLineElementData : public EffectElementData {
     public:
         explicit EffectLineElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16514,11 +16337,11 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::AtlasData> mAtlas {};
-        float mThickness = 0.0;
+        float mThickness            = 0.0;
         float mRightSlicePercentage = 0.0;
     };
 
-    class YORDLE_EXPORT EffectInstancedElementData : public EffectElementData { 
+    class YORDLE_EXPORT EffectInstancedElementData : public EffectElementData {
     public:
         explicit EffectInstancedElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16526,24 +16349,23 @@ namespace yordle::data::meta {
             return type == 2901870171 || EffectElementData::is_type(type);
         }
 
-        bool mFlipX = false;
-        bool mFlipY = false;
+        bool mFlipX        = false;
+        bool mFlipY        = false;
         bool mPerPixelUvsX = false;
         std::shared_ptr<yordle::data::meta::AtlasData> mAtlas {};
         std::vector<std::array<float, 2>> mAdditionalOffsets {};
     };
 
-    class YORDLE_EXPORT EffectCircleMaskDesaturateElementData : public EffectDesaturateElementData { 
+    class YORDLE_EXPORT EffectCircleMaskDesaturateElementData : public EffectDesaturateElementData {
     public:
         explicit EffectCircleMaskDesaturateElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3706969042 || EffectDesaturateElementData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT xf6fd1c96 : public EffectElementData { 
+    class YORDLE_EXPORT xf6fd1c96 : public EffectElementData {
     public:
         explicit xf6fd1c96(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16554,7 +16376,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::StaticMaterialDef> mMaterial {4288492553u};
     };
 
-    class YORDLE_EXPORT ElementGroupButtonData : public ElementGroupData { 
+    class YORDLE_EXPORT ElementGroupButtonData : public ElementGroupData {
     public:
         explicit ElementGroupButtonData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16574,12 +16396,12 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ElementSoundEvents> soundEvents {};
         std::string ActiveTooltipTraKey {};
         std::string InactiveTooltipTraKey {};
-        bool IsActive = false;
-        bool IsEnabled = false;
+        bool IsActive   = false;
+        bool IsEnabled  = false;
         bool IsSelected = false;
     };
 
-    class YORDLE_EXPORT IconElementData : public BaseElementData { 
+    class YORDLE_EXPORT IconElementData : public BaseElementData {
     public:
         explicit IconElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16588,16 +16410,16 @@ namespace yordle::data::meta {
         }
 
         std::array<uint8_t, 4> mColor {};
-        bool mUseAlpha = false;
+        bool mUseAlpha     = false;
         bool mPerPixelUvsX = false;
-        bool mFlipX = false;
-        bool mFlipY = false;
+        bool mFlipX        = false;
+        bool mFlipY        = false;
         std::shared_ptr<yordle::data::meta::AtlasDataBase> mAtlas {};
         yordle::data::meta::bin_ref<yordle::data::meta::StaticMaterialDef> mMaterial {4288492553u};
         std::shared_ptr<yordle::data::meta::IconElementDataExtension> mExtension {};
     };
 
-    class YORDLE_EXPORT ParticleSystemElementData : public BaseElementData { 
+    class YORDLE_EXPORT ParticleSystemElementData : public BaseElementData {
     public:
         explicit ParticleSystemElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16607,22 +16429,21 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_ref<yordle::data::meta::VfxSystemDefinitionData> mVfxSystem {1171098015u};
         uint32_t xc47cf6c7 = 0;
-        bool x2824440 = false;
-        bool x94b088ea = false;
-        bool x8ef629c9 = false;
+        bool x2824440      = false;
+        bool x94b088ea     = false;
+        bool x8ef629c9     = false;
     };
 
-    class YORDLE_EXPORT RegionElementData : public BaseElementData { 
+    class YORDLE_EXPORT RegionElementData : public BaseElementData {
     public:
         explicit RegionElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 1859523703 || BaseElementData::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT ScissorRegionElementData : public BaseElementData { 
+    class YORDLE_EXPORT ScissorRegionElementData : public BaseElementData {
     public:
         explicit ScissorRegionElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16633,7 +16454,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::SceneData> xaccc80b5 {2867346523u};
     };
 
-    class YORDLE_EXPORT TextElementData : public BaseElementData { 
+    class YORDLE_EXPORT TextElementData : public BaseElementData {
     public:
         explicit TextElementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16644,13 +16465,13 @@ namespace yordle::data::meta {
         std::string TraKey {};
         yordle::data::meta::bin_ref<yordle::data::meta::GameFontDescription> mFontDescription {3812866480u};
         uint8_t mTextAlignmentHorizontal = 0;
-        uint8_t mTextAlignmentVertical = 0;
+        uint8_t mTextAlignmentVertical   = 0;
         yordle::data::meta::bin_ref<yordle::data::meta::CSSSheet> x7c0a8359 {3173404643u};
         uint8_t WrappingMode = 0;
-        float iconScale = 0.0;
+        float iconScale      = 0.0;
     };
 
-    class YORDLE_EXPORT x9bd21f30 : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT x9bd21f30 : public IDynamicMaterialBoolDriver {
     public:
         explicit x9bd21f30(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16661,7 +16482,7 @@ namespace yordle::data::meta {
         std::string mKeyName {};
     };
 
-    class YORDLE_EXPORT xd0116dc8 : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT xd0116dc8 : public IDynamicMaterialBoolDriver {
     public:
         explicit xd0116dc8(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16672,7 +16493,7 @@ namespace yordle::data::meta {
         std::string mKeyName {};
     };
 
-    class YORDLE_EXPORT HasBuffDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT HasBuffDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit HasBuffDynamicMaterialBoolDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16684,7 +16505,7 @@ namespace yordle::data::meta {
         float xff80df7a = 0.0;
     };
 
-    class YORDLE_EXPORT HasGearDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT HasGearDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit HasGearDynamicMaterialBoolDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16695,7 +16516,7 @@ namespace yordle::data::meta {
         uint8_t mGearIndex = 0;
     };
 
-    class YORDLE_EXPORT IsAnimationPlayingDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT IsAnimationPlayingDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit IsAnimationPlayingDynamicMaterialBoolDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16706,37 +16527,34 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_fnv_hash> mAnimationNames {};
     };
 
-    class YORDLE_EXPORT IsDeadDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT IsDeadDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit IsDeadDynamicMaterialBoolDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 4199153591 || IDynamicMaterialBoolDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IsEnemyDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT IsEnemyDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit IsEnemyDynamicMaterialBoolDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3177246235 || IDynamicMaterialBoolDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT IsInGrassDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT IsInGrassDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit IsInGrassDynamicMaterialBoolDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 3727041878 || IDynamicMaterialBoolDriver::is_type(type);
         }
-
     };
 
-    class YORDLE_EXPORT LearnedSpellDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT LearnedSpellDynamicMaterialBoolDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit LearnedSpellDynamicMaterialBoolDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16747,7 +16565,7 @@ namespace yordle::data::meta {
         uint8_t mSlot = 0;
     };
 
-    class YORDLE_EXPORT MessageBoxDialog : public x75259ad3 { 
+    class YORDLE_EXPORT MessageBoxDialog : public x75259ad3 {
     public:
         explicit MessageBoxDialog(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16757,10 +16575,10 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> x806ad11a {};
         yordle::data::meta::bin_fnv_hash ConfirmButtonIcons = 0;
-        yordle::data::meta::bin_fnv_hash CancelButtonIcons = 0;
+        yordle::data::meta::bin_fnv_hash CancelButtonIcons  = 0;
     };
 
-    class YORDLE_EXPORT AtomicClipData : public BlendableClipData { 
+    class YORDLE_EXPORT AtomicClipData : public BlendableClipData {
     public:
         explicit AtomicClipData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16773,7 +16591,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::UpdaterResourceData> mUpdaterResourceData {};
     };
 
-    class YORDLE_EXPORT DelayedBoolMaterialDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT DelayedBoolMaterialDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit DelayedBoolMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16782,11 +16600,11 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver> mBoolDriver {};
-        float mDelayOn = 0.0;
+        float mDelayOn  = 0.0;
         float mDelayOff = 0.0;
     };
 
-    class YORDLE_EXPORT FixedDurationTriggeredBoolDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT FixedDurationTriggeredBoolDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit FixedDurationTriggeredBoolDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16798,7 +16616,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver> mBoolDriver {};
     };
 
-    class YORDLE_EXPORT FloatComparisonMaterialDriver : public IDynamicMaterialBoolDriver { 
+    class YORDLE_EXPORT FloatComparisonMaterialDriver : public IDynamicMaterialBoolDriver {
     public:
         explicit FloatComparisonMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -16811,6 +16629,6 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::IDynamicMaterialFloatDriver> mValueB {};
     };
 
-}
+} // namespace yordle::data::meta
 
 /// </auto-generated>
