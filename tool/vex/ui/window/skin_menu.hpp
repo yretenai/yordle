@@ -17,6 +17,7 @@ namespace vex::ui {
         }
         ~skin_menu() override = default;
 
+        static void load_skin();
         bool paint(vex::device::render_device_framework *fx) override;
     };
 } // namespace vex::ui

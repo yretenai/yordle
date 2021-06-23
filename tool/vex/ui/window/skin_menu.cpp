@@ -99,7 +99,7 @@ bool vex::ui::skin_menu::paint(vex::device::render_device_framework *fx) {
         if (current_id != skin_container->skin_id()) {
             auto image = skin_container->get_skin().image;
             if (skin_image_hash != image) {
-                fx->clean_texture(skin_image_hash);
+                fx->clear_texture(skin_image_hash);
             }
             skin_image_hash = image;
         }
@@ -107,12 +107,26 @@ bool vex::ui::skin_menu::paint(vex::device::render_device_framework *fx) {
         if (skin_image_hash != 0) {
             auto ptr = fx->load_image(skin_image_hash);
             if (ImGui::ImageButton(ptr.get(), ImVec2(256, 256))) {
+                load_skin();
             }
         } else {
             if (ImGui::Button("load")) {
-                // TODO
+                load_skin();
             }
         }
     }
     return true;
+}
+
+void vex::ui::skin_menu::load_skin() {
+    // TODO
+    auto skin_container = vex::g_skin.load();
+    if (skin_container->is_busy) {
+        return;
+    }
+
+    auto skin = skin_container->get_skin();
+    if (skin.id == -1) {
+        return;
+    }
 }

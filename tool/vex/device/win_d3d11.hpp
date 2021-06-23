@@ -59,10 +59,10 @@ namespace vex::device {
         std::shared_ptr<void> load_image(uint64_t image_path) override;
         std::shared_ptr<void> load_model(uint64_t model_path) override;
         std::shared_ptr<void> load_shader(uint64_t shader_path) override;
-        void clean_texture(uint64_t image_path) override;
-        void clean_model(uint64_t model_path) override;
-        void clean_shader(uint64_t shader_path) override;
-        void clean_assets() const override;
+        void clear_texture(uint64_t image_path) override;
+        void clear_model(uint64_t model_path) override;
+        void clear_shader(uint64_t shader_path) override;
+        void clear_assets() const override;
 
         static std::shared_ptr<win_d3d11> get_instance(bool create = false);
     };

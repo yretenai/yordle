@@ -267,6 +267,7 @@ namespace vex::device {
     std::shared_ptr<void> win_d3d11::load_texture(uint64_t texture_path) {
         if (!textures->contains(texture_path)) {
             ID3D11ShaderResourceView *raw_ptr = nullptr;
+            ID3D11Resource *resource          = nullptr;
 
             auto wad = vex::g_wad.load();
             auto tex = wad->read_file(texture_path);
@@ -275,14 +276,18 @@ namespace vex::device {
                 return nullptr;
             }
 
-            auto hr = DirectX::CreateDDSTextureFromMemory(dx_device, dx_context, tex->data(), tex->byte_size(), nullptr, &raw_ptr);
+            auto hr = DirectX::CreateDDSTextureFromMemory(dx_device, dx_context, tex->data(), tex->byte_size(), &resource, &raw_ptr);
             if (FAILED(hr)) {
+                CLEANUP_RELEASE(resource);
+                CLEANUP_RELEASE(raw_ptr);
                 return nullptr;
             }
 
             textures->emplace(texture_path, std::shared_ptr<ID3D11ShaderResourceView>(raw_ptr, [](IUnknown *ptr) {
                                   ptr->Release();
                               }));
+
+            CLEANUP_RELEASE(resource);
         }
 
         return textures->at(texture_path);
@@ -291,6 +296,7 @@ namespace vex::device {
     std::shared_ptr<void> win_d3d11::load_image(uint64_t image_path) {
         if (!textures->contains(image_path)) {
             ID3D11ShaderResourceView *raw_ptr = nullptr;
+            ID3D11Resource *resource          = nullptr;
 
             auto wad = vex::g_wad.load();
             auto tex = wad->read_file(image_path);
@@ -299,14 +305,18 @@ namespace vex::device {
                 return nullptr;
             }
 
-            auto hr = DirectX::CreateWICTextureFromMemory(dx_device, dx_context, tex->data(), tex->byte_size(), nullptr, &raw_ptr);
+            auto hr = DirectX::CreateWICTextureFromMemory(dx_device, dx_context, tex->data(), tex->byte_size(), &resource, &raw_ptr);
             if (FAILED(hr)) {
+                CLEANUP_RELEASE(resource);
+                CLEANUP_RELEASE(raw_ptr);
                 return nullptr;
             }
 
             textures->emplace(image_path, std::shared_ptr<ID3D11ShaderResourceView>(raw_ptr, [](IUnknown *ptr) {
                                   ptr->Release();
                               }));
+
+            CLEANUP_RELEASE(resource);
         }
 
         return textures->at(image_path);
@@ -326,25 +336,25 @@ namespace vex::device {
         return nullptr;
     }
 
-    void win_d3d11::clean_assets() const {
+    void win_d3d11::clear_assets() const {
         textures->clear();
         models->clear();
         shaders->clear();
     }
 
-    void win_d3d11::clean_texture(uint64_t image_path) {
+    void win_d3d11::clear_texture(uint64_t image_path) {
         if (textures->contains(image_path)) {
             textures->erase(image_path);
         }
     }
 
-    void win_d3d11::clean_model(uint64_t image_path) {
+    void win_d3d11::clear_model(uint64_t image_path) {
         if (models->contains(image_path)) {
             models->erase(image_path);
         }
     }
 
-    void win_d3d11::clean_shader(uint64_t image_path) {
+    void win_d3d11::clear_shader(uint64_t image_path) {
         if (shaders->contains(image_path)) {
             shaders->erase(image_path);
         }

@@ -122,6 +122,6 @@ namespace vex::device {
         ImGui::DestroyContext(nullptr);
         menu_items->clear();
         elements->clear();
-        clean_assets();
+        clear_assets();
     }
 } // namespace vex::device

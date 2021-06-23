@@ -46,10 +46,10 @@ namespace vex::device {
         virtual std::shared_ptr<void> load_image(uint64_t image_path)     = 0;
         virtual std::shared_ptr<void> load_model(uint64_t model_path)     = 0;
         virtual std::shared_ptr<void> load_shader(uint64_t shader_path)   = 0;
-        virtual void clean_texture(uint64_t image_path)                   = 0;
-        virtual void clean_model(uint64_t model_path)                     = 0;
-        virtual void clean_shader(uint64_t shader_path)                   = 0;
-        virtual void clean_assets() const                                 = 0;
+        virtual void clear_texture(uint64_t image_path)                   = 0;
+        virtual void clear_model(uint64_t model_path)                     = 0;
+        virtual void clear_shader(uint64_t shader_path)                   = 0;
+        virtual void clear_assets() const                                 = 0;
 
         void refresh_menu() const;
     };

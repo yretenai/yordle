@@ -24,12 +24,14 @@ bool vex::ui::wad_menu::paint(vex::device::render_device_framework *fx) {
                 }
                 auto wad  = vex::g_wad.load();
                 auto skin = vex::g_skin.load();
+                auto fx   = vex::g_framework.load();
 
                 skin->is_busy = true;
                 wad->clear();
-                wad->load_wads(paths);
-
                 skin->clear();
+                fx->clear_assets();
+
+                wad->load_wads(paths);
                 skin->load_data();
             } catch (std::exception &e) {
                 auto mut = g_message_mutex.load();
