@@ -20,6 +20,7 @@ namespace vex::device {
         void render_imgui();
 
         static void setup_imgui();
+        static void shutdown_imgui();
 
     public:
         std::shared_ptr<std::vector<std::shared_ptr<vex::ui::imgui_element>>> elements;

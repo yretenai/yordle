@@ -92,7 +92,8 @@ namespace vex::device {
 
         ImGui_ImplDX11_Shutdown();
         ImGui_ImplWin32_Shutdown();
-        ImGui::DestroyContext();
+
+        shutdown_imgui();
 
         shutdown_device();
         DestroyWindow(hwnd);

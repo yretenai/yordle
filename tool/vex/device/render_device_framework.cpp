@@ -6,6 +6,7 @@
 
 #include "../vex.hpp"
 
+
 namespace vex::device {
     void render_device_framework::setup_imgui() {
         IMGUI_CHECKVERSION();
@@ -113,5 +114,9 @@ namespace vex::device {
     void render_device_framework::startup() {
         menu_items = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_menu_item>>>();
         elements   = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_element>>>();
+    }
+
+    void render_device_framework::shutdown_imgui() {
+        ImGui::DestroyContext(nullptr);
     }
 } // namespace vex::device
