@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <atomic>
 #include <imgui.h>
 #include <memory>
 #include <vector>
@@ -27,6 +28,7 @@ namespace vex::device {
         std::shared_ptr<std::vector<std::shared_ptr<vex::ui::imgui_menu_item>>> menu_items;
 
         double frame_time = 0.0;
+        std::atomic<bool> perform_screenshot;
 
         virtual ~render_device_framework() = default;
         virtual void run()                 = 0;

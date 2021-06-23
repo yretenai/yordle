@@ -10,6 +10,7 @@
 #include <d3d11.h>
 #include <windows.h>
 
+#include <filesystem>
 #include <memory>
 
 namespace vex::device {
@@ -28,6 +29,7 @@ namespace vex::device {
         void create_device();
         void shutdown_device();
         void create_rt();
+        void screenshot(const std::filesystem::path &output);
         void shutdown_rt();
         void shutdown_impl();
 

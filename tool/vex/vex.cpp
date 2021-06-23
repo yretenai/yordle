@@ -13,6 +13,7 @@
 
 #include "ui/menu/exit_menu.hpp"
 #include "ui/menu/message_menu.hpp"
+#include "ui/menu/screenshot_menu.hpp"
 #include "ui/menu/vex_menu_version.hpp"
 #include "ui/menu/view_menu.hpp"
 #include "ui/menu/wad_menu.hpp"
@@ -59,6 +60,7 @@ int main() {
     }
 
     fx->menu_items->emplace_back(std::make_shared<vex::ui::exit_menu>());
+    fx->menu_items->emplace_back(std::make_shared<vex::ui::screenshot_menu>());
     fx->menu_items->emplace_back(std::make_shared<vex::ui::wad_menu>());
     fx->menu_items->emplace_back(std::make_shared<vex::ui::vex_menu_version>());
     fx->menu_items->emplace_back(std::make_shared<vex::ui::message_menu>());

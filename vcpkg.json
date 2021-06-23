@@ -21,6 +21,8 @@
         "win32-binding"
       ],
       "platform": "windows"
-    }
+    },
+    "directxtex",
+    "directxtk"
   ]
 }

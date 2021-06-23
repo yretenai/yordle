@@ -5,10 +5,12 @@
 #include <chrono>
 #include <d3d11.h>
 #include <d3dcompiler.h>
+#include <DirectXTK/ScreenGrab.h>
 #include <imgui.h>
 #include <imgui_impl_dx11.h>
 #include <imgui_impl_win32.h>
 #include <iostream>
+#include <wincodec.h>
 
 #include "../common_win.hpp"
 #include "../os/win_macros.hpp"
@@ -71,9 +73,17 @@ namespace vex::device {
             render_imgui();
 
             ImGui::Render();
-            const float clear_color_with_alpha[4] = {clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w};
+
+            auto should_screenshot = perform_screenshot.load();
+
+            const float clear_color_with_alpha[4] = {clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, should_screenshot ? 0.0f : clear_color.w};
             dx_context->OMSetRenderTargets(1, &dx_rt, nullptr);
             dx_context->ClearRenderTargetView(dx_rt, clear_color_with_alpha);
+
+            if (should_screenshot) {
+                screenshot(std::to_string(hrtime.time_since_epoch().count()) + ".png");
+                perform_screenshot = false;
+            }
 
             // TODO: Insert D3D11 Render code here.
 
@@ -158,6 +168,20 @@ namespace vex::device {
         CLEANUP_RELEASE(pBackBuffer);
         if (FAILED(result)) {
             throw vex::windows::get_win_exception(result);
+        }
+    }
+
+    void win_d3d11::screenshot(const std::filesystem::path &output) {
+        ID3D11Texture2D *pBackBuffer;
+
+        auto result = dx_swap->GetBuffer(0, IID_PPV_ARGS(&pBackBuffer));
+        if (FAILED(result)) {
+            return;
+        }
+
+        result = DirectX::SaveWICTextureToFile(dx_context, pBackBuffer, GUID_ContainerFormatPng, output.wstring().c_str(), &GUID_WICPixelFormat32bppBGRA);
+        if (FAILED(result)) {
+            CLEANUP_RELEASE(pBackBuffer);
         }
     }
 
