@@ -5,7 +5,7 @@
 #pragma once
 
 #include "../../vex.hpp"
-#include "../imgui_menu_item.hpp"
+#include "../imgui_element.hpp"
 
 #include <yordle/yordle.hpp>
 
@@ -24,7 +24,7 @@ namespace vex::ui {
 
         std::string name = "vex " + vex::get_version_str() + "/" + yordle::get_version_str();
 
-        bool paint() override {
+        bool paint(vex::device::render_device_framework *fx) override {
             ImGui::MenuItem(name.c_str(), nullptr, false, false);
             return true;
         }

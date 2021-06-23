@@ -8,12 +8,15 @@
 
 namespace vex::ui {
     class skin_menu : public imgui_element {
+    private:
+        uint64_t skin_image_hash = 0;
+
     public:
         explicit skin_menu() {
             title = "skin";
         }
         ~skin_menu() override = default;
 
-        bool paint() override;
+        bool paint(vex::device::render_device_framework *fx) override;
     };
 } // namespace vex::ui

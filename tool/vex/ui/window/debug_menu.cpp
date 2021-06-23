@@ -6,8 +6,7 @@
 
 #include "../../vex.hpp"
 
-bool vex::ui::debug_menu::paint() {
-    auto fx = vex::g_framework.load();
+bool vex::ui::debug_menu::paint(vex::device::render_device_framework *fx) {
     ImGui::LabelTextV("frame time", "%f ms", reinterpret_cast<char *>(&fx->frame_time));
     auto menu_sz = fx->menu_items->size();
     ImGui::LabelTextV("menu items", "%d", reinterpret_cast<char *>(&menu_sz));

@@ -6,7 +6,7 @@
 
 #include "../../vex.hpp"
 
-bool vex::ui::message_menu::paint() {
+bool vex::ui::message_menu::paint(vex::device::render_device_framework *fx) {
     auto mut = vex::g_message_mutex.load();
     if (mut->try_lock()) {
         auto msg = vex::g_message.load();

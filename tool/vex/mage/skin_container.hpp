@@ -16,24 +16,22 @@ namespace vex::mage {
         explicit skin_container() = default;
         ~skin_container()         = default;
 
-        struct chroma_info {
-            int64_t id;
-            int64_t lcu_id;
-            uint64_t bin_path;
+        struct skin_info {
+            int64_t id        = -1;
+            int64_t lcu_id    = -1;
+            uint64_t bin_path = 0;
             std::string name;
-            uint64_t image;
-        };
-
-        struct skin_info : chroma_info {
-            std::map<int64_t, std::shared_ptr<chroma_info>> chromas;
+            uint64_t image = 0;
+            uint32_t color = 0;
+            std::map<int64_t, std::shared_ptr<skin_info>> chromas;
         };
 
         struct champion_info {
-            int64_t id;
-            bool is_monster = false;
-            uint64_t bin_path;
+            int64_t id        = -1;
+            bool is_monster   = false;
+            uint64_t bin_path = 0;
             std::string name;
-            uint64_t image;
+            uint64_t image = 0;
             std::map<int64_t, std::shared_ptr<skin_info>> skins;
         };
 
@@ -46,7 +44,8 @@ namespace vex::mage {
 
         void load_data();
         void clear();
-        chroma_info get_skin();
+        skin_info get_skin();
         champion_info get_champion();
+        int64_t skin_id() const;
     };
 } // namespace vex::mage

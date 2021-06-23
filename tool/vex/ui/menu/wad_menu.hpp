@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "../imgui_menu_item.hpp"
+#include "../imgui_element.hpp"
 
 #include <thread>
 
@@ -21,6 +21,6 @@ namespace vex::ui {
 
         static std::atomic<bool> locked;
 
-        bool paint() override;
+        bool paint(vex::device::render_device_framework *fx) override;
     };
 } // namespace vex::ui

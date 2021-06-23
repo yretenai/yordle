@@ -6,7 +6,6 @@
 
 #include "../vex.hpp"
 
-
 namespace vex::device {
     void render_device_framework::setup_imgui() {
         IMGUI_CHECKVERSION();
@@ -79,7 +78,7 @@ namespace vex::device {
             auto new_elements = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_element>>>();
             for (const auto &element : *elements) {
                 ImGui::Begin(element->title.c_str(), &element->open, element->window_flags);
-                if (element->paint() && element->open) {
+                if (element->paint(this) && element->open) {
                     new_elements->push_back(element);
                 }
                 ImGui::End();
@@ -89,7 +88,7 @@ namespace vex::device {
             if (ImGui::BeginMainMenuBar()) {
                 auto new_items = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_menu_item>>>();
                 for (const auto &item : *menu_items) {
-                    if (item->paint()) {
+                    if (item->paint(this)) {
                         new_items->push_back(item);
                     }
                 }
@@ -112,11 +111,17 @@ namespace vex::device {
     }
 
     void render_device_framework::startup() {
-        menu_items = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_menu_item>>>();
         elements   = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_element>>>();
+        menu_items = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_menu_item>>>();
+        textures   = std::make_shared<std::map<uint64_t, std::shared_ptr<void>>>();
+        models     = std::make_shared<std::map<uint64_t, std::shared_ptr<void>>>();
+        shaders    = std::make_shared<std::map<uint64_t, std::shared_ptr<void>>>();
     }
 
-    void render_device_framework::shutdown_imgui() {
+    void render_device_framework::shutdown_imgui() const {
         ImGui::DestroyContext(nullptr);
+        menu_items->clear();
+        elements->clear();
+        clean_assets();
     }
 } // namespace vex::device

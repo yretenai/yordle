@@ -18,7 +18,6 @@
 #include "mage/wad_container.hpp"
 #include "os/os_layer.hpp"
 #include "ui/imgui_element.hpp"
-#include "ui/imgui_menu_item.hpp"
 
 #include "../tool_export.h"
 

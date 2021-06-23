@@ -14,6 +14,6 @@ namespace vex::ui {
         }
         ~debug_menu() override = default;
 
-        bool paint() override;
+        bool paint(vex::device::render_device_framework *fx) override;
     };
 } // namespace vex::ui

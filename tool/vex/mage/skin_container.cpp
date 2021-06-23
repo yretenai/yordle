@@ -95,8 +95,8 @@ namespace vex::mage {
 
                     auto champion  = champions[champion_id];
                     auto bin_path  = filesystem::path("DATA") / "Characters" / champion->name / "Skins" / (string("Skin") + to_string(skin_id) + ".bin");
-                    auto tile_path = filesystem::path("rcp-be-lol-game-data") / "global" / "default" / skin.second.tile_path.substr(22);
-                    skin_info info {skin_id, skin.second.id, yordle::cdtb::xxhashlist::hash(bin_path.generic_string()), skin.second.name, yordle::cdtb::xxhashlist::hash(tile_path.generic_string()), {}};
+                    auto tile_path = filesystem::path("plugins") / "rcp-be-lol-game-data" / "global" / "default" / skin.second.tile_path.substr(22);
+                    skin_info info {skin_id, skin.second.id, yordle::cdtb::xxhashlist::hash(bin_path.generic_string()), skin.second.name, yordle::cdtb::xxhashlist::hash(tile_path.generic_string()), 0, {}};
                     if (skin_id == 0) {
                         champion->image = info.image;
                     }
@@ -105,9 +105,16 @@ namespace vex::mage {
                         for (auto &chroma : *skin.second.chromas) {
                             auto chroma_id        = chroma.id % 1000;
                             auto chroma_bin_path  = filesystem::path("DATA") / "Characters" / champion->name / "Skins" / (string("Skin") + to_string(chroma_id) + ".bin");
-                            auto chroma_tile_path = filesystem::path("rcp-be-lol-game-data") / "global" / "default" / chroma.chroma_path.substr(22);
-                            chroma_info skin_chroma {chroma_id, chroma.id, yordle::cdtb::xxhashlist::hash(chroma_bin_path.generic_string()), "Chroma " + to_string(info.chromas.size() + 1), yordle::cdtb::xxhashlist::hash(chroma_tile_path.generic_string())};
-                            info.chromas[skin_chroma.id] = make_shared<chroma_info>(skin_chroma);
+                            auto chroma_tile_path = filesystem::path("plugins") / "rcp-be-lol-game-data" / "global" / "default" / chroma.chroma_path.substr(22);
+                            skin_info skin_chroma {chroma_id, chroma.id, yordle::cdtb::xxhashlist::hash(chroma_bin_path.generic_string()), "Chroma " + to_string(info.chromas.size() + 1), yordle::cdtb::xxhashlist::hash(chroma_tile_path.generic_string())};
+                            if (!chroma.colors.empty()) {
+                                auto color = chroma.colors[0];
+                                if (!color.empty()) {
+                                    istringstream line_stream = istringstream(color.substr(1));
+                                    line_stream >> hex >> skin_chroma.color;
+                                }
+                            }
+                            info.chromas[skin_chroma.id] = make_shared<skin_info>(skin_chroma);
                         }
                     }
                     champion->skins[info.id] = make_shared<skin_info>(info);
@@ -141,20 +148,41 @@ namespace vex::mage {
         return *champions[selected_champion];
     }
 
-    skin_container::chroma_info skin_container::get_skin() {
+    skin_container::skin_info skin_container::get_skin() {
         if (selected_champion == -1) {
             return {-1};
         }
 
         auto champ = get_champion();
-        if (selected_skin == -1 || champ.id == -1 || !champ.skins.contains(selected_skin)) {
+
+        if (selected_skin == -1) {
+            selected_skin = 0;
+        }
+
+        if (champ.id == -1 || !champ.skins.contains(selected_skin)) {
             return {-1};
         }
 
         auto skin = *champ.skins[selected_skin];
-        if (selected_chroma > -1 && skin.chromas.size() > selected_chroma) {
+        if (selected_chroma > -1 && skin.chromas.contains(selected_chroma)) {
             return *skin.chromas[selected_chroma];
         }
-        return skin_container::chroma_info(skin);
+        return skin;
+    }
+
+    int64_t skin_container::skin_id() const {
+        if (selected_champion == -1) {
+            return -1;
+        }
+
+        if (selected_skin == -1) {
+            return selected_champion * 1000;
+        }
+
+        if (selected_chroma == -1) {
+            return selected_champion * 1000 + selected_skin;
+        }
+
+        return selected_champion * 1000 + selected_chroma;
     }
 } // namespace vex::mage

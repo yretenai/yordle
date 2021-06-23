@@ -5,7 +5,7 @@
 #pragma once
 
 #include "../../mage/wad_container.hpp"
-#include "../imgui_menu_item.hpp"
+#include "../imgui_element.hpp"
 
 #include <thread>
 
@@ -20,7 +20,7 @@ namespace vex::ui {
 
         std::string name = "screenshot";
 
-        bool paint() override {
+        bool paint(vex::device::render_device_framework *fx) override {
             if (ImGui::MenuItem(name.c_str(), nullptr, false, true)) {
                 auto device = vex::g_framework.load();
                 if (device != nullptr) {

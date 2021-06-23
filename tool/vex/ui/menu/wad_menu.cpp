@@ -10,7 +10,7 @@
 
 std::atomic<bool> vex::ui::wad_menu::locked(false);
 
-bool vex::ui::wad_menu::paint() {
+bool vex::ui::wad_menu::paint(vex::device::render_device_framework *fx) {
     auto is_locked = locked.load();
     if (ImGui::MenuItem(name.c_str(), nullptr, false, !is_locked)) {
         locked = true;
@@ -22,10 +22,13 @@ bool vex::ui::wad_menu::paint() {
                     locked = false;
                     return;
                 }
-                auto wad = vex::g_wad.load();
+                auto wad  = vex::g_wad.load();
+                auto skin = vex::g_skin.load();
+
+                skin->is_busy = true;
                 wad->clear();
                 wad->load_wads(paths);
-                auto skin = vex::g_skin.load();
+
                 skin->clear();
                 skin->load_data();
             } catch (std::exception &e) {

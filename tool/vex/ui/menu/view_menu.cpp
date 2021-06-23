@@ -8,7 +8,7 @@
 #include "../window/debug_menu.hpp"
 #include "../window/skin_menu.hpp"
 
-bool vex::ui::view_menu::paint() {
+bool vex::ui::view_menu::paint(vex::device::render_device_framework *fx) {
     if (ImGui::BeginMenu(name.c_str(), true)) {
         auto fx = vex::g_framework.load();
 
