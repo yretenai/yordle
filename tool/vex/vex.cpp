@@ -6,7 +6,7 @@
 #ifdef _WIN32
 #    define HAS_DX11
 #    include "device/win_d3d11.hpp"
-#    include "os/win32_layer.hpp"
+#    include "os/win_layer.hpp"
 #endif
 
 #include "vex.hpp"
@@ -32,7 +32,7 @@ int main() {
     try {
 #ifdef HAS_DX11
         vex::g_framework = vex::device::win_d3d11::get_instance(true);
-        vex::g_os        = std::make_shared<vex::os::win32_layer>();
+        vex::g_os        = std::make_shared<vex::os::win_layer>();
 #endif
         vex::g_wad           = std::make_shared<vex::mage::wad_container>();
         vex::g_skin          = std::make_shared<vex::mage::skin_container>();

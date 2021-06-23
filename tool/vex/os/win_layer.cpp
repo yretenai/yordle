@@ -8,9 +8,10 @@
 #include <shobjidl_core.h>
 
 #include "../vex.hpp"
-#include "win32_layer.hpp"
+#include "win_layer.hpp"
+#include "win_macros.hpp"
 
-std::set<std::filesystem::path> vex::os::win32_layer::file_dialog(std::set<std::string> extensions, bool folders) {
+std::set<std::filesystem::path> vex::os::win_layer::file_dialog(std::set<std::string> extensions, bool folders) {
     IFileOpenDialog *dialog  = nullptr;
     IShellItemArray *results = nullptr;
     IShellItem *item         = nullptr;
@@ -20,7 +21,7 @@ std::set<std::filesystem::path> vex::os::win32_layer::file_dialog(std::set<std::
     try {
         DWORD options;
         if (!SUCCEEDED(dialog->GetOptions(&options))) {
-            dialog->Release();
+            CLEANUP_RELEASE(dialog);
             return {};
         }
         options |= FOS_ALLOWMULTISELECT | FOS_NOCHANGEDIR;
@@ -28,7 +29,7 @@ std::set<std::filesystem::path> vex::os::win32_layer::file_dialog(std::set<std::
             options |= FOS_PICKFOLDERS;
         }
         if (!SUCCEEDED(dialog->SetOptions(options))) {
-            dialog->Release();
+            CLEANUP_RELEASE(dialog);
             return {};
         }
 
@@ -37,7 +38,7 @@ std::set<std::filesystem::path> vex::os::win32_layer::file_dialog(std::set<std::
         }
 
         if (!SUCCEEDED(dialog->GetResults(&results))) {
-            dialog->Release();
+            CLEANUP_RELEASE(dialog);
             return {};
         }
         std::set<std::filesystem::path> set;
@@ -55,25 +56,20 @@ std::set<std::filesystem::path> vex::os::win32_layer::file_dialog(std::set<std::
             auto wpath = std::wstring(path);
             CoTaskMemFree(path);
             set.emplace(wpath);
-            item->Release();
-            item = nullptr;
+            CLEANUP_RELEASE(item);
         }
-        results->Release();
-        dialog->Release();
+        CLEANUP_RELEASE(results);
+        CLEANUP_RELEASE(dialog);
         return set;
     } catch (std::exception &ex) {
-        dialog->Release();
-        if (results != nullptr) {
-            results->Release();
-        }
-        if (item != nullptr) {
-            item->Release();
-        }
+        CLEANUP_RELEASE(dialog);
+        CLEANUP_RELEASE(results);
+        CLEANUP_RELEASE(item);
         throw;
     }
 }
 
-uint64_t vex::os::win32_layer::get_memory() {
+uint64_t vex::os::win_layer::get_memory() {
     auto process = GetCurrentProcess();
     PROCESS_MEMORY_COUNTERS_EX pmc;
     if (GetProcessMemoryInfo(process, reinterpret_cast<PROCESS_MEMORY_COUNTERS *>(&pmc), sizeof(pmc))) {

@@ -1,3 +1,3 @@
 project(vex_os)
 
-target_sources(vex PRIVATE win32_layer.cpp)
+target_sources(vex PRIVATE win_layer.cpp)

@@ -3,7 +3,6 @@
 //
 
 #include <chrono>
-#include <ctime>
 #include <d3d11.h>
 #include <d3dcompiler.h>
 #include <imgui.h>
@@ -12,6 +11,7 @@
 #include <iostream>
 
 #include "../common_win.hpp"
+#include "../os/win_macros.hpp"
 #include "win_d3d11.hpp"
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -140,18 +140,9 @@ namespace vex::device {
 
     void win_d3d11::shutdown_device() {
         shutdown_rt();
-        if (dx_swap) {
-            dx_swap->Release();
-            dx_swap = nullptr;
-        }
-        if (dx_context) {
-            dx_context->Release();
-            dx_context = nullptr;
-        }
-        if (dx_device) {
-            dx_device->Release();
-            dx_device = nullptr;
-        }
+        CLEANUP_RELEASE(dx_swap);
+        CLEANUP_RELEASE(dx_context);
+        CLEANUP_RELEASE(dx_device);
     }
 
     void win_d3d11::create_rt() {
@@ -163,17 +154,14 @@ namespace vex::device {
         }
 
         result = dx_device->CreateRenderTargetView(pBackBuffer, nullptr, &dx_rt);
-        pBackBuffer->Release();
+        CLEANUP_RELEASE(pBackBuffer);
         if (FAILED(result)) {
             throw vex::windows::get_win_exception(result);
         }
     }
 
     void win_d3d11::shutdown_rt() {
-        if (dx_rt) {
-            dx_rt->Release();
-            dx_rt = nullptr;
-        }
+        CLEANUP_RELEASE(dx_rt);
     }
 
     LRESULT win_d3d11::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
@@ -234,14 +222,11 @@ namespace vex::device {
         auto result = D3DCompile(text.c_str(), text.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE,
                                  entry.c_str(), shader_model.c_str(), flags, 0, &blob, &error_blob);
         if (FAILED(result)) {
-            if (blob) {
-                blob->Release();
-                blob = nullptr;
-            }
+            CLEANUP_RELEASE(blob);
 
             if (error_blob) {
                 std::string msg = std::string(reinterpret_cast<char *>(error_blob->GetBufferPointer()), error_blob->GetBufferSize());
-                error_blob->Release();
+                CLEANUP_RELEASE(error_blob);
                 throw std::exception(msg.c_str());
             }
 
