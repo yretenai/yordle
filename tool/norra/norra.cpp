@@ -261,7 +261,7 @@ int main(int argc, char **argv) {
     while (last_count != done.size()) {
         last_count = done.size();
         for (const auto &def : meta->classes) {
-            vector<uint32_t> parents;
+            vector<uint64_t> parents;
 
             if (def.parent_class != 0) {
                 parents.emplace_back(def.parent_class);
@@ -299,12 +299,17 @@ int main(int argc, char **argv) {
             bin_class_def += name;
             bin_class_def += " : ";
             if (!parents.empty()) {
-                for (auto parent_id : parents) {
-                    bin_class_def += "public " + type_hashes->get_string(parent_id, "x");
-                    bin_class_def += ", ";
+                auto sz = parents.size();
+                for (auto i = 0; i < sz; ++i) {
+                    bin_class_def += "public " + type_hashes->get_string(parents[i], "x");
+                    if (i < sz - 1) {
+                        bin_class_def += ", ";
+                    }
                 }
+            } else {
+                bin_class_def += "public bin_class";
             }
-            bin_class_def += "public bin_class { \n"
+            bin_class_def += " { \n"
                              "    public:\n"
                              "        explicit " +
                              name;
