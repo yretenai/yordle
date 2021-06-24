@@ -261,18 +261,34 @@ int main(int argc, char **argv) {
     while (last_count != done.size()) {
         last_count = done.size();
         for (const auto &def : meta->classes) {
-            if (!done.contains(def.parent_class)) {
+            vector<uint32_t> parents;
+
+            if (def.parent_class != 0) {
+                parents.emplace_back(def.parent_class);
+            }
+
+            for (const auto &secondary_base : def.secondary_bases) {
+                if (!secondary_base.empty() && secondary_base[0] != 0) {
+                    parents.emplace_back(secondary_base[0]);
+                }
+            }
+
+            bool safe = true;
+            for (const auto &parent_id : parents) {
+                if (!done.contains(parent_id)) {
+                    safe = false;
+                }
+            }
+
+            if (!safe) {
                 continue;
             }
+
             if (!done.emplace(def.hash).second) {
                 continue;
             }
-            set<uint64_t> included;
-            included.emplace(def.parent_class);
-            included.emplace(def.hash);
 
-            auto parent_name = def.parent_class != 0 ? type_hashes->get_string(def.parent_class, "x") : "bin_class";
-            auto name        = type_hashes->get_string(def.hash, "x");
+            auto name = type_hashes->get_string(def.hash, "x");
             cout << name << "... ";
             cout.flush();
 
@@ -281,9 +297,14 @@ int main(int argc, char **argv) {
 
             bin_class_def += "    class YORDLE_EXPORT ";
             bin_class_def += name;
-            bin_class_def += " : public ";
-            bin_class_def += parent_name;
-            bin_class_def += " { \n"
+            bin_class_def += " : ";
+            if (!parents.empty()) {
+                for (auto parent_id : parents) {
+                    bin_class_def += "public " + type_hashes->get_string(parent_id, "x");
+                    bin_class_def += ", ";
+                }
+            }
+            bin_class_def += "public bin_class { \n"
                              "    public:\n"
                              "        explicit " +
                              name;
@@ -291,14 +312,29 @@ int main(int argc, char **argv) {
             bin_class_def += "        bool is_type(uint32_t type) override {\n"
                              "            return type == " +
                              to_string(def.hash);
-            bin_class_def += " || " + parent_name;
-            bin_class_def += "::is_type(type);\n"
+            if (!parents.empty()) {
+                for (auto parent_id : parents) {
+                    bin_class_def += " || " + type_hashes->get_string(parent_id, "x");
+                    bin_class_def += "::is_type(type)";
+                }
+            }
+            bin_class_def += ";\n"
                              "        }\n\n";
 
             string class_def_header = "yordle::data::meta::" + name + "::";
             class_def_header += name + "(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : ";
-            class_def_header += "yordle::data::meta::" + parent_name;
-            class_def_header += "(prop)";
+            if (!parents.empty()) {
+                auto sz = parents.size();
+                for (auto i = 0; i < sz; ++i) {
+                    class_def_header += "yordle::data::meta::" + type_hashes->get_string(parents[i], "x");
+                    class_def_header += "(prop)";
+                    if (i < sz - 1) {
+                        class_def_header += ", ";
+                    }
+                }
+            } else {
+                class_def_header += "yordle::data::meta::bin_class(prop)";
+            }
             class_def_header += " {\n"
                                 "    if (prop == nullptr) {\n"
                                 "        return;\n"

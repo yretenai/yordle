@@ -17,9 +17,10 @@ namespace vex::mage {
         ~skin_container()         = default;
 
         struct skin_info {
-            int64_t id        = -1;
-            int64_t lcu_id    = -1;
-            uint64_t bin_path = 0;
+            int64_t id            = -1;
+            int64_t lcu_id        = -1;
+            uint64_t bin_path     = 0;
+            uint32_t resource_key = 0;
             std::string name;
             uint64_t image = 0;
             uint32_t color = 0;
