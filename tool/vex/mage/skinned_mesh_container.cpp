@@ -28,8 +28,9 @@ deque<string> split_submeshes(const string &order) {
 }
 
 namespace vex::mage {
-    skinned_mesh_container::skinned_mesh_container(vex::device::render_device_framework *fx,
+    skinned_mesh_container::skinned_mesh_container(vex::device::render_device_framework *fx, std::string &mesh_name,
                                                    shared_ptr<yordle::data::meta::SkinMeshDataProperties> &prop, shared_ptr<yordle::r3d::skinned_mesh> &skn) {
+        name            = mesh_name;
         mesh_properties = prop;
         mesh            = skn;
 
@@ -38,7 +39,8 @@ namespace vex::mage {
         }
 
         if (!mesh_properties->initialSubmeshToHide.empty()) {
-            submeshes_to_hide = split_submeshes(mesh_properties->initialSubmeshToHide);
+            auto hide         = split_submeshes(mesh_properties->initialSubmeshToHide);
+            submeshes_to_hide = std::set(hide.begin(), hide.end());
         }
 
         for (const auto &submesh : mesh->submeshes) {

@@ -17,6 +17,7 @@
 #include "ui/menu/vex_menu_version.hpp"
 #include "ui/menu/view_menu.hpp"
 #include "ui/menu/wad_menu.hpp"
+#include "ui/window/skin_menu.hpp"
 
 #include <standard_dragon/exception/invalid_data.hpp>
 
@@ -68,6 +69,7 @@ int main() {
     fx->menu_items->emplace_back(std::make_shared<vex::ui::message_menu>());
     fx->menu_items->emplace_back(std::make_shared<vex::ui::view_menu>());
     fx->refresh_menu();
+    fx->elements->emplace_back(std::make_shared<vex::ui::skin_menu>());
 
     try {
         fx->run();

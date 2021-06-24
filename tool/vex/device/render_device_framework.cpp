@@ -161,6 +161,6 @@ namespace vex::device {
         if (skn == nullptr) {
             return nullptr;
         }
-        return std::make_shared<vex::mage::skinned_mesh_container>(this, mesh_props, skn);
+        return std::make_shared<vex::mage::skinned_mesh_container>(this, skin_props->championSkinName, mesh_props, skn);
     }
 } // namespace vex::device

@@ -16,9 +16,11 @@
 
 namespace yordle::r3d {
 #pragma pack(push, 1)
-    using skinned_mesh_vbo_type = enum class SKINNED_MESH_VBO_TYPE : uint32_t {
-        standard  = 0,
-        has_color = 1
+    using skinned_mesh_vbo_type = union alignas(4) SKINNED_MESH_VBO_TYPE {
+        struct {
+            bool has_color : 1;
+        };
+        uint32_t value;
     };
 
     using skinned_submesh_v2 = struct SKINNED_SUBMESH_V2 {
@@ -47,7 +49,7 @@ namespace yordle::r3d {
 
         uint32_t vbo_stride            = 52;
         uint32_t flags                 = 0;
-        skinned_mesh_vbo_type vbo_type = skinned_mesh_vbo_type::standard;
+        skinned_mesh_vbo_type vbo_type = {false};
         bounding_box bbox {};
         bounding_volume bvol {};
 

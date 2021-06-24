@@ -362,25 +362,58 @@ namespace vex::device {
     }
 
     std::shared_ptr<vex::mage::skinned_mesh_container> win_d3d11::load_model(uint64_t model_path, uint64_t resource_key) {
-        if (models->contains(resource_key)) {
-            return models->at(resource_key);
+        if (!models->contains(resource_key)) {
+            auto container = load_model_base(model_path, resource_key);
+            if (container == nullptr) {
+                return nullptr;
+            }
+
+            D3D11_BUFFER_DESC buffer_desc;
+            D3D11_SUBRESOURCE_DATA data;
+
+            buffer_desc.Usage          = D3D11_USAGE_DEFAULT;
+            buffer_desc.CPUAccessFlags = 0;
+            buffer_desc.MiscFlags      = 0;
+            data.SysMemPitch           = 0;
+            data.SysMemSlicePitch      = 0;
+
+            buffer_desc.BindFlags           = D3D11_BIND_VERTEX_BUFFER;
+            buffer_desc.StructureByteStride = container->mesh->vbo_stride;
+            buffer_desc.ByteWidth           = container->mesh->vbo->byte_size();
+            data.pSysMem                    = container->mesh->vbo.get();
+
+            ID3D11Buffer *raw_ptr = nullptr;
+            if (FAILED(dx_device->CreateBuffer(&buffer_desc, &data, &raw_ptr))) {
+                return nullptr;
+            }
+            container->vbo = std::shared_ptr<ID3D11Buffer>(raw_ptr, [](IUnknown *ptr) {
+                ptr->Release();
+            });
+
+            buffer_desc.BindFlags           = D3D11_BIND_INDEX_BUFFER;
+            buffer_desc.StructureByteStride = sizeof(uint16_t) * 3;
+            buffer_desc.ByteWidth           = container->mesh->ibo->byte_size();
+            data.pSysMem                    = container->mesh->ibo.get();
+
+            if (FAILED(dx_device->CreateBuffer(&buffer_desc, &data, &raw_ptr))) {
+                container->vbo = nullptr;
+                return nullptr;
+            }
+            container->ibo = std::shared_ptr<ID3D11Buffer>(raw_ptr, [](IUnknown *ptr) {
+                ptr->Release();
+            });
+
+            models->emplace(resource_key, container);
         }
 
-        auto container = load_model_base(model_path, resource_key);
-
-        // TODO: setup vbo, ibo
-        container->vbo = nullptr;
-        container->ibo = nullptr;
-
-        models->emplace(resource_key, container);
-        return container;
+        return models->at(resource_key);
     }
 
     std::shared_ptr<void> win_d3d11::load_shader(uint64_t shader_path) {
-        if (shaders->contains(shader_path)) {
-            return shaders->at(shader_path);
+        if (!shaders->contains(shader_path)) {
+            return nullptr;
         }
-        return nullptr;
+        return shaders->at(shader_path);
     }
 
     void win_d3d11::clear_assets() const {
