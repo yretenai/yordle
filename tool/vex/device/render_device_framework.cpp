@@ -111,11 +111,12 @@ namespace vex::device {
     }
 
     void render_device_framework::startup() {
-        elements   = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_element>>>();
-        menu_items = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_menu_item>>>();
-        textures   = std::make_shared<std::map<uint64_t, std::shared_ptr<void>>>();
-        models     = std::make_shared<std::map<uint64_t, std::shared_ptr<void>>>();
-        shaders    = std::make_shared<std::map<uint64_t, std::shared_ptr<void>>>();
+        elements           = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_element>>>();
+        menu_items         = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_menu_item>>>();
+        textures           = std::make_shared<std::map<uint64_t, std::shared_ptr<void>>>();
+        texture_dimensions = std::make_shared<std::map<uint64_t, float>>();
+        models             = std::make_shared<std::map<uint64_t, std::shared_ptr<void>>>();
+        shaders            = std::make_shared<std::map<uint64_t, std::shared_ptr<void>>>();
     }
 
     void render_device_framework::shutdown_imgui() const {

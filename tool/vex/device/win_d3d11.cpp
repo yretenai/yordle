@@ -264,6 +264,41 @@ namespace vex::device {
         return blob;
     }
 
+    float load_texture_dimensions(ID3D11Resource *resource) {
+        D3D11_RESOURCE_DIMENSION dimension;
+        resource->GetType(&dimension);
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wswitch"
+        switch (dimension) {
+            case D3D11_RESOURCE_DIMENSION_TEXTURE2D: {
+                ID3D11Texture2D *texture;
+                if (FAILED(resource->QueryInterface(&texture))) {
+                    return 1;
+                }
+
+                D3D11_TEXTURE2D_DESC desc;
+                texture->GetDesc(&desc);
+                CLEANUP_RELEASE(texture);
+                return static_cast<float>(desc.Width) / static_cast<float>(desc.Height);
+            }
+            case D3D11_RESOURCE_DIMENSION_TEXTURE3D: {
+                ID3D11Texture3D *texture;
+                if (FAILED(resource->QueryInterface(&texture))) {
+                    return 1;
+                }
+
+                D3D11_TEXTURE3D_DESC desc;
+                texture->GetDesc(&desc);
+                CLEANUP_RELEASE(texture);
+                return static_cast<float>(desc.Width) / static_cast<float>(desc.Height);
+            }
+        }
+
+        return 1;
+#pragma clang diagnostic pop
+    }
+
     std::shared_ptr<void> win_d3d11::load_texture(uint64_t texture_path) {
         if (!textures->contains(texture_path)) {
             ID3D11ShaderResourceView *raw_ptr = nullptr;
@@ -286,6 +321,8 @@ namespace vex::device {
             textures->emplace(texture_path, std::shared_ptr<ID3D11ShaderResourceView>(raw_ptr, [](IUnknown *ptr) {
                                   ptr->Release();
                               }));
+
+            texture_dimensions->emplace(texture_path, load_texture_dimensions(resource));
 
             CLEANUP_RELEASE(resource);
         }
@@ -316,6 +353,8 @@ namespace vex::device {
                                   ptr->Release();
                               }));
 
+            texture_dimensions->emplace(image_path, load_texture_dimensions(resource));
+
             CLEANUP_RELEASE(resource);
         }
 
@@ -338,6 +377,7 @@ namespace vex::device {
 
     void win_d3d11::clear_assets() const {
         textures->clear();
+        texture_dimensions->clear();
         models->clear();
         shaders->clear();
     }
@@ -345,6 +385,10 @@ namespace vex::device {
     void win_d3d11::clear_texture(uint64_t image_path) {
         if (textures->contains(image_path)) {
             textures->erase(image_path);
+        }
+
+        if (texture_dimensions->contains(image_path)) {
+            texture_dimensions->erase(image_path);
         }
     }
 

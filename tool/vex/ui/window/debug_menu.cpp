@@ -12,11 +12,11 @@ bool vex::ui::debug_menu::paint(vex::device::render_device_framework *fx) {
     ImGui::LabelTextV("menu items", "%d", reinterpret_cast<char *>(&menu_sz));
     auto window_sz = fx->elements->size();
     ImGui::LabelTextV("windows", "%d", reinterpret_cast<char *>(&window_sz));
-    auto tex_sz = 0;
+    auto tex_sz = fx->textures->size();
     ImGui::LabelTextV("textures", "%d", reinterpret_cast<char *>(&tex_sz));
-    auto model_sz = 0;
+    auto model_sz = fx->models->size();
     ImGui::LabelTextV("models", "%d", reinterpret_cast<char *>(&model_sz));
-    auto shader_sz = 0;
+    auto shader_sz = fx->shaders->size();
     ImGui::LabelTextV("shaders", "%d", reinterpret_cast<char *>(&shader_sz));
     auto wad       = vex::g_wad.load();
     auto wad_count = wad->paths.size();

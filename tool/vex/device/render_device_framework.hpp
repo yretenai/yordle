@@ -30,11 +30,13 @@ namespace vex::device {
         std::shared_ptr<std::vector<std::shared_ptr<vex::ui::imgui_menu_item>>> menu_items;
 
         std::shared_ptr<std::map<uint64_t, std::shared_ptr<void>>> textures;
+        std::shared_ptr<std::map<uint64_t, float>> texture_dimensions;
         std::shared_ptr<std::map<uint64_t, std::shared_ptr<void>>> models;
         std::shared_ptr<std::map<uint64_t, std::shared_ptr<void>>> shaders;
 
         double frame_time = 0.0;
         std::atomic<bool> perform_screenshot;
+        std::atomic<bool> is_busy;
 
         virtual ~render_device_framework() = default;
 
