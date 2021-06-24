@@ -5,6 +5,7 @@
 #include "view_menu.hpp"
 
 #include "../../vex.hpp"
+#include "../window/debug_log.hpp"
 #include "../window/debug_menu.hpp"
 #include "../window/debug_resource_menu.hpp"
 #include "../window/skin_menu.hpp"
@@ -24,6 +25,11 @@ bool vex::ui::view_menu::paint(vex::device::render_device_framework *fx) {
         bool has_debug = names.find("debug") != names.end();
         if (ImGui::MenuItem("debug", nullptr, has_debug, !has_debug)) {
             fx->elements->emplace_back(std::make_shared<debug_menu>());
+        }
+
+        bool has_log = names.find("log") != names.end();
+        if (ImGui::MenuItem("log", nullptr, has_log, !has_log)) {
+            fx->elements->emplace_back(std::make_shared<debug_log>());
         }
 
         bool has_resource = names.find("resources") != names.end();

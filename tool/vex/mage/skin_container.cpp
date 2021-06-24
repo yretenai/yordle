@@ -32,11 +32,7 @@ namespace vex::mage {
                 return;
             }
 
-            auto mut = g_message_mutex.load();
-            if (mut->try_lock()) {
-                g_message = make_shared<string>("loading champion info");
-                mut->unlock();
-            }
+            vex::post_message("loading champion info");
 
             auto champions_bin = yordle::data::property_bin(*champions_bin_data);
             bool use_legacy    = !wad->has_file(SKINS_JSON);
@@ -66,10 +62,7 @@ namespace vex::mage {
                 champions[id] = make_shared<champion_info>(info);
             }
 
-            if (mut->try_lock()) {
-                g_message = make_shared<string>("loading skin info");
-                mut->unlock();
-            }
+            vex::post_message("loading skin info");
 
             if (use_legacy) {
                 // TODO.
@@ -85,11 +78,7 @@ namespace vex::mage {
                     auto champion_id = skin.second.id / 1000;
                     auto skin_id     = skin.second.id % 1000;
                     if (!champions.contains(champion_id)) {
-                        if (mut->try_lock()) {
-                            g_message = make_shared<string>(string("cannot find champion id ") + to_string(champion_id));
-                            mut->unlock();
-                        }
-
+                        vex::post_message(string("cannot find champion id ") + to_string(champion_id));
                         continue;
                     }
 
@@ -121,11 +110,6 @@ namespace vex::mage {
                     }
                     champion->skins[info.id] = make_shared<skin_info>(info);
                 }
-            }
-
-            if (mut->try_lock()) {
-                g_message = nullptr;
-                mut->unlock();
             }
             is_busy = false;
         } catch (std::exception &e) {

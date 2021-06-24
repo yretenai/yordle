@@ -36,19 +36,10 @@ namespace vex::mage {
     void wad_container::load_wads(set<filesystem::path> &game_paths) {
         auto que       = deque<filesystem::path>(game_paths.begin(), game_paths.end());
         auto wad_paths = find_paths(que, {".wad", ".client", ".mobile"}, {});
-        auto mut       = g_message_mutex.load();
         paths.reserve(wad_paths.size());
         for (auto path : wad_paths) {
-            if (mut->try_lock()) {
-                g_message = make_shared<string>(string("loading ") + path.filename().string());
-                mut->unlock();
-            }
+            vex::post_message(string("loading ") + path.filename().string());
             load_wad(path);
-        }
-
-        if (mut->try_lock()) {
-            g_message = nullptr;
-            mut->unlock();
         }
     }
 

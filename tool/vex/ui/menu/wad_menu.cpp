@@ -34,11 +34,7 @@ bool vex::ui::wad_menu::paint(vex::device::render_device_framework *fx) {
                 wad->load_wads(paths);
                 skin->load_data();
             } catch (std::exception &e) {
-                auto mut = g_message_mutex.load();
-                if (mut->try_lock()) {
-                    g_message = make_shared<std::string>(std::string("error: ") + e.what());
-                    mut->unlock();
-                }
+                vex::post_message(std::string("error: ") + e.what());
             }
             locked = false;
         }).detach();

@@ -380,7 +380,7 @@ namespace vex::device {
             buffer_desc.BindFlags           = D3D11_BIND_VERTEX_BUFFER;
             buffer_desc.StructureByteStride = container->mesh->vbo_stride;
             buffer_desc.ByteWidth           = container->mesh->vbo->byte_size();
-            data.pSysMem                    = container->mesh->vbo.get();
+            data.pSysMem                    = container->mesh->vbo->data();
 
             ID3D11Buffer *raw_ptr = nullptr;
             if (FAILED(dx_device->CreateBuffer(&buffer_desc, &data, &raw_ptr))) {
@@ -393,7 +393,7 @@ namespace vex::device {
             buffer_desc.BindFlags           = D3D11_BIND_INDEX_BUFFER;
             buffer_desc.StructureByteStride = sizeof(uint16_t) * 3;
             buffer_desc.ByteWidth           = container->mesh->ibo->byte_size();
-            data.pSysMem                    = container->mesh->ibo.get();
+            data.pSysMem                    = container->mesh->ibo->data();
 
             if (FAILED(dx_device->CreateBuffer(&buffer_desc, &data, &raw_ptr))) {
                 container->vbo = nullptr;

@@ -147,16 +147,26 @@ bool vex::ui::skin_menu::paint(vex::device::render_device_framework *fx) {
 
 void vex::ui::skin_menu::load_skin(device::render_device_framework *fx) {
     // TODO
-    auto skin_container = vex::g_skin.load();
-    if (skin_container->is_busy) {
-        return;
-    }
-
-    auto skin = skin_container->get_skin();
-    if (skin.id == -1) {
-        return;
-    }
-
     fx->clear_assets();
-    fx->load_model(skin.bin_path, skin.resource_key);
+    fx->is_busy = true;
+    std::thread([] {
+        auto skin_container = vex::g_skin.load();
+        auto fx             = vex::g_framework.load();
+        try {
+            if (skin_container->is_busy) {
+                fx->is_busy = false;
+                return;
+            }
+
+            auto skin = skin_container->get_skin();
+            if (skin.id == -1) {
+                fx->is_busy = false;
+                return;
+            }
+            fx->load_model(skin.bin_path, skin.resource_key);
+        } catch (std::exception &e) {
+            vex::post_message(std::string("error: ") + e.what());
+        }
+        fx->is_busy = false;
+    }).detach();
 }

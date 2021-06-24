@@ -4,6 +4,7 @@
 
 #include "skinned_mesh_container.hpp"
 #include "../device/render_device_framework.hpp"
+#include "../vex.hpp"
 
 using namespace std;
 
@@ -50,11 +51,13 @@ namespace vex::mage {
         }
 
         if (!mesh_properties->texture.empty()) {
+            vex::post_message(std::string("loading ") + mesh_properties->texture);
             fx->load_texture(yordle::cdtb::xxhashlist::hash(mesh_properties->texture));
         }
 
         for (const auto &override : mesh_properties->materialOverride) {
             if (!override->texture.empty()) {
+                vex::post_message(std::string("loading ") + override->texture);
                 fx->load_texture(yordle::cdtb::xxhashlist::hash(override->texture));
             }
         }

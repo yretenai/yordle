@@ -5,8 +5,6 @@
 #include <algorithm>
 
 #include "../vex.hpp"
-#include "render_device_framework.hpp"
-
 
 namespace vex::device {
     void render_device_framework::setup_imgui() {
@@ -98,11 +96,7 @@ namespace vex::device {
                 menu_items = new_items;
             }
         } catch (std::exception &e) {
-            auto mut = g_message_mutex.load();
-            if (mut->try_lock()) {
-                g_message = make_shared<std::string>(std::string("error: ") + e.what());
-                mut->unlock();
-            }
+            vex::post_message(std::string("error: ") + e.what());
         }
     }
 
@@ -152,6 +146,8 @@ namespace vex::device {
         }
 
         std::shared_ptr<yordle::data::meta::SkinMeshDataProperties> mesh_props = std::reinterpret_pointer_cast<yordle::data::meta::SkinMeshDataProperties>(skin_props->skinMeshProperties);
+
+        vex::post_message(std::string("loading ") + mesh_props->simpleSkin);
 
         auto skn_data = wad->read_file(mesh_props->simpleSkin);
         if (skn_data == nullptr) {
