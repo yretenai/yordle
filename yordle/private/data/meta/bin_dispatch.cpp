@@ -6,1206 +6,1212 @@
 using namespace std;
 using namespace yordle::data::meta;
 
-const map<uint32_t, function<prop_ret(prop_arg)>> yordle::data::meta::bin_dispatch::table {
-    {4197693672u, [](prop_arg prop) { return make_shared<yordle::data::meta::WardSkinDisabler>(prop); }},
-    {1073283193u, [](prop_arg prop) { return make_shared<yordle::data::meta::IContextualAction>(prop); }},
-    {3095435268u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualActionPlayAnimation>(prop); }},
-    {500070696u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualActionTriggerEvent>(prop); }},
-    {1668724992u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualActionPlayAudio>(prop); }},
-    {696305421u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualActionPlayVO>(prop); }},
-    {3400586476u, [](prop_arg prop) { return make_shared<yordle::data::meta::IContextualCondition>(prop); }},
-    {1104587944u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNegation>(prop); }},
-    {1086321689u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionItemID>(prop); }},
-    {2611344701u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionMultikillSize>(prop); }},
-    {888087826u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionKillCount>(prop); }},
-    {3828924738u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionItemVOGroup>(prop); }},
-    {2121488724u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionHasItemFromVOGroup>(prop); }},
-    {3450583319u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionLastBoughtItem>(prop); }},
-    {3030776672u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionRuleCooldown>(prop); }},
-    {766985824u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionChanceToPlay>(prop); }},
-    {1605316801u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionMoveDistance>(prop); }},
-    {1454228832u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterLevel>(prop); }},
-    {2646785396u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionTimeSinceStealthStateChange>(prop); }},
-    {1442744202u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionMarkerName>(prop); }},
-    {92678189u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNeutralMinionMapSide>(prop); }},
-    {2644467766u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNeutralMinionCampName>(prop); }},
-    {2698836486u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNeutralMinionCampIsAlive>(prop); }},
-    {3967297150u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNeutralCampId>(prop); }},
-    {3867527440u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionSituationHasRecentlyRun>(prop); }},
-    {160416398u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionMapID>(prop); }},
-    {2095729679u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionObjectiveTakeByMyTeam>(prop); }},
-    {3222630896u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionMapRegionName>(prop); }},
-    {2156731698u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionTurretPosition>(prop); }},
-    {1420908503u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionHasGold>(prop); }},
-    {1904648305u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCustomTimer>(prop); }},
-    {1010350366u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionGameTimer>(prop); }},
-    {1926860258u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionShopOpenCount>(prop); }},
-    {1386770836u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionShopCloseCount>(prop); }},
-    {4109134353u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionItemPurchased>(prop); }},
-    {4001334472u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionItemCanBePurchased>(prop); }},
-    {3440316227u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionItemPriceMinimum>(prop); }},
-    {1635608022u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionOwnerTeamNetChampionKills>(prop); }},
-    {4264964658u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNearbyChampionCount>(prop); }},
-    {4259363442u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNumberOfCharactersNearTargetPos>(prop); }},
-    {1977541677u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionEnemyDeathsNearby>(prop); }},
-    {3730624179u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionTeammateDeathsNearby>(prop); }},
-    {2730793650u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacter>(prop); }},
-    {785741611u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionAnyOtherHero>(prop); }},
-    {3725269960u, [](prop_arg prop) { return make_shared<yordle::data::meta::ICharacterSubcondition>(prop); }},
-    {3741107577u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterName>(prop); }},
-    {3065745279u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterFormName>(prop); }},
-    {3363398730u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterSkinID>(prop); }},
-    {2510804743u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterMetadata>(prop); }},
-    {2711604381u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterUnitTags>(prop); }},
-    {188655288u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterHealth>(prop); }},
-    {3328327009u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionIsAlly>(prop); }},
-    {52525780u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterPlayingEmote>(prop); }},
-    {2213043706u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterPlayingAnimation>(prop); }},
-    {1680964441u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterDistance>(prop); }},
-    {3402679647u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterInRangeForSyncedAnimation>(prop); }},
-    {342643998u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterHasTimeRemainingForAnimation>(prop); }},
-    {1618442710u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterIsCastingRecall>(prop); }},
-    {1992674514u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterRole>(prop); }},
-    {3428313767u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterHasCAC>(prop); }},
-    {576452982u, [](prop_arg prop) { return make_shared<yordle::data::meta::IContextualConditionSpell>(prop); }},
-    {2059432175u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionSpell>(prop); }},
-    {1616828652u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionSpellName>(prop); }},
-    {880553955u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionSpellSlot>(prop); }},
-    {1864557295u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionSpellLevel>(prop); }},
-    {3932864058u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionSpellIsReady>(prop); }},
-    {4210162581u, [](prop_arg prop) { return make_shared<yordle::data::meta::IContextualConditionBuff>(prop); }},
-    {68729178u, [](prop_arg prop) { return make_shared<yordle::data::meta::x418b95a>(prop); }},
-    {3101122117u, [](prop_arg prop) { return make_shared<yordle::data::meta::xb8d75e45>(prop); }},
-    {584100880u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualRule>(prop); }},
-    {4230456894u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualSituation>(prop); }},
-    {3888872651u, [](prop_arg prop) { return make_shared<yordle::data::meta::DamageSourceTemplate>(prop); }},
-    {3443066312u, [](prop_arg prop) { return make_shared<yordle::data::meta::DamageSourceSettings>(prop); }},
-    {2583264988u, [](prop_arg prop) { return make_shared<yordle::data::meta::DeathTimesScalingPoint>(prop); }},
-    {319277549u, [](prop_arg prop) { return make_shared<yordle::data::meta::DeathTimes>(prop); }},
-    {3837969205u, [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceStateColorOptions>(prop); }},
-    {2001592274u, [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceStateData>(prop); }},
-    {2815698218u, [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceThresholdIndicatorRange>(prop); }},
-    {3011369577u, [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceTypeData>(prop); }},
-    {994495723u, [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceTypeConfig>(prop); }},
-    {3253985952u, [](prop_arg prop) { return make_shared<yordle::data::meta::EvolutionDescription>(prop); }},
-    {2482357264u, [](prop_arg prop) { return make_shared<yordle::data::meta::ExperienceCurveData>(prop); }},
-    {4040137199u, [](prop_arg prop) { return make_shared<yordle::data::meta::ExperienceModData>(prop); }},
-    {309827837u, [](prop_arg prop) { return make_shared<yordle::data::meta::StatUIData>(prop); }},
-    {4087817779u, [](prop_arg prop) { return make_shared<yordle::data::meta::GlobalStatsUIData>(prop); }},
-    {1207715590u, [](prop_arg prop) { return make_shared<yordle::data::meta::CameraTrapezoid>(prop); }},
-    {3757418744u, [](prop_arg prop) { return make_shared<yordle::data::meta::CameraConfig>(prop); }},
-    {3010308524u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapAudioDataProperties>(prop); }},
-    {3024130158u, [](prop_arg prop) { return make_shared<yordle::data::meta::ClientStateAudioDataProperties>(prop); }},
-    {4071981464u, [](prop_arg prop) { return make_shared<yordle::data::meta::FeatureAudioDataProperties>(prop); }},
-    {2755749141u, [](prop_arg prop) { return make_shared<yordle::data::meta::BankUnit>(prop); }},
-    {1123665566u, [](prop_arg prop) { return make_shared<yordle::data::meta::AudioTagListProperties>(prop); }},
-    {915602117u, [](prop_arg prop) { return make_shared<yordle::data::meta::AudioSystemDataProperties>(prop); }},
-    {2254221038u, [](prop_arg prop) { return make_shared<yordle::data::meta::AudioStatusEvents>(prop); }},
-    {2263089413u, [](prop_arg prop) { return make_shared<yordle::data::meta::GlobalAudioDataProperties>(prop); }},
-    {1714459771u, [](prop_arg prop) { return make_shared<yordle::data::meta::MusicAudioDataProperties>(prop); }},
-    {1597933322u, [](prop_arg prop) { return make_shared<yordle::data::meta::EVOSettings>(prop); }},
-    {2479546740u, [](prop_arg prop) { return make_shared<yordle::data::meta::ICatalogEntryOwner>(prop); }},
-    {607049692u, [](prop_arg prop) { return make_shared<yordle::data::meta::CatalogEntry>(prop); }},
-    {3496109055u, [](prop_arg prop) { return make_shared<yordle::data::meta::CensoredImage>(prop); }},
-    {2335876880u, [](prop_arg prop) { return make_shared<yordle::data::meta::Character>(prop); }},
-    {856064357u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinCharacterDataProperties_CharacterIdleEffect>(prop); }},
-    {1393249095u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinCharacterMetaDataProperties_SpawningSkinOffset>(prop); }},
-    {336658597u, [](prop_arg prop) { return make_shared<yordle::data::meta::ESportTeamEntry>(prop); }},
-    {1219793301u, [](prop_arg prop) { return make_shared<yordle::data::meta::ESportLeagueEntry>(prop); }},
-    {4160558231u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinCharacterMetaDataProperties>(prop); }},
-    {2407209295u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinAudioProperties>(prop); }},
-    {1114474915u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinAnimationProperties>(prop); }},
-    {2074733870u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinEmblem>(prop); }},
-    {4080233272u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinSummonerEmoteLoadout>(prop); }},
-    {2607278582u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinCharacterDataProperties>(prop); }},
-    {3022275834u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinFilterData>(prop); }},
-    {2393107013u, [](prop_arg prop) { return make_shared<yordle::data::meta::CharacterPassiveData>(prop); }},
-    {1907548119u, [](prop_arg prop) { return make_shared<yordle::data::meta::GlobalPerLevelStatsFactor>(prop); }},
-    {3397751176u, [](prop_arg prop) { return make_shared<yordle::data::meta::OverrideAutoAttackCastTimeData>(prop); }},
-    {602544405u, [](prop_arg prop) { return make_shared<yordle::data::meta::CharacterRecord>(prop); }},
-    {3459369333u, [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceSlotInfo>(prop); }},
-    {112014489u, [](prop_arg prop) { return make_shared<yordle::data::meta::AttackSlotData>(prop); }},
-    {490133160u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargetLaserComponentEffects>(prop); }},
-    {2970707127u, [](prop_arg prop) { return make_shared<yordle::data::meta::ToolEducationData>(prop); }},
-    {3963447610u, [](prop_arg prop) { return make_shared<yordle::data::meta::CharacterToolData>(prop); }},
-    {2573155477u, [](prop_arg prop) { return make_shared<yordle::data::meta::Companion>(prop); }},
-    {1250691283u, [](prop_arg prop) { return make_shared<yordle::data::meta::InteractionData>(prop); }},
-    {1708005576u, [](prop_arg prop) { return make_shared<yordle::data::meta::ISpellRankUpRequirement>(prop); }},
-    {4223600025u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasSkillPointRequirement>(prop); }},
-    {130158569u, [](prop_arg prop) { return make_shared<yordle::data::meta::CharacterLevelRequirement>(prop); }},
-    {1790796033u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffRequirement>(prop); }},
-    {3158945758u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpellRankUpRequirements>(prop); }},
-    {2606765944u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpellLevelUpInfo>(prop); }},
-    {825182082u, [](prop_arg prop) { return make_shared<yordle::data::meta::RecSpellRankUpInfo>(prop); }},
-    {4101150036u, [](prop_arg prop) { return make_shared<yordle::data::meta::UseableData>(prop); }},
-    {297212766u, [](prop_arg prop) { return make_shared<yordle::data::meta::CharacterHealthBarDataRecord>(prop); }},
-    {6610142u, [](prop_arg prop) { return make_shared<yordle::data::meta::SponsoredBanner>(prop); }},
-    {3503743985u, [](prop_arg prop) { return make_shared<yordle::data::meta::EsportsBannerConfiguration>(prop); }},
-    {761042637u, [](prop_arg prop) { return make_shared<yordle::data::meta::EsportsBannerData>(prop); }},
-    {249502963u, [](prop_arg prop) { return make_shared<yordle::data::meta::EsportsData>(prop); }},
-    {1951208621u, [](prop_arg prop) { return make_shared<yordle::data::meta::ClashLogo>(prop); }},
-    {224714173u, [](prop_arg prop) { return make_shared<yordle::data::meta::EsportsBannerOptions>(prop); }},
-    {1337363141u, [](prop_arg prop) { return make_shared<yordle::data::meta::MasteryBadgeData>(prop); }},
-    {4114078183u, [](prop_arg prop) { return make_shared<yordle::data::meta::MasteryBadgeConfig>(prop); }},
-    {505623326u, [](prop_arg prop) { return make_shared<yordle::data::meta::MasteryData>(prop); }},
-    {2781975535u, [](prop_arg prop) { return make_shared<yordle::data::meta::ChampionMasteryMap>(prop); }},
-    {2514536512u, [](prop_arg prop) { return make_shared<yordle::data::meta::BaseLoadoutData>(prop); }},
-    {3930402607u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutFeatureData>(prop); }},
-    {695369637u, [](prop_arg prop) { return make_shared<yordle::data::meta::RecallDecalData>(prop); }},
-    {668820321u, [](prop_arg prop) { return make_shared<yordle::data::meta::GearSkinUpgrade>(prop); }},
-    {1760736924u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinUpgradeData>(prop); }},
-    {4009991563u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTCompanionBucket>(prop); }},
-    {2097505044u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTBotLoadoutConfiguration>(prop); }},
-    {2025704385u, [](prop_arg prop) { return make_shared<yordle::data::meta::BannerFlagData>(prop); }},
-    {3564953724u, [](prop_arg prop) { return make_shared<yordle::data::meta::BannerFrameData>(prop); }},
-    {2093092437u, [](prop_arg prop) { return make_shared<yordle::data::meta::CompanionData>(prop); }},
-    {2386264729u, [](prop_arg prop) { return make_shared<yordle::data::meta::CompanionSpeciesData>(prop); }},
-    {1950165531u, [](prop_arg prop) { return make_shared<yordle::data::meta::SummonerEmote>(prop); }},
-    {508241094u, [](prop_arg prop) { return make_shared<yordle::data::meta::SummonerEmoteSettings>(prop); }},
-    {3023323566u, [](prop_arg prop) { return make_shared<yordle::data::meta::GearData>(prop); }},
-    {2355674u, [](prop_arg prop) { return make_shared<yordle::data::meta::ModeProgressionRewardData>(prop); }},
-    {2286074286u, [](prop_arg prop) { return make_shared<yordle::data::meta::RegaliaData>(prop); }},
-    {1780014848u, [](prop_arg prop) { return make_shared<yordle::data::meta::RegaliaLookup>(prop); }},
-    {3828118224u, [](prop_arg prop) { return make_shared<yordle::data::meta::RegaliaRankedCrestEntry>(prop); }},
-    {2415052226u, [](prop_arg prop) { return make_shared<yordle::data::meta::RegaliaRankedCrestMap>(prop); }},
-    {3350243090u, [](prop_arg prop) { return make_shared<yordle::data::meta::RegaliaPrestigeCrestList>(prop); }},
-    {761319899u, [](prop_arg prop) { return make_shared<yordle::data::meta::RegaliaRankedBannerMap>(prop); }},
-    {732494899u, [](prop_arg prop) { return make_shared<yordle::data::meta::x2ba8fc33>(prop); }},
-    {4146948500u, [](prop_arg prop) { return make_shared<yordle::data::meta::StatStoneEventToTrack>(prop); }},
-    {3978526660u, [](prop_arg prop) { return make_shared<yordle::data::meta::StatStoneData>(prop); }},
-    {3276314181u, [](prop_arg prop) { return make_shared<yordle::data::meta::IStatStoneLogicDriver>(prop); }},
-    {3196462184u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargetHasUnitTagFilter>(prop); }},
-    {2925773367u, [](prop_arg prop) { return make_shared<yordle::data::meta::TrueDamageGivenFilter>(prop); }},
-    {2898073997u, [](prop_arg prop) { return make_shared<yordle::data::meta::CrowdControlFilter>(prop); }},
-    {2971935795u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargetHasBuffFilter>(prop); }},
-    {1442793122u, [](prop_arg prop) { return make_shared<yordle::data::meta::SourceTypeFilter>(prop); }},
-    {3994264754u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargetTypeFilter>(prop); }},
-    {3663270019u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargetTeamFilter>(prop); }},
-    {1577686390u, [](prop_arg prop) { return make_shared<yordle::data::meta::SourceLessThanHealthPercentageFilter>(prop); }},
-    {3383798399u, [](prop_arg prop) { return make_shared<yordle::data::meta::AssistCountFilter>(prop); }},
-    {3987305908u, [](prop_arg prop) { return make_shared<yordle::data::meta::MultiKillLogic>(prop); }},
-    {2857147974u, [](prop_arg prop) { return make_shared<yordle::data::meta::DamageShieldedLogic>(prop); }},
-    {924071072u, [](prop_arg prop) { return make_shared<yordle::data::meta::GoldSourceFilter>(prop); }},
-    {3258535250u, [](prop_arg prop) { return make_shared<yordle::data::meta::KillingSpreeFilter>(prop); }},
-    {2516419817u, [](prop_arg prop) { return make_shared<yordle::data::meta::NeutralMinionCampClearedLogic>(prop); }},
-    {1203614713u, [](prop_arg prop) { return make_shared<yordle::data::meta::TurretFirstBloodLogic>(prop); }},
-    {2524344308u, [](prop_arg prop) { return make_shared<yordle::data::meta::StatStoneSet>(prop); }},
-    {3156432820u, [](prop_arg prop) { return make_shared<yordle::data::meta::StatStoneCategory>(prop); }},
-    {3939611513u, [](prop_arg prop) { return make_shared<yordle::data::meta::xead1b379>(prop); }},
-    {851321958u, [](prop_arg prop) { return make_shared<yordle::data::meta::x32be2466>(prop); }},
-    {2265035565u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTDamageSkin>(prop); }},
-    {3607046696u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftDamageSkinDescriptor>(prop); }},
-    {2233303452u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftMapGroupData>(prop); }},
-    {2731557552u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftMapSkin>(prop); }},
-    {1176619879u, [](prop_arg prop) { return make_shared<yordle::data::meta::TrophyData>(prop); }},
-    {4045134945u, [](prop_arg prop) { return make_shared<yordle::data::meta::TrophyPedestalData>(prop); }},
-    {374383822u, [](prop_arg prop) { return make_shared<yordle::data::meta::x1650a4ce>(prop); }},
-    {1572178072u, [](prop_arg prop) { return make_shared<yordle::data::meta::EmblemPosition>(prop); }},
-    {1713655491u, [](prop_arg prop) { return make_shared<yordle::data::meta::EmblemData>(prop); }},
-    {381157638u, [](prop_arg prop) { return make_shared<yordle::data::meta::EmblemSettings>(prop); }},
-    {1773891178u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeAutoItemPurchasingConfig>(prop); }},
-    {2322891183u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeChampionList>(prop); }},
-    {1670770484u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstant>(prop); }},
-    {2541033414u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantFloat>(prop); }},
-    {1074986366u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantInteger>(prop); }},
-    {1679679788u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantBool>(prop); }},
-    {2710093141u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantString>(prop); }},
-    {3193188146u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantStringVector>(prop); }},
-    {4100984476u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantTRAKey>(prop); }},
-    {2293025490u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantVector3f>(prop); }},
-    {2851992205u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantFloatPerLevel>(prop); }},
-    {720276364u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantsGroup>(prop); }},
-    {201829573u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstants>(prop); }},
-    {401601815u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeItemList>(prop); }},
-    {2312017462u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeMapData>(prop); }},
-    {4119089369u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameMutatorExpansions>(prop); }},
-    {3053458126u, [](prop_arg prop) { return make_shared<yordle::data::meta::IGameCalculationPart>(prop); }},
-    {2344649559u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectValueCalculationPart>(prop); }},
-    {858698817u, [](prop_arg prop) { return make_shared<yordle::data::meta::NamedDataValueCalculationPart>(prop); }},
-    {515850313u, [](prop_arg prop) { return make_shared<yordle::data::meta::CooldownMultiplierCalculationPart>(prop); }},
-    {2599819896u, [](prop_arg prop) { return make_shared<yordle::data::meta::CustomReductionMultiplierCalculationPart>(prop); }},
-    {2903535207u, [](prop_arg prop) { return make_shared<yordle::data::meta::ProductOfSubPartsCalculationPart>(prop); }},
-    {2225484659u, [](prop_arg prop) { return make_shared<yordle::data::meta::SumOfSubPartsCalculationPart>(prop); }},
-    {2151525964u, [](prop_arg prop) { return make_shared<yordle::data::meta::x803dae4c>(prop); }},
-    {2667126912u, [](prop_arg prop) { return make_shared<yordle::data::meta::NumberCalculationPart>(prop); }},
-    {3052837161u, [](prop_arg prop) { return make_shared<yordle::data::meta::IGameCalculationPartWithStats>(prop); }},
-    {1477816489u, [](prop_arg prop) { return make_shared<yordle::data::meta::StatByCoefficientCalculationPart>(prop); }},
-    {3440733311u, [](prop_arg prop) { return make_shared<yordle::data::meta::StatBySubPartCalculationPart>(prop); }},
-    {1599893668u, [](prop_arg prop) { return make_shared<yordle::data::meta::StatByNamedDataValueCalculationPart>(prop); }},
-    {95149995u, [](prop_arg prop) { return make_shared<yordle::data::meta::x5abdfab>(prop); }},
-    {3925560600u, [](prop_arg prop) { return make_shared<yordle::data::meta::xe9fb4d18>(prop); }},
-    {2572940566u, [](prop_arg prop) { return make_shared<yordle::data::meta::SubPartScaledProportionalToStat>(prop); }},
-    {1983743771u, [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceByCoefficientCalculationPart>(prop); }},
-    {1989226833u, [](prop_arg prop) { return make_shared<yordle::data::meta::IGameCalculationPartWithBuffCounter>(prop); }},
-    {1255179386u, [](prop_arg prop) { return make_shared<yordle::data::meta::BuffCounterByCoefficientCalculationPart>(prop); }},
-    {2063182569u, [](prop_arg prop) { return make_shared<yordle::data::meta::BuffCounterByNamedDataValueCalculationPart>(prop); }},
-    {308440063u, [](prop_arg prop) { return make_shared<yordle::data::meta::IGameCalculationPartByCharLevel>(prop); }},
-    {369020348u, [](prop_arg prop) { return make_shared<yordle::data::meta::ByCharLevelInterpolationCalculationPart>(prop); }},
-    {1559666382u, [](prop_arg prop) { return make_shared<yordle::data::meta::ByCharLevelBreakpointsCalculationPart>(prop); }},
-    {2392053998u, [](prop_arg prop) { return make_shared<yordle::data::meta::Breakpoint>(prop); }},
-    {606188120u, [](prop_arg prop) { return make_shared<yordle::data::meta::ByCharLevelFormulaCalculationPart>(prop); }},
-    {1715297792u, [](prop_arg prop) { return make_shared<yordle::data::meta::x663d5e00>(prop); }},
-    {389493299u, [](prop_arg prop) { return make_shared<yordle::data::meta::IGameCalculation>(prop); }},
-    {3158348420u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameCalculation>(prop); }},
-    {118371731u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameCalculationModified>(prop); }},
-    {3922646404u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameCalculationConditional>(prop); }},
-    {3168105463u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameplayConfig>(prop); }},
-    {903342517u, [](prop_arg prop) { return make_shared<yordle::data::meta::EnchantmentGroup>(prop); }},
-    {608970470u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemData>(prop); }},
-    {2999331975u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemDataValue>(prop); }},
-    {1643693084u, [](prop_arg prop) { return make_shared<yordle::data::meta::x61f8c41c>(prop); }},
-    {3225152729u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemDataAvailability>(prop); }},
-    {3845505502u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemDataBuild>(prop); }},
-    {992861497u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemGroup>(prop); }},
-    {2109319947u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemModifier>(prop); }},
-    {2233135733u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemDataClient>(prop); }},
-    {3337884263u, [](prop_arg prop) { return make_shared<yordle::data::meta::ChampionItemRecommendations>(prop); }},
-    {1183984318u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationItemList>(prop); }},
-    {2188140632u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationContextList>(prop); }},
-    {4266457040u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationContext>(prop); }},
-    {1589364011u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationChoices>(prop); }},
-    {2727115092u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationMatrixRow>(prop); }},
-    {779837744u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationMatrix>(prop); }},
-    {1513866541u, [](prop_arg prop) { return make_shared<yordle::data::meta::x5a3bc52d>(prop); }},
-    {396544810u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationCondition>(prop); }},
-    {3898055584u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationOverrideContext>(prop); }},
-    {2556481222u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationOverrideStartingItemSet>(prop); }},
-    {1661050393u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationOverride>(prop); }},
-    {2753712911u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationOverrideSet>(prop); }},
-    {573358062u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemAdviceAttribute>(prop); }},
-    {2822771443u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemCareyOverrideStartingItemSet>(prop); }},
-    {1101955153u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemCareyOverrideStartingItemSetSet>(prop); }},
-    {4103435203u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemShopGameModeData>(prop); }},
-    {3808259511u, [](prop_arg prop) { return make_shared<yordle::data::meta::CollectiblesEsportsTeamData>(prop); }},
-    {2783969040u, [](prop_arg prop) { return make_shared<yordle::data::meta::SummonerIconData>(prop); }},
-    {954042444u, [](prop_arg prop) { return make_shared<yordle::data::meta::LiveFeatureToggles>(prop); }},
-    {3353146463u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoLFeatureToggles>(prop); }},
-    {1222455122u, [](prop_arg prop) { return make_shared<yordle::data::meta::GDSMapObjectExtraInfo>(prop); }},
-    {2301501426u, [](prop_arg prop) { return make_shared<yordle::data::meta::GDSMapObjectAnimationInfo>(prop); }},
-    {651368964u, [](prop_arg prop) { return make_shared<yordle::data::meta::GDSMapObjectLightingInfo>(prop); }},
-    {1777761610u, [](prop_arg prop) { return make_shared<yordle::data::meta::GDSMapObjectBannerInfo>(prop); }},
-    {2506702743u, [](prop_arg prop) { return make_shared<yordle::data::meta::LootOutputBase>(prop); }},
-    {1665937510u, [](prop_arg prop) { return make_shared<yordle::data::meta::LootItemDetails>(prop); }},
-    {685945729u, [](prop_arg prop) { return make_shared<yordle::data::meta::LootStatus>(prop); }},
-    {1545315440u, [](prop_arg prop) { return make_shared<yordle::data::meta::LootItem>(prop); }},
-    {2643135015u, [](prop_arg prop) { return make_shared<yordle::data::meta::ClientStateCommonSettings>(prop); }},
-    {1790162312u, [](prop_arg prop) { return make_shared<yordle::data::meta::IdentityInstance>(prop); }},
-    {1295117638u, [](prop_arg prop) { return make_shared<yordle::data::meta::x4d31ed46>(prop); }},
-    {347010316u, [](prop_arg prop) { return make_shared<yordle::data::meta::x14aef50c>(prop); }},
-    {2673469741u, [](prop_arg prop) { return make_shared<yordle::data::meta::x9f59e92d>(prop); }},
-    {3419333123u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapAction>(prop); }},
-    {2938323084u, [](prop_arg prop) { return make_shared<yordle::data::meta::xaf23408c>(prop); }},
-    {2349695221u, [](prop_arg prop) { return make_shared<yordle::data::meta::x8c0d80f5>(prop); }},
-    {1826338589u, [](prop_arg prop) { return make_shared<yordle::data::meta::x6cdbb71d>(prop); }},
-    {3013740817u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapActionPlayAnimation>(prop); }},
-    {2134659206u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapActionPlaySoundAtLocation>(prop); }},
-    {1239049582u, [](prop_arg prop) { return make_shared<yordle::data::meta::x49da656e>(prop); }},
-    {3470174985u, [](prop_arg prop) { return make_shared<yordle::data::meta::xced6ab09>(prop); }},
-    {3787165435u, [](prop_arg prop) { return make_shared<yordle::data::meta::xe1bb8efb>(prop); }},
-    {3846963535u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapAlternateAsset>(prop); }},
-    {849736052u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapAlternateAssets>(prop); }},
-    {199060396u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapCharacterList>(prop); }},
-    {2902067178u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapLocatorArray>(prop); }},
-    {3880372342u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapNavigationGridOverlays>(prop); }},
-    {953399041u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapNavigationGridOverlay>(prop); }},
-    {955345470u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapSkinColorizationPostEffect>(prop); }},
-    {3441028924u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapSkin>(prop); }},
-    {298132920u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapVisibilityFlagRange>(prop); }},
-    {730516414u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapVisibilityFlagDefinition>(prop); }},
-    {1484706743u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapVisibilityFlagDefinitions>(prop); }},
-    {2712490432u, [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapBackground>(prop); }},
-    {718267822u, [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapBackgroundConfig>(prop); }},
-    {1923729607u, [](prop_arg prop) { return make_shared<yordle::data::meta::MissionAsset>(prop); }},
-    {2577175271u, [](prop_arg prop) { return make_shared<yordle::data::meta::CheatPage>(prop); }},
-    {1165487172u, [](prop_arg prop) { return make_shared<yordle::data::meta::CheatSet>(prop); }},
-    {337391297u, [](prop_arg prop) { return make_shared<yordle::data::meta::CheatMenuUIData>(prop); }},
-    {2490030924u, [](prop_arg prop) { return make_shared<yordle::data::meta::Cheat>(prop); }},
-    {3690099329u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptCheat>(prop); }},
-    {3317948433u, [](prop_arg prop) { return make_shared<yordle::data::meta::AddGoldCheat>(prop); }},
-    {3590488641u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaxAllSkillsCheat>(prop); }},
-    {947718767u, [](prop_arg prop) { return make_shared<yordle::data::meta::AddExperienceCheat>(prop); }},
-    {2218753755u, [](prop_arg prop) { return make_shared<yordle::data::meta::ToggleBuffCheat>(prop); }},
-    {2639255897u, [](prop_arg prop) { return make_shared<yordle::data::meta::AddHealthCheat>(prop); }},
-    {666034550u, [](prop_arg prop) { return make_shared<yordle::data::meta::AddPARCheat>(prop); }},
-    {3048271729u, [](prop_arg prop) { return make_shared<yordle::data::meta::ToggleRegenCheat>(prop); }},
-    {1355264261u, [](prop_arg prop) { return make_shared<yordle::data::meta::ClearTargetCooldownCheat>(prop); }},
-    {308619146u, [](prop_arg prop) { return make_shared<yordle::data::meta::TimeMultiplierCheat>(prop); }},
-    {3963713437u, [](prop_arg prop) { return make_shared<yordle::data::meta::DamageUnitCheat>(prop); }},
-    {2011491725u, [](prop_arg prop) { return make_shared<yordle::data::meta::ToggleBarracksCheat>(prop); }},
-    {2796927515u, [](prop_arg prop) { return make_shared<yordle::data::meta::ToggleTeamCheat>(prop); }},
-    {1050508117u, [](prop_arg prop) { return make_shared<yordle::data::meta::SetRespawnTimerCheat>(prop); }},
-    {3748300377u, [](prop_arg prop) { return make_shared<yordle::data::meta::ToggleInvulnerableCheat>(prop); }},
-    {691714906u, [](prop_arg prop) { return make_shared<yordle::data::meta::KillAllTurretsCheat>(prop); }},
-    {2240430239u, [](prop_arg prop) { return make_shared<yordle::data::meta::ForceSpawnNeutralCampsCheat>(prop); }},
-    {3658203397u, [](prop_arg prop) { return make_shared<yordle::data::meta::ResetGoldCheat>(prop); }},
-    {2818226507u, [](prop_arg prop) { return make_shared<yordle::data::meta::TogglePlantFastRespawnCheat>(prop); }},
-    {1887008704u, [](prop_arg prop) { return make_shared<yordle::data::meta::SwapChampionCheat>(prop); }},
-    {1458280349u, [](prop_arg prop) { return make_shared<yordle::data::meta::ToggleAfkDetectionCheat>(prop); }},
-    {2971960800u, [](prop_arg prop) { return make_shared<yordle::data::meta::PerkEffectAmountPerMode>(prop); }},
-    {2766644386u, [](prop_arg prop) { return make_shared<yordle::data::meta::PerkScriptData>(prop); }},
-    {501137906u, [](prop_arg prop) { return make_shared<yordle::data::meta::PerkScript>(prop); }},
-    {1031283364u, [](prop_arg prop) { return make_shared<yordle::data::meta::PerkBuff>(prop); }},
-    {3196794540u, [](prop_arg prop) { return make_shared<yordle::data::meta::BasePerk>(prop); }},
-    {240569694u, [](prop_arg prop) { return make_shared<yordle::data::meta::PerkStyle>(prop); }},
-    {232419497u, [](prop_arg prop) { return make_shared<yordle::data::meta::PerkSlot>(prop); }},
-    {2405280373u, [](prop_arg prop) { return make_shared<yordle::data::meta::DefaultSplashedPerkStyle>(prop); }},
-    {3234822452u, [](prop_arg prop) { return make_shared<yordle::data::meta::DefaultStatModPerkSet>(prop); }},
-    {3127434961u, [](prop_arg prop) { return make_shared<yordle::data::meta::PerkSubStyleBonus>(prop); }},
-    {4081542451u, [](prop_arg prop) { return make_shared<yordle::data::meta::SummonerSpellPerkReplacement>(prop); }},
-    {3014400443u, [](prop_arg prop) { return make_shared<yordle::data::meta::SummonerSpellPerkReplacementList>(prop); }},
-    {3069197533u, [](prop_arg prop) { return make_shared<yordle::data::meta::Perk>(prop); }},
-    {1517326239u, [](prop_arg prop) { return make_shared<yordle::data::meta::PerkReplacement>(prop); }},
-    {2307915623u, [](prop_arg prop) { return make_shared<yordle::data::meta::PerkReplacementList>(prop); }},
-    {1524731407u, [](prop_arg prop) { return make_shared<yordle::data::meta::PerkConfig>(prop); }},
-    {890839731u, [](prop_arg prop) { return make_shared<yordle::data::meta::OverridePerkSelectionSet>(prop); }},
-    {2533312697u, [](prop_arg prop) { return make_shared<yordle::data::meta::ToonInkingFilterParams>(prop); }},
-    {4227680462u, [](prop_arg prop) { return make_shared<yordle::data::meta::RenderStyleData>(prop); }},
-    {1441690361u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialOverrideCallbackDynamicMaterial>(prop); }},
-    {4069567955u, [](prop_arg prop) { return make_shared<yordle::data::meta::MouseOverEffectData>(prop); }},
-    {729255394u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxSequence>(prop); }},
-    {351234915u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxTableEntry>(prop); }},
-    {1638517141u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxTable>(prop); }},
-    {87271638u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxTarget>(prop); }},
-    {3687298637u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxTiming>(prop); }},
-    {754442341u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxTransform>(prop); }},
-    {3063177560u, [](prop_arg prop) { return make_shared<yordle::data::meta::IFxAction>(prop); }},
-    {3021260058u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameplayFeatureToggles>(prop); }},
-    {1625294129u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptDataObject>(prop); }},
-    {3171701405u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptDataObjectList>(prop); }},
-    {1550969638u, [](prop_arg prop) { return make_shared<yordle::data::meta::ICastRequirement>(prop); }},
-    {4155399702u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasAllSubRequirementsCastRequirement>(prop); }},
-    {1987560042u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasNNearbyUnitsRequirement>(prop); }},
-    {3970312064u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasNNearbyVisibleUnitsRequirement>(prop); }},
-    {4095662801u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasTypeAndStatusFlags>(prop); }},
-    {44654127u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasAtleastNSubRequirementsCastRequirement>(prop); }},
-    {1461533414u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasUnitTagsCastRequirement>(prop); }},
-    {1622554532u, [](prop_arg prop) { return make_shared<yordle::data::meta::SameTeamCastRequirement>(prop); }},
-    {1528795992u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffCastRequirement>(prop); }},
-    {329280789u, [](prop_arg prop) { return make_shared<yordle::data::meta::AboveHealthPercentCastRequirement>(prop); }},
-    {795738052u, [](prop_arg prop) { return make_shared<yordle::data::meta::AbovePARPercentCastRequirement>(prop); }},
-    {3745993663u, [](prop_arg prop) { return make_shared<yordle::data::meta::IsSpecifiedUnitCastRequirement>(prop); }},
-    {284479679u, [](prop_arg prop) { return make_shared<yordle::data::meta::x10f4d0bf>(prop); }},
-    {3697672164u, [](prop_arg prop) { return make_shared<yordle::data::meta::xdc65ffe4>(prop); }},
-    {3151502687u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemSlotHasChargesCastRequirement>(prop); }},
-    {779902682u, [](prop_arg prop) { return make_shared<yordle::data::meta::x2e7c5eda>(prop); }},
-    {1210599257u, [](prop_arg prop) { return make_shared<yordle::data::meta::x48284759>(prop); }},
-    {2006398389u, [](prop_arg prop) { return make_shared<yordle::data::meta::CCScoreMultipliers>(prop); }},
-    {1177802644u, [](prop_arg prop) { return make_shared<yordle::data::meta::BuffData>(prop); }},
-    {2090279541u, [](prop_arg prop) { return make_shared<yordle::data::meta::TeamBuffData>(prop); }},
-    {4073390176u, [](prop_arg prop) { return make_shared<yordle::data::meta::MissionBuffData>(prop); }},
-    {471801710u, [](prop_arg prop) { return make_shared<yordle::data::meta::BuffStackingTemplate>(prop); }},
-    {1852984937u, [](prop_arg prop) { return make_shared<yordle::data::meta::BuffStackingSettings>(prop); }},
-    {3390937687u, [](prop_arg prop) { return make_shared<yordle::data::meta::VFXSpawnConditionData>(prop); }},
-    {922712184u, [](prop_arg prop) { return make_shared<yordle::data::meta::VFXDefaultSpawnConditionData>(prop); }},
-    {3836337806u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffData>(prop); }},
-    {3686997399u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffComparisonData>(prop); }},
-    {2412429686u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffSpawnConditionData>(prop); }},
-    {1323437592u, [](prop_arg prop) { return make_shared<yordle::data::meta::IsSkinSpawnConditionData>(prop); }},
-    {3706207649u, [](prop_arg prop) { return make_shared<yordle::data::meta::IsOwnerHeroConditionData>(prop); }},
-    {3575093694u, [](prop_arg prop) { return make_shared<yordle::data::meta::IsOwnerAliveConditionData>(prop); }},
-    {3181780357u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasSpellRankSpawnConditionData>(prop); }},
-    {2833994484u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxSpawnConditions>(prop); }},
-    {3813882857u, [](prop_arg prop) { return make_shared<yordle::data::meta::IVFXSpawnConditions>(prop); }},
-    {2968154316u, [](prop_arg prop) { return make_shared<yordle::data::meta::AlwaysSpawnCondition>(prop); }},
-    {1349646866u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffNameSpawnConditions>(prop); }},
-    {3161555652u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasSkinIDSpawnConditions>(prop); }},
-    {1556398653u, [](prop_arg prop) { return make_shared<yordle::data::meta::IsOwnerHeroSpawnConditions>(prop); }},
-    {759657674u, [](prop_arg prop) { return make_shared<yordle::data::meta::IsOwnerAliveSpawnConditions>(prop); }},
-    {2338173165u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectCreationData>(prop); }},
-    {3393100796u, [](prop_arg prop) { return make_shared<yordle::data::meta::RatioConversion>(prop); }},
-    {1132045746u, [](prop_arg prop) { return make_shared<yordle::data::meta::x4379a5b2>(prop); }},
-    {1983940620u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpellModifier>(prop); }},
-    {3696800942u, [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityObject>(prop); }},
-    {1585338886u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpellObject>(prop); }},
-    {3221008892u, [](prop_arg prop) { return make_shared<yordle::data::meta::MissileSpecification>(prop); }},
-    {369826590u, [](prop_arg prop) { return make_shared<yordle::data::meta::MissileBehaviorSpec>(prop); }},
-    {3184228220u, [](prop_arg prop) { return make_shared<yordle::data::meta::FixedDistanceIgnoringTerrain>(prop); }},
-    {384088054u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScaleByScaleSkinCoef>(prop); }},
-    {768590138u, [](prop_arg prop) { return make_shared<yordle::data::meta::WidthPerSecond>(prop); }},
-    {3362386950u, [](prop_arg prop) { return make_shared<yordle::data::meta::MissileTriggerSpec>(prop); }},
-    {3145117116u, [](prop_arg prop) { return make_shared<yordle::data::meta::TriggerOnMovementComplete>(prop); }},
-    {3108709201u, [](prop_arg prop) { return make_shared<yordle::data::meta::TriggerOnDelay>(prop); }},
-    {1863542244u, [](prop_arg prop) { return make_shared<yordle::data::meta::DelayStart>(prop); }},
-    {127412095u, [](prop_arg prop) { return make_shared<yordle::data::meta::x798277f>(prop); }},
-    {1023490542u, [](prop_arg prop) { return make_shared<yordle::data::meta::TriggerOnStart>(prop); }},
-    {447874143u, [](prop_arg prop) { return make_shared<yordle::data::meta::TriggerOnHit>(prop); }},
-    {2746720777u, [](prop_arg prop) { return make_shared<yordle::data::meta::TriggerOnDistanceFromCaster>(prop); }},
-    {4280641128u, [](prop_arg prop) { return make_shared<yordle::data::meta::TriggerFromScript>(prop); }},
-    {1405067729u, [](prop_arg prop) { return make_shared<yordle::data::meta::MissileTriggeredActionSpec>(prop); }},
-    {2854572110u, [](prop_arg prop) { return make_shared<yordle::data::meta::Cast>(prop); }},
-    {3294324549u, [](prop_arg prop) { return make_shared<yordle::data::meta::Destroy>(prop); }},
-    {3563037474u, [](prop_arg prop) { return make_shared<yordle::data::meta::ReturnToCaster>(prop); }},
-    {2263200418u, [](prop_arg prop) { return make_shared<yordle::data::meta::ClearAlreadyHitTracking>(prop); }},
-    {2611874788u, [](prop_arg prop) { return make_shared<yordle::data::meta::CallOnMissileBounce>(prop); }},
-    {3843873303u, [](prop_arg prop) { return make_shared<yordle::data::meta::ClearTargetAndKeepMoving>(prop); }},
-    {3645322198u, [](prop_arg prop) { return make_shared<yordle::data::meta::ChangeMissileSpeed>(prop); }},
-    {1722047856u, [](prop_arg prop) { return make_shared<yordle::data::meta::ChangeTurnRadius>(prop); }},
-    {934449797u, [](prop_arg prop) { return make_shared<yordle::data::meta::ChangeHeightSolver>(prop); }},
-    {107695717u, [](prop_arg prop) { return make_shared<yordle::data::meta::DestroyOnHit>(prop); }},
-    {4211998018u, [](prop_arg prop) { return make_shared<yordle::data::meta::DestroyOnMovementComplete>(prop); }},
-    {3814179094u, [](prop_arg prop) { return make_shared<yordle::data::meta::xe357c116>(prop); }},
-    {3656718200u, [](prop_arg prop) { return make_shared<yordle::data::meta::CastOnHit>(prop); }},
-    {2645302597u, [](prop_arg prop) { return make_shared<yordle::data::meta::CastOnMovementComplete>(prop); }},
-    {545864281u, [](prop_arg prop) { return make_shared<yordle::data::meta::ReturnToCasterOnMovementComplete>(prop); }},
-    {1040594301u, [](prop_arg prop) { return make_shared<yordle::data::meta::MissileGroupSpawnerSpec>(prop); }},
-    {974318101u, [](prop_arg prop) { return make_shared<yordle::data::meta::HeightSolverType>(prop); }},
-    {2530014013u, [](prop_arg prop) { return make_shared<yordle::data::meta::GravityHeightSolver>(prop); }},
-    {1318474241u, [](prop_arg prop) { return make_shared<yordle::data::meta::FollowTerrainHeightSolver>(prop); }},
-    {692892064u, [](prop_arg prop) { return make_shared<yordle::data::meta::BlendedLinearHeightSolver>(prop); }},
-    {4027168330u, [](prop_arg prop) { return make_shared<yordle::data::meta::SinusoidalHeightSolver>(prop); }},
-    {3920264276u, [](prop_arg prop) { return make_shared<yordle::data::meta::CurveTheDifferenceHeightSolver>(prop); }},
-    {1798110077u, [](prop_arg prop) { return make_shared<yordle::data::meta::MissileMovementSpec>(prop); }},
-    {60513980u, [](prop_arg prop) { return make_shared<yordle::data::meta::CircleMovement>(prop); }},
-    {479174419u, [](prop_arg prop) { return make_shared<yordle::data::meta::SyncCircleMovement>(prop); }},
-    {2051207289u, [](prop_arg prop) { return make_shared<yordle::data::meta::NullMovement>(prop); }},
-    {2945473954u, [](prop_arg prop) { return make_shared<yordle::data::meta::AcceleratingMovement>(prop); }},
-    {2993585533u, [](prop_arg prop) { return make_shared<yordle::data::meta::DecelToLocationMovement>(prop); }},
-    {4147218533u, [](prop_arg prop) { return make_shared<yordle::data::meta::FixedTimeMovement>(prop); }},
-    {103819417u, [](prop_arg prop) { return make_shared<yordle::data::meta::FixedSpeedMovement>(prop); }},
-    {470290435u, [](prop_arg prop) { return make_shared<yordle::data::meta::PhysicsMovement>(prop); }},
-    {1415088838u, [](prop_arg prop) { return make_shared<yordle::data::meta::TrackMouseMovement>(prop); }},
-    {1659331669u, [](prop_arg prop) { return make_shared<yordle::data::meta::GenericSplineMovementSpec>(prop); }},
-    {3401906356u, [](prop_arg prop) { return make_shared<yordle::data::meta::FixedTimeSplineMovement>(prop); }},
-    {2002648336u, [](prop_arg prop) { return make_shared<yordle::data::meta::FixedSpeedSplineMovement>(prop); }},
-    {2409973973u, [](prop_arg prop) { return make_shared<yordle::data::meta::WallFollowMovement>(prop); }},
-    {3891808829u, [](prop_arg prop) { return make_shared<yordle::data::meta::VerticalFacingType>(prop); }},
-    {3974501911u, [](prop_arg prop) { return make_shared<yordle::data::meta::VeritcalFacingMatchVelocity>(prop); }},
-    {577189237u, [](prop_arg prop) { return make_shared<yordle::data::meta::VerticalFacingFaceTarget>(prop); }},
-    {1749521072u, [](prop_arg prop) { return make_shared<yordle::data::meta::MissileVisibilitySpec>(prop); }},
-    {3535923758u, [](prop_arg prop) { return make_shared<yordle::data::meta::Defaultvisibility>(prop); }},
-    {2461751699u, [](prop_arg prop) { return make_shared<yordle::data::meta::EnterFOWVisibility>(prop); }},
-    {3701578183u, [](prop_arg prop) { return make_shared<yordle::data::meta::MissileAttachedTargetingDefinition>(prop); }},
-    {4010062211u, [](prop_arg prop) { return make_shared<yordle::data::meta::AISpellData>(prop); }},
-    {2463406204u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpellEffectAmount>(prop); }},
-    {5245094u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpellDataValue>(prop); }},
-    {1798273677u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpellDataValueVector>(prop); }},
-    {1523572560u, [](prop_arg prop) { return make_shared<yordle::data::meta::PlatformSpellInfo>(prop); }},
-    {771419981u, [](prop_arg prop) { return make_shared<yordle::data::meta::ISplineInfo>(prop); }},
-    {1365802124u, [](prop_arg prop) { return make_shared<yordle::data::meta::HermiteSplineInfo>(prop); }},
-    {1471545228u, [](prop_arg prop) { return make_shared<yordle::data::meta::OverrideAttackTimeData>(prop); }},
-    {868276581u, [](prop_arg prop) { return make_shared<yordle::data::meta::UseAutoattackCastTimeData>(prop); }},
-    {3565606633u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpellLockDeltaTimeData>(prop); }},
-    {2057207177u, [](prop_arg prop) { return make_shared<yordle::data::meta::x7a9e7d89>(prop); }},
-    {609301268u, [](prop_arg prop) { return make_shared<yordle::data::meta::AlternateSpellAssets>(prop); }},
-    {1127646569u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpellDataResource>(prop); }},
-    {3562978890u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpellPassiveData>(prop); }},
-    {3174223914u, [](prop_arg prop) { return make_shared<yordle::data::meta::CustomTargeterDefinitions>(prop); }},
-    {2110892290u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpellDataResourceClient>(prop); }},
-    {1607774867u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpawningUIDefinition>(prop); }},
-    {3560905284u, [](prop_arg prop) { return make_shared<yordle::data::meta::IScriptPreload>(prop); }},
-    {796426082u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptPreloadCharacter>(prop); }},
-    {2709224959u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptPreloadSpell>(prop); }},
-    {1322354127u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptPreloadModule>(prop); }},
-    {3450289597u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptPreloadParticle>(prop); }},
-    {3712288203u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoLSpellPreloadData>(prop); }},
-    {3193997900u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptGlobalProperties>(prop); }},
-    {4153143643u, [](prop_arg prop) { return make_shared<yordle::data::meta::ILineIndicatorType>(prop); }},
-    {1062280453u, [](prop_arg prop) { return make_shared<yordle::data::meta::IndicatorTypeLocal>(prop); }},
-    {2357149705u, [](prop_arg prop) { return make_shared<yordle::data::meta::IndicatorTypeGlobal>(prop); }},
-    {1348413282u, [](prop_arg prop) { return make_shared<yordle::data::meta::ITargeterFadeBehavior>(prop); }},
-    {2433758018u, [](prop_arg prop) { return make_shared<yordle::data::meta::FadeOverTimeBehavior>(prop); }},
-    {3193505140u, [](prop_arg prop) { return make_shared<yordle::data::meta::FadeByMouseRangeBehavior>(prop); }},
-    {2832031521u, [](prop_arg prop) { return make_shared<yordle::data::meta::FadeToExplicitValueBehavior>(prop); }},
-    {702535597u, [](prop_arg prop) { return make_shared<yordle::data::meta::x29dfd7ad>(prop); }},
-    {508250748u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatPerSpellLevel>(prop); }},
-    {3451066870u, [](prop_arg prop) { return make_shared<yordle::data::meta::DrawablePositionLocator>(prop); }},
-    {1278600786u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinition>(prop); }},
-    {3795530517u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionAoe>(prop); }},
-    {3161379494u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionArc>(prop); }},
-    {2281086721u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionCone>(prop); }},
-    {872611392u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionLine>(prop); }},
-    {411843849u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionMinimap>(prop); }},
-    {75156191u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionRange>(prop); }},
-    {1653312970u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionWall>(prop); }},
-    {120327418u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionMultiAOE>(prop); }},
-    {669603267u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionSpline>(prop); }},
-    {3994921506u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionSkipTerrain>(prop); }},
-    {2144288560u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargetingTypeData>(prop); }},
-    {1683726967u, [](prop_arg prop) { return make_shared<yordle::data::meta::Self>(prop); }},
-    {845187144u, [](prop_arg prop) { return make_shared<yordle::data::meta::Target>(prop); }},
-    {2601460036u, [](prop_arg prop) { return make_shared<yordle::data::meta::Area>(prop); }},
-    {3711978346u, [](prop_arg prop) { return make_shared<yordle::data::meta::Cone>(prop); }},
-    {3931936918u, [](prop_arg prop) { return make_shared<yordle::data::meta::SelfAoe>(prop); }},
-    {530745462u, [](prop_arg prop) { return make_shared<yordle::data::meta::TargetOrLocation>(prop); }},
-    {200649126u, [](prop_arg prop) { return make_shared<yordle::data::meta::Location>(prop); }},
-    {3748513642u, [](prop_arg prop) { return make_shared<yordle::data::meta::Direction>(prop); }},
-    {183658092u, [](prop_arg prop) { return make_shared<yordle::data::meta::DragDirection>(prop); }},
-    {752642599u, [](prop_arg prop) { return make_shared<yordle::data::meta::LineTargetToCaster>(prop); }},
-    {808547418u, [](prop_arg prop) { return make_shared<yordle::data::meta::AreaClamped>(prop); }},
-    {1986849908u, [](prop_arg prop) { return make_shared<yordle::data::meta::LocationClamped>(prop); }},
-    {2104163269u, [](prop_arg prop) { return make_shared<yordle::data::meta::TerrainLocation>(prop); }},
-    {890181294u, [](prop_arg prop) { return make_shared<yordle::data::meta::TerrainType>(prop); }},
-    {3086678927u, [](prop_arg prop) { return make_shared<yordle::data::meta::StatFormulaData>(prop); }},
-    {1250314967u, [](prop_arg prop) { return make_shared<yordle::data::meta::StatFormulaDataList>(prop); }},
-    {2299573588u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeDefaultStats>(prop); }},
-    {1005214616u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftSurrenderCheat>(prop); }},
-    {3415378836u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftChangeDamageSkinCheat>(prop); }},
-    {229654189u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftMapCharacterRecordData>(prop); }},
-    {2653184481u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftMapCharacterSkinData>(prop); }},
-    {2155905376u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftMapCharacterData>(prop); }},
-    {2927874496u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftMapCharacterList>(prop); }},
-    {1820531913u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTMapCharacterLists>(prop); }},
-    {3519409590u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTAnnouncementData>(prop); }},
-    {3726789741u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTAttachmentSlotStyleData>(prop); }},
-    {809801457u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTCharacterRecord>(prop); }},
-    {1414729207u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTDragData>(prop); }},
-    {4070851979u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftDropRates>(prop); }},
-    {4066427822u, [](prop_arg prop) { return make_shared<yordle::data::meta::xf260c3ae>(prop); }},
-    {1660895988u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftEffectAmount>(prop); }},
-    {1707263328u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftItemComposition>(prop); }},
-    {3515269914u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftItemData>(prop); }},
-    {2541164198u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTItemList>(prop); }},
-    {906277859u, [](prop_arg prop) { return make_shared<yordle::data::meta::x3604b3e3>(prop); }},
-    {30889102u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTModeData>(prop); }},
-    {53563192u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTGameVariationData>(prop); }},
-    {2099815050u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTNotificationData>(prop); }},
-    {634061068u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTPhaseData>(prop); }},
-    {4104567591u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTRoundData>(prop); }},
-    {4147633913u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTStageData>(prop); }},
-    {1133007103u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTSetData>(prop); }},
-    {3844837213u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftShopData>(prop); }},
-    {2098479675u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTStatData>(prop); }},
-    {646351631u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTStreak>(prop); }},
-    {2506805399u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTStreakData>(prop); }},
-    {3758614261u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTTraitContributionData>(prop); }},
-    {3241198053u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTTraitSetData>(prop); }},
-    {1871118919u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftTraitData>(prop); }},
-    {1539106983u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftTraitList>(prop); }},
-    {1963259073u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTUnitUpgradeData>(prop); }},
-    {305388529u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudAnnouncementData>(prop); }},
-    {1573027425u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudCombatRecapData>(prop); }},
-    {2068371646u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudNotificationsData>(prop); }},
-    {3661393350u, [](prop_arg prop) { return make_shared<yordle::data::meta::xda3c6dc6>(prop); }},
-    {1850343160u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudScoreboardData>(prop); }},
-    {1839038444u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudStageData>(prop); }},
-    {924097896u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudUnitShopData>(prop); }},
-    {3672021242u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudMobileDownscaleData>(prop); }},
-    {1340671070u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudTunables>(prop); }},
-    {638641575u, [](prop_arg prop) { return make_shared<yordle::data::meta::x2610e5a7>(prop); }},
-    {662826347u, [](prop_arg prop) { return make_shared<yordle::data::meta::x2781ed6b>(prop); }},
-    {622921539u, [](prop_arg prop) { return make_shared<yordle::data::meta::ObjectTags>(prop); }},
-    {410617757u, [](prop_arg prop) { return make_shared<yordle::data::meta::NumberFormattingBehavior>(prop); }},
-    {2581062515u, [](prop_arg prop) { return make_shared<yordle::data::meta::NumberFormattingData>(prop); }},
-    {502828211u, [](prop_arg prop) { return make_shared<yordle::data::meta::AnnouncementDefinitionData>(prop); }},
-    {94368299u, [](prop_arg prop) { return make_shared<yordle::data::meta::AnnouncementDefinition>(prop); }},
-    {2016968373u, [](prop_arg prop) { return make_shared<yordle::data::meta::x78387eb5>(prop); }},
-    {3731372071u, [](prop_arg prop) { return make_shared<yordle::data::meta::AnnouncementStyleBasic>(prop); }},
-    {1221197624u, [](prop_arg prop) { return make_shared<yordle::data::meta::x48c9ff38>(prop); }},
-    {2861933169u, [](prop_arg prop) { return make_shared<yordle::data::meta::xaa95a271>(prop); }},
-    {728839351u, [](prop_arg prop) { return make_shared<yordle::data::meta::AnnouncementIcon>(prop); }},
-    {224929220u, [](prop_arg prop) { return make_shared<yordle::data::meta::AnnouncementMap>(prop); }},
-    {187557783u, [](prop_arg prop) { return make_shared<yordle::data::meta::CursorData>(prop); }},
-    {4014870449u, [](prop_arg prop) { return make_shared<yordle::data::meta::CursorDataTeamContext>(prop); }},
-    {3454621813u, [](prop_arg prop) { return make_shared<yordle::data::meta::CursorDataCaptureCooldownContext>(prop); }},
-    {3994575677u, [](prop_arg prop) { return make_shared<yordle::data::meta::CursorConfig>(prop); }},
-    {1743182461u, [](prop_arg prop) { return make_shared<yordle::data::meta::HealthbarImageInfo>(prop); }},
-    {1273755329u, [](prop_arg prop) { return make_shared<yordle::data::meta::UnitStatusData>(prop); }},
-    {3886968817u, [](prop_arg prop) { return make_shared<yordle::data::meta::UnitStatusPriorityList>(prop); }},
-    {383291203u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatTextIconData>(prop); }},
-    {267762117u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatTextDisplayOverrides>(prop); }},
-    {395898060u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatingTextTunables>(prop); }},
-    {3119478897u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatingTextDamageDisplayTypeList>(prop); }},
-    {585161597u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatTextFormattingData>(prop); }},
-    {46628140u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatingTextTypeList>(prop); }},
-    {2165648641u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatingTextGlobalConfig>(prop); }},
-    {1059987028u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatingTextOverride>(prop); }},
-    {3892017401u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudColorData>(prop); }},
-    {3939670256u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudFeedbackDamageData>(prop); }},
-    {4180972365u, [](prop_arg prop) { return make_shared<yordle::data::meta::TeamScoreMeterUITunables>(prop); }},
-    {3303051661u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudTeamScoreMeterProperties>(prop); }},
-    {60771964u, [](prop_arg prop) { return make_shared<yordle::data::meta::EncounterUITunables>(prop); }},
-    {3365626407u, [](prop_arg prop) { return make_shared<yordle::data::meta::QuestUITunables>(prop); }},
-    {3440211024u, [](prop_arg prop) { return make_shared<yordle::data::meta::DragonUITunables>(prop); }},
-    {3557256043u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudGameModeScoreData>(prop); }},
-    {3732824828u, [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapIconTextureData>(prop); }},
-    {59888480u, [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapIconColorData>(prop); }},
-    {525225061u, [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapIcon>(prop); }},
-    {523452044u, [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapData>(prop); }},
-    {3920544379u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudOptionalBinData>(prop); }},
-    {2058949250u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudTunables>(prop); }},
-    {2979455577u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudScaleSettingsData>(prop); }},
-    {2124320233u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudLevelUpData>(prop); }},
-    {2731869740u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudBannerData>(prop); }},
-    {4291825122u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudAbilityPromptData>(prop); }},
-    {3273533950u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudMenuTransitionData>(prop); }},
-    {3553075624u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudElementalSectionUIData>(prop); }},
-    {440468936u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudEmotePopupData>(prop); }},
-    {1288133231u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudGearSelectionUIData>(prop); }},
-    {1493463692u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudRadialWheelData>(prop); }},
-    {4224366477u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudTeamFightOffScreenDifferentiationData>(prop); }},
-    {3784622423u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudTeamFightData>(prop); }},
-    {2809029825u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudReplayData>(prop); }},
-    {2036195162u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudCheatMenuData>(prop); }},
-    {3598370238u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudPingData>(prop); }},
-    {929479566u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudVoiceChatData>(prop); }},
-    {4284799695u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudInputBoxData>(prop); }},
-    {234651109u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarBurstData>(prop); }},
-    {1035555423u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarFadeData>(prop); }},
-    {749793326u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarDefenseModifierData>(prop); }},
-    {4246198531u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarBurstHealData>(prop); }},
-    {937928230u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarDefenseIconData>(prop); }},
-    {105644319u, [](prop_arg prop) { return make_shared<yordle::data::meta::MicroTicksPerTickData>(prop); }},
-    {503820853u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarProgressiveTickData>(prop); }},
-    {85573057u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarData>(prop); }},
-    {1323252584u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudSpellSlotResetFeedbackData>(prop); }},
-    {464608054u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenProgressBarData>(prop); }},
-    {4205759190u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenData>(prop); }},
-    {2341739189u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudStatPanelStatStoneData>(prop); }},
-    {2137884073u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudStatStoneData>(prop); }},
-    {1887734700u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudStatStoneDeathRecapData>(prop); }},
-    {4122721905u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudStatStoneMilestoneData>(prop); }},
-    {3009378484u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudEndOfGameData>(prop); }},
-    {1269294773u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudMessageDisplayData>(prop); }},
-    {1645499771u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudDamageDisplayData>(prop); }},
-    {3305259773u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudFightRecapUIData>(prop); }},
-    {1803253536u, [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapPingEffectDefinition>(prop); }},
-    {4009176784u, [](prop_arg prop) { return make_shared<yordle::data::meta::TextureAndColorData>(prop); }},
-    {2136503545u, [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapPingEffectAndTextureData>(prop); }},
-    {3823129339u, [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapPingTypeContainer>(prop); }},
-    {2062125700u, [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapPingData>(prop); }},
-    {1239842284u, [](prop_arg prop) { return make_shared<yordle::data::meta::ISecondaryResourceDisplayData>(prop); }},
-    {2725259578u, [](prop_arg prop) { return make_shared<yordle::data::meta::SecondaryResourceDisplayFractional>(prop); }},
-    {1700895677u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoadingScreenRankedProperties>(prop); }},
-    {2115654752u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoadingScreenRankedData>(prop); }},
-    {1198542322u, [](prop_arg prop) { return make_shared<yordle::data::meta::QualitySetting>(prop); }},
-    {2037513198u, [](prop_arg prop) { return make_shared<yordle::data::meta::IOptionItem>(prop); }},
-    {3154887987u, [](prop_arg prop) { return make_shared<yordle::data::meta::IOptionTemplate>(prop); }},
-    {4083351021u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemBorder>(prop); }},
-    {2624893466u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemCheckbox>(prop); }},
-    {3265939366u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemColumns>(prop); }},
-    {1128087393u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemDropdownItem>(prop); }},
-    {2993708970u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemDropdown>(prop); }},
-    {3415079880u, [](prop_arg prop) { return make_shared<yordle::data::meta::IOptionItemFilter>(prop); }},
-    {174539687u, [](prop_arg prop) { return make_shared<yordle::data::meta::xa6743a7>(prop); }},
-    {3443072153u, [](prop_arg prop) { return make_shared<yordle::data::meta::xcd391c99>(prop); }},
-    {1046078154u, [](prop_arg prop) { return make_shared<yordle::data::meta::x3e59e2ca>(prop); }},
-    {3641602072u, [](prop_arg prop) { return make_shared<yordle::data::meta::xd90e7018>(prop); }},
-    {3998028548u, [](prop_arg prop) { return make_shared<yordle::data::meta::xee4d1304>(prop); }},
-    {4160905752u, [](prop_arg prop) { return make_shared<yordle::data::meta::xf8026218>(prop); }},
-    {2761167747u, [](prop_arg prop) { return make_shared<yordle::data::meta::xa4941383>(prop); }},
-    {12944262u, [](prop_arg prop) { return make_shared<yordle::data::meta::xc58386>(prop); }},
-    {2795848259u, [](prop_arg prop) { return make_shared<yordle::data::meta::xa6a54243>(prop); }},
-    {3617299650u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemGroup>(prop); }},
-    {2450342190u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemHotkeys>(prop); }},
-    {1981427363u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemLabel>(prop); }},
-    {1259449812u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemResolutionDropdown>(prop); }},
-    {1428235105u, [](prop_arg prop) { return make_shared<yordle::data::meta::x55212361>(prop); }},
-    {1368219584u, [](prop_arg prop) { return make_shared<yordle::data::meta::x518d5fc0>(prop); }},
-    {3144650323u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSecondaryHotkeys1Column>(prop); }},
-    {3929150294u, [](prop_arg prop) { return make_shared<yordle::data::meta::xea321356>(prop); }},
-    {1124978957u, [](prop_arg prop) { return make_shared<yordle::data::meta::x430dd10d>(prop); }},
-    {1788849882u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSecondaryHotkeys2Column>(prop); }},
-    {1991153274u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSlider>(prop); }},
-    {2846603080u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSliderFloat>(prop); }},
-    {1524323892u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSliderGraphicsQuality>(prop); }},
-    {641011299u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSliderInt>(prop); }},
-    {3682643564u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSliderVolume>(prop); }},
-    {4113714730u, [](prop_arg prop) { return make_shared<yordle::data::meta::xf5324e2a>(prop); }},
-    {2946448300u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionsTab>(prop); }},
-    {3405043372u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateBorder>(prop); }},
-    {2855504619u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateCheckbox>(prop); }},
-    {2120591967u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateDropdown>(prop); }},
-    {1734681201u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateGroup>(prop); }},
-    {1432209297u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateHotkeysLabel>(prop); }},
-    {3163647920u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateHotkeysKey>(prop); }},
-    {704287001u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateHotkeys>(prop); }},
-    {313035124u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateLabel>(prop); }},
-    {4250471695u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateMuteButton>(prop); }},
-    {3468103258u, [](prop_arg prop) { return make_shared<yordle::data::meta::xceb70e5a>(prop); }},
-    {894011560u, [](prop_arg prop) { return make_shared<yordle::data::meta::x354988a8>(prop); }},
-    {3369934580u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateSecondaryHotkeys1Column>(prop); }},
-    {258305809u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateSecondaryHotkeys2Column>(prop); }},
-    {517015619u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateSlider>(prop); }},
-    {2945891227u, [](prop_arg prop) { return make_shared<yordle::data::meta::NamedIconData>(prop); }},
-    {3056512770u, [](prop_arg prop) { return make_shared<yordle::data::meta::ModeSelectButtonData>(prop); }},
-    {2293774348u, [](prop_arg prop) { return make_shared<yordle::data::meta::ILoadoutFeatureDataBehavior>(prop); }},
-    {1532902214u, [](prop_arg prop) { return make_shared<yordle::data::meta::QueueDisplayData>(prop); }},
-    {4225182998u, [](prop_arg prop) { return make_shared<yordle::data::meta::xfbd72d16>(prop); }},
-    {4069990911u, [](prop_arg prop) { return make_shared<yordle::data::meta::StoreCategoryButtonDefinition>(prop); }},
-    {2136477118u, [](prop_arg prop) { return make_shared<yordle::data::meta::ILoadoutInfoPanel>(prop); }},
-    {2610640435u, [](prop_arg prop) { return make_shared<yordle::data::meta::NotificationSettings>(prop); }},
-    {2873675736u, [](prop_arg prop) { return make_shared<yordle::data::meta::QuestDefinition>(prop); }},
-    {1179857030u, [](prop_arg prop) { return make_shared<yordle::data::meta::x46533086>(prop); }},
-    {4110481513u, [](prop_arg prop) { return make_shared<yordle::data::meta::GeneralSettingsGroup>(prop); }},
-    {740737797u, [](prop_arg prop) { return make_shared<yordle::data::meta::SurrenderTypeData>(prop); }},
-    {2687760845u, [](prop_arg prop) { return make_shared<yordle::data::meta::SurrenderData>(prop); }},
-    {1116466002u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoadScreenTip>(prop); }},
-    {4146450274u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoadScreenTipSet>(prop); }},
-    {3188575920u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoadScreenTipConfiguration>(prop); }},
-    {2656759159u, [](prop_arg prop) { return make_shared<yordle::data::meta::x9e5aed77>(prop); }},
-    {3981513104u, [](prop_arg prop) { return make_shared<yordle::data::meta::ViewController>(prop); }},
-    {917336570u, [](prop_arg prop) { return make_shared<yordle::data::meta::VoiceChatViewController>(prop); }},
-    {2253409519u, [](prop_arg prop) { return make_shared<yordle::data::meta::x86504cef>(prop); }},
-    {2730017800u, [](prop_arg prop) { return make_shared<yordle::data::meta::VoiceChatViewSelfSlot>(prop); }},
-    {230608261u, [](prop_arg prop) { return make_shared<yordle::data::meta::NeutralTimerSourceIconData>(prop); }},
-    {964506025u, [](prop_arg prop) { return make_shared<yordle::data::meta::NeutralTimerData>(prop); }},
-    {1283176254u, [](prop_arg prop) { return make_shared<yordle::data::meta::NeutralTimers>(prop); }},
-    {2733481098u, [](prop_arg prop) { return make_shared<yordle::data::meta::CommonUiTunables>(prop); }},
-    {2330109623u, [](prop_arg prop) { return make_shared<yordle::data::meta::ViewPaneDefinition>(prop); }},
-    {2794431892u, [](prop_arg prop) { return make_shared<yordle::data::meta::UIButtonState>(prop); }},
-    {1818785118u, [](prop_arg prop) { return make_shared<yordle::data::meta::UIButtonDefinition>(prop); }},
-    {1814739591u, [](prop_arg prop) { return make_shared<yordle::data::meta::UIButtonAdditionalState>(prop); }},
-    {2087717867u, [](prop_arg prop) { return make_shared<yordle::data::meta::UIButtonAdditionalElements>(prop); }},
-    {547029623u, [](prop_arg prop) { return make_shared<yordle::data::meta::x209b0277>(prop); }},
-    {3798132414u, [](prop_arg prop) { return make_shared<yordle::data::meta::xe262e6be>(prop); }},
-    {3941835837u, [](prop_arg prop) { return make_shared<yordle::data::meta::UiComboBoxDefinition>(prop); }},
-    {765791391u, [](prop_arg prop) { return make_shared<yordle::data::meta::x2da50c9f>(prop); }},
-    {4073702540u, [](prop_arg prop) { return make_shared<yordle::data::meta::xf2cfc48c>(prop); }},
-    {2642491558u, [](prop_arg prop) { return make_shared<yordle::data::meta::x9d8138a6>(prop); }},
-    {3511278911u, [](prop_arg prop) { return make_shared<yordle::data::meta::xd149dd3f>(prop); }},
-    {3009075672u, [](prop_arg prop) { return make_shared<yordle::data::meta::xb35ad9d8>(prop); }},
-    {3523215606u, [](prop_arg prop) { return make_shared<yordle::data::meta::xd20000f6>(prop); }},
-    {4010129986u, [](prop_arg prop) { return make_shared<yordle::data::meta::xef05ba42>(prop); }},
-    {2449846901u, [](prop_arg prop) { return make_shared<yordle::data::meta::x9205b275>(prop); }},
-    {946411408u, [](prop_arg prop) { return make_shared<yordle::data::meta::x38691790>(prop); }},
-    {1403141140u, [](prop_arg prop) { return make_shared<yordle::data::meta::StatFilterDefinition>(prop); }},
-    {2002344617u, [](prop_arg prop) { return make_shared<yordle::data::meta::x77595aa9>(prop); }},
-    {2696268697u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudItemShopData>(prop); }},
-    {1936278667u, [](prop_arg prop) { return make_shared<yordle::data::meta::IHudLoadingScreenWidget>(prop); }},
-    {470840304u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenCarouselData>(prop); }},
-    {2709250460u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenWidgetCarousel>(prop); }},
-    {1107815263u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenWidgetClash>(prop); }},
-    {3421140098u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenWidgetPing>(prop); }},
-    {3666540112u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenWidgetPlayers>(prop); }},
-    {428271402u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenWidgetProgressBar>(prop); }},
-    {4123015996u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenWidgetTutorial>(prop); }},
-    {1376467180u, [](prop_arg prop) { return make_shared<yordle::data::meta::PlayerCardWidgetConfig>(prop); }},
-    {2539231955u, [](prop_arg prop) { return make_shared<yordle::data::meta::x97599ad3>(prop); }},
-    {3703833425u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudReplaySliderIconData>(prop); }},
-    {220532968u, [](prop_arg prop) { return make_shared<yordle::data::meta::HudReplaySliderData>(prop); }},
-    {2741896024u, [](prop_arg prop) { return make_shared<yordle::data::meta::WadFileDescriptor>(prop); }},
-    {3000850570u, [](prop_arg prop) { return make_shared<yordle::data::meta::BaseRigPoseModifierData>(prop); }},
-    {3456866963u, [](prop_arg prop) { return make_shared<yordle::data::meta::ConformToPathRigPoseModifierData>(prop); }},
-    {3010810975u, [](prop_arg prop) { return make_shared<yordle::data::meta::JointSnapRigPoseModifilerData>(prop); }},
-    {847419898u, [](prop_arg prop) { return make_shared<yordle::data::meta::LockRootOrientationRigPoseModifierData>(prop); }},
-    {1085106335u, [](prop_arg prop) { return make_shared<yordle::data::meta::SyncedAnimationRigPoseModifierData>(prop); }},
-    {3410773763u, [](prop_arg prop) { return make_shared<yordle::data::meta::VertexAnimationRigPoseModifierData>(prop); }},
-    {4126869447u, [](prop_arg prop) { return make_shared<yordle::data::meta::AnimationGraphData>(prop); }},
-    {2588617117u, [](prop_arg prop) { return make_shared<yordle::data::meta::AnimationResourceData>(prop); }},
-    {725360953u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaskData>(prop); }},
-    {2930641015u, [](prop_arg prop) { return make_shared<yordle::data::meta::Joint>(prop); }},
-    {1426469241u, [](prop_arg prop) { return make_shared<yordle::data::meta::RigResource>(prop); }},
-    {1718266157u, [](prop_arg prop) { return make_shared<yordle::data::meta::SyncGroupData>(prop); }},
-    {2552904996u, [](prop_arg prop) { return make_shared<yordle::data::meta::TrackData>(prop); }},
-    {3953106978u, [](prop_arg prop) { return make_shared<yordle::data::meta::UpdaterData>(prop); }},
-    {1426466346u, [](prop_arg prop) { return make_shared<yordle::data::meta::UpdaterResourceData>(prop); }},
-    {1675919456u, [](prop_arg prop) { return make_shared<yordle::data::meta::ConditionFloatPairData>(prop); }},
-    {3371956895u, [](prop_arg prop) { return make_shared<yordle::data::meta::ParametricPairData>(prop); }},
-    {1837663416u, [](prop_arg prop) { return make_shared<yordle::data::meta::SelectorPairData>(prop); }},
-    {3172694155u, [](prop_arg prop) { return make_shared<yordle::data::meta::BaseBlendData>(prop); }},
-    {2039250216u, [](prop_arg prop) { return make_shared<yordle::data::meta::BaseEventData>(prop); }},
-    {3917866950u, [](prop_arg prop) { return make_shared<yordle::data::meta::ClipBaseData>(prop); }},
-    {2184673821u, [](prop_arg prop) { return make_shared<yordle::data::meta::ConformToPathEventData>(prop); }},
-    {126228632u, [](prop_arg prop) { return make_shared<yordle::data::meta::EnableLookAtEventData>(prop); }},
-    {1991855177u, [](prop_arg prop) { return make_shared<yordle::data::meta::FaceCameraEventData>(prop); }},
-    {1280605585u, [](prop_arg prop) { return make_shared<yordle::data::meta::FadeEventData>(prop); }},
-    {2009563166u, [](prop_arg prop) { return make_shared<yordle::data::meta::IdleParticlesVisibilityEventData>(prop); }},
-    {3049371309u, [](prop_arg prop) { return make_shared<yordle::data::meta::JointSnapEventData>(prop); }},
-    {3239264152u, [](prop_arg prop) { return make_shared<yordle::data::meta::LockRootOrientationEventData>(prop); }},
-    {1574343673u, [](prop_arg prop) { return make_shared<yordle::data::meta::ParticleEventDataPair>(prop); }},
-    {88265757u, [](prop_arg prop) { return make_shared<yordle::data::meta::ParticleEventData>(prop); }},
-    {2622906420u, [](prop_arg prop) { return make_shared<yordle::data::meta::SoundEventData>(prop); }},
-    {4107335487u, [](prop_arg prop) { return make_shared<yordle::data::meta::StopAnimationEventData>(prop); }},
-    {3170201200u, [](prop_arg prop) { return make_shared<yordle::data::meta::SubmeshVisibilityEventData>(prop); }},
-    {2141811217u, [](prop_arg prop) { return make_shared<yordle::data::meta::SyncedAnimationEventData>(prop); }},
-    {1031735279u, [](prop_arg prop) { return make_shared<yordle::data::meta::TimeBlendData>(prop); }},
-    {371240319u, [](prop_arg prop) { return make_shared<yordle::data::meta::TransitionClipBlendData>(prop); }},
-    {3487022u, [](prop_arg prop) { return make_shared<yordle::data::meta::ValueProcessorData>(prop); }},
-    {2790085136u, [](prop_arg prop) { return make_shared<yordle::data::meta::EngineFeatureToggles>(prop); }},
-    {72326764u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapComponent>(prop); }},
-    {3723018516u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapContainer>(prop); }},
-    {1681734441u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapContainsOtherMaps>(prop); }},
-    {243000503u, [](prop_arg prop) { return make_shared<yordle::data::meta::LaneData>(prop); }},
-    {2774165054u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapLaneComponent>(prop); }},
-    {2603925163u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapPathSegment>(prop); }},
-    {2574492633u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapPathLineSegment>(prop); }},
-    {1861095566u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapPathCurveSegment>(prop); }},
-    {477805166u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapNavGrid>(prop); }},
-    {1502315240u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapPlaceable>(prop); }},
-    {2347595275u, [](prop_arg prop) { return make_shared<yordle::data::meta::GenericMapPlaceable>(prop); }},
-    {2992376383u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapPlaceableContainer>(prop); }},
-    {1173599148u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapPrefabInstance>(prop); }},
-    {3750744125u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapThemeMusic>(prop); }},
-    {2486262273u, [](prop_arg prop) { return make_shared<yordle::data::meta::RegionsThatAllowContent>(prop); }},
-    {585068320u, [](prop_arg prop) { return make_shared<yordle::data::meta::RegionSettings>(prop); }},
-    {2600090346u, [](prop_arg prop) { return make_shared<yordle::data::meta::FontLocaleType>(prop); }},
-    {3120352850u, [](prop_arg prop) { return make_shared<yordle::data::meta::FontResolution>(prop); }},
-    {3919875225u, [](prop_arg prop) { return make_shared<yordle::data::meta::FontLocaleResolutions>(prop); }},
-    {766729624u, [](prop_arg prop) { return make_shared<yordle::data::meta::FontType>(prop); }},
-    {231582978u, [](prop_arg prop) { return make_shared<yordle::data::meta::FontResolutionData>(prop); }},
-    {3812866480u, [](prop_arg prop) { return make_shared<yordle::data::meta::GameFontDescription>(prop); }},
-    {1461391717u, [](prop_arg prop) { return make_shared<yordle::data::meta::CSSStyle>(prop); }},
-    {3991255873u, [](prop_arg prop) { return make_shared<yordle::data::meta::CSSIcon>(prop); }},
-    {3173404643u, [](prop_arg prop) { return make_shared<yordle::data::meta::CSSSheet>(prop); }},
-    {2994559891u, [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipFormat>(prop); }},
-    {2585474309u, [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipInstanceListElement>(prop); }},
-    {4214485747u, [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipInstanceList>(prop); }},
-    {2250161003u, [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipInstance>(prop); }},
-    {70254680u, [](prop_arg prop) { return make_shared<yordle::data::meta::ValueFloat>(prop); }},
-    {3515916773u, [](prop_arg prop) { return make_shared<yordle::data::meta::IntegratedValueFloat>(prop); }},
-    {1776038985u, [](prop_arg prop) { return make_shared<yordle::data::meta::ValueVector2>(prop); }},
-    {1808563568u, [](prop_arg prop) { return make_shared<yordle::data::meta::IntegratedValueVector2>(prop); }},
-    {1759261366u, [](prop_arg prop) { return make_shared<yordle::data::meta::ValueVector3>(prop); }},
-    {1825341187u, [](prop_arg prop) { return make_shared<yordle::data::meta::IntegratedValueVector3>(prop); }},
-    {122655197u, [](prop_arg prop) { return make_shared<yordle::data::meta::ValueColor>(prop); }},
-    {4261825672u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxAnimatedFloatVariableData>(prop); }},
-    {772710981u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxAnimatedVector2fVariableData>(prop); }},
-    {2899841408u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxAnimatedVector3fVariableData>(prop); }},
-    {1128908277u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxAnimatedColorVariableData>(prop); }},
-    {497696688u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxSoftParticleDefinitionData>(prop); }},
-    {1113621825u, [](prop_arg prop) { return make_shared<yordle::data::meta::FlexValueVector3>(prop); }},
-    {1096844206u, [](prop_arg prop) { return make_shared<yordle::data::meta::FlexValueVector2>(prop); }},
-    {1370198255u, [](prop_arg prop) { return make_shared<yordle::data::meta::FlexValueFloat>(prop); }},
-    {796686208u, [](prop_arg prop) { return make_shared<yordle::data::meta::FlexTypeFloat>(prop); }},
-    {177533908u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFieldAccelerationDefinitionData>(prop); }},
-    {443947005u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFieldAttractionDefinitionData>(prop); }},
-    {3149931448u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFieldCollectionDefinitionData>(prop); }},
-    {3880844002u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFieldDragDefinitionData>(prop); }},
-    {1666037840u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFieldNoiseDefinitionData>(prop); }},
-    {3061509743u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFieldOrbitalDefinitionData>(prop); }},
-    {37724083u, [](prop_arg prop) { return make_shared<yordle::data::meta::IVfxMaterialDriver>(prop); }},
-    {3652726407u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxMaterialOverrideDefinitionData>(prop); }},
-    {1403439486u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxProbabilityTableData>(prop); }},
-    {2184800742u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxMigrationResources>(prop); }},
-    {4129808802u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxAssetRemap>(prop); }},
-    {737679281u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxColorOverLifeMaterialDriver>(prop); }},
-    {2010092456u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxShape>(prop); }},
-    {164488258u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxEmitterDefinitionData>(prop); }},
-    {2526736020u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxChildIdentifier>(prop); }},
-    {3038774362u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxChildParticleSetDefinitionData>(prop); }},
-    {1585720219u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxAlphaErosionDefinitionData>(prop); }},
-    {2829943575u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPaletteDefinitionData>(prop); }},
-    {1091758723u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxReflectionDefinitionData>(prop); }},
-    {1238702953u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxDistortionDefinitionData>(prop); }},
-    {259276035u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxProjectionDefinitionData>(prop); }},
-    {12755856u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxTrailDefinitionData>(prop); }},
-    {532209417u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxBeamDefinitionData>(prop); }},
-    {3217219891u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxEmissionSurfaceData>(prop); }},
-    {1787328523u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxMeshDefinitionData>(prop); }},
-    {3801322209u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveBase>(prop); }},
-    {2531114100u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveCameraQuad>(prop); }},
-    {1273725437u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveArbitraryQuad>(prop); }},
-    {2706101456u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveRay>(prop); }},
-    {3832843140u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveProjectionBase>(prop); }},
-    {3918814637u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitivePlanarProjection>(prop); }},
-    {562397581u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveTrailBase>(prop); }},
-    {678973881u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveCameraTrail>(prop); }},
-    {1459970650u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveArbitraryTrail>(prop); }},
-    {3713591166u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveBeamBase>(prop); }},
-    {4048547755u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveCameraSegmentBeam>(prop); }},
-    {668179872u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveArbitrarySegmentBeam>(prop); }},
-    {4231615076u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveMeshBase>(prop); }},
-    {2241128505u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveMesh>(prop); }},
-    {2762908325u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveAttachedMesh>(prop); }},
-    {1752512115u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveBeam>(prop); }},
-    {1372839132u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFloatOverLifeMaterialDriver>(prop); }},
-    {719276917u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxSineMaterialDriver>(prop); }},
-    {1496250051u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapParticle>(prop); }},
-    {1221817611u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapParticleGroups>(prop); }},
-    {121596497u, [](prop_arg prop) { return make_shared<yordle::data::meta::DynamicMaterialParameterDef>(prop); }},
-    {567330916u, [](prop_arg prop) { return make_shared<yordle::data::meta::DynamicMaterialTextureSwapOption>(prop); }},
-    {1303930364u, [](prop_arg prop) { return make_shared<yordle::data::meta::DynamicMaterialTextureSwapDef>(prop); }},
-    {4013554309u, [](prop_arg prop) { return make_shared<yordle::data::meta::DynamicMaterialStaticSwitch>(prop); }},
-    {762048930u, [](prop_arg prop) { return make_shared<yordle::data::meta::DynamicMaterialDef>(prop); }},
-    {1009087838u, [](prop_arg prop) { return make_shared<yordle::data::meta::IDynamicMaterialDriver>(prop); }},
-    {1090223300u, [](prop_arg prop) { return make_shared<yordle::data::meta::IDynamicMaterialFloatDriver>(prop); }},
-    {3032802403u, [](prop_arg prop) { return make_shared<yordle::data::meta::LerpMaterialDriver>(prop); }},
-    {414058u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaxMaterialDriver>(prop); }},
-    {906481424u, [](prop_arg prop) { return make_shared<yordle::data::meta::MinMaterialDriver>(prop); }},
-    {2851587231u, [](prop_arg prop) { return make_shared<yordle::data::meta::RemapFloatMaterialDriver>(prop); }},
-    {824881043u, [](prop_arg prop) { return make_shared<yordle::data::meta::SineMaterialDriver>(prop); }},
-    {1181419247u, [](prop_arg prop) { return make_shared<yordle::data::meta::SpecificColorMaterialDriver>(prop); }},
-    {1173409658u, [](prop_arg prop) { return make_shared<yordle::data::meta::SwitchMaterialDriverElement>(prop); }},
-    {2878204994u, [](prop_arg prop) { return make_shared<yordle::data::meta::SwitchMaterialDriver>(prop); }},
-    {1459861871u, [](prop_arg prop) { return make_shared<yordle::data::meta::BlendingSwitchMaterialDriver>(prop); }},
-    {4084077559u, [](prop_arg prop) { return make_shared<yordle::data::meta::TimeMaterialDriver>(prop); }},
-    {176045846u, [](prop_arg prop) { return make_shared<yordle::data::meta::IdMappingEntry>(prop); }},
-    {1659255250u, [](prop_arg prop) { return make_shared<yordle::data::meta::HybridMaterialDefPreset>(prop); }},
-    {3975636772u, [](prop_arg prop) { return make_shared<yordle::data::meta::IMaterialDef>(prop); }},
-    {346210042u, [](prop_arg prop) { return make_shared<yordle::data::meta::ShaderLogicalParameter>(prop); }},
-    {2171032536u, [](prop_arg prop) { return make_shared<yordle::data::meta::ShaderPhysicalParameter>(prop); }},
-    {1621267174u, [](prop_arg prop) { return make_shared<yordle::data::meta::ShaderStaticSwitch>(prop); }},
-    {835838499u, [](prop_arg prop) { return make_shared<yordle::data::meta::ShaderTexture>(prop); }},
-    {196890972u, [](prop_arg prop) { return make_shared<yordle::data::meta::IShaderDef>(prop); }},
-    {1407148951u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialParameterData>(prop); }},
-    {3791453475u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialTextureData>(prop); }},
-    {1327860340u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialSwitchData>(prop); }},
-    {3921803671u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialParameterDataCollection>(prop); }},
-    {1749974331u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialTextureDataCollection>(prop); }},
-    {3078356408u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialSwitchDataCollection>(prop); }},
-    {1874373301u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialDataCollections>(prop); }},
-    {1496596895u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceParamDef>(prop); }},
-    {2719807978u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceSwitchDef>(prop); }},
-    {1305331905u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceTextureDef>(prop); }},
-    {4144515914u, [](prop_arg prop) { return make_shared<yordle::data::meta::xf7084b4a>(prop); }},
-    {1964830497u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceDynamicParam>(prop); }},
-    {1171267580u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceDynamicSwitch>(prop); }},
-    {1083476907u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceDynamicTexture>(prop); }},
-    {3729264367u, [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialShaderParamDef>(prop); }},
-    {237114017u, [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialSwitchDef>(prop); }},
-    {151302480u, [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialShaderSamplerDef>(prop); }},
-    {2235027650u, [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialPassDef>(prop); }},
-    {101336083u, [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialTechniqueDef>(prop); }},
-    {1935363221u, [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialChildTechniqueDef>(prop); }},
-    {573833423u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapPerInstanceInfo>(prop); }},
-    {1783247881u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapBakeProperties>(prop); }},
-    {769601740u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapCloudsLayer>(prop); }},
-    {66354938u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapGraphicsFeature>(prop); }},
-    {3701691417u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapLightingV2>(prop); }},
-    {2319232567u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapLightingVolume>(prop); }},
-    {36597367u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapPointLight>(prop); }},
-    {668199599u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapPointLightType>(prop); }},
-    {379203484u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapSunProperties>(prop); }},
-    {3554680230u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapTerrainPaint>(prop); }},
-    {1813728254u, [](prop_arg prop) { return make_shared<yordle::data::meta::SHData>(prop); }},
-    {2340045716u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinMeshDataProperties_MaterialOverride>(prop); }},
-    {3460011047u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinnedMeshDataMaterialController>(prop); }},
-    {1628559524u, [](prop_arg prop) { return make_shared<yordle::data::meta::SkinMeshDataProperties>(prop); }},
-    {547453112u, [](prop_arg prop) { return make_shared<yordle::data::meta::IResource>(prop); }},
-    {3911265650u, [](prop_arg prop) { return make_shared<yordle::data::meta::IResourceResolver>(prop); }},
-    {3984358668u, [](prop_arg prop) { return make_shared<yordle::data::meta::FunctionDefinition>(prop); }},
-    {1009431984u, [](prop_arg prop) { return make_shared<yordle::data::meta::IScriptBlock>(prop); }},
-    {3460129365u, [](prop_arg prop) { return make_shared<yordle::data::meta::SwitchCase>(prop); }},
-    {3828703835u, [](prop_arg prop) { return make_shared<yordle::data::meta::SwitchScriptBlock>(prop); }},
-    {3324095080u, [](prop_arg prop) { return make_shared<yordle::data::meta::IScriptCondition>(prop); }},
-    {1889908488u, [](prop_arg prop) { return make_shared<yordle::data::meta::TableValueExistsScriptCondition>(prop); }},
-    {4133732978u, [](prop_arg prop) { return make_shared<yordle::data::meta::RandomChanceScriptCondition>(prop); }},
-    {1796410142u, [](prop_arg prop) { return make_shared<yordle::data::meta::AndScriptCondition>(prop); }},
-    {419340840u, [](prop_arg prop) { return make_shared<yordle::data::meta::OrScriptCondition>(prop); }},
-    {2824201906u, [](prop_arg prop) { return make_shared<yordle::data::meta::NotScriptCondition>(prop); }},
-    {824983528u, [](prop_arg prop) { return make_shared<yordle::data::meta::ComparisonScriptCondition>(prop); }},
-    {3134806650u, [](prop_arg prop) { return make_shared<yordle::data::meta::RScript>(prop); }},
-    {619916734u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptTable>(prop); }},
-    {1411410857u, [](prop_arg prop) { return make_shared<yordle::data::meta::PassThroughParamsTable>(prop); }},
-    {4139131590u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptTableSet>(prop); }},
-    {663538050u, [](prop_arg prop) { return make_shared<yordle::data::meta::IntTableSet>(prop); }},
-    {2728914349u, [](prop_arg prop) { return make_shared<yordle::data::meta::BoolTableSet>(prop); }},
-    {3570109893u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatTableSet>(prop); }},
-    {3580363220u, [](prop_arg prop) { return make_shared<yordle::data::meta::StringTableSet>(prop); }},
-    {2465524974u, [](prop_arg prop) { return make_shared<yordle::data::meta::VectorTableSet>(prop); }},
-    {1262223041u, [](prop_arg prop) { return make_shared<yordle::data::meta::FunctionTableSet>(prop); }},
-    {2864404146u, [](prop_arg prop) { return make_shared<yordle::data::meta::CustomTableSet>(prop); }},
-    {4142338480u, [](prop_arg prop) { return make_shared<yordle::data::meta::IScriptValueGet>(prop); }},
-    {1166962967u, [](prop_arg prop) { return make_shared<yordle::data::meta::IStringGet>(prop); }},
-    {3687170724u, [](prop_arg prop) { return make_shared<yordle::data::meta::StringGet>(prop); }},
-    {4031524872u, [](prop_arg prop) { return make_shared<yordle::data::meta::StringTableGet>(prop); }},
-    {3682319469u, [](prop_arg prop) { return make_shared<yordle::data::meta::IVectorGet>(prop); }},
-    {1755899118u, [](prop_arg prop) { return make_shared<yordle::data::meta::VectorGet>(prop); }},
-    {2648244722u, [](prop_arg prop) { return make_shared<yordle::data::meta::VectorTableGet>(prop); }},
-    {3516211013u, [](prop_arg prop) { return make_shared<yordle::data::meta::xd1951f45>(prop); }},
-    {2401135138u, [](prop_arg prop) { return make_shared<yordle::data::meta::x8f1e6a22>(prop); }},
-    {1827239481u, [](prop_arg prop) { return make_shared<yordle::data::meta::x6ce97639>(prop); }},
-    {2867346523u, [](prop_arg prop) { return make_shared<yordle::data::meta::SceneData>(prop); }},
-    {2131369601u, [](prop_arg prop) { return make_shared<yordle::data::meta::AnchorBase>(prop); }},
-    {1396238320u, [](prop_arg prop) { return make_shared<yordle::data::meta::AnchorSingle>(prop); }},
-    {3742500809u, [](prop_arg prop) { return make_shared<yordle::data::meta::AnchorDouble>(prop); }},
-    {2069111393u, [](prop_arg prop) { return make_shared<yordle::data::meta::AtlasDataBase>(prop); }},
-    {1906252436u, [](prop_arg prop) { return make_shared<yordle::data::meta::AtlasData>(prop); }},
-    {3050387163u, [](prop_arg prop) { return make_shared<yordle::data::meta::xb5d136db>(prop); }},
-    {2748390021u, [](prop_arg prop) { return make_shared<yordle::data::meta::xa3d11a85>(prop); }},
-    {2872907111u, [](prop_arg prop) { return make_shared<yordle::data::meta::xab3d1567>(prop); }},
-    {589156770u, [](prop_arg prop) { return make_shared<yordle::data::meta::x231dd1a2>(prop); }},
-    {2222311051u, [](prop_arg prop) { return make_shared<yordle::data::meta::ElementSoundEvents>(prop); }},
-    {3456684995u, [](prop_arg prop) { return make_shared<yordle::data::meta::ElementGroupButtonState>(prop); }},
-    {4099288798u, [](prop_arg prop) { return make_shared<yordle::data::meta::ElementGroupData>(prop); }},
-    {550561409u, [](prop_arg prop) { return make_shared<yordle::data::meta::x20d0e681>(prop); }},
-    {761542854u, [](prop_arg prop) { return make_shared<yordle::data::meta::ElementGroupGridData>(prop); }},
-    {2944059703u, [](prop_arg prop) { return make_shared<yordle::data::meta::xaf7ac937>(prop); }},
-    {2718727252u, [](prop_arg prop) { return make_shared<yordle::data::meta::ElementGroupSliderState>(prop); }},
-    {47538795u, [](prop_arg prop) { return make_shared<yordle::data::meta::ElementGroupSliderData>(prop); }},
-    {3681459597u, [](prop_arg prop) { return make_shared<yordle::data::meta::IconElementDataExtension>(prop); }},
-    {3561233493u, [](prop_arg prop) { return make_shared<yordle::data::meta::IconElementGradientExtension>(prop); }},
-    {19256412u, [](prop_arg prop) { return make_shared<yordle::data::meta::X3DSharedConstantDef>(prop); }},
-    {2515485450u, [](prop_arg prop) { return make_shared<yordle::data::meta::X3DSharedConstantBufferDef>(prop); }},
-    {877304437u, [](prop_arg prop) { return make_shared<yordle::data::meta::X3DSharedData>(prop); }},
-    {927275163u, [](prop_arg prop) { return make_shared<yordle::data::meta::X3DSharedTextureDef>(prop); }},
-    {3476110372u, [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualActionData>(prop); }},
-    {3931724966u, [](prop_arg prop) { return make_shared<yordle::data::meta::Champion>(prop); }},
-    {3549389049u, [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceDynamicMaterialFloatDriver>(prop); }},
-    {2143410291u, [](prop_arg prop) { return make_shared<yordle::data::meta::AnimationFractionDynamicMaterialFloatDriver>(prop); }},
-    {1465311360u, [](prop_arg prop) { return make_shared<yordle::data::meta::BuffCounterDynamicMaterialFloatDriver>(prop); }},
-    {2437143893u, [](prop_arg prop) { return make_shared<yordle::data::meta::DistanceToPlayerMaterialFloatDriver>(prop); }},
-    {510412798u, [](prop_arg prop) { return make_shared<yordle::data::meta::x1e6c47fe>(prop); }},
-    {3897992344u, [](prop_arg prop) { return make_shared<yordle::data::meta::xe856a498>(prop); }},
-    {3630502631u, [](prop_arg prop) { return make_shared<yordle::data::meta::HealthDynamicMaterialFloatDriver>(prop); }},
-    {532586595u, [](prop_arg prop) { return make_shared<yordle::data::meta::x1fbea063>(prop); }},
-    {3997290289u, [](prop_arg prop) { return make_shared<yordle::data::meta::UVScaleBiasFromAnimationDynamicMaterialDriver>(prop); }},
-    {2561383746u, [](prop_arg prop) { return make_shared<yordle::data::meta::VelocityDynamicMaterialFloatDriver>(prop); }},
-    {3162079434u, [](prop_arg prop) { return make_shared<yordle::data::meta::ParticleWadFileDescriptor>(prop); }},
-    {3667811340u, [](prop_arg prop) { return make_shared<yordle::data::meta::GdsMapObject>(prop); }},
-    {3751997361u, [](prop_arg prop) { return make_shared<yordle::data::meta::Map>(prop); }},
-    {1013623483u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapBehavior>(prop); }},
-    {132387460u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionAnimate>(prop); }},
-    {1439708695u, [](prop_arg prop) { return make_shared<yordle::data::meta::x55d03617>(prop); }},
-    {3661280452u, [](prop_arg prop) { return make_shared<yordle::data::meta::xda3ab4c4>(prop); }},
-    {3498226065u, [](prop_arg prop) { return make_shared<yordle::data::meta::xd082b191>(prop); }},
-    {2690290802u, [](prop_arg prop) { return make_shared<yordle::data::meta::xa05a9472>(prop); }},
-    {161271356u, [](prop_arg prop) { return make_shared<yordle::data::meta::x99cce3c>(prop); }},
-    {554443936u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionContinue>(prop); }},
-    {4118721504u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionMove>(prop); }},
-    {1015511333u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionMoveBase>(prop); }},
-    {145984105u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionMoveTo>(prop); }},
-    {1873184927u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionMoveReset>(prop); }},
-    {3588503832u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionSfx>(prop); }},
-    {2735193483u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionTimeDilate>(prop); }},
-    {4178543843u, [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionVfx>(prop); }},
-    {1775952673u, [](prop_arg prop) { return make_shared<yordle::data::meta::LolSpellScript>(prop); }},
-    {4055000216u, [](prop_arg prop) { return make_shared<yordle::data::meta::InstanceVarsTable>(prop); }},
-    {1154861162u, [](prop_arg prop) { return make_shared<yordle::data::meta::CharacterVarsTable>(prop); }},
-    {840789541u, [](prop_arg prop) { return make_shared<yordle::data::meta::NextBuffVarsTable>(prop); }},
-    {1416785227u, [](prop_arg prop) { return make_shared<yordle::data::meta::WorldVarsTable>(prop); }},
-    {500954198u, [](prop_arg prop) { return make_shared<yordle::data::meta::AvatarVarsTable>(prop); }},
-    {2012327816u, [](prop_arg prop) { return make_shared<yordle::data::meta::NextSpellVarsTable>(prop); }},
-    {1745220956u, [](prop_arg prop) { return make_shared<yordle::data::meta::TempTable1Table>(prop); }},
-    {285936043u, [](prop_arg prop) { return make_shared<yordle::data::meta::TempTable2Table>(prop); }},
-    {1662218770u, [](prop_arg prop) { return make_shared<yordle::data::meta::TempTable3Table>(prop); }},
-    {2243645043u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTItemMaterialController>(prop); }},
-    {2653653638u, [](prop_arg prop) { return make_shared<yordle::data::meta::x9e2b8a86>(prop); }},
-    {334936068u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftGameStartViewController>(prop); }},
-    {2934583178u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftUnitShopViewController>(prop); }},
-    {1353487870u, [](prop_arg prop) { return make_shared<yordle::data::meta::AnnouncementsViewController>(prop); }},
-    {1813912031u, [](prop_arg prop) { return make_shared<yordle::data::meta::InvalidDeviceViewController>(prop); }},
-    {1830754775u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoginViewController>(prop); }},
-    {161679594u, [](prop_arg prop) { return make_shared<yordle::data::meta::PatchingViewController>(prop); }},
-    {3950575855u, [](prop_arg prop) { return make_shared<yordle::data::meta::SummonerNameCreateViewController>(prop); }},
-    {3963535729u, [](prop_arg prop) { return make_shared<yordle::data::meta::TftTeamPlannerViewController>(prop); }},
-    {2038992222u, [](prop_arg prop) { return make_shared<yordle::data::meta::ChatViewController>(prop); }},
-    {2261862267u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxProbabilityTableDataGrande>(prop); }},
-    {1965398739u, [](prop_arg prop) { return make_shared<yordle::data::meta::x75259ad3>(prop); }},
-    {3842081615u, [](prop_arg prop) { return make_shared<yordle::data::meta::ItemShopViewController>(prop); }},
-    {3773238524u, [](prop_arg prop) { return make_shared<yordle::data::meta::xe0e70cfc>(prop); }},
-    {1313586219u, [](prop_arg prop) { return make_shared<yordle::data::meta::x4e4bbc2b>(prop); }},
-    {2972878046u, [](prop_arg prop) { return make_shared<yordle::data::meta::NavHeaderViewController>(prop); }},
-    {3154693744u, [](prop_arg prop) { return make_shared<yordle::data::meta::OptionsViewController>(prop); }},
-    {3721213560u, [](prop_arg prop) { return make_shared<yordle::data::meta::PostGameViewController>(prop); }},
-    {2069136914u, [](prop_arg prop) { return make_shared<yordle::data::meta::CelebrationViewController>(prop); }},
-    {2222497939u, [](prop_arg prop) { return make_shared<yordle::data::meta::HomeViewController>(prop); }},
-    {2838012998u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutSelectViewController>(prop); }},
-    {11657974u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutViewController>(prop); }},
-    {144791174u, [](prop_arg prop) { return make_shared<yordle::data::meta::LobbyViewController>(prop); }},
-    {1013446472u, [](prop_arg prop) { return make_shared<yordle::data::meta::LootTableDialogViewController>(prop); }},
-    {162987137u, [](prop_arg prop) { return make_shared<yordle::data::meta::MissionsPanelViewController>(prop); }},
-    {2036227663u, [](prop_arg prop) { return make_shared<yordle::data::meta::ModeSelectViewController>(prop); }},
-    {379849898u, [](prop_arg prop) { return make_shared<yordle::data::meta::NotificationsPanelViewController>(prop); }},
-    {3947823298u, [](prop_arg prop) { return make_shared<yordle::data::meta::PurchaseDialog>(prop); }},
-    {968608392u, [](prop_arg prop) { return make_shared<yordle::data::meta::x39bbca88>(prop); }},
-    {4191775141u, [](prop_arg prop) { return make_shared<yordle::data::meta::SocialPanelViewController>(prop); }},
-    {1146372659u, [](prop_arg prop) { return make_shared<yordle::data::meta::StoreViewController>(prop); }},
-    {3603985163u, [](prop_arg prop) { return make_shared<yordle::data::meta::TFTBattlepassViewController>(prop); }},
-    {2807723955u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutArenaSkinInfoPanel>(prop); }},
-    {172106287u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutCompanionInfoPanel>(prop); }},
-    {845574667u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutDamageSkinInfoPanel>(prop); }},
-    {4100634241u, [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutEmoteInfoPanel>(prop); }},
-    {1973062744u, [](prop_arg prop) { return make_shared<yordle::data::meta::x759a8c58>(prop); }},
-    {1257187638u, [](prop_arg prop) { return make_shared<yordle::data::meta::QuestTrackerViewController>(prop); }},
-    {3792429246u, [](prop_arg prop) { return make_shared<yordle::data::meta::xe20be0be>(prop); }},
-    {172306941u, [](prop_arg prop) { return make_shared<yordle::data::meta::SettingsViewController>(prop); }},
-    {2766224215u, [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipInstanceSpell>(prop); }},
-    {1588263926u, [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipInstanceBuff>(prop); }},
-    {905298284u, [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipInstanceItem>(prop); }},
-    {3013700229u, [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipViewController>(prop); }},
-    {4231349552u, [](prop_arg prop) { return make_shared<yordle::data::meta::EsportsBannerMaterialController>(prop); }},
-    {1348327734u, [](prop_arg prop) { return make_shared<yordle::data::meta::BlendableClipData>(prop); }},
-    {358669516u, [](prop_arg prop) { return make_shared<yordle::data::meta::ConditionBoolClipData>(prop); }},
-    {2394679778u, [](prop_arg prop) { return make_shared<yordle::data::meta::ConditionFloatClipData>(prop); }},
-    {559985644u, [](prop_arg prop) { return make_shared<yordle::data::meta::ParallelClipData>(prop); }},
-    {4071811009u, [](prop_arg prop) { return make_shared<yordle::data::meta::ParametricClipData>(prop); }},
-    {1240774858u, [](prop_arg prop) { return make_shared<yordle::data::meta::SelectorClipData>(prop); }},
-    {2368776128u, [](prop_arg prop) { return make_shared<yordle::data::meta::SequencerClipData>(prop); }},
-    {1133034384u, [](prop_arg prop) { return make_shared<yordle::data::meta::LinearTransformProcessorData>(prop); }},
-    {3233830641u, [](prop_arg prop) { return make_shared<yordle::data::meta::xc0c056f1>(prop); }},
-    {2810433493u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapAudio>(prop); }},
-    {1316167258u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapCamera>(prop); }},
-    {2823085921u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapLocator>(prop); }},
-    {2059187804u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapMotionPath>(prop); }},
-    {235706735u, [](prop_arg prop) { return make_shared<yordle::data::meta::ColorGraphMaterialDriver>(prop); }},
-    {3495696672u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatGraphMaterialDriver>(prop); }},
-    {1171098015u, [](prop_arg prop) { return make_shared<yordle::data::meta::VfxSystemDefinitionData>(prop); }},
-    {1258254170u, [](prop_arg prop) { return make_shared<yordle::data::meta::ColorChooserMaterialDriver>(prop); }},
-    {1895822007u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatLiteralMaterialDriver>(prop); }},
-    {2417503366u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloorFloatMaterialDriver>(prop); }},
-    {3663840478u, [](prop_arg prop) { return make_shared<yordle::data::meta::IDynamicMaterialBoolDriver>(prop); }},
-    {2452878935u, [](prop_arg prop) { return make_shared<yordle::data::meta::AllTrueMaterialDriver>(prop); }},
-    {3364456740u, [](prop_arg prop) { return make_shared<yordle::data::meta::OneTrueMaterialDriver>(prop); }},
-    {3584469797u, [](prop_arg prop) { return make_shared<yordle::data::meta::NotMaterialDriver>(prop); }},
-    {542266838u, [](prop_arg prop) { return make_shared<yordle::data::meta::CustomShaderDef>(prop); }},
-    {4078053219u, [](prop_arg prop) { return make_shared<yordle::data::meta::FixedShaderDef>(prop); }},
-    {3114171249u, [](prop_arg prop) { return make_shared<yordle::data::meta::HybridMaterialDef>(prop); }},
-    {3883795674u, [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceDef>(prop); }},
-    {4288492553u, [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialDef>(prop); }},
-    {1572954563u, [](prop_arg prop) { return make_shared<yordle::data::meta::MapClouds>(prop); }},
-    {1923179998u, [](prop_arg prop) { return make_shared<yordle::data::meta::BaseResourceResolver>(prop); }},
-    {199624956u, [](prop_arg prop) { return make_shared<yordle::data::meta::GlobalResourceResolver>(prop); }},
-    {4013559603u, [](prop_arg prop) { return make_shared<yordle::data::meta::ResourceResolver>(prop); }},
-    {3160901390u, [](prop_arg prop) { return make_shared<yordle::data::meta::SetVarInTableBlock>(prop); }},
-    {720031464u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptCommentBlock>(prop); }},
-    {3143453189u, [](prop_arg prop) { return make_shared<yordle::data::meta::ConcatenateStringsBlock>(prop); }},
-    {3938181471u, [](prop_arg prop) { return make_shared<yordle::data::meta::CreateCustomTableBlock>(prop); }},
-    {3424357223u, [](prop_arg prop) { return make_shared<yordle::data::meta::DestroyCustomTableBlock>(prop); }},
-    {2263334442u, [](prop_arg prop) { return make_shared<yordle::data::meta::SetKeyValueInCustomTableBlock>(prop); }},
-    {1569214838u, [](prop_arg prop) { return make_shared<yordle::data::meta::GetKeyValueInCustomTableBlock>(prop); }},
-    {3439760492u, [](prop_arg prop) { return make_shared<yordle::data::meta::InsertIntoCustomTableBlock>(prop); }},
-    {2835506159u, [](prop_arg prop) { return make_shared<yordle::data::meta::RemoveFromCustomTableBlock>(prop); }},
-    {947658273u, [](prop_arg prop) { return make_shared<yordle::data::meta::GetSizeOfCustomTableBlock>(prop); }},
-    {31607380u, [](prop_arg prop) { return make_shared<yordle::data::meta::ForEachInCustomTableBlock>(prop); }},
-    {476310893u, [](prop_arg prop) { return make_shared<yordle::data::meta::CustomTableContainsValueBlock>(prop); }},
-    {2568619062u, [](prop_arg prop) { return make_shared<yordle::data::meta::CreateFunctionBlock>(prop); }},
-    {607501250u, [](prop_arg prop) { return make_shared<yordle::data::meta::IRunFunctionBlock>(prop); }},
-    {903266502u, [](prop_arg prop) { return make_shared<yordle::data::meta::IScriptSequence>(prop); }},
-    {2793907875u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptSequence>(prop); }},
-    {2922520200u, [](prop_arg prop) { return make_shared<yordle::data::meta::IBoolGet>(prop); }},
-    {1159336319u, [](prop_arg prop) { return make_shared<yordle::data::meta::BoolGet>(prop); }},
-    {3148945057u, [](prop_arg prop) { return make_shared<yordle::data::meta::BoolTableGet>(prop); }},
-    {2681684398u, [](prop_arg prop) { return make_shared<yordle::data::meta::CustomTableGet>(prop); }},
-    {2798892082u, [](prop_arg prop) { return make_shared<yordle::data::meta::IFloatGet>(prop); }},
-    {1608666903u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatGet>(prop); }},
-    {3990037433u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatTableGet>(prop); }},
-    {317190090u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatOffsetTableGet>(prop); }},
-    {4245932760u, [](prop_arg prop) { return make_shared<yordle::data::meta::IFunctionGet>(prop); }},
-    {800615629u, [](prop_arg prop) { return make_shared<yordle::data::meta::FunctionTableGet>(prop); }},
-    {3256124575u, [](prop_arg prop) { return make_shared<yordle::data::meta::IIntGet>(prop); }},
-    {708175882u, [](prop_arg prop) { return make_shared<yordle::data::meta::IntGet>(prop); }},
-    {3112089886u, [](prop_arg prop) { return make_shared<yordle::data::meta::IntTableGet>(prop); }},
-    {1534915661u, [](prop_arg prop) { return make_shared<yordle::data::meta::IntOffsetTableGet>(prop); }},
-    {574110442u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptTableGet>(prop); }},
-    {3202633864u, [](prop_arg prop) { return make_shared<yordle::data::meta::BaseElementData>(prop); }},
-    {2739628964u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectElementData>(prop); }},
-    {3191832311u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectCooldownElementData>(prop); }},
-    {4086628699u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectCircleMaskCooldownElementData>(prop); }},
-    {2174290526u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectCooldownRadialElementData>(prop); }},
-    {2608359503u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectArcFillElementData>(prop); }},
-    {3262156994u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectAmmoElementData>(prop); }},
-    {3998066495u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectGlowElementData>(prop); }},
-    {1913369002u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectAnimationElementData>(prop); }},
-    {220339975u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectFillPercentageElementData>(prop); }},
-    {1335813830u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectDesaturateElementData>(prop); }},
-    {2820872175u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectRotatingIconElementData>(prop); }},
-    {178804058u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectGlowingRotatingIconElementData>(prop); }},
-    {2170661496u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectAnimatedRotatingIconElementData>(prop); }},
-    {1581670814u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectLineElementData>(prop); }},
-    {2901870171u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectInstancedElementData>(prop); }},
-    {3706969042u, [](prop_arg prop) { return make_shared<yordle::data::meta::EffectCircleMaskDesaturateElementData>(prop); }},
-    {4143783062u, [](prop_arg prop) { return make_shared<yordle::data::meta::xf6fd1c96>(prop); }},
-    {3590855006u, [](prop_arg prop) { return make_shared<yordle::data::meta::ElementGroupButtonData>(prop); }},
-    {1005588128u, [](prop_arg prop) { return make_shared<yordle::data::meta::IconElementData>(prop); }},
-    {3716126038u, [](prop_arg prop) { return make_shared<yordle::data::meta::ParticleSystemElementData>(prop); }},
-    {1859523703u, [](prop_arg prop) { return make_shared<yordle::data::meta::RegionElementData>(prop); }},
-    {3070309571u, [](prop_arg prop) { return make_shared<yordle::data::meta::ScissorRegionElementData>(prop); }},
-    {2622984950u, [](prop_arg prop) { return make_shared<yordle::data::meta::TextElementData>(prop); }},
-    {2614239024u, [](prop_arg prop) { return make_shared<yordle::data::meta::x9bd21f30>(prop); }},
-    {3490803144u, [](prop_arg prop) { return make_shared<yordle::data::meta::xd0116dc8>(prop); }},
-    {2331705440u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffDynamicMaterialBoolDriver>(prop); }},
-    {1914613726u, [](prop_arg prop) { return make_shared<yordle::data::meta::HasGearDynamicMaterialBoolDriver>(prop); }},
-    {141658293u, [](prop_arg prop) { return make_shared<yordle::data::meta::IsAnimationPlayingDynamicMaterialBoolDriver>(prop); }},
-    {4199153591u, [](prop_arg prop) { return make_shared<yordle::data::meta::IsDeadDynamicMaterialBoolDriver>(prop); }},
-    {3177246235u, [](prop_arg prop) { return make_shared<yordle::data::meta::IsEnemyDynamicMaterialBoolDriver>(prop); }},
-    {3727041878u, [](prop_arg prop) { return make_shared<yordle::data::meta::IsInGrassDynamicMaterialBoolDriver>(prop); }},
-    {820959864u, [](prop_arg prop) { return make_shared<yordle::data::meta::LearnedSpellDynamicMaterialBoolDriver>(prop); }},
-    {3766132529u, [](prop_arg prop) { return make_shared<yordle::data::meta::MessageBoxDialog>(prop); }},
-    {1540989414u, [](prop_arg prop) { return make_shared<yordle::data::meta::AtomicClipData>(prop); }},
-    {347152410u, [](prop_arg prop) { return make_shared<yordle::data::meta::DelayedBoolMaterialDriver>(prop); }},
-    {62039180u, [](prop_arg prop) { return make_shared<yordle::data::meta::FixedDurationTriggeredBoolDriver>(prop); }},
-    {2428279575u, [](prop_arg prop) { return make_shared<yordle::data::meta::FloatComparisonMaterialDriver>(prop); }},
-};
+map<uint32_t, function<prop_ret(prop_arg)>> yordle::data::meta::bin_dispatch::table;
+
+void yordle::data::meta::bin_dispatch::load_table() {
+    if (!table.empty()) {
+        return;
+    }
+
+    table[4197693672u] = [](prop_arg prop) { return make_shared<yordle::data::meta::WardSkinDisabler>(prop); };
+    table[1073283193u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IContextualAction>(prop); };
+    table[3095435268u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualActionPlayAnimation>(prop); };
+    table[500070696u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualActionTriggerEvent>(prop); };
+    table[1668724992u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualActionPlayAudio>(prop); };
+    table[696305421u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualActionPlayVO>(prop); };
+    table[3400586476u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IContextualCondition>(prop); };
+    table[1104587944u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNegation>(prop); };
+    table[1086321689u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionItemID>(prop); };
+    table[2611344701u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionMultikillSize>(prop); };
+    table[888087826u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionKillCount>(prop); };
+    table[3828924738u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionItemVOGroup>(prop); };
+    table[2121488724u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionHasItemFromVOGroup>(prop); };
+    table[3450583319u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionLastBoughtItem>(prop); };
+    table[3030776672u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionRuleCooldown>(prop); };
+    table[766985824u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionChanceToPlay>(prop); };
+    table[1605316801u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionMoveDistance>(prop); };
+    table[1454228832u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterLevel>(prop); };
+    table[2646785396u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionTimeSinceStealthStateChange>(prop); };
+    table[1442744202u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionMarkerName>(prop); };
+    table[92678189u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNeutralMinionMapSide>(prop); };
+    table[2644467766u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNeutralMinionCampName>(prop); };
+    table[2698836486u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNeutralMinionCampIsAlive>(prop); };
+    table[3967297150u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNeutralCampId>(prop); };
+    table[3867527440u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionSituationHasRecentlyRun>(prop); };
+    table[160416398u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionMapID>(prop); };
+    table[2095729679u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionObjectiveTakeByMyTeam>(prop); };
+    table[3222630896u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionMapRegionName>(prop); };
+    table[2156731698u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionTurretPosition>(prop); };
+    table[1420908503u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionHasGold>(prop); };
+    table[1904648305u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCustomTimer>(prop); };
+    table[1010350366u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionGameTimer>(prop); };
+    table[1926860258u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionShopOpenCount>(prop); };
+    table[1386770836u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionShopCloseCount>(prop); };
+    table[4109134353u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionItemPurchased>(prop); };
+    table[4001334472u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionItemCanBePurchased>(prop); };
+    table[3440316227u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionItemPriceMinimum>(prop); };
+    table[1635608022u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionOwnerTeamNetChampionKills>(prop); };
+    table[4264964658u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNearbyChampionCount>(prop); };
+    table[4259363442u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionNumberOfCharactersNearTargetPos>(prop); };
+    table[1977541677u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionEnemyDeathsNearby>(prop); };
+    table[3730624179u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionTeammateDeathsNearby>(prop); };
+    table[2730793650u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacter>(prop); };
+    table[785741611u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionAnyOtherHero>(prop); };
+    table[3725269960u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ICharacterSubcondition>(prop); };
+    table[3741107577u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterName>(prop); };
+    table[3065745279u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterFormName>(prop); };
+    table[3363398730u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterSkinID>(prop); };
+    table[2510804743u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterMetadata>(prop); };
+    table[2711604381u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterUnitTags>(prop); };
+    table[188655288u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterHealth>(prop); };
+    table[3328327009u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionIsAlly>(prop); };
+    table[52525780u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterPlayingEmote>(prop); };
+    table[2213043706u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterPlayingAnimation>(prop); };
+    table[1680964441u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterDistance>(prop); };
+    table[3402679647u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterInRangeForSyncedAnimation>(prop); };
+    table[342643998u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterHasTimeRemainingForAnimation>(prop); };
+    table[1618442710u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterIsCastingRecall>(prop); };
+    table[1992674514u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterRole>(prop); };
+    table[3428313767u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionCharacterHasCAC>(prop); };
+    table[576452982u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::IContextualConditionSpell>(prop); };
+    table[2059432175u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionSpell>(prop); };
+    table[1616828652u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionSpellName>(prop); };
+    table[880553955u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionSpellSlot>(prop); };
+    table[1864557295u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionSpellLevel>(prop); };
+    table[3932864058u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualConditionSpellIsReady>(prop); };
+    table[4210162581u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IContextualConditionBuff>(prop); };
+    table[68729178u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::x418b95a>(prop); };
+    table[3101122117u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xb8d75e45>(prop); };
+    table[584100880u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualRule>(prop); };
+    table[4230456894u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualSituation>(prop); };
+    table[3888872651u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DamageSourceTemplate>(prop); };
+    table[3443066312u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DamageSourceSettings>(prop); };
+    table[2583264988u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DeathTimesScalingPoint>(prop); };
+    table[319277549u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::DeathTimes>(prop); };
+    table[3837969205u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceStateColorOptions>(prop); };
+    table[2001592274u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceStateData>(prop); };
+    table[2815698218u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceThresholdIndicatorRange>(prop); };
+    table[3011369577u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceTypeData>(prop); };
+    table[994495723u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceTypeConfig>(prop); };
+    table[3253985952u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EvolutionDescription>(prop); };
+    table[2482357264u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ExperienceCurveData>(prop); };
+    table[4040137199u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ExperienceModData>(prop); };
+    table[309827837u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::StatUIData>(prop); };
+    table[4087817779u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GlobalStatsUIData>(prop); };
+    table[1207715590u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CameraTrapezoid>(prop); };
+    table[3757418744u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CameraConfig>(prop); };
+    table[3010308524u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapAudioDataProperties>(prop); };
+    table[3024130158u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ClientStateAudioDataProperties>(prop); };
+    table[4071981464u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FeatureAudioDataProperties>(prop); };
+    table[2755749141u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BankUnit>(prop); };
+    table[1123665566u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AudioTagListProperties>(prop); };
+    table[915602117u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AudioSystemDataProperties>(prop); };
+    table[2254221038u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AudioStatusEvents>(prop); };
+    table[2263089413u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GlobalAudioDataProperties>(prop); };
+    table[1714459771u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MusicAudioDataProperties>(prop); };
+    table[1597933322u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EVOSettings>(prop); };
+    table[2479546740u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ICatalogEntryOwner>(prop); };
+    table[607049692u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::CatalogEntry>(prop); };
+    table[3496109055u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CensoredImage>(prop); };
+    table[2335876880u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Character>(prop); };
+    table[856064357u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinCharacterDataProperties_CharacterIdleEffect>(prop); };
+    table[1393249095u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinCharacterMetaDataProperties_SpawningSkinOffset>(prop); };
+    table[336658597u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ESportTeamEntry>(prop); };
+    table[1219793301u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ESportLeagueEntry>(prop); };
+    table[4160558231u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinCharacterMetaDataProperties>(prop); };
+    table[2407209295u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinAudioProperties>(prop); };
+    table[1114474915u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinAnimationProperties>(prop); };
+    table[2074733870u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinEmblem>(prop); };
+    table[4080233272u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinSummonerEmoteLoadout>(prop); };
+    table[2607278582u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinCharacterDataProperties>(prop); };
+    table[3022275834u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinFilterData>(prop); };
+    table[2393107013u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CharacterPassiveData>(prop); };
+    table[1907548119u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GlobalPerLevelStatsFactor>(prop); };
+    table[3397751176u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OverrideAutoAttackCastTimeData>(prop); };
+    table[602544405u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::CharacterRecord>(prop); };
+    table[3459369333u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceSlotInfo>(prop); };
+    table[112014489u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AttackSlotData>(prop); };
+    table[490133160u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TargetLaserComponentEffects>(prop); };
+    table[2970707127u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ToolEducationData>(prop); };
+    table[3963447610u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CharacterToolData>(prop); };
+    table[2573155477u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Companion>(prop); };
+    table[1250691283u] = [](prop_arg prop) { return make_shared<yordle::data::meta::InteractionData>(prop); };
+    table[1708005576u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ISpellRankUpRequirement>(prop); };
+    table[4223600025u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasSkillPointRequirement>(prop); };
+    table[130158569u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::CharacterLevelRequirement>(prop); };
+    table[1790796033u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffRequirement>(prop); };
+    table[3158945758u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SpellRankUpRequirements>(prop); };
+    table[2606765944u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SpellLevelUpInfo>(prop); };
+    table[825182082u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::RecSpellRankUpInfo>(prop); };
+    table[4101150036u] = [](prop_arg prop) { return make_shared<yordle::data::meta::UseableData>(prop); };
+    table[297212766u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::CharacterHealthBarDataRecord>(prop); };
+    table[6610142u]    = [](prop_arg prop) { return make_shared<yordle::data::meta::SponsoredBanner>(prop); };
+    table[3503743985u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EsportsBannerConfiguration>(prop); };
+    table[761042637u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::EsportsBannerData>(prop); };
+    table[249502963u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::EsportsData>(prop); };
+    table[1951208621u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ClashLogo>(prop); };
+    table[224714173u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::EsportsBannerOptions>(prop); };
+    table[1337363141u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MasteryBadgeData>(prop); };
+    table[4114078183u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MasteryBadgeConfig>(prop); };
+    table[505623326u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MasteryData>(prop); };
+    table[2781975535u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ChampionMasteryMap>(prop); };
+    table[2514536512u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BaseLoadoutData>(prop); };
+    table[3930402607u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutFeatureData>(prop); };
+    table[695369637u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::RecallDecalData>(prop); };
+    table[668820321u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::GearSkinUpgrade>(prop); };
+    table[1760736924u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinUpgradeData>(prop); };
+    table[4009991563u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTCompanionBucket>(prop); };
+    table[2097505044u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTBotLoadoutConfiguration>(prop); };
+    table[2025704385u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BannerFlagData>(prop); };
+    table[3564953724u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BannerFrameData>(prop); };
+    table[2093092437u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CompanionData>(prop); };
+    table[2386264729u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CompanionSpeciesData>(prop); };
+    table[1950165531u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SummonerEmote>(prop); };
+    table[508241094u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::SummonerEmoteSettings>(prop); };
+    table[3023323566u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GearData>(prop); };
+    table[2355674u]    = [](prop_arg prop) { return make_shared<yordle::data::meta::ModeProgressionRewardData>(prop); };
+    table[2286074286u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RegaliaData>(prop); };
+    table[1780014848u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RegaliaLookup>(prop); };
+    table[3828118224u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RegaliaRankedCrestEntry>(prop); };
+    table[2415052226u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RegaliaRankedCrestMap>(prop); };
+    table[3350243090u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RegaliaPrestigeCrestList>(prop); };
+    table[761319899u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::RegaliaRankedBannerMap>(prop); };
+    table[732494899u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x2ba8fc33>(prop); };
+    table[4146948500u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StatStoneEventToTrack>(prop); };
+    table[3978526660u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StatStoneData>(prop); };
+    table[3276314181u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IStatStoneLogicDriver>(prop); };
+    table[3196462184u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TargetHasUnitTagFilter>(prop); };
+    table[2925773367u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TrueDamageGivenFilter>(prop); };
+    table[2898073997u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CrowdControlFilter>(prop); };
+    table[2971935795u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TargetHasBuffFilter>(prop); };
+    table[1442793122u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SourceTypeFilter>(prop); };
+    table[3994264754u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TargetTypeFilter>(prop); };
+    table[3663270019u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TargetTeamFilter>(prop); };
+    table[1577686390u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SourceLessThanHealthPercentageFilter>(prop); };
+    table[3383798399u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AssistCountFilter>(prop); };
+    table[3987305908u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MultiKillLogic>(prop); };
+    table[2857147974u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DamageShieldedLogic>(prop); };
+    table[924071072u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::GoldSourceFilter>(prop); };
+    table[3258535250u] = [](prop_arg prop) { return make_shared<yordle::data::meta::KillingSpreeFilter>(prop); };
+    table[2516419817u] = [](prop_arg prop) { return make_shared<yordle::data::meta::NeutralMinionCampClearedLogic>(prop); };
+    table[1203614713u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TurretFirstBloodLogic>(prop); };
+    table[2524344308u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StatStoneSet>(prop); };
+    table[3156432820u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StatStoneCategory>(prop); };
+    table[3939611513u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xead1b379>(prop); };
+    table[851321958u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x32be2466>(prop); };
+    table[2265035565u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTDamageSkin>(prop); };
+    table[3607046696u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftDamageSkinDescriptor>(prop); };
+    table[2233303452u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftMapGroupData>(prop); };
+    table[2731557552u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftMapSkin>(prop); };
+    table[1176619879u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TrophyData>(prop); };
+    table[4045134945u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TrophyPedestalData>(prop); };
+    table[374383822u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x1650a4ce>(prop); };
+    table[1572178072u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EmblemPosition>(prop); };
+    table[1713655491u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EmblemData>(prop); };
+    table[381157638u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::EmblemSettings>(prop); };
+    table[1773891178u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeAutoItemPurchasingConfig>(prop); };
+    table[2322891183u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeChampionList>(prop); };
+    table[1670770484u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstant>(prop); };
+    table[2541033414u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantFloat>(prop); };
+    table[1074986366u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantInteger>(prop); };
+    table[1679679788u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantBool>(prop); };
+    table[2710093141u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantString>(prop); };
+    table[3193188146u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantStringVector>(prop); };
+    table[4100984476u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantTRAKey>(prop); };
+    table[2293025490u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantVector3f>(prop); };
+    table[2851992205u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantFloatPerLevel>(prop); };
+    table[720276364u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstantsGroup>(prop); };
+    table[201829573u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeConstants>(prop); };
+    table[401601815u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeItemList>(prop); };
+    table[2312017462u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeMapData>(prop); };
+    table[4119089369u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameMutatorExpansions>(prop); };
+    table[3053458126u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IGameCalculationPart>(prop); };
+    table[2344649559u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectValueCalculationPart>(prop); };
+    table[858698817u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::NamedDataValueCalculationPart>(prop); };
+    table[515850313u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::CooldownMultiplierCalculationPart>(prop); };
+    table[2599819896u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CustomReductionMultiplierCalculationPart>(prop); };
+    table[2903535207u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ProductOfSubPartsCalculationPart>(prop); };
+    table[2225484659u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SumOfSubPartsCalculationPart>(prop); };
+    table[2151525964u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x803dae4c>(prop); };
+    table[2667126912u] = [](prop_arg prop) { return make_shared<yordle::data::meta::NumberCalculationPart>(prop); };
+    table[3052837161u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IGameCalculationPartWithStats>(prop); };
+    table[1477816489u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StatByCoefficientCalculationPart>(prop); };
+    table[3440733311u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StatBySubPartCalculationPart>(prop); };
+    table[1599893668u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StatByNamedDataValueCalculationPart>(prop); };
+    table[95149995u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::x5abdfab>(prop); };
+    table[3925560600u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xe9fb4d18>(prop); };
+    table[2572940566u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SubPartScaledProportionalToStat>(prop); };
+    table[1983743771u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceByCoefficientCalculationPart>(prop); };
+    table[1989226833u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IGameCalculationPartWithBuffCounter>(prop); };
+    table[1255179386u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BuffCounterByCoefficientCalculationPart>(prop); };
+    table[2063182569u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BuffCounterByNamedDataValueCalculationPart>(prop); };
+    table[308440063u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::IGameCalculationPartByCharLevel>(prop); };
+    table[369020348u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ByCharLevelInterpolationCalculationPart>(prop); };
+    table[1559666382u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ByCharLevelBreakpointsCalculationPart>(prop); };
+    table[2392053998u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Breakpoint>(prop); };
+    table[606188120u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ByCharLevelFormulaCalculationPart>(prop); };
+    table[1715297792u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x663d5e00>(prop); };
+    table[389493299u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::IGameCalculation>(prop); };
+    table[3158348420u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameCalculation>(prop); };
+    table[118371731u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::GameCalculationModified>(prop); };
+    table[3922646404u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameCalculationConditional>(prop); };
+    table[3168105463u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameplayConfig>(prop); };
+    table[903342517u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::EnchantmentGroup>(prop); };
+    table[608970470u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemData>(prop); };
+    table[2999331975u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemDataValue>(prop); };
+    table[1643693084u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x61f8c41c>(prop); };
+    table[3225152729u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemDataAvailability>(prop); };
+    table[3845505502u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemDataBuild>(prop); };
+    table[992861497u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemGroup>(prop); };
+    table[2109319947u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemModifier>(prop); };
+    table[2233135733u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemDataClient>(prop); };
+    table[3337884263u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ChampionItemRecommendations>(prop); };
+    table[1183984318u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationItemList>(prop); };
+    table[2188140632u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationContextList>(prop); };
+    table[4266457040u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationContext>(prop); };
+    table[1589364011u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationChoices>(prop); };
+    table[2727115092u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationMatrixRow>(prop); };
+    table[779837744u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationMatrix>(prop); };
+    table[1513866541u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x5a3bc52d>(prop); };
+    table[396544810u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationCondition>(prop); };
+    table[3898055584u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationOverrideContext>(prop); };
+    table[2556481222u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationOverrideStartingItemSet>(prop); };
+    table[1661050393u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationOverride>(prop); };
+    table[2753712911u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemRecommendationOverrideSet>(prop); };
+    table[573358062u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemAdviceAttribute>(prop); };
+    table[2822771443u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemCareyOverrideStartingItemSet>(prop); };
+    table[1101955153u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemCareyOverrideStartingItemSetSet>(prop); };
+    table[4103435203u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemShopGameModeData>(prop); };
+    table[3808259511u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CollectiblesEsportsTeamData>(prop); };
+    table[2783969040u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SummonerIconData>(prop); };
+    table[954042444u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::LiveFeatureToggles>(prop); };
+    table[3353146463u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LoLFeatureToggles>(prop); };
+    table[1222455122u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GDSMapObjectExtraInfo>(prop); };
+    table[2301501426u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GDSMapObjectAnimationInfo>(prop); };
+    table[651368964u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::GDSMapObjectLightingInfo>(prop); };
+    table[1777761610u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GDSMapObjectBannerInfo>(prop); };
+    table[2506702743u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LootOutputBase>(prop); };
+    table[1665937510u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LootItemDetails>(prop); };
+    table[685945729u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::LootStatus>(prop); };
+    table[1545315440u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LootItem>(prop); };
+    table[2643135015u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ClientStateCommonSettings>(prop); };
+    table[1790162312u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IdentityInstance>(prop); };
+    table[1295117638u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x4d31ed46>(prop); };
+    table[347010316u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x14aef50c>(prop); };
+    table[2673469741u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x9f59e92d>(prop); };
+    table[3419333123u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapAction>(prop); };
+    table[2938323084u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xaf23408c>(prop); };
+    table[2349695221u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x8c0d80f5>(prop); };
+    table[1826338589u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x6cdbb71d>(prop); };
+    table[3013740817u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapActionPlayAnimation>(prop); };
+    table[2134659206u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapActionPlaySoundAtLocation>(prop); };
+    table[1239049582u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x49da656e>(prop); };
+    table[3470174985u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xced6ab09>(prop); };
+    table[3787165435u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xe1bb8efb>(prop); };
+    table[3846963535u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapAlternateAsset>(prop); };
+    table[849736052u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MapAlternateAssets>(prop); };
+    table[199060396u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MapCharacterList>(prop); };
+    table[2902067178u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapLocatorArray>(prop); };
+    table[3880372342u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapNavigationGridOverlays>(prop); };
+    table[953399041u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MapNavigationGridOverlay>(prop); };
+    table[955345470u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MapSkinColorizationPostEffect>(prop); };
+    table[3441028924u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapSkin>(prop); };
+    table[298132920u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MapVisibilityFlagRange>(prop); };
+    table[730516414u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MapVisibilityFlagDefinition>(prop); };
+    table[1484706743u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapVisibilityFlagDefinitions>(prop); };
+    table[2712490432u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapBackground>(prop); };
+    table[718267822u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapBackgroundConfig>(prop); };
+    table[1923729607u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MissionAsset>(prop); };
+    table[2577175271u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CheatPage>(prop); };
+    table[1165487172u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CheatSet>(prop); };
+    table[337391297u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::CheatMenuUIData>(prop); };
+    table[2490030924u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Cheat>(prop); };
+    table[3690099329u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptCheat>(prop); };
+    table[3317948433u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AddGoldCheat>(prop); };
+    table[3590488641u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaxAllSkillsCheat>(prop); };
+    table[947718767u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AddExperienceCheat>(prop); };
+    table[2218753755u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ToggleBuffCheat>(prop); };
+    table[2639255897u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AddHealthCheat>(prop); };
+    table[666034550u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AddPARCheat>(prop); };
+    table[3048271729u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ToggleRegenCheat>(prop); };
+    table[1355264261u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ClearTargetCooldownCheat>(prop); };
+    table[308619146u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TimeMultiplierCheat>(prop); };
+    table[3963713437u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DamageUnitCheat>(prop); };
+    table[2011491725u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ToggleBarracksCheat>(prop); };
+    table[2796927515u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ToggleTeamCheat>(prop); };
+    table[1050508117u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SetRespawnTimerCheat>(prop); };
+    table[3748300377u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ToggleInvulnerableCheat>(prop); };
+    table[691714906u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::KillAllTurretsCheat>(prop); };
+    table[2240430239u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ForceSpawnNeutralCampsCheat>(prop); };
+    table[3658203397u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ResetGoldCheat>(prop); };
+    table[2818226507u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TogglePlantFastRespawnCheat>(prop); };
+    table[1887008704u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SwapChampionCheat>(prop); };
+    table[1458280349u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ToggleAfkDetectionCheat>(prop); };
+    table[2971960800u] = [](prop_arg prop) { return make_shared<yordle::data::meta::PerkEffectAmountPerMode>(prop); };
+    table[2766644386u] = [](prop_arg prop) { return make_shared<yordle::data::meta::PerkScriptData>(prop); };
+    table[501137906u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::PerkScript>(prop); };
+    table[1031283364u] = [](prop_arg prop) { return make_shared<yordle::data::meta::PerkBuff>(prop); };
+    table[3196794540u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BasePerk>(prop); };
+    table[240569694u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::PerkStyle>(prop); };
+    table[232419497u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::PerkSlot>(prop); };
+    table[2405280373u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DefaultSplashedPerkStyle>(prop); };
+    table[3234822452u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DefaultStatModPerkSet>(prop); };
+    table[3127434961u] = [](prop_arg prop) { return make_shared<yordle::data::meta::PerkSubStyleBonus>(prop); };
+    table[4081542451u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SummonerSpellPerkReplacement>(prop); };
+    table[3014400443u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SummonerSpellPerkReplacementList>(prop); };
+    table[3069197533u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Perk>(prop); };
+    table[1517326239u] = [](prop_arg prop) { return make_shared<yordle::data::meta::PerkReplacement>(prop); };
+    table[2307915623u] = [](prop_arg prop) { return make_shared<yordle::data::meta::PerkReplacementList>(prop); };
+    table[1524731407u] = [](prop_arg prop) { return make_shared<yordle::data::meta::PerkConfig>(prop); };
+    table[890839731u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::OverridePerkSelectionSet>(prop); };
+    table[2533312697u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ToonInkingFilterParams>(prop); };
+    table[4227680462u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RenderStyleData>(prop); };
+    table[1441690361u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialOverrideCallbackDynamicMaterial>(prop); };
+    table[4069567955u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MouseOverEffectData>(prop); };
+    table[729255394u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FxSequence>(prop); };
+    table[351234915u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FxTableEntry>(prop); };
+    table[1638517141u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FxTable>(prop); };
+    table[87271638u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::FxTarget>(prop); };
+    table[3687298637u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FxTiming>(prop); };
+    table[754442341u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FxTransform>(prop); };
+    table[3063177560u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IFxAction>(prop); };
+    table[3021260058u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameplayFeatureToggles>(prop); };
+    table[1625294129u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptDataObject>(prop); };
+    table[3171701405u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptDataObjectList>(prop); };
+    table[1550969638u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ICastRequirement>(prop); };
+    table[4155399702u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasAllSubRequirementsCastRequirement>(prop); };
+    table[1987560042u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasNNearbyUnitsRequirement>(prop); };
+    table[3970312064u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasNNearbyVisibleUnitsRequirement>(prop); };
+    table[4095662801u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasTypeAndStatusFlags>(prop); };
+    table[44654127u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::HasAtleastNSubRequirementsCastRequirement>(prop); };
+    table[1461533414u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasUnitTagsCastRequirement>(prop); };
+    table[1622554532u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SameTeamCastRequirement>(prop); };
+    table[1528795992u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffCastRequirement>(prop); };
+    table[329280789u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AboveHealthPercentCastRequirement>(prop); };
+    table[795738052u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AbovePARPercentCastRequirement>(prop); };
+    table[3745993663u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IsSpecifiedUnitCastRequirement>(prop); };
+    table[284479679u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x10f4d0bf>(prop); };
+    table[3697672164u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xdc65ffe4>(prop); };
+    table[3151502687u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemSlotHasChargesCastRequirement>(prop); };
+    table[779902682u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x2e7c5eda>(prop); };
+    table[1210599257u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x48284759>(prop); };
+    table[2006398389u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CCScoreMultipliers>(prop); };
+    table[1177802644u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BuffData>(prop); };
+    table[2090279541u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TeamBuffData>(prop); };
+    table[4073390176u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MissionBuffData>(prop); };
+    table[471801710u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::BuffStackingTemplate>(prop); };
+    table[1852984937u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BuffStackingSettings>(prop); };
+    table[3390937687u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VFXSpawnConditionData>(prop); };
+    table[922712184u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VFXDefaultSpawnConditionData>(prop); };
+    table[3836337806u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffData>(prop); };
+    table[3686997399u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffComparisonData>(prop); };
+    table[2412429686u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffSpawnConditionData>(prop); };
+    table[1323437592u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IsSkinSpawnConditionData>(prop); };
+    table[3706207649u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IsOwnerHeroConditionData>(prop); };
+    table[3575093694u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IsOwnerAliveConditionData>(prop); };
+    table[3181780357u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasSpellRankSpawnConditionData>(prop); };
+    table[2833994484u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxSpawnConditions>(prop); };
+    table[3813882857u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IVFXSpawnConditions>(prop); };
+    table[2968154316u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AlwaysSpawnCondition>(prop); };
+    table[1349646866u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffNameSpawnConditions>(prop); };
+    table[3161555652u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasSkinIDSpawnConditions>(prop); };
+    table[1556398653u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IsOwnerHeroSpawnConditions>(prop); };
+    table[759657674u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::IsOwnerAliveSpawnConditions>(prop); };
+    table[2338173165u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectCreationData>(prop); };
+    table[3393100796u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RatioConversion>(prop); };
+    table[1132045746u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x4379a5b2>(prop); };
+    table[1983940620u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SpellModifier>(prop); };
+    table[3696800942u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityObject>(prop); };
+    table[1585338886u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SpellObject>(prop); };
+    table[3221008892u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MissileSpecification>(prop); };
+    table[369826590u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MissileBehaviorSpec>(prop); };
+    table[3184228220u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FixedDistanceIgnoringTerrain>(prop); };
+    table[384088054u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ScaleByScaleSkinCoef>(prop); };
+    table[768590138u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::WidthPerSecond>(prop); };
+    table[3362386950u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MissileTriggerSpec>(prop); };
+    table[3145117116u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TriggerOnMovementComplete>(prop); };
+    table[3108709201u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TriggerOnDelay>(prop); };
+    table[1863542244u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DelayStart>(prop); };
+    table[127412095u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x798277f>(prop); };
+    table[1023490542u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TriggerOnStart>(prop); };
+    table[447874143u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TriggerOnHit>(prop); };
+    table[2746720777u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TriggerOnDistanceFromCaster>(prop); };
+    table[4280641128u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TriggerFromScript>(prop); };
+    table[1405067729u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MissileTriggeredActionSpec>(prop); };
+    table[2854572110u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Cast>(prop); };
+    table[3294324549u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Destroy>(prop); };
+    table[3563037474u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ReturnToCaster>(prop); };
+    table[2263200418u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ClearAlreadyHitTracking>(prop); };
+    table[2611874788u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CallOnMissileBounce>(prop); };
+    table[3843873303u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ClearTargetAndKeepMoving>(prop); };
+    table[3645322198u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ChangeMissileSpeed>(prop); };
+    table[1722047856u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ChangeTurnRadius>(prop); };
+    table[934449797u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ChangeHeightSolver>(prop); };
+    table[107695717u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::DestroyOnHit>(prop); };
+    table[4211998018u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DestroyOnMovementComplete>(prop); };
+    table[3814179094u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xe357c116>(prop); };
+    table[3656718200u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CastOnHit>(prop); };
+    table[2645302597u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CastOnMovementComplete>(prop); };
+    table[545864281u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ReturnToCasterOnMovementComplete>(prop); };
+    table[1040594301u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MissileGroupSpawnerSpec>(prop); };
+    table[974318101u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::HeightSolverType>(prop); };
+    table[2530014013u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GravityHeightSolver>(prop); };
+    table[1318474241u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FollowTerrainHeightSolver>(prop); };
+    table[692892064u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::BlendedLinearHeightSolver>(prop); };
+    table[4027168330u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SinusoidalHeightSolver>(prop); };
+    table[3920264276u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CurveTheDifferenceHeightSolver>(prop); };
+    table[1798110077u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MissileMovementSpec>(prop); };
+    table[60513980u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::CircleMovement>(prop); };
+    table[479174419u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::SyncCircleMovement>(prop); };
+    table[2051207289u] = [](prop_arg prop) { return make_shared<yordle::data::meta::NullMovement>(prop); };
+    table[2945473954u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AcceleratingMovement>(prop); };
+    table[2993585533u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DecelToLocationMovement>(prop); };
+    table[4147218533u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FixedTimeMovement>(prop); };
+    table[103819417u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FixedSpeedMovement>(prop); };
+    table[470290435u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::PhysicsMovement>(prop); };
+    table[1415088838u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TrackMouseMovement>(prop); };
+    table[1659331669u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GenericSplineMovementSpec>(prop); };
+    table[3401906356u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FixedTimeSplineMovement>(prop); };
+    table[2002648336u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FixedSpeedSplineMovement>(prop); };
+    table[2409973973u] = [](prop_arg prop) { return make_shared<yordle::data::meta::WallFollowMovement>(prop); };
+    table[3891808829u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VerticalFacingType>(prop); };
+    table[3974501911u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VeritcalFacingMatchVelocity>(prop); };
+    table[577189237u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VerticalFacingFaceTarget>(prop); };
+    table[1749521072u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MissileVisibilitySpec>(prop); };
+    table[3535923758u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Defaultvisibility>(prop); };
+    table[2461751699u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EnterFOWVisibility>(prop); };
+    table[3701578183u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MissileAttachedTargetingDefinition>(prop); };
+    table[4010062211u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AISpellData>(prop); };
+    table[2463406204u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SpellEffectAmount>(prop); };
+    table[5245094u]    = [](prop_arg prop) { return make_shared<yordle::data::meta::SpellDataValue>(prop); };
+    table[1798273677u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SpellDataValueVector>(prop); };
+    table[1523572560u] = [](prop_arg prop) { return make_shared<yordle::data::meta::PlatformSpellInfo>(prop); };
+    table[771419981u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ISplineInfo>(prop); };
+    table[1365802124u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HermiteSplineInfo>(prop); };
+    table[1471545228u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OverrideAttackTimeData>(prop); };
+    table[868276581u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::UseAutoattackCastTimeData>(prop); };
+    table[3565606633u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SpellLockDeltaTimeData>(prop); };
+    table[2057207177u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x7a9e7d89>(prop); };
+    table[609301268u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AlternateSpellAssets>(prop); };
+    table[1127646569u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SpellDataResource>(prop); };
+    table[3562978890u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SpellPassiveData>(prop); };
+    table[3174223914u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CustomTargeterDefinitions>(prop); };
+    table[2110892290u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SpellDataResourceClient>(prop); };
+    table[1607774867u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SpawningUIDefinition>(prop); };
+    table[3560905284u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IScriptPreload>(prop); };
+    table[796426082u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptPreloadCharacter>(prop); };
+    table[2709224959u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptPreloadSpell>(prop); };
+    table[1322354127u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptPreloadModule>(prop); };
+    table[3450289597u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptPreloadParticle>(prop); };
+    table[3712288203u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LoLSpellPreloadData>(prop); };
+    table[3193997900u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptGlobalProperties>(prop); };
+    table[4153143643u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ILineIndicatorType>(prop); };
+    table[1062280453u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IndicatorTypeLocal>(prop); };
+    table[2357149705u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IndicatorTypeGlobal>(prop); };
+    table[1348413282u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ITargeterFadeBehavior>(prop); };
+    table[2433758018u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FadeOverTimeBehavior>(prop); };
+    table[3193505140u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FadeByMouseRangeBehavior>(prop); };
+    table[2832031521u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FadeToExplicitValueBehavior>(prop); };
+    table[702535597u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x29dfd7ad>(prop); };
+    table[508250748u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatPerSpellLevel>(prop); };
+    table[3451066870u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DrawablePositionLocator>(prop); };
+    table[1278600786u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinition>(prop); };
+    table[3795530517u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionAoe>(prop); };
+    table[3161379494u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionArc>(prop); };
+    table[2281086721u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionCone>(prop); };
+    table[872611392u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionLine>(prop); };
+    table[411843849u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionMinimap>(prop); };
+    table[75156191u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionRange>(prop); };
+    table[1653312970u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionWall>(prop); };
+    table[120327418u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionMultiAOE>(prop); };
+    table[669603267u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionSpline>(prop); };
+    table[3994921506u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TargeterDefinitionSkipTerrain>(prop); };
+    table[2144288560u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TargetingTypeData>(prop); };
+    table[1683726967u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Self>(prop); };
+    table[845187144u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::Target>(prop); };
+    table[2601460036u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Area>(prop); };
+    table[3711978346u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Cone>(prop); };
+    table[3931936918u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SelfAoe>(prop); };
+    table[530745462u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TargetOrLocation>(prop); };
+    table[200649126u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::Location>(prop); };
+    table[3748513642u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Direction>(prop); };
+    table[183658092u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::DragDirection>(prop); };
+    table[752642599u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::LineTargetToCaster>(prop); };
+    table[808547418u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AreaClamped>(prop); };
+    table[1986849908u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LocationClamped>(prop); };
+    table[2104163269u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TerrainLocation>(prop); };
+    table[890181294u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TerrainType>(prop); };
+    table[3086678927u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StatFormulaData>(prop); };
+    table[1250314967u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StatFormulaDataList>(prop); };
+    table[2299573588u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameModeDefaultStats>(prop); };
+    table[1005214616u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftSurrenderCheat>(prop); };
+    table[3415378836u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftChangeDamageSkinCheat>(prop); };
+    table[229654189u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TftMapCharacterRecordData>(prop); };
+    table[2653184481u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftMapCharacterSkinData>(prop); };
+    table[2155905376u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftMapCharacterData>(prop); };
+    table[2927874496u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftMapCharacterList>(prop); };
+    table[1820531913u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTMapCharacterLists>(prop); };
+    table[3519409590u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTAnnouncementData>(prop); };
+    table[3726789741u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTAttachmentSlotStyleData>(prop); };
+    table[809801457u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTCharacterRecord>(prop); };
+    table[1414729207u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTDragData>(prop); };
+    table[4070851979u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftDropRates>(prop); };
+    table[4066427822u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xf260c3ae>(prop); };
+    table[1660895988u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftEffectAmount>(prop); };
+    table[1707263328u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftItemComposition>(prop); };
+    table[3515269914u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftItemData>(prop); };
+    table[2541164198u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTItemList>(prop); };
+    table[906277859u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x3604b3e3>(prop); };
+    table[30889102u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTModeData>(prop); };
+    table[53563192u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTGameVariationData>(prop); };
+    table[2099815050u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTNotificationData>(prop); };
+    table[634061068u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTPhaseData>(prop); };
+    table[4104567591u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTRoundData>(prop); };
+    table[4147633913u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTStageData>(prop); };
+    table[1133007103u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTSetData>(prop); };
+    table[3844837213u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftShopData>(prop); };
+    table[2098479675u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTStatData>(prop); };
+    table[646351631u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTStreak>(prop); };
+    table[2506805399u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTStreakData>(prop); };
+    table[3758614261u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTTraitContributionData>(prop); };
+    table[3241198053u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTTraitSetData>(prop); };
+    table[1871118919u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftTraitData>(prop); };
+    table[1539106983u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftTraitList>(prop); };
+    table[1963259073u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTUnitUpgradeData>(prop); };
+    table[305388529u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudAnnouncementData>(prop); };
+    table[1573027425u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudCombatRecapData>(prop); };
+    table[2068371646u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudNotificationsData>(prop); };
+    table[3661393350u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xda3c6dc6>(prop); };
+    table[1850343160u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudScoreboardData>(prop); };
+    table[1839038444u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudStageData>(prop); };
+    table[924097896u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudUnitShopData>(prop); };
+    table[3672021242u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudMobileDownscaleData>(prop); };
+    table[1340671070u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTHudTunables>(prop); };
+    table[638641575u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x2610e5a7>(prop); };
+    table[662826347u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x2781ed6b>(prop); };
+    table[622921539u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ObjectTags>(prop); };
+    table[410617757u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::NumberFormattingBehavior>(prop); };
+    table[2581062515u] = [](prop_arg prop) { return make_shared<yordle::data::meta::NumberFormattingData>(prop); };
+    table[502828211u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AnnouncementDefinitionData>(prop); };
+    table[94368299u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::AnnouncementDefinition>(prop); };
+    table[2016968373u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x78387eb5>(prop); };
+    table[3731372071u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AnnouncementStyleBasic>(prop); };
+    table[1221197624u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x48c9ff38>(prop); };
+    table[2861933169u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xaa95a271>(prop); };
+    table[728839351u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AnnouncementIcon>(prop); };
+    table[224929220u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AnnouncementMap>(prop); };
+    table[187557783u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::CursorData>(prop); };
+    table[4014870449u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CursorDataTeamContext>(prop); };
+    table[3454621813u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CursorDataCaptureCooldownContext>(prop); };
+    table[3994575677u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CursorConfig>(prop); };
+    table[1743182461u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HealthbarImageInfo>(prop); };
+    table[1273755329u] = [](prop_arg prop) { return make_shared<yordle::data::meta::UnitStatusData>(prop); };
+    table[3886968817u] = [](prop_arg prop) { return make_shared<yordle::data::meta::UnitStatusPriorityList>(prop); };
+    table[383291203u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatTextIconData>(prop); };
+    table[267762117u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatTextDisplayOverrides>(prop); };
+    table[395898060u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatingTextTunables>(prop); };
+    table[3119478897u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatingTextDamageDisplayTypeList>(prop); };
+    table[585161597u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatTextFormattingData>(prop); };
+    table[46628140u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatingTextTypeList>(prop); };
+    table[2165648641u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatingTextGlobalConfig>(prop); };
+    table[1059987028u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatingTextOverride>(prop); };
+    table[3892017401u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudColorData>(prop); };
+    table[3939670256u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudFeedbackDamageData>(prop); };
+    table[4180972365u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TeamScoreMeterUITunables>(prop); };
+    table[3303051661u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudTeamScoreMeterProperties>(prop); };
+    table[60771964u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::EncounterUITunables>(prop); };
+    table[3365626407u] = [](prop_arg prop) { return make_shared<yordle::data::meta::QuestUITunables>(prop); };
+    table[3440211024u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DragonUITunables>(prop); };
+    table[3557256043u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudGameModeScoreData>(prop); };
+    table[3732824828u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapIconTextureData>(prop); };
+    table[59888480u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapIconColorData>(prop); };
+    table[525225061u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapIcon>(prop); };
+    table[523452044u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapData>(prop); };
+    table[3920544379u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudOptionalBinData>(prop); };
+    table[2058949250u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudTunables>(prop); };
+    table[2979455577u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudScaleSettingsData>(prop); };
+    table[2124320233u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudLevelUpData>(prop); };
+    table[2731869740u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudBannerData>(prop); };
+    table[4291825122u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudAbilityPromptData>(prop); };
+    table[3273533950u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudMenuTransitionData>(prop); };
+    table[3553075624u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudElementalSectionUIData>(prop); };
+    table[440468936u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::HudEmotePopupData>(prop); };
+    table[1288133231u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudGearSelectionUIData>(prop); };
+    table[1493463692u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudRadialWheelData>(prop); };
+    table[4224366477u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudTeamFightOffScreenDifferentiationData>(prop); };
+    table[3784622423u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudTeamFightData>(prop); };
+    table[2809029825u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudReplayData>(prop); };
+    table[2036195162u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudCheatMenuData>(prop); };
+    table[3598370238u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudPingData>(prop); };
+    table[929479566u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::HudVoiceChatData>(prop); };
+    table[4284799695u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudInputBoxData>(prop); };
+    table[234651109u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarBurstData>(prop); };
+    table[1035555423u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarFadeData>(prop); };
+    table[749793326u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarDefenseModifierData>(prop); };
+    table[4246198531u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarBurstHealData>(prop); };
+    table[937928230u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarDefenseIconData>(prop); };
+    table[105644319u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MicroTicksPerTickData>(prop); };
+    table[503820853u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarProgressiveTickData>(prop); };
+    table[85573057u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::HudHealthBarData>(prop); };
+    table[1323252584u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudSpellSlotResetFeedbackData>(prop); };
+    table[464608054u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenProgressBarData>(prop); };
+    table[4205759190u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenData>(prop); };
+    table[2341739189u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudStatPanelStatStoneData>(prop); };
+    table[2137884073u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudStatStoneData>(prop); };
+    table[1887734700u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudStatStoneDeathRecapData>(prop); };
+    table[4122721905u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudStatStoneMilestoneData>(prop); };
+    table[3009378484u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudEndOfGameData>(prop); };
+    table[1269294773u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudMessageDisplayData>(prop); };
+    table[1645499771u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudDamageDisplayData>(prop); };
+    table[3305259773u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudFightRecapUIData>(prop); };
+    table[1803253536u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapPingEffectDefinition>(prop); };
+    table[4009176784u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TextureAndColorData>(prop); };
+    table[2136503545u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapPingEffectAndTextureData>(prop); };
+    table[3823129339u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapPingTypeContainer>(prop); };
+    table[2062125700u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MinimapPingData>(prop); };
+    table[1239842284u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ISecondaryResourceDisplayData>(prop); };
+    table[2725259578u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SecondaryResourceDisplayFractional>(prop); };
+    table[1700895677u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LoadingScreenRankedProperties>(prop); };
+    table[2115654752u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LoadingScreenRankedData>(prop); };
+    table[1198542322u] = [](prop_arg prop) { return make_shared<yordle::data::meta::QualitySetting>(prop); };
+    table[2037513198u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IOptionItem>(prop); };
+    table[3154887987u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IOptionTemplate>(prop); };
+    table[4083351021u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemBorder>(prop); };
+    table[2624893466u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemCheckbox>(prop); };
+    table[3265939366u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemColumns>(prop); };
+    table[1128087393u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemDropdownItem>(prop); };
+    table[2993708970u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemDropdown>(prop); };
+    table[3415079880u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IOptionItemFilter>(prop); };
+    table[174539687u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::xa6743a7>(prop); };
+    table[3443072153u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xcd391c99>(prop); };
+    table[1046078154u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x3e59e2ca>(prop); };
+    table[3641602072u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xd90e7018>(prop); };
+    table[3998028548u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xee4d1304>(prop); };
+    table[4160905752u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xf8026218>(prop); };
+    table[2761167747u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xa4941383>(prop); };
+    table[12944262u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::xc58386>(prop); };
+    table[2795848259u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xa6a54243>(prop); };
+    table[3617299650u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemGroup>(prop); };
+    table[2450342190u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemHotkeys>(prop); };
+    table[1981427363u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemLabel>(prop); };
+    table[1259449812u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemResolutionDropdown>(prop); };
+    table[1428235105u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x55212361>(prop); };
+    table[1368219584u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x518d5fc0>(prop); };
+    table[3144650323u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSecondaryHotkeys1Column>(prop); };
+    table[3929150294u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xea321356>(prop); };
+    table[1124978957u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x430dd10d>(prop); };
+    table[1788849882u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSecondaryHotkeys2Column>(prop); };
+    table[1991153274u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSlider>(prop); };
+    table[2846603080u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSliderFloat>(prop); };
+    table[1524323892u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSliderGraphicsQuality>(prop); };
+    table[641011299u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSliderInt>(prop); };
+    table[3682643564u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionItemSliderVolume>(prop); };
+    table[4113714730u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xf5324e2a>(prop); };
+    table[2946448300u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionsTab>(prop); };
+    table[3405043372u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateBorder>(prop); };
+    table[2855504619u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateCheckbox>(prop); };
+    table[2120591967u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateDropdown>(prop); };
+    table[1734681201u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateGroup>(prop); };
+    table[1432209297u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateHotkeysLabel>(prop); };
+    table[3163647920u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateHotkeysKey>(prop); };
+    table[704287001u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateHotkeys>(prop); };
+    table[313035124u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateLabel>(prop); };
+    table[4250471695u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateMuteButton>(prop); };
+    table[3468103258u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xceb70e5a>(prop); };
+    table[894011560u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x354988a8>(prop); };
+    table[3369934580u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateSecondaryHotkeys1Column>(prop); };
+    table[258305809u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateSecondaryHotkeys2Column>(prop); };
+    table[517015619u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionTemplateSlider>(prop); };
+    table[2945891227u] = [](prop_arg prop) { return make_shared<yordle::data::meta::NamedIconData>(prop); };
+    table[3056512770u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ModeSelectButtonData>(prop); };
+    table[2293774348u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ILoadoutFeatureDataBehavior>(prop); };
+    table[1532902214u] = [](prop_arg prop) { return make_shared<yordle::data::meta::QueueDisplayData>(prop); };
+    table[4225182998u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xfbd72d16>(prop); };
+    table[4069990911u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StoreCategoryButtonDefinition>(prop); };
+    table[2136477118u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ILoadoutInfoPanel>(prop); };
+    table[2610640435u] = [](prop_arg prop) { return make_shared<yordle::data::meta::NotificationSettings>(prop); };
+    table[2873675736u] = [](prop_arg prop) { return make_shared<yordle::data::meta::QuestDefinition>(prop); };
+    table[1179857030u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x46533086>(prop); };
+    table[4110481513u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GeneralSettingsGroup>(prop); };
+    table[740737797u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::SurrenderTypeData>(prop); };
+    table[2687760845u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SurrenderData>(prop); };
+    table[1116466002u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LoadScreenTip>(prop); };
+    table[4146450274u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LoadScreenTipSet>(prop); };
+    table[3188575920u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LoadScreenTipConfiguration>(prop); };
+    table[2656759159u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x9e5aed77>(prop); };
+    table[3981513104u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ViewController>(prop); };
+    table[917336570u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VoiceChatViewController>(prop); };
+    table[2253409519u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x86504cef>(prop); };
+    table[2730017800u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VoiceChatViewSelfSlot>(prop); };
+    table[230608261u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::NeutralTimerSourceIconData>(prop); };
+    table[964506025u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::NeutralTimerData>(prop); };
+    table[1283176254u] = [](prop_arg prop) { return make_shared<yordle::data::meta::NeutralTimers>(prop); };
+    table[2733481098u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CommonUiTunables>(prop); };
+    table[2330109623u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ViewPaneDefinition>(prop); };
+    table[2794431892u] = [](prop_arg prop) { return make_shared<yordle::data::meta::UIButtonState>(prop); };
+    table[1818785118u] = [](prop_arg prop) { return make_shared<yordle::data::meta::UIButtonDefinition>(prop); };
+    table[1814739591u] = [](prop_arg prop) { return make_shared<yordle::data::meta::UIButtonAdditionalState>(prop); };
+    table[2087717867u] = [](prop_arg prop) { return make_shared<yordle::data::meta::UIButtonAdditionalElements>(prop); };
+    table[547029623u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x209b0277>(prop); };
+    table[3798132414u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xe262e6be>(prop); };
+    table[3941835837u] = [](prop_arg prop) { return make_shared<yordle::data::meta::UiComboBoxDefinition>(prop); };
+    table[765791391u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x2da50c9f>(prop); };
+    table[4073702540u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xf2cfc48c>(prop); };
+    table[2642491558u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x9d8138a6>(prop); };
+    table[3511278911u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xd149dd3f>(prop); };
+    table[3009075672u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xb35ad9d8>(prop); };
+    table[3523215606u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xd20000f6>(prop); };
+    table[4010129986u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xef05ba42>(prop); };
+    table[2449846901u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x9205b275>(prop); };
+    table[946411408u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x38691790>(prop); };
+    table[1403141140u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StatFilterDefinition>(prop); };
+    table[2002344617u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x77595aa9>(prop); };
+    table[2696268697u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudItemShopData>(prop); };
+    table[1936278667u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IHudLoadingScreenWidget>(prop); };
+    table[470840304u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenCarouselData>(prop); };
+    table[2709250460u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenWidgetCarousel>(prop); };
+    table[1107815263u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenWidgetClash>(prop); };
+    table[3421140098u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenWidgetPing>(prop); };
+    table[3666540112u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenWidgetPlayers>(prop); };
+    table[428271402u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenWidgetProgressBar>(prop); };
+    table[4123015996u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudLoadingScreenWidgetTutorial>(prop); };
+    table[1376467180u] = [](prop_arg prop) { return make_shared<yordle::data::meta::PlayerCardWidgetConfig>(prop); };
+    table[2539231955u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x97599ad3>(prop); };
+    table[3703833425u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HudReplaySliderIconData>(prop); };
+    table[220532968u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::HudReplaySliderData>(prop); };
+    table[2741896024u] = [](prop_arg prop) { return make_shared<yordle::data::meta::WadFileDescriptor>(prop); };
+    table[3000850570u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BaseRigPoseModifierData>(prop); };
+    table[3456866963u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ConformToPathRigPoseModifierData>(prop); };
+    table[3010810975u] = [](prop_arg prop) { return make_shared<yordle::data::meta::JointSnapRigPoseModifilerData>(prop); };
+    table[847419898u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::LockRootOrientationRigPoseModifierData>(prop); };
+    table[1085106335u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SyncedAnimationRigPoseModifierData>(prop); };
+    table[3410773763u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VertexAnimationRigPoseModifierData>(prop); };
+    table[4126869447u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AnimationGraphData>(prop); };
+    table[2588617117u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AnimationResourceData>(prop); };
+    table[725360953u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MaskData>(prop); };
+    table[2930641015u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Joint>(prop); };
+    table[1426469241u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RigResource>(prop); };
+    table[1718266157u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SyncGroupData>(prop); };
+    table[2552904996u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TrackData>(prop); };
+    table[3953106978u] = [](prop_arg prop) { return make_shared<yordle::data::meta::UpdaterData>(prop); };
+    table[1426466346u] = [](prop_arg prop) { return make_shared<yordle::data::meta::UpdaterResourceData>(prop); };
+    table[1675919456u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ConditionFloatPairData>(prop); };
+    table[3371956895u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ParametricPairData>(prop); };
+    table[1837663416u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SelectorPairData>(prop); };
+    table[3172694155u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BaseBlendData>(prop); };
+    table[2039250216u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BaseEventData>(prop); };
+    table[3917866950u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ClipBaseData>(prop); };
+    table[2184673821u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ConformToPathEventData>(prop); };
+    table[126228632u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::EnableLookAtEventData>(prop); };
+    table[1991855177u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FaceCameraEventData>(prop); };
+    table[1280605585u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FadeEventData>(prop); };
+    table[2009563166u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IdleParticlesVisibilityEventData>(prop); };
+    table[3049371309u] = [](prop_arg prop) { return make_shared<yordle::data::meta::JointSnapEventData>(prop); };
+    table[3239264152u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LockRootOrientationEventData>(prop); };
+    table[1574343673u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ParticleEventDataPair>(prop); };
+    table[88265757u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::ParticleEventData>(prop); };
+    table[2622906420u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SoundEventData>(prop); };
+    table[4107335487u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StopAnimationEventData>(prop); };
+    table[3170201200u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SubmeshVisibilityEventData>(prop); };
+    table[2141811217u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SyncedAnimationEventData>(prop); };
+    table[1031735279u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TimeBlendData>(prop); };
+    table[371240319u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TransitionClipBlendData>(prop); };
+    table[3487022u]    = [](prop_arg prop) { return make_shared<yordle::data::meta::ValueProcessorData>(prop); };
+    table[2790085136u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EngineFeatureToggles>(prop); };
+    table[72326764u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::MapComponent>(prop); };
+    table[3723018516u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapContainer>(prop); };
+    table[1681734441u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapContainsOtherMaps>(prop); };
+    table[243000503u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::LaneData>(prop); };
+    table[2774165054u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapLaneComponent>(prop); };
+    table[2603925163u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapPathSegment>(prop); };
+    table[2574492633u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapPathLineSegment>(prop); };
+    table[1861095566u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapPathCurveSegment>(prop); };
+    table[477805166u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MapNavGrid>(prop); };
+    table[1502315240u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapPlaceable>(prop); };
+    table[2347595275u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GenericMapPlaceable>(prop); };
+    table[2992376383u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapPlaceableContainer>(prop); };
+    table[1173599148u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapPrefabInstance>(prop); };
+    table[3750744125u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapThemeMusic>(prop); };
+    table[2486262273u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RegionsThatAllowContent>(prop); };
+    table[585068320u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::RegionSettings>(prop); };
+    table[2600090346u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FontLocaleType>(prop); };
+    table[3120352850u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FontResolution>(prop); };
+    table[3919875225u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FontLocaleResolutions>(prop); };
+    table[766729624u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FontType>(prop); };
+    table[231582978u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FontResolutionData>(prop); };
+    table[3812866480u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GameFontDescription>(prop); };
+    table[1461391717u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CSSStyle>(prop); };
+    table[3991255873u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CSSIcon>(prop); };
+    table[3173404643u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CSSSheet>(prop); };
+    table[2994559891u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipFormat>(prop); };
+    table[2585474309u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipInstanceListElement>(prop); };
+    table[4214485747u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipInstanceList>(prop); };
+    table[2250161003u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipInstance>(prop); };
+    table[70254680u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::ValueFloat>(prop); };
+    table[3515916773u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IntegratedValueFloat>(prop); };
+    table[1776038985u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ValueVector2>(prop); };
+    table[1808563568u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IntegratedValueVector2>(prop); };
+    table[1759261366u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ValueVector3>(prop); };
+    table[1825341187u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IntegratedValueVector3>(prop); };
+    table[122655197u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ValueColor>(prop); };
+    table[4261825672u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxAnimatedFloatVariableData>(prop); };
+    table[772710981u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxAnimatedVector2fVariableData>(prop); };
+    table[2899841408u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxAnimatedVector3fVariableData>(prop); };
+    table[1128908277u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxAnimatedColorVariableData>(prop); };
+    table[497696688u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxSoftParticleDefinitionData>(prop); };
+    table[1113621825u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FlexValueVector3>(prop); };
+    table[1096844206u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FlexValueVector2>(prop); };
+    table[1370198255u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FlexValueFloat>(prop); };
+    table[796686208u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FlexTypeFloat>(prop); };
+    table[177533908u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFieldAccelerationDefinitionData>(prop); };
+    table[443947005u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFieldAttractionDefinitionData>(prop); };
+    table[3149931448u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFieldCollectionDefinitionData>(prop); };
+    table[3880844002u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFieldDragDefinitionData>(prop); };
+    table[1666037840u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFieldNoiseDefinitionData>(prop); };
+    table[3061509743u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFieldOrbitalDefinitionData>(prop); };
+    table[37724083u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::IVfxMaterialDriver>(prop); };
+    table[3652726407u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxMaterialOverrideDefinitionData>(prop); };
+    table[1403439486u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxProbabilityTableData>(prop); };
+    table[2184800742u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxMigrationResources>(prop); };
+    table[4129808802u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxAssetRemap>(prop); };
+    table[737679281u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxColorOverLifeMaterialDriver>(prop); };
+    table[2010092456u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxShape>(prop); };
+    table[164488258u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxEmitterDefinitionData>(prop); };
+    table[2526736020u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxChildIdentifier>(prop); };
+    table[3038774362u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxChildParticleSetDefinitionData>(prop); };
+    table[1585720219u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxAlphaErosionDefinitionData>(prop); };
+    table[2829943575u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPaletteDefinitionData>(prop); };
+    table[1091758723u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxReflectionDefinitionData>(prop); };
+    table[1238702953u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxDistortionDefinitionData>(prop); };
+    table[259276035u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxProjectionDefinitionData>(prop); };
+    table[12755856u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxTrailDefinitionData>(prop); };
+    table[532209417u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxBeamDefinitionData>(prop); };
+    table[3217219891u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxEmissionSurfaceData>(prop); };
+    table[1787328523u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxMeshDefinitionData>(prop); };
+    table[3801322209u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveBase>(prop); };
+    table[2531114100u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveCameraQuad>(prop); };
+    table[1273725437u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveArbitraryQuad>(prop); };
+    table[2706101456u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveRay>(prop); };
+    table[3832843140u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveProjectionBase>(prop); };
+    table[3918814637u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitivePlanarProjection>(prop); };
+    table[562397581u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveTrailBase>(prop); };
+    table[678973881u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveCameraTrail>(prop); };
+    table[1459970650u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveArbitraryTrail>(prop); };
+    table[3713591166u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveBeamBase>(prop); };
+    table[4048547755u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveCameraSegmentBeam>(prop); };
+    table[668179872u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveArbitrarySegmentBeam>(prop); };
+    table[4231615076u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveMeshBase>(prop); };
+    table[2241128505u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveMesh>(prop); };
+    table[2762908325u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveAttachedMesh>(prop); };
+    table[1752512115u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxPrimitiveBeam>(prop); };
+    table[1372839132u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxFloatOverLifeMaterialDriver>(prop); };
+    table[719276917u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxSineMaterialDriver>(prop); };
+    table[1496250051u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapParticle>(prop); };
+    table[1221817611u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapParticleGroups>(prop); };
+    table[121596497u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::DynamicMaterialParameterDef>(prop); };
+    table[567330916u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::DynamicMaterialTextureSwapOption>(prop); };
+    table[1303930364u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DynamicMaterialTextureSwapDef>(prop); };
+    table[4013554309u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DynamicMaterialStaticSwitch>(prop); };
+    table[762048930u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::DynamicMaterialDef>(prop); };
+    table[1009087838u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IDynamicMaterialDriver>(prop); };
+    table[1090223300u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IDynamicMaterialFloatDriver>(prop); };
+    table[3032802403u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LerpMaterialDriver>(prop); };
+    table[414058u]     = [](prop_arg prop) { return make_shared<yordle::data::meta::MaxMaterialDriver>(prop); };
+    table[906481424u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MinMaterialDriver>(prop); };
+    table[2851587231u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RemapFloatMaterialDriver>(prop); };
+    table[824881043u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::SineMaterialDriver>(prop); };
+    table[1181419247u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SpecificColorMaterialDriver>(prop); };
+    table[1173409658u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SwitchMaterialDriverElement>(prop); };
+    table[2878204994u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SwitchMaterialDriver>(prop); };
+    table[1459861871u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BlendingSwitchMaterialDriver>(prop); };
+    table[4084077559u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TimeMaterialDriver>(prop); };
+    table[176045846u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::IdMappingEntry>(prop); };
+    table[1659255250u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HybridMaterialDefPreset>(prop); };
+    table[3975636772u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IMaterialDef>(prop); };
+    table[346210042u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ShaderLogicalParameter>(prop); };
+    table[2171032536u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ShaderPhysicalParameter>(prop); };
+    table[1621267174u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ShaderStaticSwitch>(prop); };
+    table[835838499u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ShaderTexture>(prop); };
+    table[196890972u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::IShaderDef>(prop); };
+    table[1407148951u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialParameterData>(prop); };
+    table[3791453475u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialTextureData>(prop); };
+    table[1327860340u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialSwitchData>(prop); };
+    table[3921803671u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialParameterDataCollection>(prop); };
+    table[1749974331u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialTextureDataCollection>(prop); };
+    table[3078356408u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialSwitchDataCollection>(prop); };
+    table[1874373301u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialDataCollections>(prop); };
+    table[1496596895u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceParamDef>(prop); };
+    table[2719807978u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceSwitchDef>(prop); };
+    table[1305331905u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceTextureDef>(prop); };
+    table[4144515914u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xf7084b4a>(prop); };
+    table[1964830497u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceDynamicParam>(prop); };
+    table[1171267580u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceDynamicSwitch>(prop); };
+    table[1083476907u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MaterialInstanceDynamicTexture>(prop); };
+    table[3729264367u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialShaderParamDef>(prop); };
+    table[237114017u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialSwitchDef>(prop); };
+    table[151302480u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialShaderSamplerDef>(prop); };
+    table[2235027650u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialPassDef>(prop); };
+    table[101336083u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialTechniqueDef>(prop); };
+    table[1935363221u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StaticMaterialChildTechniqueDef>(prop); };
+    table[573833423u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MapPerInstanceInfo>(prop); };
+    table[1783247881u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapBakeProperties>(prop); };
+    table[769601740u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MapCloudsLayer>(prop); };
+    table[66354938u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::MapGraphicsFeature>(prop); };
+    table[3701691417u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapLightingV2>(prop); };
+    table[2319232567u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapLightingVolume>(prop); };
+    table[36597367u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::MapPointLight>(prop); };
+    table[668199599u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MapPointLightType>(prop); };
+    table[379203484u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MapSunProperties>(prop); };
+    table[3554680230u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapTerrainPaint>(prop); };
+    table[1813728254u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SHData>(prop); };
+    table[2340045716u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinMeshDataProperties_MaterialOverride>(prop); };
+    table[3460011047u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinnedMeshDataMaterialController>(prop); };
+    table[1628559524u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SkinMeshDataProperties>(prop); };
+    table[547453112u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::IResource>(prop); };
+    table[3911265650u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IResourceResolver>(prop); };
+    table[3984358668u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FunctionDefinition>(prop); };
+    table[1009431984u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IScriptBlock>(prop); };
+    table[3460129365u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SwitchCase>(prop); };
+    table[3828703835u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SwitchScriptBlock>(prop); };
+    table[3324095080u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IScriptCondition>(prop); };
+    table[1889908488u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TableValueExistsScriptCondition>(prop); };
+    table[4133732978u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RandomChanceScriptCondition>(prop); };
+    table[1796410142u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AndScriptCondition>(prop); };
+    table[419340840u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::OrScriptCondition>(prop); };
+    table[2824201906u] = [](prop_arg prop) { return make_shared<yordle::data::meta::NotScriptCondition>(prop); };
+    table[824983528u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ComparisonScriptCondition>(prop); };
+    table[3134806650u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RScript>(prop); };
+    table[619916734u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptTable>(prop); };
+    table[1411410857u] = [](prop_arg prop) { return make_shared<yordle::data::meta::PassThroughParamsTable>(prop); };
+    table[4139131590u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptTableSet>(prop); };
+    table[663538050u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::IntTableSet>(prop); };
+    table[2728914349u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BoolTableSet>(prop); };
+    table[3570109893u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatTableSet>(prop); };
+    table[3580363220u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StringTableSet>(prop); };
+    table[2465524974u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VectorTableSet>(prop); };
+    table[1262223041u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FunctionTableSet>(prop); };
+    table[2864404146u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CustomTableSet>(prop); };
+    table[4142338480u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IScriptValueGet>(prop); };
+    table[1166962967u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IStringGet>(prop); };
+    table[3687170724u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StringGet>(prop); };
+    table[4031524872u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StringTableGet>(prop); };
+    table[3682319469u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IVectorGet>(prop); };
+    table[1755899118u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VectorGet>(prop); };
+    table[2648244722u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VectorTableGet>(prop); };
+    table[3516211013u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xd1951f45>(prop); };
+    table[2401135138u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x8f1e6a22>(prop); };
+    table[1827239481u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x6ce97639>(prop); };
+    table[2867346523u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SceneData>(prop); };
+    table[2131369601u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AnchorBase>(prop); };
+    table[1396238320u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AnchorSingle>(prop); };
+    table[3742500809u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AnchorDouble>(prop); };
+    table[2069111393u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AtlasDataBase>(prop); };
+    table[1906252436u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AtlasData>(prop); };
+    table[3050387163u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xb5d136db>(prop); };
+    table[2748390021u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xa3d11a85>(prop); };
+    table[2872907111u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xab3d1567>(prop); };
+    table[589156770u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x231dd1a2>(prop); };
+    table[2222311051u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ElementSoundEvents>(prop); };
+    table[3456684995u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ElementGroupButtonState>(prop); };
+    table[4099288798u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ElementGroupData>(prop); };
+    table[550561409u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x20d0e681>(prop); };
+    table[761542854u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ElementGroupGridData>(prop); };
+    table[2944059703u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xaf7ac937>(prop); };
+    table[2718727252u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ElementGroupSliderState>(prop); };
+    table[47538795u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::ElementGroupSliderData>(prop); };
+    table[3681459597u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IconElementDataExtension>(prop); };
+    table[3561233493u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IconElementGradientExtension>(prop); };
+    table[19256412u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::X3DSharedConstantDef>(prop); };
+    table[2515485450u] = [](prop_arg prop) { return make_shared<yordle::data::meta::X3DSharedConstantBufferDef>(prop); };
+    table[877304437u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::X3DSharedData>(prop); };
+    table[927275163u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::X3DSharedTextureDef>(prop); };
+    table[3476110372u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ContextualActionData>(prop); };
+    table[3931724966u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Champion>(prop); };
+    table[3549389049u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AbilityResourceDynamicMaterialFloatDriver>(prop); };
+    table[2143410291u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AnimationFractionDynamicMaterialFloatDriver>(prop); };
+    table[1465311360u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BuffCounterDynamicMaterialFloatDriver>(prop); };
+    table[2437143893u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DistanceToPlayerMaterialFloatDriver>(prop); };
+    table[510412798u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x1e6c47fe>(prop); };
+    table[3897992344u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xe856a498>(prop); };
+    table[3630502631u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HealthDynamicMaterialFloatDriver>(prop); };
+    table[532586595u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x1fbea063>(prop); };
+    table[3997290289u] = [](prop_arg prop) { return make_shared<yordle::data::meta::UVScaleBiasFromAnimationDynamicMaterialDriver>(prop); };
+    table[2561383746u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VelocityDynamicMaterialFloatDriver>(prop); };
+    table[3162079434u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ParticleWadFileDescriptor>(prop); };
+    table[3667811340u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GdsMapObject>(prop); };
+    table[3751997361u] = [](prop_arg prop) { return make_shared<yordle::data::meta::Map>(prop); };
+    table[1013623483u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapBehavior>(prop); };
+    table[132387460u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionAnimate>(prop); };
+    table[1439708695u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x55d03617>(prop); };
+    table[3661280452u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xda3ab4c4>(prop); };
+    table[3498226065u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xd082b191>(prop); };
+    table[2690290802u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xa05a9472>(prop); };
+    table[161271356u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x99cce3c>(prop); };
+    table[554443936u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionContinue>(prop); };
+    table[4118721504u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionMove>(prop); };
+    table[1015511333u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionMoveBase>(prop); };
+    table[145984105u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionMoveTo>(prop); };
+    table[1873184927u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionMoveReset>(prop); };
+    table[3588503832u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionSfx>(prop); };
+    table[2735193483u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionTimeDilate>(prop); };
+    table[4178543843u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FxActionVfx>(prop); };
+    table[1775952673u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LolSpellScript>(prop); };
+    table[4055000216u] = [](prop_arg prop) { return make_shared<yordle::data::meta::InstanceVarsTable>(prop); };
+    table[1154861162u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CharacterVarsTable>(prop); };
+    table[840789541u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::NextBuffVarsTable>(prop); };
+    table[1416785227u] = [](prop_arg prop) { return make_shared<yordle::data::meta::WorldVarsTable>(prop); };
+    table[500954198u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::AvatarVarsTable>(prop); };
+    table[2012327816u] = [](prop_arg prop) { return make_shared<yordle::data::meta::NextSpellVarsTable>(prop); };
+    table[1745220956u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TempTable1Table>(prop); };
+    table[285936043u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TempTable2Table>(prop); };
+    table[1662218770u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TempTable3Table>(prop); };
+    table[2243645043u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTItemMaterialController>(prop); };
+    table[2653653638u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x9e2b8a86>(prop); };
+    table[334936068u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TftGameStartViewController>(prop); };
+    table[2934583178u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftUnitShopViewController>(prop); };
+    table[1353487870u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AnnouncementsViewController>(prop); };
+    table[1813912031u] = [](prop_arg prop) { return make_shared<yordle::data::meta::InvalidDeviceViewController>(prop); };
+    table[1830754775u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LoginViewController>(prop); };
+    table[161679594u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::PatchingViewController>(prop); };
+    table[3950575855u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SummonerNameCreateViewController>(prop); };
+    table[3963535729u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TftTeamPlannerViewController>(prop); };
+    table[2038992222u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ChatViewController>(prop); };
+    table[2261862267u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxProbabilityTableDataGrande>(prop); };
+    table[1965398739u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x75259ad3>(prop); };
+    table[3842081615u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ItemShopViewController>(prop); };
+    table[3773238524u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xe0e70cfc>(prop); };
+    table[1313586219u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x4e4bbc2b>(prop); };
+    table[2972878046u] = [](prop_arg prop) { return make_shared<yordle::data::meta::NavHeaderViewController>(prop); };
+    table[3154693744u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OptionsViewController>(prop); };
+    table[3721213560u] = [](prop_arg prop) { return make_shared<yordle::data::meta::PostGameViewController>(prop); };
+    table[2069136914u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CelebrationViewController>(prop); };
+    table[2222497939u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HomeViewController>(prop); };
+    table[2838012998u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutSelectViewController>(prop); };
+    table[11657974u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutViewController>(prop); };
+    table[144791174u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::LobbyViewController>(prop); };
+    table[1013446472u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LootTableDialogViewController>(prop); };
+    table[162987137u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::MissionsPanelViewController>(prop); };
+    table[2036227663u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ModeSelectViewController>(prop); };
+    table[379849898u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::NotificationsPanelViewController>(prop); };
+    table[3947823298u] = [](prop_arg prop) { return make_shared<yordle::data::meta::PurchaseDialog>(prop); };
+    table[968608392u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::x39bbca88>(prop); };
+    table[4191775141u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SocialPanelViewController>(prop); };
+    table[1146372659u] = [](prop_arg prop) { return make_shared<yordle::data::meta::StoreViewController>(prop); };
+    table[3603985163u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TFTBattlepassViewController>(prop); };
+    table[2807723955u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutArenaSkinInfoPanel>(prop); };
+    table[172106287u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutCompanionInfoPanel>(prop); };
+    table[845574667u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutDamageSkinInfoPanel>(prop); };
+    table[4100634241u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LoadoutEmoteInfoPanel>(prop); };
+    table[1973062744u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x759a8c58>(prop); };
+    table[1257187638u] = [](prop_arg prop) { return make_shared<yordle::data::meta::QuestTrackerViewController>(prop); };
+    table[3792429246u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xe20be0be>(prop); };
+    table[172306941u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::SettingsViewController>(prop); };
+    table[2766224215u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipInstanceSpell>(prop); };
+    table[1588263926u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipInstanceBuff>(prop); };
+    table[905298284u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipInstanceItem>(prop); };
+    table[3013700229u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TooltipViewController>(prop); };
+    table[4231349552u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EsportsBannerMaterialController>(prop); };
+    table[1348327734u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BlendableClipData>(prop); };
+    table[358669516u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ConditionBoolClipData>(prop); };
+    table[2394679778u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ConditionFloatClipData>(prop); };
+    table[559985644u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ParallelClipData>(prop); };
+    table[4071811009u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ParametricClipData>(prop); };
+    table[1240774858u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SelectorClipData>(prop); };
+    table[2368776128u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SequencerClipData>(prop); };
+    table[1133034384u] = [](prop_arg prop) { return make_shared<yordle::data::meta::LinearTransformProcessorData>(prop); };
+    table[3233830641u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xc0c056f1>(prop); };
+    table[2810433493u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapAudio>(prop); };
+    table[1316167258u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapCamera>(prop); };
+    table[2823085921u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapLocator>(prop); };
+    table[2059187804u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapMotionPath>(prop); };
+    table[235706735u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ColorGraphMaterialDriver>(prop); };
+    table[3495696672u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatGraphMaterialDriver>(prop); };
+    table[1171098015u] = [](prop_arg prop) { return make_shared<yordle::data::meta::VfxSystemDefinitionData>(prop); };
+    table[1258254170u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ColorChooserMaterialDriver>(prop); };
+    table[1895822007u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatLiteralMaterialDriver>(prop); };
+    table[2417503366u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FloorFloatMaterialDriver>(prop); };
+    table[3663840478u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IDynamicMaterialBoolDriver>(prop); };
+    table[2452878935u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AllTrueMaterialDriver>(prop); };
+    table[3364456740u] = [](prop_arg prop) { return make_shared<yordle::data::meta::OneTrueMaterialDriver>(prop); };
+    table[3584469797u] = [](prop_arg prop) { return make_shared<yordle::data::meta::NotMaterialDriver>(prop); };
+    table[542266838u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::CustomShaderDef>(prop); };
+    table[4078053219u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FixedShaderDef>(prop); };
+    table[3114171249u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HybridMaterialDef>(prop); };
+    table[3883795674u] = [](prop_arg prop) { return std::reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialInstanceDef>(prop)); };
+    table[4288492553u] = [](prop_arg prop) { return std::reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StaticMaterialDef>(prop)); };
+    table[1572954563u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MapClouds>(prop); };
+    table[1923179998u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BaseResourceResolver>(prop); };
+    table[199624956u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::GlobalResourceResolver>(prop); };
+    table[4013559603u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ResourceResolver>(prop); };
+    table[3160901390u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SetVarInTableBlock>(prop); };
+    table[720031464u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptCommentBlock>(prop); };
+    table[3143453189u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ConcatenateStringsBlock>(prop); };
+    table[3938181471u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CreateCustomTableBlock>(prop); };
+    table[3424357223u] = [](prop_arg prop) { return make_shared<yordle::data::meta::DestroyCustomTableBlock>(prop); };
+    table[2263334442u] = [](prop_arg prop) { return make_shared<yordle::data::meta::SetKeyValueInCustomTableBlock>(prop); };
+    table[1569214838u] = [](prop_arg prop) { return make_shared<yordle::data::meta::GetKeyValueInCustomTableBlock>(prop); };
+    table[3439760492u] = [](prop_arg prop) { return make_shared<yordle::data::meta::InsertIntoCustomTableBlock>(prop); };
+    table[2835506159u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RemoveFromCustomTableBlock>(prop); };
+    table[947658273u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::GetSizeOfCustomTableBlock>(prop); };
+    table[31607380u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::ForEachInCustomTableBlock>(prop); };
+    table[476310893u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::CustomTableContainsValueBlock>(prop); };
+    table[2568619062u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CreateFunctionBlock>(prop); };
+    table[607501250u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::IRunFunctionBlock>(prop); };
+    table[903266502u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::IScriptSequence>(prop); };
+    table[2793907875u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptSequence>(prop); };
+    table[2922520200u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IBoolGet>(prop); };
+    table[1159336319u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BoolGet>(prop); };
+    table[3148945057u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BoolTableGet>(prop); };
+    table[2681684398u] = [](prop_arg prop) { return make_shared<yordle::data::meta::CustomTableGet>(prop); };
+    table[2798892082u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IFloatGet>(prop); };
+    table[1608666903u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatGet>(prop); };
+    table[3990037433u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatTableGet>(prop); };
+    table[317190090u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatOffsetTableGet>(prop); };
+    table[4245932760u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IFunctionGet>(prop); };
+    table[800615629u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::FunctionTableGet>(prop); };
+    table[3256124575u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IIntGet>(prop); };
+    table[708175882u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::IntGet>(prop); };
+    table[3112089886u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IntTableGet>(prop); };
+    table[1534915661u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IntOffsetTableGet>(prop); };
+    table[574110442u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::ScriptTableGet>(prop); };
+    table[3202633864u] = [](prop_arg prop) { return make_shared<yordle::data::meta::BaseElementData>(prop); };
+    table[2739628964u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectElementData>(prop); };
+    table[3191832311u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectCooldownElementData>(prop); };
+    table[4086628699u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectCircleMaskCooldownElementData>(prop); };
+    table[2174290526u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectCooldownRadialElementData>(prop); };
+    table[2608359503u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectArcFillElementData>(prop); };
+    table[3262156994u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectAmmoElementData>(prop); };
+    table[3998066495u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectGlowElementData>(prop); };
+    table[1913369002u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectAnimationElementData>(prop); };
+    table[220339975u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectFillPercentageElementData>(prop); };
+    table[1335813830u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectDesaturateElementData>(prop); };
+    table[2820872175u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectRotatingIconElementData>(prop); };
+    table[178804058u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectGlowingRotatingIconElementData>(prop); };
+    table[2170661496u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectAnimatedRotatingIconElementData>(prop); };
+    table[1581670814u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectLineElementData>(prop); };
+    table[2901870171u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectInstancedElementData>(prop); };
+    table[3706969042u] = [](prop_arg prop) { return make_shared<yordle::data::meta::EffectCircleMaskDesaturateElementData>(prop); };
+    table[4143783062u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xf6fd1c96>(prop); };
+    table[3590855006u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ElementGroupButtonData>(prop); };
+    table[1005588128u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IconElementData>(prop); };
+    table[3716126038u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ParticleSystemElementData>(prop); };
+    table[1859523703u] = [](prop_arg prop) { return make_shared<yordle::data::meta::RegionElementData>(prop); };
+    table[3070309571u] = [](prop_arg prop) { return make_shared<yordle::data::meta::ScissorRegionElementData>(prop); };
+    table[2622984950u] = [](prop_arg prop) { return make_shared<yordle::data::meta::TextElementData>(prop); };
+    table[2614239024u] = [](prop_arg prop) { return make_shared<yordle::data::meta::x9bd21f30>(prop); };
+    table[3490803144u] = [](prop_arg prop) { return make_shared<yordle::data::meta::xd0116dc8>(prop); };
+    table[2331705440u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasBuffDynamicMaterialBoolDriver>(prop); };
+    table[1914613726u] = [](prop_arg prop) { return make_shared<yordle::data::meta::HasGearDynamicMaterialBoolDriver>(prop); };
+    table[141658293u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::IsAnimationPlayingDynamicMaterialBoolDriver>(prop); };
+    table[4199153591u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IsDeadDynamicMaterialBoolDriver>(prop); };
+    table[3177246235u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IsEnemyDynamicMaterialBoolDriver>(prop); };
+    table[3727041878u] = [](prop_arg prop) { return make_shared<yordle::data::meta::IsInGrassDynamicMaterialBoolDriver>(prop); };
+    table[820959864u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::LearnedSpellDynamicMaterialBoolDriver>(prop); };
+    table[3766132529u] = [](prop_arg prop) { return make_shared<yordle::data::meta::MessageBoxDialog>(prop); };
+    table[1540989414u] = [](prop_arg prop) { return make_shared<yordle::data::meta::AtomicClipData>(prop); };
+    table[347152410u]  = [](prop_arg prop) { return make_shared<yordle::data::meta::DelayedBoolMaterialDriver>(prop); };
+    table[62039180u]   = [](prop_arg prop) { return make_shared<yordle::data::meta::FixedDurationTriggeredBoolDriver>(prop); };
+    table[2428279575u] = [](prop_arg prop) { return make_shared<yordle::data::meta::FloatComparisonMaterialDriver>(prop); };
+}
 
 /// </auto-generated>

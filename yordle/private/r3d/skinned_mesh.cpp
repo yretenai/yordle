@@ -36,7 +36,7 @@ namespace yordle::r3d {
     void skinned_mesh::read_ibo_vbo(dragon::Array<uint8_t> &buffer, uintptr_t &ptr) const {
         std::copy_n(ibo->data(), ibo->size(), reinterpret_cast<uint16_t *>(buffer.data() + ptr));
         ptr += ibo->byte_size();
-        std::copy_n(ibo->data(), vbo->size(), buffer.data() + ptr);
+        std::copy_n(vbo->data(), vbo->size(), buffer.data() + ptr);
         ptr += vbo->byte_size();
     }
 

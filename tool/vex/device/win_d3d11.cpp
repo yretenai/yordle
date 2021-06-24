@@ -361,11 +361,19 @@ namespace vex::device {
         return textures->at(image_path);
     }
 
-    std::shared_ptr<void> win_d3d11::load_model(uint64_t model_path) {
-        if (models->contains(model_path)) {
-            return models->at(model_path);
+    std::shared_ptr<vex::mage::skinned_mesh_container> win_d3d11::load_model(uint64_t model_path, uint64_t resource_key) {
+        if (models->contains(resource_key)) {
+            return models->at(resource_key);
         }
-        return nullptr;
+
+        auto container = load_model_base(model_path, resource_key);
+
+        // TODO: setup vbo, ibo
+        container->vbo = nullptr;
+        container->ibo = nullptr;
+
+        models->emplace(resource_key, container);
+        return container;
     }
 
     std::shared_ptr<void> win_d3d11::load_shader(uint64_t shader_path) {

@@ -30,6 +30,8 @@ std::atomic<std::shared_ptr<std::string>> vex::g_message(nullptr);
 std::atomic<std::shared_ptr<std::mutex>> vex::g_message_mutex(nullptr);
 
 int main() {
+    yordle::data::meta::bin_dispatch::load_table();
+
     try {
 #ifdef HAS_DX11
         vex::g_framework = vex::device::win_d3d11::get_instance(true);

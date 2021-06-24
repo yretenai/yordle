@@ -216,7 +216,11 @@ int main(int argc, char **argv) {
                            "#include <yordle/data/meta/bin_class_def.hpp>\n\n"
                            "using namespace std;\n"
                            "using namespace yordle::data::meta;\n\n"
-                           "const map<uint32_t, function<prop_ret(prop_arg)>> yordle::data::meta::bin_dispatch::table {\n";
+                           "map<uint32_t, function<prop_ret(prop_arg)>> yordle::data::meta::bin_dispatch::table;\n"
+                           "void yordle::data::meta::bin_dispatch::load_table() {\n"
+                           "    if (!table.empty()) {\n"
+                           "        return;\n"
+                           "    }\n";
 
     auto meta_data = read_file(norra.meta_file);
 
@@ -292,8 +296,11 @@ int main(int argc, char **argv) {
             cout << name << "... ";
             cout.flush();
 
-            dispatch_file += "    {" + to_string(def.hash) + "u, " + "[](prop_arg prop) { return make_shared<yordle::data::meta::" + name + ">(prop); }},\n";
-
+            if (parents.size() > 1) {
+                dispatch_file += "    table[" + to_string(def.hash) + "u] = " + "[](prop_arg prop) { return std::reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::" + name + ">(prop)); };\n";
+            } else {
+                dispatch_file += "    table[" + to_string(def.hash) + "u] = " + "[](prop_arg prop) { return make_shared<yordle::data::meta::" + name + ">(prop); };\n";
+            }
 
             bin_class_def += "    class YORDLE_EXPORT ";
             bin_class_def += name;
@@ -561,7 +568,7 @@ int main(int argc, char **argv) {
         }
     }
 
-    dispatch_file += "};\n\n"
+    dispatch_file += "}\n\n"
                      "/// </auto-generated>\n";
     auto dispatch_path   = norra.yordle_dir / "private" / "data" / "meta" / "bin_dispatch.cpp";
     auto dispatch_stream = ofstream(dispatch_path, ios::out);

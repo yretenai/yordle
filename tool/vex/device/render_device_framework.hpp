@@ -12,6 +12,7 @@
 
 #include <standard_dragon/Array.hpp>
 
+#include "../mage/skinned_mesh_container.hpp"
 #include "../ui/imgui_element.hpp"
 
 namespace vex::device {
@@ -31,7 +32,7 @@ namespace vex::device {
 
         std::shared_ptr<std::map<uint64_t, std::shared_ptr<void>>> textures;
         std::shared_ptr<std::map<uint64_t, float>> texture_dimensions;
-        std::shared_ptr<std::map<uint64_t, std::shared_ptr<void>>> models;
+        std::shared_ptr<std::map<uint64_t, std::shared_ptr<vex::mage::skinned_mesh_container>>> models;
         std::shared_ptr<std::map<uint64_t, std::shared_ptr<void>>> shaders;
 
         double frame_time = 0.0;
@@ -44,14 +45,16 @@ namespace vex::device {
         virtual void close()    = 0;
         virtual void shutdown() = 0;
 
-        virtual std::shared_ptr<void> load_texture(uint64_t texture_path) = 0;
-        virtual std::shared_ptr<void> load_image(uint64_t image_path)     = 0;
-        virtual std::shared_ptr<void> load_model(uint64_t model_path)     = 0;
-        virtual std::shared_ptr<void> load_shader(uint64_t shader_path)   = 0;
-        virtual void clear_texture(uint64_t image_path)                   = 0;
-        virtual void clear_model(uint64_t model_path)                     = 0;
-        virtual void clear_shader(uint64_t shader_path)                   = 0;
-        virtual void clear_assets() const                                 = 0;
+        std::shared_ptr<vex::mage::skinned_mesh_container> load_model_base(uint64_t model_path, uint64_t resource_key);
+
+        virtual std::shared_ptr<void> load_texture(uint64_t texture_path)                                                 = 0;
+        virtual std::shared_ptr<void> load_image(uint64_t image_path)                                                     = 0;
+        virtual std::shared_ptr<vex::mage::skinned_mesh_container> load_model(uint64_t model_path, uint64_t resource_key) = 0;
+        virtual std::shared_ptr<void> load_shader(uint64_t shader_path)                                                   = 0;
+        virtual void clear_texture(uint64_t image_path)                                                                   = 0;
+        virtual void clear_model(uint64_t model_path)                                                                     = 0;
+        virtual void clear_shader(uint64_t shader_path)                                                                   = 0;
+        virtual void clear_assets() const                                                                                 = 0;
 
         void refresh_menu() const;
     };

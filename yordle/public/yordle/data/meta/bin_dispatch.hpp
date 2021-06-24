@@ -18,7 +18,9 @@ namespace yordle::data::meta {
 
     class YORDLE_EXPORT bin_dispatch {
     public:
-        static const std::map<uint32_t, std::function<prop_ret(prop_arg)>> table;
+        static std::map<uint32_t, std::function<prop_ret(prop_arg)>> table;
+
+        static void load_table();
     };
 
     template<typename T>

@@ -57,7 +57,7 @@ namespace vex::device {
 
         std::shared_ptr<void> load_texture(uint64_t texture_path) override;
         std::shared_ptr<void> load_image(uint64_t image_path) override;
-        std::shared_ptr<void> load_model(uint64_t model_path) override;
+        std::shared_ptr<vex::mage::skinned_mesh_container> load_model(uint64_t model_path, uint64_t resource_key) override;
         std::shared_ptr<void> load_shader(uint64_t shader_path) override;
         void clear_texture(uint64_t image_path) override;
         void clear_model(uint64_t model_path) override;

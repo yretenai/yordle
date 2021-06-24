@@ -158,4 +158,5 @@ void vex::ui::skin_menu::load_skin(device::render_device_framework *fx) {
     }
 
     fx->clear_assets();
+    fx->load_model(skin.bin_path, skin.resource_key);
 }

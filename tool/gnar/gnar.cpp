@@ -431,6 +431,8 @@ int main(int argc, char **argv) {
         return exit_code;
     }
 
+    yordle::data::meta::bin_dispatch::load_table();
+
     set<string> done_units;
     for (const auto &target : find_paths(gnar.targets, {".bin"}, {})) {
         auto data = read_file(target);

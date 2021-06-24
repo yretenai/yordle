@@ -5,6 +5,8 @@
 #include <algorithm>
 
 #include "../vex.hpp"
+#include "render_device_framework.hpp"
+
 
 namespace vex::device {
     void render_device_framework::setup_imgui() {
@@ -115,7 +117,7 @@ namespace vex::device {
         menu_items         = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_menu_item>>>();
         textures           = std::make_shared<std::map<uint64_t, std::shared_ptr<void>>>();
         texture_dimensions = std::make_shared<std::map<uint64_t, float>>();
-        models             = std::make_shared<std::map<uint64_t, std::shared_ptr<void>>>();
+        models             = std::make_shared<std::map<uint64_t, std::shared_ptr<vex::mage::skinned_mesh_container>>>();
         shaders            = std::make_shared<std::map<uint64_t, std::shared_ptr<void>>>();
     }
 
@@ -124,5 +126,41 @@ namespace vex::device {
         menu_items->clear();
         elements->clear();
         clear_assets();
+    }
+
+    std::shared_ptr<vex::mage::skinned_mesh_container> render_device_framework::load_model_base(uint64_t model_path, uint64_t resource_key) {
+        auto wad = vex::g_wad.load();
+        auto bin = wad->read_file(model_path);
+
+        if (bin == nullptr) {
+            return nullptr;
+        }
+
+        auto champion_bin = yordle::data::property_bin(*bin);
+        if (!champion_bin.objects.contains(resource_key)) {
+            return nullptr;
+        }
+        auto skin_props = yordle::data::meta::deserialize<yordle::data::meta::SkinCharacterDataProperties>(champion_bin.objects[resource_key]);
+        if (skin_props == nullptr) {
+            return nullptr;
+        }
+        if (skin_props->skinMeshProperties == nullptr) {
+            return nullptr;
+        }
+        if (!skin_props->skinMeshProperties->is_type(0x6111d8a4)) {
+            return nullptr;
+        }
+
+        std::shared_ptr<yordle::data::meta::SkinMeshDataProperties> mesh_props = std::reinterpret_pointer_cast<yordle::data::meta::SkinMeshDataProperties>(skin_props->skinMeshProperties);
+
+        auto skn_data = wad->read_file(mesh_props->simpleSkin);
+        if (skn_data == nullptr) {
+            return nullptr;
+        }
+        auto skn = yordle::r3d::skinned_mesh::load_skn_file(*skn_data);
+        if (skn == nullptr) {
+            return nullptr;
+        }
+        return std::make_shared<vex::mage::skinned_mesh_container>(this, mesh_props, skn);
     }
 } // namespace vex::device
