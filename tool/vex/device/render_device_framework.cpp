@@ -10,8 +10,7 @@ namespace vex::device {
     void render_device_framework::setup_imgui() {
         IMGUI_CHECKVERSION();
         ImGui::CreateContext();
-        ImGuiIO &io    = ImGui::GetIO();
-        io.IniFilename = nullptr;
+        ImGuiIO &io = ImGui::GetIO();
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
 

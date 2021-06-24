@@ -7,24 +7,24 @@
 #include "../../vex.hpp"
 
 bool vex::ui::debug_menu::paint(vex::device::render_device_framework *fx) {
-    ImGui::LabelTextV("frame time", "%f ms", reinterpret_cast<char *>(&fx->frame_time));
-    auto menu_sz = fx->menu_items->size();
-    ImGui::LabelTextV("menu items", "%d", reinterpret_cast<char *>(&menu_sz));
-    auto window_sz = fx->elements->size();
-    ImGui::LabelTextV("windows", "%d", reinterpret_cast<char *>(&window_sz));
-    auto tex_sz = fx->textures->size();
-    ImGui::LabelTextV("textures", "%d", reinterpret_cast<char *>(&tex_sz));
-    auto model_sz = fx->models->size();
-    ImGui::LabelTextV("models", "%d", reinterpret_cast<char *>(&model_sz));
-    auto shader_sz = fx->shaders->size();
-    ImGui::LabelTextV("shaders", "%d", reinterpret_cast<char *>(&shader_sz));
-    auto wad       = vex::g_wad.load();
-    auto wad_count = wad->paths.size();
-    ImGui::LabelTextV("wads", "%d", reinterpret_cast<char *>(&wad_count));
-    auto entry_count = wad->entries.size();
-    ImGui::LabelTextV("files", "%d", reinterpret_cast<char *>(&entry_count));
-    auto os     = vex::g_os.load();
-    auto memory = os->get_memory();
-    ImGui::LabelTextV("memory", "%d bytes", reinterpret_cast<char *>(&memory));
+    if (fx != nullptr) {
+        ImGui::Value("frame time", float(fx->frame_time), "%f ms");
+        ImGui::Value("menu items", uint32_t(fx->menu_items->size()));
+        ImGui::Value("elements", uint32_t(fx->elements->size()));
+        ImGui::Value("textures", uint32_t(fx->textures->size()));
+        ImGui::Value("models", uint32_t(fx->models->size()));
+        ImGui::Value("shaders", uint32_t(fx->shaders->size()));
+    }
+
+    auto wad = vex::g_wad.load();
+    if (wad != nullptr) {
+        ImGui::Value("archives", uint32_t(wad->paths.size()));
+        ImGui::Value("files", uint32_t(wad->entries.size()));
+    }
+
+    auto os = vex::g_os.load();
+    if (os != nullptr) {
+        ImGui::Value("memory", float(os->get_memory()) / 1048576.0f, "%.2f MiB");
+    }
     return true;
 }
