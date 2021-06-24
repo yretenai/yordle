@@ -4,7 +4,6 @@
 
 #include <yordle/audio/wem_pack.hpp>
 
-
 #include <standard_dragon/exception/invalid_data.hpp>
 #include <standard_dragon/exception/not_implemented.hpp>
 

@@ -45,6 +45,7 @@
 #include <yordle/manifest/riot_bundle.hpp>
 #include <yordle/manifest/riot_manifest.hpp>
 #include <yordle/meeps/languages.hpp>
+#include <yordle/r3d/skinned_mesh.hpp>
 #include <yordle/sieve/models.hpp>
 
 namespace yordle {
