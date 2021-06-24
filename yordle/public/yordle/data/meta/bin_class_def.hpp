@@ -26,7 +26,7 @@ namespace yordle::data::meta {
         explicit WardSkinDisabler(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4197693672 || bin_class::is_type(type);
+            return type == 4197693672;
         }
 
         bool DisableAllSkins = false;
@@ -38,7 +38,7 @@ namespace yordle::data::meta {
         explicit IContextualAction(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1073283193 || bin_class::is_type(type);
+            return type == 1073283193;
         }
 
         yordle::data::meta::bin_fnv_hash mHashedSituationTrigger = 0;
@@ -99,7 +99,7 @@ namespace yordle::data::meta {
         explicit IContextualCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3400586476 || bin_class::is_type(type);
+            return type == 3400586476;
         }
     };
 
@@ -530,7 +530,7 @@ namespace yordle::data::meta {
         explicit ICharacterSubcondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3725269960 || bin_class::is_type(type);
+            return type == 3725269960;
         }
     };
 
@@ -805,7 +805,7 @@ namespace yordle::data::meta {
         explicit ContextualRule(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 584100880 || bin_class::is_type(type);
+            return type == 584100880;
         }
 
         uint32_t mConditionRelationship = 0;
@@ -822,7 +822,7 @@ namespace yordle::data::meta {
         explicit ContextualSituation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4230456894 || bin_class::is_type(type);
+            return type == 4230456894;
         }
 
         bool mChooseRandomValidRule = false;
@@ -835,7 +835,7 @@ namespace yordle::data::meta {
         explicit DamageSourceTemplate(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3888872651 || bin_class::is_type(type);
+            return type == 3888872651;
         }
 
         std::string name {};
@@ -848,7 +848,7 @@ namespace yordle::data::meta {
         explicit DamageSourceSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3443066312 || bin_class::is_type(type);
+            return type == 3443066312;
         }
 
         std::vector<std::string> damageTagDefinition {};
@@ -860,7 +860,7 @@ namespace yordle::data::meta {
         explicit DeathTimesScalingPoint(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2583264988 || bin_class::is_type(type);
+            return type == 2583264988;
         }
 
         uint32_t mStartTime    = 0;
@@ -872,7 +872,7 @@ namespace yordle::data::meta {
         explicit DeathTimes(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 319277549 || bin_class::is_type(type);
+            return type == 319277549;
         }
 
         std::vector<float> mTimeDeadPerLevel {};
@@ -890,7 +890,7 @@ namespace yordle::data::meta {
         explicit AbilityResourceStateColorOptions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3837969205 || bin_class::is_type(type);
+            return type == 3837969205;
         }
 
         std::array<uint8_t, 4> color {};
@@ -902,7 +902,7 @@ namespace yordle::data::meta {
         explicit AbilityResourceStateData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2001592274 || bin_class::is_type(type);
+            return type == 2001592274;
         }
 
         std::shared_ptr<yordle::data::meta::AbilityResourceStateColorOptions> DefaultPalette {};
@@ -916,7 +916,7 @@ namespace yordle::data::meta {
         explicit AbilityResourceThresholdIndicatorRange(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2815698218 || bin_class::is_type(type);
+            return type == 2815698218;
         }
 
         float rangeStart = 0.0;
@@ -928,7 +928,7 @@ namespace yordle::data::meta {
         explicit AbilityResourceTypeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3011369577 || bin_class::is_type(type);
+            return type == 3011369577;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::AbilityResourceStateData>> states {};
@@ -942,7 +942,7 @@ namespace yordle::data::meta {
         explicit AbilityResourceTypeConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 994495723 || bin_class::is_type(type);
+            return type == 994495723;
         }
 
         std::shared_ptr<yordle::data::meta::AbilityResourceTypeData> mana {};
@@ -967,7 +967,7 @@ namespace yordle::data::meta {
         explicit EvolutionDescription(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3253985952 || bin_class::is_type(type);
+            return type == 3253985952;
         }
 
         uint32_t mFlags = 0;
@@ -981,7 +981,7 @@ namespace yordle::data::meta {
         explicit ExperienceCurveData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2482357264 || bin_class::is_type(type);
+            return type == 2482357264;
         }
 
         std::vector<float> mExperienceRequiredPerLevel {};
@@ -997,7 +997,7 @@ namespace yordle::data::meta {
         explicit ExperienceModData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4040137199 || bin_class::is_type(type);
+            return type == 4040137199;
         }
 
         std::vector<float> mPlayerMinionSplitXp {};
@@ -1008,7 +1008,7 @@ namespace yordle::data::meta {
         explicit StatUIData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 309827837 || bin_class::is_type(type);
+            return type == 309827837;
         }
 
         std::string mName {};
@@ -1023,7 +1023,7 @@ namespace yordle::data::meta {
         explicit GlobalStatsUIData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4087817779 || bin_class::is_type(type);
+            return type == 4087817779;
         }
 
         std::map<uint8_t, std::shared_ptr<yordle::data::meta::StatUIData>> mStatUIData {};
@@ -1059,7 +1059,7 @@ namespace yordle::data::meta {
         explicit CameraTrapezoid(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1207715590 || bin_class::is_type(type);
+            return type == 1207715590;
         }
 
         float x9811eb50   = 0.0;
@@ -1073,7 +1073,7 @@ namespace yordle::data::meta {
         explicit CameraConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3757418744 || bin_class::is_type(type);
+            return type == 3757418744;
         }
 
         std::shared_ptr<yordle::data::meta::CameraTrapezoid> x671c887 {};
@@ -1101,7 +1101,7 @@ namespace yordle::data::meta {
         explicit MapAudioDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3010308524 || bin_class::is_type(type);
+            return type == 3010308524;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::MapAudioDataProperties> BaseData {3010308524u};
@@ -1114,7 +1114,7 @@ namespace yordle::data::meta {
         explicit ClientStateAudioDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3024130158 || bin_class::is_type(type);
+            return type == 3024130158;
         }
 
         std::vector<std::string> BankPaths {};
@@ -1126,7 +1126,7 @@ namespace yordle::data::meta {
         explicit FeatureAudioDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4071981464 || bin_class::is_type(type);
+            return type == 4071981464;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> bankUnits {};
@@ -1139,7 +1139,7 @@ namespace yordle::data::meta {
         explicit BankUnit(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2755749141 || bin_class::is_type(type);
+            return type == 2755749141;
         }
 
         std::string name {};
@@ -1154,7 +1154,7 @@ namespace yordle::data::meta {
         explicit AudioTagListProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1123665566 || bin_class::is_type(type);
+            return type == 1123665566;
         }
 
         std::vector<std::string> tags {};
@@ -1166,7 +1166,7 @@ namespace yordle::data::meta {
         explicit AudioSystemDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 915602117 || bin_class::is_type(type);
+            return type == 915602117;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::AudioTagListProperties>> systemTagEventList {};
@@ -1177,7 +1177,7 @@ namespace yordle::data::meta {
         explicit AudioStatusEvents(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2254221038 || bin_class::is_type(type);
+            return type == 2254221038;
         }
 
         std::string rtpcName {};
@@ -1190,7 +1190,7 @@ namespace yordle::data::meta {
         explicit GlobalAudioDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2263089413 || bin_class::is_type(type);
+            return type == 2263089413;
         }
 
         std::map<yordle::data::meta::bin_fnv_hash, yordle::data::meta::bin_ref<yordle::data::meta::AudioSystemDataProperties>> systems {};
@@ -1204,7 +1204,7 @@ namespace yordle::data::meta {
         explicit MusicAudioDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1714459771 || bin_class::is_type(type);
+            return type == 1714459771;
         }
 
         std::string themeMusicID {};
@@ -1226,7 +1226,7 @@ namespace yordle::data::meta {
         explicit EVOSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1597933322 || bin_class::is_type(type);
+            return type == 1597933322;
         }
 
         bool mEnableChatVO                      = false;
@@ -1241,7 +1241,7 @@ namespace yordle::data::meta {
         explicit ICatalogEntryOwner(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2479546740 || bin_class::is_type(type);
+            return type == 2479546740;
         }
     };
 
@@ -1250,7 +1250,7 @@ namespace yordle::data::meta {
         explicit CatalogEntry(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 607049692 || bin_class::is_type(type);
+            return type == 607049692;
         }
 
         std::string contentId {};
@@ -1263,7 +1263,7 @@ namespace yordle::data::meta {
         explicit CensoredImage(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3496109055 || bin_class::is_type(type);
+            return type == 3496109055;
         }
 
         std::string image {};
@@ -1275,7 +1275,7 @@ namespace yordle::data::meta {
         explicit Character(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2335876880 || bin_class::is_type(type);
+            return type == 2335876880;
         }
 
         std::string name {};
@@ -1286,7 +1286,7 @@ namespace yordle::data::meta {
         explicit SkinCharacterDataProperties_CharacterIdleEffect(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 856064357 || bin_class::is_type(type);
+            return type == 856064357;
         }
 
         yordle::data::meta::bin_fnv_hash effectKey = 0;
@@ -1301,7 +1301,7 @@ namespace yordle::data::meta {
         explicit SkinCharacterMetaDataProperties_SpawningSkinOffset(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1393249095 || bin_class::is_type(type);
+            return type == 1393249095;
         }
 
         std::string tag {};
@@ -1313,7 +1313,7 @@ namespace yordle::data::meta {
         explicit ESportTeamEntry(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 336658597 || bin_class::is_type(type);
+            return type == 336658597;
         }
 
         std::string teamName {};
@@ -1326,7 +1326,7 @@ namespace yordle::data::meta {
         explicit ESportLeagueEntry(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1219793301 || bin_class::is_type(type);
+            return type == 1219793301;
         }
 
         std::string leagueName {};
@@ -1338,7 +1338,7 @@ namespace yordle::data::meta {
         explicit SkinCharacterMetaDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4160558231 || bin_class::is_type(type);
+            return type == 4160558231;
         }
 
         bool eSportCharacter = false;
@@ -1357,7 +1357,7 @@ namespace yordle::data::meta {
         explicit SkinAudioProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2407209295 || bin_class::is_type(type);
+            return type == 2407209295;
         }
 
         std::vector<std::string> tagEventList {};
@@ -1369,7 +1369,7 @@ namespace yordle::data::meta {
         explicit SkinAnimationProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1114474915 || bin_class::is_type(type);
+            return type == 1114474915;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> animationGraphData {4126869447u};
@@ -1380,7 +1380,7 @@ namespace yordle::data::meta {
         explicit SkinEmblem(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2074733870 || bin_class::is_type(type);
+            return type == 2074733870;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mEmblemData {1713655491u};
@@ -1392,7 +1392,7 @@ namespace yordle::data::meta {
         explicit SkinSummonerEmoteLoadout(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4080233272 || bin_class::is_type(type);
+            return type == 4080233272;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mEmotes {};
@@ -1403,7 +1403,7 @@ namespace yordle::data::meta {
         explicit SkinCharacterDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2607278582 || bin_class::is_type(type);
+            return type == 2607278582;
         }
 
         uint32_t skinClassification = 0;
@@ -1461,7 +1461,7 @@ namespace yordle::data::meta {
         explicit SkinFilterData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3022275834 || bin_class::is_type(type);
+            return type == 3022275834;
         }
 
         uint32_t FilterType = 0;
@@ -1474,7 +1474,7 @@ namespace yordle::data::meta {
         explicit CharacterPassiveData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2393107013 || bin_class::is_type(type);
+            return type == 2393107013;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> xbd3c31e4 {1585338886u};
@@ -1490,7 +1490,7 @@ namespace yordle::data::meta {
         explicit GlobalPerLevelStatsFactor(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1907548119 || bin_class::is_type(type);
+            return type == 1907548119;
         }
 
         std::vector<float> mPerLevelStatsFactor {};
@@ -1501,7 +1501,7 @@ namespace yordle::data::meta {
         explicit OverrideAutoAttackCastTimeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3397751176 || bin_class::is_type(type);
+            return type == 3397751176;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mOverrideAutoattackCastTimeCalculation {};
@@ -1512,7 +1512,7 @@ namespace yordle::data::meta {
         explicit CharacterRecord(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 602544405 || bin_class::is_type(type);
+            return type == 602544405;
         }
 
         std::string mCharacterName {};
@@ -1661,7 +1661,7 @@ namespace yordle::data::meta {
         explicit AbilityResourceSlotInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3459369333 || bin_class::is_type(type);
+            return type == 3459369333;
         }
 
         uint8_t arType                     = 0;
@@ -1694,7 +1694,7 @@ namespace yordle::data::meta {
         explicit AttackSlotData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 112014489 || bin_class::is_type(type);
+            return type == 112014489;
         }
 
         std::optional<float> mAttackTotalTime {};
@@ -1711,7 +1711,7 @@ namespace yordle::data::meta {
         explicit TargetLaserComponentEffects(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 490133160 || bin_class::is_type(type);
+            return type == 490133160;
         }
 
         std::shared_ptr<yordle::data::meta::SkinCharacterDataProperties_CharacterIdleEffect> beamEffectDefinition {};
@@ -1724,7 +1724,7 @@ namespace yordle::data::meta {
         explicit ToolEducationData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2970707127 || bin_class::is_type(type);
+            return type == 2970707127;
         }
 
         int32_t firstItem  = 0;
@@ -1736,7 +1736,7 @@ namespace yordle::data::meta {
         explicit CharacterToolData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3963447610 || bin_class::is_type(type);
+            return type == 3963447610;
         }
 
         std::string searchTags {};
@@ -1757,7 +1757,7 @@ namespace yordle::data::meta {
         explicit InteractionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1250691283 || bin_class::is_type(type);
+            return type == 1250691283;
         }
 
         std::string idleAnim {};
@@ -1769,7 +1769,7 @@ namespace yordle::data::meta {
         explicit ISpellRankUpRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1708005576 || bin_class::is_type(type);
+            return type == 1708005576;
         }
     };
 
@@ -1810,7 +1810,7 @@ namespace yordle::data::meta {
         explicit SpellRankUpRequirements(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3158945758 || bin_class::is_type(type);
+            return type == 3158945758;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::ISpellRankUpRequirement>> mRequirements {};
@@ -1821,7 +1821,7 @@ namespace yordle::data::meta {
         explicit SpellLevelUpInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2606765944 || bin_class::is_type(type);
+            return type == 2606765944;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::SpellRankUpRequirements>> mRequirements {};
@@ -1832,7 +1832,7 @@ namespace yordle::data::meta {
         explicit RecSpellRankUpInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 825182082 || bin_class::is_type(type);
+            return type == 825182082;
         }
 
         std::vector<uint8_t> mDefaultPriority {};
@@ -1844,7 +1844,7 @@ namespace yordle::data::meta {
         explicit UseableData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4101150036 || bin_class::is_type(type);
+            return type == 4101150036;
         }
 
         uint32_t flags = 0;
@@ -1858,7 +1858,7 @@ namespace yordle::data::meta {
         explicit CharacterHealthBarDataRecord(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 297212766 || bin_class::is_type(type);
+            return type == 297212766;
         }
 
         float hpPerTick = 0.0;
@@ -1877,7 +1877,7 @@ namespace yordle::data::meta {
         explicit SponsoredBanner(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 6610142 || bin_class::is_type(type);
+            return type == 6610142;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> banner {761042637u};
@@ -1889,7 +1889,7 @@ namespace yordle::data::meta {
         explicit EsportsBannerConfiguration(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3503743985 || bin_class::is_type(type);
+            return type == 3503743985;
         }
 
         std::string name {};
@@ -1905,7 +1905,7 @@ namespace yordle::data::meta {
         explicit EsportsBannerData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 761042637 || bin_class::is_type(type);
+            return type == 761042637;
         }
 
         std::string bannerName {};
@@ -1917,7 +1917,7 @@ namespace yordle::data::meta {
         explicit EsportsData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 249502963 || bin_class::is_type(type);
+            return type == 249502963;
         }
 
         std::vector<std::string> leagues {};
@@ -1928,7 +1928,7 @@ namespace yordle::data::meta {
         explicit ClashLogo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1951208621 || bin_class::is_type(type);
+            return type == 1951208621;
         }
 
         uint32_t mClashLogoId      = 0;
@@ -1941,7 +1941,7 @@ namespace yordle::data::meta {
         explicit EsportsBannerOptions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 224714173 || bin_class::is_type(type);
+            return type == 224714173;
         }
 
         std::string subMeshName {};
@@ -1955,7 +1955,7 @@ namespace yordle::data::meta {
         explicit MasteryBadgeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1337363141 || bin_class::is_type(type);
+            return type == 1337363141;
         }
 
         yordle::data::meta::bin_fnv_hash mName = 0;
@@ -1971,7 +1971,7 @@ namespace yordle::data::meta {
         explicit MasteryBadgeConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4114078183 || bin_class::is_type(type);
+            return type == 4114078183;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::MasteryBadgeData>> mBadges {};
@@ -1982,7 +1982,7 @@ namespace yordle::data::meta {
         explicit MasteryData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 505623326 || bin_class::is_type(type);
+            return type == 505623326;
         }
 
         std::string texture {};
@@ -1995,18 +1995,18 @@ namespace yordle::data::meta {
         explicit ChampionMasteryMap(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2781975535 || bin_class::is_type(type);
+            return type == 2781975535;
         }
 
         std::map<int32_t, yordle::data::meta::bin_ref<yordle::data::meta::MasteryData>> masteryData {};
     };
 
-    class YORDLE_EXPORT BaseLoadoutData : public bin_class {
+    class YORDLE_EXPORT BaseLoadoutData : public ICatalogEntryOwner {
     public:
         explicit BaseLoadoutData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2514536512 || bin_class::is_type(type);
+            return type == 2514536512 || ICatalogEntryOwner::is_type(type);
         }
 
         std::string mNameTraKey {};
@@ -2019,7 +2019,7 @@ namespace yordle::data::meta {
         explicit LoadoutFeatureData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3930402607 || bin_class::is_type(type);
+            return type == 3930402607;
         }
 
         uint32_t mFeature = 0;
@@ -2036,7 +2036,7 @@ namespace yordle::data::meta {
         explicit RecallDecalData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 695369637 || bin_class::is_type(type);
+            return type == 695369637;
         }
 
         std::string effectFile {};
@@ -2051,7 +2051,7 @@ namespace yordle::data::meta {
         explicit GearSkinUpgrade(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 668820321 || bin_class::is_type(type);
+            return type == 668820321;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mGearData {};
@@ -2063,7 +2063,7 @@ namespace yordle::data::meta {
         explicit SkinUpgradeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1760736924 || bin_class::is_type(type);
+            return type == 1760736924;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::GearSkinUpgrade>> mGearSkinUpgrades {};
@@ -2074,7 +2074,7 @@ namespace yordle::data::meta {
         explicit TFTCompanionBucket(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4009991563 || bin_class::is_type(type);
+            return type == 4009991563;
         }
 
         std::vector<yordle::data::meta::bin_fnv_hash> Companions {};
@@ -2085,7 +2085,7 @@ namespace yordle::data::meta {
         explicit TFTBotLoadoutConfiguration(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2097505044 || bin_class::is_type(type);
+            return type == 2097505044;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::TFTCompanionBucket>> xeffbc65c {};
@@ -2097,7 +2097,7 @@ namespace yordle::data::meta {
         explicit BannerFlagData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2025704385 || bin_class::is_type(type);
+            return type == 2025704385;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> animationGraphData {4126869447u};
@@ -2109,7 +2109,7 @@ namespace yordle::data::meta {
         explicit BannerFrameData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3564953724 || bin_class::is_type(type);
+            return type == 3564953724;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> animationGraphData {4126869447u};
@@ -2141,7 +2141,7 @@ namespace yordle::data::meta {
         explicit CompanionSpeciesData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2386264729 || bin_class::is_type(type);
+            return type == 2386264729;
         }
 
         std::string mSpeciesName {};
@@ -2153,7 +2153,7 @@ namespace yordle::data::meta {
         explicit SummonerEmote(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1950165531 || bin_class::is_type(type);
+            return type == 1950165531;
         }
 
         uint32_t summonerEmoteId = 0;
@@ -2170,7 +2170,7 @@ namespace yordle::data::meta {
         explicit SummonerEmoteSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 508241094 || bin_class::is_type(type);
+            return type == 508241094;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::SummonerEmote> mFirstBlood {1950165531u};
@@ -2182,7 +2182,7 @@ namespace yordle::data::meta {
         explicit GearData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3023323566 || bin_class::is_type(type);
+            return type == 3023323566;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> skinMeshProperties {};
@@ -2224,7 +2224,7 @@ namespace yordle::data::meta {
         explicit RegaliaLookup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1780014848 || bin_class::is_type(type);
+            return type == 1780014848;
         }
 
         std::string tier {};
@@ -2244,7 +2244,7 @@ namespace yordle::data::meta {
         explicit RegaliaRankedCrestEntry(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3828118224 || bin_class::is_type(type);
+            return type == 3828118224;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData> base {2286074286u};
@@ -2257,7 +2257,7 @@ namespace yordle::data::meta {
         explicit RegaliaRankedCrestMap(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2415052226 || bin_class::is_type(type);
+            return type == 2415052226;
         }
 
         std::map<std::string, std::shared_ptr<yordle::data::meta::RegaliaRankedCrestEntry>> x723d6f91 {};
@@ -2268,7 +2268,7 @@ namespace yordle::data::meta {
         explicit RegaliaPrestigeCrestList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3350243090 || bin_class::is_type(type);
+            return type == 3350243090;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData>> PrestigeCrests {};
@@ -2279,7 +2279,7 @@ namespace yordle::data::meta {
         explicit RegaliaRankedBannerMap(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 761319899 || bin_class::is_type(type);
+            return type == 761319899;
         }
 
         std::map<std::string, yordle::data::meta::bin_ref<yordle::data::meta::RegaliaData>> xc5b8b568 {};
@@ -2290,7 +2290,7 @@ namespace yordle::data::meta {
         explicit x2ba8fc33(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 732494899 || bin_class::is_type(type);
+            return type == 732494899;
         }
 
         std::map<std::string, std::shared_ptr<yordle::data::meta::RegaliaData>> x5b1fd3c2 {};
@@ -2301,7 +2301,7 @@ namespace yordle::data::meta {
         explicit StatStoneEventToTrack(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4146948500 || bin_class::is_type(type);
+            return type == 4146948500;
         }
 
         uint32_t EventToTrack = 0;
@@ -2334,7 +2334,7 @@ namespace yordle::data::meta {
         explicit IStatStoneLogicDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3276314181 || bin_class::is_type(type);
+            return type == 3276314181;
         }
     };
 
@@ -2509,12 +2509,12 @@ namespace yordle::data::meta {
         }
     };
 
-    class YORDLE_EXPORT StatStoneSet : public bin_class {
+    class YORDLE_EXPORT StatStoneSet : public ICatalogEntryOwner {
     public:
         explicit StatStoneSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2524344308 || bin_class::is_type(type);
+            return type == 2524344308 || ICatalogEntryOwner::is_type(type);
         }
 
         std::string name {};
@@ -2527,7 +2527,7 @@ namespace yordle::data::meta {
         explicit StatStoneCategory(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3156432820 || bin_class::is_type(type);
+            return type == 3156432820;
         }
 
         std::string gameIconUnlit {};
@@ -2542,7 +2542,7 @@ namespace yordle::data::meta {
         explicit xead1b379(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3939611513 || bin_class::is_type(type);
+            return type == 3939611513;
         }
 
         std::map<uint32_t, yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> xfb403eda {};
@@ -2553,7 +2553,7 @@ namespace yordle::data::meta {
         explicit x32be2466(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 851321958 || bin_class::is_type(type);
+            return type == 851321958;
         }
 
         std::map<uint32_t, yordle::data::meta::bin_ref<yordle::data::meta::xead1b379>> x1a28d722 {};
@@ -2586,7 +2586,7 @@ namespace yordle::data::meta {
         explicit TftDamageSkinDescriptor(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3607046696 || bin_class::is_type(type);
+            return type == 3607046696;
         }
 
         uint32_t EffectType = 0;
@@ -2601,7 +2601,7 @@ namespace yordle::data::meta {
         explicit TftMapGroupData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2233303452 || bin_class::is_type(type);
+            return type == 2233303452;
         }
 
         std::string mName {};
@@ -2661,7 +2661,7 @@ namespace yordle::data::meta {
         explicit x1650a4ce(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 374383822 || bin_class::is_type(type);
+            return type == 374383822;
         }
     };
 
@@ -2670,7 +2670,7 @@ namespace yordle::data::meta {
         explicit EmblemPosition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1572178072 || bin_class::is_type(type);
+            return type == 1572178072;
         }
 
         std::string mVertical {};
@@ -2682,7 +2682,7 @@ namespace yordle::data::meta {
         explicit EmblemData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1713655491 || bin_class::is_type(type);
+            return type == 1713655491;
         }
 
         bool mShowOnLoadingScreen = false;
@@ -2695,7 +2695,7 @@ namespace yordle::data::meta {
         explicit EmblemSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 381157638 || bin_class::is_type(type);
+            return type == 381157638;
         }
 
         float mBottomFraction  = 0.0;
@@ -2707,7 +2707,7 @@ namespace yordle::data::meta {
         explicit GameModeAutoItemPurchasingConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1773891178 || bin_class::is_type(type);
+            return type == 1773891178;
         }
 
         int32_t x19ef67a2 = 0;
@@ -2722,7 +2722,7 @@ namespace yordle::data::meta {
         explicit GameModeChampionList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2322891183 || bin_class::is_type(type);
+            return type == 2322891183;
         }
 
         std::vector<yordle::data::meta::bin_fnv_hash> mChampions {};
@@ -2733,7 +2733,7 @@ namespace yordle::data::meta {
         explicit GameModeConstant(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1670770484 || bin_class::is_type(type);
+            return type == 1670770484;
         }
     };
 
@@ -2830,7 +2830,7 @@ namespace yordle::data::meta {
         explicit GameModeConstantsGroup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 720276364 || bin_class::is_type(type);
+            return type == 720276364;
         }
 
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::GameModeConstant>> mConstants {};
@@ -2841,7 +2841,7 @@ namespace yordle::data::meta {
         explicit GameModeConstants(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 201829573 || bin_class::is_type(type);
+            return type == 201829573;
         }
 
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::GameModeConstantsGroup>> mGroups {};
@@ -2852,7 +2852,7 @@ namespace yordle::data::meta {
         explicit GameModeItemList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 401601815 || bin_class::is_type(type);
+            return type == 401601815;
         }
 
         std::vector<yordle::data::meta::bin_fnv_hash> mItems {};
@@ -2863,7 +2863,7 @@ namespace yordle::data::meta {
         explicit GameModeMapData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2312017462 || bin_class::is_type(type);
+            return type == 2312017462;
         }
 
         yordle::data::meta::bin_fnv_hash mModeName = 0;
@@ -2904,7 +2904,7 @@ namespace yordle::data::meta {
         explicit GameMutatorExpansions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4119089369 || bin_class::is_type(type);
+            return type == 4119089369;
         }
 
         std::string mExpandedMutator {};
@@ -2916,7 +2916,7 @@ namespace yordle::data::meta {
         explicit IGameCalculationPart(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3053458126 || bin_class::is_type(type);
+            return type == 3053458126;
         }
     };
 
@@ -3187,7 +3187,7 @@ namespace yordle::data::meta {
         explicit Breakpoint(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2392053998 || bin_class::is_type(type);
+            return type == 2392053998;
         }
 
         uint32_t mLevel = 0;
@@ -3223,7 +3223,7 @@ namespace yordle::data::meta {
         explicit IGameCalculation(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 389493299 || bin_class::is_type(type);
+            return type == 389493299;
         }
 
         std::shared_ptr<yordle::data::meta::IGameCalculationPart> mMultiplier {};
@@ -3276,7 +3276,7 @@ namespace yordle::data::meta {
         explicit GameplayConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3168105463 || bin_class::is_type(type);
+            return type == 3168105463;
         }
 
         float mSpellPostponeTimeoutSec                  = 0.0;
@@ -3311,7 +3311,7 @@ namespace yordle::data::meta {
         explicit EnchantmentGroup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 903342517 || bin_class::is_type(type);
+            return type == 903342517;
         }
 
         std::vector<int32_t> mEnchantments {};
@@ -3326,7 +3326,7 @@ namespace yordle::data::meta {
         explicit ItemData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 608970470 || bin_class::is_type(type);
+            return type == 608970470;
         }
 
         std::string spellName {};
@@ -3450,7 +3450,7 @@ namespace yordle::data::meta {
         explicit ItemDataValue(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2999331975 || bin_class::is_type(type);
+            return type == 2999331975;
         }
 
         std::string mName {};
@@ -3462,7 +3462,7 @@ namespace yordle::data::meta {
         explicit x61f8c41c(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1643693084 || bin_class::is_type(type);
+            return type == 1643693084;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::ItemDataValue>> x6afef1b {};
@@ -3473,7 +3473,7 @@ namespace yordle::data::meta {
         explicit ItemDataAvailability(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3225152729 || bin_class::is_type(type);
+            return type == 3225152729;
         }
 
         bool mInStore     = false;
@@ -3486,7 +3486,7 @@ namespace yordle::data::meta {
         explicit ItemDataBuild(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3845505502 || bin_class::is_type(type);
+            return type == 3845505502;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::ItemData>> itemLinks {};
@@ -3497,7 +3497,7 @@ namespace yordle::data::meta {
         explicit ItemGroup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 992861497 || bin_class::is_type(type);
+            return type == 992861497;
         }
 
         yordle::data::meta::bin_fnv_hash mItemGroupID = 0;
@@ -3514,7 +3514,7 @@ namespace yordle::data::meta {
         explicit ItemModifier(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2109319947 || bin_class::is_type(type);
+            return type == 2109319947;
         }
 
         yordle::data::meta::bin_fnv_hash mItemModifierID = 0;
@@ -3558,7 +3558,7 @@ namespace yordle::data::meta {
         explicit ItemDataClient(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2233135733 || bin_class::is_type(type);
+            return type == 2233135733;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mTooltipData {};
@@ -3580,7 +3580,7 @@ namespace yordle::data::meta {
         explicit ChampionItemRecommendations(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3337884263 || bin_class::is_type(type);
+            return type == 3337884263;
         }
 
         yordle::data::meta::bin_fnv_hash xcc35ff18        = 0;
@@ -3594,7 +3594,7 @@ namespace yordle::data::meta {
         explicit ItemRecommendationItemList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1183984318 || bin_class::is_type(type);
+            return type == 1183984318;
         }
 
         std::vector<uint32_t> mItemList {};
@@ -3605,7 +3605,7 @@ namespace yordle::data::meta {
         explicit ItemRecommendationContextList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2188140632 || bin_class::is_type(type);
+            return type == 2188140632;
         }
 
         std::map<uint32_t, std::shared_ptr<yordle::data::meta::ItemRecommendationItemList>> mAllStartingItemIds {};
@@ -3618,7 +3618,7 @@ namespace yordle::data::meta {
         explicit ItemRecommendationContext(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4266457040 || bin_class::is_type(type);
+            return type == 4266457040;
         }
 
         uint32_t mChampionId                       = 0;
@@ -3637,7 +3637,7 @@ namespace yordle::data::meta {
         explicit ItemRecommendationChoices(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1589364011 || bin_class::is_type(type);
+            return type == 1589364011;
         }
 
         std::vector<uint32_t> mChoices {};
@@ -3648,7 +3648,7 @@ namespace yordle::data::meta {
         explicit ItemRecommendationMatrixRow(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2727115092 || bin_class::is_type(type);
+            return type == 2727115092;
         }
 
         std::map<std::string, std::shared_ptr<yordle::data::meta::ItemRecommendationChoices>> mChoicesMap {};
@@ -3659,7 +3659,7 @@ namespace yordle::data::meta {
         explicit ItemRecommendationMatrix(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 779837744 || bin_class::is_type(type);
+            return type == 779837744;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::ItemRecommendationMatrixRow>> mrows {};
@@ -3670,7 +3670,7 @@ namespace yordle::data::meta {
         explicit x5a3bc52d(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1513866541 || bin_class::is_type(type);
+            return type == 1513866541;
         }
 
         std::vector<yordle::data::meta::bin_fnv_hash> items {};
@@ -3682,7 +3682,7 @@ namespace yordle::data::meta {
         explicit ItemRecommendationCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 396544810 || bin_class::is_type(type);
+            return type == 396544810;
         }
 
         yordle::data::meta::bin_fnv_hash mItem = 0;
@@ -3695,7 +3695,7 @@ namespace yordle::data::meta {
         explicit ItemRecommendationOverrideContext(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3898055584 || bin_class::is_type(type);
+            return type == 3898055584;
         }
 
         uint32_t mMapID                            = 0;
@@ -3708,7 +3708,7 @@ namespace yordle::data::meta {
         explicit ItemRecommendationOverrideStartingItemSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2556481222 || bin_class::is_type(type);
+            return type == 2556481222;
         }
 
         std::vector<yordle::data::meta::bin_fnv_hash> mStartingItems {};
@@ -3719,7 +3719,7 @@ namespace yordle::data::meta {
         explicit ItemRecommendationOverride(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1661050393 || bin_class::is_type(type);
+            return type == 1661050393;
         }
 
         bool mForceOverride = false;
@@ -3735,7 +3735,7 @@ namespace yordle::data::meta {
         explicit ItemRecommendationOverrideSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2753712911 || bin_class::is_type(type);
+            return type == 2753712911;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::ItemRecommendationOverride>> mOverrides {};
@@ -3746,7 +3746,7 @@ namespace yordle::data::meta {
         explicit ItemAdviceAttribute(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 573358062 || bin_class::is_type(type);
+            return type == 573358062;
         }
 
         std::string mAttribute {};
@@ -3757,7 +3757,7 @@ namespace yordle::data::meta {
         explicit ItemCareyOverrideStartingItemSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2822771443 || bin_class::is_type(type);
+            return type == 2822771443;
         }
 
         yordle::data::meta::bin_fnv_hash mAttribute = 0;
@@ -3768,7 +3768,7 @@ namespace yordle::data::meta {
         explicit ItemCareyOverrideStartingItemSetSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1101955153 || bin_class::is_type(type);
+            return type == 1101955153;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::ItemCareyOverrideStartingItemSet>> x6ca781cd {};
@@ -3779,7 +3779,7 @@ namespace yordle::data::meta {
         explicit ItemShopGameModeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4103435203 || bin_class::is_type(type);
+            return type == 4103435203;
         }
 
         std::vector<yordle::data::meta::bin_fnv_hash> xc561f8e9 {};
@@ -3794,7 +3794,7 @@ namespace yordle::data::meta {
         explicit CollectiblesEsportsTeamData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3808259511 || bin_class::is_type(type);
+            return type == 3808259511;
         }
 
         uint32_t teamId = 0;
@@ -3808,7 +3808,7 @@ namespace yordle::data::meta {
         explicit SummonerIconData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2783969040 || bin_class::is_type(type);
+            return type == 2783969040;
         }
 
         uint32_t iconId = 0;
@@ -3823,7 +3823,7 @@ namespace yordle::data::meta {
         explicit LiveFeatureToggles(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 954042444 || bin_class::is_type(type);
+            return type == 954042444;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mLoLToggles {};
@@ -3836,7 +3836,7 @@ namespace yordle::data::meta {
         explicit LoLFeatureToggles(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3353146463 || bin_class::is_type(type);
+            return type == 3353146463;
         }
 
         bool NewSpellScript                   = false;
@@ -3888,7 +3888,7 @@ namespace yordle::data::meta {
         explicit GDSMapObjectExtraInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1222455122 || bin_class::is_type(type);
+            return type == 1222455122;
         }
     };
 
@@ -3933,7 +3933,7 @@ namespace yordle::data::meta {
         explicit LootOutputBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2506702743 || bin_class::is_type(type);
+            return type == 2506702743;
         }
     };
 
@@ -3942,7 +3942,7 @@ namespace yordle::data::meta {
         explicit LootItemDetails(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1665937510 || bin_class::is_type(type);
+            return type == 1665937510;
         }
 
         uint32_t mStoreId = 0;
@@ -3955,7 +3955,7 @@ namespace yordle::data::meta {
         explicit LootStatus(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 685945729 || bin_class::is_type(type);
+            return type == 685945729;
         }
 
         std::vector<std::string> mTags {};
@@ -3988,7 +3988,7 @@ namespace yordle::data::meta {
         explicit ClientStateCommonSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2643135015 || bin_class::is_type(type);
+            return type == 2643135015;
         }
 
         uint32_t x5b40f8fd = 0;
@@ -4001,7 +4001,7 @@ namespace yordle::data::meta {
         explicit IdentityInstance(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1790162312 || bin_class::is_type(type);
+            return type == 1790162312;
         }
 
         std::string mItemTexturePath {};
@@ -4012,7 +4012,7 @@ namespace yordle::data::meta {
         explicit x4d31ed46(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1295117638 || bin_class::is_type(type);
+            return type == 1295117638;
         }
 
         std::shared_ptr<yordle::data::meta::IdentityInstance> mIdentityInstance {};
@@ -4024,7 +4024,7 @@ namespace yordle::data::meta {
         explicit x14aef50c(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 347010316 || bin_class::is_type(type);
+            return type == 347010316;
         }
 
         std::string mInventoryType {};
@@ -4038,7 +4038,7 @@ namespace yordle::data::meta {
         explicit x9f59e92d(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2673469741 || bin_class::is_type(type);
+            return type == 2673469741;
         }
 
         std::string mName {};
@@ -4052,7 +4052,7 @@ namespace yordle::data::meta {
         explicit MapAction(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3419333123 || bin_class::is_type(type);
+            return type == 3419333123;
         }
 
         float startTime = 0.0;
@@ -4164,7 +4164,7 @@ namespace yordle::data::meta {
         explicit MapAlternateAsset(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3846963535 || bin_class::is_type(type);
+            return type == 3846963535;
         }
 
         std::string mGrassTintTextureName {};
@@ -4179,7 +4179,7 @@ namespace yordle::data::meta {
         explicit MapAlternateAssets(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 849736052 || bin_class::is_type(type);
+            return type == 849736052;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::MapAlternateAsset>> mAlternateAssets {};
@@ -4190,7 +4190,7 @@ namespace yordle::data::meta {
         explicit MapCharacterList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 199060396 || bin_class::is_type(type);
+            return type == 199060396;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::Character>> characters {};
@@ -4201,7 +4201,7 @@ namespace yordle::data::meta {
         explicit MapLocatorArray(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2902067178 || bin_class::is_type(type);
+            return type == 2902067178;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> locators {};
@@ -4212,7 +4212,7 @@ namespace yordle::data::meta {
         explicit MapNavigationGridOverlays(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3880372342 || bin_class::is_type(type);
+            return type == 3880372342;
         }
 
         std::map<std::string, yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> overlays {};
@@ -4223,7 +4223,7 @@ namespace yordle::data::meta {
         explicit MapNavigationGridOverlay(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 953399041 || bin_class::is_type(type);
+            return type == 953399041;
         }
 
         std::string navGridFileName {};
@@ -4235,7 +4235,7 @@ namespace yordle::data::meta {
         explicit MapSkinColorizationPostEffect(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 955345470 || bin_class::is_type(type);
+            return type == 955345470;
         }
 
         std::array<float, 3> mMultipliersRGB {};
@@ -4247,7 +4247,7 @@ namespace yordle::data::meta {
         explicit MapSkin(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3441028924 || bin_class::is_type(type);
+            return type == 3441028924;
         }
 
         std::string mMapContainerLink {};
@@ -4270,7 +4270,7 @@ namespace yordle::data::meta {
         explicit MapVisibilityFlagRange(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 298132920 || bin_class::is_type(type);
+            return type == 298132920;
         }
 
         uint8_t minIndex = 0;
@@ -4282,7 +4282,7 @@ namespace yordle::data::meta {
         explicit MapVisibilityFlagDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 730516414 || bin_class::is_type(type);
+            return type == 730516414;
         }
 
         yordle::data::meta::bin_fnv_hash name = 0;
@@ -4296,7 +4296,7 @@ namespace yordle::data::meta {
         explicit MapVisibilityFlagDefinitions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1484706743 || bin_class::is_type(type);
+            return type == 1484706743;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::MapVisibilityFlagDefinition>> FlagDefinitions {};
@@ -4310,7 +4310,7 @@ namespace yordle::data::meta {
         explicit MinimapBackground(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2712490432 || bin_class::is_type(type);
+            return type == 2712490432;
         }
 
         std::array<float, 2> mOrigin {};
@@ -4323,7 +4323,7 @@ namespace yordle::data::meta {
         explicit MinimapBackgroundConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 718267822 || bin_class::is_type(type);
+            return type == 718267822;
         }
 
         std::string mDefaultTextureName {};
@@ -4335,7 +4335,7 @@ namespace yordle::data::meta {
         explicit MissionAsset(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1923729607 || bin_class::is_type(type);
+            return type == 1923729607;
         }
 
         std::string mInternalName {};
@@ -4348,7 +4348,7 @@ namespace yordle::data::meta {
         explicit CheatPage(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2577175271 || bin_class::is_type(type);
+            return type == 2577175271;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mCheats {};
@@ -4359,7 +4359,7 @@ namespace yordle::data::meta {
         explicit CheatSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1165487172 || bin_class::is_type(type);
+            return type == 1165487172;
         }
 
         std::string mName {};
@@ -4377,7 +4377,7 @@ namespace yordle::data::meta {
         explicit CheatMenuUIData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 337391297 || bin_class::is_type(type);
+            return type == 337391297;
         }
 
         std::string mDisplayName {};
@@ -4394,7 +4394,7 @@ namespace yordle::data::meta {
         explicit Cheat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2490030924 || bin_class::is_type(type);
+            return type == 2490030924;
         }
 
         std::string mName {};
@@ -4648,7 +4648,7 @@ namespace yordle::data::meta {
         explicit PerkEffectAmountPerMode(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2971960800 || bin_class::is_type(type);
+            return type == 2971960800;
         }
 
         std::map<yordle::data::meta::bin_fnv_hash, float> mEffectAmountPerMode {};
@@ -4659,7 +4659,7 @@ namespace yordle::data::meta {
         explicit PerkScriptData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2766644386 || bin_class::is_type(type);
+            return type == 2766644386;
         }
 
         std::map<yordle::data::meta::bin_fnv_hash, float> mEffectAmount {};
@@ -4672,7 +4672,7 @@ namespace yordle::data::meta {
         explicit PerkScript(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 501137906 || bin_class::is_type(type);
+            return type == 501137906;
         }
 
         std::string mSpellScriptName {};
@@ -4685,7 +4685,7 @@ namespace yordle::data::meta {
         explicit PerkBuff(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1031283364 || bin_class::is_type(type);
+            return type == 1031283364;
         }
 
         std::string mBuffScriptName {};
@@ -4697,7 +4697,7 @@ namespace yordle::data::meta {
         explicit BasePerk(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3196794540 || bin_class::is_type(type);
+            return type == 3196794540;
         }
 
         uint32_t mPerkId = 0;
@@ -4723,7 +4723,7 @@ namespace yordle::data::meta {
         explicit PerkStyle(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 240569694 || bin_class::is_type(type);
+            return type == 240569694;
         }
 
         uint32_t mPerkStyleId = 0;
@@ -4754,7 +4754,7 @@ namespace yordle::data::meta {
         explicit PerkSlot(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 232419497 || bin_class::is_type(type);
+            return type == 232419497;
         }
 
         std::string mSlotLabelKey {};
@@ -4767,7 +4767,7 @@ namespace yordle::data::meta {
         explicit DefaultSplashedPerkStyle(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2405280373 || bin_class::is_type(type);
+            return type == 2405280373;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::PerkStyle> mStyle {240569694u};
@@ -4780,7 +4780,7 @@ namespace yordle::data::meta {
         explicit DefaultStatModPerkSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3234822452 || bin_class::is_type(type);
+            return type == 3234822452;
         }
 
         uint32_t mStyleId = 0;
@@ -4792,7 +4792,7 @@ namespace yordle::data::meta {
         explicit PerkSubStyleBonus(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3127434961 || bin_class::is_type(type);
+            return type == 3127434961;
         }
 
         uint32_t mStyleId = 0;
@@ -4804,7 +4804,7 @@ namespace yordle::data::meta {
         explicit SummonerSpellPerkReplacement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4081542451 || bin_class::is_type(type);
+            return type == 4081542451;
         }
 
         yordle::data::meta::bin_fnv_hash mSummonerSpellRequired = 0;
@@ -4816,7 +4816,7 @@ namespace yordle::data::meta {
         explicit SummonerSpellPerkReplacementList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3014400443 || bin_class::is_type(type);
+            return type == 3014400443;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::SummonerSpellPerkReplacement>> mReplacements {};
@@ -4840,7 +4840,7 @@ namespace yordle::data::meta {
         explicit PerkReplacement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1517326239 || bin_class::is_type(type);
+            return type == 1517326239;
         }
 
         yordle::data::meta::bin_fnv_hash mReplaceTarget = 0;
@@ -4852,7 +4852,7 @@ namespace yordle::data::meta {
         explicit PerkReplacementList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2307915623 || bin_class::is_type(type);
+            return type == 2307915623;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::PerkReplacement>> mReplacements {};
@@ -4863,7 +4863,7 @@ namespace yordle::data::meta {
         explicit PerkConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1524731407 || bin_class::is_type(type);
+            return type == 1524731407;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mBotOverrideSet {890839731u};
@@ -4876,7 +4876,7 @@ namespace yordle::data::meta {
         explicit OverridePerkSelectionSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 890839731 || bin_class::is_type(type);
+            return type == 890839731;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::PerkStyle> mStyle {240569694u};
@@ -4889,7 +4889,7 @@ namespace yordle::data::meta {
         explicit ToonInkingFilterParams(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2533312697 || bin_class::is_type(type);
+            return type == 2533312697;
         }
 
         float mPixelSize   = 0.0;
@@ -4903,7 +4903,7 @@ namespace yordle::data::meta {
         explicit RenderStyleData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4227680462 || bin_class::is_type(type);
+            return type == 4227680462;
         }
 
         std::shared_ptr<yordle::data::meta::ToonInkingFilterParams> mUnitFilterParamsInterior {};
@@ -4916,7 +4916,7 @@ namespace yordle::data::meta {
         explicit MaterialOverrideCallbackDynamicMaterial(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1441690361 || bin_class::is_type(type);
+            return type == 1441690361;
         }
     };
 
@@ -4925,7 +4925,7 @@ namespace yordle::data::meta {
         explicit MouseOverEffectData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4069567955 || bin_class::is_type(type);
+            return type == 4069567955;
         }
 
         std::array<uint8_t, 4> mAllyColor {};
@@ -4954,7 +4954,7 @@ namespace yordle::data::meta {
         explicit FxSequence(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 729255394 || bin_class::is_type(type);
+            return type == 729255394;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> Actions {};
@@ -4965,7 +4965,7 @@ namespace yordle::data::meta {
         explicit FxTableEntry(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 351234915 || bin_class::is_type(type);
+            return type == 351234915;
         }
 
         std::string name {};
@@ -4977,7 +4977,7 @@ namespace yordle::data::meta {
         explicit FxTable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1638517141 || bin_class::is_type(type);
+            return type == 1638517141;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::FxTableEntry>> Entries {};
@@ -4988,7 +4988,7 @@ namespace yordle::data::meta {
         explicit FxTarget(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 87271638 || bin_class::is_type(type);
+            return type == 87271638;
         }
 
         uint32_t type = 0;
@@ -5000,7 +5000,7 @@ namespace yordle::data::meta {
         explicit FxTiming(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3687298637 || bin_class::is_type(type);
+            return type == 3687298637;
         }
 
         uint32_t anchor = 0;
@@ -5013,7 +5013,7 @@ namespace yordle::data::meta {
         explicit FxTransform(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 754442341 || bin_class::is_type(type);
+            return type == 754442341;
         }
 
         uint32_t type = 0;
@@ -5026,7 +5026,7 @@ namespace yordle::data::meta {
         explicit IFxAction(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3063177560 || bin_class::is_type(type);
+            return type == 3063177560;
         }
 
         std::shared_ptr<yordle::data::meta::FxTiming> Start {};
@@ -5038,7 +5038,7 @@ namespace yordle::data::meta {
         explicit GameplayFeatureToggles(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3021260058 || bin_class::is_type(type);
+            return type == 3021260058;
         }
 
         bool NewActorStuckPathfinding            = false;
@@ -5053,7 +5053,7 @@ namespace yordle::data::meta {
         explicit ScriptDataObject(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1625294129 || bin_class::is_type(type);
+            return type == 1625294129;
         }
 
         std::string mName {};
@@ -5066,7 +5066,7 @@ namespace yordle::data::meta {
         explicit ScriptDataObjectList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3171701405 || bin_class::is_type(type);
+            return type == 3171701405;
         }
 
         std::string mName {};
@@ -5078,7 +5078,7 @@ namespace yordle::data::meta {
         explicit ICastRequirement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1550969638 || bin_class::is_type(type);
+            return type == 1550969638;
         }
 
         bool mInvertResult = false;
@@ -5267,7 +5267,7 @@ namespace yordle::data::meta {
         explicit CCScoreMultipliers(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2006398389 || bin_class::is_type(type);
+            return type == 2006398389;
         }
 
         float stun            = 0.0;
@@ -5296,7 +5296,7 @@ namespace yordle::data::meta {
         explicit BuffData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1177802644 || bin_class::is_type(type);
+            return type == 1177802644;
         }
 
         std::string mDescription {};
@@ -5314,7 +5314,7 @@ namespace yordle::data::meta {
         explicit TeamBuffData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2090279541 || bin_class::is_type(type);
+            return type == 2090279541;
         }
 
         std::string mBuffName {};
@@ -5327,7 +5327,7 @@ namespace yordle::data::meta {
         explicit MissionBuffData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4073390176 || bin_class::is_type(type);
+            return type == 4073390176;
         }
 
         std::shared_ptr<yordle::data::meta::TeamBuffData> dragon {};
@@ -5353,7 +5353,7 @@ namespace yordle::data::meta {
         explicit BuffStackingTemplate(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 471801710 || bin_class::is_type(type);
+            return type == 471801710;
         }
 
         std::string name {};
@@ -5368,7 +5368,7 @@ namespace yordle::data::meta {
         explicit BuffStackingSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1852984937 || bin_class::is_type(type);
+            return type == 1852984937;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::BuffStackingTemplate>> templateDefinition {};
@@ -5379,7 +5379,7 @@ namespace yordle::data::meta {
         explicit VFXSpawnConditionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3390937687 || bin_class::is_type(type);
+            return type == 3390937687;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mPersistentVfxs {};
@@ -5399,7 +5399,7 @@ namespace yordle::data::meta {
         explicit HasBuffData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3836337806 || bin_class::is_type(type);
+            return type == 3836337806;
         }
 
         std::string mBuffName {};
@@ -5413,7 +5413,7 @@ namespace yordle::data::meta {
         explicit HasBuffComparisonData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3686997399 || bin_class::is_type(type);
+            return type == 3686997399;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::HasBuffData>> mBuffs {};
@@ -5477,7 +5477,7 @@ namespace yordle::data::meta {
         explicit VfxSpawnConditions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2833994484 || bin_class::is_type(type);
+            return type == 2833994484;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::VFXSpawnConditionData>> mConditionalVfxData {};
@@ -5489,7 +5489,7 @@ namespace yordle::data::meta {
         explicit IVFXSpawnConditions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3813882857 || bin_class::is_type(type);
+            return type == 3813882857;
         }
     };
 
@@ -5557,7 +5557,7 @@ namespace yordle::data::meta {
         explicit EffectCreationData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2338173165 || bin_class::is_type(type);
+            return type == 2338173165;
         }
 
         std::string mBoneName {};
@@ -5581,7 +5581,7 @@ namespace yordle::data::meta {
         explicit RatioConversion(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3393100796 || bin_class::is_type(type);
+            return type == 3393100796;
         }
 
         uint8_t mSourceStatType      = 0;
@@ -5596,7 +5596,7 @@ namespace yordle::data::meta {
         explicit x4379a5b2(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1132045746 || bin_class::is_type(type);
+            return type == 1132045746;
         }
 
         uint8_t x5c92b7f2 = 0;
@@ -5609,7 +5609,7 @@ namespace yordle::data::meta {
         explicit SpellModifier(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1983940620 || bin_class::is_type(type);
+            return type == 1983940620;
         }
 
         yordle::data::meta::bin_fnv_hash mModifierID = 0;
@@ -5625,7 +5625,7 @@ namespace yordle::data::meta {
         explicit AbilityObject(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3696800942 || bin_class::is_type(type);
+            return type == 3696800942;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mRootSpell {1585338886u};
@@ -5640,7 +5640,7 @@ namespace yordle::data::meta {
         explicit SpellObject(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1585338886 || bin_class::is_type(type);
+            return type == 1585338886;
         }
 
         std::string mScriptName {};
@@ -5654,7 +5654,7 @@ namespace yordle::data::meta {
         explicit MissileSpecification(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3221008892 || bin_class::is_type(type);
+            return type == 3221008892;
         }
 
         float mMissileWidth = 0.0;
@@ -5671,7 +5671,7 @@ namespace yordle::data::meta {
         explicit MissileBehaviorSpec(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 369826590 || bin_class::is_type(type);
+            return type == 369826590;
         }
     };
 
@@ -5813,7 +5813,7 @@ namespace yordle::data::meta {
         explicit MissileTriggeredActionSpec(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1405067729 || bin_class::is_type(type);
+            return type == 1405067729;
         }
     };
 
@@ -5976,7 +5976,7 @@ namespace yordle::data::meta {
         explicit MissileGroupSpawnerSpec(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1040594301 || bin_class::is_type(type);
+            return type == 1040594301;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::SpellObject> mChildMissileSpell {1585338886u};
@@ -5987,7 +5987,7 @@ namespace yordle::data::meta {
         explicit HeightSolverType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 974318101 || bin_class::is_type(type);
+            return type == 974318101;
         }
     };
 
@@ -6052,7 +6052,7 @@ namespace yordle::data::meta {
         explicit MissileMovementSpec(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1798110077 || bin_class::is_type(type);
+            return type == 1798110077;
         }
 
         bool mUseHeightOffsetAtEnd       = false;
@@ -6253,7 +6253,7 @@ namespace yordle::data::meta {
         explicit VerticalFacingType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3891808829 || bin_class::is_type(type);
+            return type == 3891808829;
         }
     };
 
@@ -6280,7 +6280,7 @@ namespace yordle::data::meta {
         explicit MissileVisibilitySpec(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1749521072 || bin_class::is_type(type);
+            return type == 1749521072;
         }
 
         bool mTargetControlsVisibility = false;
@@ -6315,7 +6315,7 @@ namespace yordle::data::meta {
         explicit MissileAttachedTargetingDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3701578183 || bin_class::is_type(type);
+            return type == 3701578183;
         }
 
         uint8_t mEndPositionType = 0;
@@ -6331,7 +6331,7 @@ namespace yordle::data::meta {
         explicit AISpellData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4010062211 || bin_class::is_type(type);
+            return type == 4010062211;
         }
 
         bool mSendAIEvent   = false;
@@ -6348,7 +6348,7 @@ namespace yordle::data::meta {
         explicit SpellEffectAmount(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2463406204 || bin_class::is_type(type);
+            return type == 2463406204;
         }
 
         std::vector<float> value {};
@@ -6359,7 +6359,7 @@ namespace yordle::data::meta {
         explicit SpellDataValue(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 5245094 || bin_class::is_type(type);
+            return type == 5245094;
         }
 
         std::string mName {};
@@ -6371,7 +6371,7 @@ namespace yordle::data::meta {
         explicit SpellDataValueVector(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1798273677 || bin_class::is_type(type);
+            return type == 1798273677;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::SpellDataValue>> SpellDataValues {};
@@ -6382,7 +6382,7 @@ namespace yordle::data::meta {
         explicit PlatformSpellInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1523572560 || bin_class::is_type(type);
+            return type == 1523572560;
         }
 
         int32_t mAvatarLevelRequired = 0;
@@ -6396,7 +6396,7 @@ namespace yordle::data::meta {
         explicit ISplineInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 771419981 || bin_class::is_type(type);
+            return type == 771419981;
         }
 
         std::array<float, 3> mStartPositionOffset {};
@@ -6420,7 +6420,7 @@ namespace yordle::data::meta {
         explicit OverrideAttackTimeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1471545228 || bin_class::is_type(type);
+            return type == 1471545228;
         }
 
         std::shared_ptr<yordle::data::meta::IGameCalculation> x20991541 {};
@@ -6432,7 +6432,7 @@ namespace yordle::data::meta {
         explicit UseAutoattackCastTimeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 868276581 || bin_class::is_type(type);
+            return type == 868276581;
         }
 
         std::shared_ptr<yordle::data::meta::IGameCalculation> mAutoattackCastTimeCalculation {};
@@ -6444,7 +6444,7 @@ namespace yordle::data::meta {
         explicit SpellLockDeltaTimeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3565606633 || bin_class::is_type(type);
+            return type == 3565606633;
         }
 
         std::shared_ptr<yordle::data::meta::IGameCalculation> mSpellLockDeltaTimeCalculation {};
@@ -6455,7 +6455,7 @@ namespace yordle::data::meta {
         explicit x7a9e7d89(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2057207177 || bin_class::is_type(type);
+            return type == 2057207177;
         }
 
         float x55205acb = 0.0;
@@ -6471,7 +6471,7 @@ namespace yordle::data::meta {
         explicit AlternateSpellAssets(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 609301268 || bin_class::is_type(type);
+            return type == 609301268;
         }
 
         std::string mAnimationName {};
@@ -6496,7 +6496,7 @@ namespace yordle::data::meta {
         explicit SpellDataResource(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1127646569 || bin_class::is_type(type);
+            return type == 1127646569;
         }
 
         uint32_t flags               = 0;
@@ -6654,7 +6654,7 @@ namespace yordle::data::meta {
         explicit SpellPassiveData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3562978890 || bin_class::is_type(type);
+            return type == 3562978890;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::SpellObject> mBuff {1585338886u};
@@ -6671,7 +6671,7 @@ namespace yordle::data::meta {
         explicit CustomTargeterDefinitions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3174223914 || bin_class::is_type(type);
+            return type == 3174223914;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> mTargeterDefinitions {};
@@ -6682,7 +6682,7 @@ namespace yordle::data::meta {
         explicit SpellDataResourceClient(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2110892290 || bin_class::is_type(type);
+            return type == 2110892290;
         }
 
         yordle::data::meta::bin_fnv_hash x375656dd = 0;
@@ -6701,7 +6701,7 @@ namespace yordle::data::meta {
         explicit SpawningUIDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1607774867 || bin_class::is_type(type);
+            return type == 1607774867;
         }
 
         std::string buffNameFilter {};
@@ -6713,7 +6713,7 @@ namespace yordle::data::meta {
         explicit IScriptPreload(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3560905284 || bin_class::is_type(type);
+            return type == 3560905284;
         }
     };
 
@@ -6722,7 +6722,7 @@ namespace yordle::data::meta {
         explicit ScriptPreloadCharacter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 796426082 || bin_class::is_type(type);
+            return type == 796426082;
         }
 
         std::string PreloadResourceName {};
@@ -6733,7 +6733,7 @@ namespace yordle::data::meta {
         explicit ScriptPreloadSpell(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2709224959 || bin_class::is_type(type);
+            return type == 2709224959;
         }
 
         std::string PreloadResourceName {};
@@ -6744,7 +6744,7 @@ namespace yordle::data::meta {
         explicit ScriptPreloadModule(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1322354127 || bin_class::is_type(type);
+            return type == 1322354127;
         }
 
         std::string PreloadResourceName {};
@@ -6755,7 +6755,7 @@ namespace yordle::data::meta {
         explicit ScriptPreloadParticle(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3450289597 || bin_class::is_type(type);
+            return type == 3450289597;
         }
 
         std::string PreloadResourceName {};
@@ -6766,7 +6766,7 @@ namespace yordle::data::meta {
         explicit LoLSpellPreloadData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3712288203 || bin_class::is_type(type);
+            return type == 3712288203;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::ScriptPreloadCharacter>> CharacterPreloads {};
@@ -6780,7 +6780,7 @@ namespace yordle::data::meta {
         explicit ScriptGlobalProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3193997900 || bin_class::is_type(type);
+            return type == 3193997900;
         }
 
         bool PersistsThroughDeath   = false;
@@ -6807,7 +6807,7 @@ namespace yordle::data::meta {
         explicit ILineIndicatorType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4153143643 || bin_class::is_type(type);
+            return type == 4153143643;
         }
     };
 
@@ -6836,7 +6836,7 @@ namespace yordle::data::meta {
         explicit ITargeterFadeBehavior(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1348413282 || bin_class::is_type(type);
+            return type == 1348413282;
         }
     };
 
@@ -6884,7 +6884,7 @@ namespace yordle::data::meta {
         explicit x29dfd7ad(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 702535597 || bin_class::is_type(type);
+            return type == 702535597;
         }
 
         float xaeebcbdd = 0.0;
@@ -6897,7 +6897,7 @@ namespace yordle::data::meta {
         explicit FloatPerSpellLevel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 508250748 || bin_class::is_type(type);
+            return type == 508250748;
         }
 
         std::vector<float> mPerLevelValues {};
@@ -6909,7 +6909,7 @@ namespace yordle::data::meta {
         explicit DrawablePositionLocator(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3451066870 || bin_class::is_type(type);
+            return type == 3451066870;
         }
 
         uint32_t basePosition    = 0;
@@ -6923,7 +6923,7 @@ namespace yordle::data::meta {
         explicit TargeterDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1278600786 || bin_class::is_type(type);
+            return type == 1278600786;
         }
 
         std::shared_ptr<yordle::data::meta::ITargeterFadeBehavior> mFadeBehavior {};
@@ -7136,7 +7136,7 @@ namespace yordle::data::meta {
         explicit TargetingTypeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2144288560 || bin_class::is_type(type);
+            return type == 2144288560;
         }
     };
 
@@ -7277,7 +7277,7 @@ namespace yordle::data::meta {
         explicit StatFormulaData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3086678927 || bin_class::is_type(type);
+            return type == 3086678927;
         }
 
         std::map<uint8_t, float> StatComponents {};
@@ -7288,7 +7288,7 @@ namespace yordle::data::meta {
         explicit StatFormulaDataList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1250314967 || bin_class::is_type(type);
+            return type == 1250314967;
         }
 
         std::map<uint32_t, std::shared_ptr<yordle::data::meta::StatFormulaData>> StatFormulas {};
@@ -7299,7 +7299,7 @@ namespace yordle::data::meta {
         explicit GameModeDefaultStats(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2299573588 || bin_class::is_type(type);
+            return type == 2299573588;
         }
 
         std::shared_ptr<yordle::data::meta::StatFormulaDataList> DefaultCharacterStats {};
@@ -7328,7 +7328,7 @@ namespace yordle::data::meta {
         explicit TftMapCharacterRecordData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 229654189 || bin_class::is_type(type);
+            return type == 229654189;
         }
 
         uint8_t tier = 0;
@@ -7339,7 +7339,7 @@ namespace yordle::data::meta {
         explicit TftMapCharacterSkinData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2653184481 || bin_class::is_type(type);
+            return type == 2653184481;
         }
 
         std::string SquareIconTexturePath {};
@@ -7350,7 +7350,7 @@ namespace yordle::data::meta {
         explicit TftMapCharacterData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2155905376 || bin_class::is_type(type);
+            return type == 2155905376;
         }
 
         std::string name {};
@@ -7363,7 +7363,7 @@ namespace yordle::data::meta {
         explicit TftMapCharacterList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2927874496 || bin_class::is_type(type);
+            return type == 2927874496;
         }
 
         std::string ListName {};
@@ -7375,7 +7375,7 @@ namespace yordle::data::meta {
         explicit TFTMapCharacterLists(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1820531913 || bin_class::is_type(type);
+            return type == 1820531913;
         }
 
         std::string MapName {};
@@ -7387,7 +7387,7 @@ namespace yordle::data::meta {
         explicit TFTAnnouncementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3519409590 || bin_class::is_type(type);
+            return type == 3519409590;
         }
 
         std::string mIconPath {};
@@ -7401,7 +7401,7 @@ namespace yordle::data::meta {
         explicit TFTAttachmentSlotStyleData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3726789741 || bin_class::is_type(type);
+            return type == 3726789741;
         }
 
         std::string mName {};
@@ -7439,7 +7439,7 @@ namespace yordle::data::meta {
         explicit TFTDragData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1414729207 || bin_class::is_type(type);
+            return type == 1414729207;
         }
 
         bool mHoldToHover            = false;
@@ -7464,7 +7464,7 @@ namespace yordle::data::meta {
         explicit TftDropRates(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4070851979 || bin_class::is_type(type);
+            return type == 4070851979;
         }
 
         std::vector<float> mDropRatesByTier {};
@@ -7475,7 +7475,7 @@ namespace yordle::data::meta {
         explicit xf260c3ae(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4066427822 || bin_class::is_type(type);
+            return type == 4066427822;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::TftDropRates>> mDropRatesByLevel {};
@@ -7486,7 +7486,7 @@ namespace yordle::data::meta {
         explicit TftEffectAmount(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1660895988 || bin_class::is_type(type);
+            return type == 1660895988;
         }
 
         yordle::data::meta::bin_fnv_hash name = 0;
@@ -7499,7 +7499,7 @@ namespace yordle::data::meta {
         explicit TftItemComposition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1707263328 || bin_class::is_type(type);
+            return type == 1707263328;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> mComponents {};
@@ -7510,7 +7510,7 @@ namespace yordle::data::meta {
         explicit TftItemData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3515269914 || bin_class::is_type(type);
+            return type == 3515269914;
         }
 
         int32_t mId = 0;
@@ -7536,7 +7536,7 @@ namespace yordle::data::meta {
         explicit TFTItemList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2541164198 || bin_class::is_type(type);
+            return type == 2541164198;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::TftItemData>> mItems {};
@@ -7548,7 +7548,7 @@ namespace yordle::data::meta {
         explicit x3604b3e3(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 906277859 || bin_class::is_type(type);
+            return type == 906277859;
         }
 
         uint32_t x79dafa57 = 0;
@@ -7560,7 +7560,7 @@ namespace yordle::data::meta {
         explicit TFTModeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 30889102 || bin_class::is_type(type);
+            return type == 30889102;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> mDefaultSetData {1133007103u};
@@ -7582,7 +7582,7 @@ namespace yordle::data::meta {
         explicit TFTGameVariationData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 53563192 || bin_class::is_type(type);
+            return type == 53563192;
         }
 
         std::string mName {};
@@ -7598,7 +7598,7 @@ namespace yordle::data::meta {
         explicit TFTNotificationData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2099815050 || bin_class::is_type(type);
+            return type == 2099815050;
         }
 
         std::string mName {};
@@ -7616,7 +7616,7 @@ namespace yordle::data::meta {
         explicit TFTPhaseData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 634061068 || bin_class::is_type(type);
+            return type == 634061068;
         }
 
         bool mEnabled     = false;
@@ -7631,7 +7631,7 @@ namespace yordle::data::meta {
         explicit TFTRoundData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4104567591 || bin_class::is_type(type);
+            return type == 4104567591;
         }
 
         std::string mName {};
@@ -7663,7 +7663,7 @@ namespace yordle::data::meta {
         explicit TFTStageData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4147633913 || bin_class::is_type(type);
+            return type == 4147633913;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::TFTRoundData>> mRounds {};
@@ -7674,7 +7674,7 @@ namespace yordle::data::meta {
         explicit TFTSetData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1133007103 || bin_class::is_type(type);
+            return type == 1133007103;
         }
 
         uint32_t TftGameType = 0;
@@ -7698,7 +7698,7 @@ namespace yordle::data::meta {
         explicit TftShopData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3844837213 || bin_class::is_type(type);
+            return type == 3844837213;
         }
 
         std::string mName {};
@@ -7717,7 +7717,7 @@ namespace yordle::data::meta {
         explicit TFTStatData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2098479675 || bin_class::is_type(type);
+            return type == 2098479675;
         }
 
         std::string mName {};
@@ -7732,7 +7732,7 @@ namespace yordle::data::meta {
         explicit TFTStreak(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 646351631 || bin_class::is_type(type);
+            return type == 646351631;
         }
 
         std::optional<uint32_t> mMinimumStreakLength {};
@@ -7746,7 +7746,7 @@ namespace yordle::data::meta {
         explicit TFTStreakData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2506805399 || bin_class::is_type(type);
+            return type == 2506805399;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::TFTStreak>> xc3f540ed {};
@@ -7758,7 +7758,7 @@ namespace yordle::data::meta {
         explicit TFTTraitContributionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3758614261 || bin_class::is_type(type);
+            return type == 3758614261;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> TraitData {1871118919u};
@@ -7771,7 +7771,7 @@ namespace yordle::data::meta {
         explicit TFTTraitSetData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3241198053 || bin_class::is_type(type);
+            return type == 3241198053;
         }
 
         uint32_t mMinUnits = 0;
@@ -7790,7 +7790,7 @@ namespace yordle::data::meta {
         explicit TftTraitData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1871118919 || bin_class::is_type(type);
+            return type == 1871118919;
         }
 
         std::string mName {};
@@ -7807,7 +7807,7 @@ namespace yordle::data::meta {
         explicit TftTraitList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1539106983 || bin_class::is_type(type);
+            return type == 1539106983;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::TftTraitData>> mTraits {};
@@ -7819,7 +7819,7 @@ namespace yordle::data::meta {
         explicit TFTUnitUpgradeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1963259073 || bin_class::is_type(type);
+            return type == 1963259073;
         }
 
         std::string name {};
@@ -7831,7 +7831,7 @@ namespace yordle::data::meta {
         explicit TFTHudAnnouncementData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 305388529 || bin_class::is_type(type);
+            return type == 305388529;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mSceneTransitionIn {};
@@ -7843,7 +7843,7 @@ namespace yordle::data::meta {
         explicit TFTHudCombatRecapData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1573027425 || bin_class::is_type(type);
+            return type == 1573027425;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mPanelTransition {};
@@ -7855,7 +7855,7 @@ namespace yordle::data::meta {
         explicit TFTHudNotificationsData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2068371646 || bin_class::is_type(type);
+            return type == 2068371646;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mSceneTransitionIn {};
@@ -7867,7 +7867,7 @@ namespace yordle::data::meta {
         explicit xda3c6dc6(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3661393350 || bin_class::is_type(type);
+            return type == 3661393350;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mSceneTransitionIn {};
@@ -7879,7 +7879,7 @@ namespace yordle::data::meta {
         explicit TFTHudScoreboardData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1850343160 || bin_class::is_type(type);
+            return type == 1850343160;
         }
 
         float x840f5062 = 0.0;
@@ -7892,7 +7892,7 @@ namespace yordle::data::meta {
         explicit TFTHudStageData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1839038444 || bin_class::is_type(type);
+            return type == 1839038444;
         }
 
         float xa11246b8 = 0.0;
@@ -7903,7 +7903,7 @@ namespace yordle::data::meta {
         explicit TFTHudUnitShopData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 924097896 || bin_class::is_type(type);
+            return type == 924097896;
         }
 
         float x88606883 = 0.0;
@@ -7915,7 +7915,7 @@ namespace yordle::data::meta {
         explicit TFTHudMobileDownscaleData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3672021242 || bin_class::is_type(type);
+            return type == 3672021242;
         }
 
         float xd4d2ea52  = 0.0;
@@ -7927,7 +7927,7 @@ namespace yordle::data::meta {
         explicit TFTHudTunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1340671070 || bin_class::is_type(type);
+            return type == 1340671070;
         }
 
         std::shared_ptr<yordle::data::meta::TFTHudAnnouncementData> mAnnouncementData {};
@@ -7946,7 +7946,7 @@ namespace yordle::data::meta {
         explicit x2610e5a7(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 638641575 || bin_class::is_type(type);
+            return type == 638641575;
         }
 
         yordle::data::meta::bin_fnv_hash xfa144e3e = 0;
@@ -7962,7 +7962,7 @@ namespace yordle::data::meta {
         explicit x2781ed6b(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 662826347 || bin_class::is_type(type);
+            return type == 662826347;
         }
 
         std::string TitleKey {};
@@ -7974,7 +7974,7 @@ namespace yordle::data::meta {
         explicit ObjectTags(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 622921539 || bin_class::is_type(type);
+            return type == 622921539;
         }
 
         std::string mTagList {};
@@ -7985,7 +7985,7 @@ namespace yordle::data::meta {
         explicit NumberFormattingBehavior(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 410617757 || bin_class::is_type(type);
+            return type == 410617757;
         }
 
         uint32_t x6a015824 = 0;
@@ -7998,7 +7998,7 @@ namespace yordle::data::meta {
         explicit NumberFormattingData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2581062515 || bin_class::is_type(type);
+            return type == 2581062515;
         }
 
         std::string x5b862d47 {};
@@ -8025,7 +8025,7 @@ namespace yordle::data::meta {
         explicit AnnouncementDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 502828211 || bin_class::is_type(type);
+            return type == 502828211;
         }
 
         uint16_t priority                    = 0;
@@ -8046,7 +8046,7 @@ namespace yordle::data::meta {
         explicit AnnouncementDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 94368299 || bin_class::is_type(type);
+            return type == 94368299;
         }
 
         std::shared_ptr<yordle::data::meta::AnnouncementDefinitionData> DefaultData {};
@@ -8067,7 +8067,7 @@ namespace yordle::data::meta {
         explicit AnnouncementStyleBasic(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3731372071 || bin_class::is_type(type);
+            return type == 3731372071;
         }
 
         yordle::data::meta::bin_fnv_hash TextField = 0;
@@ -8104,7 +8104,7 @@ namespace yordle::data::meta {
         explicit AnnouncementIcon(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 728839351 || bin_class::is_type(type);
+            return type == 728839351;
         }
 
         yordle::data::meta::bin_fnv_hash x108e8710          = 0;
@@ -8123,7 +8123,7 @@ namespace yordle::data::meta {
         explicit AnnouncementMap(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 224929220 || bin_class::is_type(type);
+            return type == 224929220;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::AnnouncementMap> ParentList {224929220u};
@@ -8138,7 +8138,7 @@ namespace yordle::data::meta {
         explicit CursorData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 187557783 || bin_class::is_type(type);
+            return type == 187557783;
         }
 
         std::array<float, 2> mHotSpot {};
@@ -8153,7 +8153,7 @@ namespace yordle::data::meta {
         explicit CursorDataTeamContext(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4014870449 || bin_class::is_type(type);
+            return type == 4014870449;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::CursorData>> mData {};
@@ -8164,7 +8164,7 @@ namespace yordle::data::meta {
         explicit CursorDataCaptureCooldownContext(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3454621813 || bin_class::is_type(type);
+            return type == 3454621813;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::CursorData>> mData {};
@@ -8175,7 +8175,7 @@ namespace yordle::data::meta {
         explicit CursorConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3994575677 || bin_class::is_type(type);
+            return type == 3994575677;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::CursorData>> mSingleContextCursors {};
@@ -8188,7 +8188,7 @@ namespace yordle::data::meta {
         explicit HealthbarImageInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1743182461 || bin_class::is_type(type);
+            return type == 1743182461;
         }
 
         std::string mTextureName {};
@@ -8201,7 +8201,7 @@ namespace yordle::data::meta {
         explicit UnitStatusData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1273755329 || bin_class::is_type(type);
+            return type == 1273755329;
         }
 
         uint32_t locType                  = 0;
@@ -8216,7 +8216,7 @@ namespace yordle::data::meta {
         explicit UnitStatusPriorityList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3886968817 || bin_class::is_type(type);
+            return type == 3886968817;
         }
 
         float mMinimumDisplayTime = 0.0;
@@ -8228,7 +8228,7 @@ namespace yordle::data::meta {
         explicit FloatTextIconData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 383291203 || bin_class::is_type(type);
+            return type == 383291203;
         }
 
         std::string mIconFileName {};
@@ -8243,7 +8243,7 @@ namespace yordle::data::meta {
         explicit FloatTextDisplayOverrides(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 267762117 || bin_class::is_type(type);
+            return type == 267762117;
         }
 
         std::optional<int32_t> priority {};
@@ -8293,7 +8293,7 @@ namespace yordle::data::meta {
         explicit FloatingTextTunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 395898060 || bin_class::is_type(type);
+            return type == 395898060;
         }
 
         uint32_t mMaxFloatingTextItems     = 0;
@@ -8315,7 +8315,7 @@ namespace yordle::data::meta {
         explicit FloatingTextDamageDisplayTypeList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3119478897 || bin_class::is_type(type);
+            return type == 3119478897;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::FloatTextDisplayOverrides> Default {267762117u};
@@ -8341,7 +8341,7 @@ namespace yordle::data::meta {
         explicit FloatTextFormattingData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 585161597 || bin_class::is_type(type);
+            return type == 585161597;
         }
 
         yordle::data::meta::bin_fnv_hash mTypeName = 0;
@@ -8405,7 +8405,7 @@ namespace yordle::data::meta {
         explicit FloatingTextTypeList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 46628140 || bin_class::is_type(type);
+            return type == 46628140;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::FloatTextFormattingData> Invulnerable {585161597u};
@@ -8452,7 +8452,7 @@ namespace yordle::data::meta {
         explicit FloatingTextGlobalConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2165648641 || bin_class::is_type(type);
+            return type == 2165648641;
         }
 
         std::shared_ptr<yordle::data::meta::FloatingTextTunables> mTunables {};
@@ -8465,7 +8465,7 @@ namespace yordle::data::meta {
         explicit FloatingTextOverride(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1059987028 || bin_class::is_type(type);
+            return type == 1059987028;
         }
 
         std::map<uint32_t, bool> OverriddenFloatingTextTypes {};
@@ -8476,7 +8476,7 @@ namespace yordle::data::meta {
         explicit HudColorData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3892017401 || bin_class::is_type(type);
+            return type == 3892017401;
         }
 
         std::array<uint8_t, 4> mSelfColor {};
@@ -8560,7 +8560,7 @@ namespace yordle::data::meta {
         explicit HudFeedbackDamageData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3939670256 || bin_class::is_type(type);
+            return type == 3939670256;
         }
 
         float mPercentageDamageForFlash          = 0.0;
@@ -8578,7 +8578,7 @@ namespace yordle::data::meta {
         explicit TeamScoreMeterUITunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4180972365 || bin_class::is_type(type);
+            return type == 4180972365;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mSceneTransition {};
@@ -8594,7 +8594,7 @@ namespace yordle::data::meta {
         explicit HudTeamScoreMeterProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3303051661 || bin_class::is_type(type);
+            return type == 3303051661;
         }
 
         uint8_t mTeamScoreMeterType = 0;
@@ -8608,7 +8608,7 @@ namespace yordle::data::meta {
         explicit EncounterUITunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 60771964 || bin_class::is_type(type);
+            return type == 60771964;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mSceneTransition {};
@@ -8627,7 +8627,7 @@ namespace yordle::data::meta {
         explicit QuestUITunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3365626407 || bin_class::is_type(type);
+            return type == 3365626407;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mSceneTransition {};
@@ -8638,7 +8638,7 @@ namespace yordle::data::meta {
         explicit DragonUITunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3440211024 || bin_class::is_type(type);
+            return type == 3440211024;
         }
 
         uint8_t mSlots = 0;
@@ -8650,7 +8650,7 @@ namespace yordle::data::meta {
         explicit HudGameModeScoreData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3557256043 || bin_class::is_type(type);
+            return type == 3557256043;
         }
 
         std::vector<uint8_t> mTeamScoreElementTypes {};
@@ -8670,7 +8670,7 @@ namespace yordle::data::meta {
         explicit MinimapIconTextureData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3732824828 || bin_class::is_type(type);
+            return type == 3732824828;
         }
 
         std::string mBase {};
@@ -8682,7 +8682,7 @@ namespace yordle::data::meta {
         explicit MinimapIconColorData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 59888480 || bin_class::is_type(type);
+            return type == 59888480;
         }
 
         std::array<uint8_t, 4> mBase {};
@@ -8694,7 +8694,7 @@ namespace yordle::data::meta {
         explicit MinimapIcon(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 525225061 || bin_class::is_type(type);
+            return type == 525225061;
         }
 
         bool mRelativeTeams = false;
@@ -8712,7 +8712,7 @@ namespace yordle::data::meta {
         explicit MinimapData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 523452044 || bin_class::is_type(type);
+            return type == 523452044;
         }
 
         std::map<uint8_t, std::shared_ptr<yordle::data::meta::MinimapIcon>> mIcons {};
@@ -8724,7 +8724,7 @@ namespace yordle::data::meta {
         explicit HudOptionalBinData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3920544379 || bin_class::is_type(type);
+            return type == 3920544379;
         }
 
         std::string mName {};
@@ -8736,7 +8736,7 @@ namespace yordle::data::meta {
         explicit HudTunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2058949250 || bin_class::is_type(type);
+            return type == 2058949250;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mScaleSettings {};
@@ -8774,7 +8774,7 @@ namespace yordle::data::meta {
         explicit HudScaleSettingsData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2979455577 || bin_class::is_type(type);
+            return type == 2979455577;
         }
 
         float maximumGlobalScale       = 0.0;
@@ -8794,7 +8794,7 @@ namespace yordle::data::meta {
         explicit HudLevelUpData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2124320233 || bin_class::is_type(type);
+            return type == 2124320233;
         }
 
         uint8_t minAlpha        = 0;
@@ -8813,7 +8813,7 @@ namespace yordle::data::meta {
         explicit HudBannerData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2731869740 || bin_class::is_type(type);
+            return type == 2731869740;
         }
 
         float transitionTime       = 0.0;
@@ -8831,7 +8831,7 @@ namespace yordle::data::meta {
         explicit HudAbilityPromptData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4291825122 || bin_class::is_type(type);
+            return type == 4291825122;
         }
 
         std::array<uint8_t, 4> PulseStartColor {};
@@ -8846,7 +8846,7 @@ namespace yordle::data::meta {
         explicit HudMenuTransitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3273533950 || bin_class::is_type(type);
+            return type == 3273533950;
         }
 
         float transitionTime = 0.0;
@@ -8860,7 +8860,7 @@ namespace yordle::data::meta {
         explicit HudElementalSectionUIData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3553075624 || bin_class::is_type(type);
+            return type == 3553075624;
         }
 
         std::array<uint8_t, 4> airColoration {};
@@ -8884,7 +8884,7 @@ namespace yordle::data::meta {
         explicit HudEmotePopupData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 440468936 || bin_class::is_type(type);
+            return type == 440468936;
         }
 
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mEmotePopupTransitionIntro {};
@@ -8904,7 +8904,7 @@ namespace yordle::data::meta {
         explicit HudGearSelectionUIData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1288133231 || bin_class::is_type(type);
+            return type == 1288133231;
         }
 
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mGearSelectionTransitionIntro {};
@@ -8920,7 +8920,7 @@ namespace yordle::data::meta {
         explicit HudRadialWheelData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1493463692 || bin_class::is_type(type);
+            return type == 1493463692;
         }
 
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mRadialWheelUITransitionData {};
@@ -8934,7 +8934,7 @@ namespace yordle::data::meta {
         explicit HudTeamFightOffScreenDifferentiationData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4224366477 || bin_class::is_type(type);
+            return type == 4224366477;
         }
 
         float x40e3864f   = 0.0;
@@ -8947,7 +8947,7 @@ namespace yordle::data::meta {
         explicit HudTeamFightData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3784622423 || bin_class::is_type(type);
+            return type == 3784622423;
         }
 
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mSceneTransition {};
@@ -8960,7 +8960,7 @@ namespace yordle::data::meta {
         explicit HudReplayData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2809029825 || bin_class::is_type(type);
+            return type == 2809029825;
         }
 
         float messageVisibleTime = 0.0;
@@ -8972,7 +8972,7 @@ namespace yordle::data::meta {
         explicit HudCheatMenuData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2036195162 || bin_class::is_type(type);
+            return type == 2036195162;
         }
 
         float tooltipDelay        = 0.0;
@@ -8985,7 +8985,7 @@ namespace yordle::data::meta {
         explicit HudPingData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3598370238 || bin_class::is_type(type);
+            return type == 3598370238;
         }
 
         float distanceToNotTrollPingCorpses = 0.0;
@@ -8997,7 +8997,7 @@ namespace yordle::data::meta {
         explicit HudVoiceChatData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 929479566 || bin_class::is_type(type);
+            return type == 929479566;
         }
 
         float highlightTimeoutSeconds = 0.0;
@@ -9008,7 +9008,7 @@ namespace yordle::data::meta {
         explicit HudInputBoxData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4284799695 || bin_class::is_type(type);
+            return type == 4284799695;
         }
 
         uint8_t inputTextLengthMax = 0;
@@ -9026,7 +9026,7 @@ namespace yordle::data::meta {
         explicit HudHealthBarBurstData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 234651109 || bin_class::is_type(type);
+            return type == 234651109;
         }
 
         float burstTimeWindow     = 0.0;
@@ -9048,7 +9048,7 @@ namespace yordle::data::meta {
         explicit HudHealthBarFadeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1035555423 || bin_class::is_type(type);
+            return type == 1035555423;
         }
 
         float fadeSpeed        = 0.0;
@@ -9061,7 +9061,7 @@ namespace yordle::data::meta {
         explicit HudHealthBarDefenseModifierData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 749793326 || bin_class::is_type(type);
+            return type == 749793326;
         }
 
         float defenseUpPercent     = 0.0;
@@ -9075,7 +9075,7 @@ namespace yordle::data::meta {
         explicit HudHealthBarBurstHealData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4246198531 || bin_class::is_type(type);
+            return type == 4246198531;
         }
 
         float healTimeWindow     = 0.0;
@@ -9088,7 +9088,7 @@ namespace yordle::data::meta {
         explicit HudHealthBarDefenseIconData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 937928230 || bin_class::is_type(type);
+            return type == 937928230;
         }
 
         float enlargeTime = 0.0;
@@ -9101,7 +9101,7 @@ namespace yordle::data::meta {
         explicit MicroTicksPerTickData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 105644319 || bin_class::is_type(type);
+            return type == 105644319;
         }
 
         float minHealth            = 0.0;
@@ -9113,7 +9113,7 @@ namespace yordle::data::meta {
         explicit HudHealthBarProgressiveTickData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 503820853 || bin_class::is_type(type);
+            return type == 503820853;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::MicroTicksPerTickData>> microTickPerTickData {};
@@ -9125,7 +9125,7 @@ namespace yordle::data::meta {
         explicit HudHealthBarData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 85573057 || bin_class::is_type(type);
+            return type == 85573057;
         }
 
         std::shared_ptr<yordle::data::meta::HudHealthBarBurstData> burstData {};
@@ -9144,7 +9144,7 @@ namespace yordle::data::meta {
         explicit HudSpellSlotResetFeedbackData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1323252584 || bin_class::is_type(type);
+            return type == 1323252584;
         }
 
         float spellResetFlashFadeDuration      = 0.0;
@@ -9157,7 +9157,7 @@ namespace yordle::data::meta {
         explicit HudLoadingScreenProgressBarData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 464608054 || bin_class::is_type(type);
+            return type == 464608054;
         }
 
         float xe4a8e1a9 = 0.0;
@@ -9171,7 +9171,7 @@ namespace yordle::data::meta {
         explicit HudLoadingScreenData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4205759190 || bin_class::is_type(type);
+            return type == 4205759190;
         }
 
         std::shared_ptr<yordle::data::meta::HudLoadingScreenProgressBarData> mProgressBarData {};
@@ -9186,7 +9186,7 @@ namespace yordle::data::meta {
         explicit HudStatPanelStatStoneData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2341739189 || bin_class::is_type(type);
+            return type == 2341739189;
         }
 
         float xca84776a           = 0.0;
@@ -9203,7 +9203,7 @@ namespace yordle::data::meta {
         explicit HudStatStoneData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2137884073 || bin_class::is_type(type);
+            return type == 2137884073;
         }
 
         std::string x2dd6b42e {};
@@ -9215,7 +9215,7 @@ namespace yordle::data::meta {
         explicit HudStatStoneDeathRecapData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1887734700 || bin_class::is_type(type);
+            return type == 1887734700;
         }
 
         float MinDisplayTime = 0.0;
@@ -9230,7 +9230,7 @@ namespace yordle::data::meta {
         explicit HudStatStoneMilestoneData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4122721905 || bin_class::is_type(type);
+            return type == 4122721905;
         }
 
         std::string UiSound {};
@@ -9255,7 +9255,7 @@ namespace yordle::data::meta {
         explicit HudEndOfGameData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3009378484 || bin_class::is_type(type);
+            return type == 3009378484;
         }
 
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mVictoryTransitionIn {};
@@ -9267,7 +9267,7 @@ namespace yordle::data::meta {
         explicit HudMessageDisplayData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1269294773 || bin_class::is_type(type);
+            return type == 1269294773;
         }
 
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> TransitionIn {};
@@ -9280,7 +9280,7 @@ namespace yordle::data::meta {
         explicit HudDamageDisplayData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1645499771 || bin_class::is_type(type);
+            return type == 1645499771;
         }
 
         float xdfcea7db = 0.0;
@@ -9291,7 +9291,7 @@ namespace yordle::data::meta {
         explicit HudFightRecapUIData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3305259773 || bin_class::is_type(type);
+            return type == 3305259773;
         }
 
         std::string mBasicAttackIconTextureName {};
@@ -9305,7 +9305,7 @@ namespace yordle::data::meta {
         explicit MinimapPingEffectDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1803253536 || bin_class::is_type(type);
+            return type == 1803253536;
         }
 
         uint32_t alphaStart    = 0;
@@ -9324,7 +9324,7 @@ namespace yordle::data::meta {
         explicit TextureAndColorData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4009176784 || bin_class::is_type(type);
+            return type == 4009176784;
         }
 
         std::string textureFile {};
@@ -9338,7 +9338,7 @@ namespace yordle::data::meta {
         explicit MinimapPingEffectAndTextureData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2136503545 || bin_class::is_type(type);
+            return type == 2136503545;
         }
 
         bool mEnabled = false;
@@ -9353,7 +9353,7 @@ namespace yordle::data::meta {
         explicit MinimapPingTypeContainer(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3823129339 || bin_class::is_type(type);
+            return type == 3823129339;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::MinimapPingEffectAndTextureData>> pingEffectList {};
@@ -9364,7 +9364,7 @@ namespace yordle::data::meta {
         explicit MinimapPingData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2062125700 || bin_class::is_type(type);
+            return type == 2062125700;
         }
 
         std::map<uint8_t, float> mOMWPingRangeCutoffs {};
@@ -9376,7 +9376,7 @@ namespace yordle::data::meta {
         explicit ISecondaryResourceDisplayData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1239842284 || bin_class::is_type(type);
+            return type == 1239842284;
         }
     };
 
@@ -9394,7 +9394,7 @@ namespace yordle::data::meta {
         explicit LoadingScreenRankedProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1700895677 || bin_class::is_type(type);
+            return type == 1700895677;
         }
 
         std::string mDescriptor {};
@@ -9406,7 +9406,7 @@ namespace yordle::data::meta {
         explicit LoadingScreenRankedData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2115654752 || bin_class::is_type(type);
+            return type == 2115654752;
         }
 
         std::map<std::string, std::shared_ptr<yordle::data::meta::LoadingScreenRankedProperties>> mRankedData {};
@@ -9417,7 +9417,7 @@ namespace yordle::data::meta {
         explicit QualitySetting(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1198542322 || bin_class::is_type(type);
+            return type == 1198542322;
         }
 
         std::string mName {};
@@ -9435,7 +9435,7 @@ namespace yordle::data::meta {
         explicit IOptionItem(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2037513198 || bin_class::is_type(type);
+            return type == 2037513198;
         }
 
         bool LiveUpdate        = false;
@@ -9448,7 +9448,7 @@ namespace yordle::data::meta {
         explicit IOptionTemplate(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3154887987 || bin_class::is_type(type);
+            return type == 3154887987;
         }
 
         yordle::data::meta::bin_fnv_hash boundsElement = 0;
@@ -9499,7 +9499,7 @@ namespace yordle::data::meta {
         explicit OptionItemDropdownItem(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1128087393 || bin_class::is_type(type);
+            return type == 1128087393;
         }
 
         std::string TraKey {};
@@ -9526,7 +9526,7 @@ namespace yordle::data::meta {
         explicit IOptionItemFilter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3415079880 || bin_class::is_type(type);
+            return type == 3415079880;
         }
     };
 
@@ -9680,7 +9680,7 @@ namespace yordle::data::meta {
         explicit x55212361(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1428235105 || bin_class::is_type(type);
+            return type == 1428235105;
         }
 
         std::string Column0LabelTraKey {};
@@ -9692,7 +9692,7 @@ namespace yordle::data::meta {
         explicit x518d5fc0(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1368219584 || bin_class::is_type(type);
+            return type == 1368219584;
         }
 
         std::string LabelTraKey {};
@@ -9717,7 +9717,7 @@ namespace yordle::data::meta {
         explicit xea321356(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3929150294 || bin_class::is_type(type);
+            return type == 3929150294;
         }
 
         std::string Column0LabelTraKey {};
@@ -9730,7 +9730,7 @@ namespace yordle::data::meta {
         explicit x430dd10d(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1124978957 || bin_class::is_type(type);
+            return type == 1124978957;
         }
 
         std::string LabelTraKey {};
@@ -9824,7 +9824,7 @@ namespace yordle::data::meta {
         explicit OptionsTab(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2946448300 || bin_class::is_type(type);
+            return type == 2946448300;
         }
 
         std::string TabNameTraKey {};
@@ -9888,7 +9888,7 @@ namespace yordle::data::meta {
         explicit OptionTemplateHotkeysLabel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1432209297 || bin_class::is_type(type);
+            return type == 1432209297;
         }
 
         yordle::data::meta::bin_fnv_hash Label = 0;
@@ -9899,7 +9899,7 @@ namespace yordle::data::meta {
         explicit OptionTemplateHotkeysKey(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3163647920 || bin_class::is_type(type);
+            return type == 3163647920;
         }
 
         std::string EventName {};
@@ -9954,7 +9954,7 @@ namespace yordle::data::meta {
         explicit xceb70e5a(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3468103258 || bin_class::is_type(type);
+            return type == 3468103258;
         }
 
         yordle::data::meta::bin_fnv_hash backgroundElement = 0;
@@ -9966,7 +9966,7 @@ namespace yordle::data::meta {
         explicit x354988a8(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 894011560 || bin_class::is_type(type);
+            return type == 894011560;
         }
 
         yordle::data::meta::bin_fnv_hash buttonDefinition = 0;
@@ -10020,7 +10020,7 @@ namespace yordle::data::meta {
         explicit NamedIconData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2945891227 || bin_class::is_type(type);
+            return type == 2945891227;
         }
 
         std::string name {};
@@ -10032,7 +10032,7 @@ namespace yordle::data::meta {
         explicit ModeSelectButtonData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3056512770 || bin_class::is_type(type);
+            return type == 3056512770;
         }
 
         int64_t queueId                                   = 0;
@@ -10044,7 +10044,7 @@ namespace yordle::data::meta {
         explicit ILoadoutFeatureDataBehavior(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2293774348 || bin_class::is_type(type);
+            return type == 2293774348;
         }
 
         std::string DisplayNameTraKey {};
@@ -10060,7 +10060,7 @@ namespace yordle::data::meta {
         explicit QueueDisplayData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1532902214 || bin_class::is_type(type);
+            return type == 1532902214;
         }
 
         int64_t queueId                                          = 0;
@@ -10076,7 +10076,7 @@ namespace yordle::data::meta {
         explicit xfbd72d16(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4225182998 || bin_class::is_type(type);
+            return type == 4225182998;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::x4d31ed46> x4d31ed46 {1295117638u};
@@ -10087,7 +10087,7 @@ namespace yordle::data::meta {
         explicit StoreCategoryButtonDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4069990911 || bin_class::is_type(type);
+            return type == 4069990911;
         }
 
         uint32_t category                                 = 0;
@@ -10099,7 +10099,7 @@ namespace yordle::data::meta {
         explicit ILoadoutInfoPanel(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2136477118 || bin_class::is_type(type);
+            return type == 2136477118;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> ViewPaneDefinition {};
@@ -10110,7 +10110,7 @@ namespace yordle::data::meta {
         explicit NotificationSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2610640435 || bin_class::is_type(type);
+            return type == 2610640435;
         }
 
         std::string defaultSound {};
@@ -10122,7 +10122,7 @@ namespace yordle::data::meta {
         explicit QuestDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2873675736 || bin_class::is_type(type);
+            return type == 2873675736;
         }
 
         std::string categoryTitleText {};
@@ -10137,7 +10137,7 @@ namespace yordle::data::meta {
         explicit x46533086(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1179857030 || bin_class::is_type(type);
+            return type == 1179857030;
         }
 
         std::shared_ptr<yordle::data::meta::QuestDefinition> primaryQuest {};
@@ -10153,7 +10153,7 @@ namespace yordle::data::meta {
         explicit GeneralSettingsGroup(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4110481513 || bin_class::is_type(type);
+            return type == 4110481513;
         }
 
         yordle::data::meta::bin_fnv_hash PromoteAccountButton  = 0;
@@ -10166,7 +10166,7 @@ namespace yordle::data::meta {
         explicit SurrenderTypeData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 740737797 || bin_class::is_type(type);
+            return type == 740737797;
         }
 
         float VoteTimeout        = 0.0;
@@ -10181,7 +10181,7 @@ namespace yordle::data::meta {
         explicit SurrenderData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2687760845 || bin_class::is_type(type);
+            return type == 2687760845;
         }
 
         float x43f7599b = 0.0;
@@ -10196,7 +10196,7 @@ namespace yordle::data::meta {
         explicit LoadScreenTip(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1116466002 || bin_class::is_type(type);
+            return type == 1116466002;
         }
 
         uint16_t mId = 0;
@@ -10211,7 +10211,7 @@ namespace yordle::data::meta {
         explicit LoadScreenTipSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4146450274 || bin_class::is_type(type);
+            return type == 4146450274;
         }
 
         yordle::data::meta::bin_fnv_hash mName = 0;
@@ -10223,7 +10223,7 @@ namespace yordle::data::meta {
         explicit LoadScreenTipConfiguration(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3188575920 || bin_class::is_type(type);
+            return type == 3188575920;
         }
 
         bool mShowInCustomGames              = false;
@@ -10237,7 +10237,7 @@ namespace yordle::data::meta {
         explicit x9e5aed77(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2656759159 || bin_class::is_type(type);
+            return type == 2656759159;
         }
 
         int32_t x571a97a3 = 0;
@@ -10253,7 +10253,7 @@ namespace yordle::data::meta {
         explicit ViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3981513104 || bin_class::is_type(type);
+            return type == 3981513104;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::ViewController> xb79c86ae {3981513104u};
@@ -10282,7 +10282,7 @@ namespace yordle::data::meta {
         explicit x86504cef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2253409519 || bin_class::is_type(type);
+            return type == 2253409519;
         }
 
         yordle::data::meta::bin_fnv_hash Group           = 0;
@@ -10299,7 +10299,7 @@ namespace yordle::data::meta {
         explicit VoiceChatViewSelfSlot(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2730017800 || bin_class::is_type(type);
+            return type == 2730017800;
         }
 
         yordle::data::meta::bin_fnv_hash Portrait           = 0;
@@ -10316,7 +10316,7 @@ namespace yordle::data::meta {
         explicit NeutralTimerSourceIconData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 230608261 || bin_class::is_type(type);
+            return type == 230608261;
         }
 
         std::string mTooltipName {};
@@ -10328,7 +10328,7 @@ namespace yordle::data::meta {
         explicit NeutralTimerData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 964506025 || bin_class::is_type(type);
+            return type == 964506025;
         }
 
         std::string mTimerKeyName {};
@@ -10345,7 +10345,7 @@ namespace yordle::data::meta {
         explicit NeutralTimers(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1283176254 || bin_class::is_type(type);
+            return type == 1283176254;
         }
 
         std::string mSceneName {};
@@ -10358,7 +10358,7 @@ namespace yordle::data::meta {
         explicit CommonUiTunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2733481098 || bin_class::is_type(type);
+            return type == 2733481098;
         }
 
         float x472b866d   = 0.0;
@@ -10370,7 +10370,7 @@ namespace yordle::data::meta {
         explicit ViewPaneDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2330109623 || bin_class::is_type(type);
+            return type == 2330109623;
         }
 
         yordle::data::meta::bin_fnv_hash x6a05258c            = 0;
@@ -10387,7 +10387,7 @@ namespace yordle::data::meta {
         explicit UIButtonState(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2794431892 || bin_class::is_type(type);
+            return type == 2794431892;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> displayElements {};
@@ -10399,7 +10399,7 @@ namespace yordle::data::meta {
         explicit UIButtonDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1818785118 || bin_class::is_type(type);
+            return type == 1818785118;
         }
 
         std::shared_ptr<yordle::data::meta::UIButtonState> defaultStateElements {};
@@ -10422,7 +10422,7 @@ namespace yordle::data::meta {
         explicit UIButtonAdditionalState(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1814739591 || bin_class::is_type(type);
+            return type == 1814739591;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> displayElements {};
@@ -10433,7 +10433,7 @@ namespace yordle::data::meta {
         explicit UIButtonAdditionalElements(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2087717867 || bin_class::is_type(type);
+            return type == 2087717867;
         }
 
         std::shared_ptr<yordle::data::meta::UIButtonAdditionalState> defaultStateElements {};
@@ -10450,7 +10450,7 @@ namespace yordle::data::meta {
         explicit x209b0277(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 547029623 || bin_class::is_type(type);
+            return type == 547029623;
         }
 
         std::string RolloverEvent {};
@@ -10466,7 +10466,7 @@ namespace yordle::data::meta {
         explicit xe262e6be(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3798132414 || bin_class::is_type(type);
+            return type == 3798132414;
         }
 
         std::string OnSelectionEvent {};
@@ -10477,7 +10477,7 @@ namespace yordle::data::meta {
         explicit UiComboBoxDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3941835837 || bin_class::is_type(type);
+            return type == 3941835837;
         }
 
         yordle::data::meta::bin_fnv_hash buttonDefinition = 0;
@@ -10496,7 +10496,7 @@ namespace yordle::data::meta {
         explicit x2da50c9f(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 765791391 || bin_class::is_type(type);
+            return type == 765791391;
         }
 
         std::string xd8073196 {};
@@ -10509,7 +10509,7 @@ namespace yordle::data::meta {
         explicit xf2cfc48c(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4073702540 || bin_class::is_type(type);
+            return type == 4073702540;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> BarBackdrop {1005588128u};
@@ -10522,7 +10522,7 @@ namespace yordle::data::meta {
         explicit x9d8138a6(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2642491558 || bin_class::is_type(type);
+            return type == 2642491558;
         }
 
         std::shared_ptr<yordle::data::meta::xf2cfc48c> DefaultState {};
@@ -10541,7 +10541,7 @@ namespace yordle::data::meta {
         explicit xd149dd3f(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3511278911 || bin_class::is_type(type);
+            return type == 3511278911;
         }
 
         int32_t FromSlotId = 0;
@@ -10553,7 +10553,7 @@ namespace yordle::data::meta {
         explicit xb35ad9d8(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3009075672 || bin_class::is_type(type);
+            return type == 3009075672;
         }
 
         std::vector<yordle::data::meta::bin_fnv_hash> items {};
@@ -10568,7 +10568,7 @@ namespace yordle::data::meta {
         explicit xd20000f6(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3523215606 || bin_class::is_type(type);
+            return type == 3523215606;
         }
 
         yordle::data::meta::bin_fnv_hash SceneData = 0;
@@ -10581,7 +10581,7 @@ namespace yordle::data::meta {
         explicit xef05ba42(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4010129986 || bin_class::is_type(type);
+            return type == 4010129986;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> ItemIcon {3202633864u};
@@ -10657,7 +10657,7 @@ namespace yordle::data::meta {
         explicit x38691790(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 946411408 || bin_class::is_type(type);
+            return type == 946411408;
         }
 
         std::vector<uint8_t> x837fcf93 {};
@@ -10669,7 +10669,7 @@ namespace yordle::data::meta {
         explicit StatFilterDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1403141140 || bin_class::is_type(type);
+            return type == 1403141140;
         }
 
         yordle::data::meta::bin_fnv_hash buttonDefinition = 0;
@@ -10681,7 +10681,7 @@ namespace yordle::data::meta {
         explicit x77595aa9(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2002344617 || bin_class::is_type(type);
+            return type == 2002344617;
         }
 
         std::shared_ptr<yordle::data::meta::StatFilterDefinition> PhysicalDamage {};
@@ -10706,7 +10706,7 @@ namespace yordle::data::meta {
         explicit HudItemShopData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2696268697 || bin_class::is_type(type);
+            return type == 2696268697;
         }
 
         yordle::data::meta::bin_fnv_hash TabButtonDefinition      = 0;
@@ -10764,7 +10764,7 @@ namespace yordle::data::meta {
         explicit IHudLoadingScreenWidget(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1936278667 || bin_class::is_type(type);
+            return type == 1936278667;
         }
 
         std::string mSceneName {};
@@ -10775,7 +10775,7 @@ namespace yordle::data::meta {
         explicit HudLoadingScreenCarouselData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 470840304 || bin_class::is_type(type);
+            return type == 470840304;
         }
 
         std::string image {};
@@ -10852,7 +10852,7 @@ namespace yordle::data::meta {
         explicit PlayerCardWidgetConfig(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1376467180 || bin_class::is_type(type);
+            return type == 1376467180;
         }
 
         bool mTeamBased    = false;
@@ -10865,7 +10865,7 @@ namespace yordle::data::meta {
         explicit x97599ad3(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2539231955 || bin_class::is_type(type);
+            return type == 2539231955;
         }
 
         yordle::data::meta::bin_fnv_hash x634c549e = 0;
@@ -10877,7 +10877,7 @@ namespace yordle::data::meta {
         explicit HudReplaySliderIconData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3703833425 || bin_class::is_type(type);
+            return type == 3703833425;
         }
 
         yordle::data::meta::bin_fnv_hash mType = 0;
@@ -10895,7 +10895,7 @@ namespace yordle::data::meta {
         explicit HudReplaySliderData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 220532968 || bin_class::is_type(type);
+            return type == 220532968;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::HudReplaySliderIconData>> mIconDataPriorityList {};
@@ -10907,7 +10907,7 @@ namespace yordle::data::meta {
         explicit WadFileDescriptor(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2741896024 || bin_class::is_type(type);
+            return type == 2741896024;
         }
     };
 
@@ -10916,7 +10916,7 @@ namespace yordle::data::meta {
         explicit BaseRigPoseModifierData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3000850570 || bin_class::is_type(type);
+            return type == 3000850570;
         }
     };
 
@@ -10983,7 +10983,7 @@ namespace yordle::data::meta {
         explicit AnimationGraphData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4126869447 || bin_class::is_type(type);
+            return type == 4126869447;
         }
 
         bool mUseCascadeBlend    = false;
@@ -11000,7 +11000,7 @@ namespace yordle::data::meta {
         explicit AnimationResourceData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2588617117 || bin_class::is_type(type);
+            return type == 2588617117;
         }
 
         std::string mAnimationFilePath {};
@@ -11011,7 +11011,7 @@ namespace yordle::data::meta {
         explicit MaskData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 725360953 || bin_class::is_type(type);
+            return type == 725360953;
         }
 
         uint32_t mId = 0;
@@ -11023,7 +11023,7 @@ namespace yordle::data::meta {
         explicit Joint(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2930641015 || bin_class::is_type(type);
+            return type == 2930641015;
         }
 
         uint16_t mIndex = 0;
@@ -11039,7 +11039,7 @@ namespace yordle::data::meta {
         explicit RigResource(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1426469241 || bin_class::is_type(type);
+            return type == 1426469241;
         }
 
         std::string mName {};
@@ -11054,7 +11054,7 @@ namespace yordle::data::meta {
         explicit SyncGroupData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1718266157 || bin_class::is_type(type);
+            return type == 1718266157;
         }
 
         uint32_t mType = 0;
@@ -11065,7 +11065,7 @@ namespace yordle::data::meta {
         explicit TrackData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2552904996 || bin_class::is_type(type);
+            return type == 2552904996;
         }
 
         uint32_t mPriority  = 0;
@@ -11078,7 +11078,7 @@ namespace yordle::data::meta {
         explicit UpdaterData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3953106978 || bin_class::is_type(type);
+            return type == 3953106978;
         }
 
         uint32_t mInputType  = 0;
@@ -11091,7 +11091,7 @@ namespace yordle::data::meta {
         explicit UpdaterResourceData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1426466346 || bin_class::is_type(type);
+            return type == 1426466346;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::UpdaterData>> mUpdaterDataList {};
@@ -11102,7 +11102,7 @@ namespace yordle::data::meta {
         explicit ConditionFloatPairData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1675919456 || bin_class::is_type(type);
+            return type == 1675919456;
         }
 
         yordle::data::meta::bin_fnv_hash mClipName = 0;
@@ -11116,7 +11116,7 @@ namespace yordle::data::meta {
         explicit ParametricPairData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3371956895 || bin_class::is_type(type);
+            return type == 3371956895;
         }
 
         yordle::data::meta::bin_fnv_hash mClipName = 0;
@@ -11128,7 +11128,7 @@ namespace yordle::data::meta {
         explicit SelectorPairData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1837663416 || bin_class::is_type(type);
+            return type == 1837663416;
         }
 
         yordle::data::meta::bin_fnv_hash mClipName = 0;
@@ -11140,7 +11140,7 @@ namespace yordle::data::meta {
         explicit BaseBlendData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3172694155 || bin_class::is_type(type);
+            return type == 3172694155;
         }
     };
 
@@ -11149,7 +11149,7 @@ namespace yordle::data::meta {
         explicit BaseEventData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2039250216 || bin_class::is_type(type);
+            return type == 2039250216;
         }
 
         yordle::data::meta::bin_fnv_hash mName = 0;
@@ -11164,7 +11164,7 @@ namespace yordle::data::meta {
         explicit ClipBaseData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3917866950 || bin_class::is_type(type);
+            return type == 3917866950;
         }
 
         uint32_t mFlags = 0;
@@ -11258,7 +11258,7 @@ namespace yordle::data::meta {
         explicit ParticleEventDataPair(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1574343673 || bin_class::is_type(type);
+            return type == 1574343673;
         }
 
         yordle::data::meta::bin_fnv_hash mBoneName       = 0;
@@ -11359,7 +11359,7 @@ namespace yordle::data::meta {
         explicit ValueProcessorData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3487022 || bin_class::is_type(type);
+            return type == 3487022;
         }
     };
 
@@ -11368,7 +11368,7 @@ namespace yordle::data::meta {
         explicit EngineFeatureToggles(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2790085136 || bin_class::is_type(type);
+            return type == 2790085136;
         }
 
         bool x5fe6e49  = false;
@@ -11380,7 +11380,7 @@ namespace yordle::data::meta {
         explicit MapComponent(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 72326764 || bin_class::is_type(type);
+            return type == 72326764;
         }
     };
 
@@ -11389,7 +11389,7 @@ namespace yordle::data::meta {
         explicit MapContainer(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3723018516 || bin_class::is_type(type);
+            return type == 3723018516;
         }
 
         std::string mapPath {};
@@ -11417,7 +11417,7 @@ namespace yordle::data::meta {
         explicit LaneData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 243000503 || bin_class::is_type(type);
+            return type == 243000503;
         }
 
         std::vector<std::string> mNavigationPoints {};
@@ -11440,7 +11440,7 @@ namespace yordle::data::meta {
         explicit MapPathSegment(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2603925163 || bin_class::is_type(type);
+            return type == 2603925163;
         }
 
         std::array<float, 3> EndPosition {};
@@ -11483,7 +11483,7 @@ namespace yordle::data::meta {
         explicit MapPlaceable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1502315240 || bin_class::is_type(type);
+            return type == 1502315240;
         }
 
         std::array<float, 16> transform {};
@@ -11505,7 +11505,7 @@ namespace yordle::data::meta {
         explicit MapPlaceableContainer(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2992376383 || bin_class::is_type(type);
+            return type == 2992376383;
         }
 
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::MapPlaceable>> items {};
@@ -11539,7 +11539,7 @@ namespace yordle::data::meta {
         explicit RegionsThatAllowContent(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2486262273 || bin_class::is_type(type);
+            return type == 2486262273;
         }
 
         std::vector<yordle::data::meta::bin_fnv_hash> mRegionList {};
@@ -11550,7 +11550,7 @@ namespace yordle::data::meta {
         explicit RegionSettings(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 585068320 || bin_class::is_type(type);
+            return type == 585068320;
         }
 
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::RegionsThatAllowContent>> mContentTypeAllowedSettings {};
@@ -11561,7 +11561,7 @@ namespace yordle::data::meta {
         explicit FontLocaleType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2600090346 || bin_class::is_type(type);
+            return type == 2600090346;
         }
 
         std::string localeName {};
@@ -11575,7 +11575,7 @@ namespace yordle::data::meta {
         explicit FontResolution(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3120352850 || bin_class::is_type(type);
+            return type == 3120352850;
         }
 
         uint32_t screenHeight = 0;
@@ -11590,7 +11590,7 @@ namespace yordle::data::meta {
         explicit FontLocaleResolutions(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3919875225 || bin_class::is_type(type);
+            return type == 3919875225;
         }
 
         std::string localeName {};
@@ -11602,7 +11602,7 @@ namespace yordle::data::meta {
         explicit FontType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 766729624 || bin_class::is_type(type);
+            return type == 766729624;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::FontLocaleType>> localeTypes {};
@@ -11613,7 +11613,7 @@ namespace yordle::data::meta {
         explicit FontResolutionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 231582978 || bin_class::is_type(type);
+            return type == 231582978;
         }
 
         bool autoScale = false;
@@ -11625,7 +11625,7 @@ namespace yordle::data::meta {
         explicit GameFontDescription(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3812866480 || bin_class::is_type(type);
+            return type == 3812866480;
         }
 
         std::string name {};
@@ -11649,7 +11649,7 @@ namespace yordle::data::meta {
         explicit CSSStyle(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1461391717 || bin_class::is_type(type);
+            return type == 1461391717;
         }
 
         std::optional<std::array<uint8_t, 4>> color {};
@@ -11663,7 +11663,7 @@ namespace yordle::data::meta {
         explicit CSSIcon(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3991255873 || bin_class::is_type(type);
+            return type == 3991255873;
         }
 
         std::array<float, 2> xy {};
@@ -11676,7 +11676,7 @@ namespace yordle::data::meta {
         explicit CSSSheet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3173404643 || bin_class::is_type(type);
+            return type == 3173404643;
         }
 
         std::map<std::string, std::shared_ptr<yordle::data::meta::CSSStyle>> styles {};
@@ -11689,7 +11689,7 @@ namespace yordle::data::meta {
         explicit TooltipFormat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2994559891 || bin_class::is_type(type);
+            return type == 2994559891;
         }
 
         std::string mObjectName {};
@@ -11710,7 +11710,7 @@ namespace yordle::data::meta {
         explicit TooltipInstanceListElement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2585474309 || bin_class::is_type(type);
+            return type == 2585474309;
         }
 
         std::string type {};
@@ -11725,7 +11725,7 @@ namespace yordle::data::meta {
         explicit TooltipInstanceList(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4214485747 || bin_class::is_type(type);
+            return type == 4214485747;
         }
 
         uint32_t levelCount = 0;
@@ -11737,7 +11737,7 @@ namespace yordle::data::meta {
         explicit TooltipInstance(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2250161003 || bin_class::is_type(type);
+            return type == 2250161003;
         }
 
         std::string mObjectName {};
@@ -11751,7 +11751,7 @@ namespace yordle::data::meta {
         explicit ValueFloat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 70254680 || bin_class::is_type(type);
+            return type == 70254680;
         }
 
         float constantValue = 0.0;
@@ -11772,7 +11772,7 @@ namespace yordle::data::meta {
         explicit ValueVector2(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1776038985 || bin_class::is_type(type);
+            return type == 1776038985;
         }
 
         std::array<float, 2> constantValue {};
@@ -11793,7 +11793,7 @@ namespace yordle::data::meta {
         explicit ValueVector3(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1759261366 || bin_class::is_type(type);
+            return type == 1759261366;
         }
 
         std::array<float, 3> constantValue {};
@@ -11814,7 +11814,7 @@ namespace yordle::data::meta {
         explicit ValueColor(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 122655197 || bin_class::is_type(type);
+            return type == 122655197;
         }
 
         std::array<float, 4> constantValue {};
@@ -11826,7 +11826,7 @@ namespace yordle::data::meta {
         explicit VfxAnimatedFloatVariableData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4261825672 || bin_class::is_type(type);
+            return type == 4261825672;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> probabilityTables {};
@@ -11839,7 +11839,7 @@ namespace yordle::data::meta {
         explicit VfxAnimatedVector2fVariableData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 772710981 || bin_class::is_type(type);
+            return type == 772710981;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> probabilityTables {};
@@ -11852,7 +11852,7 @@ namespace yordle::data::meta {
         explicit VfxAnimatedVector3fVariableData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2899841408 || bin_class::is_type(type);
+            return type == 2899841408;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> probabilityTables {};
@@ -11865,7 +11865,7 @@ namespace yordle::data::meta {
         explicit VfxAnimatedColorVariableData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1128908277 || bin_class::is_type(type);
+            return type == 1128908277;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::bin_class>> probabilityTables {};
@@ -11878,7 +11878,7 @@ namespace yordle::data::meta {
         explicit VfxSoftParticleDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 497696688 || bin_class::is_type(type);
+            return type == 497696688;
         }
 
         float beginIn  = 0.0;
@@ -11892,7 +11892,7 @@ namespace yordle::data::meta {
         explicit FlexValueVector3(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1113621825 || bin_class::is_type(type);
+            return type == 1113621825;
         }
 
         uint32_t mFlexID = 0;
@@ -11904,7 +11904,7 @@ namespace yordle::data::meta {
         explicit FlexValueVector2(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1096844206 || bin_class::is_type(type);
+            return type == 1096844206;
         }
 
         uint32_t mFlexID = 0;
@@ -11916,7 +11916,7 @@ namespace yordle::data::meta {
         explicit FlexValueFloat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1370198255 || bin_class::is_type(type);
+            return type == 1370198255;
         }
 
         uint32_t mFlexID = 0;
@@ -11928,7 +11928,7 @@ namespace yordle::data::meta {
         explicit FlexTypeFloat(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 796686208 || bin_class::is_type(type);
+            return type == 796686208;
         }
 
         uint32_t mFlexID = 0;
@@ -11940,7 +11940,7 @@ namespace yordle::data::meta {
         explicit VfxFieldAccelerationDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 177533908 || bin_class::is_type(type);
+            return type == 177533908;
         }
 
         bool isLocalSpace = false;
@@ -11952,7 +11952,7 @@ namespace yordle::data::meta {
         explicit VfxFieldAttractionDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 443947005 || bin_class::is_type(type);
+            return type == 443947005;
         }
 
         std::shared_ptr<yordle::data::meta::ValueVector3> position {};
@@ -11965,7 +11965,7 @@ namespace yordle::data::meta {
         explicit VfxFieldCollectionDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3149931448 || bin_class::is_type(type);
+            return type == 3149931448;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::VfxFieldAccelerationDefinitionData>> fieldAccelerationDefinitions {};
@@ -11980,7 +11980,7 @@ namespace yordle::data::meta {
         explicit VfxFieldDragDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3880844002 || bin_class::is_type(type);
+            return type == 3880844002;
         }
 
         std::shared_ptr<yordle::data::meta::ValueVector3> position {};
@@ -11993,7 +11993,7 @@ namespace yordle::data::meta {
         explicit VfxFieldNoiseDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1666037840 || bin_class::is_type(type);
+            return type == 1666037840;
         }
 
         std::shared_ptr<yordle::data::meta::ValueVector3> position {};
@@ -12008,7 +12008,7 @@ namespace yordle::data::meta {
         explicit VfxFieldOrbitalDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3061509743 || bin_class::is_type(type);
+            return type == 3061509743;
         }
 
         bool isLocalSpace = false;
@@ -12020,7 +12020,7 @@ namespace yordle::data::meta {
         explicit IVfxMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 37724083 || bin_class::is_type(type);
+            return type == 37724083;
         }
     };
 
@@ -12029,7 +12029,7 @@ namespace yordle::data::meta {
         explicit VfxMaterialOverrideDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3652726407 || bin_class::is_type(type);
+            return type == 3652726407;
         }
 
         int32_t priority = 0;
@@ -12048,7 +12048,7 @@ namespace yordle::data::meta {
         explicit VfxProbabilityTableData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1403439486 || bin_class::is_type(type);
+            return type == 1403439486;
         }
 
         std::vector<float> keyTimes {};
@@ -12061,7 +12061,7 @@ namespace yordle::data::meta {
         explicit VfxMigrationResources(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2184800742 || bin_class::is_type(type);
+            return type == 2184800742;
         }
 
         std::map<yordle::data::meta::bin_fnv_hash, yordle::data::meta::bin_ref<yordle::data::meta::bin_class>> resourceMap {};
@@ -12072,7 +12072,7 @@ namespace yordle::data::meta {
         explicit VfxAssetRemap(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4129808802 || bin_class::is_type(type);
+            return type == 4129808802;
         }
 
         uint32_t type                             = 0;
@@ -12097,7 +12097,7 @@ namespace yordle::data::meta {
         explicit VfxShape(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2010092456 || bin_class::is_type(type);
+            return type == 2010092456;
         }
 
         std::shared_ptr<yordle::data::meta::ValueVector3> birthTranslation {};
@@ -12111,7 +12111,7 @@ namespace yordle::data::meta {
         explicit VfxEmitterDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 164488258 || bin_class::is_type(type);
+            return type == 164488258;
         }
 
         std::string soundOnCreateName {};
@@ -12303,7 +12303,7 @@ namespace yordle::data::meta {
         explicit VfxChildIdentifier(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2526736020 || bin_class::is_type(type);
+            return type == 2526736020;
         }
 
         yordle::data::meta::bin_fnv_hash effectKey = 0;
@@ -12316,7 +12316,7 @@ namespace yordle::data::meta {
         explicit VfxChildParticleSetDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3038774362 || bin_class::is_type(type);
+            return type == 3038774362;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::VfxChildIdentifier>> childrenIdentifiers {};
@@ -12330,7 +12330,7 @@ namespace yordle::data::meta {
         explicit VfxAlphaErosionDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1585720219 || bin_class::is_type(type);
+            return type == 1585720219;
         }
 
         std::shared_ptr<yordle::data::meta::ValueFloat> erosionDriveCurve {};
@@ -12350,7 +12350,7 @@ namespace yordle::data::meta {
         explicit VfxPaletteDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2829943575 || bin_class::is_type(type);
+            return type == 2829943575;
         }
 
         std::string paletteTexture {};
@@ -12367,7 +12367,7 @@ namespace yordle::data::meta {
         explicit VfxReflectionDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1091758723 || bin_class::is_type(type);
+            return type == 1091758723;
         }
 
         std::string reflectionMapTexture {};
@@ -12384,7 +12384,7 @@ namespace yordle::data::meta {
         explicit VfxDistortionDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1238702953 || bin_class::is_type(type);
+            return type == 1238702953;
         }
 
         float distortion       = 0.0;
@@ -12397,7 +12397,7 @@ namespace yordle::data::meta {
         explicit VfxProjectionDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 259276035 || bin_class::is_type(type);
+            return type == 259276035;
         }
 
         float mYRange = 0.0;
@@ -12409,7 +12409,7 @@ namespace yordle::data::meta {
         explicit VfxTrailDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 12755856 || bin_class::is_type(type);
+            return type == 12755856;
         }
 
         uint8_t mMode = 0;
@@ -12424,7 +12424,7 @@ namespace yordle::data::meta {
         explicit VfxBeamDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 532209417 || bin_class::is_type(type);
+            return type == 532209417;
         }
 
         int32_t mSegments = 0;
@@ -12442,7 +12442,7 @@ namespace yordle::data::meta {
         explicit VfxEmissionSurfaceData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3217219891 || bin_class::is_type(type);
+            return type == 3217219891;
         }
 
         std::string meshName {};
@@ -12459,7 +12459,7 @@ namespace yordle::data::meta {
         explicit VfxMeshDefinitionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1787328523 || bin_class::is_type(type);
+            return type == 1787328523;
         }
 
         std::string mSimpleMeshName {};
@@ -12477,7 +12477,7 @@ namespace yordle::data::meta {
         explicit VfxPrimitiveBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3801322209 || bin_class::is_type(type);
+            return type == 3801322209;
         }
     };
 
@@ -12677,7 +12677,7 @@ namespace yordle::data::meta {
         explicit MapParticleGroups(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1221817611 || bin_class::is_type(type);
+            return type == 1221817611;
         }
 
         std::vector<std::string> groups {};
@@ -12688,7 +12688,7 @@ namespace yordle::data::meta {
         explicit DynamicMaterialParameterDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 121596497 || bin_class::is_type(type);
+            return type == 121596497;
         }
 
         std::string name {};
@@ -12701,7 +12701,7 @@ namespace yordle::data::meta {
         explicit DynamicMaterialTextureSwapOption(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 567330916 || bin_class::is_type(type);
+            return type == 567330916;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> driver {};
@@ -12713,7 +12713,7 @@ namespace yordle::data::meta {
         explicit DynamicMaterialTextureSwapDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1303930364 || bin_class::is_type(type);
+            return type == 1303930364;
         }
 
         std::string name {};
@@ -12726,7 +12726,7 @@ namespace yordle::data::meta {
         explicit DynamicMaterialStaticSwitch(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4013554309 || bin_class::is_type(type);
+            return type == 4013554309;
         }
 
         std::string name {};
@@ -12739,7 +12739,7 @@ namespace yordle::data::meta {
         explicit DynamicMaterialDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 762048930 || bin_class::is_type(type);
+            return type == 762048930;
         }
 
         bool x5ed2db8d = false;
@@ -12753,7 +12753,7 @@ namespace yordle::data::meta {
         explicit IDynamicMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1009087838 || bin_class::is_type(type);
+            return type == 1009087838;
         }
     };
 
@@ -12849,7 +12849,7 @@ namespace yordle::data::meta {
         explicit SwitchMaterialDriverElement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1173409658 || bin_class::is_type(type);
+            return type == 1173409658;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> mCondition {};
@@ -12894,7 +12894,7 @@ namespace yordle::data::meta {
         explicit IdMappingEntry(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 176045846 || bin_class::is_type(type);
+            return type == 176045846;
         }
 
         uint16_t ID    = 0;
@@ -12906,7 +12906,7 @@ namespace yordle::data::meta {
         explicit HybridMaterialDefPreset(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1659255250 || bin_class::is_type(type);
+            return type == 1659255250;
         }
 
         std::map<std::string, std::string> shaderMacros {};
@@ -12938,7 +12938,7 @@ namespace yordle::data::meta {
         explicit IMaterialDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3975636772 || bin_class::is_type(type);
+            return type == 3975636772;
         }
     };
 
@@ -12947,7 +12947,7 @@ namespace yordle::data::meta {
         explicit ShaderLogicalParameter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 346210042 || bin_class::is_type(type);
+            return type == 346210042;
         }
 
         std::string name {};
@@ -12959,7 +12959,7 @@ namespace yordle::data::meta {
         explicit ShaderPhysicalParameter(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2171032536 || bin_class::is_type(type);
+            return type == 2171032536;
         }
 
         std::string name {};
@@ -12972,7 +12972,7 @@ namespace yordle::data::meta {
         explicit ShaderStaticSwitch(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1621267174 || bin_class::is_type(type);
+            return type == 1621267174;
         }
 
         std::string name {};
@@ -12984,7 +12984,7 @@ namespace yordle::data::meta {
         explicit ShaderTexture(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 835838499 || bin_class::is_type(type);
+            return type == 835838499;
         }
 
         std::string name {};
@@ -12996,7 +12996,7 @@ namespace yordle::data::meta {
         explicit IShaderDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 196890972 || bin_class::is_type(type);
+            return type == 196890972;
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::ShaderPhysicalParameter>> parameters {};
@@ -13012,7 +13012,7 @@ namespace yordle::data::meta {
         explicit MaterialParameterData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1407148951 || bin_class::is_type(type);
+            return type == 1407148951;
         }
 
         uint8_t type = 0;
@@ -13024,7 +13024,7 @@ namespace yordle::data::meta {
         explicit MaterialTextureData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3791453475 || bin_class::is_type(type);
+            return type == 3791453475;
         }
 
         std::string defaultTexturePath {};
@@ -13041,7 +13041,7 @@ namespace yordle::data::meta {
         explicit MaterialSwitchData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1327860340 || bin_class::is_type(type);
+            return type == 1327860340;
         }
 
         bool on = false;
@@ -13052,7 +13052,7 @@ namespace yordle::data::meta {
         explicit MaterialParameterDataCollection(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3921803671 || bin_class::is_type(type);
+            return type == 3921803671;
         }
 
         uint16_t nextID = 0;
@@ -13066,7 +13066,7 @@ namespace yordle::data::meta {
         explicit MaterialTextureDataCollection(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1749974331 || bin_class::is_type(type);
+            return type == 1749974331;
         }
 
         uint16_t nextID = 0;
@@ -13080,7 +13080,7 @@ namespace yordle::data::meta {
         explicit MaterialSwitchDataCollection(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3078356408 || bin_class::is_type(type);
+            return type == 3078356408;
         }
 
         uint16_t nextID = 0;
@@ -13094,7 +13094,7 @@ namespace yordle::data::meta {
         explicit MaterialDataCollections(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1874373301 || bin_class::is_type(type);
+            return type == 1874373301;
         }
 
         std::shared_ptr<yordle::data::meta::MaterialParameterDataCollection> ParameterData {};
@@ -13107,7 +13107,7 @@ namespace yordle::data::meta {
         explicit MaterialInstanceParamDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1496596895 || bin_class::is_type(type);
+            return type == 1496596895;
         }
 
         std::array<float, 4> value {};
@@ -13118,7 +13118,7 @@ namespace yordle::data::meta {
         explicit MaterialInstanceSwitchDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2719807978 || bin_class::is_type(type);
+            return type == 2719807978;
         }
 
         bool on = false;
@@ -13129,7 +13129,7 @@ namespace yordle::data::meta {
         explicit MaterialInstanceTextureDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1305331905 || bin_class::is_type(type);
+            return type == 1305331905;
         }
 
         std::string texturePath {};
@@ -13141,7 +13141,7 @@ namespace yordle::data::meta {
         explicit xf7084b4a(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4144515914 || bin_class::is_type(type);
+            return type == 4144515914;
         }
 
         std::string name {};
@@ -13153,7 +13153,7 @@ namespace yordle::data::meta {
         explicit MaterialInstanceDynamicParam(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1964830497 || bin_class::is_type(type);
+            return type == 1964830497;
         }
 
         bool enabled = false;
@@ -13165,7 +13165,7 @@ namespace yordle::data::meta {
         explicit MaterialInstanceDynamicSwitch(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1171267580 || bin_class::is_type(type);
+            return type == 1171267580;
         }
 
         bool enabled = false;
@@ -13177,7 +13177,7 @@ namespace yordle::data::meta {
         explicit MaterialInstanceDynamicTexture(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1083476907 || bin_class::is_type(type);
+            return type == 1083476907;
         }
 
         bool enabled = false;
@@ -13189,7 +13189,7 @@ namespace yordle::data::meta {
         explicit StaticMaterialShaderParamDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3729264367 || bin_class::is_type(type);
+            return type == 3729264367;
         }
 
         std::string name {};
@@ -13201,7 +13201,7 @@ namespace yordle::data::meta {
         explicit StaticMaterialSwitchDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 237114017 || bin_class::is_type(type);
+            return type == 237114017;
         }
 
         std::string name {};
@@ -13213,7 +13213,7 @@ namespace yordle::data::meta {
         explicit StaticMaterialShaderSamplerDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 151302480 || bin_class::is_type(type);
+            return type == 151302480;
         }
 
         std::string samplerName {};
@@ -13232,7 +13232,7 @@ namespace yordle::data::meta {
         explicit StaticMaterialPassDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2235027650 || bin_class::is_type(type);
+            return type == 2235027650;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::IShaderDef> shader {196890972u};
@@ -13266,7 +13266,7 @@ namespace yordle::data::meta {
         explicit StaticMaterialTechniqueDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 101336083 || bin_class::is_type(type);
+            return type == 101336083;
         }
 
         std::string name {};
@@ -13278,7 +13278,7 @@ namespace yordle::data::meta {
         explicit StaticMaterialChildTechniqueDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1935363221 || bin_class::is_type(type);
+            return type == 1935363221;
         }
 
         std::string name {};
@@ -13291,7 +13291,7 @@ namespace yordle::data::meta {
         explicit MapPerInstanceInfo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 573833423 || bin_class::is_type(type);
+            return type == 573833423;
         }
 
         std::string shadowMapPath {};
@@ -13319,7 +13319,7 @@ namespace yordle::data::meta {
         explicit MapCloudsLayer(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 769601740 || bin_class::is_type(type);
+            return type == 769601740;
         }
 
         float scale = 0.0;
@@ -13394,7 +13394,7 @@ namespace yordle::data::meta {
         explicit MapPointLightType(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 668199599 || bin_class::is_type(type);
+            return type == 668199599;
         }
 
         std::array<float, 4> lightColor {};
@@ -13449,7 +13449,7 @@ namespace yordle::data::meta {
         explicit SHData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1813728254 || bin_class::is_type(type);
+            return type == 1813728254;
         }
 
         std::vector<std::array<float, 3>> bandData {};
@@ -13460,7 +13460,7 @@ namespace yordle::data::meta {
         explicit SkinMeshDataProperties_MaterialOverride(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2340045716 || bin_class::is_type(type);
+            return type == 2340045716;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::IMaterialDef> material {3975636772u};
@@ -13474,7 +13474,7 @@ namespace yordle::data::meta {
         explicit SkinnedMeshDataMaterialController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3460011047 || bin_class::is_type(type);
+            return type == 3460011047;
         }
     };
 
@@ -13483,7 +13483,7 @@ namespace yordle::data::meta {
         explicit SkinMeshDataProperties(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1628559524 || bin_class::is_type(type);
+            return type == 1628559524;
         }
 
         std::string skeleton {};
@@ -13525,7 +13525,7 @@ namespace yordle::data::meta {
         explicit IResource(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 547453112 || bin_class::is_type(type);
+            return type == 547453112;
         }
     };
 
@@ -13534,7 +13534,7 @@ namespace yordle::data::meta {
         explicit IResourceResolver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3911265650 || bin_class::is_type(type);
+            return type == 3911265650;
         }
     };
 
@@ -13543,7 +13543,7 @@ namespace yordle::data::meta {
         explicit FunctionDefinition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3984358668 || bin_class::is_type(type);
+            return type == 3984358668;
         }
 
         std::shared_ptr<yordle::data::meta::bin_class> Sequence {};
@@ -13556,7 +13556,7 @@ namespace yordle::data::meta {
         explicit IScriptBlock(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1009431984 || bin_class::is_type(type);
+            return type == 1009431984;
         }
 
         bool IsDisabled = false;
@@ -13567,7 +13567,7 @@ namespace yordle::data::meta {
         explicit SwitchCase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3460129365 || bin_class::is_type(type);
+            return type == 3460129365;
         }
 
         bool IsDisabled = false;
@@ -13591,7 +13591,7 @@ namespace yordle::data::meta {
         explicit IScriptCondition(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3324095080 || bin_class::is_type(type);
+            return type == 3324095080;
         }
     };
 
@@ -13668,7 +13668,7 @@ namespace yordle::data::meta {
         explicit RScript(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3134806650 || bin_class::is_type(type);
+            return type == 3134806650;
         }
     };
 
@@ -13677,7 +13677,7 @@ namespace yordle::data::meta {
         explicit ScriptTable(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 619916734 || bin_class::is_type(type);
+            return type == 619916734;
         }
     };
 
@@ -13695,7 +13695,7 @@ namespace yordle::data::meta {
         explicit ScriptTableSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4139131590 || bin_class::is_type(type);
+            return type == 4139131590;
         }
 
         std::shared_ptr<yordle::data::meta::ScriptTable> Table {};
@@ -13770,7 +13770,7 @@ namespace yordle::data::meta {
         explicit IScriptValueGet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4142338480 || bin_class::is_type(type);
+            return type == 4142338480;
         }
     };
 
@@ -13845,7 +13845,7 @@ namespace yordle::data::meta {
         explicit xd1951f45(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3516211013 || bin_class::is_type(type);
+            return type == 3516211013;
         }
 
         float transitionTime = 0.0;
@@ -13879,7 +13879,7 @@ namespace yordle::data::meta {
         explicit SceneData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2867346523 || bin_class::is_type(type);
+            return type == 2867346523;
         }
 
         std::string mName {};
@@ -13898,7 +13898,7 @@ namespace yordle::data::meta {
         explicit AnchorBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2131369601 || bin_class::is_type(type);
+            return type == 2131369601;
         }
     };
 
@@ -13930,7 +13930,7 @@ namespace yordle::data::meta {
         explicit AtlasDataBase(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2069111393 || bin_class::is_type(type);
+            return type == 2069111393;
         }
 
         std::string mTextureName {};
@@ -13994,7 +13994,7 @@ namespace yordle::data::meta {
         explicit x231dd1a2(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 589156770 || bin_class::is_type(type);
+            return type == 589156770;
         }
 
         std::string mName {};
@@ -14006,7 +14006,7 @@ namespace yordle::data::meta {
         explicit ElementSoundEvents(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2222311051 || bin_class::is_type(type);
+            return type == 2222311051;
         }
 
         std::string RolloverEvent {};
@@ -14022,7 +14022,7 @@ namespace yordle::data::meta {
         explicit ElementGroupButtonState(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3456684995 || bin_class::is_type(type);
+            return type == 3456684995;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::x231dd1a2>> displayElements {};
@@ -14068,7 +14068,7 @@ namespace yordle::data::meta {
         explicit xaf7ac937(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2944059703 || bin_class::is_type(type);
+            return type == 2944059703;
         }
 
         std::string xd8073196 {};
@@ -14081,7 +14081,7 @@ namespace yordle::data::meta {
         explicit ElementGroupSliderState(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2718727252 || bin_class::is_type(type);
+            return type == 2718727252;
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::bin_class> BarBackdrop {1005588128u};
@@ -14112,7 +14112,7 @@ namespace yordle::data::meta {
         explicit IconElementDataExtension(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3681459597 || bin_class::is_type(type);
+            return type == 3681459597;
         }
     };
 
@@ -14136,7 +14136,7 @@ namespace yordle::data::meta {
         explicit X3DSharedConstantDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 19256412 || bin_class::is_type(type);
+            return type == 19256412;
         }
 
         std::string name {};
@@ -14152,7 +14152,7 @@ namespace yordle::data::meta {
         explicit X3DSharedConstantBufferDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2515485450 || bin_class::is_type(type);
+            return type == 2515485450;
         }
 
         std::string name {};
@@ -14169,7 +14169,7 @@ namespace yordle::data::meta {
         explicit X3DSharedData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 877304437 || bin_class::is_type(type);
+            return type == 877304437;
         }
 
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::X3DSharedConstantBufferDef>> xe595dd78 {};
@@ -14181,7 +14181,7 @@ namespace yordle::data::meta {
         explicit X3DSharedTextureDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 927275163 || bin_class::is_type(type);
+            return type == 927275163;
         }
 
         std::string name {};
@@ -15679,12 +15679,12 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::MaterialDataCollections> DataCollections {};
     };
 
-    class YORDLE_EXPORT MaterialInstanceDef : public IResource {
+    class YORDLE_EXPORT MaterialInstanceDef : public IResource, public IMaterialDef {
     public:
         explicit MaterialInstanceDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3883795674 || IResource::is_type(type);
+            return type == 3883795674 || IResource::is_type(type) || IMaterialDef::is_type(type);
         }
 
         std::string name {};
@@ -15700,12 +15700,12 @@ namespace yordle::data::meta {
         uint16_t DynamicSwitchId = 0;
     };
 
-    class YORDLE_EXPORT StaticMaterialDef : public IResource {
+    class YORDLE_EXPORT StaticMaterialDef : public IResource, public IMaterialDef {
     public:
         explicit StaticMaterialDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 4288492553 || IResource::is_type(type);
+            return type == 4288492553 || IResource::is_type(type) || IMaterialDef::is_type(type);
         }
 
         std::string name {};

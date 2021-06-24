@@ -4159,7 +4159,7 @@ yordle::data::meta::ChampionMasteryMap::ChampionMasteryMap(const std::shared_ptr
     }
 }
 
-yordle::data::meta::BaseLoadoutData::BaseLoadoutData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::bin_class(prop) {
+yordle::data::meta::BaseLoadoutData::BaseLoadoutData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::ICatalogEntryOwner(prop) {
     if (prop == nullptr) {
         return;
     }
@@ -5076,7 +5076,7 @@ yordle::data::meta::TurretFirstBloodLogic::TurretFirstBloodLogic(const std::shar
     }
 }
 
-yordle::data::meta::StatStoneSet::StatStoneSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::bin_class(prop) {
+yordle::data::meta::StatStoneSet::StatStoneSet(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::ICatalogEntryOwner(prop) {
     if (prop == nullptr) {
         return;
     }
@@ -32740,7 +32740,7 @@ yordle::data::meta::HybridMaterialDef::HybridMaterialDef(const std::shared_ptr<y
     }
 }
 
-yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::IResource(prop) {
+yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::IResource(prop), yordle::data::meta::IMaterialDef(prop) {
     if (prop == nullptr) {
         return;
     }
@@ -32842,7 +32842,7 @@ yordle::data::meta::MaterialInstanceDef::MaterialInstanceDef(const std::shared_p
     }
 }
 
-yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::IResource(prop) {
+yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::IResource(prop), yordle::data::meta::IMaterialDef(prop) {
     if (prop == nullptr) {
         return;
     }
