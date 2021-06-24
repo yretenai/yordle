@@ -10,7 +10,8 @@ namespace vex::ui {
     class debug_resource_menu : public imgui_element {
     public:
         explicit debug_resource_menu() {
-            title = "resources";
+            title        = "resources";
+            window_flags = ImGuiWindowFlags_NoNav;
         }
         ~debug_resource_menu() override = default;
 

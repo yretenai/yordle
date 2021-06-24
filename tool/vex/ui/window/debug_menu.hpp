@@ -10,7 +10,8 @@ namespace vex::ui {
     class debug_menu : public imgui_element {
     public:
         explicit debug_menu() {
-            title = "debug";
+            title        = "debug";
+            window_flags = ImGuiWindowFlags_NoNav;
         }
         ~debug_menu() override = default;
 

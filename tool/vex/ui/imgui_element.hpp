@@ -16,7 +16,7 @@ namespace vex::ui {
     public:
         std::string title;
         bool open                                                    = true;
-        ImGuiWindowFlags window_flags                                = ImGuiWindowFlags_Modal;
+        ImGuiWindowFlags window_flags                                = ImGuiWindowFlags_AlwaysAutoResize;
         virtual ~imgui_element()                                     = default;
         virtual bool paint(vex::device::render_device_framework *fx) = 0;
     };

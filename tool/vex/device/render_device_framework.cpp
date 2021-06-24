@@ -76,9 +76,10 @@ namespace vex::device {
         try {
             auto new_elements = std::make_shared<std::vector<std::shared_ptr<vex::ui::imgui_element>>>();
             for (const auto &element : *elements) {
-                ImGui::Begin(element->title.c_str(), &element->open, element->window_flags);
-                if (element->paint(this) && element->open) {
-                    new_elements->push_back(element);
+                if (ImGui::Begin(element->title.c_str(), &element->open, element->window_flags | ImGuiWindowFlags_NoCollapse)) {
+                    if (element->paint(this) && element->open) {
+                        new_elements->push_back(element);
+                    }
                 }
                 ImGui::End();
             }

@@ -11,7 +11,6 @@
 
 bool vex::ui::view_menu::paint(vex::device::render_device_framework *fx) {
     if (ImGui::BeginMenu(name.c_str(), true)) {
-
         std::set<std::string> names;
         for (const auto &element : *fx->elements) {
             names.insert(element->title);

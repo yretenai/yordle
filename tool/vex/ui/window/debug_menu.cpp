@@ -26,5 +26,6 @@ bool vex::ui::debug_menu::paint(vex::device::render_device_framework *fx) {
     if (os != nullptr) {
         ImGui::Value("memory", float(os->get_memory()) / 1048576.0f, "%.2f MiB");
     }
+
     return true;
 }
