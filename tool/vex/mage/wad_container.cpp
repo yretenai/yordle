@@ -50,6 +50,7 @@ namespace vex::mage {
 
     std::shared_ptr<dragon::Array<uint8_t>> wad_container::read_file(uint64_t hash) {
         if (!has_file(hash)) {
+            vex::post_message(std::string("can't find file ") + std::to_string(hash));
             return nullptr;
         }
 

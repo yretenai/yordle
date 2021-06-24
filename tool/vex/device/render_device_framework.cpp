@@ -127,21 +127,26 @@ namespace vex::device {
         auto bin = wad->read_file(model_path);
 
         if (bin == nullptr) {
+            vex::post_message(std::string("can't find bin file ") + std::to_string(model_path));
             return nullptr;
         }
 
         auto champion_bin = yordle::data::property_bin(*bin);
         if (!champion_bin.objects.contains(resource_key)) {
+            vex::post_message(std::string("can't find resource ") + std::to_string(resource_key));
             return nullptr;
         }
         auto skin_props = yordle::data::meta::deserialize<yordle::data::meta::SkinCharacterDataProperties>(champion_bin.objects[resource_key]);
         if (skin_props == nullptr) {
+            vex::post_message("can't deserialize skin properties");
             return nullptr;
         }
         if (skin_props->skinMeshProperties == nullptr) {
+            vex::post_message("can't find skin mesh properties");
             return nullptr;
         }
         if (!skin_props->skinMeshProperties->is_type(0x6111d8a4)) {
+            vex::post_message("can't deserialize skin mesh properties");
             return nullptr;
         }
 
@@ -151,10 +156,12 @@ namespace vex::device {
 
         auto skn_data = wad->read_file(mesh_props->simpleSkin);
         if (skn_data == nullptr) {
+            vex::post_message("can't load skin file");
             return nullptr;
         }
         auto skn = yordle::r3d::skinned_mesh::load_skn_file(*skn_data);
         if (skn == nullptr) {
+            vex::post_message("can't parse skin file");
             return nullptr;
         }
         return std::make_shared<vex::mage::skinned_mesh_container>(this, skin_props->championSkinName, mesh_props, skn);

@@ -308,6 +308,7 @@ namespace vex::device {
             auto tex = wad->read_file(texture_path);
 
             if (tex == nullptr) {
+                vex::post_message(std::string("can't load texture ") + std::to_string(texture_path));
                 return nullptr;
             }
 
@@ -315,6 +316,7 @@ namespace vex::device {
             if (FAILED(hr)) {
                 CLEANUP_RELEASE(resource);
                 CLEANUP_RELEASE(raw_ptr);
+                vex::post_message("can't create dds texture");
                 return nullptr;
             }
 
@@ -339,6 +341,7 @@ namespace vex::device {
             auto tex = wad->read_file(image_path);
 
             if (tex == nullptr) {
+                vex::post_message(std::string("can't load image ") + std::to_string(image_path));
                 return nullptr;
             }
 
@@ -346,6 +349,7 @@ namespace vex::device {
             if (FAILED(hr)) {
                 CLEANUP_RELEASE(resource);
                 CLEANUP_RELEASE(raw_ptr);
+                vex::post_message("can't load wic image ");
                 return nullptr;
             }
 
@@ -384,6 +388,7 @@ namespace vex::device {
 
             ID3D11Buffer *raw_ptr = nullptr;
             if (FAILED(dx_device->CreateBuffer(&buffer_desc, &data, &raw_ptr))) {
+                vex::post_message("can't create vertex buffer");
                 return nullptr;
             }
             container->vbo = std::shared_ptr<ID3D11Buffer>(raw_ptr, [](IUnknown *ptr) {
@@ -397,6 +402,7 @@ namespace vex::device {
 
             if (FAILED(dx_device->CreateBuffer(&buffer_desc, &data, &raw_ptr))) {
                 container->vbo = nullptr;
+                vex::post_message("can't create index buffer");
                 return nullptr;
             }
             container->ibo = std::shared_ptr<ID3D11Buffer>(raw_ptr, [](IUnknown *ptr) {
@@ -411,6 +417,7 @@ namespace vex::device {
 
     std::shared_ptr<void> win_d3d11::load_shader(uint64_t shader_path) {
         if (!shaders->contains(shader_path)) {
+            vex::post_message("can't create shader");
             return nullptr;
         }
         return shaders->at(shader_path);

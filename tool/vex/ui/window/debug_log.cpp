@@ -11,7 +11,7 @@ bool vex::ui::debug_log::paint(vex::device::render_device_framework *fx) {
     if (mut->try_lock()) {
         auto msg = vex::g_message.load();
         for (const auto &log : *msg) {
-            auto t = asctime(localtime(&log.first));
+            auto t           = asctime(localtime(&log.first));
             t[strlen(t) - 1] = 0;
             ImGui::Text("[%s] %s", t, log.second.c_str());
         }
