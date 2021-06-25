@@ -53,14 +53,14 @@ int main() {
     yordle::data::meta::bin_dispatch::load_table();
 
     try {
-#ifdef HAS_DX11
-        vex::g_framework = vex::device::win_d3d11::get_instance(true);
-        vex::g_os        = std::make_shared<vex::os::win_layer>();
-#endif
-        vex::g_wad           = std::make_shared<vex::mage::wad_container>();
-        vex::g_skin          = std::make_shared<vex::mage::skin_container>();
         vex::g_message_mutex = std::make_shared<std::mutex>();
         vex::g_message       = std::make_shared<std::deque<std::pair<std::time_t, std::string>>>();
+        vex::g_wad           = std::make_shared<vex::mage::wad_container>();
+        vex::g_skin          = std::make_shared<vex::mage::skin_container>();
+#ifdef HAS_DX11
+        vex::g_os        = std::make_shared<vex::os::win_layer>();
+        vex::g_framework = vex::device::win_d3d11::get_instance(true);
+#endif
     } catch (const std::exception &ex) {
         std::cerr << ex.what() << std::endl;
         vex::post_message(ex.what());
@@ -115,8 +115,7 @@ int vex::get_version() {
     return VEX_VERSION;
 }
 
-void vex::close() {
-}
+void vex::close() { }
 
 void vex::post_message(const std::string &message) {
     auto mut = vex::g_message_mutex.load();

@@ -100,6 +100,8 @@ namespace vex::device {
             auto hrend = std::chrono::high_resolution_clock::now();
             frame_time = std::chrono::duration_cast<std::chrono::duration<double>>(hrend - hrtime).count() * 1000;
         }
+
+        clear_assets();
     }
 
     void win_d3d11::shutdown_impl() {

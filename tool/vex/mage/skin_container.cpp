@@ -6,10 +6,7 @@
 #include <xxhash.h>
 
 #include "../vex.hpp"
-#include "skin_container.hpp"
 
-
-#include <yordle/data/meta/bin_class_def.hpp>
 #include <yordle/yordle.hpp>
 
 using namespace std;
@@ -58,8 +55,10 @@ namespace vex::mage {
                 if (id > last_max) last_max = id;
 
                 auto bin_path = filesystem::path("DATA") / "Characters" / champion->name / (champion->name + ".bin");
-                champion_info info {id, false, yordle::cdtb::xxhashlist::hash(bin_path.generic_string()), champion->name, 0, {}};
+                champion_info info {id, false, yordle::cdtb::xxhashlist::hash(bin_path.generic_string()), champion->name, 0, {}, bin_path.generic_string()};
                 champions[id] = make_shared<champion_info>(info);
+                champion_names.insert(info.name);
+                reverse_map[info.name] = id;
             }
 
             vex::post_message("loading skin info");
@@ -86,7 +85,7 @@ namespace vex::mage {
                     auto resource_key = filesystem::path("Characters") / champion->name / "Skins" / (string("Skin") + to_string(skin_id));
                     auto bin_path     = filesystem::path("DATA") / resource_key;
                     auto tile_path    = filesystem::path("plugins") / "rcp-be-lol-game-data" / "global" / "default" / skin.second.tile_path.substr(22);
-                    skin_info info {skin_id, skin.second.id, yordle::cdtb::xxhashlist::hash(bin_path.generic_string() + ".bin"), yordle::cdtb::fnvhashlist::hash(resource_key.generic_string()), skin.second.name, yordle::cdtb::xxhashlist::hash(tile_path.generic_string()), 0, {}};
+                    skin_info info {skin_id, skin.second.id, yordle::cdtb::xxhashlist::hash(bin_path.generic_string() + ".bin"), yordle::cdtb::fnvhashlist::hash(resource_key.generic_string()), skin.second.name, yordle::cdtb::xxhashlist::hash(tile_path.generic_string()), 0, {}, bin_path.generic_string(), resource_key.generic_string()};
                     if (skin_id == 0) {
                         champion->image = info.image;
                     }
@@ -95,9 +94,9 @@ namespace vex::mage {
                         for (auto &chroma : *skin.second.chromas) {
                             auto chroma_id           = chroma.id % 1000;
                             auto chroma_resource_key = filesystem::path("Characters") / champion->name / "Skins" / (string("Skin") + to_string(chroma_id));
-                            auto chroma_bin_path     = filesystem::path("DATA") / resource_key;
+                            auto chroma_bin_path     = filesystem::path("DATA") / chroma_resource_key;
                             auto chroma_tile_path    = filesystem::path("plugins") / "rcp-be-lol-game-data" / "global" / "default" / chroma.chroma_path.substr(22);
-                            skin_info skin_chroma {chroma_id, chroma.id, yordle::cdtb::xxhashlist::hash(chroma_bin_path.generic_string() + ".bin"), yordle::cdtb::fnvhashlist::hash(resource_key.generic_string()), "Chroma " + to_string(info.chromas.size() + 1), yordle::cdtb::xxhashlist::hash(chroma_tile_path.generic_string())};
+                            skin_info skin_chroma {chroma_id, chroma.id, yordle::cdtb::xxhashlist::hash(chroma_bin_path.generic_string() + ".bin"), yordle::cdtb::fnvhashlist::hash(chroma_resource_key.generic_string()), "Chroma " + to_string(info.chromas.size() + 1), yordle::cdtb::xxhashlist::hash(chroma_tile_path.generic_string()), 0, {}, chroma_bin_path.generic_string(), chroma_resource_key.generic_string()};
                             if (!chroma.colors.empty()) {
                                 auto color = chroma.colors[0];
                                 if (!color.empty()) {

@@ -164,6 +164,6 @@ namespace vex::device {
             vex::post_message("can't parse skin file");
             return nullptr;
         }
-        return std::make_shared<vex::mage::skinned_mesh_container>(this, skin_props->championSkinName, mesh_props, skn);
+        return std::make_shared<vex::mage::skinned_mesh_container>(this, skin_props->championSkinName, mesh_props, skn, champion_bin);
     }
 } // namespace vex::device

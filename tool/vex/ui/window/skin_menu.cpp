@@ -22,12 +22,13 @@ bool vex::ui::skin_menu::paint(vex::device::render_device_framework *fx) {
 
     if (ImGui::BeginCombo("champion", champ_name.c_str())) {
         if (!busy) {
-            for (const auto &champion : skin_container->champions) {
-                bool selected = skin_container->selected_champion == champion.first;
-                if (ImGui::Selectable(champion.second->name.c_str(), selected) && skin_container->selected_champion != champion.first) {
+            for (const auto &champion_name : skin_container->champion_names) {
+                auto champion_id = skin_container->reverse_map[champion_name];
+                bool selected    = skin_container->selected_champion == champion_id;
+                if (ImGui::Selectable(champion_name.c_str(), selected) && skin_container->selected_champion != champion_id) {
                     skin_container->selected_chroma   = -1;
                     skin_container->selected_skin     = -1;
-                    skin_container->selected_champion = champion.first;
+                    skin_container->selected_champion = champion_id;
                 }
 
                 if (selected) {

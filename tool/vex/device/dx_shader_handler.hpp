@@ -21,4 +21,4 @@ namespace vex::device {
         __declspec(nothrow) HRESULT __stdcall Open(D3D_INCLUDE_TYPE IncludeType, LPCSTR pFileName, LPCVOID pParentData, LPCVOID *ppData, UINT *pBytes) override;
         __declspec(nothrow) HRESULT __stdcall Close(LPCVOID pData) override;
     };
-}
+} // namespace vex::device
