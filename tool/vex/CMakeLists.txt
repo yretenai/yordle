@@ -3,7 +3,7 @@ project(TOOL_vex)
 find_package(imgui CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
 
-add_executable(vex vex.cpp)
+add_executable(vex vex.cpp common_win.cpp)
 target_compile_definitions(vex PRIVATE UNICODE)
 target_compile_definitions(vex PRIVATE DRAGON_LIBRARY_NAME="vex")
 target_link_libraries(vex yordle)

@@ -31,7 +31,8 @@ namespace vex::device {
         wc          = {sizeof(WNDCLASSEX), CS_CLASSDC, win_d3d11::WndProc, 0L, 0L, GetModuleHandle(nullptr), nullptr, nullptr, nullptr, nullptr, TEXT("Vex"), nullptr};
         auto result = RegisterClassExW(&wc);
         if (result == 0) {
-            throw vex::windows::get_win_exception(static_cast<HRESULT>(GetLastError()));
+            vex::win_post_message(static_cast<HRESULT>(GetLastError()));
+            return;
         }
         hwnd = CreateWindowExW(0, wc.lpszClassName, TEXT("Vex"), WS_OVERLAPPEDWINDOW, 100, 100, 1280, 800, nullptr, nullptr, wc.hInstance, nullptr);
 
@@ -42,8 +43,11 @@ namespace vex::device {
             UnregisterClassW(wc.lpszClassName, wc.hInstance);
             DestroyWindow(hwnd);
             is_exiting = true;
-            throw ex;
+            vex::post_message(ex.what());
+            return;
         }
+
+        shader_handler = std::make_shared<dx_shader_handler>();
 
         ShowWindow(hwnd, SW_SHOWDEFAULT);
         UpdateWindow(hwnd);
@@ -146,7 +150,8 @@ namespace vex::device {
 
         auto result = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, createDeviceFlags, featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &dx_swap, &dx_device, &featureLevel, &dx_context);
         if (FAILED(result)) {
-            throw vex::windows::get_win_exception(result);
+            vex::win_post_message(result);
+            throw std::exception("unable to create directx device");
         }
 
         create_rt();
@@ -164,13 +169,15 @@ namespace vex::device {
 
         auto result = dx_swap->GetBuffer(0, IID_PPV_ARGS(&pBackBuffer));
         if (FAILED(result)) {
-            throw vex::windows::get_win_exception(result);
+            vex::win_post_message(result);
+            throw std::exception("unable to create directx render buffer");
         }
 
         result = dx_device->CreateRenderTargetView(pBackBuffer, nullptr, &dx_rt);
         CLEANUP_RELEASE(pBackBuffer);
         if (FAILED(result)) {
-            throw vex::windows::get_win_exception(result);
+            vex::win_post_message(result);
+            throw std::exception("unable to create directx render target");
         }
     }
 
@@ -182,7 +189,12 @@ namespace vex::device {
             return;
         }
 
-        result = DirectX::SaveWICTextureToFile(dx_context, pBackBuffer, GUID_ContainerFormatPng, output.wstring().c_str(), &GUID_WICPixelFormat32bppBGRA);
+        std::filesystem::path screenshot_dir("Screenshots");
+        if (!std::filesystem::exists(screenshot_dir)) {
+            std::filesystem::create_directories(screenshot_dir);
+        }
+
+        result = DirectX::SaveWICTextureToFile(dx_context, pBackBuffer, GUID_ContainerFormatPng, (screenshot_dir / output).wstring().c_str(), &GUID_WICPixelFormat32bppBGRA);
         if (FAILED(result)) {
             CLEANUP_RELEASE(pBackBuffer);
         }
@@ -219,7 +231,8 @@ namespace vex::device {
                 break;
             case WM_QUIT:
             case WM_CLOSE:
-                get_instance()->shutdown();
+                inst->close();
+                vex::close();
                 return 0;
             case WM_DESTROY:
                 PostQuitMessage(0);
@@ -237,31 +250,12 @@ namespace vex::device {
                 ptr->startup();
             } catch (const std::exception &ex) {
                 ptr = nullptr;
-                throw ex;
+                vex::post_message(ex.what());
+                return nullptr;
             }
         }
 
         return ptr;
-    }
-
-    ID3DBlob *win_d3d11::compile_shader(const std::string &text, const std::string &entry, const std::string &shader_model) {
-        auto flags     = D3DCOMPILE_ENABLE_STRICTNESS;
-        ID3DBlob *blob = nullptr, *error_blob = nullptr;
-        auto result = D3DCompile(text.c_str(), text.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE,
-                                 entry.c_str(), shader_model.c_str(), flags, 0, &blob, &error_blob);
-        if (FAILED(result)) {
-            CLEANUP_RELEASE(blob);
-
-            if (error_blob) {
-                std::string msg = std::string(reinterpret_cast<char *>(error_blob->GetBufferPointer()), error_blob->GetBufferSize());
-                CLEANUP_RELEASE(error_blob);
-                throw std::exception(msg.c_str());
-            }
-
-            throw vex::windows::get_win_exception(result);
-        }
-
-        return blob;
     }
 
     float load_texture_dimensions(ID3D11Resource *resource) {

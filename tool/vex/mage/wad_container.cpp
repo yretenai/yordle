@@ -38,7 +38,7 @@ namespace vex::mage {
         auto wad_paths = find_paths(que, {".wad", ".client", ".mobile"}, {});
         paths.reserve(wad_paths.size());
         for (auto path : wad_paths) {
-            vex::post_message(string("loading ") + path.filename().string());
+            vex::post_message(string("loading ") + path.generic_string());
             load_wad(path);
         }
     }

@@ -19,9 +19,8 @@
 #include "ui/menu/wad_menu.hpp"
 #include "ui/window/skin_menu.hpp"
 
-#include <standard_dragon/exception/invalid_data.hpp>
-
 #include <iostream>
+#include <string>
 
 std::atomic<std::shared_ptr<vex::device::render_device_framework>> vex::g_framework(nullptr);
 std::atomic<std::shared_ptr<vex::mage::wad_container>> vex::g_wad(nullptr);
@@ -29,6 +28,26 @@ std::atomic<std::shared_ptr<vex::mage::skin_container>> vex::g_skin(nullptr);
 std::atomic<std::shared_ptr<vex::os::os_layer>> vex::g_os(nullptr);
 std::atomic<std::shared_ptr<std::deque<std::pair<std::time_t, std::string>>>> vex::g_message(nullptr);
 std::atomic<std::shared_ptr<std::mutex>> vex::g_message_mutex(nullptr);
+
+void dump_log() {
+    auto messages = vex::g_message.load();
+    if (messages == nullptr) {
+        return;
+    }
+
+    auto log_path = std::filesystem::path("Logs") / (std::to_string(std::chrono::high_resolution_clock::now().time_since_epoch().count()) + ".log");
+    if (!std::filesystem::exists("Logs")) {
+        std::filesystem::create_directories("Logs");
+    }
+    std::ofstream output(log_path, std::ios::out | std::ios::trunc);
+    for (const auto &log : *messages) {
+        auto t           = asctime(localtime(&log.first));
+        t[strlen(t) - 1] = 0;
+        output << "[" << std::string(t) << "] " << log.second << std::endl;
+    }
+    output.flush();
+    output.close();
+}
 
 int main() {
     yordle::data::meta::bin_dispatch::load_table();
@@ -44,22 +63,27 @@ int main() {
         vex::g_message       = std::make_shared<std::deque<std::pair<std::time_t, std::string>>>();
     } catch (const std::exception &ex) {
         std::cerr << ex.what() << std::endl;
+        vex::post_message(ex.what());
+        dump_log();
         return -1;
     }
 
     auto fx = vex::g_framework.load();
     if (fx == nullptr) {
         std::cerr << "Failed to create graphics device" << std::endl;
+        dump_log();
         return 2;
     }
 
     if (vex::g_os.load() == nullptr) {
         std::cerr << "Failed to create os layer" << std::endl;
+        dump_log();
         return 3;
     }
 
     if (vex::g_wad.load() == nullptr) {
         std::cerr << "Failed to create wad collection" << std::endl;
+        dump_log();
         return 4;
     }
 
@@ -75,11 +99,11 @@ int main() {
     try {
         fx->run();
     } catch (std::exception &exception) {
-        fx->shutdown();
-        throw exception;
+        vex::post_message(exception.what());
     }
 
     fx->shutdown();
+    dump_log();
     return 0;
 }
 
@@ -89,4 +113,17 @@ std::string vex::get_version_str() {
 
 int vex::get_version() {
     return VEX_VERSION;
+}
+
+void vex::close() {
+}
+
+void vex::post_message(const std::string &message) {
+    auto mut = vex::g_message_mutex.load();
+    if (mut->try_lock()) {
+        auto messages = vex::g_message.load();
+        std::cout << message << std::endl;
+        messages->emplace_back(time(nullptr), message);
+        mut->unlock();
+    }
 }

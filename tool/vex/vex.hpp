@@ -28,18 +28,9 @@ namespace vex {
     extern std::atomic<std::shared_ptr<vex::os::os_layer>> g_os;
     extern std::atomic<std::shared_ptr<std::deque<std::pair<time_t, std::string>>>> g_message;
     extern std::atomic<std::shared_ptr<std::mutex>> g_message_mutex;
+
     YORDLE_TOOL_EXPORT std::string get_version_str();
     YORDLE_TOOL_EXPORT int get_version();
-
-    inline void post_message(const std::string &message) {
-        auto mut = vex::g_message_mutex.load();
-        if (mut->try_lock()) {
-            auto messages = vex::g_message.load();
-            messages->emplace_back(time(nullptr), message);
-            if (messages->size() > 1000) {
-                messages->erase(messages->begin());
-            }
-            mut->unlock();
-        }
-    }
+    void close();
+    void post_message(const std::string &message);
 } // namespace vex

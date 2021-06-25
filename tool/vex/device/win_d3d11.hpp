@@ -13,6 +13,8 @@
 #include <filesystem>
 #include <memory>
 
+#include "dx_shader_handler.hpp"
+
 namespace vex::device {
     class win_d3d11 : public render_device_framework {
     private:
@@ -32,8 +34,6 @@ namespace vex::device {
         void screenshot(const std::filesystem::path &output);
         void shutdown_rt();
         void shutdown_impl();
-
-        static ID3DBlob *compile_shader(const std::string &text, const std::string &entry, const std::string &shader_model);
 
         static LRESULT WINAPI WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
@@ -63,6 +63,8 @@ namespace vex::device {
         void clear_model(uint64_t model_path) override;
         void clear_shader(uint64_t shader_path) override;
         void clear_assets() const override;
+
+        std::shared_ptr<dx_shader_handler> shader_handler;
 
         static std::shared_ptr<win_d3d11> get_instance(bool create = false);
     };
