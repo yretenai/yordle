@@ -29,8 +29,9 @@ namespace poppy {
             filesystem::create_directories(resolved);
         }
 
-        auto bundle_cache = map<uint64_t, riot_bundle>();
-        auto cache        = poppy.cache_dir / "bundles";
+        auto bundle_cache   = map<uint64_t, riot_bundle>();
+        auto filepath_cache = map<uint64_t, filesystem::path>();
+        auto cache          = poppy.cache_dir / "bundles";
 
         for (const auto &file_id : file_ids) {
             auto file_info = manifest.files[file_id];
@@ -77,9 +78,11 @@ namespace poppy {
                     }
 
                     try {
-                        auto buffer             = dragon::read_file(bundle_path);
-                        auto bundle             = riot_bundle(buffer);
-                        bundle_cache[bundle_id] = bundle;
+                        auto file                 = ifstream(bundle_path, ios::binary | ios::in);
+                        auto bundle               = riot_bundle(file);
+                        bundle_cache[bundle_id]   = bundle;
+                        filepath_cache[bundle_id] = bundle_path;
+                        file.close();
                     } catch (const std::exception &e) {
                         cout << "failure reading " << bundle_path.string() << ": " << e.what() << endl;
                     }
@@ -87,6 +90,9 @@ namespace poppy {
             }
 
             auto stream = ofstream(directory_path, ios::binary | ios::out | ios::trunc);
+            stream.seekp(file_info.size - 1, ios::end);
+            stream.write("\0", 1);
+            stream.seekp(0, ios::beg);
             cout << "writing " << directory_path.string() << endl;
             for (const auto &block_id : *file_info.block_ids) {
                 if (!block_to_bundle_map.contains(block_id)) {
@@ -100,7 +106,9 @@ namespace poppy {
                     continue;
                 }
 
-                bundle_cache[bundle_id].read_block(block_id, stream);
+                auto file = ifstream(filepath_cache[bundle_id], ios::binary | ios::in);
+                bundle_cache[bundle_id].read_block(block_id, file, stream);
+                file.close();
             }
 
             stream.flush();

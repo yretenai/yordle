@@ -114,4 +114,22 @@ namespace yordle::manifest {
             out.write(reinterpret_cast<const char *>(buffer->data()), (streamsize) buffer->size());
         }
     }
+
+    void riot_bundle::read_block(uint64_t block_id, istream &in, ostream &out) const {
+        streampos offset = 0;
+        for (const auto &block : *blocks) {
+            if (block.block_id != block_id) {
+                offset += block.csize;
+                continue;
+            }
+
+            auto buffer     = Array<uint8_t>(block.size, nullptr);
+            auto compressed = Array<uint8_t>(block.csize, nullptr);
+            in.seekg(offset, ios::beg);
+            in.read(reinterpret_cast<char *>(compressed.data()), (streamsize) compressed.size());
+            ZSTD_decompress(buffer.data(), block.size, compressed.data(), block.csize);
+            out.write(reinterpret_cast<const char *>(buffer.data()), (streamsize) buffer.size());
+            break;
+        }
+    }
 } // namespace yordle::manifest

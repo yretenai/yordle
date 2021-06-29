@@ -166,7 +166,10 @@ namespace poppy {
         }
 #endif
 
-        auto path = poppy.output_dir / target;
+        auto path = poppy.output_dir;
+        if (!poppy.no_suffix) {
+            path = path / target;
+        }
         deploy(poppy, manifest, path, block_to_bundle_map, file_ids);
     }
 } // namespace poppy

@@ -63,6 +63,7 @@ namespace poppy {
         bool fresh_install               = false;
         bool skip_generic                = false;
         bool generic                     = false;
+        bool no_suffix                   = false;
         int64_t max_speed                = 0;
 
         std::deque<std::string> targets;

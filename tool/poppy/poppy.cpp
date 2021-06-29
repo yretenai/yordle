@@ -99,6 +99,9 @@ namespace poppy {
         auto &generic = cli["generic"]
                             .description("only process files with no language");
 
+        auto &no_suffix = cli["no-suffix"]
+                              .description("do not suffix deploy path with the release id");
+
         auto &help = cli["help"]
                          .abbreviation('h')
                          .description("print this help screen");
@@ -157,6 +160,7 @@ namespace poppy {
         poppy.fresh_install        = fresh_install.was_set();
         poppy.skip_generic         = skip_generic.was_set();
         poppy.generic              = generic.was_set();
+        poppy.no_suffix            = no_suffix.was_set();
 
         if (poppy.targets.empty()) {
             cerr << "err: no targets specified." << endl;
@@ -174,6 +178,10 @@ namespace poppy {
             if (poppy.platform == "windows") {
                 poppy.platform = "win";
                 cout << "warn: updating platform to " << poppy.platform << endl;
+            }
+
+            if (poppy.no_suffix) {
+                cout << "warn: disabling --no-suffix due to incompatibilities" << endl;
             }
         }
 
