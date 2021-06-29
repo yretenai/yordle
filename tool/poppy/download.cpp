@@ -32,7 +32,7 @@ namespace poppy {
 
         cout << "---manifest mini dump---" << endl;
         auto indent = Indent(0);
-        manifest.print(cout, indent, false);
+        manifest.print(cout, indent, 0);
 
         map<uint64_t, uint64_t> block_to_bundle_map;
 
@@ -51,11 +51,60 @@ namespace poppy {
             }
         }
 
+        cout << "determining which files to download..." << endl;
+
+        uint64_t language_mask = 0xFFFFFFFF;
+        bool has_filters       = !poppy.filters.empty();
+        if (!poppy.language_filters.empty()) {
+            language_mask = 0;
+            for (const auto &language : manifest.languages) {
+                if (poppy.language_filters.contains(language.second)) {
+                    language_mask = language_mask & ((1 << (uint64_t) language.first) - 1);
+                }
+            }
+        }
+
+        set<uint64_t> block_ids_to_consider;
+        set<uint64_t> file_ids;
+        for (const auto &file : manifest.files) {
+            if (language_mask != 0xFFFFFFFF && file.second.language_flags != 0) {
+                if ((file.second.language_flags & language_mask) == 0) {
+                    continue;
+                }
+            } else if (poppy.generic && file.second.language_flags != 0) {
+                continue;
+            }
+
+            if (poppy.skip_generic && file.second.language_flags == 0) {
+                continue;
+            }
+
+            auto path = (manifest.get_directory_path(file.second.directory_id) / file.second.name).generic_string();
+            if (has_filters) {
+                bool valid = false;
+                for (const auto &filter : poppy.filters) {
+                    if (path.find(filter) != string::npos) {
+                        valid = true;
+                        break;
+                    }
+                }
+
+                if (!valid) {
+                    continue;
+                }
+            }
+
+            cout << "will download " << path << endl;
+
+            block_ids_to_consider.insert(file.second.block_ids->begin(), file.second.block_ids->end());
+            file_ids.insert(file.first);
+        }
+
         cout << "determining which bundles to download..." << endl;
         set<uint64_t> bundle_ids_to_download;
         for (const auto &bundle : manifest.bundles) {
             for (const auto &block : *bundle.second) {
-                if (!block_to_bundle_map.contains(block.block_id)) {
+                if (!block_to_bundle_map.contains(block.block_id) && block_ids_to_consider.contains(block.block_id)) {
                     bundle_ids_to_download.emplace(bundle.first);
                     block_to_bundle_map[block.block_id] = bundle.first;
                 }
@@ -118,6 +167,6 @@ namespace poppy {
 #endif
 
         auto path = poppy.output_dir / target;
-        deploy(poppy, manifest, path, block_to_bundle_map);
+        deploy(poppy, manifest, path, block_to_bundle_map, file_ids);
     }
 } // namespace poppy

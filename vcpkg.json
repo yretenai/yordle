@@ -22,7 +22,13 @@
       ],
       "platform": "windows"
     },
-    "directxtex",
-    "directxtk"
+    {
+      "name": "directxtex",
+      "platform": "windows"
+    },
+    {
+      "name": "directxtk",
+      "platform": "windows"
+    }
   ]
 }

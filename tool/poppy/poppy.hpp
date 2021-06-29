@@ -61,10 +61,14 @@ namespace poppy {
         bool no_deploy                   = false;
         bool no_sub_configuration        = false;
         bool fresh_install               = false;
+        bool skip_generic                = false;
+        bool generic                     = false;
         int64_t max_speed                = 0;
 
         std::deque<std::string> targets;
         std::set<std::string> configurations;
+        std::set<std::string> language_filters;
+        std::set<std::string> filters;
         std::shared_ptr<yordle::manifest::riot_manifest> old_manifest;
     };
 

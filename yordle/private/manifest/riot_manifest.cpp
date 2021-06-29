@@ -106,7 +106,7 @@ namespace yordle::manifest {
         return combined_path;
     }
 
-    void riot_manifest::print(ostream &stream, Indent &indent, bool full) const {
+    void riot_manifest::print(ostream &stream, Indent &indent, int level) const {
         auto indent1 = indent + 1;
         auto indent2 = indent + 2;
         auto indent3 = indent + 3;
@@ -128,7 +128,7 @@ namespace yordle::manifest {
 
         stream << indent1 << "Directories: " << endl;
         for (auto const &directory : directories) {
-            if (full) {
+            if (level > 0) {
                 stream << indent2 << "Directory(" << HEXLOG64 << directory.first << ") = " << endl;
                 stream << indent3 << "Parent: " << HEXLOG64 << directory.second.parent_id << endl;
                 stream << indent3 << "Name: " << directory.second.name << endl;
@@ -137,7 +137,7 @@ namespace yordle::manifest {
             }
         }
 
-        if (full) {
+        if (level > 1) {
             stream << indent1 << "Bundles: " << endl;
             for (auto const &bundle : bundles) {
                 stream << indent2 << "Bundle(" << HEXLOG64 << bundle.first << ") = " << endl;
@@ -148,20 +148,34 @@ namespace yordle::manifest {
         }
 
         stream << indent1 << "Files: " << endl;
+        auto language_size = languages.size();
         for (auto const &file : files) {
-            if (full) {
+            if (level > 0) {
                 stream << indent2 << "File(" << HEXLOG64 << file.first << ") = " << endl;
                 stream << indent3 << "Directory: " << HEXLOG64 << file.second.directory_id << endl;
                 stream << indent3 << "Size: " << dec << file.second.size << endl;
                 stream << indent3 << "Name: " << file.second.name << endl;
-                stream << indent3 << "Language: " << BITLOG32(file.second.language_flags) << endl;
+                stream << indent3 << "Language:";
+                auto language_flags = file.second.language_flags;
+                for (uint8_t i = 0; i < (uint8_t) language_size; ++i) {
+                    if ((language_flags & (1 << (uint64_t) i)) != 0) {
+                        if (i > language_size) {
+                            stream << " " << std::to_string((uint32_t) i) << endl;
+                        } else {
+                            stream << " " << languages.at(i + 1);
+                        }
+                    }
+                }
+                stream << endl;
                 stream << indent3 << "Link: " << file.second.link << endl;
                 stream << indent3 << "Is Hierarchy: " << (file.second.is_hierarchy ? "yes" : "no") << endl;
                 stream << indent3 << "Index: " << static_cast<unsigned int>(file.second.index) << endl;
                 stream << indent3 << "Permissions: " << OCTLOG8 << static_cast<unsigned int>(file.second.permissions) << endl;
-                stream << indent3 << "Chucks: " << endl;
-                for (auto const &bundle : *file.second.block_ids) {
-                    stream << indent4 << HEXLOG64 << bundle << endl;
+                if (level > 1) {
+                    stream << indent3 << "Chucks: " << endl;
+                    for (auto const &bundle : *file.second.block_ids) {
+                        stream << indent4 << HEXLOG64 << bundle << endl;
+                    }
                 }
             } else {
                 stream << indent2 << (get_directory_path(file.second.directory_id) / file.second.name).string() << endl;

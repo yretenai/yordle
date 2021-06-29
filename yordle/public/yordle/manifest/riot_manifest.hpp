@@ -95,7 +95,7 @@ namespace yordle::manifest {
 
         [[nodiscard]] std::filesystem::path get_directory_path(uint64_t id) const;
 
-        void print(std::ostream &stream, dragon::Indent &indent, bool full) const;
+        void print(std::ostream &stream, dragon::Indent &indent, int level) const;
     };
 } // namespace yordle::manifest
 

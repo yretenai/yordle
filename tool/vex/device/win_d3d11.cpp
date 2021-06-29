@@ -4,7 +4,6 @@
 
 #include <chrono>
 #include <d3d11.h>
-#include <d3dcompiler.h>
 #include <DirectXTK/DDSTextureLoader.h>
 #include <DirectXTK/ScreenGrab.h>
 #include <DirectXTK/WICTextureLoader.h>
@@ -12,11 +11,11 @@
 #include <imgui_impl_dx11.h>
 #include <imgui_impl_win32.h>
 #include <iostream>
+#include <standard_dragon/exception/reasonable.hpp>
 #include <wincodec.h>
 
 #include "../common_win.hpp"
 #include "../os/win_macros.hpp"
-#include "../vex.hpp"
 #include "win_d3d11.hpp"
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -153,7 +152,7 @@ namespace vex::device {
         auto result = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, createDeviceFlags, featureLevelArray, 2, D3D11_SDK_VERSION, &sd, &dx_swap, &dx_device, &featureLevel, &dx_context);
         if (FAILED(result)) {
             vex::win_post_message(result);
-            throw std::exception("unable to create directx device");
+            throw dragon::exception::reasonable("unable to create directx device");
         }
 
         create_rt();
@@ -172,14 +171,14 @@ namespace vex::device {
         auto result = dx_swap->GetBuffer(0, IID_PPV_ARGS(&pBackBuffer));
         if (FAILED(result)) {
             vex::win_post_message(result);
-            throw std::exception("unable to create directx render buffer");
+            throw dragon::exception::reasonable("unable to create directx render buffer");
         }
 
         result = dx_device->CreateRenderTargetView(pBackBuffer, nullptr, &dx_rt);
         CLEANUP_RELEASE(pBackBuffer);
         if (FAILED(result)) {
             vex::win_post_message(result);
-            throw std::exception("unable to create directx render target");
+            throw dragon::exception::reasonable("unable to create directx render target");
         }
     }
 

@@ -11,7 +11,7 @@ using namespace yordle::manifest;
 using namespace dragon;
 
 namespace poppy {
-    void deploy(PoppyConfiguration &poppy, riot_manifest &manifest, filesystem::path &deploy_path, map<uint64_t, uint64_t> &block_to_bundle_map) {
+    void deploy(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &manifest, std::filesystem::path &deploy_path, std::map<uint64_t, uint64_t> &block_to_bundle_map, std::set<uint64_t> &file_ids) {
         if (poppy.no_deploy || poppy.dry_run) {
             return;
         }
@@ -32,12 +32,12 @@ namespace poppy {
         auto bundle_cache = map<uint64_t, riot_bundle>();
         auto cache        = poppy.cache_dir / "bundles";
 
-        for (const auto &file_pair : manifest.files) {
-            auto file_info = file_pair.second;
+        for (const auto &file_id : file_ids) {
+            auto file_info = manifest.files[file_id];
 
-            if (poppy.old_manifest != nullptr && poppy.old_manifest->files.contains(file_pair.first)) {
+            if (poppy.old_manifest != nullptr && poppy.old_manifest->files.contains(file_id)) {
                 bool new_data      = false;
-                auto old_block_ids = poppy.old_manifest->files[file_pair.first].block_ids;
+                auto old_block_ids = poppy.old_manifest->files[file_id].block_ids;
                 auto new_block_ids = file_info.block_ids;
                 if (old_block_ids->size() != new_block_ids->size()) {
                     new_data = true;

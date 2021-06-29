@@ -16,14 +16,10 @@ namespace yordle::data {
         explicit rst_file_v2(dragon::Array<uint8_t> &buffer);
         ~rst_file_v2() = default;
 
-#pragma pack(push, 1)
-        struct {
-            yordle::data::rst_version fourcc = yordle::data::rst_version::v0;
-            std::string config;
-            uint32_t entry_count = 0;
-            bool some_switch     = false;
-        };
-#pragma pack(pop)
+        yordle::data::rst_version fourcc = yordle::data::rst_version::v0;
+        std::string config;
+        uint32_t entry_count = 0;
+        bool some_switch     = false;
 
         rst_version get_rst_version() override {
             return fourcc;

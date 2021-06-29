@@ -7,10 +7,10 @@
 #endif
 #include <ProgramOptions.hxx>
 
-#include <exception>
 #include <string>
 
 #include <nlohmann/json.hpp>
+#include <standard_dragon/exception/reasonable.hpp>
 
 #include "meta.hpp"
 #include "norra.hpp"
@@ -165,7 +165,7 @@ string get_type(const yordle::data::prop::prop_type &type, const norra::meta::pr
         case yordle::data::prop::prop_type::set:
         case yordle::data::prop::prop_type::unordered_set: {
             if (prop.container_i == nullptr) {
-                throw std::exception("set but no container data");
+                throw dragon::exception::reasonable("set but no container data");
             }
             auto key_type = get_type(prop.container_i->type, prop, hashes, defined);
             return "std::vector<" + key_type + ">";
@@ -181,14 +181,14 @@ string get_type(const yordle::data::prop::prop_type &type, const norra::meta::pr
         }
         case yordle::data::prop::prop_type::optional: {
             if (prop.container_i == nullptr) {
-                throw std::exception("optional but no container data");
+                throw dragon::exception::reasonable("optional but no container data");
             }
             auto key_type = get_type(prop.container_i->type, prop, hashes, defined);
             return "std::optional<" + key_type + ">";
         }
         case yordle::data::prop::prop_type::map: {
             if (prop.map_i == nullptr) {
-                throw std::exception("set but no container data");
+                throw dragon::exception::reasonable("set but no container data");
             }
             auto key_type   = get_type(prop.map_i->key, prop, hashes, defined);
             auto value_type = get_type(prop.map_i->value, prop, hashes, defined);

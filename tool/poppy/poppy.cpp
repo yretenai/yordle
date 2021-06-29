@@ -22,7 +22,7 @@ namespace poppy {
 
         cli["cache"]
             .abbreviation('c')
-            .description("downloads bundles defined by manifest from CDN servers")
+            .description("directory to store bundle files")
             .type(po::string)
             .callback([&](const po::string_t &str) {
                 poppy.cache_dir = str;
@@ -30,7 +30,7 @@ namespace poppy {
 
         cli["output"]
             .abbreviation('o')
-            .description("downloads bundles defined by manifest from CDN servers")
+            .description("directory to deploy files")
             .type(po::string)
             .callback([&](const po::string_t &str) {
                 poppy.output_dir = str;
@@ -81,8 +81,23 @@ namespace poppy {
                                    .type(po::string)
                                    .multi();
 
-        cli[""]
-            .bind(poppy.targets);
+        auto &filters = cli["filters"]
+                            .abbreviation('f')
+                            .description("paths to filter")
+                            .type(po::string)
+                            .multi();
+
+        auto &languages = cli["languages"]
+                              .abbreviation('l')
+                              .description("languages to download")
+                              .type(po::string)
+                              .multi();
+
+        auto &skip_generic = cli["skip-generic"]
+                                 .description("skips files with no language");
+
+        auto &generic = cli["generic"]
+                            .description("only process files with no language");
 
         auto &help = cli["help"]
                          .abbreviation('h')
@@ -115,6 +130,9 @@ namespace poppy {
                             .abbreviation('v')
                             .description("print application version");
 
+        cli[""]
+            .bind(poppy.targets);
+
         if (!cli(argc, argv)) {
             cerr << "errored while parsing opts; aborting.\n";
             exit_code = -1;
@@ -132,25 +150,13 @@ namespace poppy {
             return false;
         }
 
-        if (offline.was_set()) {
-            poppy.is_offline = true;
-        }
-
-        if (dry.was_set()) {
-            poppy.dry_run = true;
-        }
-
-        if (deploy.was_set()) {
-            poppy.no_deploy = true;
-        }
-
-        if (no_sub.was_set()) {
-            poppy.no_sub_configuration = true;
-        }
-
-        if (fresh_install.was_set()) {
-            poppy.fresh_install = true;
-        }
+        poppy.is_offline           = offline.was_set();
+        poppy.dry_run              = dry.was_set();
+        poppy.no_deploy            = deploy.was_set();
+        poppy.no_sub_configuration = no_sub.was_set();
+        poppy.fresh_install        = fresh_install.was_set();
+        poppy.skip_generic         = skip_generic.was_set();
+        poppy.generic              = generic.was_set();
 
         if (poppy.targets.empty()) {
             cerr << "err: no targets specified." << endl;
@@ -158,8 +164,8 @@ namespace poppy {
             return false;
         }
 
-        if (client_config.was_set()) {
-            poppy.is_client_config = true;
+        poppy.is_client_config = client_config.was_set();
+        if (poppy.is_client_config) {
             if (poppy.manifest_url == POPPY_DEFAULT_SIEVE_URL) {
                 poppy.manifest_url = POPPY_DEFAULT_MANIFEST_URL;
                 cout << "warn: updating manifest url to " << poppy.manifest_url << endl;
@@ -182,6 +188,16 @@ namespace poppy {
                 poppy.configurations = {"NA1"};
                 cout << "warn: no configurations set, defaulting to NA1" << endl;
             }
+        }
+
+        if (filters.was_set()) {
+            auto vec      = filters.to_vector<po::string>();
+            poppy.filters = set<string>(vec.begin(), vec.end());
+        }
+
+        if (languages.was_set()) {
+            auto vec               = languages.to_vector<po::string>();
+            poppy.language_filters = set<string>(vec.begin(), vec.end());
         }
 
         return true;
@@ -241,12 +257,18 @@ int main(int argc, char **argv) {
         return exit_code;
     }
 
-    if (poppy.is_offline) {
-        poppy::fetch_local(poppy);
-    } else if (poppy.is_client_config) {
-        poppy::fetch_client_config(poppy);
-    } else {
-        poppy::fetch_sieve(poppy);
+    try {
+        if (poppy.is_offline) {
+            poppy::fetch_local(poppy);
+        } else if (poppy.is_client_config) {
+            poppy::fetch_client_config(poppy);
+        } else {
+            poppy::fetch_sieve(poppy);
+        }
+    } catch (std::exception &e) {
+        cerr << "error: " << e.what() << endl;
+        cerr.flush();
+        return -7685;
     }
 
 
