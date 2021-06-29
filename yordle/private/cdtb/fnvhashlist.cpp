@@ -37,10 +37,6 @@ namespace yordle::cdtb {
         }
     }
 
-    void fnvhashlist::combine(hashlist<uint32_t> &hashlist) {
-        hashes.merge(hashlist.hashes);
-    }
-
     uint32_t fnvhashlist::hash(std::string str) {
         dragon::str_to_lower(str);
         return dragon::hash::fnv1a32(reinterpret_cast<uint8_t *>(str.data()), str.length());

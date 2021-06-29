@@ -18,6 +18,8 @@ namespace teemo {
     bool parse_configuration(int argc, char **argv, TeemoConfiguration &teemo, int &exit_code) {
         po::parser cli;
 
+        teemo.hashes.init_empty();
+
         cli["prop-entry"]
             .description("hash list path for property entries (binentries)")
             .type(po::string)
@@ -27,7 +29,7 @@ namespace teemo {
                 if (filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
 
-                    teemo.hashes.fnv[cdtb::hashlist_target::prop_entry] = make_shared<cdtb::fnvhashlist>(buffer);
+                    teemo.hashes.fnv[cdtb::hashlist_target::prop_entry]->combine(cdtb::fnvhashlist(buffer));
                 }
             });
 
@@ -40,7 +42,7 @@ namespace teemo {
                 if (filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
 
-                    teemo.hashes.fnv[cdtb::hashlist_target::prop_field] = make_shared<cdtb::fnvhashlist>(buffer);
+                    teemo.hashes.fnv[cdtb::hashlist_target::prop_field]->combine(cdtb::fnvhashlist(buffer));
                 }
             });
 
@@ -53,7 +55,7 @@ namespace teemo {
                 if (filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
 
-                    teemo.hashes.fnv[cdtb::hashlist_target::prop_hash] = make_shared<cdtb::fnvhashlist>(buffer);
+                    teemo.hashes.fnv[cdtb::hashlist_target::prop_hash]->combine(cdtb::fnvhashlist(buffer));
                 }
             });
 
@@ -66,7 +68,7 @@ namespace teemo {
                 if (filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
 
-                    teemo.hashes.fnv[cdtb::hashlist_target::prop_type] = make_shared<cdtb::fnvhashlist>(buffer);
+                    teemo.hashes.fnv[cdtb::hashlist_target::prop_type]->combine(cdtb::fnvhashlist(buffer));
                 }
             });
 
@@ -79,7 +81,7 @@ namespace teemo {
                 if (filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
 
-                    teemo.hashes.xx[cdtb::hashlist_target::wad_file] = make_shared<cdtb::xxhashlist>(buffer);
+                    teemo.hashes.xx[cdtb::hashlist_target::wad_file]->combine(cdtb::xxhashlist(buffer));
                 }
             });
 
@@ -92,7 +94,7 @@ namespace teemo {
                 if (filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
 
-                    teemo.hashes.xx[cdtb::hashlist_target::rst_string] = make_shared<cdtb::xxhashlist>(buffer);
+                    teemo.hashes.xx[cdtb::hashlist_target::rst_string]->combine(cdtb::xxhashlist(buffer));
                 }
             });
 

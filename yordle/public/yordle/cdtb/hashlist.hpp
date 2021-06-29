@@ -20,7 +20,13 @@ namespace yordle::cdtb {
 
         virtual void validate()                                                              = 0;
         [[nodiscard]] virtual std::shared_ptr<hashlist<T>> restrict_bits(uint8_t bits) const = 0;
-        virtual void combine(hashlist<T> &hashlist)                                          = 0;
+        virtual void combine(const hashlist<T> &hashlist) {
+            for (const auto &pair : hashlist.hashes) {
+                if (!hashes.contains(pair.first)) {
+                    hashes[pair.first] = pair.second;
+                }
+            }
+        }
 
 
         [[nodiscard]] static inline std::string hex_hash(uint64_t hash, const std::string &prefix = "0x") {

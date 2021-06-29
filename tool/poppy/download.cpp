@@ -59,7 +59,8 @@ namespace poppy {
             language_mask = 0;
             for (const auto &language : manifest.languages) {
                 if (poppy.language_filters.contains(language.second)) {
-                    language_mask = language_mask & ((1 << (uint64_t) language.first) - 1);
+                    language_mask = language_mask | (1 << (uint64_t) (language.first - 1));
+                    cout << "adding language filter " << language.second << endl;
                 }
             }
         }

@@ -18,6 +18,8 @@ namespace heimerdinger {
     bool parse_configuration(int argc, char **argv, HeimerdingerConfiguration &heimerdinger, int &exit_code) {
         po::parser cli;
 
+        heimerdinger.hashes.init_empty();
+
         cli["prop-entry"]
             .description("hash list path for property entries (binentries)")
             .type(po::string)
@@ -26,8 +28,7 @@ namespace heimerdinger {
                 std::cout << "loading entry hash list " << path.filename() << std::endl;
                 if (filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
-
-                    heimerdinger.hashes.fnv[cdtb::hashlist_target::prop_entry] = make_shared<cdtb::fnvhashlist>(buffer);
+                    heimerdinger.hashes.fnv[cdtb::hashlist_target::prop_entry]->combine(cdtb::fnvhashlist(buffer));
                 } else {
                     std::cerr << path.string() << " does not exist!" << std::endl;
                 }
@@ -41,8 +42,7 @@ namespace heimerdinger {
                 std::cout << "loading field hash list " << path.filename() << std::endl;
                 if (filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
-
-                    heimerdinger.hashes.fnv[cdtb::hashlist_target::prop_field] = make_shared<cdtb::fnvhashlist>(buffer);
+                    heimerdinger.hashes.fnv[cdtb::hashlist_target::prop_field]->combine(cdtb::fnvhashlist(buffer));
                 } else {
                     std::cerr << path.string() << " does not exist!" << std::endl;
                 }
@@ -56,8 +56,7 @@ namespace heimerdinger {
                 std::cout << "loading hash list " << path.filename() << std::endl;
                 if (filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
-
-                    heimerdinger.hashes.fnv[cdtb::hashlist_target::prop_hash] = make_shared<cdtb::fnvhashlist>(buffer);
+                    heimerdinger.hashes.fnv[cdtb::hashlist_target::prop_hash]->combine(cdtb::fnvhashlist(buffer));
                 } else {
                     std::cerr << path.string() << " does not exist!" << std::endl;
                 }
@@ -71,8 +70,7 @@ namespace heimerdinger {
                 std::cout << "loading type hash list " << path.filename() << std::endl;
                 if (filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
-
-                    heimerdinger.hashes.fnv[cdtb::hashlist_target::prop_type] = make_shared<cdtb::fnvhashlist>(buffer);
+                    heimerdinger.hashes.fnv[cdtb::hashlist_target::prop_type]->combine(cdtb::fnvhashlist(buffer));
                 } else {
                     std::cerr << path.string() << " does not exist!" << std::endl;
                 }
@@ -86,8 +84,7 @@ namespace heimerdinger {
                 std::cout << "loading wad hash list " << path.filename() << std::endl;
                 if (std::filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
-
-                    heimerdinger.hashes.xx[cdtb::hashlist_target::wad_file] = make_shared<cdtb::xxhashlist>(buffer);
+                    heimerdinger.hashes.xx[cdtb::hashlist_target::wad_file]->combine( cdtb::xxhashlist(buffer));
                 } else {
                     std::cerr << path.string() << " does not exist!" << std::endl;
                 }
@@ -101,8 +98,7 @@ namespace heimerdinger {
                 std::cout << "loading rst hash list " << path.filename() << std::endl;
                 if (std::filesystem::exists(path)) {
                     auto buffer = dragon::read_file(path);
-
-                    heimerdinger.hashes.xx[cdtb::hashlist_target::rst_string] = make_shared<cdtb::xxhashlist>(buffer);
+                    heimerdinger.hashes.xx[cdtb::hashlist_target::rst_string]->combine(cdtb::xxhashlist(buffer));
                 } else {
                     std::cerr << path.string() << " does not exist!" << std::endl;
                 }

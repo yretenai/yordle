@@ -18,6 +18,5 @@ namespace yordle::cdtb {
         void validate() override;
         static uint64_t hash(std::string str);
         [[nodiscard]] std::shared_ptr<hashlist<uint64_t>> restrict_bits(uint8_t bits) const override;
-        void combine(hashlist<uint64_t> &hashlist) override;
     };
 } // namespace yordle::cdtb

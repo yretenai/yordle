@@ -35,10 +35,6 @@ namespace yordle::cdtb {
         }
     }
 
-    void xxhashlist::combine(hashlist<uint64_t> &hashlist) {
-        hashes.merge(hashlist.hashes);
-    }
-
     uint64_t xxhashlist::hash(std::string str) {
         str_to_lower(str);
         return XXH64(str.data(), str.length(), 0);
