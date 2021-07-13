@@ -128,7 +128,6 @@ int main(int argc, char **argv) {
 
         for (const auto &entry : *wad->entries) {
             auto entry_path = lulu.hash_list.get_path(entry.hash);
-            cout << entry_path.string() << endl;
             if (lulu.dry_run) {
                 continue;
             }
@@ -148,9 +147,9 @@ int main(int argc, char **argv) {
                 }
             }
 
-            if (has_tests) {
-                const auto generic = output_path.generic_string();
+            const auto generic = output_path.generic_string();
 
+            if (has_tests) {
                 auto success = false;
                 for (const auto &test : lulu.tests) {
                     if (generic.find(test) != std::string::npos) {
@@ -163,6 +162,8 @@ int main(int argc, char **argv) {
                     continue;
                 }
             }
+
+            cout << generic << endl;
 
             dragon::write_file(lulu.output_dir / output_path, *data);
         }
