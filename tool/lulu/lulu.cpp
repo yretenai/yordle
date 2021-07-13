@@ -40,6 +40,11 @@ namespace lulu {
                 }
             });
 
+        cli["test"]
+            .type(po::string)
+            .multi()
+            .bind(lulu.tests);
+
         cli[""]
             .bind(lulu.targets);
 
@@ -109,6 +114,8 @@ int main(int argc, char **argv) {
     }
 
     std::cout << "finding files..." << std::endl;
+    auto has_tests = !lulu.tests.empty();
+
     for (const auto &wad_path : dragon::find_paths(lulu.targets, {".wad", ".client", ".mobile"}, {})) {
         std::cout << "processing " << wad_path.filename().string() << std::endl;
         auto stream = ifstream(wad_path, ios::in | ios::binary);
@@ -126,7 +133,7 @@ int main(int argc, char **argv) {
                 continue;
             }
 
-            auto output_path = lulu.output_dir / entry_path;
+            auto output_path = entry_path;
             auto output_dir  = output_path.parent_path();
 
             if (!filesystem::exists(output_dir)) {
@@ -140,7 +147,24 @@ int main(int argc, char **argv) {
                     output_path.replace_extension(detected);
                 }
             }
-            dragon::write_file(output_path, *data);
+
+            if (has_tests) {
+                const auto generic = output_path.generic_string();
+
+                auto success = false;
+                for (const auto &test : lulu.tests) {
+                    if (generic.find(test) != std::string::npos) {
+                        success = true;
+                        break;
+                    }
+                }
+
+                if (!success) {
+                    continue;
+                }
+            }
+
+            dragon::write_file(lulu.output_dir / output_path, *data);
         }
 
         stream.close();

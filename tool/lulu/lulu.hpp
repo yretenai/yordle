@@ -23,6 +23,7 @@
 namespace lulu {
     using LuluConfiguration = struct LULU_CONFIGURATION {
         std::deque<std::string> targets;
+        std::vector<std::string> tests;
         std::filesystem::path output_dir = ".";
         yordle::cdtb::xxhashlist hash_list;
         bool dry_run = false;
