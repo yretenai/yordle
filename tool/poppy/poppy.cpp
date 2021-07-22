@@ -11,6 +11,7 @@
 
 #include <curl/curl.h>
 
+#include "deploy.hpp"
 #include "fetch.hpp"
 
 using namespace std;
@@ -26,6 +27,14 @@ namespace poppy {
             .type(po::string)
             .callback([&](const po::string_t &str) {
                 poppy.cache_dir = str;
+            });
+
+        cli["dump"]
+            .abbreviation('d')
+            .description("dump bundle urls to output path")
+            .type(po::string)
+            .callback([&](const po::string_t &str) {
+                poppy.dump_path = str;
             });
 
         cli["output"]
@@ -110,7 +119,7 @@ namespace poppy {
                             .abbreviation('B')
                             .description("targets are file paths to cached manifests");
 
-        auto &dry = cli["dry-run"]
+        auto &dry = cli["dry"]
                         .abbreviation('n')
                         .description("read-only mode");
 
@@ -122,12 +131,19 @@ namespace poppy {
                                   .abbreviation('L')
                                   .description("cdn data is from patch-lines, not sieve");
 
+        auto &decompress = cli["decompress"]
+                               .abbreviation('X')
+                               .description("targets are bundle files to decompress");
+
         auto &no_sub = cli["no-sub"]
                            .abbreviation('S')
                            .description("do not process sub configurations");
 
         auto &fresh_install = cli["fresh-install"]
                                   .description("do not use bundles from previous versions");
+
+        auto &pixelbutts = cli["pixelbutts"]
+                               .description("Real or FAKE? Data archivers love this guy!");
 
         auto &version = cli["version"]
                             .abbreviation('v')
@@ -161,6 +177,8 @@ namespace poppy {
         poppy.skip_generic         = skip_generic.was_set();
         poppy.generic              = generic.was_set();
         poppy.no_suffix            = no_suffix.was_set();
+        poppy.pixelbutts_mode      = pixelbutts.was_set();
+        poppy.decompress           = decompress.was_set();
 
         if (poppy.targets.empty()) {
             cerr << "err: no targets specified." << endl;
@@ -189,12 +207,14 @@ namespace poppy {
             auto vec             = configurations.to_vector<po::string>();
             poppy.configurations = set<string>(vec.begin(), vec.end());
         } else {
-            if (poppy.is_client_config) {
-                poppy.configurations = {"na1", "default", "na"};
-                cout << "warn: no configurations set, defaulting to na, na1, default" << endl;
-            } else if (!poppy.is_offline) {
-                poppy.configurations = {"NA1"};
-                cout << "warn: no configurations set, defaulting to NA1" << endl;
+            if (!poppy.decompress) {
+                if (poppy.is_client_config) {
+                    poppy.configurations = {"na1", "default", "na"};
+                    cout << "warn: no configurations set, defaulting to na, na1, default" << endl;
+                } else if (!poppy.is_offline) {
+                    poppy.configurations = {"NA1"};
+                    cout << "warn: no configurations set, defaulting to NA1" << endl;
+                }
             }
         }
 
@@ -270,6 +290,8 @@ int main(int argc, char **argv) {
             poppy::fetch_local(poppy);
         } else if (poppy.is_client_config) {
             poppy::fetch_client_config(poppy);
+        } else if (poppy.decompress) {
+            poppy::deploy_bundles(poppy);
         } else {
             poppy::fetch_sieve(poppy);
         }

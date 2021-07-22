@@ -52,6 +52,7 @@ namespace poppy {
     using PoppyConfiguration = struct POPPY_CONFIGURATION {
         std::filesystem::path output_dir = "deploy";
         std::filesystem::path cache_dir  = "sieve";
+        std::filesystem::path dump_path  = "";
         std::string platform             = "windows";
         std::string manifest_url         = POPPY_DEFAULT_SIEVE_URL;
         std::string bundle_url           = POPPY_DEFAULT_BUNDLE_URL;
@@ -61,9 +62,11 @@ namespace poppy {
         bool no_deploy                   = false;
         bool no_sub_configuration        = false;
         bool fresh_install               = false;
+        bool pixelbutts_mode             = false;
         bool skip_generic                = false;
         bool generic                     = false;
         bool no_suffix                   = false;
+        bool decompress                  = false;
         int64_t max_speed                = 0;
 
         std::deque<std::string> targets;

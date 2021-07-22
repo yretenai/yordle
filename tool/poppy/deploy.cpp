@@ -11,6 +11,31 @@ using namespace yordle::manifest;
 using namespace dragon;
 
 namespace poppy {
+    void deploy_bundles(PoppyConfiguration &poppy) {
+        auto output = poppy.output_dir / "bundle_out";
+
+        if (!filesystem::exists(output)) {
+            filesystem::create_directories(output);
+        }
+
+        for (const auto &target : poppy.targets) {
+            auto target_path = output / filesystem::path(target).filename().replace_extension();
+            if (!filesystem::exists(target_path)) {
+                filesystem::create_directories(target_path);
+            }
+
+            auto file   = ifstream(target, ios::binary | ios::in);
+            auto bundle = riot_bundle(file);
+
+            for (const auto &block : *bundle.blocks) {
+                auto of = ofstream(target_path / fmt::format("{0:16x}.bin", block.block_id), ios::binary | ios::trunc | ios::out);
+                bundle.read_block(block.block_id, file, of);
+                of.close();
+            }
+            file.close();
+        }
+    }
+
     void deploy(PoppyConfiguration &poppy, yordle::manifest::riot_manifest &manifest, std::filesystem::path &deploy_path, std::map<uint64_t, uint64_t> &block_to_bundle_map, std::set<uint64_t> &file_ids) {
         if (poppy.no_deploy || poppy.dry_run) {
             return;
