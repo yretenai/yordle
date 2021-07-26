@@ -132,7 +132,7 @@ int main(int argc, char **argv) {
                 continue;
             }
 
-            auto output_path = entry_path;
+            auto output_path = lulu.output_dir / entry_path;
             auto output_dir  = output_path.parent_path();
 
             if (!filesystem::exists(output_dir)) {
@@ -165,7 +165,7 @@ int main(int argc, char **argv) {
 
             cout << generic << endl;
 
-            dragon::write_file(lulu.output_dir / output_path, *data);
+            dragon::write_file(output_path, *data);
         }
 
         stream.close();
