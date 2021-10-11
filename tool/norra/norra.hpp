@@ -12,11 +12,11 @@
 
 #include "../tool_export.h"
 
-#define NORRA_VERSION 1
+#define NORRA_VERSION 2
 #define NORRA_VERSION_M 1
-#define NORRA_VERSION_m 0
+#define NORRA_VERSION_m 1
 #define NORRA_VERSION_i 0
-#define NORRA_VERSION_S "1.0.0"
+#define NORRA_VERSION_S "1.1.0"
 
 namespace norra {
     using NorraConfiguration = struct NORRA_CONFIGURATION {

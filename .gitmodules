@@ -4,3 +4,6 @@
 [submodule "vendor/ProgramOptions"]
 	path = vendor/ProgramOptions
 	url = https://github.com/Fytch/ProgramOptions.hxx.git
+[submodule "vendor/lilith_dev"]
+	path = vendor/lilith_dev
+	url = git@github.com:yretenai/lilith_dev.git
