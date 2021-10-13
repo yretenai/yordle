@@ -18,7 +18,7 @@ namespace yordle::lcu::v1 {
         std::string store_icon_image;
     };
 
-    struct bound_champion {
+    struct bound_champion_t {
         int64_t item_id;
         std::string inventory_type;
         std::string content_id;
@@ -33,7 +33,7 @@ namespace yordle::lcu::v1 {
         bool is_epic;
         std::string description;
         std::vector<int64_t> milestones;
-        bound_champion bound_champion;
+        bound_champion_t bound_champion;
         std::string category;
         std::string icon_unowned;
         std::string icon_unlit;
@@ -64,8 +64,8 @@ namespace yordle::lcu::v1 {
     void from_json(const json &j, yordle::lcu::v1::pack_datum &x);
     void to_json(json &j, const yordle::lcu::v1::pack_datum &x);
 
-    void from_json(const json &j, yordle::lcu::v1::bound_champion &x);
-    void to_json(json &j, const yordle::lcu::v1::bound_champion &x);
+    void from_json(const json &j, yordle::lcu::v1::bound_champion_t &x);
+    void to_json(json &j, const yordle::lcu::v1::bound_champion_t &x);
 
     void from_json(const json &j, yordle::lcu::v1::statstone &x);
     void to_json(json &j, const yordle::lcu::v1::statstone &x);
@@ -93,13 +93,13 @@ namespace yordle::lcu::v1 {
         j["storeIconImage"] = x.store_icon_image;
     }
 
-    inline void from_json(const json &j, yordle::lcu::v1::bound_champion &x) {
+    inline void from_json(const json &j, yordle::lcu::v1::bound_champion_t &x) {
         x.item_id        = j.at("itemId").get<int64_t>();
         x.inventory_type = j.at("inventoryType").get<std::string>();
         x.content_id     = j.at("contentId").get<std::string>();
     }
 
-    inline void to_json(json &j, const yordle::lcu::v1::bound_champion &x) {
+    inline void to_json(json &j, const yordle::lcu::v1::bound_champion_t &x) {
         j                  = json::object();
         j["itemId"]        = x.item_id;
         j["inventoryType"] = x.inventory_type;
@@ -115,7 +115,7 @@ namespace yordle::lcu::v1 {
         x.is_epic        = j.at("isEpic").get<bool>();
         x.description    = j.at("description").get<std::string>();
         x.milestones     = j.at("milestones").get<std::vector<int64_t>>();
-        x.bound_champion = j.at("boundChampion").get<yordle::lcu::v1::bound_champion>();
+        x.bound_champion = j.at("boundChampion").get<yordle::lcu::v1::bound_champion_t>();
         x.category       = j.at("category").get<std::string>();
         x.icon_unowned   = j.at("iconUnowned").get<std::string>();
         x.icon_unlit     = j.at("iconUnlit").get<std::string>();

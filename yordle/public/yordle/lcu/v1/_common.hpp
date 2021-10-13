@@ -42,7 +42,7 @@ namespace yordle::lcu::v1 {
         return get_optional<T>(j, property.data());
     }
 
-    enum class rarity {
+    enum class rarity_t {
         none,
         rare,
         epic,
@@ -62,51 +62,51 @@ namespace yordle::lcu::v1 {
         int64_t rarity;
     };
 
-    struct color {
+    struct color_t {
         int64_t r;
         int64_t b;
         int64_t g;
         int64_t a;
     };
 
-    inline void from_json(const json &j, yordle::lcu::v1::rarity &x) {
+    inline void from_json(const json &j, yordle::lcu::v1::rarity_t &x) {
         if (j == "None")
-            x = yordle::lcu::v1::rarity::none;
+            x = yordle::lcu::v1::rarity_t::none;
         else if (j == "Rare")
-            x = yordle::lcu::v1::rarity::rare;
+            x = yordle::lcu::v1::rarity_t::rare;
         else if (j == "Epic")
-            x = yordle::lcu::v1::rarity::epic;
+            x = yordle::lcu::v1::rarity_t::epic;
         else if (j == "Legendary")
-            x = yordle::lcu::v1::rarity::legendary;
+            x = yordle::lcu::v1::rarity_t::legendary;
         else if (j == "Mythic")
-            x = yordle::lcu::v1::rarity::mythic;
+            x = yordle::lcu::v1::rarity_t::mythic;
         else if (j == "Ultimate")
-            x = yordle::lcu::v1::rarity::ultimate;
+            x = yordle::lcu::v1::rarity_t::ultimate;
         else if (j == "Default")
-            x = yordle::lcu::v1::rarity::rarity_default;
+            x = yordle::lcu::v1::rarity_t::rarity_default;
     }
 
-    inline void to_json(json &j, const yordle::lcu::v1::rarity &x) {
+    inline void to_json(json &j, const yordle::lcu::v1::rarity_t &x) {
         switch (x) {
-            case yordle::lcu::v1::rarity::none:
+            case yordle::lcu::v1::rarity_t::none:
                 j = "None";
                 break;
-            case yordle::lcu::v1::rarity::rare:
+            case yordle::lcu::v1::rarity_t::rare:
                 j = "Rare";
                 break;
-            case yordle::lcu::v1::rarity::epic:
+            case yordle::lcu::v1::rarity_t::epic:
                 j = "Epic";
                 break;
-            case yordle::lcu::v1::rarity::legendary:
+            case yordle::lcu::v1::rarity_t::legendary:
                 j = "Legendary";
                 break;
-            case yordle::lcu::v1::rarity::mythic:
+            case yordle::lcu::v1::rarity_t::mythic:
                 j = "Mythic";
                 break;
-            case yordle::lcu::v1::rarity::ultimate:
+            case yordle::lcu::v1::rarity_t::ultimate:
                 j = "Ultimate";
                 break;
-            case yordle::lcu::v1::rarity::rarity_default:
+            case yordle::lcu::v1::rarity_t::rarity_default:
                 j = "Default";
                 break;
         }
@@ -134,14 +134,14 @@ namespace yordle::lcu::v1 {
         j["rarity"] = x.rarity;
     }
 
-    inline void from_json(const json &j, yordle::lcu::v1::color &x) {
+    inline void from_json(const json &j, yordle::lcu::v1::color_t &x) {
         x.r = j.at("R").get<int64_t>();
         x.b = j.at("B").get<int64_t>();
         x.g = j.at("G").get<int64_t>();
         x.a = j.at("A").get<int64_t>();
     }
 
-    inline void to_json(json &j, const yordle::lcu::v1::color &x) {
+    inline void to_json(json &j, const yordle::lcu::v1::color_t &x) {
         j      = json::object();
         j["R"] = x.r;
         j["B"] = x.b;

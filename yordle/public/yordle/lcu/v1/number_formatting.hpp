@@ -10,7 +10,7 @@
 namespace yordle::lcu::v1 {
     using nlohmann::json;
 
-    struct number_formatting_behavior {
+    struct number_formatting_behavior_t {
         int64_t digits_for_thousands_seperator;
         bool trim_trailing_zeros_after_decimal;
         bool western_number_grouping;
@@ -31,22 +31,22 @@ namespace yordle::lcu::v1 {
         std::string meters_abbreviation;
         std::string kilometers_abbreviation;
         std::string percentage_format;
-        number_formatting_behavior number_formatting_behavior;
+        number_formatting_behavior_t number_formatting_behavior;
     };
 
-    void from_json(const json &j, yordle::lcu::v1::number_formatting_behavior &x);
-    void to_json(json &j, const yordle::lcu::v1::number_formatting_behavior &x);
+    void from_json(const json &j, yordle::lcu::v1::number_formatting_behavior_t &x);
+    void to_json(json &j, const yordle::lcu::v1::number_formatting_behavior_t &x);
 
     void from_json(const json &j, yordle::lcu::v1::number_formatting &x);
     void to_json(json &j, const yordle::lcu::v1::number_formatting &x);
 
-    inline void from_json(const json &j, yordle::lcu::v1::number_formatting_behavior &x) {
+    inline void from_json(const json &j, yordle::lcu::v1::number_formatting_behavior_t &x) {
         x.digits_for_thousands_seperator    = j.at("digitsForThousandsSeperator").get<int64_t>();
         x.trim_trailing_zeros_after_decimal = j.at("trimTrailingZerosAfterDecimal").get<bool>();
         x.western_number_grouping           = j.at("westernNumberGrouping").get<bool>();
     }
 
-    inline void to_json(json &j, const yordle::lcu::v1::number_formatting_behavior &x) {
+    inline void to_json(json &j, const yordle::lcu::v1::number_formatting_behavior_t &x) {
         j                                  = json::object();
         j["digitsForThousandsSeperator"]   = x.digits_for_thousands_seperator;
         j["trimTrailingZerosAfterDecimal"] = x.trim_trailing_zeros_after_decimal;
@@ -68,7 +68,7 @@ namespace yordle::lcu::v1 {
         x.meters_abbreviation              = j.at("metersAbbreviation").get<std::string>();
         x.kilometers_abbreviation          = j.at("kilometersAbbreviation").get<std::string>();
         x.percentage_format                = j.at("percentageFormat").get<std::string>();
-        x.number_formatting_behavior       = j.at("numberFormattingBehavior").get<yordle::lcu::v1::number_formatting_behavior>();
+        x.number_formatting_behavior       = j.at("numberFormattingBehavior").get<yordle::lcu::v1::number_formatting_behavior_t>();
     }
 
     inline void to_json(json &j, const yordle::lcu::v1::number_formatting &x) {

@@ -21,7 +21,7 @@ target_include_directories(yordle PUBLIC ${PROJECT_SOURCE_DIR}/public)
 add_subdirectory("private")
 
 target_link_libraries(yordle PUBLIC standard_dragon)
-target_link_libraries(yordle PUBLIC lilith_dev)
+target_link_libraries(yordle PUBLIC lilith)
 target_link_libraries(yordle PUBLIC ZLIB::ZLIB)
 target_link_libraries(yordle PUBLIC flatbuffers::flatbuffers)
 target_link_libraries(yordle PUBLIC nlohmann_json nlohmann_json::nlohmann_json)

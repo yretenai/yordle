@@ -10,7 +10,7 @@
 namespace yordle::lcu::v1 {
     using nlohmann::json;
 
-    struct default_stat_mods_per_sub_style {
+    struct default_stat_mods_per_sub_style_t {
         std::string id;
         std::vector<int64_t> perks;
     };
@@ -27,7 +27,7 @@ namespace yordle::lcu::v1 {
         std::vector<int64_t> perks;
     };
 
-    struct sub_style_bonus {
+    struct sub_style_bonus_t {
         int64_t style_id;
         int64_t perk_id;
     };
@@ -40,13 +40,13 @@ namespace yordle::lcu::v1 {
         std::map<std::string, std::string> asset_map;
         bool is_advanced;
         std::vector<int64_t> allowed_sub_styles;
-        std::vector<sub_style_bonus> sub_style_bonus;
+        std::vector<sub_style_bonus_t> sub_style_bonus;
         std::vector<perk_slot> slots;
         std::string default_page_name;
         int64_t default_sub_style;
         std::vector<int64_t> default_perks;
         std::vector<int64_t> default_perks_when_splashed;
-        std::vector<default_stat_mods_per_sub_style> default_stat_mods_per_sub_style;
+        std::vector<default_stat_mods_per_sub_style_t> default_stat_mods_per_sub_style;
     };
 
     struct perk_styles {
@@ -54,14 +54,14 @@ namespace yordle::lcu::v1 {
         std::vector<perk_style> styles;
     };
 
-    void from_json(const json &j, yordle::lcu::v1::default_stat_mods_per_sub_style &x);
-    void to_json(json &j, const yordle::lcu::v1::default_stat_mods_per_sub_style &x);
+    void from_json(const json &j, yordle::lcu::v1::default_stat_mods_per_sub_style_t &x);
+    void to_json(json &j, const yordle::lcu::v1::default_stat_mods_per_sub_style_t &x);
 
     void from_json(const json &j, yordle::lcu::v1::perk_slot &x);
     void to_json(json &j, const yordle::lcu::v1::perk_slot &x);
 
-    void from_json(const json &j, yordle::lcu::v1::sub_style_bonus &x);
-    void to_json(json &j, const yordle::lcu::v1::sub_style_bonus &x);
+    void from_json(const json &j, yordle::lcu::v1::sub_style_bonus_t &x);
+    void to_json(json &j, const yordle::lcu::v1::sub_style_bonus_t &x);
 
     void from_json(const json &j, yordle::lcu::v1::perk_style &x);
     void to_json(json &j, const yordle::lcu::v1::perk_style &x);
@@ -72,12 +72,12 @@ namespace yordle::lcu::v1 {
     void from_json(const json &j, yordle::lcu::v1::perk_type &x);
     void to_json(json &j, const yordle::lcu::v1::perk_type &x);
 
-    inline void from_json(const json &j, yordle::lcu::v1::default_stat_mods_per_sub_style &x) {
+    inline void from_json(const json &j, yordle::lcu::v1::default_stat_mods_per_sub_style_t &x) {
         x.id    = j.at("id").get<std::string>();
         x.perks = j.at("perks").get<std::vector<int64_t>>();
     }
 
-    inline void to_json(json &j, const yordle::lcu::v1::default_stat_mods_per_sub_style &x) {
+    inline void to_json(json &j, const yordle::lcu::v1::default_stat_mods_per_sub_style_t &x) {
         j          = json::object();
         j["id"]    = x.id;
         j["perks"] = x.perks;
@@ -96,12 +96,12 @@ namespace yordle::lcu::v1 {
         j["perks"]     = x.perks;
     }
 
-    inline void from_json(const json &j, yordle::lcu::v1::sub_style_bonus &x) {
+    inline void from_json(const json &j, yordle::lcu::v1::sub_style_bonus_t &x) {
         x.style_id = j.at("styleId").get<int64_t>();
         x.perk_id  = j.at("perkId").get<int64_t>();
     }
 
-    inline void to_json(json &j, const yordle::lcu::v1::sub_style_bonus &x) {
+    inline void to_json(json &j, const yordle::lcu::v1::sub_style_bonus_t &x) {
         j            = json::object();
         j["styleId"] = x.style_id;
         j["perkId"]  = x.perk_id;
@@ -115,13 +115,13 @@ namespace yordle::lcu::v1 {
         x.asset_map                       = j.at("assetMap").get<std::map<std::string, std::string>>();
         x.is_advanced                     = j.at("isAdvanced").get<bool>();
         x.allowed_sub_styles              = j.at("allowedSubStyles").get<std::vector<int64_t>>();
-        x.sub_style_bonus                 = j.at("subStyleBonus").get<std::vector<yordle::lcu::v1::sub_style_bonus>>();
+        x.sub_style_bonus                 = j.at("subStyleBonus").get<std::vector<yordle::lcu::v1::sub_style_bonus_t>>();
         x.slots                           = j.at("slots").get<std::vector<yordle::lcu::v1::perk_slot>>();
         x.default_page_name               = j.at("defaultPageName").get<std::string>();
         x.default_sub_style               = j.at("defaultSubStyle").get<int64_t>();
         x.default_perks                   = j.at("defaultPerks").get<std::vector<int64_t>>();
         x.default_perks_when_splashed     = j.at("defaultPerksWhenSplashed").get<std::vector<int64_t>>();
-        x.default_stat_mods_per_sub_style = j.at("defaultStatModsPerSubStyle").get<std::vector<yordle::lcu::v1::default_stat_mods_per_sub_style>>();
+        x.default_stat_mods_per_sub_style = j.at("defaultStatModsPerSubStyle").get<std::vector<yordle::lcu::v1::default_stat_mods_per_sub_style_t>>();
     }
 
     inline void to_json(json &j, const yordle::lcu::v1::perk_style &x) {

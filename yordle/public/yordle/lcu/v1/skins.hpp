@@ -20,7 +20,7 @@ namespace yordle::lcu::v1 {
         std::vector<regional_rarity> rarities;
     };
 
-    struct description_info {
+    struct description_info_t {
         std::string title;
         std::string description;
         std::string icon_path;
@@ -41,10 +41,10 @@ namespace yordle::lcu::v1 {
         std::string collection_splash_video_path;
     };
 
-    struct quest_skin_info {
+    struct quest_skin_info_t {
         std::string name;
         std::string collection_description;
-        std::vector<description_info> description_info;
+        std::vector<description_info_t> description_info;
         std::string splash_path;
         std::string uncentered_splash_path;
         std::string tile_path;
@@ -65,7 +65,7 @@ namespace yordle::lcu::v1 {
         std::string tile_path;
         std::string load_screen_path;
         std::string skin_type;
-        rarity rarity;
+        rarity_t rarity;
         bool is_legacy;
         std::shared_ptr<std::string> splash_video_path;
         std::shared_ptr<std::string> collection_splash_video_path;
@@ -76,7 +76,7 @@ namespace yordle::lcu::v1 {
         std::shared_ptr<std::string> description;
         std::shared_ptr<std::string> load_screen_vintage_path;
         std::shared_ptr<std::vector<chroma>> chromas;
-        std::shared_ptr<quest_skin_info> quest_skin_info;
+        std::shared_ptr<quest_skin_info_t> quest_skin_info;
     };
 
     using skins [[maybe_unused]] = std::map<std::string, skin>;
@@ -84,14 +84,14 @@ namespace yordle::lcu::v1 {
     void from_json(const json &j, yordle::lcu::v1::chroma &x);
     void to_json(json &j, const yordle::lcu::v1::chroma &x);
 
-    void from_json(const json &j, yordle::lcu::v1::description_info &x);
-    void to_json(json &j, const yordle::lcu::v1::description_info &x);
+    void from_json(const json &j, yordle::lcu::v1::description_info_t &x);
+    void to_json(json &j, const yordle::lcu::v1::description_info_t &x);
 
     void from_json(const json &j, yordle::lcu::v1::skin_tier &x);
     void to_json(json &j, const yordle::lcu::v1::skin_tier &x);
 
-    void from_json(const json &j, yordle::lcu::v1::quest_skin_info &x);
-    void to_json(json &j, const yordle::lcu::v1::quest_skin_info &x);
+    void from_json(const json &j, yordle::lcu::v1::quest_skin_info_t &x);
+    void to_json(json &j, const yordle::lcu::v1::quest_skin_info_t &x);
 
     void from_json(const json &j, yordle::lcu::v1::skin_line &x);
     void to_json(json &j, const yordle::lcu::v1::skin_line &x);
@@ -118,13 +118,13 @@ namespace yordle::lcu::v1 {
         j["rarities"]     = x.rarities;
     }
 
-    inline void from_json(const json &j, yordle::lcu::v1::description_info &x) {
+    inline void from_json(const json &j, yordle::lcu::v1::description_info_t &x) {
         x.title       = j.at("title").get<std::string>();
         x.description = j.at("description").get<std::string>();
         x.icon_path   = j.at("iconPath").get<std::string>();
     }
 
-    inline void to_json(json &j, const yordle::lcu::v1::description_info &x) {
+    inline void to_json(json &j, const yordle::lcu::v1::description_info_t &x) {
         j                = json::object();
         j["title"]       = x.title;
         j["description"] = x.description;
@@ -162,10 +162,10 @@ namespace yordle::lcu::v1 {
         j["collectionSplashVideoPath"] = x.collection_splash_video_path;
     }
 
-    inline void from_json(const json &j, yordle::lcu::v1::quest_skin_info &x) {
+    inline void from_json(const json &j, yordle::lcu::v1::quest_skin_info_t &x) {
         x.name                   = j.at("name").get<std::string>();
         x.collection_description = j.at("collectionDescription").get<std::string>();
-        x.description_info       = j.at("descriptionInfo").get<std::vector<yordle::lcu::v1::description_info>>();
+        x.description_info       = j.at("descriptionInfo").get<std::vector<yordle::lcu::v1::description_info_t>>();
         x.splash_path            = j.at("splashPath").get<std::string>();
         x.uncentered_splash_path = j.at("uncenteredSplashPath").get<std::string>();
         x.tile_path              = j.at("tilePath").get<std::string>();
@@ -173,7 +173,7 @@ namespace yordle::lcu::v1 {
         x.tiers                  = j.at("tiers").get<std::vector<yordle::lcu::v1::skin_tier>>();
     }
 
-    inline void to_json(json &j, const yordle::lcu::v1::quest_skin_info &x) {
+    inline void to_json(json &j, const yordle::lcu::v1::quest_skin_info_t &x) {
         j                          = json::object();
         j["name"]                  = x.name;
         j["collectionDescription"] = x.collection_description;
@@ -203,7 +203,7 @@ namespace yordle::lcu::v1 {
         x.tile_path                    = j.at("tilePath").get<std::string>();
         x.load_screen_path             = j.at("loadScreenPath").get<std::string>();
         x.skin_type                    = j.at("skinType").get<std::string>();
-        x.rarity                       = j.at("rarity").get<yordle::lcu::v1::rarity>();
+        x.rarity                       = j.at("rarity").get<yordle::lcu::v1::rarity_t>();
         x.is_legacy                    = j.at("isLegacy").get<bool>();
         x.splash_video_path            = yordle::lcu::v1::get_optional<std::string>(j, "splashVideoPath");
         x.collection_splash_video_path = yordle::lcu::v1::get_optional<std::string>(j, "collectionSplashVideoPath");
@@ -214,7 +214,7 @@ namespace yordle::lcu::v1 {
         x.description                  = yordle::lcu::v1::get_optional<std::string>(j, "description");
         x.load_screen_vintage_path     = yordle::lcu::v1::get_optional<std::string>(j, "loadScreenVintagePath");
         x.chromas                      = yordle::lcu::v1::get_optional<std::vector<yordle::lcu::v1::chroma>>(j, "chromas");
-        x.quest_skin_info              = yordle::lcu::v1::get_optional<yordle::lcu::v1::quest_skin_info>(j, "questSkinInfo");
+        x.quest_skin_info              = yordle::lcu::v1::get_optional<yordle::lcu::v1::quest_skin_info_t>(j, "questSkinInfo");
     }
 
     inline void to_json(json &j, const yordle::lcu::v1::skin &x) {

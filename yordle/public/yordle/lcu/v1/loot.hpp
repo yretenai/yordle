@@ -42,7 +42,7 @@ namespace yordle::lcu::v1 {
         int64_t mapped_store_id;
         int64_t lifetime_max;
         bool auto_redeem;
-        rarity rarity;
+        rarity_t rarity;
         loot_type type;
         std::shared_ptr<std::string> recipe_menu_active;
         std::shared_ptr<std::string> recipe_menu_title;
@@ -130,7 +130,7 @@ namespace yordle::lcu::v1 {
         x.mapped_store_id      = j.at("mappedStoreId").get<int64_t>();
         x.lifetime_max         = j.at("lifetimeMax").get<int64_t>();
         x.auto_redeem          = j.at("autoRedeem").get<bool>();
-        x.rarity               = j.at("rarity").get<yordle::lcu::v1::rarity>();
+        x.rarity               = j.at("rarity").get<yordle::lcu::v1::rarity_t>();
         x.type                 = j.at("type").get<yordle::lcu::v1::loot_type>();
         x.recipe_menu_active   = yordle::lcu::v1::get_optional<std::string>(j, "recipeMenuActive");
         x.recipe_menu_title    = yordle::lcu::v1::get_optional<std::string>(j, "recipeMenuTitle");

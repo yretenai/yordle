@@ -20,7 +20,7 @@ namespace yordle::lcu::v1 {
         std::string loadouts_icon;
         int64_t group_id;
         std::string group_name;
-        rarity rarity;
+        rarity_t rarity;
         int64_t rarity_value;
         int64_t level;
     };
@@ -35,7 +35,7 @@ namespace yordle::lcu::v1 {
         x.loadouts_icon = j.at("loadoutsIcon").get<std::string>();
         x.group_id      = j.at("groupId").get<int64_t>();
         x.group_name    = j.at("groupName").get<std::string>();
-        x.rarity        = j.at("rarity").get<yordle::lcu::v1::rarity>();
+        x.rarity        = j.at("rarity").get<yordle::lcu::v1::rarity_t>();
         x.rarity_value  = j.at("rarityValue").get<int64_t>();
         x.level         = j.at("level").get<int64_t>();
     }

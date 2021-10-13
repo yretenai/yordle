@@ -13,7 +13,7 @@
 
 #include "norra.hpp"
 #include "model.hpp"
-#include "template.hpp"
+//#include "template.hpp"
 
 using namespace std;
 using namespace dragon;
@@ -118,3 +118,7 @@ namespace norra {
         return NORRA_VERSION;
     }
 } // namespace norra
+
+int main(int argc, char** argv) {
+    return 0;
+}

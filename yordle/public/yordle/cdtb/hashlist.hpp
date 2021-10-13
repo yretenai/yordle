@@ -6,6 +6,7 @@
 
 #include <filesystem>
 #include <iostream>
+#include <sstream>
 #include <map>
 
 // 64-bit hashing uses xxhash64. (xxhashlist)

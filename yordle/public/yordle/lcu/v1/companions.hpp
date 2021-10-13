@@ -20,7 +20,7 @@ namespace yordle::lcu::v1 {
         int64_t level;
         std::string species_name;
         int64_t species_id;
-        rarity rarity;
+        rarity_t rarity;
         int64_t rarity_value;
         bool is_default;
         std::vector<std::string> upgrades;
@@ -37,7 +37,7 @@ namespace yordle::lcu::v1 {
         x.level         = j.at("level").get<int64_t>();
         x.species_name  = j.at("speciesName").get<std::string>();
         x.species_id    = j.at("speciesId").get<int64_t>();
-        x.rarity        = j.at("rarity").get<yordle::lcu::v1::rarity>();
+        x.rarity        = j.at("rarity").get<yordle::lcu::v1::rarity_t>();
         x.rarity_value  = j.at("rarityValue").get<int64_t>();
         x.is_default    = j.at("isDefault").get<bool>();
         x.upgrades      = j.at("upgrades").get<std::vector<std::string>>();

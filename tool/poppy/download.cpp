@@ -145,7 +145,7 @@ namespace poppy {
 #ifdef POPPY_THREADING
         for_each(execution::par_unseq, bundle_ids_to_download.cbegin(), bundle_ids_to_download.cend(), [poppy, cache, &ind, max](const auto &bundle_id) {
 #else
-        for (const auto &bundle_id : bundle_ids) {
+        for (const auto &bundle_id : bundle_ids_to_download) {
 #endif
             auto url = fmt::format(poppy.bundle_url, bundle_id);
             print_lock.lock();

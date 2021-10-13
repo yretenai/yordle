@@ -16,7 +16,7 @@ namespace yordle::lcu::v1 {
         std::string guid;
         std::string name;
         int64_t id;
-        color color;
+        color_t color;
         std::string loadouts_icon;
     };
 
@@ -26,7 +26,7 @@ namespace yordle::lcu::v1 {
         x.guid          = j.at("guid").get<std::string>();
         x.name          = j.at("name").get<std::string>();
         x.id            = j.at("id").get<int64_t>();
-        x.color         = j.at("color").get<yordle::lcu::v1::color>();
+        x.color         = j.at("color").get<yordle::lcu::v1::color_t>();
         x.loadouts_icon = j.at("loadoutsIcon").get<std::string>();
     }
 
