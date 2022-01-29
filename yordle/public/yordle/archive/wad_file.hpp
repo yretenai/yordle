@@ -1,5 +1,5 @@
 //
-// Created by Lilith on 2020-09-09.
+// Created by Naomi on 2020-09-09.
 //
 
 #pragma once
@@ -19,7 +19,8 @@ namespace yordle::archive {
         Uncompressed = 0,
         GZip         = 1,
         Symlink      = 2,
-        Zstd         = 3
+        Zstd         = 3,
+        ZstdStream   = 4
     };
 
     using wad_version = enum class WAD_VERSION : uint32_t {
@@ -29,18 +30,21 @@ namespace yordle::archive {
         v2_0 = DRAGON_MAGIC32('R', 'W', 2, 0),
         v2_1 = DRAGON_MAGIC32('R', 'W', 2, 1),
         v3_0 = DRAGON_MAGIC32('R', 'W', 3, 0),
-        v3_1 = DRAGON_MAGIC32('R', 'W', 3, 1)
+        v3_1 = DRAGON_MAGIC32('R', 'W', 3, 1),
+        v3_2 = DRAGON_MAGIC32('R', 'W', 3, 2), // likely added the type flag, or the block_start, version is not used afaik.
+        v3_3 = DRAGON_MAGIC32('R', 'W', 3, 3)
     };
 #pragma pack(pop)
 
 #pragma pack(push, 4)
     using wad_entry_v1 = struct WAD_ENTRY_V1 {
-        uint64_t hash         = 0;
-        uint32_t offset       = 0;
-        uint32_t csize        = 0;
-        uint32_t size         = 0;
-        wad_storage_type type = wad_storage_type::Zstd;
-        bool duplicate        = false;
+        uint64_t hash             = 0;
+        uint32_t offset           = 0;
+        uint32_t csize            = 0;
+        uint32_t size             = 0;
+        wad_storage_type type : 4 = wad_storage_type::Zstd;
+        uint8_t unknown : 4       = 0;
+        bool duplicate            = false;
     };
     DRAGON_ASSERT(sizeof(WAD_ENTRY_V1) == 0x18, "wad_entry_v1 size is not 24");
 
@@ -54,14 +58,30 @@ namespace yordle::archive {
     };
     DRAGON_ASSERT(sizeof(WAD_ENTRY_V2) == 0x20, "wad_entry_v2 size is not 32");
 
-    using wad_entry = wad_entry_v2;
+    using wad_entry_v3 = struct WAD_ENTRY_V3 : wad_entry_v1 {
+        uint16_t chunks_index = 0;
+        uint64_t checksum = 0;
+
+        WAD_ENTRY_V3() = default;
+        WAD_ENTRY_V3(wad_entry_v1 v1) : wad_entry_v1(v1) { // NOLINT(google-explicit-constructor)
+            chunks_index = 0;
+            checksum = 0;
+        }
+        WAD_ENTRY_V3(wad_entry_v2 v2) : wad_entry_v1(v2) { // NOLINT(google-explicit-constructor)
+            chunks_index = 0;
+            checksum = v2.checksum;
+        }
+    };
+    DRAGON_ASSERT(sizeof(WAD_ENTRY_V2) == 0x20, "wad_entry_v2 size is not 32");
+
+    using wad_entry = wad_entry_v3;
 #pragma pack(pop)
 
     class YORDLE_EXPORT wad_file {
     protected:
         template<typename T>
-        typename std::enable_if<std::is_base_of<T, wad_entry>::value, void>::type read_entries(std::istream &stream, uint64_t count) {
-            auto local_entries = dragon::Array<wad_entry_v2>(count, nullptr);
+        typename std::enable_if<std::is_base_of<wad_entry_v1, T>::value, void>::type read_entries(std::istream &stream, uint64_t count) {
+            auto local_entries = dragon::Array<T>(count, nullptr);
             stream.read(reinterpret_cast<char *>(local_entries.data()), static_cast<std::streamsize>(local_entries.byte_size()));
             entries = std::make_shared<dragon::Array<wad_entry>>(count, nullptr);
             for (auto i = 0; i < count; ++i) {

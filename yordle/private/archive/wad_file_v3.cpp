@@ -1,5 +1,5 @@
 //
-// Created by Lilith on 2020-09-09.
+// Created by Naomi on 2020-09-09.
 //
 
 #include <cassert>
@@ -25,7 +25,11 @@ namespace yordle::archive {
         buffer.copy(data_start, 0, EXPECTED_DATA_SIZE);
 
         if (entry_count > 0) {
-            read_entries<wad_entry_v2>(stream, entry_count);
+            if(fourcc >= WAD_VERSION::v3_3) {
+                read_entries<wad_entry_v3>(stream, entry_count);
+            } else {
+                read_entries<wad_entry_v2>(stream, entry_count);
+            }
         }
     }
 

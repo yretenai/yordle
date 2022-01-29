@@ -1,5 +1,5 @@
 //
-// Created by Lilith on 2021-06-05.
+// Created by Naomi on 2021-06-05.
 //
 
 #include <algorithm>
@@ -43,7 +43,8 @@ namespace yordle::archive {
                 stream.read(reinterpret_cast<char *>(buffer->data()), symlink_length);
                 break;
             }
-            case WAD_STORAGE_TYPE::Zstd: {
+            case WAD_STORAGE_TYPE::Zstd:
+            case WAD_STORAGE_TYPE::ZstdStream: {
                 Array<uint8_t> compressed(entry.csize, nullptr);
                 stream.read(reinterpret_cast<char *>(compressed.data()), entry.csize);
                 ZSTD_decompress(buffer->data(), entry.size, compressed.data(), entry.csize);

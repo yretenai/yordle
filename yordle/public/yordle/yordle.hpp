@@ -1,14 +1,14 @@
 //
-// Created by Lilith on 2020-09-10.
+// Created by Naomi on 2020-09-10.
 //
 
 #pragma once
 
-#define YORDLE_VERSION 20
+#define YORDLE_VERSION 22
 #define YORDLE_VERSION_M 0
 #define YORDLE_VERSION_m 5
-#define YORDLE_VERSION_i 0
-#define YORDLE_VERSION_S "0.5.3"
+#define YORDLE_VERSION_i 5
+#define YORDLE_VERSION_S "0.5.5"
 
 #include <yordle/yordle_export.h>
 
@@ -44,7 +44,9 @@
 #include <yordle/lcu/v1/models.hpp>
 #include <yordle/manifest/riot_bundle.hpp>
 #include <yordle/manifest/riot_manifest.hpp>
+#include <yordle/r3d/geometry.hpp>
 #include <yordle/r3d/skinned_mesh.hpp>
+#include <yordle/r3d/texture.hpp>
 #include <yordle/sieve/models.hpp>
 
 namespace yordle {
