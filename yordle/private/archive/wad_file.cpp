@@ -82,6 +82,8 @@ namespace yordle::archive {
                 return make_shared<wad_file_v2>(stream);
             case wad_version::v3_0:
             case wad_version::v3_1:
+            case wad_version::v3_2:
+            case wad_version::v3_3:
                 return make_shared<wad_file_v3>(stream);
             case wad_version::v0_0:
             default:
