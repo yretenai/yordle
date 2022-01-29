@@ -25,11 +25,7 @@ namespace yordle::archive {
         buffer.copy(data_start, 0, EXPECTED_DATA_SIZE);
 
         if (entry_count > 0) {
-            if(fourcc >= WAD_VERSION::v3_3) {
-                read_entries<wad_entry_v3>(stream, entry_count);
-            } else {
-                read_entries<wad_entry_v2>(stream, entry_count);
-            }
+            read_entries<wad_entry_v2>(stream, entry_count);
         }
     }
 

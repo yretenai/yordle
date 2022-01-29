@@ -45,8 +45,9 @@ namespace yordle::archive {
         wad_storage_type type : 4 = wad_storage_type::Zstd;
         uint8_t unknown : 4       = 0;
         bool duplicate            = false;
+        uint16_t chunks_index = 0;
     };
-    DRAGON_ASSERT(sizeof(WAD_ENTRY_V1) == 0x18, "wad_entry_v1 size is not 24");
+    DRAGON_ASSERT(sizeof(wad_entry_v1) == 0x18, "wad_entry_v1 size is not 24");
 
     using wad_entry_v2 = struct WAD_ENTRY_V2 : wad_entry_v1 {
         uint64_t checksum = 0;
@@ -56,25 +57,9 @@ namespace yordle::archive {
             checksum = 0;
         }
     };
-    DRAGON_ASSERT(sizeof(WAD_ENTRY_V2) == 0x20, "wad_entry_v2 size is not 32");
+    DRAGON_ASSERT(sizeof(wad_entry_v2) == 0x20, "wad_entry_v2 size is not 32");
 
-    using wad_entry_v3 = struct WAD_ENTRY_V3 : wad_entry_v1 {
-        uint16_t chunks_index = 0;
-        uint64_t checksum = 0;
-
-        WAD_ENTRY_V3() = default;
-        WAD_ENTRY_V3(wad_entry_v1 v1) : wad_entry_v1(v1) { // NOLINT(google-explicit-constructor)
-            chunks_index = 0;
-            checksum = 0;
-        }
-        WAD_ENTRY_V3(wad_entry_v2 v2) : wad_entry_v1(v2) { // NOLINT(google-explicit-constructor)
-            chunks_index = 0;
-            checksum = v2.checksum;
-        }
-    };
-    DRAGON_ASSERT(sizeof(WAD_ENTRY_V2) == 0x20, "wad_entry_v2 size is not 32");
-
-    using wad_entry = wad_entry_v3;
+    using wad_entry = wad_entry_v2;
 #pragma pack(pop)
 
     class YORDLE_EXPORT wad_file {
