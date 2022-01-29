@@ -2,7 +2,6 @@ project(TOOL_poppy)
 
 find_package(OpenSSL REQUIRED)
 find_package(CURL REQUIRED)
-find_package(fmt CONFIG REQUIRED)
 find_package(TBB CONFIG REQUIRED)
 
 add_executable(poppy poppy.cpp deploy.cpp download.cpp fetch.cpp)
@@ -16,7 +15,6 @@ target_link_libraries(poppy standard_dragon)
 target_link_libraries(poppy ProgramOptionsHxx)
 target_link_libraries(poppy CURL::libcurl)
 target_link_libraries(poppy OpenSSL::Crypto)
-target_link_libraries(poppy fmt::fmt)
 target_link_libraries(poppy TBB::tbb)
 
 include(GNUInstallDirs)

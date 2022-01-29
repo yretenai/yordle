@@ -1,5 +1,5 @@
 //
-// Created by Lilith on 3/24/2021.
+// Created by Naomi on 3/24/2021.
 //
 
 #include "download.hpp"
@@ -7,7 +7,7 @@
 #include <atomic>
 #include <mutex>
 
-#include <fmt/core.h>
+#include <format>
 
 #include "deploy.hpp"
 
@@ -34,7 +34,7 @@ namespace poppy {
         set<uint64_t> bundle_ids_to_download;
         set<uint64_t> file_ids;
 
-        if (!poppy.pixelbutts_mode) {
+        if (!poppy.all_bundles) {
             if (!poppy.fresh_install) {
                 cout << "finding existing block ids..." << endl;
                 auto bundles = deque<filesystem::path>();
@@ -109,7 +109,7 @@ namespace poppy {
                 }
             }
         } else {
-            cout << "iron stands eternal..." << endl;
+            cout << "downloading all bundles..." << endl;
             for (const auto &bundle : manifest.bundles) {
                 bundle_ids_to_download.emplace(bundle.first);
                 for (const auto &block : *bundle.second) {
@@ -129,7 +129,7 @@ namespace poppy {
             }
             auto dump_file = ofstream(poppy.dump_path, ios::out | ios::trunc);
             for (const auto &bundle_id : bundle_ids_to_download) {
-                auto url = fmt::format(poppy.bundle_url, bundle_id);
+                auto url = format(poppy.bundle_url, bundle_id);
                 dump_file << url << endl;
             }
 
@@ -147,11 +147,11 @@ namespace poppy {
 #else
         for (const auto &bundle_id : bundle_ids) {
 #endif
-            auto url = fmt::format(poppy.bundle_url, bundle_id);
+            auto url = format(poppy.bundle_url, bundle_id);
             print_lock.lock();
             cout << "downloading (" << ++ind << "/" << max << ") " << url << endl;
             print_lock.unlock();
-            auto filename   = fmt::format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_id);
+            auto filename   = format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_id);
             auto cache_path = cache / filename;
             if (filesystem::exists(cache_path)) {
 #ifdef POPPY_THREADING

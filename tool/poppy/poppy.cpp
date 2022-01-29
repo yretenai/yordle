@@ -1,5 +1,5 @@
 //
-// Created by Lilith on 2020-08-25.
+// Created by Naomi on 2020-08-25.
 //
 
 #include <ostream>
@@ -142,8 +142,8 @@ namespace poppy {
         auto &fresh_install = cli["fresh-install"]
                                   .description("do not use bundles from previous versions");
 
-        auto &pixelbutts = cli["pixelbutts"]
-                               .description("Real or FAKE? Data archivers love this guy!");
+        auto &all_bundles = cli["all-bundles"]
+                               .description("Download all bundle files even if they are not referenced");
 
         auto &version = cli["version"]
                             .abbreviation('v')
@@ -177,7 +177,7 @@ namespace poppy {
         poppy.skip_generic         = skip_generic.was_set();
         poppy.generic              = generic.was_set();
         poppy.no_suffix            = no_suffix.was_set();
-        poppy.pixelbutts_mode      = pixelbutts.was_set();
+        poppy.all_bundles          = all_bundles.was_set();
         poppy.decompress           = decompress.was_set();
 
         if (poppy.targets.empty()) {

@@ -2,7 +2,6 @@ project(TOOL_vex)
 
 if (MSVC OR WIN32_CLANG)
     find_package(imgui CONFIG REQUIRED)
-    find_package(fmt CONFIG REQUIRED)
 
     add_executable(vex vex.cpp)
     target_compile_definitions(vex PRIVATE UNICODE)
@@ -11,7 +10,6 @@ if (MSVC OR WIN32_CLANG)
     target_link_libraries(vex standard_dragon)
     target_link_libraries(vex ProgramOptionsHxx)
     target_link_libraries(vex imgui::imgui)
-    target_link_libraries(vex fmt::fmt)
 
     add_subdirectory(device)
     add_subdirectory(mage)

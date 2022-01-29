@@ -1,10 +1,10 @@
 //
-// Created by Lilith on 3/24/2021.
+// Created by Naomi on 3/24/2021.
 //
 
 #include "deploy.hpp"
 
-#include <fmt/core.h>
+#include <format>
 
 using namespace std;
 using namespace yordle::manifest;
@@ -28,7 +28,7 @@ namespace poppy {
             auto bundle = riot_bundle(file);
 
             for (const auto &block : *bundle.blocks) {
-                auto of = ofstream(target_path / fmt::format("{0:16x}.bin", block.block_id), ios::binary | ios::trunc | ios::out);
+                auto of = ofstream(target_path / format("{0:16x}.bin", block.block_id), ios::binary | ios::trunc | ios::out);
                 bundle.read_block(block.block_id, file, of);
                 of.close();
             }
@@ -96,7 +96,7 @@ namespace poppy {
 
                 auto bundle_id = block_to_bundle_map[block_id];
                 if (!bundle_cache.contains(bundle_id)) {
-                    auto bundle_path = std::filesystem::absolute(cache / fmt::format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_id));
+                    auto bundle_path = std::filesystem::absolute(cache / format(POPPY_BUNDLE_FILENAME_FORMAT, bundle_id));
                     if (!filesystem::exists(bundle_path)) {
                         cerr << "err: can't find cached block file " << HEXLOG64 << block_id << endl;
                         continue;

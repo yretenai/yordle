@@ -1,11 +1,11 @@
 //
-// Created by Lilith on 3/24/2021.
+// Created by Naomi on 3/24/2021.
 //
 
 
 #include <string>
 
-#include <fmt/core.h>
+#include <format>
 #include <openssl/sha.h>
 
 #include "download.hpp"
@@ -52,7 +52,7 @@ namespace poppy {
                 filesystem::create_directories(cache);
             }
 
-            auto url = fmt::format(poppy.manifest_url, target);
+            auto url = format(poppy.manifest_url, target);
             cout << "downloading " << url << endl;
             auto data = download_curl(url, 0);
             if (data == nullptr) {
@@ -66,7 +66,7 @@ namespace poppy {
             for (unsigned char i : hash) {
                 str_stream << setfill('0') << setw(2) << hex << (int) i;
             }
-            auto cache_target = cache / fmt::format("{0:s}_{1:s}.json", target, str_stream.str());
+            auto cache_target = cache / format("{0:s}_{1:s}.json", target, str_stream.str());
             if (!poppy.dry_run && !filesystem::exists(cache_target)) {
                 write_file(cache_target, array);
             }
@@ -121,7 +121,7 @@ namespace poppy {
                     filesystem::create_directories(cache);
                 }
 
-                auto url = fmt::format(poppy.manifest_url, configuration, target, poppy.platform);
+                auto url = format(poppy.manifest_url, configuration, target, poppy.platform);
                 cout << "downloading " << url << endl;
                 auto data = download_curl(url, 0);
                 if (data == nullptr) {
@@ -135,7 +135,7 @@ namespace poppy {
                 for (unsigned char i : hash) {
                     str_stream << setfill('0') << setw(2) << hex << (int) i;
                 }
-                auto cache_target = cache / fmt::format("{0:s}_{1:s}_{2:s}.json", target, configuration, str_stream.str());
+                auto cache_target = cache / format("{0:s}_{1:s}_{2:s}.json", target, configuration, str_stream.str());
                 if (!poppy.dry_run && !filesystem::exists(cache_target)) {
                     write_file(cache_target, array);
                 }

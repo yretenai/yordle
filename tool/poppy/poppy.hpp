@@ -1,5 +1,5 @@
 //
-// Created by Lilith on 2021-03-24.
+// Created by Naomi on 2021-03-24.
 //
 
 #pragma once
@@ -62,7 +62,7 @@ namespace poppy {
         bool no_deploy                   = false;
         bool no_sub_configuration        = false;
         bool fresh_install               = false;
-        bool pixelbutts_mode             = false;
+        bool all_bundles                 = false;
         bool skip_generic                = false;
         bool generic                     = false;
         bool no_suffix                   = false;
