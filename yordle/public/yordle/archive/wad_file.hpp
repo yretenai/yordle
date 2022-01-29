@@ -45,7 +45,7 @@ namespace yordle::archive {
         wad_storage_type type : 4 = wad_storage_type::Zstd;
         uint8_t unknown : 4       = 0;
         bool duplicate            = false;
-        uint16_t chunks_index = 0;
+        uint16_t chunks_index     = 0;
     };
     DRAGON_ASSERT(sizeof(wad_entry_v1) == 0x18, "wad_entry_v1 size is not 24");
 

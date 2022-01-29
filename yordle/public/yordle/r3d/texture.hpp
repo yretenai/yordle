@@ -11,8 +11,8 @@ namespace yordle::r3d {
         UNKNOWN0x1 = 1,
         UNKNOWN0x2 = 2,
         UNKNOWN0x3 = 3,
-        BC1 = 10,
-        BC3 = 12
+        BC1        = 10,
+        BC3        = 12
     };
 
     using tex_header_v1 = struct TEX_HEADER_V1 {
@@ -31,16 +31,16 @@ namespace yordle::r3d {
         // todo(naomi): texture
 
     public:
-        tex_header header = {};
-        uint8_t mips = 0;
+        tex_header header                                    = {};
+        uint8_t mips                                         = 0;
         std::shared_ptr<dragon::Array<uint8_t>> surface_data = nullptr;
 
         [[nodiscard]] std::shared_ptr<dragon::Array<uint8_t>> get_surface(int surface, int mip) const {
-            if(surface > header.surfaces) {
+            if (surface > header.surfaces) {
                 return nullptr;
             }
 
-            if(mip > mips) {
+            if (mip > mips) {
                 return nullptr;
             }
 
@@ -48,4 +48,4 @@ namespace yordle::r3d {
             return nullptr;
         }
     };
-}
+} // namespace yordle::r3d
