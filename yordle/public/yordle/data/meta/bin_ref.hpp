@@ -16,8 +16,7 @@ namespace yordle::data::meta {
     using bin_xx_hash  = uint64_t;
 
     template<typename T>
-    class YORDLE_EXPORT bin_ref {
-    public:
+    struct YORDLE_EXPORT bin_ref {
         explicit bin_ref() = default;
         explicit bin_ref(uint32_t expected_type) : type(expected_type) {
         }

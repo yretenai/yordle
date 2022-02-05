@@ -16,8 +16,7 @@ namespace yordle::data::meta {
     using prop_arg = const std::shared_ptr<yordle::data::prop::structure_prop> &;
     using prop_ret = std::shared_ptr<yordle::data::meta::bin_class>;
 
-    class YORDLE_EXPORT bin_dispatch {
-    public:
+    struct YORDLE_EXPORT bin_dispatch {
         static std::map<uint32_t, std::function<prop_ret(prop_arg)>> table;
 
         static void load_table();

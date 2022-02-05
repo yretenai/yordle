@@ -46,7 +46,7 @@ namespace yordle::data::meta {
         explicit %{NAME}(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return %{TYPE_CHECK};
+            return type == %{HASH}%{TYPE_CHECK};
         }
 
 %{PROPERTIES}
@@ -68,10 +68,7 @@ namespace yordle::data::meta {
     public const string BIN_CLASS_DEF_CLASS_REF = @"    struct %{REF};";
     
     // language=c++
-    public const string BIN_CLASS_DEF_CLASS_IS_TYPE_BASELESS = @"type == %{HASH}";
-    
-    // language=c++
-    public const string BIN_CLASS_DEF_CLASS_IS_TYPE = @"type == %{HASH} || %{BASE_CLASS}.is_type(type);";
+    public const string BIN_CLASS_DEF_CLASS_IS_TYPE = @"|| %{BASE_CLASS}.is_type(type)";
     
     // language=c++
     public const string BIN_CLASS_DEF_CLASS_PROPERTY = @"        %{TYPE} %{NAME} = %{DEFAULT}";
