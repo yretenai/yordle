@@ -12,8 +12,7 @@
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-    class YORDLE_EXPORT bin_class {
-    public:
+    struct YORDLE_EXPORT bin_class {
         explicit bin_class(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) {
             if (prop == nullptr) {
                 return;
