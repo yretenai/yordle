@@ -102,7 +102,7 @@ namespace Yordle.CodeGen.PropertyBin {
                         properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY, new Dictionary<string, object> {
                             ["type"] = "uint8_t",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.GetByte(),
+                            ["default"] = defaultValue.GetByte() + "u",
                         }));
                         break;
                     case ClassPropertyType.I16:
@@ -122,7 +122,7 @@ namespace Yordle.CodeGen.PropertyBin {
                         properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY, new Dictionary<string, object> {
                             ["type"] = "int16_t",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.GetInt16(),
+                            ["default"] = defaultValue.GetUInt16() + "u",
                         }));
                         break;
                     case ClassPropertyType.I32:
@@ -142,7 +142,7 @@ namespace Yordle.CodeGen.PropertyBin {
                         properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY, new Dictionary<string, object> {
                             ["type"] = "uint32_t",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.GetUInt32(),
+                            ["default"] = defaultValue.GetUInt32() + "u",
                         }));
                         break;
                     case ClassPropertyType.I64:
@@ -162,14 +162,14 @@ namespace Yordle.CodeGen.PropertyBin {
                         properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY, new Dictionary<string, object> {
                             ["type"] = "uint64_t",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.GetUInt64(),
+                            ["default"] = defaultValue.GetUInt64() + "u",
                         }));
                         break;
                     case ClassPropertyType.F32:
                         properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY, new Dictionary<string, object> {
                             ["type"] = "float",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.GetSingle(),
+                            ["default"] = defaultValue.ToString(),
                         }));
                         break;
                     case ClassPropertyType.Vec2:
