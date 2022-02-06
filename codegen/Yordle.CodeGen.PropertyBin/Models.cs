@@ -4,9 +4,15 @@ using System.Text.Json.Serialization;
 
 namespace Yordle.CodeGen.PropertyBin;
 
-public record Meta(Dictionary<string, Class> Classes, string Version);
+public record Meta {
+    [JsonConverter(typeof(HashLookupMapConverter<Class>))]
+    public Dictionary<string, Class> Classes { get; set; } = new();
+
+    public string Version { get; set; } = "1.0.0.0";
+}
 
 public record Class {
+    [JsonConverter(typeof(HashLookupConverter))]
     public string? Base { get; set; }
 
     [JsonPropertyName("secondary_bases")]
@@ -19,6 +25,9 @@ public record Class {
     private int Alignment { get; set; }
     private ClassFlags Is { get; set; } = new();
     private ClassFunctions Fn { get; set; } = new();
+    [JsonConverter(typeof(HashLookupMapConverter<ClassProperties>))]
+    public Dictionary<string, ClassProperties>? Properties { get; set; }
+    [JsonConverter(typeof(HashLookupMapConverter<JsonElement>))]
     public Dictionary<string, JsonElement>? Defaults { get; set; } 
 }
 
@@ -53,6 +62,7 @@ public record ClassFunctions {
 
 public record ClassProperties {
     [JsonPropertyName("other_class")]
+    [JsonConverter(typeof(HashLookupConverter))]
     public string? OtherClass { get; set; }
 
     public int Offset { get; set; }
@@ -106,7 +116,7 @@ public record ClassPropertyContainer {
     public int ValueSize { get; set; }
 
     [JsonPropertyName("fixed_size")]
-    public int FixedSize { get; set; }
+    public int? FixedSize { get; set; }
 
     public string? Storage { get; set; }
 }
