@@ -70,7 +70,7 @@ namespace Yordle.CodeGen.PropertyBin {
 
             metaClass.Defaults ??= new Dictionary<(string Name, uint Hash), JsonElement>();
             
-            foreach (var ((propertyName, propertyHash), property) in metaClass.Properties ?? new Dictionary<(string Name, uint Hash), ClassProperties>()) {
+            foreach (var ((propertyName, propertyHash), property) in (metaClass.Properties ?? new Dictionary<(string Name, uint Hash), ClassProperties>()).OrderBy(x => x.Value.Offset)) {
                 if (!metaClass.Defaults.TryGetValue((propertyName, propertyHash), out var defaultValue)) {
                     defaultValue = default;
                 }
