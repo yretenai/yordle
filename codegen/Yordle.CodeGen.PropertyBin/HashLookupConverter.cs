@@ -9,7 +9,7 @@ using System.Text.Json.Serialization;
 
 namespace Yordle.CodeGen.PropertyBin; 
 
-public class HashLookupConverter : JsonConverter<string?> {
+public class HashLookupConverter : JsonConverter<(string?, uint)> {
     public static Dictionary<uint, string> HashMap { get; } = new();
 
     static HashLookupConverter() {
@@ -37,27 +37,24 @@ public class HashLookupConverter : JsonConverter<string?> {
         }
     }
 
-    public override string? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
-        if (reader.TokenType != JsonTokenType.String && reader.TokenType != JsonTokenType.PropertyName) {
-            return null;
+    public override (string?, uint) Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
+        if (reader.TokenType != JsonTokenType.String &&
+            reader.TokenType != JsonTokenType.PropertyName) {
+            return (null, 0);
         }
 
         var text = reader.GetString();
         if (text == null ||
-            text.Length < 10 ||
+            text.Length < 3 ||
             !text.StartsWith("0x")) {
-            return text;
+            return (text, 0);
         }
 
-        try {
-            var hash = uint.Parse(text[2..], NumberStyles.HexNumber);
-            return HashMap.TryGetValue(hash, out var value) ? value : text[1..];
-        } catch {
-            return text;
-        }
+        var hash = uint.Parse(text[2..], NumberStyles.HexNumber);
+        return (HashMap.TryGetValue(hash, out var value) ? value : text[1..], hash);
     }
 
-    public override void Write(Utf8JsonWriter writer, string? value, JsonSerializerOptions options) {
+    public override void Write(Utf8JsonWriter writer, (string?, uint) value, JsonSerializerOptions options) {
         throw new NotSupportedException();
     }
 }

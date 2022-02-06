@@ -1,4 +1,8 @@
-﻿namespace Yordle.CodeGen.PropertyBin; 
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+
+namespace Yordle.CodeGen.PropertyBin; 
 
 public static class Templates {
     // language=c++
@@ -125,4 +129,17 @@ if(ptr_%{LEVEL}_%{NAME} != nullptr) {
     }
 }
 ";
+
+    public static string CompileTemplate(string template, Dictionary<string, object> values) {
+        foreach (var (key, value) in values) {
+            template = template.Replace($"%{{{key.ToUpper()}}}", value.ToString());
+        }
+
+        if (template.Contains("%{")) {
+            Debug.WriteLine(template);
+            throw new InvalidDataException("template needs more variables, see debug stack");
+        }
+
+        return template;
+    }
 }

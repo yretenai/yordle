@@ -6,14 +6,14 @@ namespace Yordle.CodeGen.PropertyBin;
 
 public record Meta {
     [JsonConverter(typeof(HashLookupMapConverter<Class>))]
-    public Dictionary<string, Class> Classes { get; set; } = new();
+    public Dictionary<(string Name, uint Hash), Class> Classes { get; set; } = new();
 
     public string Version { get; set; } = "1.0.0.0";
 }
 
 public record Class {
     [JsonConverter(typeof(HashLookupConverter))]
-    public string? Base { get; set; }
+    public (string? Name, uint Hash) Base { get; set; }
 
     [JsonPropertyName("secondary_bases")]
     private Dictionary<string, int> SecondaryBases { get; set; } = new();
@@ -26,9 +26,9 @@ public record Class {
     private ClassFlags Is { get; set; } = new();
     private ClassFunctions Fn { get; set; } = new();
     [JsonConverter(typeof(HashLookupMapConverter<ClassProperties>))]
-    public Dictionary<string, ClassProperties>? Properties { get; set; }
+    public Dictionary<(string Name, uint Hash), ClassProperties>? Properties { get; set; }
     [JsonConverter(typeof(HashLookupMapConverter<JsonElement>))]
-    public Dictionary<string, JsonElement>? Defaults { get; set; } 
+    public Dictionary<(string Name, uint Hash), JsonElement>? Defaults { get; set; } 
 }
 
 public record ClassFlags {
@@ -63,7 +63,7 @@ public record ClassFunctions {
 public record ClassProperties {
     [JsonPropertyName("other_class")]
     [JsonConverter(typeof(HashLookupConverter))]
-    public string? OtherClass { get; set; }
+    public (string? Name, uint Hash) OtherClass { get; set; }
 
     public int Offset { get; set; }
     public int Bitmask { get; set; }

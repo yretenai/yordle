@@ -5,6 +5,13 @@ namespace Yordle.CodeGen.PropertyBin {
     public static class Program {
         public static void Main(string[] args) {
             var meta = JsonSerializer.Deserialize<Meta>(File.ReadAllText(args[0]), new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase});
+            if (meta == null) {
+                return;
+            }
+
+            foreach (var (metaName, metaClass) in meta.Classes) {
+                
+            }
         }
     }
 }
