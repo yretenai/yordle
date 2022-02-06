@@ -15,16 +15,16 @@ public record Class {
     [JsonConverter(typeof(HashLookupConverter))]
     public (string? Name, uint Hash) Base { get; set; }
 
-    [JsonPropertyName("secondary_bases")]
-    private Dictionary<string, int> SecondaryBases { get; set; } = new();
+    [JsonPropertyName("secondary_bases"), JsonConverter(typeof(HashLookupMapConverter<int>))]
+    public Dictionary<(string Name, uint Hash), int> SecondaryBases { get; set; } = new();
 
-    [JsonPropertyName("secondary_children")]
-    private Dictionary<string, int> SecondaryChildren { get; set; } = new();
+    [JsonPropertyName("secondary_children"), JsonConverter(typeof(HashLookupMapConverter<int>))]
+    public Dictionary<(string Name, uint Hash), int> SecondaryChildren { get; set; } = new();
 
-    private int Size { get; set; }
-    private int Alignment { get; set; }
-    private ClassFlags Is { get; set; } = new();
-    private ClassFunctions Fn { get; set; } = new();
+    public int Size { get; set; }
+    public int Alignment { get; set; }
+    public ClassFlags Is { get; set; } = new();
+    public ClassFunctions Fn { get; set; } = new();
     [JsonConverter(typeof(HashLookupMapConverter<ClassProperties>))]
     public Dictionary<(string Name, uint Hash), ClassProperties>? Properties { get; set; }
     [JsonConverter(typeof(HashLookupMapConverter<JsonElement>))]
