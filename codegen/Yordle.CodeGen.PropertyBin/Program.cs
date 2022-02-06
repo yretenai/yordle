@@ -34,30 +34,33 @@ namespace Yordle.CodeGen.PropertyBin {
             var dispatchTable = new List<string>();
             
             foreach (var ((metaName, metaHash), metaClass) in meta.Classes) {
-                try {
-                    var headerSource = BuildHeader(metaName, metaHash, metaClass, headerOutputDefs);
-                    dispatchReferences.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_BASE_REF, new Dictionary<string, object> {
-                        ["name"] = metaName,
-                    }));
-                    dispatchTable.Add(Templates.CompileTemplate(Templates.BIN_DISPATCH_ENTRY, new Dictionary<string, object> {
-                        ["hash"] = metaHash,
-                        ["name"] = metaName,
-                    }));
-                    File.WriteAllText(Path.Combine(headerOutputDefs, $"{metaName}.cpp"), headerSource + "\n");
-                } catch {
-                    
-                }
+                var header = BuildHeader(metaName, metaHash, metaClass);
+                var source = BuildSource(metaName, metaHash, metaClass);
+                dispatchReferences.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_BASE_REF, new Dictionary<string, object> {
+                    ["name"] = metaName,
+                }));
+                dispatchTable.Add(Templates.CompileTemplate(Templates.BIN_DISPATCH_ENTRY, new Dictionary<string, object> {
+                    ["hash"] = metaHash,
+                    ["name"] = metaName,
+                }));
+                File.WriteAllText(Path.Combine(headerOutputDefs, $"{metaName}.hpp"), header + "\n");
+                File.WriteAllText(Path.Combine(sourceOutputDefs, $"{metaName}.cpp"), source + "\n");
             }
 
             var dispatch = Templates.CompileTemplate(Templates.BIN_DISPATCH_MAIN, new Dictionary<string, object> {
-                    ["bin_ref"] = dispatchReferences,
-                    ["table_entries"] = dispatchTable,
-                });
+                ["bin_ref"] = dispatchReferences,
+                ["table_entries"] = dispatchTable,
+            });
             
             File.WriteAllText(Path.Combine(sourceOutput, "bin_dispatch.cpp"), dispatch + "\n");
         }
 
-        private static string BuildHeader(string metaName, uint metaHash, Class metaClass, string output) {
+        private static string BuildSource(string metaName, uint metaHash, Class metaClass) {
+            // TODO.
+            return string.Empty;
+        }
+
+        private static string BuildHeader(string metaName, uint metaHash, Class metaClass) {
             var stdlib = new HashSet<string> {
                 Templates.CompileTemplate(Templates.BIN_CLASS_DEF_STDLIB_REF,  new Dictionary<string, object> {
                     ["name"] = "memory",
@@ -87,8 +90,8 @@ namespace Yordle.CodeGen.PropertyBin {
                         break;
                     case ClassPropertyType.I8:
                         stdlib.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_STDLIB_REF, new Dictionary<string, object> {
-                                    ["name"] = "cstdint",
-                                }));
+                            ["name"] = "cstdint",
+                        }));
                         properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY, new Dictionary<string, object> {
                             ["type"] = "int8_t",
                             ["name"] = propertyName,
@@ -255,7 +258,7 @@ namespace Yordle.CodeGen.PropertyBin {
                         }));
                         Debug.Assert(defaultValue.GetArrayLength() == 0);
                         properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY, new Dictionary<string, object> {
-                            ["type"] = $"std::vector<{GetContainerType(property.Container, fwdDeclare, references)}>",
+                            ["type"] = $"std::vector<{GetContainerType(property.Container, fwdDeclare, references, stdlib)}>",
                             ["name"] = propertyName,
                             ["default"] = "{}",
                         }));
@@ -266,7 +269,7 @@ namespace Yordle.CodeGen.PropertyBin {
                         }));
                         Debug.Assert(defaultValue.GetArrayLength() == 0);
                         properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY, new Dictionary<string, object> {
-                            ["type"] = $"std::vector<{GetContainerType(property.Container, fwdDeclare, references)}>",
+                            ["type"] = $"std::vector<{GetContainerType(property.Container, fwdDeclare, references, stdlib)}>",
                             ["name"] = propertyName,
                             ["default"] = "{}",
                         }));
@@ -326,7 +329,7 @@ namespace Yordle.CodeGen.PropertyBin {
                         }));
                         Debug.Assert(defaultValue.ValueKind == JsonValueKind.Null);
                         properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY, new Dictionary<string, object> {
-                            ["type"] = $"std::optional<{GetContainerType(property.Container, fwdDeclare, references)}>",
+                            ["type"] = $"std::optional<{GetContainerType(property.Container, fwdDeclare, references, stdlib)}>",
                             ["name"] = propertyName,
                             ["default"] = "{}",
                         }));
@@ -337,7 +340,7 @@ namespace Yordle.CodeGen.PropertyBin {
                         }));
                         Debug.Assert(defaultValue.GetArrayLength() == 0);
                         properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY, new Dictionary<string, object> {
-                            ["type"] = $"std::map<{GetRawType(property.Map?.KeyType)}, {GetRawType(property.Map?.ValueType)}>",
+                            ["type"] = $"std::map<{GetRawType(property.Map?.KeyType, stdlib)}, {GetRawType(property.Map?.ValueType, stdlib)}>",
                             ["name"] = propertyName,
                             ["default"] = "{}",
                         }));
@@ -405,11 +408,11 @@ namespace Yordle.CodeGen.PropertyBin {
                 });
         }
 
-        private static string GetRawType(ClassPropertyType? mapValueType) {
+        private static string GetRawType(ClassPropertyType? mapValueType, HashSet<string> stdlib) {
             throw new NotImplementedException();
         }
 
-        private static string GetContainerType(ClassPropertyContainer? propertyContainer, HashSet<string> fwdDecalre, HashSet<string> binRef) {
+        private static string GetContainerType(ClassPropertyContainer? propertyContainer, HashSet<string> fwdDecalre, HashSet<string> binRef, HashSet<string> stdlib) {
             throw new NotImplementedException();
         }
     }
