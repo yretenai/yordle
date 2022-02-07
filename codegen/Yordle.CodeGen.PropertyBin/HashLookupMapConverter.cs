@@ -12,13 +12,14 @@ public class HashLookupMapConverter<T> : JsonConverter<Dictionary<(string, uint)
         if (originalDict == null) {
             return null;
         }
-        
+
         var dict = new Dictionary<(string, uint), T>();
         foreach (var (text, value) in originalDict) {
-            if (text.Length < 3 || !text.StartsWith("0x")) {
+            if (text.Length < 3 ||
+                !text.StartsWith("0x")) {
                 dict[(text, 0)] = value;
             }
-            
+
             var hash = uint.Parse(text[2..], NumberStyles.HexNumber);
             dict[(HashLookupConverter.HashMap.TryGetValue(hash, out var name) ? name : text[1..], hash)] = value;
         }

@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 
-namespace Yordle.CodeGen.PropertyBin; 
+namespace Yordle.CodeGen.PropertyBin;
 
 public static class Templates {
     // language=c++
@@ -24,7 +24,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
 %{TABLE_ENTRIES}
 }
 ";
-    
+
     // language=c++
     public const string BIN_DISPATCH_ENTRY = @"    table[%{HASH}] = [](prop_arg prop) { return make_shared<yordle::data::meta::%{NAME}>(prop); };";
 
@@ -53,21 +53,22 @@ namespace yordle::data::meta {
     }
 }
 ";
-    
+
     // language=c++
     public const string BIN_CLASS_DEF_BASE_REF = @"#include <yordle/data/meta/bin_defs/%{NAME}.hpp>";
+
     // language=c++
     public const string BIN_CLASS_DEF_PROP_REF = @"#include <yordle/data/prop/%{NAME}_prop.hpp>";
-    
+
     // language=c++
     public const string BIN_CLASS_DEF_STDLIB_REF = @"#include <%{NAME}>";
-    
+
     // language=c++
     public const string BIN_CLASS_DEF_CLASS_REF = @"    struct %{REF};";
-    
+
     // language=c++
     public const string BIN_CLASS_DEF_CLASS_IS_TYPE = @"|| %{BASE_CLASS}.is_type(type)";
-    
+
     // language=c++
     public const string BIN_CLASS_DEF_CLASS_PROPERTY = @"        %{TYPE} %{NAME} = %{DEFAULT};";
 
@@ -77,7 +78,7 @@ namespace yordle::data::meta {
 
 %{CLASS_REF}
 
-yordle::data::meta::%{NAME}::%{NAME}(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::%{BASE_CLASS}(prop) {
+yordle::data::meta::%{NAME}::%{NAME}(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : %{BASE_CLASS} {
     if(prop == nullptr) {
         return;
     }
@@ -87,38 +88,73 @@ yordle::data::meta::%{NAME}::%{NAME}(const std::shared_ptr<yordle::data::prop::s
 ";
 
     // language=c++
+    public const string BIN_CLASS_IMPL_BASE = @"yordle::data::meta::%{NAME}(prop)";
+
+    // language=c++
     public const string BIN_CLASS_IMPL_VALUE = @"
-auto ptr_%{LEVEL}_%{NAME} = prop->cast_prop<%{TYPE}>(%{HASH});
-if(ptr_%{LEVEL}_%{NAME} != nullptr) {
-    %{SUB_LOGIC}
+auto ptr_%{NAME} = prop->cast_prop<%{TYPE}>(%{HASH});
+if(ptr_%{NAME} != nullptr) {
+    %{NAME} = %{SUB_LOGIC};
 }
 ";
 
     // language=c++
-    public const string BIN_CLASS_IMPL_VALUE_SUB_LOGIC = @"%{NAME} = ptr_%{PTR_NAME}->value;";
+    public const string BIN_CLASS_IMPL_VALUE_SUB_LOGIC = @"ptr_%{NAME}->value";
+
+    // language=c++
+    public const string BIN_CLASS_IMPL_VALUE_SUB_LOGIC_BIT = @"(ptr_%{NAME}->value & %{BIT}) == %{BIT}";
+
+    // language=c++
+    public const string BIN_CLASS_IMPL_VALUE_SUB_LOGIC_POINTER = @"yordle::data::meta::deserialize<yordle::data::meta::%{CLASS}>(ptr_%{NAME}, %{HASH})";
+
+    // language=c++
+    public const string BIN_CLASS_IMPL_VALUE_SUB_LOGIC_EMBED = @"yordle::data::meta::bin_ref<yordle::data::meta::%{CLASS}>(%{HASH}, ptr_%{NAME}.value)";
+
+    // language=c++
+    public const string BIN_CLASS_IMPL_VALUE_SUB_LOGIC_OPTIONAL = @"
+auto ptr_%{NAME}_opt = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::%{VALUE_TYPE}>(ptr_${NAME}->value);
+if (ptr_%{NAME}_opt != nullptr) {
+    %{NAME} = %{SUB_LOGIC};
+}
+";
 
     // language=c++
     public const string BIN_CLASS_IMPL_SET = @"
-auto ptr_%{LEVEL}_%{NAME} = prop->cast_prop<%{TYPE}>(%{HASH});
-if(ptr_%{LEVEL}_%{NAME} != nullptr) {
-    for(const auto &set_%{LEVEL}_%{NAME}_entry : ptr_%{LEVEL}_%{NAME}->value) {
-        auto ptr_%{LEVEL}_%{NAME}_entry = yordle::data::prop::empty_prop::cast_prop<%{VALUE_TYPE}>(set_%{LEVEL}_%{NAME}_entry);
-        if(ptr_%{LEVEL}_%{NAME}_entry != nullptr) {
-            %{SUB_LOGIC}
+auto ptr_%{NAME} = prop->cast_prop<%{TYPE}>(%{HASH});
+if(ptr_%{NAME} != nullptr) {
+    for(const auto &set_%{NAME}_entry : ptr_%{NAME}->value) {
+        auto ptr_%{NAME}_entry = yordle::data::prop::empty_prop::cast_prop<%{VALUE_TYPE}>(set_%{NAME}_entry);
+        if(ptr_%{NAME}_entry != nullptr) {
+            %{NAME}.emplace_back(%{SUB_LOGIC});
         }
     }
 }
 ";
 
     // language=c++
+    public const string BIN_CLASS_IMPL_FIXED_SET = @"
+auto ptr_%{NAME} = prop->cast_prop<%{TYPE}>(%{HASH});
+if(ptr_%{NAME} != nullptr) {
+    auto index_%{NAME} = 0;
+    for(const auto &set_%{NAME}_entry : ptr_%{NAME}->value) {
+        auto ptr_%{NAME}_entry = yordle::data::prop::empty_prop::cast_prop<%{VALUE_TYPE}>(set_%{NAME}_entry);
+        if(ptr_%{NAME}_entry != nullptr) {
+            %{NAME}[index_%{NAME}] = %{SUB_LOGIC};
+        }
+        index_%{NAME}++;
+    }
+}
+";
+
+    // language=c++
     public const string BIN_CLASS_IMPL_MAP = @"
-auto ptr_%{LEVEL}_%{NAME} = prop->cast_prop<%{TYPE}>(%{HASH});
-if(ptr_%{LEVEL}_%{NAME} != nullptr) {
-    for(const auto &set_%{LEVEL}_%{NAME}_pair : ptr_%{LEVEL}_%{NAME}->value) {
-        auto ptr_%{LEVEL}_%{NAME}_key = yordle::data::prop::empty_prop::cast_prop<%{KEY_TYPE}>(set_%{LEVEL}_%{NAME}_pair.first);
-        auto ptr_%{LEVEL}_%{NAME}_value = yordle::data::prop::empty_prop::cast_prop<%{VALUE_TYPE}>(set_%{LEVEL}_%{NAME}_pair.second);
-        if(ptr_%{LEVEL}_%{NAME}_key != nullptr && ptr_%{LEVEL}_%{NAME}_value != nullptr) {
-            %{SUB_LOGIC}
+auto ptr_%{NAME} = prop->cast_prop<%{TYPE}>(%{HASH});
+if(ptr_%{NAME} != nullptr) {
+    for(const auto &set_%{NAME}_pair : ptr_%{NAME}->value) {
+        auto ptr_%{NAME}_key = yordle::data::prop::empty_prop::cast_prop<%{KEY_TYPE}>(set_%{NAME}_pair.first);
+        auto ptr_%{NAME}_value = yordle::data::prop::empty_prop::cast_prop<%{VALUE_TYPE}>(set_%{NAME}_pair.second);
+        if(ptr_%{NAME}_key != nullptr && ptr_%{NAME}_value != nullptr) {
+            %{NAME}.emplace(%{SUB_LOGIC_KEY}, %{SUB_LOGIC_VALUE});
         }
     }
 }
@@ -130,7 +166,7 @@ if(ptr_%{LEVEL}_%{NAME} != nullptr) {
             if (value is IEnumerable<string> enumerable) {
                 value = string.Join('\n', enumerable);
             }
-            
+
             template = template.Replace($"%{{{key.ToUpper()}}}", value.ToString());
         }
 

@@ -25,10 +25,12 @@ public record Class {
     public int Alignment { get; set; }
     public ClassFlags Is { get; set; } = new();
     public ClassFunctions Fn { get; set; } = new();
+
     [JsonConverter(typeof(HashLookupMapConverter<ClassProperties>))]
     public Dictionary<(string Name, uint Hash), ClassProperties>? Properties { get; set; }
+
     [JsonConverter(typeof(HashLookupMapConverter<JsonElement>))]
-    public Dictionary<(string Name, uint Hash), JsonElement>? Defaults { get; set; } 
+    public Dictionary<(string Name, uint Hash), JsonElement>? Defaults { get; set; }
 }
 
 public record ClassFlags {
@@ -61,8 +63,7 @@ public record ClassFunctions {
 }
 
 public record ClassProperties {
-    [JsonPropertyName("other_class")]
-    [JsonConverter(typeof(HashLookupConverter))]
+    [JsonPropertyName("other_class"), JsonConverter(typeof(HashLookupConverter))]
     public (string? Name, uint Hash) OtherClass { get; set; }
 
     public int Offset { get; set; }

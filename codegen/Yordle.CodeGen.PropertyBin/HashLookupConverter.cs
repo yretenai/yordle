@@ -7,16 +7,16 @@ using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Yordle.CodeGen.PropertyBin; 
+namespace Yordle.CodeGen.PropertyBin;
 
 public class HashLookupConverter : JsonConverter<(string?, uint)> {
-    public static Dictionary<uint, string> HashMap { get; } = new();
-
     static HashLookupConverter() {
         ProcessHashes("binfields");
         ProcessHashes("binhashes");
         ProcessHashes("bintypes");
     }
+
+    public static Dictionary<uint, string> HashMap { get; } = new();
 
     private static void ProcessHashes(string type) {
         var cwd = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "./";
