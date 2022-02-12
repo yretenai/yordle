@@ -311,7 +311,7 @@ namespace vex::device {
             if (FAILED(hr)) {
                 CLEANUP_RELEASE(resource);
                 CLEANUP_RELEASE(raw_ptr);
-                vex::post_message("can't create dds texture");
+                vex::post_message(std::string("can't create dds texture") + std::to_string(texture_path));
                 return nullptr;
             }
 
