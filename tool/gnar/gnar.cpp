@@ -6,7 +6,10 @@
 #include <standard_dragon/hash/fnv1a.hpp>
 #include <standard_dragon/WemSoundbank.hpp>
 
-#include <yordle/data/meta/bin_class_def.hpp>
+#include <yordle/data/meta/bin_defs/BankUnit.hpp>
+#include <yordle/data/meta/bin_defs/FeatureAudioDataProperties.hpp>
+#include <yordle/data/meta/bin_defs/MapAudioDataProperties.hpp>
+#include <yordle/data/meta/bin_defs/SkinCharacterDataProperties.hpp>
 
 #include "gnar.hpp"
 
@@ -446,11 +449,11 @@ int main(int argc, char **argv) {
                     continue;
                 }
 
-                if (skin->skinAudioProperties == nullptr) {
+                if (skin->SkinAudioProperties == nullptr) {
                     continue;
                 }
 
-                process_bank_units(gnar, "Skin", skin->skinAudioProperties->bankUnits, skin->skinAudioProperties->tagEventList, done_units);
+                process_bank_units(gnar, "Skin", skin->SkinAudioProperties->bankUnits, skin->SkinAudioProperties->tagEventList, done_units);
             } else if (gnar.process_map) {
                 vector<string> empty_tags;
                 if (obj->class_hash == 0xb36da9ac) {

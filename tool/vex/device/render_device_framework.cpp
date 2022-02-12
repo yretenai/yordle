@@ -4,6 +4,7 @@
 
 #include <algorithm>
 
+#include <yordle/data/meta/bin_defs/SkinCharacterDataProperties.hpp>
 #include "../vex.hpp"
 
 namespace vex::device {

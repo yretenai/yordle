@@ -2,6 +2,9 @@
 // Created by Lilith on 2021-06-24.
 //
 
+#include <yordle/data/meta/bin_defs/MaterialInstanceDef.hpp>
+#include <yordle/data/meta/bin_defs/StaticMaterialDef.hpp>
+
 #include "skinned_mesh_container.hpp"
 #include "../device/render_device_framework.hpp"
 #include "../vex.hpp"
@@ -85,8 +88,8 @@ namespace vex::mage {
             if (override->material.key != 0) {
                 auto override_material = override->material.get(prop_bin);
                 if (override_material != nullptr) {
-                    materials[override->submesh] = override_material;
-                    is_hybrid[override->submesh] = override_material->is_type(3883795674);
+                    materials[override->Submesh] = override_material;
+                    is_hybrid[override->Submesh] = override_material->is_type(3883795674);
                 }
             }
         }

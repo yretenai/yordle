@@ -7,7 +7,9 @@
 
 #include <memory>
 
-#include <yordle/data/meta/bin_class_def.hpp>
+#include <yordle/data/meta/bin_defs/SkinMeshDataProperties.hpp>
+#include <yordle/data/meta/bin_defs/HybridMaterialDef.hpp>
+#include <yordle/data/meta/bin_defs/CustomShaderDef.hpp>
 #include <yordle/r3d/skinned_mesh.hpp>
 
 namespace vex::device {
