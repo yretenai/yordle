@@ -26,8 +26,8 @@ public record Class {
     public ClassFlags Is { get; set; } = new();
     public ClassFunctions Fn { get; set; } = new();
 
-    [JsonConverter(typeof(HashLookupMapConverter<ClassProperties>))]
-    public Dictionary<(string Name, uint Hash), ClassProperties>? Properties { get; set; }
+    [JsonConverter(typeof(HashLookupMapConverter<ClassProperty>))]
+    public Dictionary<(string Name, uint Hash), ClassProperty>? Properties { get; set; }
 
     [JsonConverter(typeof(HashLookupMapConverter<JsonElement>))]
     public Dictionary<(string Name, uint Hash), JsonElement>? Defaults { get; set; }
@@ -62,7 +62,7 @@ public record ClassFunctions {
     public string? UpcastSecondary { get; set; }
 }
 
-public record ClassProperties {
+public record ClassProperty {
     [JsonPropertyName("other_class"), JsonConverter(typeof(HashLookupConverter))]
     public (string? Name, uint Hash) OtherClass { get; set; }
 

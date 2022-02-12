@@ -20,10 +20,10 @@ public static class Program {
             return;
         }
 
-        var headerOutput = Path.Combine(args[1], "public");
-        var sourceOutput = Path.Combine(args[1], "private");
-        var headerOutputDefs = Path.Combine(args[1], "public", "bin_defs");
-        var sourceOutputDefs = Path.Combine(args[1], "private", "bin_defs");
+        var headerOutput = Path.Combine(args[1], "public", "yordle", "data", "meta");
+        var sourceOutput = Path.Combine(args[1], "private", "data", "meta");
+        var headerOutputDefs = Path.Combine(headerOutput, "bin_defs");
+        var sourceOutputDefs = Path.Combine(sourceOutput, "bin_defs");
 
         if (!Directory.Exists(headerOutputDefs)) {
             Directory.CreateDirectory(headerOutputDefs);
@@ -35,24 +35,24 @@ public static class Program {
 
         var dispatchReferences = new List<string>();
         var dispatchTable = new List<string>();
+        var cmakeNames = new List<string>();
 
         foreach (var ((metaName, metaHash), metaClass) in meta.Classes) {
-            try {
-                var header = BuildHeader(metaName, metaHash, metaClass);
-                var source = BuildSource(metaName, metaHash, metaClass);
-                dispatchReferences.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_BASE_REF,
-                    new Dictionary<string, object> {
-                        ["name"] = metaName,
-                    }));
-                dispatchTable.Add(Templates.CompileTemplate(Templates.BIN_DISPATCH_ENTRY,
-                    new Dictionary<string, object> {
-                        ["hash"] = metaHash,
-                        ["name"] = metaName,
-                    }));
-                File.WriteAllText(Path.Combine(headerOutputDefs, $"{metaName}.hpp"), header + "\n");
-                File.WriteAllText(Path.Combine(sourceOutputDefs, $"{metaName}.cpp"), source + "\n");
-                Console.WriteLine(metaName);
-            } catch { }
+            Console.WriteLine(metaName);
+            var header = BuildHeader(metaName, metaHash, metaClass);
+            File.WriteAllText(Path.Combine(headerOutputDefs, $"{metaName}.hpp"), header + "\n");
+            var source = BuildSource(metaName, metaHash, metaClass);
+            File.WriteAllText(Path.Combine(sourceOutputDefs, $"{metaName}.cpp"), source + "\n");
+            dispatchReferences.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_BASE_REF,
+                new Dictionary<string, object> {
+                    ["name"] = metaName,
+                }));
+            dispatchTable.Add(Templates.CompileTemplate(Templates.BIN_DISPATCH_ENTRY,
+                new Dictionary<string, object> {
+                    ["hash"] = metaHash,
+                    ["name"] = metaName,
+                }));
+            cmakeNames.Add($"{metaName}.cpp");
         }
 
         var dispatch = Templates.CompileTemplate(Templates.BIN_DISPATCH_MAIN,
@@ -62,13 +62,20 @@ public static class Program {
             });
 
         File.WriteAllText(Path.Combine(sourceOutput, "bin_dispatch.cpp"), dispatch + "\n");
+
+        var cmake = Templates.CompileTemplate(Templates.CMAKE_DEFINE,
+            new Dictionary<string, object> {
+                ["names"] = cmakeNames.Select(x => $"    {x}"),
+            });
+
+        File.WriteAllText(Path.Combine(sourceOutput, "bin_defs", "CMakeLists.txt"), cmake + "\n");
     }
 
     private static string BuildSource(string metaName, uint metaHash, Class metaClass) {
         var references = new HashSet<string>();
         var properties = new List<string>();
 
-        foreach (var ((propertyName, propertyHash), property) in (metaClass.Properties ?? new Dictionary<(string Name, uint Hash), ClassProperties>()).OrderBy(x => x.Value.Offset)) {
+        foreach (var ((propertyName, propertyHash), property) in (metaClass.Properties ?? new Dictionary<(string Name, uint Hash), ClassProperty>()).OrderBy(x => x.Value.Offset)) {
             switch (property.ValueType) {
                 case ClassPropertyType.Bool:
                 case ClassPropertyType.I8:
@@ -89,24 +96,23 @@ public static class Program {
                 case ClassPropertyType.Hash:
                 case ClassPropertyType.File:
                 case ClassPropertyType.Flag:
-                    properties.Add(GetPropertyValue(propertyName, propertyHash, property.ValueType, 1, property.Bitmask));
+                case ClassPropertyType.Pointer:
+                case ClassPropertyType.Embed:
+                case ClassPropertyType.Link:
+                    properties.Add(GetPropertyValue(propertyName, propertyHash, property.ValueType, property.Bitmask, property.OtherClass.Hash, property.OtherClass.Name, references));
                     break;
                 case ClassPropertyType.List:
                 case ClassPropertyType.List2:
-                    properties.Add(GetPropertyListValue(propertyName, propertyHash, property.ValueType, property.Container!.ValueType, 1, property.Container.Storage == "Fixed"));
+                    properties.Add(GetPropertyListValue(propertyName, propertyHash, property, property.Container!.ValueType, property.Container.Storage == "Fixed", references));
                     break;
-                case ClassPropertyType.Pointer:
-                case ClassPropertyType.Embed:
-                    throw new NotImplementedException();
-                case ClassPropertyType.Link:
-                    throw new NotImplementedException();
                 case ClassPropertyType.Option:
-                    throw new NotImplementedException();
+                    properties.Add(GetPropertyOptionalValue(propertyName, propertyHash, property.ValueType, property.Container!.ValueType, property.Bitmask, property.OtherClass.Hash, property.OtherClass.Name, references)); 
+                    break;
                 case ClassPropertyType.Map:
-                    properties.Add(GetPropertyMapValue(propertyName, propertyHash, property.ValueType, property.Map!.KeyType, property.Map.ValueType, 1));
+                    properties.Add(GetPropertyMapValue(propertyName, propertyHash, property.ValueType, property.Map!.KeyType, property.Map.ValueType, property, references));
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new NotSupportedException();
             }
         }
 
@@ -159,7 +165,7 @@ public static class Program {
             });
     }
 
-    private static string GetPropertyListValue(string name, uint hash, ClassPropertyType propertyType, ClassPropertyType containerType, int level, bool isFixed) {
+    private static string GetPropertyListValue(string name, uint hash, ClassProperty property, ClassPropertyType containerType, bool isFixed, ISet<string> references) {
         var subLogic = string.Empty;
         switch (containerType) {
             case ClassPropertyType.Bool:
@@ -183,54 +189,200 @@ public static class Program {
                 subLogic = GetPropertyRawValueLogic($"{name}_entry");
                 break;
             case ClassPropertyType.Pointer:
-                throw new NotImplementedException();
-
-                break;
             case ClassPropertyType.Embed:
-                throw new NotImplementedException();
-
+                references.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_BASE_REF,
+                    new Dictionary<string, object> {
+                        ["name"] = property.OtherClass.Name!,
+                    }));
+                subLogic = GetPropertyPointerValueLogic($"{name}_entry", property.OtherClass.Hash, property.OtherClass.Name!);
                 break;
             case ClassPropertyType.Link:
-                throw new NotImplementedException();
-
+                references.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_BASE_REF,
+                    new Dictionary<string, object> {
+                        ["name"] = property.OtherClass.Name!,
+                    }));
+                subLogic = GetPropertyLinkValueLogic($"{name}_entry", property.OtherClass.Hash, property.OtherClass.Name!);
                 break;
             case ClassPropertyType.Option:
-                throw new NotImplementedException();
-
-                break;
+                throw new NotImplementedException("option");
             default:
                 throw new ArgumentOutOfRangeException(nameof(containerType), containerType, null);
         }
 
-        var template = Templates.CompileTemplate(isFixed ? Templates.BIN_CLASS_IMPL_FIXED_SET : Templates.BIN_CLASS_IMPL_SET,
+        return Templates.CompileTemplate(isFixed ? Templates.BIN_CLASS_IMPL_FIXED_SET : Templates.BIN_CLASS_IMPL_SET,
             new Dictionary<string, object> {
                 ["name"] = name,
                 ["hash"] = hash,
-                ["type"] = GetPropertyType(propertyType),
+                ["type"] = GetPropertyType(property.ValueType),
                 ["value_type"] = GetPropertyType(containerType),
                 ["sub_logic"] = subLogic,
             });
-
-        var indent = new string(' ', level * 4);
-        return string.Join('\n', template.Split('\n').Select(x => indent + x));
     }
 
-    private static string GetPropertyMapValue(string name, uint hash, ClassPropertyType propertyType, ClassPropertyType keyType, ClassPropertyType valueType, int level) => throw new NotImplementedException();
+    private static string GetPropertyMapValue(string name, uint hash, ClassPropertyType propertyType, ClassPropertyType keyType, ClassPropertyType valueType, ClassProperty property, ISet<string> references) {
+        var keySubLogic = string.Empty;
+        switch (keyType) {
+            case ClassPropertyType.Bool:
+            case ClassPropertyType.I8:
+            case ClassPropertyType.U8:
+            case ClassPropertyType.I16:
+            case ClassPropertyType.U16:
+            case ClassPropertyType.I32:
+            case ClassPropertyType.U32:
+            case ClassPropertyType.I64:
+            case ClassPropertyType.U64:
+            case ClassPropertyType.F32:
+            case ClassPropertyType.Vec2:
+            case ClassPropertyType.Vec3:
+            case ClassPropertyType.Vec4:
+            case ClassPropertyType.Mtx44:
+            case ClassPropertyType.Color:
+            case ClassPropertyType.String:
+            case ClassPropertyType.Hash:
+            case ClassPropertyType.File:
+                keySubLogic = GetPropertyRawValueLogic($"{name}_key");
+                break;
+            case ClassPropertyType.Pointer:
+            case ClassPropertyType.Embed:
+                throw new NotImplementedException("key: pointer, embed");
+            case ClassPropertyType.Link:
+                throw new NotImplementedException("key: link");
+            case ClassPropertyType.Option:
+                throw new NotImplementedException("key: option");
+            default:
+                throw new ArgumentOutOfRangeException(nameof(valueType), valueType, null);
+        }
+        
+        var valueSubLogic = string.Empty;
+        switch (valueType) {
+            case ClassPropertyType.Bool:
+            case ClassPropertyType.I8:
+            case ClassPropertyType.U8:
+            case ClassPropertyType.I16:
+            case ClassPropertyType.U16:
+            case ClassPropertyType.I32:
+            case ClassPropertyType.U32:
+            case ClassPropertyType.I64:
+            case ClassPropertyType.U64:
+            case ClassPropertyType.F32:
+            case ClassPropertyType.Vec2:
+            case ClassPropertyType.Vec3:
+            case ClassPropertyType.Vec4:
+            case ClassPropertyType.Mtx44:
+            case ClassPropertyType.Color:
+            case ClassPropertyType.String:
+            case ClassPropertyType.Hash:
+            case ClassPropertyType.File:
+                valueSubLogic = GetPropertyRawValueLogic($"{name}_value");
+                break;
+            case ClassPropertyType.Pointer:
+            case ClassPropertyType.Embed:
+                references.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_BASE_REF,
+                    new Dictionary<string, object> {
+                        ["name"] = property.OtherClass.Name!,
+                    }));
+                valueSubLogic = GetPropertyPointerValueLogic($"{name}_value", property.OtherClass.Hash, property.OtherClass.Name!);
+                break;
+            case ClassPropertyType.Link:
+                references.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_BASE_REF,
+                    new Dictionary<string, object> {
+                        ["name"] = property.OtherClass.Name!,
+                    }));
+                valueSubLogic = GetPropertyLinkValueLogic($"{name}_value", property.OtherClass.Hash, property.OtherClass.Name!);
+                break;
+            case ClassPropertyType.Option:
+                throw new NotImplementedException("value: option");
+            default:
+                throw new ArgumentOutOfRangeException(nameof(valueType), valueType, null);
+        }
 
-    private static string GetPropertyValue(string name, uint hash, ClassPropertyType propertyType, int level, int bitMask) {
-        var template = Templates.CompileTemplate(Templates.BIN_CLASS_IMPL_VALUE,
+        return Templates.CompileTemplate(Templates.BIN_CLASS_IMPL_MAP,
+            new Dictionary<string, object> {
+                ["name"] = name,
+                ["hash"] = hash,
+                ["type"] = GetPropertyType(property.ValueType),
+                ["key_type"] = GetPropertyType(keyType),
+                ["value_type"] = GetPropertyType(valueType),
+                ["sub_logic_key"] = keySubLogic,
+                ["sub_logic_value"] = valueSubLogic,
+            });
+    }
+
+    private static string GetPropertyValue(string name, uint hash, ClassPropertyType propertyType, int bitMask, uint otherHash, string? otherName, ISet<string> references) {
+        string subLogic;
+        switch (propertyType) {
+            case ClassPropertyType.Pointer:
+            case ClassPropertyType.Embed:
+                references.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_BASE_REF,
+                    new Dictionary<string, object> {
+                        ["name"] = otherName!,
+                    }));
+                subLogic = GetPropertyPointerValueLogic(name, otherHash, otherName!);
+                break;
+            case ClassPropertyType.Link:
+                references.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_BASE_REF,
+                    new Dictionary<string, object> {
+                        ["name"] = otherName!,
+                    }));
+                subLogic = GetPropertyLinkValueLogic(name, otherHash, otherName!);
+                break;
+            case ClassPropertyType.Flag:
+                subLogic = GetPropertyValueBitLogic(name, bitMask);
+                break;
+            default:
+                subLogic = GetPropertyRawValueLogic(name);
+                break;
+        }
+        
+        return Templates.CompileTemplate(Templates.BIN_CLASS_IMPL_VALUE,
             new Dictionary<string, object> {
                 ["name"] = name,
                 ["hash"] = hash,
                 ["type"] = GetPropertyType(propertyType),
-                ["sub_logic"] = propertyType == ClassPropertyType.Flag ? GetPropertyValueBitLogic(name, bitMask) : GetPropertyRawValueLogic(name),
+                ["sub_logic"] = subLogic,
             });
-
-        var indent = new string(' ', level * 4);
-        return string.Join('\n', template.Split('\n').Select(x => indent + x));
+    }
+    
+    private static string GetPropertyOptionalValue(string name, uint hash, ClassPropertyType propertyType, ClassPropertyType containerType, int bitMask, uint otherHash, string? otherName, ISet<string> references) {
+        string subLogic;
+        switch (containerType) {
+            case ClassPropertyType.Pointer:
+            case ClassPropertyType.Embed:
+                references.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_BASE_REF,
+                    new Dictionary<string, object> {
+                        ["name"] = otherName!,
+                    }));
+                subLogic = GetPropertyPointerValueLogic($"{name}_opt", otherHash, otherName!);
+                break;
+            case ClassPropertyType.Link:
+                references.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_BASE_REF,
+                    new Dictionary<string, object> {
+                        ["name"] = otherName!,
+                    }));
+                subLogic = GetPropertyLinkValueLogic($"{name}_opt", otherHash, otherName!);
+                break;
+            case ClassPropertyType.Flag:
+                subLogic = GetPropertyValueBitLogic($"{name}_opt", bitMask);
+                break;
+            default:
+                subLogic = GetPropertyRawValueLogic($"{name}_opt");
+                break;
+        }
+        
+        return Templates.CompileTemplate(Templates.BIN_CLASS_IMPL_RAW_VALUE,
+            new Dictionary<string, object> {
+                ["name"] = name,
+                ["hash"] = hash,
+                ["type"] = GetPropertyType(ClassPropertyType.Option),
+                ["sub_logic"] = Templates.CompileTemplate(Templates.BIN_CLASS_IMPL_VALUE_SUB_LOGIC_OPTIONAL, new Dictionary<string, object> {
+                    ["name"] = name,
+                    ["value_type"] = GetPropertyType(containerType),
+                    ["sub_logic"] = subLogic,
+                }),
+            });
     }
 
-    private static string GetPropertyBitValue(string name, uint hash, ClassProperties property, int level) {
+    private static string GetPropertyBitValue(string name, uint hash, ClassProperty property, int level) {
         var template = Templates.CompileTemplate(Templates.BIN_CLASS_DEF_MAIN,
             new Dictionary<string, object> {
                 ["name"] = name,
@@ -249,33 +401,24 @@ public static class Program {
                 ["name"] = name,
             });
 
-    private static string GetPropertyPointerValueLogic(string name) {
-        throw new NotImplementedException();
-
+    private static string GetPropertyPointerValueLogic(string name, uint hash, string @class) {
         return Templates.CompileTemplate(Templates.BIN_CLASS_IMPL_VALUE_SUB_LOGIC_POINTER,
             new Dictionary<string, object> {
                 ["name"] = name,
+                ["class"] = @class,
+                ["hash"] = hash,
             });
     }
 
-    private static string GetPropertyEmbedValueLogic(string name) {
-        throw new NotImplementedException();
-
-        return Templates.CompileTemplate(Templates.BIN_CLASS_IMPL_VALUE_SUB_LOGIC_EMBED,
+    private static string GetPropertyLinkValueLogic(string name, uint hash, string @class) {
+        return Templates.CompileTemplate(Templates.BIN_CLASS_IMPL_VALUE_SUB_LOGIC_LINK,
             new Dictionary<string, object> {
                 ["name"] = name,
+                ["class"] = @class,
+                ["hash"] = hash,
             });
     }
-
-    private static string GetPropertyOptionalValueLogic(string name) {
-        throw new NotImplementedException();
-
-        return Templates.CompileTemplate(Templates.BIN_CLASS_IMPL_VALUE_SUB_LOGIC_OPTIONAL,
-            new Dictionary<string, object> {
-                ["name"] = name,
-            });
-    }
-
+    
     private static string GetPropertyValueBitLogic(string name, int bitMask) =>
         Templates.CompileTemplate(Templates.BIN_CLASS_IMPL_VALUE_SUB_LOGIC_BIT,
             new Dictionary<string, object> {
@@ -295,9 +438,9 @@ public static class Program {
             ClassPropertyType.I64 => "int64_prop",
             ClassPropertyType.U64 => "uint64_prop",
             ClassPropertyType.F32 => "float32_prop",
-            ClassPropertyType.Vec2 => "vec2_prop",
-            ClassPropertyType.Vec3 => "vec3_prop",
-            ClassPropertyType.Vec4 => "vec4_prop",
+            ClassPropertyType.Vec2 => "point_prop",
+            ClassPropertyType.Vec3 => "vector_prop",
+            ClassPropertyType.Vec4 => "quaternion_prop",
             ClassPropertyType.Mtx44 => "matrix_prop",
             ClassPropertyType.Color => "color_prop",
             ClassPropertyType.String => "string_prop",
@@ -329,7 +472,7 @@ public static class Program {
 
         metaClass.Defaults ??= new Dictionary<(string Name, uint Hash), JsonElement>();
 
-        foreach (var ((propertyName, propertyHash), property) in (metaClass.Properties ?? new Dictionary<(string Name, uint Hash), ClassProperties>()).OrderBy(x => x.Value.Offset)) {
+        foreach (var ((propertyName, propertyHash), property) in (metaClass.Properties ?? new Dictionary<(string Name, uint Hash), ClassProperty>()).OrderBy(x => x.Value.Offset)) {
             if (!metaClass.Defaults.TryGetValue((propertyName, propertyHash), out var defaultValue)) {
                 defaultValue = default;
             }
@@ -341,7 +484,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "bool",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "false" : defaultValue.GetBoolean().ToString().ToLower(),
+                            ["default"] = "= " + (defaultValue.ValueKind == JsonValueKind.Undefined ? "false" : defaultValue.GetBoolean().ToString().ToLower()),
                         }));
                     break;
                 case ClassPropertyType.I8:
@@ -353,7 +496,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "int8_t",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetSByte(),
+                            ["default"] = "= " + (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetSByte()),
                         }));
                     break;
                 case ClassPropertyType.U8:
@@ -365,7 +508,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "uint8_t",
                             ["name"] = propertyName,
-                            ["default"] = (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetByte()) + "u",
+                            ["default"] = "= " + (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetByte()) + "u",
                         }));
                     break;
                 case ClassPropertyType.I16:
@@ -377,7 +520,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "int16_t",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetInt16(),
+                            ["default"] = "= " + (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetInt16()),
                         }));
                     break;
                 case ClassPropertyType.U16:
@@ -389,7 +532,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "int16_t",
                             ["name"] = propertyName,
-                            ["default"] = (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetUInt16()) + "u",
+                            ["default"] = "= " + (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetUInt16()) + "u",
                         }));
                     break;
                 case ClassPropertyType.I32:
@@ -401,7 +544,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "int32_t",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetInt32(),
+                            ["default"] = "= " + (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetInt32()),
                         }));
                     break;
                 case ClassPropertyType.U32:
@@ -413,7 +556,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "uint32_t",
                             ["name"] = propertyName,
-                            ["default"] = (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetUInt32()) + "u",
+                            ["default"] = "= " + (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetUInt32()) + "u",
                         }));
                     break;
                 case ClassPropertyType.I64:
@@ -425,7 +568,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "int64_t",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetInt64(),
+                            ["default"] = "= " + (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetInt64()),
                         }));
                     break;
                 case ClassPropertyType.U64:
@@ -437,7 +580,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "uint64_t",
                             ["name"] = propertyName,
-                            ["default"] = (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetUInt64()) + "u",
+                            ["default"] = "= " + (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetUInt64()) + "u",
                         }));
                     break;
                 case ClassPropertyType.F32:
@@ -445,7 +588,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "float",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.ToString(),
+                            ["default"] = "= " + (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.ToString()),
                         }));
                     break;
                 case ClassPropertyType.Vec2:
@@ -479,7 +622,7 @@ public static class Program {
                         }));
                     properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY,
                         new Dictionary<string, object> {
-                            ["type"] = "std::array<float, 3>",
+                            ["type"] = "std::array<float, 4>",
                             ["name"] = propertyName,
                             ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "{}" : $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => x.GetSingle()))} }}",
                         }));
@@ -493,7 +636,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "std::array<float, 16>",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "{}" : $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => x.EnumerateArray().Select(y => y.GetSingle())))} }}",
+                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "{}" : $"{{ {string.Join(", ", defaultValue.EnumerateArray().SelectMany(x => x.EnumerateArray().Select(y => y.GetSingle())))} }}",
                         }));
                     break;
                 case ClassPropertyType.Color:
@@ -517,11 +660,12 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["name"] = "string",
                         }));
+                    var defaultStr = defaultValue.ValueKind == JsonValueKind.Undefined ? "\"\"" : SymbolDisplay.FormatLiteral(defaultValue.GetString()!, true);
                     properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY,
                         new Dictionary<string, object> {
                             ["type"] = "std::string",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "\"\"" : SymbolDisplay.FormatLiteral(defaultValue.GetString()!, true),
+                            ["default"] = defaultStr == "\"\"" ? "{}" : "= " + defaultStr,
                         }));
                     break;
                 case ClassPropertyType.Hash:
@@ -529,7 +673,12 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "yordle::data::meta::bin_fnv_hash",
                             ["name"] = propertyName,
-                            ["default"] = (defaultValue.ValueKind == JsonValueKind.String ? uint.Parse(defaultValue.GetString()![2..], NumberStyles.HexNumber) : defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetUInt32()) + "u",
+                            ["default"] = "= " + defaultValue.ValueKind switch
+                            {
+                                JsonValueKind.String => uint.Parse(defaultValue.GetString()![2..], NumberStyles.HexNumber),
+                                JsonValueKind.Undefined => "0",
+                                _ => defaultValue.GetUInt32()
+                            } + "u",
                         }));
                     break;
                 case ClassPropertyType.File:
@@ -537,7 +686,12 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "yordle::data::meta::bin_xx_hash",
                             ["name"] = propertyName,
-                            ["default"] = (defaultValue.ValueKind == JsonValueKind.String ? ulong.Parse(defaultValue.GetString()![2..], NumberStyles.HexNumber) : defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetUInt64()) + "u",
+                            ["default"] = "= " + defaultValue.ValueKind switch
+                            {
+                                JsonValueKind.String => ulong.Parse(defaultValue.GetString()![2..], NumberStyles.HexNumber),
+                                JsonValueKind.Undefined => "0",
+                                _ => defaultValue.GetUInt64()
+                            } + "u",
                         }));
                     break;
                 case ClassPropertyType.List:
@@ -546,7 +700,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = GetContainerType(property, fwdDeclare, references, stdlib),
                             ["name"] = propertyName,
-                            ["default"] = GetDefaultArray(defaultValue, property),
+                            ["default"] = GetDefaultArray(defaultValue, property, GetRawType(property.Container!.ValueType, property, fwdDeclare, references, stdlib)),
                         }));
                     break;
                 case ClassPropertyType.Pointer:
@@ -613,11 +767,12 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["name"] = "optional",
                         }));
+                    var optDefaultValue = GetDefault(defaultValue, property);
                     properties.Add(Templates.CompileTemplate(Templates.BIN_CLASS_DEF_CLASS_PROPERTY,
                         new Dictionary<string, object> {
-                            ["type"] = $"std::optional<{GetContainerType(property, fwdDeclare, references, stdlib)}>",
+                            ["type"] = $"std::optional<{GetRawType(property.Container!.ValueType, property, fwdDeclare, references, stdlib)}>",
                             ["name"] = propertyName,
-                            ["default"] = GetDefault(defaultValue, property),
+                            ["default"] = optDefaultValue[0] == '{' ? optDefaultValue : $"{{ {optDefaultValue} }}",
                         }));
                     break;
                 case ClassPropertyType.Map:
@@ -694,7 +849,7 @@ public static class Program {
             });
     }
 
-    private static string GetDefaultArray(JsonElement defaultValue, ClassProperties property) {
+    private static string GetDefaultArray(JsonElement defaultValue, ClassProperty property, string listType) {
         if (defaultValue.ValueKind == JsonValueKind.Undefined) {
             return "{}";
         }
@@ -725,32 +880,72 @@ public static class Program {
             case ClassPropertyType.File:
                 return $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => ulong.Parse(x.GetString()![2..], NumberStyles.HexNumber) + "u"))} }}";
             case ClassPropertyType.Embed:
-            case ClassPropertyType.Pointer:
-            case ClassPropertyType.Link:
+            case ClassPropertyType.Pointer: {
+                var hashes = new List<uint?>();
                 if (defaultValue.ValueKind != JsonValueKind.Undefined) {
                     foreach (var entry in defaultValue.EnumerateArray()) {
-                        Debug.Assert(entry.ToString() is "{}" or "0x0" || entry.ValueKind == JsonValueKind.Null);
+                        if (entry.ToString() == "{}" ||
+                            entry.ToString() == "0x0" ||
+                            entry.ValueKind != JsonValueKind.String) {
+                            hashes.Add(null);
+                        } else {
+                            hashes.Add(uint.Parse(entry.GetString()![2..], NumberStyles.HexNumber));
+                        }
                     }
                 }
 
-                return "{}";
+                if (property.Container.Storage != "Fixed") {
+                    return "{}";
+                }
+
+                // todo: construct ptr classes in constructor?
+                return $"{{ {string.Join(", ", hashes.Select(x => "nullptr"))} }}";
+            }
+            case ClassPropertyType.Link: {
+                var hashes = new List<uint?>();
+                if (defaultValue.ValueKind != JsonValueKind.Undefined) {
+                    foreach (var entry in defaultValue.EnumerateArray()) {
+                        if (entry.ToString() == "{}" ||
+                            entry.ToString() == "0x0" ||
+                            entry.ValueKind != JsonValueKind.String) {
+                            hashes.Add(null);
+                        } else {
+                            hashes.Add(uint.Parse(entry.GetString()![2..], NumberStyles.HexNumber));
+                        }
+                    }
+                }
+
+                if (property.Container.Storage != "Fixed") {
+                    return "{}";
+                }
+
+                return $"{{ {string.Join(", ", hashes.Select(x => $"yordle::data::meta::bin_ref<yordle::data::meta::{property.OtherClass.Name}>({property.OtherClass.Hash}u{(x == null ? "" : $", {x.Value}u")})"))} }}";
+            }
             case ClassPropertyType.Vec2:
             case ClassPropertyType.Vec3:
             case ClassPropertyType.Vec4:
-            case ClassPropertyType.Mtx44:
-            case ClassPropertyType.Color:
+            case ClassPropertyType.Color: {
                 var stack = new List<string>();
                 if (defaultValue.ValueKind != JsonValueKind.Undefined) {
                     stack.AddRange(defaultValue.EnumerateArray().Select(entry => string.Join(", ", entry.EnumerateArray().Select(x => x.ToString()))));
                 }
 
+                return $"{{ {string.Join(", ", stack.Select(x => $"{listType}({{ {x} }})"))} }}";
+            }
+            case ClassPropertyType.Mtx44: {
+                var stack = new List<string>();
+                if (defaultValue.ValueKind != JsonValueKind.Undefined) {
+                    stack.AddRange(defaultValue.EnumerateArray().Select(entry => string.Join(", ", entry.EnumerateArray().SelectMany(x => x.EnumerateArray().Select(y => y.GetSingle())))));
+                }
+                
                 return $"{{ {string.Join(", ", stack.Select(x => $"{{ {x} }}"))} }}";
+            }
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
 
-    private static string GetDefault(JsonElement defaultValue, ClassProperties property) {
+    private static string GetDefault(JsonElement defaultValue, ClassProperty property) {
         if (defaultValue.ValueKind == JsonValueKind.Null) {
             return "{}";
         }
@@ -758,41 +953,21 @@ public static class Program {
         switch (property.Container!.ValueType) {
             case ClassPropertyType.Flag:
             case ClassPropertyType.Bool:
-                if (defaultValue.ValueKind == JsonValueKind.Undefined) {
-                    return "false";
-                }
-
-                return defaultValue.GetBoolean().ToString().ToLower();
+                return defaultValue.ValueKind == JsonValueKind.Undefined ? "false" : defaultValue.GetBoolean().ToString().ToLower();
             case ClassPropertyType.I8:
             case ClassPropertyType.I16:
             case ClassPropertyType.I32:
             case ClassPropertyType.I64:
-                if (defaultValue.ValueKind == JsonValueKind.Undefined) {
-                    return "0";
-                }
-
-                return defaultValue.GetInt64().ToString();
+                return defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.GetInt64().ToString();
             case ClassPropertyType.U8:
             case ClassPropertyType.U16:
             case ClassPropertyType.U32:
             case ClassPropertyType.U64:
-                if (defaultValue.ValueKind == JsonValueKind.Undefined) {
-                    return "0u";
-                }
-
-                return defaultValue.GetUInt64() + "u";
+                return defaultValue.ValueKind == JsonValueKind.Undefined ? "0u" : defaultValue.GetUInt64() + "u";
             case ClassPropertyType.F32:
-                if (defaultValue.ValueKind == JsonValueKind.Undefined) {
-                    return "0.0";
-                }
-
-                return defaultValue.ToString();
+                return defaultValue.ValueKind == JsonValueKind.Undefined ? "0.0" : defaultValue.ToString();
             case ClassPropertyType.String:
-                if (defaultValue.ValueKind == JsonValueKind.Undefined) {
-                    return "\"\"";
-                }
-
-                return SymbolDisplay.FormatLiteral(defaultValue.GetString()!, true);
+                return defaultValue.ValueKind == JsonValueKind.Undefined ? "\"\"" : SymbolDisplay.FormatLiteral(defaultValue.GetString()!, true);
             case ClassPropertyType.Hash:
             case ClassPropertyType.File:
                 if (defaultValue.ValueKind == JsonValueKind.Undefined) {
@@ -807,15 +982,16 @@ public static class Program {
             case ClassPropertyType.Vec2:
             case ClassPropertyType.Vec3:
             case ClassPropertyType.Vec4:
-            case ClassPropertyType.Mtx44:
             case ClassPropertyType.Color:
                 return $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => x.ToString()))} }}";
+            case ClassPropertyType.Mtx44:
+                return $"{{ {string.Join(", ", defaultValue.EnumerateArray().SelectMany(x => x.EnumerateArray().Select(y => y.GetSingle())))} }}";
             default:
-                throw new ArgumentOutOfRangeException();
+                throw new NotSupportedException();
         }
     }
 
-    private static string GetRawType(ClassPropertyType? type, ClassProperties property, HashSet<string> fwdDeclare, HashSet<string> binRef, HashSet<string> stdlib) {
+    private static string GetRawType(ClassPropertyType? type, ClassProperty property, ISet<string> fwdDeclare, ISet<string> binRef, ISet<string> stdlib) {
         switch (type) {
             case ClassPropertyType.Flag:
             case ClassPropertyType.Bool:
@@ -940,7 +1116,7 @@ public static class Program {
         }
     }
 
-    private static string GetContainerType(ClassProperties property, HashSet<string> fwdDeclare, HashSet<string> binRef, HashSet<string> stdlib) {
+    private static string GetContainerType(ClassProperty property, HashSet<string> fwdDeclare, HashSet<string> binRef, HashSet<string> stdlib) {
         if (property.Container == null) {
             throw new InvalidDataException();
         }

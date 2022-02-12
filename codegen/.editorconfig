@@ -8,6 +8,9 @@ indent_size = 4
 tab_width = 4
 
 [*.cs]
+csharp_new_line_before_catch = false
+csharp_new_line_before_else = false
+csharp_new_line_before_finally = false
 
 # ReSharper properties
 resharper_accessor_owner_body = expression_body

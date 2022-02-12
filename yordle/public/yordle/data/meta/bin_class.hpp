@@ -19,9 +19,11 @@ namespace yordle::data::meta {
             }
 
             _class_hash = prop->class_hash;
+            _underlying_prop = prop;
         }
 
         uint32_t _class_hash = 0;
+        std::shared_ptr<yordle::data::prop::structure_prop> _underlying_prop = nullptr;
 
         virtual bool is_type(uint32_t type) {
             return false;

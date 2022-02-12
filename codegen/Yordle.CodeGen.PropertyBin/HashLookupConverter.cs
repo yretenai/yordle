@@ -33,6 +33,10 @@ public class HashLookupConverter : JsonConverter<(string?, uint)> {
                 Debug.WriteLine($"hash collision: {hash:x8} {HashMap[hash]} = {value}");
             }
 
+            if (value == "register" || value == "template") { // reserved keywords.
+                continue;
+            }
+
             HashMap[hash] = value;
         }
     }
