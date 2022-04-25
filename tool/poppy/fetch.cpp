@@ -22,6 +22,12 @@ namespace poppy {
             cerr << "err: manifest url is null!" << endl;
             return;
         }
+        auto bundles_url = configuration.bundles_url;
+        if (bundles_url != nullptr) {
+            poppy.bundle_host = std::string(*bundles_url);
+        } else {
+            poppy.bundle_host = POPPY_DEFAULT_BUNDLE_HOST;
+        }
         auto manifest_name = url->substr(url->find_last_of('/') + 1);
         auto cache_target  = cache / manifest_name;
         path += std::string("+") + std::filesystem::path(manifest_name).replace_extension().string();
@@ -46,6 +52,8 @@ namespace poppy {
     }
 
     void fetch_client_config(PoppyConfiguration &poppy) {
+        poppy.bundle_template = POPPY_DEFAULT_BUNDLE_TEMPLATE;
+
         for (const auto &target : poppy.targets) {
             auto cache = poppy.cache_dir;
             if (!poppy.dry_run && !filesystem::exists(cache)) {

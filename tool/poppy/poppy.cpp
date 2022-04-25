@@ -68,9 +68,14 @@ namespace poppy {
 
         cli["bundle"]
             .abbreviation('b')
-            .description("bundle url format")
+            .description("bundle host (overriden when using patchlines)")
             .type(po::string)
-            .bind(poppy.bundle_url);
+            .bind(poppy.bundle_host);
+
+        cli["bundle-template"]
+            .description("bundle url template (overriden when using patchlines)")
+            .type(po::string)
+            .bind(poppy.bundle_template);
 
         cli["platform"]
             .abbreviation('p')
