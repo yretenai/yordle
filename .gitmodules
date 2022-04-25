@@ -4,3 +4,6 @@
 [submodule "vendor/ProgramOptions"]
 	path = vendor/ProgramOptions
 	url = https://github.com/Fytch/ProgramOptions.hxx.git
+[submodule "vendor/vcpkg"]
+	path = vendor/vcpkg
+	url = https://github.com/microsoft/vcpkg
