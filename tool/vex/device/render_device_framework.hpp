@@ -23,7 +23,8 @@ namespace vex::device {
         virtual void startup();
         void render_imgui();
 
-        static void setup_imgui();
+        void setup_imgui();
+        void update_dpi();
         void shutdown_imgui() const;
 
     public:
@@ -36,6 +37,8 @@ namespace vex::device {
         std::shared_ptr<std::map<uint64_t, std::shared_ptr<void>>> shaders;
 
         double frame_time = 0.0;
+        bool started = false;
+        float dpi_scale = 1.0f;
         std::atomic<bool> perform_screenshot;
         std::atomic<bool> is_busy;
 

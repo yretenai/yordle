@@ -6,6 +6,7 @@
 
 #include <yordle/data/meta/bin_defs/SkinCharacterDataProperties.hpp>
 #include "../vex.hpp"
+#include "font/metropolis.h"
 
 namespace vex::device {
     void render_device_framework::setup_imgui() {
@@ -14,6 +15,13 @@ namespace vex::device {
         ImGuiIO &io = ImGui::GetIO();
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
+
+        update_dpi();
+
+        ImFontConfig config;
+        config.OversampleH = 3;
+        config.OversampleV = 3;
+        io.FontDefault = io.Fonts->AddFontFromMemoryCompressedTTF(FONT_METROPOLIS_compressed_data, FONT_METROPOLIS_compressed_size, 16, &config);
 
         ImGui::StyleColorsDark();
 
@@ -67,10 +75,14 @@ namespace vex::device {
         colors[ImGuiCol_TableRowBgAlt]         = ImVec4(1.00f, 1.00f, 1.00f, 0.06f);
         colors[ImGuiCol_TextSelectedBg]        = ImVec4(0.11f, 0.33f, 0.57f, 0.35f);
         colors[ImGuiCol_DragDropTarget]        = ImVec4(1.00f, 1.00f, 0.00f, 0.90f);
-        colors[ImGuiCol_NavHighlight]          = ImVec4(0.23f, 0.27f, 0.34f, 1.00f);
-        colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.00f, 1.00f, 1.00f, 0.70f);
+
+         colors[ImGuiCol_NavWindowingHighlight] = ImVec4(1.00f, 1.00f, 1.00f, 0.70f); colors[ImGuiCol_NavHighlight]          = ImVec4(0.23f, 0.27f, 0.34f, 1.00f);
         colors[ImGuiCol_NavWindowingDimBg]     = ImVec4(0.80f, 0.80f, 0.80f, 0.20f);
         colors[ImGuiCol_ModalWindowDimBg]      = ImVec4(0.80f, 0.80f, 0.80f, 0.35f);
+    }
+
+    void render_device_framework::update_dpi() {
+        ImGui::GetIO().FontGlobalScale = 1.0f / dpi_scale;
     }
 
     void render_device_framework::render_imgui() {

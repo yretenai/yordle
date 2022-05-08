@@ -51,10 +51,17 @@ namespace vex::device {
         ShowWindow(hwnd, SW_SHOWDEFAULT);
         UpdateWindow(hwnd);
 
+        auto dpi = (float) GetDpiForWindow(hwnd);
+        if(dpi > 0) {
+            dpi_scale = 96.0f / dpi;
+        }
+
         setup_imgui();
 
         ImGui_ImplWin32_Init(hwnd);
         ImGui_ImplDX11_Init(dx_device, dx_context);
+
+        started = true;
     }
 
     void win_d3d11::run() {
@@ -217,6 +224,10 @@ namespace vex::device {
             return 0;
         }
 
+        if(!inst->started) {
+            return DefWindowProc(hWnd, msg, wParam, lParam);
+        }
+
         switch (msg) { // NOLINT(hicpp-multiway-paths-covered)
             case WM_SIZE:
                 if (inst->dx_device != nullptr && wParam != SIZE_MINIMIZED) {
@@ -225,6 +236,14 @@ namespace vex::device {
                     inst->create_rt();
                 }
                 return 0;
+            case WM_DPICHANGED: {
+                auto dpi = (float) GetDpiForWindow(inst->hwnd);
+                if (dpi > 0 && inst->dx_device != nullptr && wParam != SIZE_MINIMIZED) {
+                    inst->dpi_scale = 96.0f / dpi;
+                    inst->update_dpi();
+                }
+                return 0;
+            }
             case WM_SYSCOMMAND:
                 if ((wParam & 0xfff0) == SC_KEYMENU) { // Disable ALT application menu
                     return 0;

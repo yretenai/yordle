@@ -28,6 +28,11 @@ if (MSVC OR WIN32_CLANG)
         find_package(DirectXTK REQUIRED)
         target_link_libraries(vex Microsoft::DirectXTK)
         target_sources(vex PRIVATE common_win.cpp)
+        set(CMAKE_SHARED_LINKER_FLAGS /MANIFEST:NO)
+        add_custom_command(TARGET vex POST_BUILD
+                COMMAND
+                "mt.exe" -manifest "${PROJECT_SOURCE_DIR}/vex.manifest" "-inputresource:${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${CMAKE_BUILD_TYPE}/vex.exe;#1" "-outputresource:${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${CMAKE_BUILD_TYPE}/vex.exe;#1"
+                COMMENT "Adding custom manifest containing MSVCRT80 dependency...")
     endif ()
 
     include(GNUInstallDirs)
