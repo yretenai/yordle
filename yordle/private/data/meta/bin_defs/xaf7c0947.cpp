@@ -29,8 +29,14 @@ yordle::data::meta::xaf7c0947::xaf7c0947(const std::shared_ptr<yordle::data::pro
         x311de77a = ptr_x311de77a->value;
     }
 
-    auto ptr_x53288ea = prop->cast_prop<yordle::data::prop::reference_prop>(87197930u);
-    if(ptr_x53288ea != nullptr) {
-        x53288ea = yordle::data::meta::bin_ref<yordle::data::meta::x9b91b06e>(2610016366u, ptr_x53288ea->value);
+    auto ptr_x19f9c54e = prop->cast_prop<yordle::data::prop::map_prop>(435799374u);
+    if(ptr_x19f9c54e != nullptr) {
+        for(const auto &set_x19f9c54e_pair : ptr_x19f9c54e->value) {
+            auto ptr_x19f9c54e_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_x19f9c54e_pair.first);
+            auto ptr_x19f9c54e_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(set_x19f9c54e_pair.second);
+            if(ptr_x19f9c54e_key != nullptr && ptr_x19f9c54e_value != nullptr) {
+                x19f9c54e.emplace(ptr_x19f9c54e_key->value, yordle::data::meta::bin_ref<yordle::data::meta::x9b91b06e>(2610016366u, ptr_x19f9c54e_value->value));
+            }
+        }
     }
 }

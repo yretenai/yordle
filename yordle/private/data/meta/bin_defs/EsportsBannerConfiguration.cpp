@@ -25,6 +25,31 @@ yordle::data::meta::EsportsBannerConfiguration::EsportsBannerConfiguration(const
         name = ptr_name->value;
     }
 
+    auto ptr_priority = prop->cast_prop<yordle::data::prop::uint32_prop>(2498028297u);
+    if(ptr_priority != nullptr) {
+        priority = ptr_priority->value;
+    }
+
+    auto ptr_xf7e7945a = prop->cast_prop<yordle::data::prop::set_prop>(4159149146u);
+    if(ptr_xf7e7945a != nullptr) {
+        for(const auto &set_xf7e7945a_entry : ptr_xf7e7945a->value) {
+            auto ptr_xf7e7945a_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_xf7e7945a_entry);
+            if(ptr_xf7e7945a_entry != nullptr) {
+                xf7e7945a.emplace_back(ptr_xf7e7945a_entry->value);
+            }
+        }
+    }
+
+    auto ptr_xa327f48b = prop->cast_prop<yordle::data::prop::set_prop>(2737304715u);
+    if(ptr_xa327f48b != nullptr) {
+        for(const auto &set_xa327f48b_entry : ptr_xa327f48b->value) {
+            auto ptr_xa327f48b_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_xa327f48b_entry);
+            if(ptr_xa327f48b_entry != nullptr) {
+                xa327f48b.emplace_back(ptr_xa327f48b_entry->value);
+            }
+        }
+    }
+
     auto ptr_IndividualBannerOverrides = prop->cast_prop<yordle::data::prop::set_prop>(631651853u);
     if(ptr_IndividualBannerOverrides != nullptr) {
         for(const auto &set_IndividualBannerOverrides_entry : ptr_IndividualBannerOverrides->value) {

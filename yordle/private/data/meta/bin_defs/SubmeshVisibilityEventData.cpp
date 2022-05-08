@@ -37,4 +37,9 @@ yordle::data::meta::SubmeshVisibilityEventData::SubmeshVisibilityEventData(const
             }
         }
     }
+
+    auto ptr_x42ad0910 = prop->cast_prop<yordle::data::prop::bool_prop>(1118636304u);
+    if(ptr_x42ad0910 != nullptr) {
+        x42ad0910 = ptr_x42ad0910->value;
+    }
 }

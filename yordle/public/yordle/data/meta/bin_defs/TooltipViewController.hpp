@@ -26,6 +26,23 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::x9e5aed77> DefaultAdjustments {};
         std::map<std::string, std::shared_ptr<yordle::data::meta::x9e5aed77>> xf5fc1d3a {};
+        yordle::data::meta::bin_fnv_hash xcc5d06d5 = 0u;
+        yordle::data::meta::bin_fnv_hash xb54b7b8 = 0u;
+        yordle::data::meta::bin_fnv_hash x32073228 = 0u;
+        yordle::data::meta::bin_fnv_hash xf0427d2c = 0u;
+        yordle::data::meta::bin_fnv_hash x632953b3 = 0u;
+        yordle::data::meta::bin_fnv_hash xac509cfc = 0u;
+        yordle::data::meta::bin_fnv_hash xec5f2c03 = 0u;
+        yordle::data::meta::bin_fnv_hash x618d7951 = 0u;
+        yordle::data::meta::bin_fnv_hash x113a38e = 0u;
+        yordle::data::meta::bin_fnv_hash x3ae84f43 = 0u;
+        yordle::data::meta::bin_fnv_hash xbc65845a = 0u;
+        yordle::data::meta::bin_fnv_hash Backdrop = 0u;
+        yordle::data::meta::bin_fnv_hash xbb9bff1e = 0u;
+        yordle::data::meta::bin_fnv_hash x60c21d40 = 0u;
+        yordle::data::meta::bin_fnv_hash x77d086c4 = 0u;
+        yordle::data::meta::bin_fnv_hash xc9338d72 = 0u;
+        yordle::data::meta::bin_fnv_hash xcfe20df6 = 0u;
         float x9e2fcad4 = 0.0;
         float x750ad235 = 0.0;
     };

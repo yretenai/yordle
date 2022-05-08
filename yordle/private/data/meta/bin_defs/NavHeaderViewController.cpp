@@ -63,6 +63,11 @@ yordle::data::meta::NavHeaderViewController::NavHeaderViewController(const std::
         x4e51b642 = ptr_x4e51b642->value;
     }
 
+    auto ptr_x767f5b0c = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1988057868u);
+    if(ptr_x767f5b0c != nullptr) {
+        x767f5b0c = ptr_x767f5b0c->value;
+    }
+
     auto ptr_xd1d5634d = prop->cast_prop<yordle::data::prop::set_prop>(3520422733u);
     if(ptr_xd1d5634d != nullptr) {
         auto index_xd1d5634d = 0;
@@ -73,6 +78,11 @@ yordle::data::meta::NavHeaderViewController::NavHeaderViewController(const std::
             }
             index_xd1d5634d++;
         }
+    }
+
+    auto ptr_xdafad87c = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3673872508u);
+    if(ptr_xdafad87c != nullptr) {
+        xdafad87c = ptr_xdafad87c->value;
     }
 
     auto ptr_x2b33bedc = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(724811484u);

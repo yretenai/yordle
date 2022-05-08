@@ -17,6 +17,8 @@ namespace yordle::data::meta {
         bool is_type(uint32_t type) override {
             return type == 3656718200u || MissileBehaviorSpec::is_type(type);
         }
+
+        bool x9aa2fc4c = false;
     };
 }
 #define YORDLE_META_DEF_CastOnHit

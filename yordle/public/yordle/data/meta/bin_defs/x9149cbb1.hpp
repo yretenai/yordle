@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 2437532593u;
         }
 
-        uint32_t xf36dc80c = 0u;
+        uint32_t xe0c5d401 = 0u;
         yordle::data::meta::bin_xx_hash SponsorTexturePath = 0u;
     };
 }

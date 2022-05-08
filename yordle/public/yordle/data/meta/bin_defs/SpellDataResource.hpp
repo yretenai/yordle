@@ -26,10 +26,10 @@
 #include <yordle/data/meta/bin_defs/OverrideAttackTimeData.hpp>
 #include <yordle/data/meta/bin_defs/UseAutoattackCastTimeData.hpp>
 #include <yordle/data/meta/bin_defs/MissileSpecification.hpp>
-#include <yordle/data/meta/bin_defs/ResourceResolver.hpp>
 #include <yordle/data/meta/bin_defs/AISpellData.hpp>
 #include <yordle/data/meta/bin_defs/SpellDataResourceClient.hpp>
 #include <yordle/data/meta/bin_defs/TargetingTypeData.hpp>
+#include <yordle/data/meta/bin_defs/xefc7f35c.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -96,10 +96,6 @@ namespace yordle::data::meta {
     struct MissileSpecification;
 #endif
 
-#ifndef YORDLE_META_DEF_ResourceResolver
-    struct ResourceResolver;
-#endif
-
 #ifndef YORDLE_META_DEF_AISpellData
     struct AISpellData;
 #endif
@@ -111,6 +107,10 @@ namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_TargetingTypeData
     struct TargetingTypeData;
 #endif
+
+#ifndef YORDLE_META_DEF_xefc7f35c
+    struct xefc7f35c;
+#endif
     struct YORDLE_EXPORT SpellDataResource : public bin_class {
         explicit SpellDataResource(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -119,6 +119,7 @@ namespace yordle::data::meta {
         }
 
         uint32_t flags = 0u;
+        uint32_t xb4b840e6 = 0u;
         uint32_t mAffectsTypeFlags = 0u;
         uint32_t mAffectsStatusFlags = 0u;
         std::shared_ptr<yordle::data::meta::ObjectTags> mRequiredUnitTags {};
@@ -141,6 +142,7 @@ namespace yordle::data::meta {
         std::string mAnimationWinddownName {};
         std::string mAnimationLeadOutName {};
         std::vector<std::string> mImgIconName {};
+        std::string x21753196 {};
         std::string mMinimapIconName {};
         std::string mKeywordWhenAcquired {};
         float mCastTime = 0.0;
@@ -244,7 +246,6 @@ namespace yordle::data::meta {
         uint32_t mLookAtPolicy = 2u;
         uint32_t mHitEffectOrientType = 1u;
         std::string mHitBoneName {};
-        std::vector<yordle::data::meta::bin_ref<yordle::data::meta::ResourceResolver>> mResourceResolvers {};
         yordle::data::meta::bin_fnv_hash mHitEffectKey = 0u;
         std::string mHitEffectName {};
         yordle::data::meta::bin_fnv_hash mHitEffectPlayerKey = 0u;
@@ -266,6 +267,9 @@ namespace yordle::data::meta {
         bool xa8eb09d1 = false;
         bool x24b763c2 = false;
         std::shared_ptr<yordle::data::meta::TargetingTypeData> mTargetingTypeData {};
+        yordle::data::meta::bin_ref<yordle::data::meta::xefc7f35c> x63060019 { 4022858588 };
+        std::vector<yordle::data::meta::bin_fnv_hash> mResourceResolvers {};
+        std::vector<std::string> AudioBankPaths {};
     };
 }
 #define YORDLE_META_DEF_SpellDataResource

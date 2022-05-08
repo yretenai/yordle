@@ -56,11 +56,14 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::TftItemData>> xe98b297e {};
         std::vector<std::shared_ptr<yordle::data::meta::TftEffectAmount>> effectAmounts {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::TftTraitData>> x6752c795 {};
+        std::vector<yordle::data::meta::bin_ref<yordle::data::meta::TftTraitData>> x9071fd36 {};
         bool mIsUnique = false;
         std::vector<yordle::data::meta::bin_fnv_hash> ItemTags {};
         std::string mDisplayNameTra {};
         std::string mDescriptionNameTra {};
+        std::vector<yordle::data::meta::bin_fnv_hash> xfaf78155 {};
         std::string mIconPath {};
+        std::string xd434d358 {};
         std::optional<std::array<uint8_t, 4>> mColor {};
         std::array<float, 2> x91d75dff { 0.2, 1 };
         yordle::data::meta::bin_ref<yordle::data::meta::VfxSystemDefinitionData> mVfxSystem { 1171098015 };

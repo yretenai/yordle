@@ -28,6 +28,11 @@ yordle::data::meta::ConditionBoolClipData::ConditionBoolClipData(const std::shar
         mChangeAnimationMidPlay = ptr_mChangeAnimationMidPlay->value;
     }
 
+    auto ptr_x94c90e2b = prop->cast_prop<yordle::data::prop::bool_prop>(2496204331u);
+    if(ptr_x94c90e2b != nullptr) {
+        x94c90e2b = ptr_x94c90e2b->value;
+    }
+
     auto ptr_x31db4e6a = prop->cast_prop<yordle::data::prop::bool_prop>(836456042u);
     if(ptr_x31db4e6a != nullptr) {
         x31db4e6a = ptr_x31db4e6a->value;

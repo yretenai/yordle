@@ -4,6 +4,7 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -26,6 +27,8 @@ namespace yordle::data::meta {
         float mLowHealthFlashThresholdPercentage = 0.6000000238418579;
         float mLowHealthFlashDuration = 1.2000000476837158;
         float mLowHealthFlashOpacityStrength = 0.800000011920929;
+        std::string xa34462c {};
+        std::string x6368528b {};
     };
 }
 #define YORDLE_META_DEF_HudFeedbackDamageData

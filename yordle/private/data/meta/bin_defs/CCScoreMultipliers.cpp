@@ -28,6 +28,11 @@ yordle::data::meta::CCScoreMultipliers::CCScoreMultipliers(const std::shared_ptr
         Taunt = ptr_Taunt->value;
     }
 
+    auto ptr_x90afd4cd = prop->cast_prop<yordle::data::prop::float32_prop>(2427442381u);
+    if(ptr_x90afd4cd != nullptr) {
+        x90afd4cd = ptr_x90afd4cd->value;
+    }
+
     auto ptr_fear = prop->cast_prop<yordle::data::prop::float32_prop>(3443430919u);
     if(ptr_fear != nullptr) {
         fear = ptr_fear->value;

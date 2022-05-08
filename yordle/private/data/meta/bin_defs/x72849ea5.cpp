@@ -22,6 +22,16 @@ yordle::data::meta::x72849ea5::x72849ea5(const std::shared_ptr<yordle::data::pro
     if(prop == nullptr) {
         return;
     }
+    auto ptr_x5b9613f7 = prop->cast_prop<yordle::data::prop::float32_prop>(1536562167u);
+    if(ptr_x5b9613f7 != nullptr) {
+        x5b9613f7 = ptr_x5b9613f7->value;
+    }
+
+    auto ptr_xf48b7975 = prop->cast_prop<yordle::data::prop::float32_prop>(4102781301u);
+    if(ptr_xf48b7975 != nullptr) {
+        xf48b7975 = ptr_xf48b7975->value;
+    }
+
     auto ptr_x4d302530 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1295000880u);
     if(ptr_x4d302530 != nullptr) {
         x4d302530 = ptr_x4d302530->value;

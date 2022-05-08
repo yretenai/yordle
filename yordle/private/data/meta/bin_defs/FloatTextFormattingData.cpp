@@ -110,6 +110,11 @@ yordle::data::meta::FloatTextFormattingData::FloatTextFormattingData(const std::
         combinableCounterDisplay = ptr_combinableCounterDisplay->value;
     }
 
+    auto ptr_x20b20b79 = prop->cast_prop<yordle::data::prop::bool_prop>(548539257u);
+    if(ptr_x20b20b79 != nullptr) {
+        x20b20b79 = ptr_x20b20b79->value;
+    }
+
     auto ptr_overwritePreviousNumber = prop->cast_prop<yordle::data::prop::bool_prop>(1354636454u);
     if(ptr_overwritePreviousNumber != nullptr) {
         overwritePreviousNumber = ptr_overwritePreviousNumber->value;

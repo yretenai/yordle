@@ -30,7 +30,6 @@ namespace yordle::data::meta {
         int32_t arMaxSegments = 0;
         bool arHasRegenText = true;
         bool arAllowMaxValueToBeOverridden = false;
-        bool arContributesToHealthValues = false;
         bool arPreventRegenWhileAtZero = false;
         bool arDisplayAsPips = false;
         bool arIsShown = true;

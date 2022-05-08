@@ -24,9 +24,9 @@ yordle::data::meta::IdentityInstance::IdentityInstance(const std::shared_ptr<yor
         mItemTexturePath = ptr_mItemTexturePath->value;
     }
 
-    auto ptr_offerId = prop->cast_prop<yordle::data::prop::string_prop>(1943751208u);
-    if(ptr_offerId != nullptr) {
-        offerId = ptr_offerId->value;
+    auto ptr_id = prop->cast_prop<yordle::data::prop::string_prop>(926444256u);
+    if(ptr_id != nullptr) {
+        id = ptr_id->value;
     }
 
     auto ptr_x8142856e = prop->cast_prop<yordle::data::prop::reference_prop>(2168620398u);

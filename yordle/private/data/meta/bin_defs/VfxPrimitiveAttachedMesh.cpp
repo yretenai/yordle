@@ -18,4 +18,8 @@ yordle::data::meta::VfxPrimitiveAttachedMesh::VfxPrimitiveAttachedMesh(const std
     if(prop == nullptr) {
         return;
     }
+    auto ptr_x5f2e5640 = prop->cast_prop<yordle::data::prop::bool_prop>(1596872256u);
+    if(ptr_x5f2e5640 != nullptr) {
+        x5f2e5640 = ptr_x5f2e5640->value;
+    }
 }

@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/TFTDamageSkin.hpp>
 
+#include <yordle/data/meta/bin_defs/xa2f62fa1.hpp>
 #include <yordle/data/meta/bin_defs/TftDamageSkinDescriptor.hpp>
 #include <yordle/data/meta/bin_defs/BaseLoadoutData.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
@@ -77,6 +78,11 @@ yordle::data::meta::TFTDamageSkin::TFTDamageSkin(const std::shared_ptr<yordle::d
     auto ptr_x7ed5b4a7 = prop->cast_prop<yordle::data::prop::float32_prop>(2127934631u);
     if(ptr_x7ed5b4a7 != nullptr) {
         x7ed5b4a7 = ptr_x7ed5b4a7->value;
+    }
+
+    auto ptr_x3e651996 = prop->cast_prop<yordle::data::prop::structure_prop>(1046813078u);
+    if(ptr_x3e651996 != nullptr) {
+        x3e651996 = yordle::data::meta::deserialize<yordle::data::meta::xa2f62fa1>(ptr_x3e651996, 2734043041u);
     }
 
     auto ptr_x31af5dc6 = prop->cast_prop<yordle::data::prop::set_prop>(833576390u);

@@ -2,7 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/FxActionMoveBase.hpp>
 
-#include <yordle/data/meta/bin_defs/FxTarget.hpp>
+#include <yordle/data/meta/bin_defs/x5c086dbd.hpp>
 #include <yordle/data/meta/bin_defs/IFxAction.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -21,7 +21,7 @@ yordle::data::meta::FxActionMoveBase::FxActionMoveBase(const std::shared_ptr<yor
     }
     auto ptr_TargetObject = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3865339871u);
     if(ptr_TargetObject != nullptr) {
-        TargetObject = yordle::data::meta::deserialize<yordle::data::meta::FxTarget>(ptr_TargetObject, 87271638u);
+        TargetObject = yordle::data::meta::deserialize<yordle::data::meta::x5c086dbd>(ptr_TargetObject, 1544056253u);
     }
 
     auto ptr_EasingType = prop->cast_prop<yordle::data::prop::uint8_prop>(1933980160u);

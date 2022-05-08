@@ -21,6 +21,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash Group = 0u;
         yordle::data::meta::bin_fnv_hash Icon = 0u;
         yordle::data::meta::bin_fnv_hash x98850381 = 0u;
+        yordle::data::meta::bin_fnv_hash x1050e36a = 0u;
         yordle::data::meta::bin_fnv_hash xabcc11e8 = 0u;
         yordle::data::meta::bin_fnv_hash x43b27471 = 0u;
         yordle::data::meta::bin_fnv_hash Vfx = 0u;

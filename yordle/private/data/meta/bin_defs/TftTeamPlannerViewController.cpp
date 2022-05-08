@@ -86,6 +86,11 @@ yordle::data::meta::TftTeamPlannerViewController::TftTeamPlannerViewController(c
         Scene = ptr_Scene->value;
     }
 
+    auto ptr_xf581291f = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(4118882591u);
+    if(ptr_xf581291f != nullptr) {
+        xf581291f = ptr_xf581291f->value;
+    }
+
     auto ptr_x807ef97f = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2155805055u);
     if(ptr_x807ef97f != nullptr) {
         x807ef97f = ptr_x807ef97f->value;

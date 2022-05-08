@@ -23,12 +23,25 @@ namespace yordle::data::meta {
             return type == 2038992222u || ViewController::is_type(type);
         }
 
+        float x5b9613f7 = 0.5;
+        float xf48b7975 = 1.0;
         uint8_t defaultWordWrapMargin = 10u;
         float hideAfterSeconds = 7.5;
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
         yordle::data::meta::bin_fnv_hash SceneChat = 0u;
         yordle::data::meta::bin_fnv_hash x8284ebb3 = 0u;
         yordle::data::meta::bin_fnv_hash xbc8c4eed = 0u;
+        yordle::data::meta::bin_fnv_hash x5ebecd37 = 0u;
+        yordle::data::meta::bin_fnv_hash x74701348 = 0u;
+        yordle::data::meta::bin_fnv_hash x66ca3cd = 0u;
+        yordle::data::meta::bin_fnv_hash xd877025b = 0u;
+        yordle::data::meta::bin_fnv_hash x15c46e91 = 0u;
+        yordle::data::meta::bin_fnv_hash xa9089978 = 0u;
+        yordle::data::meta::bin_fnv_hash x87806bf6 = 0u;
+        yordle::data::meta::bin_fnv_hash AnchorBase = 0u;
+        yordle::data::meta::bin_fnv_hash x5df1b863 = 0u;
+        yordle::data::meta::bin_fnv_hash x2e21b458 = 0u;
+        yordle::data::meta::bin_fnv_hash x80adf252 = 0u;
     };
 }
 #define YORDLE_META_DEF_ChatViewController

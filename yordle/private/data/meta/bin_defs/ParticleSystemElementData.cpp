@@ -34,14 +34,14 @@ yordle::data::meta::ParticleSystemElementData::ParticleSystemElementData(const s
         x2824440 = ptr_x2824440->value;
     }
 
-    auto ptr_x94b088ea = prop->cast_prop<yordle::data::prop::bool_prop>(2494597354u);
-    if(ptr_x94b088ea != nullptr) {
-        x94b088ea = ptr_x94b088ea->value;
-    }
-
     auto ptr_x8ef629c9 = prop->cast_prop<yordle::data::prop::bool_prop>(2398497225u);
     if(ptr_x8ef629c9 != nullptr) {
         x8ef629c9 = ptr_x8ef629c9->value;
+    }
+
+    auto ptr_x91dec6fe = prop->cast_prop<yordle::data::prop::float32_prop>(2447296254u);
+    if(ptr_x91dec6fe != nullptr) {
+        x91dec6fe = ptr_x91dec6fe->value;
     }
 
     auto ptr_x1a898c7d = prop->cast_prop<yordle::data::prop::map_prop>(445222013u);

@@ -5,6 +5,7 @@
 
 #include <memory>
 #include <string>
+#include <cstdint>
 #include <vector>
 
 #include <yordle/data/meta/bin_defs/SponsoredBanner.hpp>
@@ -30,6 +31,9 @@ namespace yordle::data::meta {
         }
 
         std::string name {};
+        uint32_t priority = 0u;
+        std::vector<std::string> xf7e7945a {};
+        std::vector<std::string> xa327f48b {};
         std::vector<std::shared_ptr<yordle::data::meta::SponsoredBanner>> IndividualBannerOverrides {};
         yordle::data::meta::bin_fnv_hash esportsTeam = 0u;
         yordle::data::meta::bin_ref<yordle::data::meta::GameMutatorExpansions> eventMutator { 4119089369 };

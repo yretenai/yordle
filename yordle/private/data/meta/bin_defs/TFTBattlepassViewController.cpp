@@ -3,6 +3,10 @@
 #include <yordle/data/meta/bin_defs/TFTBattlepassViewController.hpp>
 
 #include <yordle/data/meta/bin_defs/x627faf1d.hpp>
+#include <yordle/data/meta/bin_defs/x4792d315.hpp>
+#include <yordle/data/meta/bin_defs/x5a0304d8.hpp>
+#include <yordle/data/meta/bin_defs/x949c4b8a.hpp>
+#include <yordle/data/meta/bin_defs/xa9fbac89.hpp>
 #include <yordle/data/meta/bin_defs/ViewPaneDefinition.hpp>
 #include <yordle/data/meta/bin_defs/HudMenuTransitionData.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
@@ -41,9 +45,44 @@ yordle::data::meta::TFTBattlepassViewController::TFTBattlepassViewController(con
         lootTableButton = ptr_lootTableButton->value;
     }
 
+    auto ptr_x5b4cd7b = prop->cast_prop<yordle::data::prop::inline_structure_prop>(95735163u);
+    if(ptr_x5b4cd7b != nullptr) {
+        x5b4cd7b = yordle::data::meta::deserialize<yordle::data::meta::x4792d315>(ptr_x5b4cd7b, 1200804629u);
+    }
+
+    auto ptr_xa90621be = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2835751358u);
+    if(ptr_xa90621be != nullptr) {
+        xa90621be = ptr_xa90621be->value;
+    }
+
+    auto ptr_xf75e0a5c = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(4150135388u);
+    if(ptr_xf75e0a5c != nullptr) {
+        xf75e0a5c = ptr_xf75e0a5c->value;
+    }
+
+    auto ptr_x308d1d82 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(814554498u);
+    if(ptr_x308d1d82 != nullptr) {
+        x308d1d82 = ptr_x308d1d82->value;
+    }
+
+    auto ptr_x46b68465 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1186366565u);
+    if(ptr_x46b68465 != nullptr) {
+        x46b68465 = yordle::data::meta::deserialize<yordle::data::meta::x5a0304d8>(ptr_x46b68465, 1510147288u);
+    }
+
+    auto ptr_x974ba1a3 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2538316195u);
+    if(ptr_x974ba1a3 != nullptr) {
+        x974ba1a3 = yordle::data::meta::deserialize<yordle::data::meta::x949c4b8a>(ptr_x974ba1a3, 2493270922u);
+    }
+
     auto ptr_x59434c33 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1497582643u);
     if(ptr_x59434c33 != nullptr) {
         x59434c33 = ptr_x59434c33->value;
+    }
+
+    auto ptr_xa9fbac89 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2851843209u);
+    if(ptr_xa9fbac89 != nullptr) {
+        xa9fbac89 = yordle::data::meta::deserialize<yordle::data::meta::xa9fbac89>(ptr_xa9fbac89, 2851843209u);
     }
 
     auto ptr_ViewPaneDefinition = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2330109623u);

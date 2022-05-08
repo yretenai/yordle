@@ -2,8 +2,8 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/x29f9f5d9.hpp>
 
-#include <yordle/data/meta/bin_defs/x4a99e777.hpp>
 #include <yordle/data/meta/bin_defs/GameMutatorExpansions.hpp>
+#include <yordle/data/meta/bin_defs/x4a99e777.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -20,14 +20,54 @@ yordle::data::meta::x29f9f5d9::x29f9f5d9(const std::shared_ptr<yordle::data::pro
     if(prop == nullptr) {
         return;
     }
+    auto ptr_xf9e45233 = prop->cast_prop<yordle::data::prop::float32_prop>(4192490035u);
+    if(ptr_xf9e45233 != nullptr) {
+        xf9e45233 = ptr_xf9e45233->value;
+    }
+
     auto ptr_name = prop->cast_prop<yordle::data::prop::string_prop>(2369371622u);
     if(ptr_name != nullptr) {
         name = ptr_name->value;
     }
 
-    auto ptr_xda47e35 = prop->cast_prop<yordle::data::prop::float32_prop>(228884021u);
-    if(ptr_xda47e35 != nullptr) {
-        xda47e35 = ptr_xda47e35->value;
+    auto ptr_priority = prop->cast_prop<yordle::data::prop::uint32_prop>(2498028297u);
+    if(ptr_priority != nullptr) {
+        priority = ptr_priority->value;
+    }
+
+    auto ptr_xf7e7945a = prop->cast_prop<yordle::data::prop::set_prop>(4159149146u);
+    if(ptr_xf7e7945a != nullptr) {
+        for(const auto &set_xf7e7945a_entry : ptr_xf7e7945a->value) {
+            auto ptr_xf7e7945a_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_xf7e7945a_entry);
+            if(ptr_xf7e7945a_entry != nullptr) {
+                xf7e7945a.emplace_back(ptr_xf7e7945a_entry->value);
+            }
+        }
+    }
+
+    auto ptr_xa327f48b = prop->cast_prop<yordle::data::prop::set_prop>(2737304715u);
+    if(ptr_xa327f48b != nullptr) {
+        for(const auto &set_xa327f48b_entry : ptr_xa327f48b->value) {
+            auto ptr_xa327f48b_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_xa327f48b_entry);
+            if(ptr_xa327f48b_entry != nullptr) {
+                xa327f48b.emplace_back(ptr_xa327f48b_entry->value);
+            }
+        }
+    }
+
+    auto ptr_x6d9c47ab = prop->cast_prop<yordle::data::prop::float32_prop>(1838958507u);
+    if(ptr_x6d9c47ab != nullptr) {
+        x6d9c47ab = ptr_x6d9c47ab->value;
+    }
+
+    auto ptr_eventMutator = prop->cast_prop<yordle::data::prop::reference_prop>(4043971103u);
+    if(ptr_eventMutator != nullptr) {
+        eventMutator = yordle::data::meta::bin_ref<yordle::data::meta::GameMutatorExpansions>(4119089369u, ptr_eventMutator->value);
+    }
+
+    auto ptr_xe8457340 = prop->cast_prop<yordle::data::prop::xx_hash_prop>(3896865600u);
+    if(ptr_xe8457340 != nullptr) {
+        xe8457340 = ptr_xe8457340->value;
     }
 
     auto ptr_IndividualBannerOverrides = prop->cast_prop<yordle::data::prop::set_prop>(631651853u);
@@ -38,15 +78,5 @@ yordle::data::meta::x29f9f5d9::x29f9f5d9(const std::shared_ptr<yordle::data::pro
                 IndividualBannerOverrides.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x4a99e777>(ptr_IndividualBannerOverrides_entry, 1251600247u));
             }
         }
-    }
-
-    auto ptr_eventMutator = prop->cast_prop<yordle::data::prop::reference_prop>(4043971103u);
-    if(ptr_eventMutator != nullptr) {
-        eventMutator = yordle::data::meta::bin_ref<yordle::data::meta::GameMutatorExpansions>(4119089369u, ptr_eventMutator->value);
-    }
-
-    auto ptr_texturePath = prop->cast_prop<yordle::data::prop::xx_hash_prop>(4037239779u);
-    if(ptr_texturePath != nullptr) {
-        texturePath = ptr_texturePath->value;
     }
 }

@@ -27,4 +27,9 @@ yordle::data::meta::HudStatStoneData::HudStatStoneData(const std::shared_ptr<yor
     if(ptr_x3c8fa9e9 != nullptr) {
         x3c8fa9e9 = ptr_x3c8fa9e9->value;
     }
+
+    auto ptr_x4ea59d14 = prop->cast_prop<yordle::data::prop::bool_prop>(1319476500u);
+    if(ptr_x4ea59d14 != nullptr) {
+        x4ea59d14 = ptr_x4ea59d14->value;
+    }
 }

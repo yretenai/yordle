@@ -4,13 +4,18 @@
 #pragma once
 
 #include <memory>
+#include <vector>
 
+#include <yordle/data/meta/bin_defs/xa5584548.hpp>
 #include <yordle/data/meta/bin_defs/BaseRigPoseModifierData.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_xa5584548
+    struct xa5584548;
+#endif
     struct YORDLE_EXPORT ConformToPathRigPoseModifierData : public BaseRigPoseModifierData {
         explicit ConformToPathRigPoseModifierData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -25,6 +30,12 @@ namespace yordle::data::meta {
         float mDampingValue = 10.0;
         float mVelMultiplier = -0.5;
         float mFrequency = 10.0;
+        bool xa550c40c = false;
+        bool xa4e3d433 = false;
+        float ActivationDistance = 200.0;
+        float x6d3315f3 = 400.0;
+        float xafc0620 = 0.5;
+        std::vector<std::shared_ptr<yordle::data::meta::xa5584548>> xf1f20249 {};
     };
 }
 #define YORDLE_META_DEF_ConformToPathRigPoseModifierData

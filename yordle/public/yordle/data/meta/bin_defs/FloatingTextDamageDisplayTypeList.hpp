@@ -29,6 +29,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::FloatTextDisplayOverrides> DotNoCombine { 267762117 };
         yordle::data::meta::bin_ref<yordle::data::meta::FloatTextDisplayOverrides> Dot { 267762117 };
         yordle::data::meta::bin_ref<yordle::data::meta::FloatTextDisplayOverrides> DotSlow { 267762117 };
+        yordle::data::meta::bin_ref<yordle::data::meta::FloatTextDisplayOverrides> xd3594b78 { 267762117 };
         yordle::data::meta::bin_ref<yordle::data::meta::FloatTextDisplayOverrides> Multistrike { 267762117 };
         yordle::data::meta::bin_ref<yordle::data::meta::FloatTextDisplayOverrides> MultistrikeFast { 267762117 };
         yordle::data::meta::bin_ref<yordle::data::meta::FloatTextDisplayOverrides> MultistrikeSlow { 267762117 };

@@ -4,6 +4,8 @@
 
 #include <yordle/data/meta/bin_defs/Map.hpp>
 #include <yordle/data/meta/bin_defs/MapCharacterList.hpp>
+#include <yordle/data/meta/bin_defs/x7e19c23.hpp>
+#include <yordle/data/meta/bin_defs/MapSkin.hpp>
 #include <yordle/data/meta/bin_defs/MapVisibilityFlagDefinitions.hpp>
 #include <yordle/data/meta/bin_defs/MapNavigationGridOverlays.hpp>
 #include <yordle/data/meta/bin_defs/WadFileDescriptor.hpp>
@@ -38,6 +40,26 @@ yordle::data::meta::Map::Map(const std::shared_ptr<yordle::data::prop::structure
             auto ptr_characterLists_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(set_characterLists_entry);
             if(ptr_characterLists_entry != nullptr) {
                 characterLists.emplace_back(yordle::data::meta::bin_ref<yordle::data::meta::MapCharacterList>(199060396u, ptr_characterLists_entry->value));
+            }
+        }
+    }
+
+    auto ptr_x150e8670 = prop->cast_prop<yordle::data::prop::unordered_set_prop>(353273456u);
+    if(ptr_x150e8670 != nullptr) {
+        for(const auto &set_x150e8670_entry : ptr_x150e8670->value) {
+            auto ptr_x150e8670_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(set_x150e8670_entry);
+            if(ptr_x150e8670_entry != nullptr) {
+                x150e8670.emplace_back(yordle::data::meta::bin_ref<yordle::data::meta::x7e19c23>(132226083u, ptr_x150e8670_entry->value));
+            }
+        }
+    }
+
+    auto ptr_mapSkins = prop->cast_prop<yordle::data::prop::unordered_set_prop>(785627485u);
+    if(ptr_mapSkins != nullptr) {
+        for(const auto &set_mapSkins_entry : ptr_mapSkins->value) {
+            auto ptr_mapSkins_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(set_mapSkins_entry);
+            if(ptr_mapSkins_entry != nullptr) {
+                mapSkins.emplace_back(yordle::data::meta::bin_ref<yordle::data::meta::MapSkin>(3441028924u, ptr_mapSkins_entry->value));
             }
         }
     }

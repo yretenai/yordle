@@ -26,7 +26,7 @@ yordle::data::meta::MapAudioDataProperties::MapAudioDataProperties(const std::sh
         BaseData = yordle::data::meta::bin_ref<yordle::data::meta::MapAudioDataProperties>(3010308524u, ptr_BaseData->value);
     }
 
-    auto ptr_bankUnits = prop->cast_prop<yordle::data::prop::set_prop>(4176650130u);
+    auto ptr_bankUnits = prop->cast_prop<yordle::data::prop::unordered_set_prop>(4176650130u);
     if(ptr_bankUnits != nullptr) {
         for(const auto &set_bankUnits_entry : ptr_bankUnits->value) {
             auto ptr_bankUnits_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_bankUnits_entry);
@@ -44,5 +44,15 @@ yordle::data::meta::MapAudioDataProperties::MapAudioDataProperties(const std::sh
                 features.emplace_back(yordle::data::meta::bin_ref<yordle::data::meta::FeatureAudioDataProperties>(4071981464u, ptr_features_entry->value));
             }
         }
+    }
+
+    auto ptr_x561de536 = prop->cast_prop<yordle::data::prop::string_prop>(1444799798u);
+    if(ptr_x561de536 != nullptr) {
+        x561de536 = ptr_x561de536->value;
+    }
+
+    auto ptr_x1cf84925 = prop->cast_prop<yordle::data::prop::string_prop>(486033701u);
+    if(ptr_x1cf84925 != nullptr) {
+        x1cf84925 = ptr_x1cf84925->value;
     }
 }

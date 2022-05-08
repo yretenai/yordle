@@ -29,4 +29,16 @@ yordle::data::meta::LoadoutDamageSkinInfoPanel::LoadoutDamageSkinInfoPanel(const
             index_tierButton++;
         }
     }
+
+    auto ptr_x7a6c84ab = prop->cast_prop<yordle::data::prop::set_prop>(2053932203u);
+    if(ptr_x7a6c84ab != nullptr) {
+        auto index_x7a6c84ab = 0;
+        for(const auto &set_x7a6c84ab_entry : ptr_x7a6c84ab->value) {
+            auto ptr_x7a6c84ab_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_x7a6c84ab_entry);
+            if(ptr_x7a6c84ab_entry != nullptr) {
+                x7a6c84ab[index_x7a6c84ab] = ptr_x7a6c84ab_entry->value;
+            }
+            index_x7a6c84ab++;
+        }
+    }
 }

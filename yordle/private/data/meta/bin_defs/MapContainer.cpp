@@ -55,6 +55,11 @@ yordle::data::meta::MapContainer::MapContainer(const std::shared_ptr<yordle::dat
         xf010defb = ptr_xf010defb->value;
     }
 
+    auto ptr_xd4edb891 = prop->cast_prop<yordle::data::prop::bool_prop>(3572349073u);
+    if(ptr_xd4edb891 != nullptr) {
+        xd4edb891 = ptr_xd4edb891->value;
+    }
+
     auto ptr_chunks = prop->cast_prop<yordle::data::prop::map_prop>(1577983395u);
     if(ptr_chunks != nullptr) {
         for(const auto &set_chunks_pair : ptr_chunks->value) {

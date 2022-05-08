@@ -23,6 +23,11 @@ yordle::data::meta::MapSkin::MapSkin(const std::shared_ptr<yordle::data::prop::s
     if(prop == nullptr) {
         return;
     }
+    auto ptr_name = prop->cast_prop<yordle::data::prop::string_prop>(2369371622u);
+    if(ptr_name != nullptr) {
+        name = ptr_name->value;
+    }
+
     auto ptr_mMapContainerLink = prop->cast_prop<yordle::data::prop::string_prop>(2517564801u);
     if(ptr_mMapContainerLink != nullptr) {
         mMapContainerLink = ptr_mMapContainerLink->value;

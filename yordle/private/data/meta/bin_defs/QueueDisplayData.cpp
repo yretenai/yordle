@@ -38,9 +38,14 @@ yordle::data::meta::QueueDisplayData::QueueDisplayData(const std::shared_ptr<yor
         x21eaf8b = ptr_x21eaf8b->value;
     }
 
-    auto ptr_IllustrationIconElement = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2745365850u);
-    if(ptr_IllustrationIconElement != nullptr) {
-        IllustrationIconElement = ptr_IllustrationIconElement->value;
+    auto ptr_x4ada17a4 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1255806884u);
+    if(ptr_x4ada17a4 != nullptr) {
+        x4ada17a4 = ptr_x4ada17a4->value;
+    }
+
+    auto ptr_x30a89681 = prop->cast_prop<yordle::data::prop::string_prop>(816354945u);
+    if(ptr_x30a89681 != nullptr) {
+        x30a89681 = ptr_x30a89681->value;
     }
 
     auto ptr_DisplayNameTraKey = prop->cast_prop<yordle::data::prop::string_prop>(3441777566u);

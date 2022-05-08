@@ -21,6 +21,7 @@ namespace yordle::data::meta {
 
         bool mInferDirectionFromFacingIfNeeded = true;
         bool mProjectTargetToCastRange = false;
+        bool x99aa2d1f = false;
         bool mUseGroundHeightAtTarget = true;
         float mAcceleration = 0.0;
         float mMinSpeed = 0.0;

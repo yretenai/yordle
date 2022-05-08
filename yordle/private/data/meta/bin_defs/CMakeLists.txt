@@ -6,6 +6,7 @@ target_sources(yordle PRIVATE
     x108cd453.cpp
     x10f4d0bf.cpp
     TempTable2Table.cpp
+    x1122b16e.cpp
     CharacterHealthBarDataRecord.cpp
     x11bfa7a1.cpp
     MapVisibilityFlagRange.cpp
@@ -18,11 +19,15 @@ target_sources(yordle PRIVATE
     OptionTemplateLabel.cpp
     FloatOffsetTableGet.cpp
     DeathTimes.cpp
+    x13363778.cpp
+    x139f27a2.cpp
     AboveHealthPercentCastRequirement.cpp
     x13a37f3e.cpp
+    x13dcbd26.cpp
     TftGameStartViewController.cpp
     ESportTeamEntry.cpp
     CheatMenuUIData.cpp
+    x1466479b.cpp
     ContextualConditionCharacterHasTimeRemainingForAnimation.cpp
     ShaderLogicalParameter.cpp
     x14aef50c.cpp
@@ -32,46 +37,60 @@ target_sources(yordle PRIVATE
     ConditionBoolClipData.cpp
     x15793a8c.cpp
     x15f28ac8.cpp
+    x15f6e07a.cpp
     ByCharLevelInterpolationCalculationPart.cpp
     MissileBehaviorSpec.cpp
     TransitionClipBlendData.cpp
     x1650a4ce.cpp
+    x16892533.cpp
     MapSunProperties.cpp
     NotificationsPanelViewController.cpp
     EmblemSettings.cpp
     FloatTextIconData.cpp
     ScaleByScaleSkinCoef.cpp
+    x16eb9b94.cpp
     IGameCalculation.cpp
     FloatingTextTunables.cpp
     ItemRecommendationCondition.cpp
     x17b19502.cpp
     GameModeItemList.cpp
+    x186be64c.cpp
     NumberFormattingBehavior.cpp
     TargeterDefinitionMinimap.cpp
     x18ee4f3b.cpp
     OrScriptCondition.cpp
-    HudEmotePopupData.cpp
+    x19780ce6.cpp
     VfxFieldAttractionDefinitionData.cpp
+    x1a96332d.cpp
     TriggerOnHit.cpp
+    x1ad8a401.cpp
+    x1b1243af.cpp
+    x1bca1a5e.cpp
     x1be092ec.cpp
     PhysicsMovement.cpp
     BuffStackingTemplate.cpp
+    x1c494c09.cpp
     CustomTableContainsValueBlock.cpp
     MapNavGrid.cpp
     SyncCircleMovement.cpp
+    x1d27312c.cpp
     TargetLaserComponentEffects.cpp
+    x1d6c21e5.cpp
+    x1d6f8226.cpp
     TFTModeData.cpp
     VfxSoftParticleDefinitionData.cpp
     ContextualActionTriggerEvent.cpp
     AvatarVarsTable.cpp
     PerkScript.cpp
     AnnouncementDefinitionData.cpp
-    HudHealthBarProgressiveTickData.cpp
+    x1e18eebe.cpp
     MasteryData.cpp
     ForEachInCustomTableBlock.cpp
     SummonerEmoteSettings.cpp
     FloatPerSpellLevel.cpp
     x1e6c47fe.cpp
+    x1e8017a8.cpp
+    x1e8d9860.cpp
     CooldownMultiplierCalculationPart.cpp
     OptionTemplateSlider.cpp
     MinimapData.cpp
@@ -81,13 +100,18 @@ target_sources(yordle PRIVATE
     VfxBeamDefinitionData.cpp
     x1fbea063.cpp
     x1feaab61.cpp
+    x203722d2.cpp
     CustomShaderDef.cpp
+    x20664115.cpp
+    x2070f6ad.cpp
     ReturnToCasterOnMovementComplete.cpp
     IResource.cpp
+    x20d7982e.cpp
     FxActionContinue.cpp
     ParallelClipData.cpp
     VfxPrimitiveTrailBase.cpp
     DynamicMaterialTextureSwapOption.cpp
+    x222410ce.cpp
     ItemAdviceAttribute.cpp
     MapPerInstanceInfo.cpp
     ScriptTableGet.cpp
@@ -98,7 +122,9 @@ target_sources(yordle PRIVATE
     FloatTextFormattingData.cpp
     MapPointLight.cpp
     x231dd1a2.cpp
+    x2373fc78.cpp
     CharacterRecord.cpp
+    x23f06f1c.cpp
     ModeProgressionRewardData.cpp
     IVfxMaterialDriver.cpp
     ByCharLevelFormulaCalculationPart.cpp
@@ -109,14 +135,21 @@ target_sources(yordle PRIVATE
     AlternateSpellAssets.cpp
     x245ba20b.cpp
     ScriptTable.cpp
+    x24fc182b.cpp
     ObjectTags.cpp
+    x2558886d.cpp
+    x257ce8cb.cpp
     TFTPhaseData.cpp
     x25e82b58.cpp
     x2610e5a7.cpp
     OptionItemSliderInt.cpp
+    x26557b0a.cpp
+    x2655b46.cpp
     TFTStreak.cpp
-    GDSMapObjectLightingInfo.cpp
     x26f2a088.cpp
+    x272ca74d.cpp
+    x275342a3.cpp
+    x276cb970.cpp
     x2781ed6b.cpp
     IntTableSet.cpp
     AddPARCheat.cpp
@@ -124,34 +157,44 @@ target_sources(yordle PRIVATE
     MapPointLightType.cpp
     GearSkinUpgrade.cpp
     TargeterDefinitionSpline.cpp
+    x281c11d2.cpp
+    x282feae0.cpp
     VfxPrimitiveCameraTrail.cpp
     LootStatus.cpp
+    x2925d554.cpp
     KillAllTurretsCheat.cpp
     BlendedLinearHeightSolver.cpp
     RecallDecalData.cpp
     ContextualActionPlayVO.cpp
+    x29b498b2.cpp
     x29dfd7ad.cpp
+    x29f3a370.cpp
     x29f9f5d9.cpp
     OptionTemplateHotkeys.cpp
     IntGet.cpp
+    x2a598565.cpp
     HasAtleastNSubRequirementsCastRequirement.cpp
+    x2a96aa37.cpp
+    x2aa61eb4.cpp
     MinimapBackgroundConfig.cpp
     x2ad934a7.cpp
     VfxSineMaterialDriver.cpp
     ScriptCommentBlock.cpp
     GameModeConstantsGroup.cpp
     MaskData.cpp
+    x2b58b8dd.cpp
     AnnouncementIcon.cpp
+    x2b768993.cpp
     FxSequence.cpp
     MapVisibilityFlagDefinition.cpp
     x2ba8fc33.cpp
     x2be06ec4.cpp
+    x2bf1aafe.cpp
     VfxColorOverLifeMaterialDriver.cpp
     SurrenderTypeData.cpp
     FloatingTextTypeList.cpp
-    HudHealthBarDefenseModifierData.cpp
     LineTargetToCaster.cpp
-    FxTransform.cpp
+    x2cfea070.cpp
     IsOwnerAliveSpawnConditions.cpp
     EsportsBannerData.cpp
     RegaliaRankedBannerMap.cpp
@@ -171,6 +214,8 @@ target_sources(yordle PRIVATE
     FlexTypeFloat.cpp
     x2fae5ced.cpp
     FunctionTableGet.cpp
+    x300333fc.cpp
+    x30176f82.cpp
     AreaClamped.cpp
     TFTCharacterRecord.cpp
     LearnedSpellDynamicMaterialBoolDriver.cpp
@@ -182,17 +227,23 @@ target_sources(yordle PRIVATE
     x320b890e.cpp
     ContextualConditionCharacterPlayingEmote.cpp
     NextBuffVarsTable.cpp
+    x3228d244.cpp
     Target.cpp
     LoadoutDamageSkinInfoPanel.cpp
+    x327b06c3.cpp
     LockRootOrientationRigPoseModifierData.cpp
     MapAlternateAssets.cpp
     x32be2466.cpp
+    x32c5fd80.cpp
+    x32ea23b7.cpp
     SkinCharacterDataProperties_CharacterIdleEffect.cpp
     TFTGameVariationData.cpp
     NamedDataValueCalculationPart.cpp
     UseAutoattackCastTimeData.cpp
     TargeterDefinitionLine.cpp
     x340536c7.cpp
+    x34148f4e.cpp
+    x34270fce.cpp
     X3DSharedData.cpp
     x345c1c77.cpp
     ContextualConditionSpellSlot.cpp
@@ -201,11 +252,13 @@ target_sources(yordle PRIVATE
     OverridePerkSelectionSet.cpp
     ValueProcessorData.cpp
     x354988a8.cpp
+    x354ac847.cpp
     IScriptSequence.cpp
     EnchantmentGroup.cpp
     TooltipInstanceItem.cpp
     x3604b3e3.cpp
     MinMaterialDriver.cpp
+    x364f1782.cpp
     AudioSystemDataProperties.cpp
     x369a22b9.cpp
     VoiceChatViewController.cpp
@@ -213,9 +266,9 @@ target_sources(yordle PRIVATE
     GoldSourceFilter.cpp
     TFTHudUnitShopData.cpp
     X3DSharedTextureDef.cpp
-    HudVoiceChatData.cpp
+    x376e71c2.cpp
     ChangeHeightSolver.cpp
-    HudHealthBarDefenseIconData.cpp
+    x37d44abd.cpp
     x38691790.cpp
     GetSizeOfCustomTableBlock.cpp
     AddExperienceCheat.cpp
@@ -227,7 +280,9 @@ target_sources(yordle PRIVATE
     CircleMovement.cpp
     x39bbca88.cpp
     EncounterUITunables.cpp
+    x3a039f11.cpp
     HeightSolverType.cpp
+    x3a48829.cpp
     FixedDurationTriggeredBoolDriver.cpp
     ItemGroup.cpp
     AbilityResourceTypeConfig.cpp
@@ -239,22 +294,27 @@ target_sources(yordle PRIVATE
     ContextualConditionGameTimer.cpp
     LootTableDialogViewController.cpp
     MapBehavior.cpp
+    x3c82d0e6.cpp
     FxActionMoveBase.cpp
     x3c8d0b5d.cpp
     x3cd8dbcd.cpp
     TriggerOnStart.cpp
     PerkBuff.cpp
     TimeBlendData.cpp
-    HudHealthBarFadeData.cpp
+    x3de2c4c6.cpp
     MissileGroupSpawnerSpec.cpp
     x3e59e2ca.cpp
     SetRespawnTimerCheat.cpp
+    x3ee0746d.cpp
+    x3f22b20c.cpp
     FloatingTextOverride.cpp
     MapGraphicsFeature.cpp
     IndicatorTypeLocal.cpp
     IContextualAction.cpp
     GameModeConstantInteger.cpp
+    x4057a24f.cpp
     x407b58d1.cpp
+    x4084af1e.cpp
     MaterialInstanceDynamicTexture.cpp
     SyncedAnimationRigPoseModifierData.cpp
     ContextualConditionItemID.cpp
@@ -263,10 +323,13 @@ target_sources(yordle PRIVATE
     FlexValueVector2.cpp
     x418b95a.cpp
     ItemCareyOverrideStartingItemSetSet.cpp
+    x41c73a85.cpp
     ContextualConditionNegation.cpp
     FlexValueVector3.cpp
     SkinAnimationProperties.cpp
     LoadScreenTip.cpp
+    x429f3e94.cpp
+    x42bac271.cpp
     AudioTagListProperties.cpp
     ValueFloat.cpp
     x430dd10d.cpp
@@ -286,7 +349,6 @@ target_sources(yordle PRIVATE
     IStringGet.cpp
     VfxSystemDefinitionData.cpp
     MaterialInstanceDynamicSwitch.cpp
-    x45e66b18.cpp
     SwitchMaterialDriverElement.cpp
     MapPrefabInstance.cpp
     TrophyData.cpp
@@ -296,19 +358,26 @@ target_sources(yordle PRIVATE
     ItemRecommendationItemList.cpp
     x474f1541.cpp
     QualitySetting.cpp
+    x4792d315.cpp
     TargeterDefinitionRange.cpp
     TurretFirstBloodLogic.cpp
+    x47c7ce74.cpp
     CameraTrapezoid.cpp
+    x48184113.cpp
     x48284759.cpp
+    x486e38ec.cpp
     ESportLeagueEntry.cpp
     x48c9ff38.cpp
     MapParticleGroups.cpp
     GDSMapObjectExtraInfo.cpp
+    x4926ae3e.cpp
+    x49340fba.cpp
     VfxDistortionDefinitionData.cpp
     x49da656e.cpp
     x49dc6c51.cpp
     ISecondaryResourceDisplayData.cpp
     SelectorClipData.cpp
+    x4a2fe72c.cpp
     StatFormulaDataList.cpp
     InteractionData.cpp
     x4a99e777.cpp
@@ -318,8 +387,11 @@ target_sources(yordle PRIVATE
     OptionItemResolutionDropdown.cpp
     FunctionTableSet.cpp
     HudMessageDisplayData.cpp
+    x4bb004c1.cpp
+    x4bd3b49b.cpp
     VfxPrimitiveArbitraryQuad.cpp
     UnitStatusData.cpp
+    x4bfe07eb.cpp
     TargeterDefinition.cpp
     FadeEventData.cpp
     NeutralTimers.cpp
@@ -332,33 +404,41 @@ target_sources(yordle PRIVATE
     FollowTerrainHeightSolver.cpp
     x4e9d7735.cpp
     ScriptPreloadModule.cpp
-    HudSpellSlotResetFeedbackData.cpp
+    x4ee16fb5.cpp
     IsSkinSpawnConditionData.cpp
     MaterialSwitchData.cpp
     x4f3e1bdd.cpp
     EffectDesaturateElementData.cpp
     MasteryBadgeData.cpp
+    x4fe40e4a.cpp
     TFTHudTunables.cpp
     SpellDataValue.cpp
+    x5016b4b.cpp
     BlendableClipData.cpp
     ITargeterFadeBehavior.cpp
+    x506291c8.cpp
     HasBuffNameSpawnConditions.cpp
     AnnouncementsViewController.cpp
+    x512e2440.cpp
     HermiteSplineInfo.cpp
     x518d5fc0.cpp
-    HudHealthBarData.cpp
     FlexValueFloat.cpp
+    healthBarData.cpp
     VfxFloatOverLifeMaterialDriver.cpp
+    x522ba90a.cpp
+    x527e0256.cpp
+    x5289f880.cpp
     ContextualConditionShopCloseCount.cpp
     SkinCharacterMetaDataProperties_SpawningSkinOffset.cpp
     AnchorSingle.cpp
-    FxTarget.cpp
     StatFilterDefinition.cpp
     VfxProbabilityTableData.cpp
+    x53a6d068.cpp
     MissileTriggeredActionSpec.cpp
     MaterialParameterData.cpp
     PassThroughParamsTable.cpp
     ParticleEventData.cpp
+    x544ded33.cpp
     TFTDragData.cpp
     TrackMouseMovement.cpp
     WorldVarsTable.cpp
@@ -366,8 +446,8 @@ target_sources(yordle PRIVATE
     UpdaterResourceData.cpp
     RigResource.cpp
     x55212361.cpp
+    x555b42fd.cpp
     OptionTemplateHotkeysLabel.cpp
-    x55d03617.cpp
     MaterialOverrideCallbackDynamicMaterial.cpp
     ContextualConditionMarkerName.cpp
     SourceTypeFilter.cpp
@@ -380,15 +460,22 @@ target_sources(yordle PRIVATE
     HasUnitTagsCastRequirement.cpp
     BuffCounterDynamicMaterialFloatDriver.cpp
     OverrideAttackTimeData.cpp
+    x57e5c253.cpp
+    x580644e.cpp
     StatByCoefficientCalculationPart.cpp
+    x58622c03.cpp
     ContextualConditionNeutralMinionMapSide.cpp
     MapVisibilityFlagDefinitions.cpp
+    x5891432c.cpp
+    x58e072e0.cpp
     HudRadialWheelData.cpp
     MapParticle.cpp
     MaterialInstanceParamDef.cpp
     x597c4a9d.cpp
     MapPlaceable.cpp
+    x59dc4713.cpp
     AnnouncementDefinition.cpp
+    x5a0304d8.cpp
     x5a27978a.cpp
     x5a3bc52d.cpp
     x5a51d019.cpp
@@ -403,13 +490,15 @@ target_sources(yordle PRIVATE
     x5b9614dc.cpp
     TftTraitList.cpp
     AtomicClipData.cpp
+    x5c086dbd.cpp
     LootItem.cpp
     ICastRequirement.cpp
+    x5c8fefd9.cpp
+    x5ca5224c.cpp
     IsOwnerHeroSpawnConditions.cpp
     x5ce1431e.cpp
     ByCharLevelBreakpointsCalculationPart.cpp
     GetKeyValueInCustomTableBlock.cpp
-    EmblemPosition.cpp
     MapClouds.cpp
     TFTHudCombatRecapData.cpp
     ParticleEventDataPair.cpp
@@ -419,6 +508,10 @@ target_sources(yordle PRIVATE
     VfxAlphaErosionDefinitionData.cpp
     TooltipInstanceBuff.cpp
     ItemRecommendationChoices.cpp
+    x5edb91f.cpp
+    x5edc3830.cpp
+    x5ee5d2fc.cpp
+    x5ee7c71f.cpp
     EVOSettings.cpp
     StatByNamedDataValueCalculationPart.cpp
     ContextualConditionMoveDistance.cpp
@@ -433,6 +526,8 @@ target_sources(yordle PRIVATE
     SameTeamCastRequirement.cpp
     ScriptDataObject.cpp
     SkinMeshDataProperties.cpp
+    x6172a47c.cpp
+    x61767839.cpp
     ContextualConditionOwnerTeamNetChampionKills.cpp
     x61a8deda.cpp
     FxTable.cpp
@@ -451,40 +546,51 @@ target_sources(yordle PRIVATE
     VfxFieldNoiseDefinitionData.cpp
     ContextualActionPlayAudio.cpp
     GameModeConstant.cpp
+    x63a8aef9.cpp
     ConditionFloatPairData.cpp
     GameModeConstantBool.cpp
     ContextualConditionCharacterDistance.cpp
     MapContainsOtherMaps.cpp
+    x6450d6a.cpp
     Self.cpp
-    MicroTicksPerTickData.cpp
+    x64b1df0c.cpp
     SponsoredBanner.cpp
+    x64e7b9e1.cpp
     MaxMaterialDriver.cpp
+    x6526fc8.cpp
     TftItemComposition.cpp
     ISpellRankUpRequirement.cpp
     x65e7166c.cpp
+    x65ed244.cpp
     EmblemData.cpp
     MusicAudioDataProperties.cpp
+    x6638d338.cpp
     x663d5e00.cpp
     SyncGroupData.cpp
+    x666f9b2c.cpp
     ChangeTurnRadius.cpp
     DestroyOnHit.cpp
     OptionTemplateGroup.cpp
     x6780c1c5.cpp
     TempTable1Table.cpp
+    x682de9e7.cpp
     MissileVisibilitySpec.cpp
     MaterialTextureDataCollection.cpp
     VfxPrimitiveBeam.cpp
     VectorGet.cpp
     ValueVector3.cpp
     SkinUpgradeData.cpp
+    x696a421b.cpp
     x69af20f0.cpp
     GameModeAutoItemPurchasingConfig.cpp
     LolSpellScript.cpp
     ValueVector2.cpp
     GDSMapObjectBannerInfo.cpp
     RegaliaLookup.cpp
+    x6a1c233f.cpp
     MapBakeProperties.cpp
     x6a569767.cpp
+    x6a7b0838.cpp
     VfxMeshDefinitionData.cpp
     OptionItemSecondaryHotkeys2Column.cpp
     x6ab22868.cpp
@@ -505,19 +611,27 @@ target_sources(yordle PRIVATE
     x6ce97639.cpp
     LoginViewController.cpp
     x6d6cc142.cpp
+    x6d8274d.cpp
     SelectorPairData.cpp
     x6d8b7fba.cpp
     TFTHudStageData.cpp
+    x6dd26f3a.cpp
+    x6e03cc25.cpp
     TFTHudScoreboardData.cpp
     BuffStackingSettings.cpp
     x6e817df8.cpp
+    x6e9187f0.cpp
     RegionElementData.cpp
     MapPathCurveSegment.cpp
     DelayStart.cpp
     ContextualConditionSpellLevel.cpp
     TftTraitData.cpp
     FxActionMoveReset.cpp
+    x6faebdfe.cpp
+    x6fb1f68f.cpp
     MaterialDataCollections.cpp
+    x700d0136.cpp
+    x705759a.cpp
     SwapChampionCheat.cpp
     HudStatStoneDeathRecapData.cpp
     TableValueExistsScriptCondition.cpp
@@ -533,7 +647,9 @@ target_sources(yordle PRIVATE
     MissionAsset.cpp
     TargeterDefinitionMultiAOE.cpp
     ContextualConditionShopOpenCount.cpp
+    x732daac5.cpp
     StaticMaterialChildTechniqueDef.cpp
+    x736a7c64.cpp
     DynamicMaterialParameterDef.cpp
     SummonerEmote.cpp
     ClashLogo.cpp
@@ -550,9 +666,12 @@ target_sources(yordle PRIVATE
     LocationClamped.cpp
     HasNNearbyUnitsRequirement.cpp
     IGameCalculationPartWithBuffCounter.cpp
+    x769171e6.cpp
     OptionItemSlider.cpp
     FaceCameraEventData.cpp
     ContextualConditionCharacterRole.cpp
+    x76fe85fd.cpp
+    x7715ca2d.cpp
     AbilityResourceStateData.cpp
     x77595aa9.cpp
     FixedSpeedSplineMovement.cpp
@@ -564,13 +683,20 @@ target_sources(yordle PRIVATE
     x78387eb5.cpp
     EnableLookAtEventData.cpp
     BannerFlagData.cpp
+    x78ec7262.cpp
+    x78ee723e.cpp
+    x795bfcc0.cpp
     ModeSelectViewController.cpp
     IOptionItem.cpp
     x798277f.cpp
     ChatViewController.cpp
     BaseEventData.cpp
+    x7992e1ee.cpp
     x7a0c339d.cpp
+    x7a2a7a0d.cpp
+    x7a2da7e3.cpp
     NullMovement.cpp
+    x7a9a96ff.cpp
     x7a9e7d89.cpp
     HudTunables.cpp
     MapMotionPath.cpp
@@ -578,10 +704,12 @@ target_sources(yordle PRIVATE
     MinimapPingData.cpp
     BuffCounterByNamedDataValueCalculationPart.cpp
     TFTHudNotificationsData.cpp
+    x7b4e09a5.cpp
     AtlasDataBase.cpp
     CelebrationViewController.cpp
     SkinEmblem.cpp
     CharacterLevelRequirement.cpp
+    x7c402f20.cpp
     TeamBuffData.cpp
     CompanionData.cpp
     ContextualConditionObjectiveTakeByMyTeam.cpp
@@ -589,14 +717,18 @@ target_sources(yordle PRIVATE
     x7d090b3a.cpp
     TFTStatData.cpp
     TFTNotificationData.cpp
+    x7d3f50ac.cpp
     TerrainLocation.cpp
     ItemModifier.cpp
     SpellDataResourceClient.cpp
+    x7dda964e.cpp
     x7e08466d.cpp
+    x7e14fec2.cpp
+    x7e19c23.cpp
     FxActionAnimate.cpp
     OptionTemplateDropdown.cpp
     ContextualConditionHasItemFromVOGroup.cpp
-    HudLevelUpData.cpp
+    x7ecffba4.cpp
     x7efae6c2.cpp
     AnchorBase.cpp
     MapActionPlaySoundAtLocation.cpp
@@ -609,27 +741,40 @@ target_sources(yordle PRIVATE
     x7feb6200.cpp
     x803dae4c.cpp
     TftMapCharacterData.cpp
+    x8082661a.cpp
     ContextualConditionTurretPosition.cpp
     FloatingTextGlobalConfig.cpp
+    x811882fd.cpp
     EffectAnimatedRotatingIconElementData.cpp
+    x8164bac7.cpp
     ShaderPhysicalParameter.cpp
+    x81862b0f.cpp
+    x8195235f.cpp
     EffectCooldownRadialElementData.cpp
+    x81c9b0e7.cpp
     ConformToPathEventData.cpp
     VfxMigrationResources.cpp
+    x8267ef4e.cpp
     ItemRecommendationContextList.cpp
     x828bfdbd.cpp
+    x8314a414.cpp
     x833fc03.cpp
     ContextualConditionCharacterPlayingAnimation.cpp
     ToggleBuffCheat.cpp
     HomeViewController.cpp
     SumOfSubPartsCalculationPart.cpp
+    x84c11b53.cpp
     ItemDataClient.cpp
     TftMapGroupData.cpp
     StaticMaterialPassDef.cpp
+    x8558dd6d.cpp
     ForceSpawnNeutralCampsCheat.cpp
     VfxPrimitiveMesh.cpp
     x85b7fa56.cpp
+    x85b9b550.cpp
+    x85ba9e1c.cpp
     TFTItemMaterialController.cpp
+    x85f19f5c.cpp
     TooltipInstance.cpp
     x86504cef.cpp
     AudioStatusEvents.cpp
@@ -638,9 +783,12 @@ target_sources(yordle PRIVATE
     GlobalAudioDataProperties.cpp
     ClearAlreadyHitTracking.cpp
     SetKeyValueInCustomTableBlock.cpp
+    x86f7132e.cpp
     TFTDamageSkin.cpp
     IsAnimationPlayingDynamicMaterialBoolDriver.cpp
+    x87918b51.cpp
     TargeterDefinitionCone.cpp
+    x88246c04.cpp
     RegaliaData.cpp
     x889fe194.cpp
     GameModeConstantVector3f.cpp
@@ -654,32 +802,43 @@ target_sources(yordle PRIVATE
     LobbyViewController.cpp
     MapLightingVolume.cpp
     GameModeChampionList.cpp
+    x8a9312a7.cpp
+    x8aaf5333.cpp
     ViewPaneDefinition.cpp
     HasBuffDynamicMaterialBoolDriver.cpp
     FxActionMoveTo.cpp
     Character.cpp
     EffectCreationData.cpp
     SkinMeshDataProperties_MaterialOverride.cpp
+    x8b912b1.cpp
     HudStatPanelStatStoneData.cpp
     EffectValueCalculationPart.cpp
+    x8bc2dd4a.cpp
     GenericMapPlaceable.cpp
     x8c0d80f5.cpp
     IndicatorTypeGlobal.cpp
     x8cb19eb5.cpp
     SequencerClipData.cpp
+    x8df16a16.cpp
     CompanionSpeciesData.cpp
     x8e85b8c7.cpp
     Breakpoint.cpp
     CharacterPassiveData.cpp
+    x8eba574f.cpp
     ConditionFloatClipData.cpp
+    x8f0026f9.cpp
+    x8f04cc91.cpp
     x8f1e6a22.cpp
     DefaultSplashedPerkStyle.cpp
     SkinAudioProperties.cpp
+    x8f85e859.cpp
     WallFollowMovement.cpp
     HasBuffSpawnConditionData.cpp
     RegaliaRankedCrestMap.cpp
     FloorFloatMaterialDriver.cpp
+    x90347ed8.cpp
     StaticMaterialShaderSamplerDef.cpp
+    x9063268e.cpp
     FloatComparisonMaterialDriver.cpp
     FadeOverTimeBehavior.cpp
     DistanceToPlayerMaterialFloatDriver.cpp
@@ -690,10 +849,14 @@ target_sources(yordle PRIVATE
     EnterFOWVisibility.cpp
     SpellEffectAmount.cpp
     VectorTableSet.cpp
+    x93ad1c61.cpp
     ICatalogEntryOwner.cpp
     ExperienceCurveData.cpp
     RegionsThatAllowContent.cpp
+    x946612f1.cpp
     Cheat.cpp
+    x949c4b8a.cpp
+    x94e53457.cpp
     LootOutputBase.cpp
     TFTStreakData.cpp
     ContextualConditionCharacterMetadata.cpp
@@ -701,32 +864,37 @@ target_sources(yordle PRIVATE
     X3DSharedConstantBufferDef.cpp
     NeutralMinionCampClearedLogic.cpp
     StatStoneSet.cpp
+    x968f51a8.cpp
     VfxChildIdentifier.cpp
     GravityHeightSolver.cpp
     VfxPrimitiveCameraQuad.cpp
     ToonInkingFilterParams.cpp
-    x97599ad3.cpp
+    x973c5e4d.cpp
     GameModeConstantFloat.cpp
     TFTItemList.cpp
+    x97fc7312.cpp
     TrackData.cpp
     ItemRecommendationOverrideStartingItemSet.cpp
     VelocityDynamicMaterialFloatDriver.cpp
+    x98f6af47.cpp
     ContextualConditionMapID.cpp
     CreateFunctionBlock.cpp
     SubPartScaledProportionalToStat.cpp
     Companion.cpp
     MapPathLineSegment.cpp
     CheatPage.cpp
-    x99cce3c.cpp
+    x99bf5d5b.cpp
     NumberFormattingData.cpp
     x99e777d.cpp
     DeathTimesScalingPoint.cpp
     TooltipInstanceListElement.cpp
     PatchingViewController.cpp
     AnimationResourceData.cpp
+    x9a619bbc.cpp
     CustomReductionMultiplierCalculationPart.cpp
     FontLocaleType.cpp
     Area.cpp
+    x9b1b08e6.cpp
     MapPathSegment.cpp
     SpellLevelUpInfo.cpp
     SkinCharacterDataProperties.cpp
@@ -737,24 +905,33 @@ target_sources(yordle PRIVATE
     ContextualConditionMultikillSize.cpp
     CallOnMissileBounce.cpp
     x9bd21f30.cpp
+    x9bd65ac8.cpp
+    x9c472cf3.cpp
     SoundEventData.cpp
     TextElementData.cpp
+    x9c638700.cpp
     OptionItemCheckbox.cpp
     VfxEmitterDefinitionData.cpp
     AddHealthCheat.cpp
     ClientStateCommonSettings.cpp
     ContextualConditionNeutralMinionCampName.cpp
+    x9daa0569.cpp
     CastOnMovementComplete.cpp
     ContextualConditionTimeSinceStealthStateChange.cpp
+    x9dd2df7e.cpp
     VectorTableGet.cpp
+    x9de83409.cpp
     TftMapCharacterSkinData.cpp
     x9e2b8a86.cpp
+    x9e380c11.cpp
     x9e5aed77.cpp
+    x9e7b8301.cpp
+    x9ec23f4d.cpp
     NumberCalculationPart.cpp
     x9f59e92d.cpp
     CustomTableGet.cpp
+    x9fd8bcfd.cpp
     SurrenderData.cpp
-    xa05a9472.cpp
     HudItemShopData.cpp
     ContextualConditionNeutralMinionCampIsAlive.cpp
     xa10379c5.cpp
@@ -763,7 +940,9 @@ target_sources(yordle PRIVATE
     GameModeConstantString.cpp
     ContextualConditionCharacterUnitTags.cpp
     MinimapBackground.cpp
+    xa1c2c89f.cpp
     MaterialInstanceSwitchDef.cpp
+    xa24429bf.cpp
     SecondaryResourceDisplayFractional.cpp
     ItemRecommendationMatrixRow.cpp
     BoolTableSet.cpp
@@ -772,37 +951,43 @@ target_sources(yordle PRIVATE
     TftMapSkin.cpp
     HudBannerData.cpp
     CommonUiTunables.cpp
+    xa2f62fa1.cpp
     FxActionTimeDilate.cpp
     EffectElementData.cpp
     WadFileDescriptor.cpp
+    xa37f48cd.cpp
     TriggerOnDistanceFromCaster.cpp
     xa3d11a85.cpp
     xa3f1520.cpp
     LoadoutCompanionInfoPanel.cpp
     ItemRecommendationOverrideSet.cpp
+    xa4281f51.cpp
     BankUnit.cpp
-    SettingsViewController.cpp
+    xa44b28c0.cpp
     xa4941383.cpp
     VfxPrimitiveAttachedMesh.cpp
+    xa4c4c795.cpp
     TooltipInstanceSpell.cpp
     PerkScriptData.cpp
     xa502a9f5.cpp
     xa51270e5.cpp
+    xa5584548.cpp
     MapLaneComponent.cpp
+    xa5666564.cpp
     xa56cc36d.cpp
     ChampionMasteryMap.cpp
     xa5dec77a.cpp
+    xa5ed08ef.cpp
     SummonerIconData.cpp
     xa5f32abe.cpp
-    EngineFeatureToggles.cpp
     xa6743a7.cpp
     ScriptSequence.cpp
     xa6a54243.cpp
     ToggleTeamCheat.cpp
     IFloatGet.cpp
     xa6e60faf.cpp
+    xa6f7c24c.cpp
     LoadoutArenaSkinInfoPanel.cpp
-    HudReplayData.cpp
     MapAudio.cpp
     AbilityResourceThresholdIndicatorRange.cpp
     IdMappingEntry.cpp
@@ -812,24 +997,30 @@ target_sources(yordle PRIVATE
     MapLocator.cpp
     NotScriptCondition.cpp
     xa89e6d1e.cpp
+    xa89fd289.cpp
     VfxPaletteDefinitionData.cpp
     FadeToExplicitValueBehavior.cpp
     VfxSpawnConditions.cpp
     RemoveFromCustomTableBlock.cpp
+    xa914101a.cpp
     LoadoutSelectViewController.cpp
     VfxFieldAccelerationDefinitionData.cpp
     OptionItemSliderFloat.cpp
     RemapFloatMaterialDriver.cpp
+    xa9fbac89.cpp
     GameModeConstantFloatPerLevel.cpp
     Cast.cpp
     OptionTemplateCheckbox.cpp
     DamageShieldedLogic.cpp
+    xaa50a840.cpp
     EffectGlowingRotatingIconElementData.cpp
     xaa95a271.cpp
+    xaa9fc559.cpp
     CustomTableSet.cpp
     SceneData.cpp
     xab3d1567.cpp
     QuestDefinition.cpp
+    xab89e6ba.cpp
     SwitchMaterialDriver.cpp
     xaba5f12d.cpp
     CrowdControlFilter.cpp
@@ -837,43 +1028,57 @@ target_sources(yordle PRIVATE
     EffectInstancedElementData.cpp
     MapLocatorArray.cpp
     ProductOfSubPartsCalculationPart.cpp
+    xad58e686.cpp
     xad6892df.cpp
+    xadd14edd.cpp
+    xadefc98e.cpp
     IBoolGet.cpp
     TrueDamageGivenFilter.cpp
     TftMapCharacterList.cpp
+    xae9e709a.cpp
     Joint.cpp
     TftUnitShopViewController.cpp
     xaf23408c.cpp
     DragDirection.cpp
+    xaf5a8fff.cpp
     xaf7c0947.cpp
     AcceleratingMovement.cpp
-    NamedIconData.cpp
     OptionsTab.cpp
+    xafc6bcd.cpp
+    xb075814f.cpp
+    xb0ca221b.cpp
     xb0d49a20.cpp
     AlwaysSpawnCondition.cpp
     ToolEducationData.cpp
     TargetHasBuffFilter.cpp
     PerkEffectAmountPerMode.cpp
+    xb13097f0.cpp
     NavHeaderViewController.cpp
-    HudScaleSettingsData.cpp
+    xb1a585e5.cpp
     LoadoutViewController.cpp
     MapPlaceableContainer.cpp
     DecelToLocationMovement.cpp
     OptionItemDropdown.cpp
     xb277fa06.cpp
     TooltipFormat.cpp
+    xb2be4d05.cpp
     ItemDataValue.cpp
+    xb2cc5617.cpp
     BaseRigPoseModifierData.cpp
     CursorData.cpp
     xb2feedb2.cpp
     xb35ad9d8.cpp
+    xb36600f0.cpp
     MapAudioDataProperties.cpp
     JointSnapRigPoseModifilerData.cpp
     AbilityResourceTypeData.cpp
     TooltipViewController.cpp
     MapActionPlayAnimation.cpp
+    xb3a933a4.cpp
     SummonerSpellPerkReplacementList.cpp
+    xb3e3401c.cpp
     ContextualConditionCharacterHealth.cpp
+    xb3f7f3ed.cpp
     GameplayFeatureToggles.cpp
     SkinFilterData.cpp
     GearData.cpp
@@ -890,10 +1095,14 @@ target_sources(yordle PRIVATE
     ModeSelectButtonData.cpp
     VfxFieldOrbitalDefinitionData.cpp
     IFxAction.cpp
+    xb6adadea.cpp
     ContextualConditionCharacterFormName.cpp
     Perk.cpp
     ScissorRegionElementData.cpp
+    xb7471737.cpp
+    xb774f0fe.cpp
     MaterialSwitchDataCollection.cpp
+    xb78525db.cpp
     StatFormulaData.cpp
     ContextualActionPlayAnimation.cpp
     xb8d75e45.cpp
@@ -903,16 +1112,21 @@ target_sources(yordle PRIVATE
     FloatingTextDamageDisplayTypeList.cpp
     FontResolution.cpp
     PerkSubStyleBonus.cpp
+    xbac72a13.cpp
     RScript.cpp
+    xbb59fd4.cpp
     ConcatenateStringsBlock.cpp
     OptionItemSecondaryHotkeys1Column.cpp
     TriggerOnMovementComplete.cpp
     BoolTableGet.cpp
+    xbbb1fd0a.cpp
     VfxFieldCollectionDefinitionData.cpp
     IShaderDef.cpp
+    xbbc6d7f5.cpp
     ItemSlotHasChargesCastRequirement.cpp
     OptionsViewController.cpp
     IOptionTemplate.cpp
+    xbc20c38.cpp
     StatStoneCategory.cpp
     GameCalculation.cpp
     SpellRankUpRequirements.cpp
@@ -920,8 +1134,10 @@ target_sources(yordle PRIVATE
     TargeterDefinitionArc.cpp
     HasSkinIDSpawnConditions.cpp
     ParticleWadFileDescriptor.cpp
+    xbc90b786.cpp
     OptionTemplateHotkeysKey.cpp
     GameplayConfig.cpp
+    xbcdc9113.cpp
     SubmeshVisibilityEventData.cpp
     ScriptDataObjectList.cpp
     BaseBlendData.cpp
@@ -933,58 +1149,73 @@ target_sources(yordle PRIVATE
     MapCharacterList.cpp
     LoadScreenTipConfiguration.cpp
     EffectCooldownElementData.cpp
+    xbe48096c.cpp
     GameModeConstantStringVector.cpp
     FadeByMouseRangeBehavior.cpp
     ScriptGlobalProperties.cpp
     GlobalResourceResolver.cpp
+    xbe71189.cpp
     TargetHasUnitTagFilter.cpp
     BasePerk.cpp
     BaseElementData.cpp
     Location.cpp
     VfxEmissionSurfaceData.cpp
     MissileSpecification.cpp
+    xc0037ef9.cpp
     ContextualConditionMapRegionName.cpp
     ItemDataAvailability.cpp
     GameModeConstants.cpp
+    xc0b50425.cpp
     xc0c056f1.cpp
     DefaultStatModPerkSet.cpp
+    xc0e1ce26.cpp
     LockRootOrientationEventData.cpp
-    TFTTraitSetData.cpp
     EvolutionDescription.cpp
     IIntGet.cpp
     KillingSpreeFilter.cpp
+    xc2662ac4.cpp
     EffectAmmoElementData.cpp
     xc29c13e3.cpp
     VfxTrailDefinitionData.cpp
     OptionItemColumns.cpp
+    xc2da185a.cpp
     HudMenuTransitionData.cpp
     IStatStoneLogicDriver.cpp
+    xc4244dee.cpp
     Destroy.cpp
     HudTeamScoreMeterProperties.cpp
     xc58386.cpp
-    xc5976812.cpp
     AddGoldCheat.cpp
+    xc5f84705.cpp
     IScriptCondition.cpp
     xc6228969.cpp
     ContextualConditionIsAlly.cpp
+    xc68f2b.cpp
     ChampionItemRecommendations.cpp
     RegaliaPrestigeCrestList.cpp
+    xc7d8a802.cpp
     LoLFeatureToggles.cpp
+    xc83c665c.cpp
     MissileTriggerSpec.cpp
     ContextualConditionCharacterSkinID.cpp
     OneTrueMaterialDriver.cpp
+    xc8924ad4.cpp
     QuestUITunables.cpp
     OptionTemplateSecondaryHotkeys1Column.cpp
     ParametricPairData.cpp
     xc953d7f.cpp
     AssistCountFilter.cpp
+    xca07a45.cpp
     VFXSpawnConditionData.cpp
+    xca2caace.cpp
     RatioConversion.cpp
+    xca4c8132.cpp
     OverrideAutoAttackCastTimeData.cpp
     IContextualCondition.cpp
     FixedTimeSplineMovement.cpp
     ContextualConditionCharacterInRangeForSyncedAnimation.cpp
     OptionTemplateBorder.cpp
+    xcb3ed43e.cpp
     VertexAnimationRigPoseModifierData.cpp
     IOptionItemFilter.cpp
     TftChangeDamageSkinCheat.cpp
@@ -992,39 +1223,56 @@ target_sources(yordle PRIVATE
     xcbdadf65.cpp
     DestroyCustomTableBlock.cpp
     xcc3ae8e4.cpp
+    xcc3d6ff6.cpp
     ContextualConditionCharacterHasCAC.cpp
+    xcc72cb1e.cpp
+    xcc9e24e1.cpp
     xcce3468e.cpp
+    xcce5e3e3.cpp
     InsertIntoCustomTableBlock.cpp
     DragonUITunables.cpp
     ContextualConditionItemPriceMinimum.cpp
+    xcd1215b8.cpp
     StatBySubPartCalculationPart.cpp
     MapSkin.cpp
     DamageSourceSettings.cpp
     xcd391c99.cpp
+    xcd787e0.cpp
     xcd809187.cpp
     ScriptPreloadParticle.cpp
     ContextualConditionLastBoughtItem.cpp
     DrawablePositionLocator.cpp
     CursorDataCaptureCooldownContext.cpp
     ConformToPathRigPoseModifierData.cpp
+    xce1447dd.cpp
     AbilityResourceSlotInfo.cpp
     SkinnedMeshDataMaterialController.cpp
     SwitchCase.cpp
+    xceab3604.cpp
     xceb70e5a.cpp
+    xcec9c9dc.cpp
+    xcecd5450.cpp
     xced6ab09.cpp
     ContextualActionData.cpp
+    xcff0bd42.cpp
+    xcff54e31.cpp
     xd0116dc8.cpp
+    xd0217984.cpp
     FloatGraphMaterialDriver.cpp
     CensoredImage.cpp
+    xd065d448.cpp
     xd0754dc9.cpp
     xd09acba6.cpp
     EsportsBannerConfiguration.cpp
+    xd11fafa3.cpp
     xd149dd3f.cpp
     TftItemData.cpp
     IntegratedValueFloat.cpp
     xd1951f45.cpp
     TFTAnnouncementData.cpp
+    xd1fd3185.cpp
     xd20000f6.cpp
+    xd20a9a6c.cpp
     EffectFillPercentageElementData.cpp
     HudReplaySliderData.cpp
     Defaultvisibility.cpp
@@ -1033,6 +1281,7 @@ target_sources(yordle PRIVATE
     HudElementalSectionUIData.cpp
     MapTerrainPaint.cpp
     HudGameModeScoreData.cpp
+    xd40fb1c3.cpp
     IScriptPreload.cpp
     IconElementGradientExtension.cpp
     SpellPassiveData.cpp
@@ -1042,26 +1291,37 @@ target_sources(yordle PRIVATE
     FloatTableSet.cpp
     IsOwnerAliveConditionData.cpp
     StringTableSet.cpp
+    xd59c96a0.cpp
     NotMaterialDriver.cpp
     xd5c6d005.cpp
     FxActionSfx.cpp
     MaxAllSkillsCheat.cpp
+    xd609f42b.cpp
+    xd63809d8.cpp
+    xd63bcf0f.cpp
     EsportsBannerOptions.cpp
     HudPingData.cpp
     AnnouncementMap.cpp
     TFTBattlepassViewController.cpp
     TftDamageSkinDescriptor.cpp
+    xd75442ea.cpp
     OptionItemGroup.cpp
     xd7d5f570.cpp
+    xd818b098.cpp
+    xd8374374.cpp
+    xd845a4ab.cpp
     HealthDynamicMaterialFloatDriver.cpp
     xd90e7018.cpp
     xd9438618.cpp
     xd946a9af.cpp
     ChangeMissileSpeed.cpp
+    xd96fd43c.cpp
+    xd99ff7e6.cpp
     VfxMaterialOverrideDefinitionData.cpp
     CastOnHit.cpp
     ResetGoldCheat.cpp
     xda175154.cpp
+    xda27cf24.cpp
     xda3ab4c4.cpp
     xda3c6dc6.cpp
     TargetTeamFilter.cpp
@@ -1073,11 +1333,14 @@ target_sources(yordle PRIVATE
     IconElementDataExtension.cpp
     IVectorGet.cpp
     OptionItemSliderVolume.cpp
+    xdbaa8263.cpp
+    xdbbc9c09.cpp
     HasBuffComparisonData.cpp
     StringGet.cpp
     FxTiming.cpp
     NeutralTimerSourceIconData.cpp
     ScriptCheat.cpp
+    xdc0b7125.cpp
     AbilityObject.cpp
     xdc65ffe4.cpp
     MissileAttachedTargetingDefinition.cpp
@@ -1088,6 +1351,7 @@ target_sources(yordle PRIVATE
     EffectCircleMaskDesaturateElementData.cpp
     Cone.cpp
     LoLSpellPreloadData.cpp
+    xdd53d1ce.cpp
     VfxPrimitiveBeamBase.cpp
     ParticleSystemElementData.cpp
     PerkSlot.cpp
@@ -1100,26 +1364,32 @@ target_sources(yordle PRIVATE
     ContextualConditionTeammateDeathsNearby.cpp
     AnnouncementStyleBasic.cpp
     MinimapIconTextureData.cpp
+    xde7f04c2.cpp
     ContextualConditionCharacterName.cpp
     xdf0a069.cpp
+    xdf0d389c.cpp
     AnchorDouble.cpp
     xdf3bdc62.cpp
     IsSpecifiedUnitCastRequirement.cpp
     ToggleInvulnerableCheat.cpp
     Direction.cpp
+    xdf899961.cpp
     MapThemeMusic.cpp
+    xdfa1764c.cpp
     Map.cpp
-    HudHealthBarBurstData.cpp
     CameraConfig.cpp
     TFTTraitContributionData.cpp
     MessageBoxDialog.cpp
+    xe09faa59.cpp
+    xe0b196c2.cpp
     ColorGraphMaterialDriver.cpp
+    xe0d5fc7e.cpp
     xe0e70cfc.cpp
     xe132f2d0.cpp
-    HudTeamFightData.cpp
     xe1bb8efb.cpp
     MaterialTextureData.cpp
     xe20be0be.cpp
+    xe20dd534.cpp
     StaticMaterialSwitchDef.cpp
     TargeterDefinitionAoe.cpp
     xe259ae3e.cpp
@@ -1129,6 +1399,7 @@ target_sources(yordle PRIVATE
     GameFontDescription.cpp
     IVFXSpawnConditions.cpp
     xe357c116.cpp
+    xe3af402a.cpp
     MinimapPingTypeContainer.cpp
     RegaliaRankedCrestEntry.cpp
     SwitchScriptBlock.cpp
@@ -1142,10 +1413,13 @@ target_sources(yordle PRIVATE
     ItemDataBuild.cpp
     MapAlternateAsset.cpp
     PerkStyle.cpp
+    xe5bbe067.cpp
     ContextualConditionSituationHasRecentlyRun.cpp
     xe6caaf8c.cpp
+    xe725d152.cpp
     MapNavigationGridOverlays.cpp
     VfxFieldDragDefinitionData.cpp
+    xe76e6115.cpp
     MaterialInstanceDef.cpp
     xe7a8a5a4.cpp
     UnitStatusPriorityList.cpp
@@ -1153,17 +1427,23 @@ target_sources(yordle PRIVATE
     DamageSourceTemplate.cpp
     VerticalFacingType.cpp
     HudColorData.cpp
+    xe8062aeb.cpp
     xe856a498.cpp
     ItemRecommendationOverrideContext.cpp
+    xe8774a0b.cpp
+    xe87aa7bf.cpp
+    xe8d20b5b.cpp
     IResourceResolver.cpp
     ClipBaseData.cpp
     VfxPrimitivePlanarProjection.cpp
     FontLocaleResolutions.cpp
     CurveTheDifferenceHeightSolver.cpp
     HudOptionalBinData.cpp
+    xe9b6d64.cpp
     MaterialParameterDataCollection.cpp
     GameCalculationConditional.cpp
     xe9fb4d18.cpp
+    xea2ab5ca.cpp
     xea321356.cpp
     LoadoutFeatureData.cpp
     Champion.cpp
@@ -1174,14 +1454,18 @@ target_sources(yordle PRIVATE
     xead1b379.cpp
     HudFeedbackDamageData.cpp
     UiComboBoxDefinition.cpp
+    xeb259ae3.cpp
     PurchaseDialog.cpp
     SummonerNameCreateViewController.cpp
     UpdaterData.cpp
+    xebd18932.cpp
+    xebe4c19a.cpp
     CharacterToolData.cpp
     TftTeamPlannerViewController.cpp
     DamageUnitCheat.cpp
     ContextualConditionNeutralCampId.cpp
     HasNNearbyVisibleUnitsRequirement.cpp
+    xece05abc.cpp
     VeritcalFacingMatchVelocity.cpp
     IMaterialDef.cpp
     StatStoneData.cpp
@@ -1198,28 +1482,37 @@ target_sources(yordle PRIVATE
     xee4d1304.cpp
     EffectGlowElementData.cpp
     ContextualConditionItemCanBePurchased.cpp
+    xeeba7343.cpp
     TextureAndColorData.cpp
     TFTCompanionBucket.cpp
     AISpellData.cpp
     xef05ba42.cpp
+    xef241d31.cpp
+    xef279b9d.cpp
     DynamicMaterialStaticSwitch.cpp
     ResourceResolver.cpp
     CursorDataTeamContext.cpp
+    xefb24138.cpp
+    xefc7f35c.cpp
     SinusoidalHeightSolver.cpp
+    xf02f881.cpp
     StringTableGet.cpp
     ExperienceModData.cpp
+    xf0f3a045.cpp
     TrophyPedestalData.cpp
     VfxPrimitiveCameraSegmentBeam.cpp
     InstanceVarsTable.cpp
     xf1c387c0.cpp
     xf21128e4.cpp
     xf260c3ae.cpp
+    xf2906c54.cpp
     MouseOverEffectData.cpp
     StoreCategoryButtonDefinition.cpp
     TftDropRates.cpp
     ParametricClipData.cpp
     FeatureAudioDataProperties.cpp
     MissionBuffData.cpp
+    xf30734a3.cpp
     FixedShaderDef.cpp
     SkinSummonerEmoteLoadout.cpp
     SummonerSpellPerkReplacement.cpp
@@ -1233,21 +1526,26 @@ target_sources(yordle PRIVATE
     UseableData.cpp
     ItemShopGameModeData.cpp
     TFTRoundData.cpp
+    xf4c0192d.cpp
     StopAnimationEventData.cpp
     ContextualConditionItemPurchased.cpp
-    GeneralSettingsGroup.cpp
     xf5324e2a.cpp
+    xf535ab5.cpp
     MasteryBadgeConfig.cpp
+    xf53e93a1.cpp
+    xf5822b4e.cpp
     GameMutatorExpansions.cpp
-    HudStatStoneMilestoneData.cpp
     AnimationGraphData.cpp
     VfxAssetRemap.cpp
+    xf641c7ed.cpp
     OptionTemplateSecondaryHotkeys2Column.cpp
     RandomChanceScriptCondition.cpp
+    xf68acc64.cpp
     ScriptTableSet.cpp
     IScriptValueGet.cpp
     xf6fd1c96.cpp
     xf7084b4a.cpp
+    xf71d1d27.cpp
     LoadScreenTipSet.cpp
     StatStoneEventToTrack.cpp
     FixedTimeMovement.cpp
@@ -1258,31 +1556,32 @@ target_sources(yordle PRIVATE
     HasAllSubRequirementsCastRequirement.cpp
     SkinCharacterMetaDataProperties.cpp
     xf8026218.cpp
-    FxActionVfx.cpp
+    xf82b21de.cpp
+    xf8739c73.cpp
     TeamScoreMeterUITunables.cpp
     SocialPanelViewController.cpp
+    xfa29db11.cpp
     WardSkinDisabler.cpp
     IsDeadDynamicMaterialBoolDriver.cpp
     IContextualConditionBuff.cpp
     DestroyOnMovementComplete.cpp
     TooltipInstanceList.cpp
+    xfb654061.cpp
     HasSkillPointRequirement.cpp
-    HudTeamFightOffScreenDifferentiationData.cpp
-    SpecialOfferController.cpp
     RenderStyleData.cpp
     ContextualSituation.cpp
     xfc2d67aa.cpp
     EsportsBannerMaterialController.cpp
     VfxPrimitiveMeshBase.cpp
     IFunctionGet.cpp
-    HudHealthBarBurstHealData.cpp
     OptionTemplateMuteButton.cpp
+    xfdad6e32.cpp
     ContextualConditionNumberOfCharactersNearTargetPos.cpp
     VfxAnimatedFloatVariableData.cpp
     ContextualConditionNearbyChampionCount.cpp
     ItemRecommendationContext.cpp
     TriggerFromScript.cpp
     FloatTextDisplayOverrides.cpp
-    HudInputBoxData.cpp
+    xff5d83bd.cpp
     StaticMaterialDef.cpp
-    HudAbilityPromptData.cpp)
+    xffd0bda4.cpp)

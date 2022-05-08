@@ -63,6 +63,16 @@ yordle::data::meta::HudColorData::HudColorData(const std::shared_ptr<yordle::dat
         mEnemyLaneMinionBarColor = ptr_mEnemyLaneMinionBarColor->value;
     }
 
+    auto ptr_xd4a472e0 = prop->cast_prop<yordle::data::prop::color_prop>(3567547104u);
+    if(ptr_xd4a472e0 != nullptr) {
+        xd4a472e0 = ptr_xd4a472e0->value;
+    }
+
+    auto ptr_x4174673b = prop->cast_prop<yordle::data::prop::color_prop>(1098147643u);
+    if(ptr_x4174673b != nullptr) {
+        x4174673b = ptr_x4174673b->value;
+    }
+
     auto ptr_mDeathFriendlyTeamColor = prop->cast_prop<yordle::data::prop::color_prop>(1575417427u);
     if(ptr_mDeathFriendlyTeamColor != nullptr) {
         mDeathFriendlyTeamColor = ptr_mDeathFriendlyTeamColor->value;

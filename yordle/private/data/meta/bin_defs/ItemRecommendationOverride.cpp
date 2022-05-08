@@ -4,6 +4,7 @@
 
 #include <yordle/data/meta/bin_defs/ItemRecommendationOverrideContext.hpp>
 #include <yordle/data/meta/bin_defs/ItemRecommendationOverrideStartingItemSet.hpp>
+#include <yordle/data/meta/bin_defs/xf82b21de.hpp>
 #include <yordle/data/meta/bin_defs/x5a3bc52d.hpp>
 #include <yordle/data/meta/bin_defs/ItemRecommendationCondition.hpp>
 #include <yordle/data/meta/bin_class.hpp>
@@ -43,6 +44,16 @@ yordle::data::meta::ItemRecommendationOverride::ItemRecommendationOverride(const
             auto ptr_mStartingItemSets_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_mStartingItemSets_entry);
             if(ptr_mStartingItemSets_entry != nullptr) {
                 mStartingItemSets.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::ItemRecommendationOverrideStartingItemSet>(ptr_mStartingItemSets_entry, 2556481222u));
+            }
+        }
+    }
+
+    auto ptr_xfda3759b = prop->cast_prop<yordle::data::prop::set_prop>(4255348123u);
+    if(ptr_xfda3759b != nullptr) {
+        for(const auto &set_xfda3759b_entry : ptr_xfda3759b->value) {
+            auto ptr_xfda3759b_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_xfda3759b_entry);
+            if(ptr_xfda3759b_entry != nullptr) {
+                xfda3759b.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::xf82b21de>(ptr_xfda3759b_entry, 4163576286u));
             }
         }
     }

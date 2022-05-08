@@ -4,6 +4,9 @@
 #pragma once
 
 #include <memory>
+#include <map>
+#include <cstdint>
+#include <string>
 
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -26,6 +29,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x14f72c9 = 0u;
         yordle::data::meta::bin_fnv_hash x9e71dae2 = 0u;
         yordle::data::meta::bin_fnv_hash x32d7e7c = 0u;
+        std::map<int64_t, std::string> xbd29d956 {};
+        std::string x1a361782 {};
     };
 }
 #define YORDLE_META_DEF_x5a27978a

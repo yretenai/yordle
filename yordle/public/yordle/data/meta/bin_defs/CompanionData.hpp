@@ -8,12 +8,16 @@
 #include <vector>
 #include <string>
 
+#include <yordle/data/meta/bin_defs/x8f85e859.hpp>
 #include <yordle/data/meta/bin_defs/BaseLoadoutData.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_x8f85e859
+    struct x8f85e859;
+#endif
     struct YORDLE_EXPORT CompanionData : public BaseLoadoutData {
         explicit CompanionData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -26,8 +30,10 @@ namespace yordle::data::meta {
         uint32_t mSkinId = 0u;
         uint32_t Level = 0u;
         bool mDisabled = false;
+        bool xa2da26ab = false;
         std::vector<uint32_t> x65cc10b7 {};
         uint8_t xd09f96bd = 0u;
+        std::shared_ptr<yordle::data::meta::x8f85e859> xa3e166e5 {};
         std::string speciesLink {};
         std::string mStandaloneCircleIcon {};
         std::string mStandaloneLoadoutsIcon {};

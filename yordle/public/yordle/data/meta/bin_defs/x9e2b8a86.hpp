@@ -24,6 +24,8 @@ namespace yordle::data::meta {
             return type == 2653653638u || ViewController::is_type(type);
         }
 
+        uint8_t x2b0d70e8 = 0u;
+        bool x89a8419c = false;
         uint32_t x41aa9616 = 5u;
         uint32_t x143e4d96 = 16u;
         std::string xeac10e8a {};
@@ -31,8 +33,6 @@ namespace yordle::data::meta {
         std::string x73ce2a6 {};
         std::string x3ad4379e {};
         std::string x8ff1b151 {};
-        std::string xf7ee4522 {};
-        std::string x67282199 {};
         yordle::data::meta::bin_fnv_hash x4babd89d = 0u;
         yordle::data::meta::bin_fnv_hash xf5b8026a = 0u;
         yordle::data::meta::bin_fnv_hash xc5c5ca0 = 0u;
@@ -40,8 +40,15 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x4d302530 = 0u;
         yordle::data::meta::bin_fnv_hash x5b308567 = 0u;
         yordle::data::meta::bin_fnv_hash x9dcf971d = 0u;
+        yordle::data::meta::bin_fnv_hash x71993a70 = 0u;
+        yordle::data::meta::bin_fnv_hash xf7f3f138 = 0u;
         float xba1d038c = 0.0;
         yordle::data::meta::bin_fnv_hash x75f9cc79 = 0u;
+        float x5a0565cb = 0.0;
+        yordle::data::meta::bin_fnv_hash xd8e77c8a = 0u;
+        int32_t x5b720329 = 0;
+        yordle::data::meta::bin_fnv_hash x33c9204f = 0u;
+        yordle::data::meta::bin_fnv_hash x892bc919 = 0u;
     };
 }
 #define YORDLE_META_DEF_x9e2b8a86

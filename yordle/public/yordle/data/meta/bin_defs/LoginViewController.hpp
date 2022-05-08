@@ -4,6 +4,7 @@
 #pragma once
 
 #include <memory>
+#include <array>
 
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -17,6 +18,8 @@ namespace yordle::data::meta {
         bool is_type(uint32_t type) override {
             return type == 1830754775u || ViewController::is_type(type);
         }
+
+        std::array<yordle::data::meta::bin_fnv_hash, 4> x93ec9f26 { 0u, 0u, 0u, 0u };
     };
 }
 #define YORDLE_META_DEF_LoginViewController

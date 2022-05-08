@@ -7,6 +7,7 @@
 #include <cstdint>
 
 #include <yordle/data/meta/bin_defs/HudMessageDisplayData.hpp>
+#include <yordle/data/meta/bin_defs/x64b1df0c.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -15,6 +16,10 @@
 namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_HudMessageDisplayData
     struct HudMessageDisplayData;
+#endif
+
+#ifndef YORDLE_META_DEF_x64b1df0c
+    struct x64b1df0c;
 #endif
     struct YORDLE_EXPORT QuestTrackerViewController : public ViewController {
         explicit QuestTrackerViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -31,6 +36,10 @@ namespace yordle::data::meta {
         float x28f5e138 = 0.699999988079071;
         float xa0ae36a8 = 5.0;
         float xc67a95a4 = 165.0;
+        yordle::data::meta::bin_fnv_hash xef8b25c1 = 0u;
+        yordle::data::meta::bin_fnv_hash xd11e53b5 = 0u;
+        yordle::data::meta::bin_fnv_hash xf087db8 = 0u;
+        std::shared_ptr<yordle::data::meta::x64b1df0c> x38db73ae {};
     };
 }
 #define YORDLE_META_DEF_QuestTrackerViewController

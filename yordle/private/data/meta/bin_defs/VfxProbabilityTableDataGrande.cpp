@@ -28,6 +28,42 @@ yordle::data::meta::VfxProbabilityTableDataGrande::VfxProbabilityTableDataGrande
         Backdrop = ptr_Backdrop->value;
     }
 
+    auto ptr_x1c9ff127 = prop->cast_prop<yordle::data::prop::set_prop>(480244007u);
+    if(ptr_x1c9ff127 != nullptr) {
+        auto index_x1c9ff127 = 0;
+        for(const auto &set_x1c9ff127_entry : ptr_x1c9ff127->value) {
+            auto ptr_x1c9ff127_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_x1c9ff127_entry);
+            if(ptr_x1c9ff127_entry != nullptr) {
+                x1c9ff127[index_x1c9ff127] = ptr_x1c9ff127_entry->value;
+            }
+            index_x1c9ff127++;
+        }
+    }
+
+    auto ptr_xbde64e3e = prop->cast_prop<yordle::data::prop::set_prop>(3185987134u);
+    if(ptr_xbde64e3e != nullptr) {
+        auto index_xbde64e3e = 0;
+        for(const auto &set_xbde64e3e_entry : ptr_xbde64e3e->value) {
+            auto ptr_xbde64e3e_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_xbde64e3e_entry);
+            if(ptr_xbde64e3e_entry != nullptr) {
+                xbde64e3e[index_xbde64e3e] = ptr_xbde64e3e_entry->value;
+            }
+            index_xbde64e3e++;
+        }
+    }
+
+    auto ptr_Index = prop->cast_prop<yordle::data::prop::set_prop>(151693739u);
+    if(ptr_Index != nullptr) {
+        auto index_Index = 0;
+        for(const auto &set_Index_entry : ptr_Index->value) {
+            auto ptr_Index_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_Index_entry);
+            if(ptr_Index_entry != nullptr) {
+                Index[index_Index] = ptr_Index_entry->value;
+            }
+            index_Index++;
+        }
+    }
+
     auto ptr_authoredWidth = prop->cast_prop<yordle::data::prop::float32_prop>(2831011545u);
     if(ptr_authoredWidth != nullptr) {
         authoredWidth = ptr_authoredWidth->value;

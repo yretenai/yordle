@@ -16,7 +16,8 @@
 #include <deque>
 #include <filesystem>
 
-#include <yordle/yordle.hpp>
+#include <yordle/cdtb/fnvhashlist.hpp>
+#include <yordle/cdtb/xxhashlist.hpp>
 
 #include "../tool_export.h"
 

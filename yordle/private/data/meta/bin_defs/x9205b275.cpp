@@ -188,6 +188,11 @@ yordle::data::meta::x9205b275::x9205b275(const std::shared_ptr<yordle::data::pro
         BundleItemFrameHoverIcon = ptr_BundleItemFrameHoverIcon->value;
     }
 
+    auto ptr_x5893e64c = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1486087756u);
+    if(ptr_x5893e64c != nullptr) {
+        x5893e64c = ptr_x5893e64c->value;
+    }
+
     auto ptr_xd05802ad = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3495428781u);
     if(ptr_xd05802ad != nullptr) {
         xd05802ad = ptr_xd05802ad->value;

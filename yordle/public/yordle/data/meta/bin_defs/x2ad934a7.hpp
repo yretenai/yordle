@@ -6,15 +6,15 @@
 #include <memory>
 #include <cstdint>
 
-#include <yordle/data/meta/bin_defs/FxTarget.hpp>
+#include <yordle/data/meta/bin_defs/x5c086dbd.hpp>
 #include <yordle/data/meta/bin_defs/IFxAction.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_FxTarget
-    struct FxTarget;
+#ifndef YORDLE_META_DEF_x5c086dbd
+    struct x5c086dbd;
 #endif
     struct YORDLE_EXPORT x2ad934a7 : public IFxAction {
         explicit x2ad934a7(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -23,8 +23,9 @@ namespace yordle::data::meta {
             return type == 718877863u || IFxAction::is_type(type);
         }
 
-        std::shared_ptr<yordle::data::meta::FxTarget> TargetObject {};
+        std::shared_ptr<yordle::data::meta::x5c086dbd> TargetObject {};
         float x77cea54c = 1.0;
+        bool xe68ccb2e = false;
         uint8_t EasingType = 0u;
     };
 }

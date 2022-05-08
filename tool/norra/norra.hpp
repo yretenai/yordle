@@ -8,7 +8,7 @@
 #include <deque>
 #include <filesystem>
 
-#include <yordle/yordle.hpp>
+#include <yordle/cdtb/hashlist_collection.hpp>
 
 #include "../tool_export.h"
 

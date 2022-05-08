@@ -27,4 +27,14 @@ yordle::data::meta::MapThemeMusic::MapThemeMusic(const std::shared_ptr<yordle::d
     if(ptr_ThemeMusicTransitionEvent != nullptr) {
         ThemeMusicTransitionEvent = ptr_ThemeMusicTransitionEvent->value;
     }
+
+    auto ptr_x86a36ce1 = prop->cast_prop<yordle::data::prop::string_prop>(2258857185u);
+    if(ptr_x86a36ce1 != nullptr) {
+        x86a36ce1 = ptr_x86a36ce1->value;
+    }
+
+    auto ptr_xdce1f159 = prop->cast_prop<yordle::data::prop::string_prop>(3705794905u);
+    if(ptr_xdce1f159 != nullptr) {
+        xdce1f159 = ptr_xdce1f159->value;
+    }
 }

@@ -4,8 +4,7 @@
 #pragma once
 
 #include <memory>
-#include <string>
-#include <map>
+#include <vector>
 
 #include <yordle/data/meta/bin_defs/NeutralTimerData.hpp>
 #include <yordle/data/meta/bin_class.hpp>
@@ -24,9 +23,8 @@ namespace yordle::data::meta {
             return type == 1283176254u;
         }
 
-        std::string mSceneName {};
-        std::string xee974cae {};
-        std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::NeutralTimerData>> mTimers {};
+        yordle::data::meta::bin_fnv_hash Scene = 0u;
+        std::vector<std::shared_ptr<yordle::data::meta::NeutralTimerData>> xca2d9683 {};
     };
 }
 #define YORDLE_META_DEF_NeutralTimers

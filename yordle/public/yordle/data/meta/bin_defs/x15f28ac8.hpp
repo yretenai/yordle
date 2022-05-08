@@ -9,9 +9,11 @@
 
 #include <yordle/data/meta/bin_defs/x868f2575.hpp>
 #include <yordle/data/meta/bin_defs/xb0d49a20.hpp>
+#include <yordle/data/meta/bin_defs/xe8062aeb.hpp>
 #include <yordle/data/meta/bin_defs/x3c8d0b5d.hpp>
 #include <yordle/data/meta/bin_defs/x69af20f0.hpp>
 #include <yordle/data/meta/bin_defs/x7e08466d.hpp>
+#include <yordle/data/meta/bin_defs/x732daac5.hpp>
 #include <yordle/data/meta/bin_defs/x6d6cc142.hpp>
 #include <yordle/data/meta/bin_defs/xa5dec77a.hpp>
 #include <yordle/data/meta/bin_defs/xcbdadf65.hpp>
@@ -28,6 +30,10 @@ namespace yordle::data::meta {
     struct xb0d49a20;
 #endif
 
+#ifndef YORDLE_META_DEF_xe8062aeb
+    struct xe8062aeb;
+#endif
+
 #ifndef YORDLE_META_DEF_x3c8d0b5d
     struct x3c8d0b5d;
 #endif
@@ -38,6 +44,10 @@ namespace yordle::data::meta {
 
 #ifndef YORDLE_META_DEF_x7e08466d
     struct x7e08466d;
+#endif
+
+#ifndef YORDLE_META_DEF_x732daac5
+    struct x732daac5;
 #endif
 
 #ifndef YORDLE_META_DEF_x6d6cc142
@@ -58,10 +68,12 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::x868f2575> x4b686f21 {};
         std::vector<yordle::data::meta::bin_fnv_hash> x3ab433f2 {};
         std::shared_ptr<yordle::data::meta::xb0d49a20> xe6e3afce {};
+        std::shared_ptr<yordle::data::meta::xe8062aeb> x7f279fa1 {};
         std::vector<yordle::data::meta::bin_fnv_hash> x10892008 {};
         std::shared_ptr<yordle::data::meta::x3c8d0b5d> x2c79840f {};
         std::shared_ptr<yordle::data::meta::x69af20f0> x4e9df72e {};
         std::shared_ptr<yordle::data::meta::x7e08466d> x2724217e {};
+        std::shared_ptr<yordle::data::meta::x732daac5> xb9882937 {};
         yordle::data::meta::bin_ref<yordle::data::meta::x6d6cc142> x89aa9aac { 1835843906 };
         std::array<std::shared_ptr<yordle::data::meta::xa5dec77a>, 2> xe8dcc7f6 { nullptr, nullptr };
         std::array<std::shared_ptr<yordle::data::meta::xa5dec77a>, 2> xaa2f85ea { nullptr, nullptr };

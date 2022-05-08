@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/CompanionData.hpp>
 
+#include <yordle/data/meta/bin_defs/x8f85e859.hpp>
 #include <yordle/data/meta/bin_defs/BaseLoadoutData.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -43,6 +44,11 @@ yordle::data::meta::CompanionData::CompanionData(const std::shared_ptr<yordle::d
         mDisabled = ptr_mDisabled->value;
     }
 
+    auto ptr_xa2da26ab = prop->cast_prop<yordle::data::prop::bool_prop>(2732205739u);
+    if(ptr_xa2da26ab != nullptr) {
+        xa2da26ab = ptr_xa2da26ab->value;
+    }
+
     auto ptr_x65cc10b7 = prop->cast_prop<yordle::data::prop::set_prop>(1707872439u);
     if(ptr_x65cc10b7 != nullptr) {
         for(const auto &set_x65cc10b7_entry : ptr_x65cc10b7->value) {
@@ -56,6 +62,11 @@ yordle::data::meta::CompanionData::CompanionData(const std::shared_ptr<yordle::d
     auto ptr_xd09f96bd = prop->cast_prop<yordle::data::prop::uint8_prop>(3500119741u);
     if(ptr_xd09f96bd != nullptr) {
         xd09f96bd = ptr_xd09f96bd->value;
+    }
+
+    auto ptr_xa3e166e5 = prop->cast_prop<yordle::data::prop::structure_prop>(2749458149u);
+    if(ptr_xa3e166e5 != nullptr) {
+        xa3e166e5 = yordle::data::meta::deserialize<yordle::data::meta::x8f85e859>(ptr_xa3e166e5, 2407917657u);
     }
 
     auto ptr_speciesLink = prop->cast_prop<yordle::data::prop::string_prop>(416215309u);

@@ -32,6 +32,7 @@ namespace yordle::data::meta {
         std::optional<bool> alternateRightLeft {};
         std::optional<bool> combinableCounterDisplay {};
         std::optional<int32_t> combinableCounterCategory {};
+        std::optional<bool> x20b20b79 {};
         std::optional<bool> overwritePreviousNumber {};
         std::optional<float> extendTimeOnNewDamage {};
         std::optional<float> maxLifeTime {};

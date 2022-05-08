@@ -154,6 +154,16 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         mItemCalloutSpectator = ptr_mItemCalloutSpectator->value;
     }
 
+    auto ptr_xf7250cac = prop->cast_prop<yordle::data::prop::bool_prop>(4146400428u);
+    if(ptr_xf7250cac != nullptr) {
+        xf7250cac = ptr_xf7250cac->value;
+    }
+
+    auto ptr_xa502bcf = prop->cast_prop<yordle::data::prop::bool_prop>(173026255u);
+    if(ptr_xa502bcf != nullptr) {
+        xa502bcf = ptr_xa502bcf->value;
+    }
+
     auto ptr_clearUndoHistory = prop->cast_prop<yordle::data::prop::uint8_prop>(3517176776u);
     if(ptr_clearUndoHistory != nullptr) {
         clearUndoHistory = ptr_clearUndoHistory->value;
@@ -606,9 +616,9 @@ yordle::data::meta::ItemData::ItemData(const std::shared_ptr<yordle::data::prop:
         }
     }
 
-    auto ptr_x224a3815 = prop->cast_prop<yordle::data::prop::int32_prop>(575289365u);
-    if(ptr_x224a3815 != nullptr) {
-        x224a3815 = ptr_x224a3815->value;
+    auto ptr_xa1a10c03 = prop->cast_prop<yordle::data::prop::uint8_prop>(2711686147u);
+    if(ptr_xa1a10c03 != nullptr) {
+        xa1a10c03 = ptr_xa1a10c03->value;
     }
 
     auto ptr_xc01bb6dd = prop->cast_prop<yordle::data::prop::uint8_prop>(3223041757u);

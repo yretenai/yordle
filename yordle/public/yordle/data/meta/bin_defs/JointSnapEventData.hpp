@@ -4,6 +4,7 @@
 #pragma once
 
 #include <memory>
+#include <array>
 
 #include <yordle/data/meta/bin_defs/BaseEventData.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -20,6 +21,7 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash mJointNameToOverride = 0u;
         yordle::data::meta::bin_fnv_hash mJointNameToSnapTo = 0u;
+        std::array<float, 3> offset { 0, 0, 0 };
     };
 }
 #define YORDLE_META_DEF_JointSnapEventData

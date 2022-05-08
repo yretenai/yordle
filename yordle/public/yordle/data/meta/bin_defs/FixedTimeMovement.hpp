@@ -20,6 +20,7 @@ namespace yordle::data::meta {
 
         bool mInferDirectionFromFacingIfNeeded = true;
         bool mProjectTargetToCastRange = false;
+        bool x99aa2d1f = false;
         bool mUseGroundHeightAtTarget = true;
         float mTravelTime = 0.0;
     };

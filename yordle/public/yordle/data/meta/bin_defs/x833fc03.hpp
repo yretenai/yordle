@@ -5,8 +5,10 @@
 
 #include <memory>
 #include <cstdint>
+#include <vector>
 
 #include <yordle/data/meta/bin_defs/xcd809187.hpp>
+#include <yordle/data/meta/bin_defs/x4bfe07eb.hpp>
 #include <yordle/data/meta/bin_defs/x75259ad3.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -15,6 +17,10 @@
 namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_xcd809187
     struct xcd809187;
+#endif
+
+#ifndef YORDLE_META_DEF_x4bfe07eb
+    struct x4bfe07eb;
 #endif
     struct YORDLE_EXPORT x833fc03 : public x75259ad3 {
         explicit x833fc03(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -26,6 +32,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x9032279 = 0u;
         std::shared_ptr<yordle::data::meta::xcd809187> xcd809187 {};
         uint32_t x5e6b4e2c = 3u;
+        std::vector<std::shared_ptr<yordle::data::meta::x4bfe07eb>> x785236f5 {};
     };
 }
 #define YORDLE_META_DEF_x833fc03

@@ -57,4 +57,20 @@ yordle::data::meta::x5a27978a::x5a27978a(const std::shared_ptr<yordle::data::pro
     if(ptr_x32d7e7c != nullptr) {
         x32d7e7c = ptr_x32d7e7c->value;
     }
+
+    auto ptr_xbd29d956 = prop->cast_prop<yordle::data::prop::map_prop>(3173636438u);
+    if(ptr_xbd29d956 != nullptr) {
+        for(const auto &set_xbd29d956_pair : ptr_xbd29d956->value) {
+            auto ptr_xbd29d956_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::int64_prop>(set_xbd29d956_pair.first);
+            auto ptr_xbd29d956_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_xbd29d956_pair.second);
+            if(ptr_xbd29d956_key != nullptr && ptr_xbd29d956_value != nullptr) {
+                xbd29d956.emplace(ptr_xbd29d956_key->value, ptr_xbd29d956_value->value);
+            }
+        }
+    }
+
+    auto ptr_x1a361782 = prop->cast_prop<yordle::data::prop::string_prop>(439752578u);
+    if(ptr_x1a361782 != nullptr) {
+        x1a361782 = ptr_x1a361782->value;
+    }
 }

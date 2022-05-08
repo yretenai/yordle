@@ -30,6 +30,7 @@ namespace yordle::data::meta {
         bool x86ddaddb = false;
         std::string mName {};
         uint8_t mType = 1u;
+        uint32_t xf81238e4 = 0u;
     };
 }
 #define YORDLE_META_DEF_AbilityObject

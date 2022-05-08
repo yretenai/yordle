@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/xd0754dc9.hpp>
 
+#include <yordle/data/meta/bin_defs/xb3f7f3ed.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -18,6 +19,16 @@ yordle::data::meta::xd0754dc9::xd0754dc9(const std::shared_ptr<yordle::data::pro
     if(prop == nullptr) {
         return;
     }
+    auto ptr_x5b9613f7 = prop->cast_prop<yordle::data::prop::float32_prop>(1536562167u);
+    if(ptr_x5b9613f7 != nullptr) {
+        x5b9613f7 = ptr_x5b9613f7->value;
+    }
+
+    auto ptr_xf48b7975 = prop->cast_prop<yordle::data::prop::float32_prop>(4102781301u);
+    if(ptr_xf48b7975 != nullptr) {
+        xf48b7975 = ptr_xf48b7975->value;
+    }
+
     auto ptr_x4d302530 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1295000880u);
     if(ptr_x4d302530 != nullptr) {
         x4d302530 = ptr_x4d302530->value;
@@ -61,6 +72,16 @@ yordle::data::meta::xd0754dc9::xd0754dc9(const std::shared_ptr<yordle::data::pro
     auto ptr_xba47665c = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3125241436u);
     if(ptr_xba47665c != nullptr) {
         xba47665c = ptr_xba47665c->value;
+    }
+
+    auto ptr_x1cac9ad1 = prop->cast_prop<yordle::data::prop::float32_prop>(481073873u);
+    if(ptr_x1cac9ad1 != nullptr) {
+        x1cac9ad1 = ptr_x1cac9ad1->value;
+    }
+
+    auto ptr_xb3f7f3ed = prop->cast_prop<yordle::data::prop::structure_prop>(3019371501u);
+    if(ptr_xb3f7f3ed != nullptr) {
+        xb3f7f3ed = yordle::data::meta::deserialize<yordle::data::meta::xb3f7f3ed>(ptr_xb3f7f3ed, 3019371501u);
     }
 
     auto ptr_xe095d841 = prop->cast_prop<yordle::data::prop::string_prop>(3767916609u);

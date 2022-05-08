@@ -37,4 +37,14 @@ yordle::data::meta::xe6caaf8c::xe6caaf8c(const std::shared_ptr<yordle::data::pro
     if(ptr_xd71aac3e != nullptr) {
         xd71aac3e = ptr_xd71aac3e->value;
     }
+
+    auto ptr_x6bf4cd0d = prop->cast_prop<yordle::data::prop::bool_prop>(1811205389u);
+    if(ptr_x6bf4cd0d != nullptr) {
+        x6bf4cd0d = ptr_x6bf4cd0d->value;
+    }
+
+    auto ptr_x9aa2fc4c = prop->cast_prop<yordle::data::prop::bool_prop>(2594372684u);
+    if(ptr_x9aa2fc4c != nullptr) {
+        x9aa2fc4c = ptr_x9aa2fc4c->value;
+    }
 }

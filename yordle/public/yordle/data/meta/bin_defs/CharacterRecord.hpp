@@ -14,6 +14,7 @@
 #include <yordle/data/meta/bin_defs/PerkStyle.hpp>
 #include <yordle/data/meta/bin_defs/PerkReplacementList.hpp>
 #include <yordle/data/meta/bin_defs/AbilityResourceSlotInfo.hpp>
+#include <yordle/data/meta/bin_defs/x4bb004c1.hpp>
 #include <yordle/data/meta/bin_defs/AttackSlotData.hpp>
 #include <yordle/data/meta/bin_defs/SpellLevelUpInfo.hpp>
 #include <yordle/data/meta/bin_defs/RecSpellRankUpInfo.hpp>
@@ -43,6 +44,10 @@ namespace yordle::data::meta {
 
 #ifndef YORDLE_META_DEF_AbilityResourceSlotInfo
     struct AbilityResourceSlotInfo;
+#endif
+
+#ifndef YORDLE_META_DEF_x4bb004c1
+    struct x4bb004c1;
 #endif
 
 #ifndef YORDLE_META_DEF_AttackSlotData
@@ -146,7 +151,7 @@ namespace yordle::data::meta {
         float attackSpeedPerLevel = 0.0;
         float AbilityPowerIncPerLevel = 0.0;
         float mAdaptiveForceToAbilityPowerWeight = 0.0;
-        bool x503a1944 = false;
+        std::shared_ptr<yordle::data::meta::x4bb004c1> x4bb004c1 {};
         std::shared_ptr<yordle::data::meta::AttackSlotData> basicAttack {};
         std::vector<std::shared_ptr<yordle::data::meta::AttackSlotData>> ExtraAttacks {};
         std::vector<std::shared_ptr<yordle::data::meta::AttackSlotData>> critAttacks {};
@@ -230,12 +235,13 @@ namespace yordle::data::meta {
         bool platformEnabled = false;
         float MovingTowardEnemyActivationAngle = 45.0;
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::AbilityObject>> mAbilities {};
-        uint32_t onKillEvent = 231u;
-        uint32_t OnKillEventSteal = 231u;
-        uint32_t onKillEventForSpectator = 231u;
+        uint32_t onKillEvent = 219u;
+        uint32_t OnKillEventSteal = 219u;
+        uint32_t onKillEventForSpectator = 219u;
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::IGameCalculation>> mCharacterCalculations {};
         yordle::data::meta::bin_ref<yordle::data::meta::SpellObject> mCharacterPassiveSpell { 1585338886 };
         std::vector<std::shared_ptr<yordle::data::meta::CharacterPassiveData>> mCharacterPassiveBuffs {};
+        bool x5d7c7c0b = true;
         std::array<std::string, 4> spellNames { "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell" };
         std::array<std::string, 16> extraSpells { "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell", "BaseSpell" };
         std::shared_ptr<yordle::data::meta::StatFormulaDataList> mDefaultStatOverrides {};

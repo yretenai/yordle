@@ -3,6 +3,7 @@
 #include <yordle/data/meta/bin_defs/x4d31ed46.hpp>
 
 #include <yordle/data/meta/bin_defs/IdentityInstance.hpp>
+#include <yordle/data/meta/bin_defs/xae9e709a.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -22,5 +23,10 @@ yordle::data::meta::x4d31ed46::x4d31ed46(const std::shared_ptr<yordle::data::pro
     auto ptr_mIdentityInstance = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3844885605u);
     if(ptr_mIdentityInstance != nullptr) {
         mIdentityInstance = yordle::data::meta::deserialize<yordle::data::meta::IdentityInstance>(ptr_mIdentityInstance, 1790162312u);
+    }
+
+    auto ptr_xae9e709a = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2929619098u);
+    if(ptr_xae9e709a != nullptr) {
+        xae9e709a = yordle::data::meta::deserialize<yordle::data::meta::xae9e709a>(ptr_xae9e709a, 2929619098u);
     }
 }

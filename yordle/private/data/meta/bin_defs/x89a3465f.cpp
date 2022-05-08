@@ -29,4 +29,9 @@ yordle::data::meta::x89a3465f::x89a3465f(const std::shared_ptr<yordle::data::pro
     if(ptr_xfa4c41a0 != nullptr) {
         xfa4c41a0 = yordle::data::meta::deserialize<yordle::data::meta::xa51270e5>(ptr_xfa4c41a0, 2769449189u);
     }
+
+    auto ptr_xb824a2c2 = prop->cast_prop<yordle::data::prop::bool_prop>(3089408706u);
+    if(ptr_xb824a2c2 != nullptr) {
+        xb824a2c2 = ptr_xb824a2c2->value;
+    }
 }

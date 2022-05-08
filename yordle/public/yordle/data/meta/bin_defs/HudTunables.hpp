@@ -5,50 +5,22 @@
 
 #include <memory>
 
-#include <yordle/data/meta/bin_defs/HudScaleSettingsData.hpp>
-#include <yordle/data/meta/bin_defs/HudLevelUpData.hpp>
-#include <yordle/data/meta/bin_defs/HudReplayData.hpp>
 #include <yordle/data/meta/bin_defs/HudElementalSectionUIData.hpp>
-#include <yordle/data/meta/bin_defs/HudEmotePopupData.hpp>
 #include <yordle/data/meta/bin_defs/HudGearSelectionUIData.hpp>
 #include <yordle/data/meta/bin_defs/HudRadialWheelData.hpp>
 #include <yordle/data/meta/bin_defs/HudPingData.hpp>
 #include <yordle/data/meta/bin_defs/HudMenuTransitionData.hpp>
-#include <yordle/data/meta/bin_defs/HudBannerData.hpp>
-#include <yordle/data/meta/bin_defs/HudAbilityPromptData.hpp>
-#include <yordle/data/meta/bin_defs/HudVoiceChatData.hpp>
-#include <yordle/data/meta/bin_defs/HudInputBoxData.hpp>
-#include <yordle/data/meta/bin_defs/HudHealthBarData.hpp>
 #include <yordle/data/meta/bin_defs/HudStatPanelStatStoneData.hpp>
 #include <yordle/data/meta/bin_defs/HudStatStoneData.hpp>
 #include <yordle/data/meta/bin_defs/HudStatStoneDeathRecapData.hpp>
-#include <yordle/data/meta/bin_defs/HudStatStoneMilestoneData.hpp>
-#include <yordle/data/meta/bin_defs/HudMessageDisplayData.hpp>
-#include <yordle/data/meta/bin_defs/HudSpellSlotResetFeedbackData.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_HudScaleSettingsData
-    struct HudScaleSettingsData;
-#endif
-
-#ifndef YORDLE_META_DEF_HudLevelUpData
-    struct HudLevelUpData;
-#endif
-
-#ifndef YORDLE_META_DEF_HudReplayData
-    struct HudReplayData;
-#endif
-
 #ifndef YORDLE_META_DEF_HudElementalSectionUIData
     struct HudElementalSectionUIData;
-#endif
-
-#ifndef YORDLE_META_DEF_HudEmotePopupData
-    struct HudEmotePopupData;
 #endif
 
 #ifndef YORDLE_META_DEF_HudGearSelectionUIData
@@ -67,26 +39,6 @@ namespace yordle::data::meta {
     struct HudMenuTransitionData;
 #endif
 
-#ifndef YORDLE_META_DEF_HudBannerData
-    struct HudBannerData;
-#endif
-
-#ifndef YORDLE_META_DEF_HudAbilityPromptData
-    struct HudAbilityPromptData;
-#endif
-
-#ifndef YORDLE_META_DEF_HudVoiceChatData
-    struct HudVoiceChatData;
-#endif
-
-#ifndef YORDLE_META_DEF_HudInputBoxData
-    struct HudInputBoxData;
-#endif
-
-#ifndef YORDLE_META_DEF_HudHealthBarData
-    struct HudHealthBarData;
-#endif
-
 #ifndef YORDLE_META_DEF_HudStatPanelStatStoneData
     struct HudStatPanelStatStoneData;
 #endif
@@ -98,18 +50,6 @@ namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_HudStatStoneDeathRecapData
     struct HudStatStoneDeathRecapData;
 #endif
-
-#ifndef YORDLE_META_DEF_HudStatStoneMilestoneData
-    struct HudStatStoneMilestoneData;
-#endif
-
-#ifndef YORDLE_META_DEF_HudMessageDisplayData
-    struct HudMessageDisplayData;
-#endif
-
-#ifndef YORDLE_META_DEF_HudSpellSlotResetFeedbackData
-    struct HudSpellSlotResetFeedbackData;
-#endif
     struct YORDLE_EXPORT HudTunables : public bin_class {
         explicit HudTunables(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -117,29 +57,16 @@ namespace yordle::data::meta {
             return type == 2058949250u;
         }
 
-        std::shared_ptr<yordle::data::meta::HudScaleSettingsData> mScaleSettings {};
-        std::shared_ptr<yordle::data::meta::HudLevelUpData> mLevelUpTransitionData {};
-        std::shared_ptr<yordle::data::meta::HudReplayData> mReplayData {};
         std::shared_ptr<yordle::data::meta::HudElementalSectionUIData> mElementalSelectionAnimationData {};
-        std::shared_ptr<yordle::data::meta::HudEmotePopupData> mEmotePopupData {};
         std::shared_ptr<yordle::data::meta::HudGearSelectionUIData> mGearSelectionData {};
         std::shared_ptr<yordle::data::meta::HudRadialWheelData> mRadailWheelData {};
         std::shared_ptr<yordle::data::meta::HudPingData> mPingData {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mGameScoreboardTransitionData {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mReplayScoreboardTransitionData {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mReplayGameStatsTransitionData {};
-        std::shared_ptr<yordle::data::meta::HudBannerData> x9cec9ff0 {};
-        std::shared_ptr<yordle::data::meta::HudAbilityPromptData> x4e7d3049 {};
-        std::shared_ptr<yordle::data::meta::HudVoiceChatData> mVoiceChatData {};
-        std::shared_ptr<yordle::data::meta::HudInputBoxData> mInputBoxData {};
-        std::shared_ptr<yordle::data::meta::HudHealthBarData> mHealthBarData {};
         std::shared_ptr<yordle::data::meta::HudStatPanelStatStoneData> mStatPanelStatStoneData {};
         std::shared_ptr<yordle::data::meta::HudStatStoneData> mStatStoneData {};
         std::shared_ptr<yordle::data::meta::HudStatStoneDeathRecapData> mStatStoneDeathRecapData {};
-        std::shared_ptr<yordle::data::meta::HudStatStoneMilestoneData> StatStoneMilestoneData {};
-        std::shared_ptr<yordle::data::meta::HudMessageDisplayData> x86402adf {};
-        std::shared_ptr<yordle::data::meta::HudMessageDisplayData> x48c75042 {};
-        std::shared_ptr<yordle::data::meta::HudSpellSlotResetFeedbackData> mHudSpellSlotResetFeedbackData {};
     };
 }
 #define YORDLE_META_DEF_HudTunables

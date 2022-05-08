@@ -26,6 +26,7 @@ namespace yordle::data::meta {
 
         std::string mDefaultTextureName = "2DLevelMiniMap.dds";
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::MinimapBackground>> mCustomMinimapBackgrounds {};
+        bool x7b213e8e = true;
     };
 }
 #define YORDLE_META_DEF_MinimapBackgroundConfig

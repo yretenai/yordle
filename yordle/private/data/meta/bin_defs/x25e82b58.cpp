@@ -96,4 +96,14 @@ yordle::data::meta::x25e82b58::x25e82b58(const std::shared_ptr<yordle::data::pro
     if(ptr_IsSelected != nullptr) {
         IsSelected = ptr_IsSelected->value;
     }
+
+    auto ptr_x847f0e3f = prop->cast_prop<yordle::data::prop::bool_prop>(2222919231u);
+    if(ptr_x847f0e3f != nullptr) {
+        x847f0e3f = ptr_x847f0e3f->value;
+    }
+
+    auto ptr_x210dd2c4 = prop->cast_prop<yordle::data::prop::uint32_prop>(554554052u);
+    if(ptr_x210dd2c4 != nullptr) {
+        x210dd2c4 = ptr_x210dd2c4->value;
+    }
 }

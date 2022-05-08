@@ -5,6 +5,7 @@
 
 #include <memory>
 #include <string>
+#include <cstdint>
 
 #include <yordle/data/meta/bin_defs/x6780c1c5.hpp>
 #include <yordle/data/meta/bin_defs/RegionElementData.hpp>
@@ -53,6 +54,8 @@ namespace yordle::data::meta {
         bool IsActive = true;
         bool IsEnabled = false;
         bool IsSelected = false;
+        bool x847f0e3f = false;
+        uint32_t x210dd2c4 = 0u;
     };
 }
 #define YORDLE_META_DEF_x25e82b58

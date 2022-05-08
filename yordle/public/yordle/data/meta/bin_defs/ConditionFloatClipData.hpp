@@ -26,6 +26,7 @@ namespace yordle::data::meta {
 
         uint32_t mUpdaterType = 4294967295u;
         bool mChangeAnimationMidPlay = false;
+        bool x94c90e2b = false;
         bool x31db4e6a = false;
         bool x92213dee = false;
         float mChildAnimDelaySwitchTime = 0.0;

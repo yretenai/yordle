@@ -36,6 +36,11 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::OptionsTab>> Tabs {};
         yordle::data::meta::bin_fnv_hash x5a46f90c = 0u;
         yordle::data::meta::bin_fnv_hash LastItemPadding = 0u;
+        yordle::data::meta::bin_fnv_hash x991fa1d6 = 0u;
+        yordle::data::meta::bin_fnv_hash x1a34953e = 0u;
+        yordle::data::meta::bin_fnv_hash xca71e7ba = 0u;
+        yordle::data::meta::bin_fnv_hash xc8d5290 = 0u;
+        yordle::data::meta::bin_fnv_hash xfbed4d38 = 0u;
         yordle::data::meta::bin_fnv_hash x4d302530 = 0u;
     };
 }

@@ -4,8 +4,12 @@
 #pragma once
 
 #include <memory>
+#include <map>
+#include <cstdint>
+#include <string>
 
 #include <yordle/data/meta/bin_defs/UnitStatusPriorityList.hpp>
+#include <yordle/data/meta/bin_defs/x506291c8.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -15,6 +19,10 @@ namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_UnitStatusPriorityList
     struct UnitStatusPriorityList;
 #endif
+
+#ifndef YORDLE_META_DEF_x506291c8
+    struct x506291c8;
+#endif
     struct YORDLE_EXPORT x8cb19eb5 : public ViewController {
         explicit x8cb19eb5(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -23,6 +31,8 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::UnitStatusPriorityList> UnitStatusPriorityList { 3886968817 };
+        std::map<uint8_t, yordle::data::meta::bin_ref<yordle::data::meta::x506291c8>> xa0bbdb34 {};
+        std::string xe095d841 {};
     };
 }
 #define YORDLE_META_DEF_x8cb19eb5

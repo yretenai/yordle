@@ -34,6 +34,11 @@ yordle::data::meta::EffectInstancedElementData::EffectInstancedElementData(const
         mPerPixelUvsX = ptr_mPerPixelUvsX->value;
     }
 
+    auto ptr_mColor = prop->cast_prop<yordle::data::prop::color_prop>(1399972751u);
+    if(ptr_mColor != nullptr) {
+        mColor = ptr_mColor->value;
+    }
+
     auto ptr_mAtlas = prop->cast_prop<yordle::data::prop::structure_prop>(3915856815u);
     if(ptr_mAtlas != nullptr) {
         mAtlas = yordle::data::meta::deserialize<yordle::data::meta::AtlasData>(ptr_mAtlas, 1906252436u);

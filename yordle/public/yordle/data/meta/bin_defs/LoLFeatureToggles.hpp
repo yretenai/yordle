@@ -38,21 +38,33 @@ namespace yordle::data::meta {
         bool x6f0ba2b0 = false;
         bool x59e03167 = false;
         bool xf1125a78 = true;
-        bool x768400a9 = false;
-        bool x69b85d1 = false;
         bool x68c9483d = true;
         bool x9cfc57ba = false;
         bool x40bae5a8 = false;
         bool xde421b66 = false;
         bool x8dc6f20a = false;
         bool xab676340 = false;
-        bool x85af0cb5 = true;
-        bool x26ceca7d = false;
         bool x5f29b66e = true;
         bool x8bab003a = false;
         bool x84fe7ccf = false;
         bool xf41cab90 = false;
-        bool xd7a639de = true;
+        bool xd7a639de = false;
+        bool xe3fe9469 = true;
+        bool x188bc886 = false;
+        bool xacd3ddc1 = false;
+        bool xcbcf70b7 = false;
+        bool xb373c3ab = false;
+        bool x275342a3 = false;
+        bool xb6fd2589 = false;
+        bool xcf9a337d = false;
+        bool x3ac79114 = false;
+        bool x26ceca7d = false;
+        bool x1936bee5 = false;
+        bool xd7e01189 = false;
+        bool xcdf0c145 = true;
+        bool xa0c45184 = false;
+        bool x69b85d1 = false;
+        bool xcdefc3d7 = false;
     };
 }
 #define YORDLE_META_DEF_LoLFeatureToggles

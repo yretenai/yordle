@@ -21,6 +21,7 @@ namespace yordle::data::meta {
 
         std::string x2dd6b42e {};
         std::string x3c8fa9e9 {};
+        bool x4ea59d14 = false;
     };
 }
 #define YORDLE_META_DEF_HudStatStoneData

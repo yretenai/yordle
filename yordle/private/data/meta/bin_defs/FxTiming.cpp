@@ -18,18 +18,18 @@ yordle::data::meta::FxTiming::FxTiming(const std::shared_ptr<yordle::data::prop:
     if(prop == nullptr) {
         return;
     }
-    auto ptr_Anchor = prop->cast_prop<yordle::data::prop::uint32_prop>(1122880180u);
-    if(ptr_Anchor != nullptr) {
-        Anchor = ptr_Anchor->value;
-    }
-
-    auto ptr_type = prop->cast_prop<yordle::data::prop::uint32_prop>(1361572173u);
-    if(ptr_type != nullptr) {
-        type = ptr_type->value;
-    }
-
     auto ptr_offset = prop->cast_prop<yordle::data::prop::float32_prop>(348705738u);
     if(ptr_offset != nullptr) {
         offset = ptr_offset->value;
+    }
+
+    auto ptr_x23756bf4 = prop->cast_prop<yordle::data::prop::int32_prop>(594897908u);
+    if(ptr_x23756bf4 != nullptr) {
+        x23756bf4 = ptr_x23756bf4->value;
+    }
+
+    auto ptr_x22a99fe3 = prop->cast_prop<yordle::data::prop::bool_prop>(581541859u);
+    if(ptr_x22a99fe3 != nullptr) {
+        x22a99fe3 = ptr_x22a99fe3->value;
     }
 }

@@ -3,6 +3,7 @@
 #include <yordle/data/meta/bin_defs/NeutralTimerData.hpp>
 
 #include <yordle/data/meta/bin_defs/NeutralTimerSourceIconData.hpp>
+#include <yordle/data/meta/bin_defs/xefb24138.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -19,44 +20,53 @@ yordle::data::meta::NeutralTimerData::NeutralTimerData(const std::shared_ptr<yor
     if(prop == nullptr) {
         return;
     }
-    auto ptr_mTimerKeyName = prop->cast_prop<yordle::data::prop::string_prop>(2215458355u);
-    if(ptr_mTimerKeyName != nullptr) {
-        mTimerKeyName = ptr_mTimerKeyName->value;
+    auto ptr_xf135454f = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(4046800207u);
+    if(ptr_xf135454f != nullptr) {
+        xf135454f = ptr_xf135454f->value;
     }
 
-    auto ptr_mTooltip = prop->cast_prop<yordle::data::prop::string_prop>(4288851731u);
-    if(ptr_mTooltip != nullptr) {
-        mTooltip = ptr_mTooltip->value;
+    auto ptr_xcc6f662 = prop->cast_prop<yordle::data::prop::string_prop>(214365794u);
+    if(ptr_xcc6f662 != nullptr) {
+        xcc6f662 = ptr_xcc6f662->value;
     }
 
-    auto ptr_mTooltipCampName = prop->cast_prop<yordle::data::prop::string_prop>(648165165u);
-    if(ptr_mTooltipCampName != nullptr) {
-        mTooltipCampName = ptr_mTooltipCampName->value;
+    auto ptr_xdefe5eb0 = prop->cast_prop<yordle::data::prop::string_prop>(3741212336u);
+    if(ptr_xdefe5eb0 != nullptr) {
+        xdefe5eb0 = ptr_xdefe5eb0->value;
     }
 
-    auto ptr_mTooltipRespawn = prop->cast_prop<yordle::data::prop::string_prop>(3490465545u);
-    if(ptr_mTooltipRespawn != nullptr) {
-        mTooltipRespawn = ptr_mTooltipRespawn->value;
+    auto ptr_xd3a113ce = prop->cast_prop<yordle::data::prop::string_prop>(3550548942u);
+    if(ptr_xd3a113ce != nullptr) {
+        xd3a113ce = ptr_xd3a113ce->value;
     }
 
-    auto ptr_mTooltipChatNameOrder = prop->cast_prop<yordle::data::prop::string_prop>(3747069382u);
-    if(ptr_mTooltipChatNameOrder != nullptr) {
-        mTooltipChatNameOrder = ptr_mTooltipChatNameOrder->value;
+    auto ptr_x90c02594 = prop->cast_prop<yordle::data::prop::string_prop>(2428511636u);
+    if(ptr_x90c02594 != nullptr) {
+        x90c02594 = ptr_x90c02594->value;
     }
 
-    auto ptr_mTooltipChatNameChaos = prop->cast_prop<yordle::data::prop::string_prop>(2991278406u);
-    if(ptr_mTooltipChatNameChaos != nullptr) {
-        mTooltipChatNameChaos = ptr_mTooltipChatNameChaos->value;
+    auto ptr_xd62b4497 = prop->cast_prop<yordle::data::prop::string_prop>(3593159831u);
+    if(ptr_xd62b4497 != nullptr) {
+        xd62b4497 = ptr_xd62b4497->value;
     }
 
-    auto ptr_mSourceIcons = prop->cast_prop<yordle::data::prop::map_prop>(1512598209u);
-    if(ptr_mSourceIcons != nullptr) {
-        for(const auto &set_mSourceIcons_pair : ptr_mSourceIcons->value) {
-            auto ptr_mSourceIcons_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_mSourceIcons_pair.first);
-            auto ptr_mSourceIcons_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_mSourceIcons_pair.second);
-            if(ptr_mSourceIcons_key != nullptr && ptr_mSourceIcons_value != nullptr) {
-                mSourceIcons.emplace(ptr_mSourceIcons_key->value, yordle::data::meta::deserialize<yordle::data::meta::NeutralTimerSourceIconData>(ptr_mSourceIcons_value, 230608261u));
+    auto ptr_xb0af3cbf = prop->cast_prop<yordle::data::prop::string_prop>(2964274367u);
+    if(ptr_xb0af3cbf != nullptr) {
+        xb0af3cbf = ptr_xb0af3cbf->value;
+    }
+
+    auto ptr_x177de9ee = prop->cast_prop<yordle::data::prop::set_prop>(394127854u);
+    if(ptr_x177de9ee != nullptr) {
+        for(const auto &set_x177de9ee_entry : ptr_x177de9ee->value) {
+            auto ptr_x177de9ee_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_x177de9ee_entry);
+            if(ptr_x177de9ee_entry != nullptr) {
+                x177de9ee.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::NeutralTimerSourceIconData>(ptr_x177de9ee_entry, 230608261u));
             }
         }
+    }
+
+    auto ptr_xb52b690b = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3039521035u);
+    if(ptr_xb52b690b != nullptr) {
+        xb52b690b = yordle::data::meta::deserialize<yordle::data::meta::xefb24138>(ptr_xb52b690b, 4021436728u);
     }
 }

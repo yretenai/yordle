@@ -25,6 +25,7 @@ namespace yordle::data::meta {
         float x5bbd27af = 0.0;
         std::string x24cdeeb4 = "TFT_Drop_Hover";
         std::string x6cb9b89 = "TFT_Drop_Hover_End";
+        std::string xadd98956 {};
     };
 }
 #define YORDLE_META_DEF_xcc3ae8e4

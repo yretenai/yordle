@@ -22,6 +22,8 @@ namespace yordle::data::meta {
         bool xf051c7e8 = false;
         bool x40c5ff7c = false;
         bool xd71aac3e = false;
+        bool x6bf4cd0d = false;
+        bool x9aa2fc4c = false;
     };
 }
 #define YORDLE_META_DEF_xe6caaf8c

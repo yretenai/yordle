@@ -22,9 +22,4 @@ yordle::data::meta::AbilityResourceStateColorOptions::AbilityResourceStateColorO
     if(ptr_color != nullptr) {
         color = ptr_color->value;
     }
-
-    auto ptr_fadeColor = prop->cast_prop<yordle::data::prop::color_prop>(169023090u);
-    if(ptr_fadeColor != nullptr) {
-        fadeColor = ptr_fadeColor->value;
-    }
 }

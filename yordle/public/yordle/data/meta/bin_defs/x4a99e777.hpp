@@ -4,10 +4,9 @@
 #pragma once
 
 #include <memory>
-#include <vector>
 
 #include <yordle/data/meta/bin_defs/EsportsBannerData.hpp>
-#include <yordle/data/meta/bin_defs/x9149cbb1.hpp>
+#include <yordle/data/meta/bin_defs/x3ee0746d.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -18,8 +17,8 @@ namespace yordle::data::meta {
     struct EsportsBannerData;
 #endif
 
-#ifndef YORDLE_META_DEF_x9149cbb1
-    struct x9149cbb1;
+#ifndef YORDLE_META_DEF_x3ee0746d
+    struct x3ee0746d;
 #endif
     struct YORDLE_EXPORT x4a99e777 : public bin_class {
         explicit x4a99e777(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -29,7 +28,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::EsportsBannerData> Banner { 761042637 };
-        std::vector<std::shared_ptr<yordle::data::meta::x9149cbb1>> x7ac1008a {};
+        yordle::data::meta::bin_ref<yordle::data::meta::x3ee0746d> x95e59d55 { 1054897261 };
     };
 }
 #define YORDLE_META_DEF_x4a99e777

@@ -6,6 +6,7 @@
 #include <memory>
 #include <vector>
 #include <array>
+#include <cstdint>
 
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -20,12 +21,15 @@ namespace yordle::data::meta {
             return type == 1773084912u;
         }
 
-        yordle::data::meta::bin_fnv_hash x240577f5 = 0u;
+        yordle::data::meta::bin_fnv_hash x628e91bc = 0u;
+        yordle::data::meta::bin_fnv_hash x45cbd6de = 0u;
         std::vector<yordle::data::meta::bin_fnv_hash> x8ede41f4 {};
         yordle::data::meta::bin_fnv_hash xa08a6b31 = 0u;
         yordle::data::meta::bin_fnv_hash x44508cd7 = 0u;
         std::array<yordle::data::meta::bin_fnv_hash, 3> x75b3e2ca { 0u, 0u, 0u };
-        yordle::data::meta::bin_fnv_hash xbde64e3e = 0u;
+        yordle::data::meta::bin_fnv_hash xa8f5fd34 = 0u;
+        yordle::data::meta::bin_fnv_hash x74359eae = 0u;
+        int32_t x9c45981b = 0;
     };
 }
 #define YORDLE_META_DEF_x69af20f0

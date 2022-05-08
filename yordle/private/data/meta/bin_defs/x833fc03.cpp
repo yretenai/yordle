@@ -3,6 +3,7 @@
 #include <yordle/data/meta/bin_defs/x833fc03.hpp>
 
 #include <yordle/data/meta/bin_defs/xcd809187.hpp>
+#include <yordle/data/meta/bin_defs/x4bfe07eb.hpp>
 #include <yordle/data/meta/bin_defs/x75259ad3.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -32,5 +33,15 @@ yordle::data::meta::x833fc03::x833fc03(const std::shared_ptr<yordle::data::prop:
     auto ptr_x5e6b4e2c = prop->cast_prop<yordle::data::prop::uint32_prop>(1584090668u);
     if(ptr_x5e6b4e2c != nullptr) {
         x5e6b4e2c = ptr_x5e6b4e2c->value;
+    }
+
+    auto ptr_x785236f5 = prop->cast_prop<yordle::data::prop::set_prop>(2018653941u);
+    if(ptr_x785236f5 != nullptr) {
+        for(const auto &set_x785236f5_entry : ptr_x785236f5->value) {
+            auto ptr_x785236f5_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_x785236f5_entry);
+            if(ptr_x785236f5_entry != nullptr) {
+                x785236f5.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x4bfe07eb>(ptr_x785236f5_entry, 1274939371u));
+            }
+        }
     }
 }

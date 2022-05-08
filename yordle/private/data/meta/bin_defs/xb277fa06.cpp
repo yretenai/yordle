@@ -18,6 +18,11 @@ yordle::data::meta::xb277fa06::xb277fa06(const std::shared_ptr<yordle::data::pro
     if(prop == nullptr) {
         return;
     }
+    auto ptr_x3301fcdf = prop->cast_prop<yordle::data::prop::uint8_prop>(855768287u);
+    if(ptr_x3301fcdf != nullptr) {
+        x3301fcdf = ptr_x3301fcdf->value;
+    }
+
     auto ptr_xb49ed6f0 = prop->cast_prop<yordle::data::prop::uint8_prop>(3030308592u);
     if(ptr_xb49ed6f0 != nullptr) {
         xb49ed6f0 = ptr_xb49ed6f0->value;

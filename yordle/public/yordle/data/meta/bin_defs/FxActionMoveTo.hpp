@@ -5,15 +5,15 @@
 
 #include <memory>
 
-#include <yordle/data/meta/bin_defs/FxTransform.hpp>
+#include <yordle/data/meta/bin_defs/x1c494c09.hpp>
 #include <yordle/data/meta/bin_defs/FxActionMoveBase.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_FxTransform
-    struct FxTransform;
+#ifndef YORDLE_META_DEF_x1c494c09
+    struct x1c494c09;
 #endif
     struct YORDLE_EXPORT FxActionMoveTo : public FxActionMoveBase {
         explicit FxActionMoveTo(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -22,7 +22,7 @@ namespace yordle::data::meta {
             return type == 145984105u || FxActionMoveBase::is_type(type);
         }
 
-        std::shared_ptr<yordle::data::meta::FxTransform> Destination {};
+        std::shared_ptr<yordle::data::meta::x1c494c09> Destination {};
     };
 }
 #define YORDLE_META_DEF_FxActionMoveTo

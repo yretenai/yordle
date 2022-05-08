@@ -5,6 +5,7 @@
 
 #include <memory>
 #include <string>
+#include <cstdint>
 
 #include <yordle/data/meta/bin_defs/BaseEventData.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -23,6 +24,7 @@ namespace yordle::data::meta {
         bool mIsLoop = true;
         bool mIsKillEvent = true;
         bool x67227d6 = false;
+        int16_t xea35be63 = 1u;
     };
 }
 #define YORDLE_META_DEF_SoundEventData

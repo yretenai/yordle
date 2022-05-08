@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/x2610e5a7.hpp>
 
+#include <yordle/data/meta/bin_defs/x88246c04.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -48,19 +49,20 @@ yordle::data::meta::x2610e5a7::x2610e5a7(const std::shared_ptr<yordle::data::pro
         xa768acad = ptr_xa768acad->value;
     }
 
-    auto ptr_x7af87ddd = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2063105501u);
-    if(ptr_x7af87ddd != nullptr) {
-        x7af87ddd = ptr_x7af87ddd->value;
+    auto ptr_xb08eaa53 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2962139731u);
+    if(ptr_xb08eaa53 != nullptr) {
+        xb08eaa53 = yordle::data::meta::deserialize<yordle::data::meta::x88246c04>(ptr_xb08eaa53, 2284088324u);
     }
 
-    auto ptr_x791b47a2 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2031830946u);
-    if(ptr_x791b47a2 != nullptr) {
-        x791b47a2 = ptr_x791b47a2->value;
-    }
-
-    auto ptr_x1c6c7513 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(476869907u);
-    if(ptr_x1c6c7513 != nullptr) {
-        x1c6c7513 = ptr_x1c6c7513->value;
+    auto ptr_x7348db33 = prop->cast_prop<yordle::data::prop::map_prop>(1934154547u);
+    if(ptr_x7348db33 != nullptr) {
+        for(const auto &set_x7348db33_pair : ptr_x7348db33->value) {
+            auto ptr_x7348db33_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_x7348db33_pair.first);
+            auto ptr_x7348db33_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_x7348db33_pair.second);
+            if(ptr_x7348db33_key != nullptr && ptr_x7348db33_value != nullptr) {
+                x7348db33.emplace(ptr_x7348db33_key->value, yordle::data::meta::deserialize<yordle::data::meta::x88246c04>(ptr_x7348db33_value, 2284088324u));
+            }
+        }
     }
 
     auto ptr_x30145a7e = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(806640254u);

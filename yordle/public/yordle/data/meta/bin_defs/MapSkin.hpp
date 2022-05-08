@@ -46,6 +46,7 @@ namespace yordle::data::meta {
             return type == 3441028924u;
         }
 
+        std::string name {};
         std::string mMapContainerLink {};
         std::shared_ptr<yordle::data::meta::MinimapBackgroundConfig> mMinimapBackgroundConfig {};
         std::shared_ptr<yordle::data::meta::MapAlternateAssets> mAlternateAssets {};

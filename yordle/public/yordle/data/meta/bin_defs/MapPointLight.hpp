@@ -7,7 +7,7 @@
 #include <optional>
 
 #include <yordle/data/meta/bin_defs/MapPointLightType.hpp>
-#include <yordle/data/meta/bin_defs/MapPlaceable.hpp>
+#include <yordle/data/meta/bin_defs/x429f3e94.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
@@ -16,18 +16,17 @@ namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_MapPointLightType
     struct MapPointLightType;
 #endif
-    struct YORDLE_EXPORT MapPointLight : public MapPlaceable {
+    struct YORDLE_EXPORT MapPointLight : public x429f3e94 {
         explicit MapPointLight(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 36597367u || MapPlaceable::is_type(type);
+            return type == 36597367u || x429f3e94::is_type(type);
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::MapPointLightType> type { 668199599 };
         float radiusScale = 1.0;
         float intensityScale = 1.0;
         std::optional<bool> overrideCastStaticShadows {};
-        std::optional<bool> overrideUseSpecular {};
     };
 }
 #define YORDLE_META_DEF_MapPointLight

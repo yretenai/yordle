@@ -4,7 +4,6 @@
 
 #include <yordle/data/meta/bin_defs/TeamScoreMeterUITunables.hpp>
 #include <yordle/data/meta/bin_defs/EncounterUITunables.hpp>
-#include <yordle/data/meta/bin_defs/HudTeamFightData.hpp>
 #include <yordle/data/meta/bin_defs/QuestUITunables.hpp>
 #include <yordle/data/meta/bin_defs/DragonUITunables.hpp>
 #include <yordle/data/meta/bin_defs/HudOptionalBinData.hpp>
@@ -24,6 +23,11 @@ yordle::data::meta::HudGameModeScoreData::HudGameModeScoreData(const std::shared
     if(prop == nullptr) {
         return;
     }
+    auto ptr_x5a0fe79 = prop->cast_prop<yordle::data::prop::uint32_prop>(94436985u);
+    if(ptr_x5a0fe79 != nullptr) {
+        x5a0fe79 = ptr_x5a0fe79->value;
+    }
+
     auto ptr_mTeamScoreElementTypes = prop->cast_prop<yordle::data::prop::set_prop>(127415360u);
     if(ptr_mTeamScoreElementTypes != nullptr) {
         for(const auto &set_mTeamScoreElementTypes_entry : ptr_mTeamScoreElementTypes->value) {
@@ -62,11 +66,6 @@ yordle::data::meta::HudGameModeScoreData::HudGameModeScoreData(const std::shared
     auto ptr_mEncounterUi = prop->cast_prop<yordle::data::prop::structure_prop>(527990547u);
     if(ptr_mEncounterUi != nullptr) {
         mEncounterUi = yordle::data::meta::deserialize<yordle::data::meta::EncounterUITunables>(ptr_mEncounterUi, 60771964u);
-    }
-
-    auto ptr_mTeamFightUi = prop->cast_prop<yordle::data::prop::structure_prop>(618622443u);
-    if(ptr_mTeamFightUi != nullptr) {
-        mTeamFightUi = yordle::data::meta::deserialize<yordle::data::meta::HudTeamFightData>(ptr_mTeamFightUi, 3784622423u);
     }
 
     auto ptr_mQuestUi = prop->cast_prop<yordle::data::prop::structure_prop>(2770289004u);

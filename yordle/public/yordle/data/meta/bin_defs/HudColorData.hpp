@@ -29,6 +29,8 @@ namespace yordle::data::meta {
         std::array<uint8_t, 4> mJunglePlantColor { 0, 0, 0, 255 };
         std::array<uint8_t, 4> mFriendlyLaneMinionBarColor { 0, 0, 0, 255 };
         std::array<uint8_t, 4> mEnemyLaneMinionBarColor { 0, 0, 0, 255 };
+        std::array<uint8_t, 4> xd4a472e0 { 0, 0, 0, 255 };
+        std::array<uint8_t, 4> x4174673b { 0, 0, 0, 255 };
         std::array<uint8_t, 4> mDeathFriendlyTeamColor { 0, 0, 0, 255 };
         std::array<uint8_t, 4> mDeathEnemyTeamColor { 0, 0, 0, 255 };
         std::array<uint8_t, 4> mDeathOrderColor { 0, 0, 0, 255 };

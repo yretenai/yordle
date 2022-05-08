@@ -2,8 +2,8 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/MissionsPanelViewController.hpp>
 
-#include <yordle/data/meta/bin_defs/x627faf1d.hpp>
 #include <yordle/data/meta/bin_defs/ViewPaneDefinition.hpp>
+#include <yordle/data/meta/bin_defs/x16eb9b94.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -25,11 +25,6 @@ yordle::data::meta::MissionsPanelViewController::MissionsPanelViewController(con
         Scene = ptr_Scene->value;
     }
 
-    auto ptr_x1e8ac677 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(512411255u);
-    if(ptr_x1e8ac677 != nullptr) {
-        x1e8ac677 = yordle::data::meta::deserialize<yordle::data::meta::x627faf1d>(ptr_x1e8ac677, 1652535069u);
-    }
-
     auto ptr_ViewPaneDefinition = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2330109623u);
     if(ptr_ViewPaneDefinition != nullptr) {
         ViewPaneDefinition = yordle::data::meta::deserialize<yordle::data::meta::ViewPaneDefinition>(ptr_ViewPaneDefinition, 2330109623u);
@@ -43,5 +38,15 @@ yordle::data::meta::MissionsPanelViewController::MissionsPanelViewController(con
     auto ptr_xec740d9e = prop->cast_prop<yordle::data::prop::uint8_prop>(3967028638u);
     if(ptr_xec740d9e != nullptr) {
         xec740d9e = ptr_xec740d9e->value;
+    }
+
+    auto ptr_xba21570a = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3122747146u);
+    if(ptr_xba21570a != nullptr) {
+        xba21570a = yordle::data::meta::deserialize<yordle::data::meta::x16eb9b94>(ptr_xba21570a, 384539540u);
+    }
+
+    auto ptr_xb3e383e1 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3018032097u);
+    if(ptr_xb3e383e1 != nullptr) {
+        xb3e383e1 = ptr_xb3e383e1->value;
     }
 }

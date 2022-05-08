@@ -13,6 +13,7 @@ public static class Program {
     public static void Main(string[] args) {
         if (args.Length < 2) {
             Console.WriteLine("Usage: Yordle.CodeGen.PropertyBin path/to/meta.json path/to/output");
+            return;
         }
 
         var meta = JsonSerializer.Deserialize<Meta>(File.ReadAllText(args[0]), new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });

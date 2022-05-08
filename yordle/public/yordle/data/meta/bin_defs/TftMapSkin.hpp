@@ -25,7 +25,7 @@ namespace yordle::data::meta {
         std::string StandaloneLoadoutsLargeIcon {};
         std::string GroupLink {};
         uint32_t rarity = 0u;
-        std::vector<std::string> AudioBankPaths {};
+        yordle::data::meta::bin_fnv_hash x3a039f11 = 0u;
         std::vector<yordle::data::meta::bin_fnv_hash> Characters {};
         std::string MapContainer {};
         int16_t xafc467eb = 0u;

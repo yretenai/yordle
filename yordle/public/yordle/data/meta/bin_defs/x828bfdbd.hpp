@@ -7,6 +7,7 @@
 #include <vector>
 #include <cstdint>
 
+#include <yordle/data/meta/bin_defs/xc7d8a802.hpp>
 #include <yordle/data/meta/bin_defs/x231dd1a2.hpp>
 #include <yordle/data/meta/bin_defs/x89fa8d1c.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -14,6 +15,10 @@
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_xc7d8a802
+    struct xc7d8a802;
+#endif
+
 #ifndef YORDLE_META_DEF_x231dd1a2
     struct x231dd1a2;
 #endif
@@ -24,12 +29,11 @@ namespace yordle::data::meta {
             return type == 2190212541u || x89fa8d1c::is_type(type);
         }
 
-        std::vector<yordle::data::meta::bin_ref<yordle::data::meta::x231dd1a2>> xa2a39d73 {};
-        std::vector<yordle::data::meta::bin_ref<yordle::data::meta::x231dd1a2>> xbcc3158a {};
-        uint8_t xc84bbe59 = 0u;
-        uint8_t x8178e6ff = 0u;
         float xe9f33fa7 = 0.0;
         bool IsEnabled = true;
+        std::shared_ptr<yordle::data::meta::xc7d8a802> x8178e6ff {};
+        std::vector<yordle::data::meta::bin_ref<yordle::data::meta::x231dd1a2>> xa2a39d73 {};
+        uint8_t xc84bbe59 = 0u;
     };
 }
 #define YORDLE_META_DEF_x828bfdbd

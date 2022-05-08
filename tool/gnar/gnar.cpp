@@ -6,6 +6,8 @@
 #include <standard_dragon/hash/fnv1a.hpp>
 #include <standard_dragon/WemSoundbank.hpp>
 
+#include <yordle/yordle.hpp>
+#include <yordle/audio/wem_pack.hpp>
 #include <yordle/data/meta/bin_defs/BankUnit.hpp>
 #include <yordle/data/meta/bin_defs/FeatureAudioDataProperties.hpp>
 #include <yordle/data/meta/bin_defs/MapAudioDataProperties.hpp>

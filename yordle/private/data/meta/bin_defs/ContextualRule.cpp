@@ -6,6 +6,7 @@
 #include <yordle/data/meta/bin_defs/ContextualActionPlayAudio.hpp>
 #include <yordle/data/meta/bin_defs/ContextualActionPlayAnimation.hpp>
 #include <yordle/data/meta/bin_defs/ContextualActionTriggerEvent.hpp>
+#include <yordle/data/meta/bin_defs/x15f6e07a.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -63,5 +64,10 @@ yordle::data::meta::ContextualRule::ContextualRule(const std::shared_ptr<yordle:
     auto ptr_x68fee3c4 = prop->cast_prop<yordle::data::prop::bool_prop>(1761534916u);
     if(ptr_x68fee3c4 != nullptr) {
         x68fee3c4 = ptr_x68fee3c4->value;
+    }
+
+    auto ptr_x98b66135 = prop->cast_prop<yordle::data::prop::structure_prop>(2562089269u);
+    if(ptr_x98b66135 != nullptr) {
+        x98b66135 = yordle::data::meta::deserialize<yordle::data::meta::x15f6e07a>(ptr_x98b66135, 368500858u);
     }
 }

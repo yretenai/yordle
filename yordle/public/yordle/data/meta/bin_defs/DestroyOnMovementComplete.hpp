@@ -20,6 +20,7 @@ namespace yordle::data::meta {
         }
 
         int32_t mDelay = 0;
+        bool x27ec5868 = true;
     };
 }
 #define YORDLE_META_DEF_DestroyOnMovementComplete

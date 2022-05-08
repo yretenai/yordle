@@ -68,11 +68,6 @@ yordle::data::meta::AbilityResourceSlotInfo::AbilityResourceSlotInfo(const std::
         arAllowMaxValueToBeOverridden = ptr_arAllowMaxValueToBeOverridden->value;
     }
 
-    auto ptr_arContributesToHealthValues = prop->cast_prop<yordle::data::prop::bool_prop>(2174704283u);
-    if(ptr_arContributesToHealthValues != nullptr) {
-        arContributesToHealthValues = ptr_arContributesToHealthValues->value;
-    }
-
     auto ptr_arPreventRegenWhileAtZero = prop->cast_prop<yordle::data::prop::bool_prop>(1295275781u);
     if(ptr_arPreventRegenWhileAtZero != nullptr) {
         arPreventRegenWhileAtZero = ptr_arPreventRegenWhileAtZero->value;

@@ -20,6 +20,7 @@ namespace yordle::data::meta {
 
         float Stun = 0.0;
         float Taunt = 0.0;
+        float x90afd4cd = 0.0;
         float fear = 0.0;
         float flee = 0.0;
         float suppression = 0.0;

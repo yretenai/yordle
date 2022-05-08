@@ -47,6 +47,8 @@ namespace yordle::data::meta {
         std::string texture {};
         std::string emissiveTexture {};
         std::string glossTexture {};
+        std::string x195a9c57 {};
+        std::string normalMapTexture {};
         float skinScale = 1.0;
         float selfIllumination = 0.0;
         bool xd62df07c = false;
@@ -69,6 +71,7 @@ namespace yordle::data::meta {
         std::string initialSubmeshToHide {};
         std::string initialSubmeshShadowsToHide {};
         std::string initialSubmeshMouseOversToHide {};
+        std::string xc76b0ce6 {};
         std::string submeshRenderOrder {};
         bool x2543480a = false;
         std::vector<std::shared_ptr<yordle::data::meta::BaseRigPoseModifierData>> rigPoseModifierData {};

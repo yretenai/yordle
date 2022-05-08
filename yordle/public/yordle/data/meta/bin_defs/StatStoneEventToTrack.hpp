@@ -24,7 +24,7 @@ namespace yordle::data::meta {
             return type == 4146948500u;
         }
 
-        uint32_t EventToTrack = 231u;
+        uint32_t EventToTrack = 219u;
         std::vector<std::shared_ptr<yordle::data::meta::IStatStoneLogicDriver>> StatFilters {};
     };
 }

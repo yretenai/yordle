@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/x320b890e.hpp>
 
+#include <yordle/data/meta/bin_defs/x9de83409.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -17,5 +18,14 @@
 yordle::data::meta::x320b890e::x320b890e(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::ViewController(prop) {
     if(prop == nullptr) {
         return;
+    }
+    auto ptr_xe095d841 = prop->cast_prop<yordle::data::prop::string_prop>(3767916609u);
+    if(ptr_xe095d841 != nullptr) {
+        xe095d841 = ptr_xe095d841->value;
+    }
+
+    auto ptr_x4431e0e3 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1144119523u);
+    if(ptr_x4431e0e3 != nullptr) {
+        x4431e0e3 = yordle::data::meta::deserialize<yordle::data::meta::x9de83409>(ptr_x4431e0e3, 2649240585u);
     }
 }

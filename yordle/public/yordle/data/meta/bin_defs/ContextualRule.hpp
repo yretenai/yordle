@@ -12,6 +12,7 @@
 #include <yordle/data/meta/bin_defs/ContextualActionPlayAudio.hpp>
 #include <yordle/data/meta/bin_defs/ContextualActionPlayAnimation.hpp>
 #include <yordle/data/meta/bin_defs/ContextualActionTriggerEvent.hpp>
+#include <yordle/data/meta/bin_defs/x15f6e07a.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -33,6 +34,10 @@ namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_ContextualActionTriggerEvent
     struct ContextualActionTriggerEvent;
 #endif
+
+#ifndef YORDLE_META_DEF_x15f6e07a
+    struct x15f6e07a;
+#endif
     struct YORDLE_EXPORT ContextualRule : public bin_class {
         explicit ContextualRule(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -47,6 +52,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ContextualActionTriggerEvent> mTriggerEventAction {};
         std::optional<uint32_t> mPriority {};
         bool x68fee3c4 = false;
+        std::shared_ptr<yordle::data::meta::x15f6e07a> x98b66135 {};
     };
 }
 #define YORDLE_META_DEF_ContextualRule

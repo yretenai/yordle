@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/PurchaseDialog.hpp>
 
+#include <yordle/data/meta/bin_defs/ViewPaneDefinition.hpp>
 #include <yordle/data/meta/bin_defs/x6d8b7fba.hpp>
 #include <yordle/data/meta/bin_defs/x75259ad3.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
@@ -22,6 +23,16 @@ yordle::data::meta::PurchaseDialog::PurchaseDialog(const std::shared_ptr<yordle:
     auto ptr_x88f6a038 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2297864248u);
     if(ptr_x88f6a038 != nullptr) {
         x88f6a038 = ptr_x88f6a038->value;
+    }
+
+    auto ptr_x76d6191 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(124608913u);
+    if(ptr_x76d6191 != nullptr) {
+        x76d6191 = yordle::data::meta::deserialize<yordle::data::meta::ViewPaneDefinition>(ptr_x76d6191, 2330109623u);
+    }
+
+    auto ptr_xa567ed12 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2775051538u);
+    if(ptr_xa567ed12 != nullptr) {
+        xa567ed12 = yordle::data::meta::deserialize<yordle::data::meta::ViewPaneDefinition>(ptr_xa567ed12, 2330109623u);
     }
 
     auto ptr_xb0dd6202 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2967298562u);

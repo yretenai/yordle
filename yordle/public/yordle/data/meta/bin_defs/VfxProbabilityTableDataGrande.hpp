@@ -4,6 +4,7 @@
 #pragma once
 
 #include <memory>
+#include <array>
 
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -20,6 +21,9 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash Scene = 0u;
         yordle::data::meta::bin_fnv_hash Backdrop = 0u;
+        std::array<yordle::data::meta::bin_fnv_hash, 10> x1c9ff127 { 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u };
+        std::array<yordle::data::meta::bin_fnv_hash, 10> xbde64e3e { 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u };
+        std::array<yordle::data::meta::bin_fnv_hash, 10> Index { 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u };
         float authoredWidth = 480.0;
         float SourceResolutionWidth = 1920.0;
     };

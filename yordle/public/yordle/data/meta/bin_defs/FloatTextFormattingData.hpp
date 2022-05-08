@@ -48,6 +48,7 @@ namespace yordle::data::meta {
         bool disableHorizontalReverse = false;
         bool disableVerticalReverse = false;
         bool combinableCounterDisplay = false;
+        bool x20b20b79 = false;
         bool overwritePreviousNumber = false;
         int32_t combinableCounterCategory = 0;
         float minXVelocity = 1.0;

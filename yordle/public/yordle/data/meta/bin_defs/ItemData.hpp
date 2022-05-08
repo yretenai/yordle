@@ -98,6 +98,8 @@ namespace yordle::data::meta {
         bool consumeOnAcquire = false;
         bool mItemCalloutPlayer = false;
         bool mItemCalloutSpectator = false;
+        bool xf7250cac = true;
+        bool xa502bcf = true;
         uint8_t clearUndoHistory = 1u;
         bool mCanBeSold = false;
         bool mHiddenFromOpponents = false;
@@ -178,7 +180,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::x61f8c41c>> xfb56608c {};
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::IGameCalculation>> mItemCalculations {};
         std::vector<uint8_t> mItemAttributes {};
-        int32_t x224a3815 = 0;
+        uint8_t xa1a10c03 = 0u;
         uint8_t xc01bb6dd = 0u;
         uint8_t x51265c89 = 0u;
         std::shared_ptr<yordle::data::meta::ItemDataClient> mItemDataClient {};

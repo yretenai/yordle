@@ -8,6 +8,7 @@
 
 #include <yordle/data/meta/bin_defs/ItemRecommendationOverrideContext.hpp>
 #include <yordle/data/meta/bin_defs/ItemRecommendationOverrideStartingItemSet.hpp>
+#include <yordle/data/meta/bin_defs/xf82b21de.hpp>
 #include <yordle/data/meta/bin_defs/x5a3bc52d.hpp>
 #include <yordle/data/meta/bin_defs/ItemRecommendationCondition.hpp>
 #include <yordle/data/meta/bin_class.hpp>
@@ -22,6 +23,10 @@ namespace yordle::data::meta {
 
 #ifndef YORDLE_META_DEF_ItemRecommendationOverrideStartingItemSet
     struct ItemRecommendationOverrideStartingItemSet;
+#endif
+
+#ifndef YORDLE_META_DEF_xf82b21de
+    struct xf82b21de;
 #endif
 
 #ifndef YORDLE_META_DEF_x5a3bc52d
@@ -41,6 +46,7 @@ namespace yordle::data::meta {
         bool mForceOverride = false;
         std::vector<std::shared_ptr<yordle::data::meta::ItemRecommendationOverrideContext>> mOverrideContexts {};
         std::vector<std::shared_ptr<yordle::data::meta::ItemRecommendationOverrideStartingItemSet>> mStartingItemSets {};
+        std::vector<std::shared_ptr<yordle::data::meta::xf82b21de>> xfda3759b {};
         std::vector<std::shared_ptr<yordle::data::meta::x5a3bc52d>> mRecItemRanges {};
         std::vector<yordle::data::meta::bin_fnv_hash> mCoreItems {};
         std::vector<std::shared_ptr<yordle::data::meta::ItemRecommendationCondition>> mRecommendedItems {};

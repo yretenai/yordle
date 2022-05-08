@@ -23,7 +23,8 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash mType = 0u;
         uint8_t mTooltipStyle = 2u;
-        std::string mElementName {};
+        yordle::data::meta::bin_fnv_hash xe0f8b2b = 0u;
+        yordle::data::meta::bin_fnv_hash xd0f8998 = 0u;
         float mElementSpacer = 1.0;
         float mElementAlphaDefault = 255.0;
         float mElementAlphaSelected = 255.0;

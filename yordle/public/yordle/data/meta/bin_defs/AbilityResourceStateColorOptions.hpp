@@ -21,7 +21,6 @@ namespace yordle::data::meta {
         }
 
         std::array<uint8_t, 4> color { 255, 255, 255, 255 };
-        std::array<uint8_t, 4> fadeColor { 255, 255, 255, 255 };
     };
 }
 #define YORDLE_META_DEF_AbilityResourceStateColorOptions

@@ -21,6 +21,8 @@ namespace yordle::data::meta {
 
         std::vector<yordle::data::meta::bin_fnv_hash> xa2a39d73 {};
         std::vector<yordle::data::meta::bin_fnv_hash> x41ccb763 {};
+        std::vector<yordle::data::meta::bin_fnv_hash> x4255c7d1 {};
+        yordle::data::meta::bin_fnv_hash x82ad3a6e = 0u;
     };
 }
 #define YORDLE_META_DEF_xd946a9af

@@ -14,6 +14,7 @@
 #include <yordle/data/meta/bin_defs/StaticMaterialSwitchDef.hpp>
 #include <yordle/data/meta/bin_defs/StaticMaterialTechniqueDef.hpp>
 #include <yordle/data/meta/bin_defs/StaticMaterialChildTechniqueDef.hpp>
+#include <yordle/data/meta/bin_defs/x272ca74d.hpp>
 #include <yordle/data/meta/bin_defs/DynamicMaterialDef.hpp>
 #include <yordle/data/meta/bin_defs/IResource.hpp>
 #include <yordle/data/meta/bin_defs/IMaterialDef.hpp>
@@ -42,6 +43,10 @@ namespace yordle::data::meta {
     struct StaticMaterialChildTechniqueDef;
 #endif
 
+#ifndef YORDLE_META_DEF_x272ca74d
+    struct x272ca74d;
+#endif
+
 #ifndef YORDLE_META_DEF_DynamicMaterialDef
     struct DynamicMaterialDef;
 #endif
@@ -61,6 +66,7 @@ namespace yordle::data::meta {
         std::map<std::string, std::string> shaderMacros {};
         std::vector<std::shared_ptr<yordle::data::meta::StaticMaterialTechniqueDef>> techniques {};
         std::vector<std::shared_ptr<yordle::data::meta::StaticMaterialChildTechniqueDef>> childTechniques {};
+        std::vector<std::shared_ptr<yordle::data::meta::x272ca74d>> x69030632 {};
         std::shared_ptr<yordle::data::meta::DynamicMaterialDef> dynamicMaterial {};
     };
 }

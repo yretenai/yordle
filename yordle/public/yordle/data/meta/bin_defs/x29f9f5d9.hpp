@@ -5,22 +5,23 @@
 
 #include <memory>
 #include <string>
+#include <cstdint>
 #include <vector>
 
-#include <yordle/data/meta/bin_defs/x4a99e777.hpp>
 #include <yordle/data/meta/bin_defs/GameMutatorExpansions.hpp>
+#include <yordle/data/meta/bin_defs/x4a99e777.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_x4a99e777
-    struct x4a99e777;
-#endif
-
 #ifndef YORDLE_META_DEF_GameMutatorExpansions
     struct GameMutatorExpansions;
+#endif
+
+#ifndef YORDLE_META_DEF_x4a99e777
+    struct x4a99e777;
 #endif
     struct YORDLE_EXPORT x29f9f5d9 : public bin_class {
         explicit x29f9f5d9(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -29,11 +30,15 @@ namespace yordle::data::meta {
             return type == 704247257u;
         }
 
+        float xf9e45233 = 0.0;
         std::string name {};
-        float xda47e35 = 0.0;
-        std::vector<std::shared_ptr<yordle::data::meta::x4a99e777>> IndividualBannerOverrides {};
+        uint32_t priority = 0u;
+        std::vector<std::string> xf7e7945a {};
+        std::vector<std::string> xa327f48b {};
+        float x6d9c47ab = 0.0;
         yordle::data::meta::bin_ref<yordle::data::meta::GameMutatorExpansions> eventMutator { 4119089369 };
-        yordle::data::meta::bin_xx_hash texturePath = 0u;
+        yordle::data::meta::bin_xx_hash xe8457340 = 0u;
+        std::vector<std::shared_ptr<yordle::data::meta::x4a99e777>> IndividualBannerOverrides {};
     };
 }
 #define YORDLE_META_DEF_x29f9f5d9

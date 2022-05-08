@@ -10,6 +10,7 @@
 #include <array>
 
 #include <yordle/data/meta/bin_defs/VfxSpawnConditions.hpp>
+#include <yordle/data/meta/bin_defs/xe76e6115.hpp>
 #include <yordle/data/meta/bin_defs/TooltipInstanceBuff.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -19,6 +20,10 @@
 namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_VfxSpawnConditions
     struct VfxSpawnConditions;
+#endif
+
+#ifndef YORDLE_META_DEF_xe76e6115
+    struct xe76e6115;
 #endif
 
 #ifndef YORDLE_META_DEF_TooltipInstanceBuff
@@ -32,6 +37,7 @@ namespace yordle::data::meta {
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::VfxSpawnConditions>> mVfxSpawnConditions {};
+        std::vector<std::shared_ptr<yordle::data::meta::xe76e6115>> xb8c35392 {};
         std::string mDescription {};
         std::shared_ptr<yordle::data::meta::TooltipInstanceBuff> mTooltipData {};
         bool x62e282aa = true;

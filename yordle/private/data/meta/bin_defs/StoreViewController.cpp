@@ -2,9 +2,11 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/StoreViewController.hpp>
 
-#include <yordle/data/meta/bin_defs/xcd809187.hpp>
 #include <yordle/data/meta/bin_defs/ViewPaneDefinition.hpp>
 #include <yordle/data/meta/bin_defs/StoreCategoryButtonDefinition.hpp>
+#include <yordle/data/meta/bin_defs/xcd809187.hpp>
+#include <yordle/data/meta/bin_defs/x63a8aef9.hpp>
+#include <yordle/data/meta/bin_defs/x4bfe07eb.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -21,11 +23,6 @@ yordle::data::meta::StoreViewController::StoreViewController(const std::shared_p
     if(prop == nullptr) {
         return;
     }
-    auto ptr_xcd809187 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3447755143u);
-    if(ptr_xcd809187 != nullptr) {
-        xcd809187 = yordle::data::meta::deserialize<yordle::data::meta::xcd809187>(ptr_xcd809187, 3447755143u);
-    }
-
     auto ptr_x36a4c8ee = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(916769006u);
     if(ptr_x36a4c8ee != nullptr) {
         x36a4c8ee = ptr_x36a4c8ee->value;
@@ -42,6 +39,36 @@ yordle::data::meta::StoreViewController::StoreViewController(const std::shared_p
             auto ptr_xe9123b4f_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_xe9123b4f_entry);
             if(ptr_xe9123b4f_entry != nullptr) {
                 xe9123b4f.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::StoreCategoryButtonDefinition>(ptr_xe9123b4f_entry, 4069990911u));
+            }
+        }
+    }
+
+    auto ptr_x9032279 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(151200377u);
+    if(ptr_x9032279 != nullptr) {
+        x9032279 = ptr_x9032279->value;
+    }
+
+    auto ptr_xcd809187 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3447755143u);
+    if(ptr_xcd809187 != nullptr) {
+        xcd809187 = yordle::data::meta::deserialize<yordle::data::meta::xcd809187>(ptr_xcd809187, 3447755143u);
+    }
+
+    auto ptr_xb1844566 = prop->cast_prop<yordle::data::prop::structure_prop>(2978235750u);
+    if(ptr_xb1844566 != nullptr) {
+        xb1844566 = yordle::data::meta::deserialize<yordle::data::meta::x63a8aef9>(ptr_xb1844566, 1671999225u);
+    }
+
+    auto ptr_xd1342bca = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3509857226u);
+    if(ptr_xd1342bca != nullptr) {
+        xd1342bca = ptr_xd1342bca->value;
+    }
+
+    auto ptr_x785236f5 = prop->cast_prop<yordle::data::prop::set_prop>(2018653941u);
+    if(ptr_x785236f5 != nullptr) {
+        for(const auto &set_x785236f5_entry : ptr_x785236f5->value) {
+            auto ptr_x785236f5_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_x785236f5_entry);
+            if(ptr_x785236f5_entry != nullptr) {
+                x785236f5.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x4bfe07eb>(ptr_x785236f5_entry, 1274939371u));
             }
         }
     }

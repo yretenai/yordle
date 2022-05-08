@@ -47,6 +47,16 @@ yordle::data::meta::SkinMeshDataProperties::SkinMeshDataProperties(const std::sh
         glossTexture = ptr_glossTexture->value;
     }
 
+    auto ptr_x195a9c57 = prop->cast_prop<yordle::data::prop::string_prop>(425368663u);
+    if(ptr_x195a9c57 != nullptr) {
+        x195a9c57 = ptr_x195a9c57->value;
+    }
+
+    auto ptr_normalMapTexture = prop->cast_prop<yordle::data::prop::string_prop>(3866285399u);
+    if(ptr_normalMapTexture != nullptr) {
+        normalMapTexture = ptr_normalMapTexture->value;
+    }
+
     auto ptr_skinScale = prop->cast_prop<yordle::data::prop::float32_prop>(2717386202u);
     if(ptr_skinScale != nullptr) {
         skinScale = ptr_skinScale->value;
@@ -161,6 +171,11 @@ yordle::data::meta::SkinMeshDataProperties::SkinMeshDataProperties(const std::sh
     auto ptr_initialSubmeshMouseOversToHide = prop->cast_prop<yordle::data::prop::string_prop>(942155177u);
     if(ptr_initialSubmeshMouseOversToHide != nullptr) {
         initialSubmeshMouseOversToHide = ptr_initialSubmeshMouseOversToHide->value;
+    }
+
+    auto ptr_xc76b0ce6 = prop->cast_prop<yordle::data::prop::string_prop>(3345681638u);
+    if(ptr_xc76b0ce6 != nullptr) {
+        xc76b0ce6 = ptr_xc76b0ce6->value;
     }
 
     auto ptr_submeshRenderOrder = prop->cast_prop<yordle::data::prop::string_prop>(763054772u);

@@ -5,6 +5,7 @@
 
 #include <memory>
 #include <vector>
+#include <string>
 
 #include <yordle/data/meta/bin_defs/MapAudioDataProperties.hpp>
 #include <yordle/data/meta/bin_defs/BankUnit.hpp>
@@ -36,6 +37,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::MapAudioDataProperties> BaseData { 3010308524 };
         std::vector<std::shared_ptr<yordle::data::meta::BankUnit>> bankUnits {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::FeatureAudioDataProperties>> features {};
+        std::string x561de536 {};
+        std::string x1cf84925 {};
     };
 }
 #define YORDLE_META_DEF_MapAudioDataProperties

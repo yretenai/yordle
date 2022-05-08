@@ -23,11 +23,6 @@ yordle::data::meta::MapPointLightType::MapPointLightType(const std::shared_ptr<y
         lightColor = ptr_lightColor->value;
     }
 
-    auto ptr_falloffColor = prop->cast_prop<yordle::data::prop::quaternion_prop>(1668349784u);
-    if(ptr_falloffColor != nullptr) {
-        falloffColor = ptr_falloffColor->value;
-    }
-
     auto ptr_radius = prop->cast_prop<yordle::data::prop::float32_prop>(230313139u);
     if(ptr_radius != nullptr) {
         radius = ptr_radius->value;
@@ -38,9 +33,9 @@ yordle::data::meta::MapPointLightType::MapPointLightType(const std::shared_ptr<y
         castStaticShadows = ptr_castStaticShadows->value;
     }
 
-    auto ptr_specular = prop->cast_prop<yordle::data::prop::bool_prop>(3195258592u);
-    if(ptr_specular != nullptr) {
-        specular = ptr_specular->value;
+    auto ptr_xc7334a55 = prop->cast_prop<yordle::data::prop::float32_prop>(3342027349u);
+    if(ptr_xc7334a55 != nullptr) {
+        xc7334a55 = ptr_xc7334a55->value;
     }
 
     auto ptr_Impact = prop->cast_prop<yordle::data::prop::int32_prop>(510767767u);

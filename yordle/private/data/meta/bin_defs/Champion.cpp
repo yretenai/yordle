@@ -4,6 +4,7 @@
 
 #include <yordle/data/meta/bin_defs/ChampionItemRecommendations.hpp>
 #include <yordle/data/meta/bin_defs/Character.hpp>
+#include <yordle/data/meta/bin_defs/CatalogEntry.hpp>
 #include <yordle/data/meta/bin_defs/WadFileDescriptor.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -58,5 +59,10 @@ yordle::data::meta::Champion::Champion(const std::shared_ptr<yordle::data::prop:
     auto ptr_xc7d8a053 = prop->cast_prop<yordle::data::prop::uint32_prop>(3352862803u);
     if(ptr_xc7d8a053 != nullptr) {
         xc7d8a053 = ptr_xc7d8a053->value;
+    }
+
+    auto ptr_CatalogEntry = prop->cast_prop<yordle::data::prop::inline_structure_prop>(607049692u);
+    if(ptr_CatalogEntry != nullptr) {
+        CatalogEntry = yordle::data::meta::deserialize<yordle::data::meta::CatalogEntry>(ptr_CatalogEntry, 607049692u);
     }
 }

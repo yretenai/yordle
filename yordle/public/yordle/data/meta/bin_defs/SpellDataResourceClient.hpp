@@ -48,9 +48,11 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x375656dd = 0u;
         yordle::data::meta::bin_fnv_hash x7d4a0e6e = 0u;
         std::shared_ptr<yordle::data::meta::TooltipInstanceSpell> mTooltipData {};
+        std::vector<yordle::data::meta::bin_fnv_hash> xfaf78155 {};
         std::shared_ptr<yordle::data::meta::SpawningUIDefinition> mSpawningUIDefinition {};
         std::vector<std::shared_ptr<yordle::data::meta::TargeterDefinition>> mTargeterDefinitions {};
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::CustomTargeterDefinitions>> mCustomTargeterDefinitions {};
+        bool xdb6f2f8d = false;
         std::vector<std::shared_ptr<yordle::data::meta::MissileAttachedTargetingDefinition>> mMissileTargeterDefinitions {};
         uint32_t mLeftClickSpellAction = 1u;
         uint32_t mRightClickSpellAction = 2u;

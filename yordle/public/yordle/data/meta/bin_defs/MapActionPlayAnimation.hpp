@@ -22,6 +22,8 @@ namespace yordle::data::meta {
         std::string PropName {};
         std::string animationName {};
         bool looping = false;
+        bool x2efccaff = false;
+        bool x51368eb1 = false;
     };
 }
 #define YORDLE_META_DEF_MapActionPlayAnimation

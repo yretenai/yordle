@@ -8,6 +8,10 @@
 #include <format>
 #include <openssl/sha.h>
 
+#include <yordle/sieve/sieve.hpp>
+#include <yordle/sieve/client_config.hpp>
+#include <yordle/sieve/models.hpp>
+
 #include "download.hpp"
 #include "fetch.hpp"
 

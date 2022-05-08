@@ -28,6 +28,7 @@ namespace yordle::data::meta {
         uint32_t xf4cd9851 = 0u;
         float x5c60365 = 0.25;
         float x12682a3e = 255.0;
+        bool x9aa349bf = false;
     };
 }
 #define YORDLE_META_DEF_x49dc6c51

@@ -38,14 +38,9 @@ yordle::data::meta::TftMapSkin::TftMapSkin(const std::shared_ptr<yordle::data::p
         rarity = ptr_rarity->value;
     }
 
-    auto ptr_AudioBankPaths = prop->cast_prop<yordle::data::prop::set_prop>(991437061u);
-    if(ptr_AudioBankPaths != nullptr) {
-        for(const auto &set_AudioBankPaths_entry : ptr_AudioBankPaths->value) {
-            auto ptr_AudioBankPaths_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_AudioBankPaths_entry);
-            if(ptr_AudioBankPaths_entry != nullptr) {
-                AudioBankPaths.emplace_back(ptr_AudioBankPaths_entry->value);
-            }
-        }
+    auto ptr_x3a039f11 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(973315857u);
+    if(ptr_x3a039f11 != nullptr) {
+        x3a039f11 = ptr_x3a039f11->value;
     }
 
     auto ptr_Characters = prop->cast_prop<yordle::data::prop::unordered_set_prop>(2421522649u);

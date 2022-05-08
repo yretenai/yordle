@@ -10,7 +10,6 @@
 
 #include <yordle/data/meta/bin_defs/TeamScoreMeterUITunables.hpp>
 #include <yordle/data/meta/bin_defs/EncounterUITunables.hpp>
-#include <yordle/data/meta/bin_defs/HudTeamFightData.hpp>
 #include <yordle/data/meta/bin_defs/QuestUITunables.hpp>
 #include <yordle/data/meta/bin_defs/DragonUITunables.hpp>
 #include <yordle/data/meta/bin_defs/HudOptionalBinData.hpp>
@@ -26,10 +25,6 @@ namespace yordle::data::meta {
 
 #ifndef YORDLE_META_DEF_EncounterUITunables
     struct EncounterUITunables;
-#endif
-
-#ifndef YORDLE_META_DEF_HudTeamFightData
-    struct HudTeamFightData;
 #endif
 
 #ifndef YORDLE_META_DEF_QuestUITunables
@@ -50,13 +45,13 @@ namespace yordle::data::meta {
             return type == 3557256043u;
         }
 
+        uint32_t x5a0fe79 = 0u;
         std::vector<uint8_t> mTeamScoreElementTypes {};
         std::vector<uint8_t> mIndividualScoreElementTypes {};
         std::string mModeKeyName {};
         std::string mTeamGameScorePingMessage {};
         std::shared_ptr<yordle::data::meta::TeamScoreMeterUITunables> mTeamScoreMeterUi {};
         std::shared_ptr<yordle::data::meta::EncounterUITunables> mEncounterUi {};
-        std::shared_ptr<yordle::data::meta::HudTeamFightData> mTeamFightUi {};
         std::shared_ptr<yordle::data::meta::QuestUITunables> mQuestUi {};
         std::shared_ptr<yordle::data::meta::DragonUITunables> mDragonUi {};
         std::vector<std::shared_ptr<yordle::data::meta::HudOptionalBinData>> mOptionalBins {};

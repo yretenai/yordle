@@ -19,8 +19,9 @@ namespace yordle::data::meta {
             return type == 230608261u;
         }
 
-        std::string mTooltipName {};
-        std::string mIconName {};
+        yordle::data::meta::bin_fnv_hash xf135454f = 0u;
+        std::string xfed22233 {};
+        yordle::data::meta::bin_fnv_hash Icon = 0u;
     };
 }
 #define YORDLE_META_DEF_NeutralTimerSourceIconData

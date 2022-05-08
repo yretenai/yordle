@@ -3,6 +3,7 @@
 #include <yordle/data/meta/bin_defs/MapAlternateAsset.hpp>
 
 #include <yordle/data/meta/bin_defs/ResourceResolver.hpp>
+#include <yordle/data/meta/bin_defs/BankUnit.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -42,5 +43,15 @@ yordle::data::meta::MapAlternateAsset::MapAlternateAsset(const std::shared_ptr<y
     auto ptr_x97472c4d = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2538024013u);
     if(ptr_x97472c4d != nullptr) {
         x97472c4d = ptr_x97472c4d->value;
+    }
+
+    auto ptr_AudioBankUnits = prop->cast_prop<yordle::data::prop::unordered_set_prop>(412483822u);
+    if(ptr_AudioBankUnits != nullptr) {
+        for(const auto &set_AudioBankUnits_entry : ptr_AudioBankUnits->value) {
+            auto ptr_AudioBankUnits_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_AudioBankUnits_entry);
+            if(ptr_AudioBankUnits_entry != nullptr) {
+                AudioBankUnits.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::BankUnit>(ptr_AudioBankUnits_entry, 2755749141u));
+            }
+        }
     }
 }

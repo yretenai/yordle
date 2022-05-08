@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/CelebrationViewController.hpp>
 
+#include <yordle/data/meta/bin_defs/xd845a4ab.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -23,6 +24,109 @@ yordle::data::meta::CelebrationViewController::CelebrationViewController(const s
         Scene = ptr_Scene->value;
     }
 
+    auto ptr_xcb825566 = prop->cast_prop<yordle::data::prop::map_prop>(3414316390u);
+    if(ptr_xcb825566 != nullptr) {
+        for(const auto &set_xcb825566_pair : ptr_xcb825566->value) {
+            auto ptr_xcb825566_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(set_xcb825566_pair.first);
+            auto ptr_xcb825566_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_xcb825566_pair.second);
+            if(ptr_xcb825566_key != nullptr && ptr_xcb825566_value != nullptr) {
+                xcb825566.emplace(ptr_xcb825566_key->value, ptr_xcb825566_value->value);
+            }
+        }
+    }
+
+    auto ptr_xd113c306 = prop->cast_prop<yordle::data::prop::map_prop>(3507733254u);
+    if(ptr_xd113c306 != nullptr) {
+        for(const auto &set_xd113c306_pair : ptr_xd113c306->value) {
+            auto ptr_xd113c306_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(set_xd113c306_pair.first);
+            auto ptr_xd113c306_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_xd113c306_pair.second);
+            if(ptr_xd113c306_key != nullptr && ptr_xd113c306_value != nullptr) {
+                xd113c306.emplace(ptr_xd113c306_key->value, ptr_xd113c306_value->value);
+            }
+        }
+    }
+
+    auto ptr_x96367645 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2520151621u);
+    if(ptr_x96367645 != nullptr) {
+        x96367645 = ptr_x96367645->value;
+    }
+
+    auto ptr_x8a86a07b = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2324078715u);
+    if(ptr_x8a86a07b != nullptr) {
+        x8a86a07b = ptr_x8a86a07b->value;
+    }
+
+    auto ptr_xbbe2bd79 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3152199033u);
+    if(ptr_xbbe2bd79 != nullptr) {
+        xbbe2bd79 = ptr_xbbe2bd79->value;
+    }
+
+    auto ptr_x35baf77e = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(901445502u);
+    if(ptr_x35baf77e != nullptr) {
+        x35baf77e = ptr_x35baf77e->value;
+    }
+
+    auto ptr_x9cb45f01 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2629066497u);
+    if(ptr_x9cb45f01 != nullptr) {
+        x9cb45f01 = ptr_x9cb45f01->value;
+    }
+
+    auto ptr_xc9ea2200 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3387564544u);
+    if(ptr_xc9ea2200 != nullptr) {
+        xc9ea2200 = ptr_xc9ea2200->value;
+    }
+
+    auto ptr_xd6aa82b4 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3601498804u);
+    if(ptr_xd6aa82b4 != nullptr) {
+        xd6aa82b4 = ptr_xd6aa82b4->value;
+    }
+
+    auto ptr_x7dd4e76 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(131944054u);
+    if(ptr_x7dd4e76 != nullptr) {
+        x7dd4e76 = ptr_x7dd4e76->value;
+    }
+
+    auto ptr_xe931d410 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3912356880u);
+    if(ptr_xe931d410 != nullptr) {
+        xe931d410 = ptr_xe931d410->value;
+    }
+
+    auto ptr_xd27028bb = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3530565819u);
+    if(ptr_xd27028bb != nullptr) {
+        xd27028bb = ptr_xd27028bb->value;
+    }
+
+    auto ptr_x89590d18 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2304314648u);
+    if(ptr_x89590d18 != nullptr) {
+        x89590d18 = ptr_x89590d18->value;
+    }
+
+    auto ptr_x2a260f84 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(707137412u);
+    if(ptr_x2a260f84 != nullptr) {
+        x2a260f84 = ptr_x2a260f84->value;
+    }
+
+    auto ptr_x271fb40d = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(656389133u);
+    if(ptr_x271fb40d != nullptr) {
+        x271fb40d = ptr_x271fb40d->value;
+    }
+
+    auto ptr_x5f4b2951 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1598761297u);
+    if(ptr_x5f4b2951 != nullptr) {
+        x5f4b2951 = ptr_x5f4b2951->value;
+    }
+
+    auto ptr_x49ba713c = prop->cast_prop<yordle::data::prop::map_prop>(1236955452u);
+    if(ptr_x49ba713c != nullptr) {
+        for(const auto &set_x49ba713c_pair : ptr_x49ba713c->value) {
+            auto ptr_x49ba713c_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(set_x49ba713c_pair.first);
+            auto ptr_x49ba713c_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_x49ba713c_pair.second);
+            if(ptr_x49ba713c_key != nullptr && ptr_x49ba713c_value != nullptr) {
+                x49ba713c.emplace(ptr_x49ba713c_key->value, ptr_x49ba713c_value->value);
+            }
+        }
+    }
+
     auto ptr_x615c3c29 = prop->cast_prop<yordle::data::prop::float32_prop>(1633434665u);
     if(ptr_x615c3c29 != nullptr) {
         x615c3c29 = ptr_x615c3c29->value;
@@ -33,13 +137,13 @@ yordle::data::meta::CelebrationViewController::CelebrationViewController(const s
         x4fe75004 = ptr_x4fe75004->value;
     }
 
-    auto ptr_xc4ecb642 = prop->cast_prop<yordle::data::prop::map_prop>(3303847490u);
-    if(ptr_xc4ecb642 != nullptr) {
-        for(const auto &set_xc4ecb642_pair : ptr_xc4ecb642->value) {
-            auto ptr_xc4ecb642_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_xc4ecb642_pair.first);
-            auto ptr_xc4ecb642_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_xc4ecb642_pair.second);
-            if(ptr_xc4ecb642_key != nullptr && ptr_xc4ecb642_value != nullptr) {
-                xc4ecb642.emplace(ptr_xc4ecb642_key->value, ptr_xc4ecb642_value->value);
+    auto ptr_x6506aa85 = prop->cast_prop<yordle::data::prop::map_prop>(1694935685u);
+    if(ptr_x6506aa85 != nullptr) {
+        for(const auto &set_x6506aa85_pair : ptr_x6506aa85->value) {
+            auto ptr_x6506aa85_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(set_x6506aa85_pair.first);
+            auto ptr_x6506aa85_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_x6506aa85_pair.second);
+            if(ptr_x6506aa85_key != nullptr && ptr_x6506aa85_value != nullptr) {
+                x6506aa85.emplace(ptr_x6506aa85_key->value, yordle::data::meta::deserialize<yordle::data::meta::xd845a4ab>(ptr_x6506aa85_value, 3628442795u));
             }
         }
     }

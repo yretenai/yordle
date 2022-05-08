@@ -24,7 +24,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash xce96bffc = 0u;
         yordle::data::meta::bin_fnv_hash xf221c7d2 = 0u;
         yordle::data::meta::bin_fnv_hash x21eaf8b = 0u;
-        yordle::data::meta::bin_fnv_hash IllustrationIconElement = 0u;
+        yordle::data::meta::bin_fnv_hash x4ada17a4 = 0u;
+        std::string x30a89681 {};
         std::string DisplayNameTraKey {};
     };
 }

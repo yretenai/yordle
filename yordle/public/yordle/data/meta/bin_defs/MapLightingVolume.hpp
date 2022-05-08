@@ -21,6 +21,8 @@ namespace yordle::data::meta {
         }
 
         std::array<float, 4> sunColor { 1, 1, 1, 1 };
+        float x4620fe14 = 1.0;
+        float x196ca4c4 = 10.0;
         std::array<float, 3> sunDirection { 0, 0.707, 0.707 };
         std::optional<std::array<float, 3>> xa04bd9bf {};
         float xd8851203 = 0.0;

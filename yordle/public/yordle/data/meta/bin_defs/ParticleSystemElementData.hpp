@@ -28,8 +28,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::VfxSystemDefinitionData> mVfxSystem { 1171098015 };
         uint32_t xc47cf6c7 = 1u;
         bool x2824440 = true;
-        bool x94b088ea = true;
         bool x8ef629c9 = true;
+        float x91dec6fe = 1.0;
         std::map<yordle::data::meta::bin_fnv_hash, std::string> x1a898c7d {};
     };
 }

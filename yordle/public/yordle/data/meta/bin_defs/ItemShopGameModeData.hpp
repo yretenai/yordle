@@ -23,6 +23,7 @@ namespace yordle::data::meta {
 
         std::vector<yordle::data::meta::bin_fnv_hash> xc561f8e9 {};
         std::vector<yordle::data::meta::bin_fnv_hash> x37792a41 {};
+        std::vector<yordle::data::meta::bin_fnv_hash> xdf5cfa0e {};
         uint32_t xc3b3430a = 0u;
         yordle::data::meta::bin_fnv_hash x51a18bc3 = 0u;
         std::map<yordle::data::meta::bin_fnv_hash, yordle::data::meta::bin_fnv_hash> x897c69b7 {};

@@ -7,6 +7,8 @@
 #include <vector>
 
 #include <yordle/data/meta/bin_defs/IFxAction.hpp>
+#include <yordle/data/meta/bin_defs/xb7471737.hpp>
+#include <yordle/data/meta/bin_defs/x78ee723e.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -16,6 +18,14 @@ namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_IFxAction
     struct IFxAction;
 #endif
+
+#ifndef YORDLE_META_DEF_xb7471737
+    struct xb7471737;
+#endif
+
+#ifndef YORDLE_META_DEF_x78ee723e
+    struct x78ee723e;
+#endif
     struct YORDLE_EXPORT FxSequence : public bin_class {
         explicit FxSequence(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -24,6 +34,8 @@ namespace yordle::data::meta {
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::IFxAction>> Actions {};
+        yordle::data::meta::bin_ref<yordle::data::meta::xb7471737> category { 3074889527 };
+        std::vector<std::shared_ptr<yordle::data::meta::x78ee723e>> xe838bf01 {};
     };
 }
 #define YORDLE_META_DEF_FxSequence

@@ -46,6 +46,7 @@ namespace yordle::data::meta {
         uint8_t ChampionsPerRow = 5u;
         uint8_t TraitsPerRow = 6u;
         yordle::data::meta::bin_fnv_hash Scene = 0u;
+        yordle::data::meta::bin_fnv_hash xf581291f = 0u;
         yordle::data::meta::bin_fnv_hash x807ef97f = 0u;
     };
 }

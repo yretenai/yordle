@@ -8,6 +8,20 @@
 #include <exception>
 #include <ProgramOptions.hxx>
 
+#include <standard_dragon/Array.hpp>
+#include <standard_dragon/dragon.hpp>
+
+#include <nlohmann/json.hpp>
+
+#include <yordle/yordle.hpp>
+#include <yordle/cdtb/fnvhashlist.hpp>
+#include <yordle/cdtb/hashlist.hpp>
+#include <yordle/cdtb/hashlist_collection.hpp>
+#include <yordle/cdtb/xxhashlist.hpp>
+#include <yordle/data/property_bin.hpp>
+#include <yordle/data/inibin.hpp>
+#include <yordle/data/rst_file.hpp>
+
 #include "heimerdinger.hpp"
 
 using namespace std;

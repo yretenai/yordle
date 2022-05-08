@@ -6,15 +6,15 @@
 #include <memory>
 #include <string>
 
-#include <yordle/data/meta/bin_defs/FxTarget.hpp>
+#include <yordle/data/meta/bin_defs/x5c086dbd.hpp>
 #include <yordle/data/meta/bin_defs/IFxAction.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_FxTarget
-    struct FxTarget;
+#ifndef YORDLE_META_DEF_x5c086dbd
+    struct x5c086dbd;
 #endif
     struct YORDLE_EXPORT FxActionAnimate : public IFxAction {
         explicit FxActionAnimate(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -24,7 +24,7 @@ namespace yordle::data::meta {
         }
 
         std::string animName {};
-        std::shared_ptr<yordle::data::meta::FxTarget> TargetObject {};
+        std::shared_ptr<yordle::data::meta::x5c086dbd> TargetObject {};
         bool Loop = false;
         bool xee7cd89a = true;
         bool PauseOnEnd = false;

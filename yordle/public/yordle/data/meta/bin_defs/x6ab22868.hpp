@@ -23,6 +23,10 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x88f6a038 = 0u;
         std::string xeac10e8a {};
         std::string x8b76c33f {};
+        yordle::data::meta::bin_fnv_hash x213ab44b = 0u;
+        yordle::data::meta::bin_fnv_hash x3268568 = 0u;
+        yordle::data::meta::bin_fnv_hash xf2cdca2e = 0u;
+        yordle::data::meta::bin_fnv_hash x96550720 = 0u;
     };
 }
 #define YORDLE_META_DEF_x6ab22868

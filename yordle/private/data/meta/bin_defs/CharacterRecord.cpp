@@ -5,6 +5,7 @@
 #include <yordle/data/meta/bin_defs/PerkStyle.hpp>
 #include <yordle/data/meta/bin_defs/PerkReplacementList.hpp>
 #include <yordle/data/meta/bin_defs/AbilityResourceSlotInfo.hpp>
+#include <yordle/data/meta/bin_defs/x4bb004c1.hpp>
 #include <yordle/data/meta/bin_defs/AttackSlotData.hpp>
 #include <yordle/data/meta/bin_defs/SpellLevelUpInfo.hpp>
 #include <yordle/data/meta/bin_defs/RecSpellRankUpInfo.hpp>
@@ -259,9 +260,9 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
         mAdaptiveForceToAbilityPowerWeight = ptr_mAdaptiveForceToAbilityPowerWeight->value;
     }
 
-    auto ptr_x503a1944 = prop->cast_prop<yordle::data::prop::bool_prop>(1345984836u);
-    if(ptr_x503a1944 != nullptr) {
-        x503a1944 = ptr_x503a1944->value;
+    auto ptr_x4bb004c1 = prop->cast_prop<yordle::data::prop::structure_prop>(1269826753u);
+    if(ptr_x4bb004c1 != nullptr) {
+        x4bb004c1 = yordle::data::meta::deserialize<yordle::data::meta::x4bb004c1>(ptr_x4bb004c1, 1269826753u);
     }
 
     auto ptr_basicAttack = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3102779173u);
@@ -772,6 +773,11 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
                 mCharacterPassiveBuffs.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::CharacterPassiveData>(ptr_mCharacterPassiveBuffs_entry, 2393107013u));
             }
         }
+    }
+
+    auto ptr_x5d7c7c0b = prop->cast_prop<yordle::data::prop::bool_prop>(1568439307u);
+    if(ptr_x5d7c7c0b != nullptr) {
+        x5d7c7c0b = ptr_x5d7c7c0b->value;
     }
 
     auto ptr_spellNames = prop->cast_prop<yordle::data::prop::set_prop>(3217256707u);

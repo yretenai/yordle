@@ -5,11 +5,10 @@
 #include <exception>
 #include <xxhash.h>
 #include <yordle/data/meta/bin_defs/Champion.hpp>
-#include <yordle/data/meta/bin_defs/CatalogEntry.hpp>
 
 #include "../vex.hpp"
 
-#include <yordle/yordle.hpp>
+#include <yordle/lcu/v1/models.hpp>
 
 using namespace std;
 using namespace dragon;
@@ -48,16 +47,10 @@ namespace vex::mage {
 
                 auto id = last_max + 1;
                 if (!use_legacy) {
-                    auto ptr_CatalogEntry = champion->_underlying_prop->cast_prop<yordle::data::prop::inline_structure_prop>(607049692u);
-                    std::shared_ptr<yordle::data::meta::CatalogEntry> catalogEntry = nullptr;
-                    if(ptr_CatalogEntry != nullptr) {
-                        catalogEntry = yordle::data::meta::deserialize<yordle::data::meta::CatalogEntry>(ptr_CatalogEntry, 607049692u);
-                    }
-
-                    if (catalogEntry == nullptr) {
+                    if (champion->CatalogEntry == nullptr) {
                         use_legacy = true;
                     } else {
-                        id = static_cast<int64_t>(catalogEntry->itemID);
+                        id = static_cast<int64_t>(champion->CatalogEntry->itemID);
                     }
                 }
                 if (id > last_max) last_max = id;

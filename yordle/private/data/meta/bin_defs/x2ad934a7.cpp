@@ -2,7 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/x2ad934a7.hpp>
 
-#include <yordle/data/meta/bin_defs/FxTarget.hpp>
+#include <yordle/data/meta/bin_defs/x5c086dbd.hpp>
 #include <yordle/data/meta/bin_defs/IFxAction.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -21,12 +21,17 @@ yordle::data::meta::x2ad934a7::x2ad934a7(const std::shared_ptr<yordle::data::pro
     }
     auto ptr_TargetObject = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3865339871u);
     if(ptr_TargetObject != nullptr) {
-        TargetObject = yordle::data::meta::deserialize<yordle::data::meta::FxTarget>(ptr_TargetObject, 87271638u);
+        TargetObject = yordle::data::meta::deserialize<yordle::data::meta::x5c086dbd>(ptr_TargetObject, 1544056253u);
     }
 
     auto ptr_x77cea54c = prop->cast_prop<yordle::data::prop::float32_prop>(2010031436u);
     if(ptr_x77cea54c != nullptr) {
         x77cea54c = ptr_x77cea54c->value;
+    }
+
+    auto ptr_xe68ccb2e = prop->cast_prop<yordle::data::prop::bool_prop>(3867986734u);
+    if(ptr_xe68ccb2e != nullptr) {
+        xe68ccb2e = ptr_xe68ccb2e->value;
     }
 
     auto ptr_EasingType = prop->cast_prop<yordle::data::prop::uint8_prop>(1933980160u);

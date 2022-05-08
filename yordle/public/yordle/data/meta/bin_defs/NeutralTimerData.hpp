@@ -5,9 +5,10 @@
 
 #include <memory>
 #include <string>
-#include <map>
+#include <vector>
 
 #include <yordle/data/meta/bin_defs/NeutralTimerSourceIconData.hpp>
+#include <yordle/data/meta/bin_defs/xefb24138.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -17,6 +18,10 @@ namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_NeutralTimerSourceIconData
     struct NeutralTimerSourceIconData;
 #endif
+
+#ifndef YORDLE_META_DEF_xefb24138
+    struct xefb24138;
+#endif
     struct YORDLE_EXPORT NeutralTimerData : public bin_class {
         explicit NeutralTimerData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -24,13 +29,15 @@ namespace yordle::data::meta {
             return type == 964506025u;
         }
 
-        std::string mTimerKeyName {};
-        std::string mTooltip {};
-        std::string mTooltipCampName {};
-        std::string mTooltipRespawn {};
-        std::string mTooltipChatNameOrder {};
-        std::string mTooltipChatNameChaos {};
-        std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::NeutralTimerSourceIconData>> mSourceIcons {};
+        yordle::data::meta::bin_fnv_hash xf135454f = 0u;
+        std::string xcc6f662 {};
+        std::string xdefe5eb0 {};
+        std::string xd3a113ce {};
+        std::string x90c02594 {};
+        std::string xd62b4497 {};
+        std::string xb0af3cbf {};
+        std::vector<std::shared_ptr<yordle::data::meta::NeutralTimerSourceIconData>> x177de9ee {};
+        std::shared_ptr<yordle::data::meta::xefb24138> xb52b690b {};
     };
 }
 #define YORDLE_META_DEF_NeutralTimerData

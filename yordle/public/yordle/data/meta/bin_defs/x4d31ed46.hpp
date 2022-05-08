@@ -6,6 +6,7 @@
 #include <memory>
 
 #include <yordle/data/meta/bin_defs/IdentityInstance.hpp>
+#include <yordle/data/meta/bin_defs/xae9e709a.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -15,6 +16,10 @@ namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_IdentityInstance
     struct IdentityInstance;
 #endif
+
+#ifndef YORDLE_META_DEF_xae9e709a
+    struct xae9e709a;
+#endif
     struct YORDLE_EXPORT x4d31ed46 : public bin_class {
         explicit x4d31ed46(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -23,6 +28,7 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IdentityInstance> mIdentityInstance {};
+        std::shared_ptr<yordle::data::meta::xae9e709a> xae9e709a {};
     };
 }
 #define YORDLE_META_DEF_x4d31ed46

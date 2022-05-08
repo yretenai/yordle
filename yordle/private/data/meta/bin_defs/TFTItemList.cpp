@@ -20,7 +20,7 @@ yordle::data::meta::TFTItemList::TFTItemList(const std::shared_ptr<yordle::data:
     if(prop == nullptr) {
         return;
     }
-    auto ptr_mItems = prop->cast_prop<yordle::data::prop::set_prop>(2972511644u);
+    auto ptr_mItems = prop->cast_prop<yordle::data::prop::unordered_set_prop>(2972511644u);
     if(ptr_mItems != nullptr) {
         for(const auto &set_mItems_entry : ptr_mItems->value) {
             auto ptr_mItems_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(set_mItems_entry);

@@ -18,10 +18,8 @@ namespace yordle::data::meta {
             return type == 3021260058u;
         }
 
-        bool NewActorStuckPathfinding = false;
         bool fowCastRayAccurate = false;
         bool disableSpellLevelMinimumProtections = false;
-        bool IndividualItemVisibility = true;
         bool AFKDetection2 = true;
     };
 }

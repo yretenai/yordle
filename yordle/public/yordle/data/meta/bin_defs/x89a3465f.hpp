@@ -29,6 +29,7 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_ref<yordle::data::meta::RegionElementData> Region { 1859523703 };
         std::shared_ptr<yordle::data::meta::xa51270e5> xfa4c41a0 {};
+        bool xb824a2c2 = false;
     };
 }
 #define YORDLE_META_DEF_x89a3465f

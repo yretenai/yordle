@@ -9,6 +9,8 @@
 
 #include <format>
 
+#include <yordle/manifest/riot_bundle.hpp>
+
 #include "deploy.hpp"
 
 using namespace std;

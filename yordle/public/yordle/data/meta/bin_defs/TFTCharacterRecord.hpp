@@ -45,6 +45,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::TftShopData> mShopData { 3844837213 };
         std::string x4e28a666 = "C_Buffbone_Glb_Overhead_Loc";
         std::array<float, 3> xd9439003 { 100, 0, 0 };
+        uint32_t xd75e19ad = 0u;
+        bool xf6137e2a = false;
         bool x4a52410b = true;
         bool xef57098f = true;
         bool x1f16e793 = false;

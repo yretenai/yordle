@@ -2,7 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/HomeViewController.hpp>
 
-#include <yordle/data/meta/bin_defs/SpecialOfferController.hpp>
+#include <yordle/data/meta/bin_defs/xbc20c38.hpp>
 #include <yordle/data/meta/bin_defs/x627faf1d.hpp>
 #include <yordle/data/meta/bin_defs/x75259ad3.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
@@ -26,19 +26,9 @@ yordle::data::meta::HomeViewController::HomeViewController(const std::shared_ptr
         xb8421985 = ptr_xb8421985->value;
     }
 
-    auto ptr_x2a16e3e6 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(706143206u);
-    if(ptr_x2a16e3e6 != nullptr) {
-        x2a16e3e6 = ptr_x2a16e3e6->value;
-    }
-
-    auto ptr_xbbb37ef7 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3149102839u);
-    if(ptr_xbbb37ef7 != nullptr) {
-        xbbb37ef7 = ptr_xbbb37ef7->value;
-    }
-
-    auto ptr_SpecialOfferController = prop->cast_prop<yordle::data::prop::inline_structure_prop>(4225182998u);
-    if(ptr_SpecialOfferController != nullptr) {
-        SpecialOfferController = yordle::data::meta::deserialize<yordle::data::meta::SpecialOfferController>(ptr_SpecialOfferController, 4225182998u);
+    auto ptr_xacc6797 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(181168023u);
+    if(ptr_xacc6797 != nullptr) {
+        xacc6797 = yordle::data::meta::deserialize<yordle::data::meta::xbc20c38>(ptr_xacc6797, 197266488u);
     }
 
     auto ptr_xe7def870 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3890149488u);
@@ -94,5 +84,10 @@ yordle::data::meta::HomeViewController::HomeViewController(const std::shared_ptr
     auto ptr_x16021a23 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(369236515u);
     if(ptr_x16021a23 != nullptr) {
         x16021a23 = ptr_x16021a23->value;
+    }
+
+    auto ptr_xd4c3bc70 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3569597552u);
+    if(ptr_xd4c3bc70 != nullptr) {
+        xd4c3bc70 = yordle::data::meta::deserialize<yordle::data::meta::xbc20c38>(ptr_xd4c3bc70, 197266488u);
     }
 }

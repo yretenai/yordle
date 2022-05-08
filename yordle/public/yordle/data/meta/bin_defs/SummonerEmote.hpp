@@ -7,16 +7,12 @@
 #include <cstdint>
 #include <string>
 
-#include <yordle/data/meta/bin_defs/VfxSystemDefinitionData.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_VfxSystemDefinitionData
-    struct VfxSystemDefinitionData;
-#endif
     struct YORDLE_EXPORT SummonerEmote : public bin_class {
         explicit SummonerEmote(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -25,7 +21,7 @@ namespace yordle::data::meta {
         }
 
         uint32_t summonerEmoteId = 0u;
-        yordle::data::meta::bin_ref<yordle::data::meta::VfxSystemDefinitionData> vfxSystem { 1171098015 };
+        yordle::data::meta::bin_fnv_hash vfxSystem = 0u;
         std::string AnnouncementIcon {};
         std::string selectionIcon {};
         float renderScale = 1.0;

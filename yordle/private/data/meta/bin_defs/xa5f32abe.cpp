@@ -7,6 +7,7 @@
 #include <yordle/data/meta/bin_defs/x2fae5ced.hpp>
 #include <yordle/data/meta/bin_defs/x604da433.hpp>
 #include <yordle/data/meta/bin_defs/xa502a9f5.hpp>
+#include <yordle/data/meta/bin_defs/xc0b50425.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -51,6 +52,11 @@ yordle::data::meta::xa5f32abe::xa5f32abe(const std::shared_ptr<yordle::data::pro
     auto ptr_x6b3178fb = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1798404347u);
     if(ptr_x6b3178fb != nullptr) {
         x6b3178fb = yordle::data::meta::deserialize<yordle::data::meta::xa502a9f5>(ptr_x6b3178fb, 2768415221u);
+    }
+
+    auto ptr_x7b10d5cb = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2064700875u);
+    if(ptr_x7b10d5cb != nullptr) {
+        x7b10d5cb = yordle::data::meta::deserialize<yordle::data::meta::xc0b50425>(ptr_x7b10d5cb, 3233088549u);
     }
 
     auto ptr_xe095d841 = prop->cast_prop<yordle::data::prop::string_prop>(3767916609u);

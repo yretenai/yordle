@@ -27,4 +27,9 @@ yordle::data::meta::JointSnapEventData::JointSnapEventData(const std::shared_ptr
     if(ptr_mJointNameToSnapTo != nullptr) {
         mJointNameToSnapTo = ptr_mJointNameToSnapTo->value;
     }
+
+    auto ptr_offset = prop->cast_prop<yordle::data::prop::vector_prop>(348705738u);
+    if(ptr_offset != nullptr) {
+        offset = ptr_offset->value;
+    }
 }

@@ -112,6 +112,16 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash xa135cbb0 = 0u;
         yordle::data::meta::bin_fnv_hash x39bc5dc5 = 0u;
         yordle::data::meta::bin_fnv_hash xfe567b1 = 0u;
+        yordle::data::meta::bin_fnv_hash x71ab9863 = 0u;
+        yordle::data::meta::bin_fnv_hash xe3d751e5 = 0u;
+        yordle::data::meta::bin_fnv_hash x388b9216 = 0u;
+        yordle::data::meta::bin_fnv_hash x91151563 = 0u;
+        yordle::data::meta::bin_fnv_hash x2a7c3854 = 0u;
+        yordle::data::meta::bin_fnv_hash x6b16e5d8 = 0u;
+        yordle::data::meta::bin_fnv_hash xd5cdd657 = 0u;
+        yordle::data::meta::bin_fnv_hash x1d341a57 = 0u;
+        yordle::data::meta::bin_fnv_hash xb213e947 = 0u;
+        yordle::data::meta::bin_fnv_hash xaf6f020c = 0u;
     };
 }
 #define YORDLE_META_DEF_HudItemShopData

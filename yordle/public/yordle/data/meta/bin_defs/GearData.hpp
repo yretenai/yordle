@@ -45,6 +45,7 @@ namespace yordle::data::meta {
         std::string mEquipAnimation {};
         std::string mSelfOnlyPortraitIcon {};
         std::string mPortraitIcon {};
+        std::string x7333a550 {};
         std::vector<yordle::data::meta::bin_fnv_hash> xb6c044fb {};
         std::vector<yordle::data::meta::bin_fnv_hash> x21b6167e {};
         bool x71202eae = false;

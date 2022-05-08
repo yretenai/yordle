@@ -27,7 +27,7 @@ namespace yordle::data::meta {
 
         std::string name {};
         uint32_t type = 0u;
-        uint32_t frequency = 0u;
+        uint8_t frequency = 0u;
         std::vector<std::shared_ptr<yordle::data::meta::X3DSharedConstantDef>> constants {};
         bool xa87049bc = false;
         int32_t x2d6871c0 = -1;

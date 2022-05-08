@@ -11,6 +11,7 @@
 #include <yordle/data/meta/bin_defs/x2fae5ced.hpp>
 #include <yordle/data/meta/bin_defs/x604da433.hpp>
 #include <yordle/data/meta/bin_defs/xa502a9f5.hpp>
+#include <yordle/data/meta/bin_defs/xc0b50425.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -36,6 +37,10 @@ namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_xa502a9f5
     struct xa502a9f5;
 #endif
+
+#ifndef YORDLE_META_DEF_xc0b50425
+    struct xc0b50425;
+#endif
     struct YORDLE_EXPORT xa5f32abe : public ViewController {
         explicit xa5f32abe(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -49,6 +54,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::x2fae5ced> x9a942af {};
         std::shared_ptr<yordle::data::meta::x604da433> xf2fb8359 {};
         std::shared_ptr<yordle::data::meta::xa502a9f5> x6b3178fb {};
+        std::shared_ptr<yordle::data::meta::xc0b50425> x7b10d5cb {};
         std::string xe095d841 {};
     };
 }

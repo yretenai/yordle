@@ -54,6 +54,31 @@ yordle::data::meta::TftUnitShopViewController::TftUnitShopViewController(const s
         InfoButton = ptr_InfoButton->value;
     }
 
+    auto ptr_x83ee348a = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2213426314u);
+    if(ptr_x83ee348a != nullptr) {
+        x83ee348a = ptr_x83ee348a->value;
+    }
+
+    auto ptr_x5069540f = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1349080079u);
+    if(ptr_x5069540f != nullptr) {
+        x5069540f = ptr_x5069540f->value;
+    }
+
+    auto ptr_xf7d3bbbd = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(4157848509u);
+    if(ptr_xf7d3bbbd != nullptr) {
+        xf7d3bbbd = ptr_xf7d3bbbd->value;
+    }
+
+    auto ptr_x5ff2047e = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1609696382u);
+    if(ptr_x5ff2047e != nullptr) {
+        x5ff2047e = ptr_x5ff2047e->value;
+    }
+
+    auto ptr_x2497226b = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(613884523u);
+    if(ptr_x2497226b != nullptr) {
+        x2497226b = ptr_x2497226b->value;
+    }
+
     auto ptr_x2781ed6b = prop->cast_prop<yordle::data::prop::map_prop>(662826347u);
     if(ptr_x2781ed6b != nullptr) {
         for(const auto &set_x2781ed6b_pair : ptr_x2781ed6b->value) {

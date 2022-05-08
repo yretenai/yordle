@@ -5,6 +5,7 @@
 
 #include <memory>
 #include <vector>
+#include <cstdint>
 
 #include <yordle/data/meta/bin_defs/TFTSetData.hpp>
 #include <yordle/data/meta/bin_defs/TFTDragData.hpp>
@@ -45,11 +46,21 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::TFTBotLoadoutConfiguration> x4a191241 { 2097505044 };
         yordle::data::meta::bin_fnv_hash mTftMapSkinDefault = 0u;
         yordle::data::meta::bin_fnv_hash mTftDamageSkinDefault = 0u;
+        yordle::data::meta::bin_fnv_hash xa4a0f014 = 0u;
         yordle::data::meta::bin_fnv_hash mDefaultTftCompanion = 0u;
         yordle::data::meta::bin_fnv_hash mTutorialTftCompanion = 0u;
         float xb75a7951 = 1.149999976158142;
         std::vector<yordle::data::meta::bin_fnv_hash> x12aaf1d8 {};
         std::vector<std::shared_ptr<yordle::data::meta::x3604b3e3>> xe13c7aa {};
+        int32_t x1ea7ca14 = -999;
+        uint32_t x7648a351 = 0u;
+        int32_t xdade6712 = 1;
+        float xa82b8a32 = 15.0;
+        float x12d9d5d3 = 2.0;
+        float xdfbc2ee = 2.0;
+        float x793d00f9 = 60.0;
+        float x218ae92c = 90.0;
+        uint32_t xd95e9023 = 2u;
     };
 }
 #define YORDLE_META_DEF_TFTModeData

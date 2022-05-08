@@ -2,7 +2,7 @@
 // Created by Lilith on 2021-06-16.
 //
 
-#include <yordle/yordle.hpp>
+#include <standard_dragon/dragon.hpp>
 
 #include "file_type_detector.hpp"
 
@@ -54,7 +54,7 @@ namespace lulu {
         {".json", 0x5B, 8},                                                   // [
     };
 
-    string file_type_detector::detect_extension(shared_ptr<Array<uint8_t>> &buffer) {
+    std::string file_type_detector::detect_extension(shared_ptr<dragon::Array<uint8_t>> &buffer) {
         auto size = buffer->size();
         if (size < 1) {
             return string();

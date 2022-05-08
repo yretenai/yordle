@@ -31,6 +31,11 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash BuyExpButton = 0u;
         yordle::data::meta::bin_fnv_hash RerollButton = 0u;
         yordle::data::meta::bin_fnv_hash InfoButton = 0u;
+        yordle::data::meta::bin_fnv_hash x83ee348a = 0u;
+        yordle::data::meta::bin_fnv_hash x5069540f = 0u;
+        yordle::data::meta::bin_fnv_hash xf7d3bbbd = 0u;
+        yordle::data::meta::bin_fnv_hash x5ff2047e = 0u;
+        yordle::data::meta::bin_fnv_hash x2497226b = 0u;
         std::map<uint32_t, std::shared_ptr<yordle::data::meta::x2781ed6b>> x2781ed6b {};
     };
 }

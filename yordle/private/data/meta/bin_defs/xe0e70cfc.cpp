@@ -22,4 +22,14 @@ yordle::data::meta::xe0e70cfc::xe0e70cfc(const std::shared_ptr<yordle::data::pro
     if(ptr_Scene != nullptr) {
         Scene = ptr_Scene->value;
     }
+
+    auto ptr_xc5611fe2 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3311476706u);
+    if(ptr_xc5611fe2 != nullptr) {
+        xc5611fe2 = ptr_xc5611fe2->value;
+    }
+
+    auto ptr_xbde64e3e = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3185987134u);
+    if(ptr_xbde64e3e != nullptr) {
+        xbde64e3e = ptr_xbde64e3e->value;
+    }
 }

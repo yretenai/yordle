@@ -22,4 +22,9 @@ yordle::data::meta::DestroyOnMovementComplete::DestroyOnMovementComplete(const s
     if(ptr_mDelay != nullptr) {
         mDelay = ptr_mDelay->value;
     }
+
+    auto ptr_x27ec5868 = prop->cast_prop<yordle::data::prop::bool_prop>(669800552u);
+    if(ptr_x27ec5868 != nullptr) {
+        x27ec5868 = ptr_x27ec5868->value;
+    }
 }

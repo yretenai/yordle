@@ -2,26 +2,14 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/HudTunables.hpp>
 
-#include <yordle/data/meta/bin_defs/HudScaleSettingsData.hpp>
-#include <yordle/data/meta/bin_defs/HudLevelUpData.hpp>
-#include <yordle/data/meta/bin_defs/HudReplayData.hpp>
 #include <yordle/data/meta/bin_defs/HudElementalSectionUIData.hpp>
-#include <yordle/data/meta/bin_defs/HudEmotePopupData.hpp>
 #include <yordle/data/meta/bin_defs/HudGearSelectionUIData.hpp>
 #include <yordle/data/meta/bin_defs/HudRadialWheelData.hpp>
 #include <yordle/data/meta/bin_defs/HudPingData.hpp>
 #include <yordle/data/meta/bin_defs/HudMenuTransitionData.hpp>
-#include <yordle/data/meta/bin_defs/HudBannerData.hpp>
-#include <yordle/data/meta/bin_defs/HudAbilityPromptData.hpp>
-#include <yordle/data/meta/bin_defs/HudVoiceChatData.hpp>
-#include <yordle/data/meta/bin_defs/HudInputBoxData.hpp>
-#include <yordle/data/meta/bin_defs/HudHealthBarData.hpp>
 #include <yordle/data/meta/bin_defs/HudStatPanelStatStoneData.hpp>
 #include <yordle/data/meta/bin_defs/HudStatStoneData.hpp>
 #include <yordle/data/meta/bin_defs/HudStatStoneDeathRecapData.hpp>
-#include <yordle/data/meta/bin_defs/HudStatStoneMilestoneData.hpp>
-#include <yordle/data/meta/bin_defs/HudMessageDisplayData.hpp>
-#include <yordle/data/meta/bin_defs/HudSpellSlotResetFeedbackData.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -38,29 +26,9 @@ yordle::data::meta::HudTunables::HudTunables(const std::shared_ptr<yordle::data:
     if(prop == nullptr) {
         return;
     }
-    auto ptr_mScaleSettings = prop->cast_prop<yordle::data::prop::inline_structure_prop>(45469471u);
-    if(ptr_mScaleSettings != nullptr) {
-        mScaleSettings = yordle::data::meta::deserialize<yordle::data::meta::HudScaleSettingsData>(ptr_mScaleSettings, 2979455577u);
-    }
-
-    auto ptr_mLevelUpTransitionData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(762988596u);
-    if(ptr_mLevelUpTransitionData != nullptr) {
-        mLevelUpTransitionData = yordle::data::meta::deserialize<yordle::data::meta::HudLevelUpData>(ptr_mLevelUpTransitionData, 2124320233u);
-    }
-
-    auto ptr_mReplayData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(608425855u);
-    if(ptr_mReplayData != nullptr) {
-        mReplayData = yordle::data::meta::deserialize<yordle::data::meta::HudReplayData>(ptr_mReplayData, 2809029825u);
-    }
-
     auto ptr_mElementalSelectionAnimationData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2877628373u);
     if(ptr_mElementalSelectionAnimationData != nullptr) {
         mElementalSelectionAnimationData = yordle::data::meta::deserialize<yordle::data::meta::HudElementalSectionUIData>(ptr_mElementalSelectionAnimationData, 3553075624u);
-    }
-
-    auto ptr_mEmotePopupData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(877012050u);
-    if(ptr_mEmotePopupData != nullptr) {
-        mEmotePopupData = yordle::data::meta::deserialize<yordle::data::meta::HudEmotePopupData>(ptr_mEmotePopupData, 440468936u);
     }
 
     auto ptr_mGearSelectionData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3357629991u);
@@ -93,31 +61,6 @@ yordle::data::meta::HudTunables::HudTunables(const std::shared_ptr<yordle::data:
         mReplayGameStatsTransitionData = yordle::data::meta::deserialize<yordle::data::meta::HudMenuTransitionData>(ptr_mReplayGameStatsTransitionData, 3273533950u);
     }
 
-    auto ptr_x9cec9ff0 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2632753136u);
-    if(ptr_x9cec9ff0 != nullptr) {
-        x9cec9ff0 = yordle::data::meta::deserialize<yordle::data::meta::HudBannerData>(ptr_x9cec9ff0, 2731869740u);
-    }
-
-    auto ptr_x4e7d3049 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1316827209u);
-    if(ptr_x4e7d3049 != nullptr) {
-        x4e7d3049 = yordle::data::meta::deserialize<yordle::data::meta::HudAbilityPromptData>(ptr_x4e7d3049, 4291825122u);
-    }
-
-    auto ptr_mVoiceChatData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2781484004u);
-    if(ptr_mVoiceChatData != nullptr) {
-        mVoiceChatData = yordle::data::meta::deserialize<yordle::data::meta::HudVoiceChatData>(ptr_mVoiceChatData, 929479566u);
-    }
-
-    auto ptr_mInputBoxData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3892654213u);
-    if(ptr_mInputBoxData != nullptr) {
-        mInputBoxData = yordle::data::meta::deserialize<yordle::data::meta::HudInputBoxData>(ptr_mInputBoxData, 4284799695u);
-    }
-
-    auto ptr_mHealthBarData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(701559135u);
-    if(ptr_mHealthBarData != nullptr) {
-        mHealthBarData = yordle::data::meta::deserialize<yordle::data::meta::HudHealthBarData>(ptr_mHealthBarData, 85573057u);
-    }
-
     auto ptr_mStatPanelStatStoneData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2076079679u);
     if(ptr_mStatPanelStatStoneData != nullptr) {
         mStatPanelStatStoneData = yordle::data::meta::deserialize<yordle::data::meta::HudStatPanelStatStoneData>(ptr_mStatPanelStatStoneData, 2341739189u);
@@ -131,25 +74,5 @@ yordle::data::meta::HudTunables::HudTunables(const std::shared_ptr<yordle::data:
     auto ptr_mStatStoneDeathRecapData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3128315546u);
     if(ptr_mStatStoneDeathRecapData != nullptr) {
         mStatStoneDeathRecapData = yordle::data::meta::deserialize<yordle::data::meta::HudStatStoneDeathRecapData>(ptr_mStatStoneDeathRecapData, 1887734700u);
-    }
-
-    auto ptr_StatStoneMilestoneData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(106443622u);
-    if(ptr_StatStoneMilestoneData != nullptr) {
-        StatStoneMilestoneData = yordle::data::meta::deserialize<yordle::data::meta::HudStatStoneMilestoneData>(ptr_StatStoneMilestoneData, 4122721905u);
-    }
-
-    auto ptr_x86402adf = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2252352223u);
-    if(ptr_x86402adf != nullptr) {
-        x86402adf = yordle::data::meta::deserialize<yordle::data::meta::HudMessageDisplayData>(ptr_x86402adf, 1269294773u);
-    }
-
-    auto ptr_x48c75042 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1221021762u);
-    if(ptr_x48c75042 != nullptr) {
-        x48c75042 = yordle::data::meta::deserialize<yordle::data::meta::HudMessageDisplayData>(ptr_x48c75042, 1269294773u);
-    }
-
-    auto ptr_mHudSpellSlotResetFeedbackData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3877885579u);
-    if(ptr_mHudSpellSlotResetFeedbackData != nullptr) {
-        mHudSpellSlotResetFeedbackData = yordle::data::meta::deserialize<yordle::data::meta::HudSpellSlotResetFeedbackData>(ptr_mHudSpellSlotResetFeedbackData, 1323252584u);
     }
 }

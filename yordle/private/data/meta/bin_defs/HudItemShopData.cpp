@@ -414,4 +414,54 @@ yordle::data::meta::HudItemShopData::HudItemShopData(const std::shared_ptr<yordl
     if(ptr_xfe567b1 != nullptr) {
         xfe567b1 = ptr_xfe567b1->value;
     }
+
+    auto ptr_x71ab9863 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1907071075u);
+    if(ptr_x71ab9863 != nullptr) {
+        x71ab9863 = ptr_x71ab9863->value;
+    }
+
+    auto ptr_xe3d751e5 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3822539237u);
+    if(ptr_xe3d751e5 != nullptr) {
+        xe3d751e5 = ptr_xe3d751e5->value;
+    }
+
+    auto ptr_x388b9216 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(948670998u);
+    if(ptr_x388b9216 != nullptr) {
+        x388b9216 = ptr_x388b9216->value;
+    }
+
+    auto ptr_x91151563 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2434078051u);
+    if(ptr_x91151563 != nullptr) {
+        x91151563 = ptr_x91151563->value;
+    }
+
+    auto ptr_x2a7c3854 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(712783956u);
+    if(ptr_x2a7c3854 != nullptr) {
+        x2a7c3854 = ptr_x2a7c3854->value;
+    }
+
+    auto ptr_x6b16e5d8 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1796662744u);
+    if(ptr_x6b16e5d8 != nullptr) {
+        x6b16e5d8 = ptr_x6b16e5d8->value;
+    }
+
+    auto ptr_xd5cdd657 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3587036759u);
+    if(ptr_xd5cdd657 != nullptr) {
+        xd5cdd657 = ptr_xd5cdd657->value;
+    }
+
+    auto ptr_x1d341a57 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(489953879u);
+    if(ptr_x1d341a57 != nullptr) {
+        x1d341a57 = ptr_x1d341a57->value;
+    }
+
+    auto ptr_xb213e947 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2987649351u);
+    if(ptr_xb213e947 != nullptr) {
+        xb213e947 = ptr_xb213e947->value;
+    }
+
+    auto ptr_xaf6f020c = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2943287820u);
+    if(ptr_xaf6f020c != nullptr) {
+        xaf6f020c = ptr_xaf6f020c->value;
+    }
 }

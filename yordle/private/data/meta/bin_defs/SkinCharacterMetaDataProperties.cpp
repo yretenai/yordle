@@ -70,9 +70,4 @@ yordle::data::meta::SkinCharacterMetaDataProperties::SkinCharacterMetaDataProper
             }
         }
     }
-
-    auto ptr_useGDSBinaries = prop->cast_prop<yordle::data::prop::bool_prop>(2816314501u);
-    if(ptr_useGDSBinaries != nullptr) {
-        useGDSBinaries = ptr_useGDSBinaries->value;
-    }
 }

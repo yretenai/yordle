@@ -18,13 +18,18 @@ yordle::data::meta::NeutralTimerSourceIconData::NeutralTimerSourceIconData(const
     if(prop == nullptr) {
         return;
     }
-    auto ptr_mTooltipName = prop->cast_prop<yordle::data::prop::string_prop>(1770873432u);
-    if(ptr_mTooltipName != nullptr) {
-        mTooltipName = ptr_mTooltipName->value;
+    auto ptr_xf135454f = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(4046800207u);
+    if(ptr_xf135454f != nullptr) {
+        xf135454f = ptr_xf135454f->value;
     }
 
-    auto ptr_mIconName = prop->cast_prop<yordle::data::prop::string_prop>(4274981346u);
-    if(ptr_mIconName != nullptr) {
-        mIconName = ptr_mIconName->value;
+    auto ptr_xfed22233 = prop->cast_prop<yordle::data::prop::string_prop>(4275184179u);
+    if(ptr_xfed22233 != nullptr) {
+        xfed22233 = ptr_xfed22233->value;
+    }
+
+    auto ptr_Icon = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3862959600u);
+    if(ptr_Icon != nullptr) {
+        Icon = ptr_Icon->value;
     }
 }

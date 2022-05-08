@@ -7,6 +7,7 @@
 #include <yordle/data/meta/bin_defs/SkinAudioProperties.hpp>
 #include <yordle/data/meta/bin_defs/SkinAnimationProperties.hpp>
 #include <yordle/data/meta/bin_defs/SkinMeshDataProperties.hpp>
+#include <yordle/data/meta/bin_defs/xf71d1d27.hpp>
 #include <yordle/data/meta/bin_defs/SkinCharacterDataProperties_CharacterIdleEffect.hpp>
 #include <yordle/data/meta/bin_defs/CharacterHealthBarDataRecord.hpp>
 #include <yordle/data/meta/bin_defs/SkinEmblem.hpp>
@@ -98,6 +99,11 @@ yordle::data::meta::SkinCharacterDataProperties::SkinCharacterDataProperties(con
     auto ptr_skinMeshProperties = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1174362372u);
     if(ptr_skinMeshProperties != nullptr) {
         skinMeshProperties = yordle::data::meta::deserialize<yordle::data::meta::SkinMeshDataProperties>(ptr_skinMeshProperties, 1628559524u);
+    }
+
+    auto ptr_xf71d1d27 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(4145880359u);
+    if(ptr_xf71d1d27 != nullptr) {
+        xf71d1d27 = yordle::data::meta::deserialize<yordle::data::meta::xf71d1d27>(ptr_xf71d1d27, 4145880359u);
     }
 
     auto ptr_armorMaterial = prop->cast_prop<yordle::data::prop::string_prop>(755834653u);

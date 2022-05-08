@@ -4,6 +4,7 @@
 #pragma once
 
 #include <memory>
+#include <cstdint>
 #include <array>
 #include <vector>
 
@@ -27,6 +28,7 @@ namespace yordle::data::meta {
         bool mFlipX = false;
         bool mFlipY = false;
         bool mPerPixelUvsX = false;
+        std::array<uint8_t, 4> mColor { 255, 255, 255, 255 };
         std::shared_ptr<yordle::data::meta::AtlasData> mAtlas {};
         std::vector<std::array<float, 2>> x71254c3b {};
     };

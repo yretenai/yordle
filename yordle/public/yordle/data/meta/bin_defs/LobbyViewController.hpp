@@ -8,23 +8,18 @@
 #include <cstdint>
 #include <string>
 
-#include <yordle/data/meta/bin_defs/xc5976812.hpp>
-#include <yordle/data/meta/bin_defs/x45e66b18.hpp>
+#include <yordle/data/meta/bin_defs/x5c8fefd9.hpp>
 #include <yordle/data/meta/bin_defs/x407b58d1.hpp>
 #include <yordle/data/meta/bin_defs/x5a27978a.hpp>
-#include <yordle/data/meta/bin_defs/x75259ad3.hpp>
+#include <yordle/data/meta/bin_defs/xe87aa7bf.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_xc5976812
-    struct xc5976812;
-#endif
-
-#ifndef YORDLE_META_DEF_x45e66b18
-    struct x45e66b18;
+#ifndef YORDLE_META_DEF_x5c8fefd9
+    struct x5c8fefd9;
 #endif
 
 #ifndef YORDLE_META_DEF_x407b58d1
@@ -35,8 +30,8 @@ namespace yordle::data::meta {
     struct x5a27978a;
 #endif
 
-#ifndef YORDLE_META_DEF_x75259ad3
-    struct x75259ad3;
+#ifndef YORDLE_META_DEF_xe87aa7bf
+    struct xe87aa7bf;
 #endif
     struct YORDLE_EXPORT LobbyViewController : public ViewController {
         explicit LobbyViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -45,18 +40,16 @@ namespace yordle::data::meta {
             return type == 144791174u || ViewController::is_type(type);
         }
 
-        std::shared_ptr<yordle::data::meta::xc5976812> x3dc88bb0 {};
-        std::shared_ptr<yordle::data::meta::x45e66b18> xa7db6492 {};
+        std::map<uint8_t, std::shared_ptr<yordle::data::meta::x5c8fefd9>> x6096489e {};
         std::shared_ptr<yordle::data::meta::x407b58d1> xf12be813 {};
         std::shared_ptr<yordle::data::meta::x5a27978a> x665a0a9c {};
         yordle::data::meta::bin_fnv_hash x573e7831 = 0u;
-        std::map<int64_t, std::string> xbd29d956 {};
-        std::string x1a361782 {};
         std::string xa38f5021 {};
         std::string x72c4914b {};
         std::string xbf51f61a {};
-        yordle::data::meta::bin_ref<yordle::data::meta::x75259ad3> x671c34c8 { 1965398739 };
         yordle::data::meta::bin_fnv_hash xb3e2f60e = 0u;
+        std::map<uint32_t, std::shared_ptr<yordle::data::meta::xe87aa7bf>> x6506aa85 {};
+        bool xcbde9a9d = false;
         std::string ThemeMusicStateGroup {};
         std::string LobbyMusicState {};
         std::string InQueueMusicState {};

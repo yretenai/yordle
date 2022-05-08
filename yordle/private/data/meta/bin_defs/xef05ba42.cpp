@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/xef05ba42.hpp>
 
+#include <yordle/data/meta/bin_defs/x7a9a96ff.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -131,5 +132,10 @@ yordle::data::meta::xef05ba42::xef05ba42(const std::shared_ptr<yordle::data::pro
     auto ptr_MythicPurchasedVfx = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3246906724u);
     if(ptr_MythicPurchasedVfx != nullptr) {
         MythicPurchasedVfx = ptr_MythicPurchasedVfx->value;
+    }
+
+    auto ptr_x56bd4ca9 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1455246505u);
+    if(ptr_x56bd4ca9 != nullptr) {
+        x56bd4ca9 = yordle::data::meta::deserialize<yordle::data::meta::x7a9a96ff>(ptr_x56bd4ca9, 2056951551u);
     }
 }

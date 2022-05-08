@@ -34,4 +34,9 @@ yordle::data::meta::MinimapBackgroundConfig::MinimapBackgroundConfig(const std::
             }
         }
     }
+
+    auto ptr_x7b213e8e = prop->cast_prop<yordle::data::prop::bool_prop>(2065776270u);
+    if(ptr_x7b213e8e != nullptr) {
+        x7b213e8e = ptr_x7b213e8e->value;
+    }
 }

@@ -3,7 +3,7 @@
 #include <yordle/data/meta/bin_defs/x4a99e777.hpp>
 
 #include <yordle/data/meta/bin_defs/EsportsBannerData.hpp>
-#include <yordle/data/meta/bin_defs/x9149cbb1.hpp>
+#include <yordle/data/meta/bin_defs/x3ee0746d.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -25,13 +25,8 @@ yordle::data::meta::x4a99e777::x4a99e777(const std::shared_ptr<yordle::data::pro
         Banner = yordle::data::meta::bin_ref<yordle::data::meta::EsportsBannerData>(761042637u, ptr_Banner->value);
     }
 
-    auto ptr_x7ac1008a = prop->cast_prop<yordle::data::prop::set_prop>(2059468938u);
-    if(ptr_x7ac1008a != nullptr) {
-        for(const auto &set_x7ac1008a_entry : ptr_x7ac1008a->value) {
-            auto ptr_x7ac1008a_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_x7ac1008a_entry);
-            if(ptr_x7ac1008a_entry != nullptr) {
-                x7ac1008a.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x9149cbb1>(ptr_x7ac1008a_entry, 2437532593u));
-            }
-        }
+    auto ptr_x95e59d55 = prop->cast_prop<yordle::data::prop::reference_prop>(2514853205u);
+    if(ptr_x95e59d55 != nullptr) {
+        x95e59d55 = yordle::data::meta::bin_ref<yordle::data::meta::x3ee0746d>(1054897261u, ptr_x95e59d55->value);
     }
 }

@@ -5,8 +5,10 @@
 
 #include <memory>
 #include <string>
+#include <vector>
 
 #include <yordle/data/meta/bin_defs/ResourceResolver.hpp>
+#include <yordle/data/meta/bin_defs/BankUnit.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -15,6 +17,10 @@
 namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_ResourceResolver
     struct ResourceResolver;
+#endif
+
+#ifndef YORDLE_META_DEF_BankUnit
+    struct BankUnit;
 #endif
     struct YORDLE_EXPORT MapAlternateAsset : public bin_class {
         explicit MapAlternateAsset(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -28,6 +34,7 @@ namespace yordle::data::meta {
         std::string x198716d9 {};
         yordle::data::meta::bin_ref<yordle::data::meta::ResourceResolver> mParticleResourceResolver { 4013559603 };
         yordle::data::meta::bin_fnv_hash x97472c4d = 0u;
+        std::vector<std::shared_ptr<yordle::data::meta::BankUnit>> AudioBankUnits {};
     };
 }
 #define YORDLE_META_DEF_MapAlternateAsset

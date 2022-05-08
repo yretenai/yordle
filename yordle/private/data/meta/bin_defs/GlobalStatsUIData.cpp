@@ -30,6 +30,17 @@ yordle::data::meta::GlobalStatsUIData::GlobalStatsUIData(const std::shared_ptr<y
         }
     }
 
+    auto ptr_xef8fe151 = prop->cast_prop<yordle::data::prop::map_prop>(4019183953u);
+    if(ptr_xef8fe151 != nullptr) {
+        for(const auto &set_xef8fe151_pair : ptr_xef8fe151->value) {
+            auto ptr_xef8fe151_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(set_xef8fe151_pair.first);
+            auto ptr_xef8fe151_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_xef8fe151_pair.second);
+            if(ptr_xef8fe151_key != nullptr && ptr_xef8fe151_value != nullptr) {
+                xef8fe151.emplace(ptr_xef8fe151_key->value, yordle::data::meta::deserialize<yordle::data::meta::StatUIData>(ptr_xef8fe151_value, 309827837u));
+            }
+        }
+    }
+
     auto ptr_BaseOutputIconModifier = prop->cast_prop<yordle::data::prop::string_prop>(3133585001u);
     if(ptr_BaseOutputIconModifier != nullptr) {
         BaseOutputIconModifier = ptr_BaseOutputIconModifier->value;

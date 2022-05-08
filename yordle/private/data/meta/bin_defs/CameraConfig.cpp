@@ -108,4 +108,19 @@ yordle::data::meta::CameraConfig::CameraConfig(const std::shared_ptr<yordle::dat
     if(ptr_x383f51a8 != nullptr) {
         x383f51a8 = ptr_x383f51a8->value;
     }
+
+    auto ptr_x79b2d636 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2041763382u);
+    if(ptr_x79b2d636 != nullptr) {
+        x79b2d636 = yordle::data::meta::deserialize<yordle::data::meta::CameraTrapezoid>(ptr_x79b2d636, 1207715590u);
+    }
+
+    auto ptr_x4eb5a788 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1320527752u);
+    if(ptr_x4eb5a788 != nullptr) {
+        x4eb5a788 = yordle::data::meta::deserialize<yordle::data::meta::CameraTrapezoid>(ptr_x4eb5a788, 1207715590u);
+    }
+
+    auto ptr_x75b7ab24 = prop->cast_prop<yordle::data::prop::float32_prop>(1974971172u);
+    if(ptr_x75b7ab24 != nullptr) {
+        x75b7ab24 = ptr_x75b7ab24->value;
+    }
 }

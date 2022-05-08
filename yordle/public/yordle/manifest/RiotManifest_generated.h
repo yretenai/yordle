@@ -4,9 +4,6 @@
 #ifndef FLATBUFFERS_GENERATED_RIOTMANIFEST_YORDLE_MANIFEST_GENERATED_H_
 #define FLATBUFFERS_GENERATED_RIOTMANIFEST_YORDLE_MANIFEST_GENERATED_H_
 
-#pragma clang system_header
-
-
 #include "flatbuffers/flatbuffers.h"
 
 namespace yordle {
@@ -15,52 +12,27 @@ namespace generated {
 
 struct RiotManifest;
 struct RiotManifestBuilder;
-struct RiotManifestT;
 
 struct RiotManifestBundle;
 struct RiotManifestBundleBuilder;
-struct RiotManifestBundleT;
 
 struct RiotManifestBlock;
 struct RiotManifestBlockBuilder;
-struct RiotManifestBlockT;
 
 struct RiotManifestLanguage;
 struct RiotManifestLanguageBuilder;
-struct RiotManifestLanguageT;
 
 struct RiotManifestFile;
 struct RiotManifestFileBuilder;
-struct RiotManifestFileT;
 
 struct RiotManifestDirectory;
 struct RiotManifestDirectoryBuilder;
-struct RiotManifestDirectoryT;
 
 struct RiotManifestKey;
 struct RiotManifestKeyBuilder;
-struct RiotManifestKeyT;
 
 struct RiotManifestParam;
 struct RiotManifestParamBuilder;
-struct RiotManifestParamT;
-
-bool operator==(const RiotManifestT &lhs, const RiotManifestT &rhs);
-bool operator!=(const RiotManifestT &lhs, const RiotManifestT &rhs);
-bool operator==(const RiotManifestBundleT &lhs, const RiotManifestBundleT &rhs);
-bool operator!=(const RiotManifestBundleT &lhs, const RiotManifestBundleT &rhs);
-bool operator==(const RiotManifestBlockT &lhs, const RiotManifestBlockT &rhs);
-bool operator!=(const RiotManifestBlockT &lhs, const RiotManifestBlockT &rhs);
-bool operator==(const RiotManifestLanguageT &lhs, const RiotManifestLanguageT &rhs);
-bool operator!=(const RiotManifestLanguageT &lhs, const RiotManifestLanguageT &rhs);
-bool operator==(const RiotManifestFileT &lhs, const RiotManifestFileT &rhs);
-bool operator!=(const RiotManifestFileT &lhs, const RiotManifestFileT &rhs);
-bool operator==(const RiotManifestDirectoryT &lhs, const RiotManifestDirectoryT &rhs);
-bool operator!=(const RiotManifestDirectoryT &lhs, const RiotManifestDirectoryT &rhs);
-bool operator==(const RiotManifestKeyT &lhs, const RiotManifestKeyT &rhs);
-bool operator!=(const RiotManifestKeyT &lhs, const RiotManifestKeyT &rhs);
-bool operator==(const RiotManifestParamT &lhs, const RiotManifestParamT &rhs);
-bool operator!=(const RiotManifestParamT &lhs, const RiotManifestParamT &rhs);
 
 enum class RiotManifestParamType : uint8_t {
   NONE = 0,
@@ -98,30 +70,9 @@ inline const char *EnumNameRiotManifestParamType(RiotManifestParamType e) {
   return EnumNamesRiotManifestParamType()[index];
 }
 
-struct RiotManifestT : public flatbuffers::NativeTable {
-  typedef RiotManifest TableType;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestT";
-  }
-  std::vector<std::unique_ptr<yordle::manifest::generated::RiotManifestBundleT>> bundles{};
-  std::vector<std::unique_ptr<yordle::manifest::generated::RiotManifestLanguageT>> languages{};
-  std::vector<std::unique_ptr<yordle::manifest::generated::RiotManifestFileT>> files{};
-  std::vector<std::unique_ptr<yordle::manifest::generated::RiotManifestDirectoryT>> directories{};
-  std::vector<std::unique_ptr<yordle::manifest::generated::RiotManifestKeyT>> keys{};
-  std::vector<std::unique_ptr<yordle::manifest::generated::RiotManifestParamT>> params{};
-  RiotManifestT() = default;
-  RiotManifestT(const RiotManifestT &o);
-  RiotManifestT(RiotManifestT&&) FLATBUFFERS_NOEXCEPT = default;
-  RiotManifestT &operator=(RiotManifestT o) FLATBUFFERS_NOEXCEPT;
-};
-
 struct RiotManifest FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
-  typedef RiotManifestT NativeTableType;
   typedef RiotManifestBuilder Builder;
   struct Traits;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifest";
-  }
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
     VT_BUNDLES = 4,
     VT_LANGUAGES = 6,
@@ -130,41 +81,23 @@ struct RiotManifest FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_KEYS = 12,
     VT_PARAMS = 14
   };
-  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBundle>> * _Nullable bundles() const {
+  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBundle>> *bundles() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBundle>> *>(VT_BUNDLES);
   }
-  flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBundle>> * _Nullable mutable_bundles() {
-    return GetPointer<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBundle>> * _Nullable >(VT_BUNDLES);
-  }
-  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestLanguage>> * _Nullable languages() const {
+  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestLanguage>> *languages() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestLanguage>> *>(VT_LANGUAGES);
   }
-  flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestLanguage>> * _Nullable mutable_languages() {
-    return GetPointer<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestLanguage>> * _Nullable >(VT_LANGUAGES);
-  }
-  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestFile>> * _Nullable files() const {
+  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestFile>> *files() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestFile>> *>(VT_FILES);
   }
-  flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestFile>> * _Nullable mutable_files() {
-    return GetPointer<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestFile>> * _Nullable >(VT_FILES);
-  }
-  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestDirectory>> * _Nullable directories() const {
+  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestDirectory>> *directories() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestDirectory>> *>(VT_DIRECTORIES);
   }
-  flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestDirectory>> * _Nullable mutable_directories() {
-    return GetPointer<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestDirectory>> * _Nullable >(VT_DIRECTORIES);
-  }
-  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestKey>> * _Nullable keys() const {
+  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestKey>> *keys() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestKey>> *>(VT_KEYS);
   }
-  flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestKey>> * _Nullable mutable_keys() {
-    return GetPointer<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestKey>> * _Nullable >(VT_KEYS);
-  }
-  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestParam>> * _Nullable params() const {
+  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestParam>> *params() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestParam>> *>(VT_PARAMS);
-  }
-  flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestParam>> * _Nullable mutable_params() {
-    return GetPointer<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestParam>> * _Nullable >(VT_PARAMS);
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
@@ -188,9 +121,6 @@ struct RiotManifest FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            verifier.VerifyVectorOfTables(params()) &&
            verifier.EndTable();
   }
-  RiotManifestT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  void UnPackTo(RiotManifestT *_o, const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  static flatbuffers::Offset<RiotManifest> Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestT* _o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
 };
 
 struct RiotManifestBuilder {
@@ -273,28 +203,9 @@ inline flatbuffers::Offset<RiotManifest> CreateRiotManifestDirect(
       params__);
 }
 
-flatbuffers::Offset<RiotManifest> CreateRiotManifest(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
-
-struct RiotManifestBundleT : public flatbuffers::NativeTable {
-  typedef RiotManifestBundle TableType;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestBundleT";
-  }
-  uint64_t block_id = 0;
-  std::vector<std::unique_ptr<yordle::manifest::generated::RiotManifestBlockT>> blocks{};
-  RiotManifestBundleT() = default;
-  RiotManifestBundleT(const RiotManifestBundleT &o);
-  RiotManifestBundleT(RiotManifestBundleT&&) FLATBUFFERS_NOEXCEPT = default;
-  RiotManifestBundleT &operator=(RiotManifestBundleT o) FLATBUFFERS_NOEXCEPT;
-};
-
 struct RiotManifestBundle FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
-  typedef RiotManifestBundleT NativeTableType;
   typedef RiotManifestBundleBuilder Builder;
   struct Traits;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestBundle";
-  }
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
     VT_BLOCK_ID = 4,
     VT_BLOCKS = 6
@@ -302,14 +213,8 @@ struct RiotManifestBundle FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   uint64_t block_id() const {
     return GetField<uint64_t>(VT_BLOCK_ID, 0);
   }
-  bool mutate_block_id(uint64_t _block_id = 0) {
-    return SetField<uint64_t>(VT_BLOCK_ID, _block_id, 0);
-  }
-  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBlock>> * _Nullable blocks() const {
+  const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBlock>> *blocks() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBlock>> *>(VT_BLOCKS);
-  }
-  flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBlock>> * _Nullable mutable_blocks() {
-    return GetPointer<flatbuffers::Vector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBlock>> * _Nullable >(VT_BLOCKS);
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
@@ -319,9 +224,6 @@ struct RiotManifestBundle FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            verifier.VerifyVectorOfTables(blocks()) &&
            verifier.EndTable();
   }
-  RiotManifestBundleT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  void UnPackTo(RiotManifestBundleT *_o, const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  static flatbuffers::Offset<RiotManifestBundle> Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestBundleT* _o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
 };
 
 struct RiotManifestBundleBuilder {
@@ -371,25 +273,9 @@ inline flatbuffers::Offset<RiotManifestBundle> CreateRiotManifestBundleDirect(
       blocks__);
 }
 
-flatbuffers::Offset<RiotManifestBundle> CreateRiotManifestBundle(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestBundleT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
-
-struct RiotManifestBlockT : public flatbuffers::NativeTable {
-  typedef RiotManifestBlock TableType;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestBlockT";
-  }
-  uint64_t block_id = 0;
-  uint32_t compressed_size = 0;
-  uint32_t size = 0;
-};
-
 struct RiotManifestBlock FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
-  typedef RiotManifestBlockT NativeTableType;
   typedef RiotManifestBlockBuilder Builder;
   struct Traits;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestBlock";
-  }
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
     VT_BLOCK_ID = 4,
     VT_COMPRESSED_SIZE = 6,
@@ -398,20 +284,11 @@ struct RiotManifestBlock FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   uint64_t block_id() const {
     return GetField<uint64_t>(VT_BLOCK_ID, 0);
   }
-  bool mutate_block_id(uint64_t _block_id = 0) {
-    return SetField<uint64_t>(VT_BLOCK_ID, _block_id, 0);
-  }
   uint32_t compressed_size() const {
     return GetField<uint32_t>(VT_COMPRESSED_SIZE, 0);
   }
-  bool mutate_compressed_size(uint32_t _compressed_size = 0) {
-    return SetField<uint32_t>(VT_COMPRESSED_SIZE, _compressed_size, 0);
-  }
   uint32_t size() const {
     return GetField<uint32_t>(VT_SIZE, 0);
-  }
-  bool mutate_size(uint32_t _size = 0) {
-    return SetField<uint32_t>(VT_SIZE, _size, 0);
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
@@ -420,9 +297,6 @@ struct RiotManifestBlock FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyField<uint32_t>(verifier, VT_SIZE, 4) &&
            verifier.EndTable();
   }
-  RiotManifestBlockT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  void UnPackTo(RiotManifestBlockT *_o, const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  static flatbuffers::Offset<RiotManifestBlock> Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestBlockT* _o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
 };
 
 struct RiotManifestBlockBuilder {
@@ -466,24 +340,9 @@ struct RiotManifestBlock::Traits {
   static auto constexpr Create = CreateRiotManifestBlock;
 };
 
-flatbuffers::Offset<RiotManifestBlock> CreateRiotManifestBlock(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestBlockT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
-
-struct RiotManifestLanguageT : public flatbuffers::NativeTable {
-  typedef RiotManifestLanguage TableType;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestLanguageT";
-  }
-  int8_t language_id = 0;
-  std::string name{};
-};
-
 struct RiotManifestLanguage FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
-  typedef RiotManifestLanguageT NativeTableType;
   typedef RiotManifestLanguageBuilder Builder;
   struct Traits;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestLanguage";
-  }
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
     VT_LANGUAGE_ID = 4,
     VT_NAME = 6
@@ -491,14 +350,8 @@ struct RiotManifestLanguage FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table
   int8_t language_id() const {
     return GetField<int8_t>(VT_LANGUAGE_ID, 0);
   }
-  bool mutate_language_id(int8_t _language_id = 0) {
-    return SetField<int8_t>(VT_LANGUAGE_ID, _language_id, 0);
-  }
-  const flatbuffers::String * _Nullable name() const {
+  const flatbuffers::String *name() const {
     return GetPointer<const flatbuffers::String *>(VT_NAME);
-  }
-  flatbuffers::String * _Nullable mutable_name() {
-    return GetPointer<flatbuffers::String * _Nullable >(VT_NAME);
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
@@ -507,9 +360,6 @@ struct RiotManifestLanguage FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table
            verifier.VerifyString(name()) &&
            verifier.EndTable();
   }
-  RiotManifestLanguageT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  void UnPackTo(RiotManifestLanguageT *_o, const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  static flatbuffers::Offset<RiotManifestLanguage> Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestLanguageT* _o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
 };
 
 struct RiotManifestLanguageBuilder {
@@ -559,35 +409,9 @@ inline flatbuffers::Offset<RiotManifestLanguage> CreateRiotManifestLanguageDirec
       name__);
 }
 
-flatbuffers::Offset<RiotManifestLanguage> CreateRiotManifestLanguage(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestLanguageT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
-
-struct RiotManifestFileT : public flatbuffers::NativeTable {
-  typedef RiotManifestFile TableType;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestFileT";
-  }
-  uint64_t file_id = 0;
-  uint64_t directory_id = 0;
-  uint32_t size = 0;
-  std::string name{};
-  uint32_t language_flags = 0;
-  uint32_t unknown3 = 0;
-  uint32_t unknown4 = 0;
-  std::vector<uint64_t> block_ids{};
-  bool is_bundle_hierarchy = false;
-  std::string link{};
-  uint8_t unknown8 = 0;
-  uint8_t index = 0;
-  uint8_t permissions = 0;
-};
-
 struct RiotManifestFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
-  typedef RiotManifestFileT NativeTableType;
   typedef RiotManifestFileBuilder Builder;
   struct Traits;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestFile";
-  }
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
     VT_FILE_ID = 4,
     VT_DIRECTORY_ID = 6,
@@ -606,80 +430,41 @@ struct RiotManifestFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   uint64_t file_id() const {
     return GetField<uint64_t>(VT_FILE_ID, 0);
   }
-  bool mutate_file_id(uint64_t _file_id = 0) {
-    return SetField<uint64_t>(VT_FILE_ID, _file_id, 0);
-  }
   uint64_t directory_id() const {
     return GetField<uint64_t>(VT_DIRECTORY_ID, 0);
-  }
-  bool mutate_directory_id(uint64_t _directory_id = 0) {
-    return SetField<uint64_t>(VT_DIRECTORY_ID, _directory_id, 0);
   }
   uint32_t size() const {
     return GetField<uint32_t>(VT_SIZE, 0);
   }
-  bool mutate_size(uint32_t _size = 0) {
-    return SetField<uint32_t>(VT_SIZE, _size, 0);
-  }
-  const flatbuffers::String * _Nullable name() const {
+  const flatbuffers::String *name() const {
     return GetPointer<const flatbuffers::String *>(VT_NAME);
-  }
-  flatbuffers::String * _Nullable mutable_name() {
-    return GetPointer<flatbuffers::String * _Nullable >(VT_NAME);
   }
   uint32_t language_flags() const {
     return GetField<uint32_t>(VT_LANGUAGE_FLAGS, 0);
   }
-  bool mutate_language_flags(uint32_t _language_flags = 0) {
-    return SetField<uint32_t>(VT_LANGUAGE_FLAGS, _language_flags, 0);
-  }
   uint32_t unknown3() const {
     return GetField<uint32_t>(VT_UNKNOWN3, 0);
-  }
-  bool mutate_unknown3(uint32_t _unknown3 = 0) {
-    return SetField<uint32_t>(VT_UNKNOWN3, _unknown3, 0);
   }
   uint32_t unknown4() const {
     return GetField<uint32_t>(VT_UNKNOWN4, 0);
   }
-  bool mutate_unknown4(uint32_t _unknown4 = 0) {
-    return SetField<uint32_t>(VT_UNKNOWN4, _unknown4, 0);
-  }
-  const flatbuffers::Vector<uint64_t> * _Nullable block_ids() const {
+  const flatbuffers::Vector<uint64_t> *block_ids() const {
     return GetPointer<const flatbuffers::Vector<uint64_t> *>(VT_BLOCK_IDS);
-  }
-  flatbuffers::Vector<uint64_t> * _Nullable mutable_block_ids() {
-    return GetPointer<flatbuffers::Vector<uint64_t> * _Nullable >(VT_BLOCK_IDS);
   }
   bool is_bundle_hierarchy() const {
     return GetField<uint8_t>(VT_IS_BUNDLE_HIERARCHY, 0) != 0;
   }
-  bool mutate_is_bundle_hierarchy(bool _is_bundle_hierarchy = 0) {
-    return SetField<uint8_t>(VT_IS_BUNDLE_HIERARCHY, static_cast<uint8_t>(_is_bundle_hierarchy), 0);
-  }
-  const flatbuffers::String * _Nullable link() const {
+  const flatbuffers::String *link() const {
     return GetPointer<const flatbuffers::String *>(VT_LINK);
-  }
-  flatbuffers::String * _Nullable mutable_link() {
-    return GetPointer<flatbuffers::String * _Nullable >(VT_LINK);
   }
   uint8_t unknown8() const {
     return GetField<uint8_t>(VT_UNKNOWN8, 0);
   }
-  bool mutate_unknown8(uint8_t _unknown8 = 0) {
-    return SetField<uint8_t>(VT_UNKNOWN8, _unknown8, 0);
-  }
   uint8_t index() const {
     return GetField<uint8_t>(VT_INDEX, 0);
   }
-  bool mutate_index(uint8_t _index = 0) {
-    return SetField<uint8_t>(VT_INDEX, _index, 0);
-  }
   uint8_t permissions() const {
     return GetField<uint8_t>(VT_PERMISSIONS, 0);
-  }
-  bool mutate_permissions(uint8_t _permissions = 0) {
-    return SetField<uint8_t>(VT_PERMISSIONS, _permissions, 0);
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
@@ -701,9 +486,6 @@ struct RiotManifestFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyField<uint8_t>(verifier, VT_PERMISSIONS, 1) &&
            verifier.EndTable();
   }
-  RiotManifestFileT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  void UnPackTo(RiotManifestFileT *_o, const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  static flatbuffers::Offset<RiotManifestFile> Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestFileT* _o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
 };
 
 struct RiotManifestFileBuilder {
@@ -832,25 +614,9 @@ inline flatbuffers::Offset<RiotManifestFile> CreateRiotManifestFileDirect(
       permissions);
 }
 
-flatbuffers::Offset<RiotManifestFile> CreateRiotManifestFile(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestFileT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
-
-struct RiotManifestDirectoryT : public flatbuffers::NativeTable {
-  typedef RiotManifestDirectory TableType;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestDirectoryT";
-  }
-  uint64_t id = 0;
-  uint64_t parent_id = 0;
-  std::string name{};
-};
-
 struct RiotManifestDirectory FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
-  typedef RiotManifestDirectoryT NativeTableType;
   typedef RiotManifestDirectoryBuilder Builder;
   struct Traits;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestDirectory";
-  }
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
     VT_ID = 4,
     VT_PARENT_ID = 6,
@@ -859,20 +625,11 @@ struct RiotManifestDirectory FLATBUFFERS_FINAL_CLASS : private flatbuffers::Tabl
   uint64_t id() const {
     return GetField<uint64_t>(VT_ID, 0);
   }
-  bool mutate_id(uint64_t _id = 0) {
-    return SetField<uint64_t>(VT_ID, _id, 0);
-  }
   uint64_t parent_id() const {
     return GetField<uint64_t>(VT_PARENT_ID, 0);
   }
-  bool mutate_parent_id(uint64_t _parent_id = 0) {
-    return SetField<uint64_t>(VT_PARENT_ID, _parent_id, 0);
-  }
-  const flatbuffers::String * _Nullable name() const {
+  const flatbuffers::String *name() const {
     return GetPointer<const flatbuffers::String *>(VT_NAME);
-  }
-  flatbuffers::String * _Nullable mutable_name() {
-    return GetPointer<flatbuffers::String * _Nullable >(VT_NAME);
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
@@ -882,9 +639,6 @@ struct RiotManifestDirectory FLATBUFFERS_FINAL_CLASS : private flatbuffers::Tabl
            verifier.VerifyString(name()) &&
            verifier.EndTable();
   }
-  RiotManifestDirectoryT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  void UnPackTo(RiotManifestDirectoryT *_o, const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  static flatbuffers::Offset<RiotManifestDirectory> Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestDirectoryT* _o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
 };
 
 struct RiotManifestDirectoryBuilder {
@@ -941,40 +695,20 @@ inline flatbuffers::Offset<RiotManifestDirectory> CreateRiotManifestDirectoryDir
       name__);
 }
 
-flatbuffers::Offset<RiotManifestDirectory> CreateRiotManifestDirectory(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestDirectoryT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
-
-struct RiotManifestKeyT : public flatbuffers::NativeTable {
-  typedef RiotManifestKey TableType;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestKeyT";
-  }
-  uint8_t unknown1 = 0;
-};
-
 struct RiotManifestKey FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
-  typedef RiotManifestKeyT NativeTableType;
   typedef RiotManifestKeyBuilder Builder;
   struct Traits;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestKey";
-  }
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
     VT_UNKNOWN1 = 4
   };
   uint8_t unknown1() const {
     return GetField<uint8_t>(VT_UNKNOWN1, 0);
   }
-  bool mutate_unknown1(uint8_t _unknown1 = 0) {
-    return SetField<uint8_t>(VT_UNKNOWN1, _unknown1, 0);
-  }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<uint8_t>(verifier, VT_UNKNOWN1, 1) &&
            verifier.EndTable();
   }
-  RiotManifestKeyT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  void UnPackTo(RiotManifestKeyT *_o, const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  static flatbuffers::Offset<RiotManifestKey> Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestKeyT* _o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
 };
 
 struct RiotManifestKeyBuilder {
@@ -1008,27 +742,9 @@ struct RiotManifestKey::Traits {
   static auto constexpr Create = CreateRiotManifestKey;
 };
 
-flatbuffers::Offset<RiotManifestKey> CreateRiotManifestKey(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestKeyT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
-
-struct RiotManifestParamT : public flatbuffers::NativeTable {
-  typedef RiotManifestParam TableType;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestParamT";
-  }
-  uint16_t id = 0;
-  yordle::manifest::generated::RiotManifestParamType hash_type = yordle::manifest::generated::RiotManifestParamType::NONE;
-  uint8_t unknown3 = 0;
-  uint32_t min_size = 0;
-  uint32_t max_size = 0;
-};
-
 struct RiotManifestParam FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
-  typedef RiotManifestParamT NativeTableType;
   typedef RiotManifestParamBuilder Builder;
   struct Traits;
-  static FLATBUFFERS_CONSTEXPR_CPP11 const char *GetFullyQualifiedName() {
-    return "yordle.manifest.generated.RiotManifestParam";
-  }
   enum FlatBuffersVTableOffset FLATBUFFERS_VTABLE_UNDERLYING_TYPE {
     VT_ID = 4,
     VT_HASH_TYPE = 6,
@@ -1039,32 +755,17 @@ struct RiotManifestParam FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   uint16_t id() const {
     return GetField<uint16_t>(VT_ID, 0);
   }
-  bool mutate_id(uint16_t _id = 0) {
-    return SetField<uint16_t>(VT_ID, _id, 0);
-  }
   yordle::manifest::generated::RiotManifestParamType hash_type() const {
     return static_cast<yordle::manifest::generated::RiotManifestParamType>(GetField<uint8_t>(VT_HASH_TYPE, 0));
-  }
-  bool mutate_hash_type(yordle::manifest::generated::RiotManifestParamType _hash_type = static_cast<yordle::manifest::generated::RiotManifestParamType>(0)) {
-    return SetField<uint8_t>(VT_HASH_TYPE, static_cast<uint8_t>(_hash_type), 0);
   }
   uint8_t unknown3() const {
     return GetField<uint8_t>(VT_UNKNOWN3, 0);
   }
-  bool mutate_unknown3(uint8_t _unknown3 = 0) {
-    return SetField<uint8_t>(VT_UNKNOWN3, _unknown3, 0);
-  }
   uint32_t min_size() const {
     return GetField<uint32_t>(VT_MIN_SIZE, 0);
   }
-  bool mutate_min_size(uint32_t _min_size = 0) {
-    return SetField<uint32_t>(VT_MIN_SIZE, _min_size, 0);
-  }
   uint32_t max_size() const {
     return GetField<uint32_t>(VT_MAX_SIZE, 0);
-  }
-  bool mutate_max_size(uint32_t _max_size = 0) {
-    return SetField<uint32_t>(VT_MAX_SIZE, _max_size, 0);
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
@@ -1075,9 +776,6 @@ struct RiotManifestParam FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyField<uint32_t>(verifier, VT_MAX_SIZE, 4) &&
            verifier.EndTable();
   }
-  RiotManifestParamT *UnPack(const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  void UnPackTo(RiotManifestParamT *_o, const flatbuffers::resolver_function_t *_resolver = nullptr) const;
-  static flatbuffers::Offset<RiotManifestParam> Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestParamT* _o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
 };
 
 struct RiotManifestParamBuilder {
@@ -1131,463 +829,12 @@ struct RiotManifestParam::Traits {
   static auto constexpr Create = CreateRiotManifestParam;
 };
 
-flatbuffers::Offset<RiotManifestParam> CreateRiotManifestParam(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestParamT *_o, const flatbuffers::rehasher_function_t *_rehasher = nullptr);
-
-
-inline bool operator==(const RiotManifestT &lhs, const RiotManifestT &rhs) {
-  return
-      (lhs.bundles == rhs.bundles) &&
-      (lhs.languages == rhs.languages) &&
-      (lhs.files == rhs.files) &&
-      (lhs.directories == rhs.directories) &&
-      (lhs.keys == rhs.keys) &&
-      (lhs.params == rhs.params);
-}
-
-inline bool operator!=(const RiotManifestT &lhs, const RiotManifestT &rhs) {
-    return !(lhs == rhs);
-}
-
-
-inline RiotManifestT::RiotManifestT(const RiotManifestT &o) {
-  bundles.reserve(o.bundles.size());
-  for (const auto &v : o.bundles) { bundles.emplace_back((v) ? new yordle::manifest::generated::RiotManifestBundleT(*v) : nullptr); }
-  languages.reserve(o.languages.size());
-  for (const auto &v : o.languages) { languages.emplace_back((v) ? new yordle::manifest::generated::RiotManifestLanguageT(*v) : nullptr); }
-  files.reserve(o.files.size());
-  for (const auto &v : o.files) { files.emplace_back((v) ? new yordle::manifest::generated::RiotManifestFileT(*v) : nullptr); }
-  directories.reserve(o.directories.size());
-  for (const auto &v : o.directories) { directories.emplace_back((v) ? new yordle::manifest::generated::RiotManifestDirectoryT(*v) : nullptr); }
-  keys.reserve(o.keys.size());
-  for (const auto &v : o.keys) { keys.emplace_back((v) ? new yordle::manifest::generated::RiotManifestKeyT(*v) : nullptr); }
-  params.reserve(o.params.size());
-  for (const auto &v : o.params) { params.emplace_back((v) ? new yordle::manifest::generated::RiotManifestParamT(*v) : nullptr); }
-}
-
-inline RiotManifestT &RiotManifestT::operator=(RiotManifestT o) FLATBUFFERS_NOEXCEPT {
-  std::swap(bundles, o.bundles);
-  std::swap(languages, o.languages);
-  std::swap(files, o.files);
-  std::swap(directories, o.directories);
-  std::swap(keys, o.keys);
-  std::swap(params, o.params);
-  return *this;
-}
-
-inline RiotManifestT *RiotManifest::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
-  auto _o = std::make_unique<RiotManifestT>();
-  UnPackTo(_o.get(), _resolver);
-  return _o.release();
-}
-
-inline void RiotManifest::UnPackTo(RiotManifestT *_o, const flatbuffers::resolver_function_t *_resolver) const {
-  (void)_o;
-  (void)_resolver;
-  { auto _e = bundles(); if (_e) { _o->bundles.resize(_e->size()); for (flatbuffers::uoffset_t _i = 0; _i < _e->size(); _i++) { if(_o->bundles[_i]) { _e->Get(_i)->UnPackTo(_o->bundles[_i].get(), _resolver); } else { _o->bundles[_i] = std::unique_ptr<yordle::manifest::generated::RiotManifestBundleT>(_e->Get(_i)->UnPack(_resolver)); }; } } }
-  { auto _e = languages(); if (_e) { _o->languages.resize(_e->size()); for (flatbuffers::uoffset_t _i = 0; _i < _e->size(); _i++) { if(_o->languages[_i]) { _e->Get(_i)->UnPackTo(_o->languages[_i].get(), _resolver); } else { _o->languages[_i] = std::unique_ptr<yordle::manifest::generated::RiotManifestLanguageT>(_e->Get(_i)->UnPack(_resolver)); }; } } }
-  { auto _e = files(); if (_e) { _o->files.resize(_e->size()); for (flatbuffers::uoffset_t _i = 0; _i < _e->size(); _i++) { if(_o->files[_i]) { _e->Get(_i)->UnPackTo(_o->files[_i].get(), _resolver); } else { _o->files[_i] = std::unique_ptr<yordle::manifest::generated::RiotManifestFileT>(_e->Get(_i)->UnPack(_resolver)); }; } } }
-  { auto _e = directories(); if (_e) { _o->directories.resize(_e->size()); for (flatbuffers::uoffset_t _i = 0; _i < _e->size(); _i++) { if(_o->directories[_i]) { _e->Get(_i)->UnPackTo(_o->directories[_i].get(), _resolver); } else { _o->directories[_i] = std::unique_ptr<yordle::manifest::generated::RiotManifestDirectoryT>(_e->Get(_i)->UnPack(_resolver)); }; } } }
-  { auto _e = keys(); if (_e) { _o->keys.resize(_e->size()); for (flatbuffers::uoffset_t _i = 0; _i < _e->size(); _i++) { if(_o->keys[_i]) { _e->Get(_i)->UnPackTo(_o->keys[_i].get(), _resolver); } else { _o->keys[_i] = std::unique_ptr<yordle::manifest::generated::RiotManifestKeyT>(_e->Get(_i)->UnPack(_resolver)); }; } } }
-  { auto _e = params(); if (_e) { _o->params.resize(_e->size()); for (flatbuffers::uoffset_t _i = 0; _i < _e->size(); _i++) { if(_o->params[_i]) { _e->Get(_i)->UnPackTo(_o->params[_i].get(), _resolver); } else { _o->params[_i] = std::unique_ptr<yordle::manifest::generated::RiotManifestParamT>(_e->Get(_i)->UnPack(_resolver)); }; } } }
-}
-
-inline flatbuffers::Offset<RiotManifest> RiotManifest::Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
-  return CreateRiotManifest(_fbb, _o, _rehasher);
-}
-
-inline flatbuffers::Offset<RiotManifest> CreateRiotManifest(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestT *_o, const flatbuffers::rehasher_function_t *_rehasher) {
-  (void)_rehasher;
-  (void)_o;
-  struct _VectorArgs { flatbuffers::FlatBufferBuilder *__fbb; const RiotManifestT* __o; const flatbuffers::rehasher_function_t *__rehasher; } _va = { &_fbb, _o, _rehasher}; (void)_va;
-  auto _bundles = _o->bundles.size() ? _fbb.CreateVector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBundle>> (_o->bundles.size(), [](size_t i, _VectorArgs *__va) { return CreateRiotManifestBundle(*__va->__fbb, __va->__o->bundles[i].get(), __va->__rehasher); }, &_va ) : 0;
-  auto _languages = _o->languages.size() ? _fbb.CreateVector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestLanguage>> (_o->languages.size(), [](size_t i, _VectorArgs *__va) { return CreateRiotManifestLanguage(*__va->__fbb, __va->__o->languages[i].get(), __va->__rehasher); }, &_va ) : 0;
-  auto _files = _o->files.size() ? _fbb.CreateVector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestFile>> (_o->files.size(), [](size_t i, _VectorArgs *__va) { return CreateRiotManifestFile(*__va->__fbb, __va->__o->files[i].get(), __va->__rehasher); }, &_va ) : 0;
-  auto _directories = _o->directories.size() ? _fbb.CreateVector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestDirectory>> (_o->directories.size(), [](size_t i, _VectorArgs *__va) { return CreateRiotManifestDirectory(*__va->__fbb, __va->__o->directories[i].get(), __va->__rehasher); }, &_va ) : 0;
-  auto _keys = _o->keys.size() ? _fbb.CreateVector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestKey>> (_o->keys.size(), [](size_t i, _VectorArgs *__va) { return CreateRiotManifestKey(*__va->__fbb, __va->__o->keys[i].get(), __va->__rehasher); }, &_va ) : 0;
-  auto _params = _o->params.size() ? _fbb.CreateVector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestParam>> (_o->params.size(), [](size_t i, _VectorArgs *__va) { return CreateRiotManifestParam(*__va->__fbb, __va->__o->params[i].get(), __va->__rehasher); }, &_va ) : 0;
-  return yordle::manifest::generated::CreateRiotManifest(
-      _fbb,
-      _bundles,
-      _languages,
-      _files,
-      _directories,
-      _keys,
-      _params);
-}
-
-
-inline bool operator==(const RiotManifestBundleT &lhs, const RiotManifestBundleT &rhs) {
-  return
-      (lhs.block_id == rhs.block_id) &&
-      (lhs.blocks == rhs.blocks);
-}
-
-inline bool operator!=(const RiotManifestBundleT &lhs, const RiotManifestBundleT &rhs) {
-    return !(lhs == rhs);
-}
-
-
-inline RiotManifestBundleT::RiotManifestBundleT(const RiotManifestBundleT &o)
-      : block_id(o.block_id) {
-  blocks.reserve(o.blocks.size());
-  for (const auto &v : o.blocks) { blocks.emplace_back((v) ? new yordle::manifest::generated::RiotManifestBlockT(*v) : nullptr); }
-}
-
-inline RiotManifestBundleT &RiotManifestBundleT::operator=(RiotManifestBundleT o) FLATBUFFERS_NOEXCEPT {
-  std::swap(block_id, o.block_id);
-  std::swap(blocks, o.blocks);
-  return *this;
-}
-
-inline RiotManifestBundleT *RiotManifestBundle::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
-  auto _o = std::make_unique<RiotManifestBundleT>();
-  UnPackTo(_o.get(), _resolver);
-  return _o.release();
-}
-
-inline void RiotManifestBundle::UnPackTo(RiotManifestBundleT *_o, const flatbuffers::resolver_function_t *_resolver) const {
-  (void)_o;
-  (void)_resolver;
-  { auto _e = block_id(); _o->block_id = _e; }
-  { auto _e = blocks(); if (_e) { _o->blocks.resize(_e->size()); for (flatbuffers::uoffset_t _i = 0; _i < _e->size(); _i++) { if(_o->blocks[_i]) { _e->Get(_i)->UnPackTo(_o->blocks[_i].get(), _resolver); } else { _o->blocks[_i] = std::unique_ptr<yordle::manifest::generated::RiotManifestBlockT>(_e->Get(_i)->UnPack(_resolver)); }; } } }
-}
-
-inline flatbuffers::Offset<RiotManifestBundle> RiotManifestBundle::Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestBundleT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
-  return CreateRiotManifestBundle(_fbb, _o, _rehasher);
-}
-
-inline flatbuffers::Offset<RiotManifestBundle> CreateRiotManifestBundle(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestBundleT *_o, const flatbuffers::rehasher_function_t *_rehasher) {
-  (void)_rehasher;
-  (void)_o;
-  struct _VectorArgs { flatbuffers::FlatBufferBuilder *__fbb; const RiotManifestBundleT* __o; const flatbuffers::rehasher_function_t *__rehasher; } _va = { &_fbb, _o, _rehasher}; (void)_va;
-  auto _block_id = _o->block_id;
-  auto _blocks = _o->blocks.size() ? _fbb.CreateVector<flatbuffers::Offset<yordle::manifest::generated::RiotManifestBlock>> (_o->blocks.size(), [](size_t i, _VectorArgs *__va) { return CreateRiotManifestBlock(*__va->__fbb, __va->__o->blocks[i].get(), __va->__rehasher); }, &_va ) : 0;
-  return yordle::manifest::generated::CreateRiotManifestBundle(
-      _fbb,
-      _block_id,
-      _blocks);
-}
-
-
-inline bool operator==(const RiotManifestBlockT &lhs, const RiotManifestBlockT &rhs) {
-  return
-      (lhs.block_id == rhs.block_id) &&
-      (lhs.compressed_size == rhs.compressed_size) &&
-      (lhs.size == rhs.size);
-}
-
-inline bool operator!=(const RiotManifestBlockT &lhs, const RiotManifestBlockT &rhs) {
-    return !(lhs == rhs);
-}
-
-
-inline RiotManifestBlockT *RiotManifestBlock::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
-  auto _o = std::make_unique<RiotManifestBlockT>();
-  UnPackTo(_o.get(), _resolver);
-  return _o.release();
-}
-
-inline void RiotManifestBlock::UnPackTo(RiotManifestBlockT *_o, const flatbuffers::resolver_function_t *_resolver) const {
-  (void)_o;
-  (void)_resolver;
-  { auto _e = block_id(); _o->block_id = _e; }
-  { auto _e = compressed_size(); _o->compressed_size = _e; }
-  { auto _e = size(); _o->size = _e; }
-}
-
-inline flatbuffers::Offset<RiotManifestBlock> RiotManifestBlock::Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestBlockT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
-  return CreateRiotManifestBlock(_fbb, _o, _rehasher);
-}
-
-inline flatbuffers::Offset<RiotManifestBlock> CreateRiotManifestBlock(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestBlockT *_o, const flatbuffers::rehasher_function_t *_rehasher) {
-  (void)_rehasher;
-  (void)_o;
-  struct _VectorArgs { flatbuffers::FlatBufferBuilder *__fbb; const RiotManifestBlockT* __o; const flatbuffers::rehasher_function_t *__rehasher; } _va = { &_fbb, _o, _rehasher}; (void)_va;
-  auto _block_id = _o->block_id;
-  auto _compressed_size = _o->compressed_size;
-  auto _size = _o->size;
-  return yordle::manifest::generated::CreateRiotManifestBlock(
-      _fbb,
-      _block_id,
-      _compressed_size,
-      _size);
-}
-
-
-inline bool operator==(const RiotManifestLanguageT &lhs, const RiotManifestLanguageT &rhs) {
-  return
-      (lhs.language_id == rhs.language_id) &&
-      (lhs.name == rhs.name);
-}
-
-inline bool operator!=(const RiotManifestLanguageT &lhs, const RiotManifestLanguageT &rhs) {
-    return !(lhs == rhs);
-}
-
-
-inline RiotManifestLanguageT *RiotManifestLanguage::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
-  auto _o = std::make_unique<RiotManifestLanguageT>();
-  UnPackTo(_o.get(), _resolver);
-  return _o.release();
-}
-
-inline void RiotManifestLanguage::UnPackTo(RiotManifestLanguageT *_o, const flatbuffers::resolver_function_t *_resolver) const {
-  (void)_o;
-  (void)_resolver;
-  { auto _e = language_id(); _o->language_id = _e; }
-  { auto _e = name(); if (_e) _o->name = _e->str(); }
-}
-
-inline flatbuffers::Offset<RiotManifestLanguage> RiotManifestLanguage::Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestLanguageT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
-  return CreateRiotManifestLanguage(_fbb, _o, _rehasher);
-}
-
-inline flatbuffers::Offset<RiotManifestLanguage> CreateRiotManifestLanguage(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestLanguageT *_o, const flatbuffers::rehasher_function_t *_rehasher) {
-  (void)_rehasher;
-  (void)_o;
-  struct _VectorArgs { flatbuffers::FlatBufferBuilder *__fbb; const RiotManifestLanguageT* __o; const flatbuffers::rehasher_function_t *__rehasher; } _va = { &_fbb, _o, _rehasher}; (void)_va;
-  auto _language_id = _o->language_id;
-  auto _name = _o->name.empty() ? 0 : _fbb.CreateString(_o->name);
-  return yordle::manifest::generated::CreateRiotManifestLanguage(
-      _fbb,
-      _language_id,
-      _name);
-}
-
-
-inline bool operator==(const RiotManifestFileT &lhs, const RiotManifestFileT &rhs) {
-  return
-      (lhs.file_id == rhs.file_id) &&
-      (lhs.directory_id == rhs.directory_id) &&
-      (lhs.size == rhs.size) &&
-      (lhs.name == rhs.name) &&
-      (lhs.language_flags == rhs.language_flags) &&
-      (lhs.unknown3 == rhs.unknown3) &&
-      (lhs.unknown4 == rhs.unknown4) &&
-      (lhs.block_ids == rhs.block_ids) &&
-      (lhs.is_bundle_hierarchy == rhs.is_bundle_hierarchy) &&
-      (lhs.link == rhs.link) &&
-      (lhs.unknown8 == rhs.unknown8) &&
-      (lhs.index == rhs.index) &&
-      (lhs.permissions == rhs.permissions);
-}
-
-inline bool operator!=(const RiotManifestFileT &lhs, const RiotManifestFileT &rhs) {
-    return !(lhs == rhs);
-}
-
-
-inline RiotManifestFileT *RiotManifestFile::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
-  auto _o = std::make_unique<RiotManifestFileT>();
-  UnPackTo(_o.get(), _resolver);
-  return _o.release();
-}
-
-inline void RiotManifestFile::UnPackTo(RiotManifestFileT *_o, const flatbuffers::resolver_function_t *_resolver) const {
-  (void)_o;
-  (void)_resolver;
-  { auto _e = file_id(); _o->file_id = _e; }
-  { auto _e = directory_id(); _o->directory_id = _e; }
-  { auto _e = size(); _o->size = _e; }
-  { auto _e = name(); if (_e) _o->name = _e->str(); }
-  { auto _e = language_flags(); _o->language_flags = _e; }
-  { auto _e = unknown3(); _o->unknown3 = _e; }
-  { auto _e = unknown4(); _o->unknown4 = _e; }
-  { auto _e = block_ids(); if (_e) { _o->block_ids.resize(_e->size()); for (flatbuffers::uoffset_t _i = 0; _i < _e->size(); _i++) { _o->block_ids[_i] = _e->Get(_i); } } }
-  { auto _e = is_bundle_hierarchy(); _o->is_bundle_hierarchy = _e; }
-  { auto _e = link(); if (_e) _o->link = _e->str(); }
-  { auto _e = unknown8(); _o->unknown8 = _e; }
-  { auto _e = index(); _o->index = _e; }
-  { auto _e = permissions(); _o->permissions = _e; }
-}
-
-inline flatbuffers::Offset<RiotManifestFile> RiotManifestFile::Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestFileT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
-  return CreateRiotManifestFile(_fbb, _o, _rehasher);
-}
-
-inline flatbuffers::Offset<RiotManifestFile> CreateRiotManifestFile(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestFileT *_o, const flatbuffers::rehasher_function_t *_rehasher) {
-  (void)_rehasher;
-  (void)_o;
-  struct _VectorArgs { flatbuffers::FlatBufferBuilder *__fbb; const RiotManifestFileT* __o; const flatbuffers::rehasher_function_t *__rehasher; } _va = { &_fbb, _o, _rehasher}; (void)_va;
-  auto _file_id = _o->file_id;
-  auto _directory_id = _o->directory_id;
-  auto _size = _o->size;
-  auto _name = _o->name.empty() ? 0 : _fbb.CreateString(_o->name);
-  auto _language_flags = _o->language_flags;
-  auto _unknown3 = _o->unknown3;
-  auto _unknown4 = _o->unknown4;
-  auto _block_ids = _o->block_ids.size() ? _fbb.CreateVector(_o->block_ids) : 0;
-  auto _is_bundle_hierarchy = _o->is_bundle_hierarchy;
-  auto _link = _o->link.empty() ? 0 : _fbb.CreateString(_o->link);
-  auto _unknown8 = _o->unknown8;
-  auto _index = _o->index;
-  auto _permissions = _o->permissions;
-  return yordle::manifest::generated::CreateRiotManifestFile(
-      _fbb,
-      _file_id,
-      _directory_id,
-      _size,
-      _name,
-      _language_flags,
-      _unknown3,
-      _unknown4,
-      _block_ids,
-      _is_bundle_hierarchy,
-      _link,
-      _unknown8,
-      _index,
-      _permissions);
-}
-
-
-inline bool operator==(const RiotManifestDirectoryT &lhs, const RiotManifestDirectoryT &rhs) {
-  return
-      (lhs.id == rhs.id) &&
-      (lhs.parent_id == rhs.parent_id) &&
-      (lhs.name == rhs.name);
-}
-
-inline bool operator!=(const RiotManifestDirectoryT &lhs, const RiotManifestDirectoryT &rhs) {
-    return !(lhs == rhs);
-}
-
-
-inline RiotManifestDirectoryT *RiotManifestDirectory::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
-  auto _o = std::make_unique<RiotManifestDirectoryT>();
-  UnPackTo(_o.get(), _resolver);
-  return _o.release();
-}
-
-inline void RiotManifestDirectory::UnPackTo(RiotManifestDirectoryT *_o, const flatbuffers::resolver_function_t *_resolver) const {
-  (void)_o;
-  (void)_resolver;
-  { auto _e = id(); _o->id = _e; }
-  { auto _e = parent_id(); _o->parent_id = _e; }
-  { auto _e = name(); if (_e) _o->name = _e->str(); }
-}
-
-inline flatbuffers::Offset<RiotManifestDirectory> RiotManifestDirectory::Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestDirectoryT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
-  return CreateRiotManifestDirectory(_fbb, _o, _rehasher);
-}
-
-inline flatbuffers::Offset<RiotManifestDirectory> CreateRiotManifestDirectory(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestDirectoryT *_o, const flatbuffers::rehasher_function_t *_rehasher) {
-  (void)_rehasher;
-  (void)_o;
-  struct _VectorArgs { flatbuffers::FlatBufferBuilder *__fbb; const RiotManifestDirectoryT* __o; const flatbuffers::rehasher_function_t *__rehasher; } _va = { &_fbb, _o, _rehasher}; (void)_va;
-  auto _id = _o->id;
-  auto _parent_id = _o->parent_id;
-  auto _name = _o->name.empty() ? 0 : _fbb.CreateString(_o->name);
-  return yordle::manifest::generated::CreateRiotManifestDirectory(
-      _fbb,
-      _id,
-      _parent_id,
-      _name);
-}
-
-
-inline bool operator==(const RiotManifestKeyT &lhs, const RiotManifestKeyT &rhs) {
-  return
-      (lhs.unknown1 == rhs.unknown1);
-}
-
-inline bool operator!=(const RiotManifestKeyT &lhs, const RiotManifestKeyT &rhs) {
-    return !(lhs == rhs);
-}
-
-
-inline RiotManifestKeyT *RiotManifestKey::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
-  auto _o = std::make_unique<RiotManifestKeyT>();
-  UnPackTo(_o.get(), _resolver);
-  return _o.release();
-}
-
-inline void RiotManifestKey::UnPackTo(RiotManifestKeyT *_o, const flatbuffers::resolver_function_t *_resolver) const {
-  (void)_o;
-  (void)_resolver;
-  { auto _e = unknown1(); _o->unknown1 = _e; }
-}
-
-inline flatbuffers::Offset<RiotManifestKey> RiotManifestKey::Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestKeyT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
-  return CreateRiotManifestKey(_fbb, _o, _rehasher);
-}
-
-inline flatbuffers::Offset<RiotManifestKey> CreateRiotManifestKey(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestKeyT *_o, const flatbuffers::rehasher_function_t *_rehasher) {
-  (void)_rehasher;
-  (void)_o;
-  struct _VectorArgs { flatbuffers::FlatBufferBuilder *__fbb; const RiotManifestKeyT* __o; const flatbuffers::rehasher_function_t *__rehasher; } _va = { &_fbb, _o, _rehasher}; (void)_va;
-  auto _unknown1 = _o->unknown1;
-  return yordle::manifest::generated::CreateRiotManifestKey(
-      _fbb,
-      _unknown1);
-}
-
-
-inline bool operator==(const RiotManifestParamT &lhs, const RiotManifestParamT &rhs) {
-  return
-      (lhs.id == rhs.id) &&
-      (lhs.hash_type == rhs.hash_type) &&
-      (lhs.unknown3 == rhs.unknown3) &&
-      (lhs.min_size == rhs.min_size) &&
-      (lhs.max_size == rhs.max_size);
-}
-
-inline bool operator!=(const RiotManifestParamT &lhs, const RiotManifestParamT &rhs) {
-    return !(lhs == rhs);
-}
-
-
-inline RiotManifestParamT *RiotManifestParam::UnPack(const flatbuffers::resolver_function_t *_resolver) const {
-  auto _o = std::make_unique<RiotManifestParamT>();
-  UnPackTo(_o.get(), _resolver);
-  return _o.release();
-}
-
-inline void RiotManifestParam::UnPackTo(RiotManifestParamT *_o, const flatbuffers::resolver_function_t *_resolver) const {
-  (void)_o;
-  (void)_resolver;
-  { auto _e = id(); _o->id = _e; }
-  { auto _e = hash_type(); _o->hash_type = _e; }
-  { auto _e = unknown3(); _o->unknown3 = _e; }
-  { auto _e = min_size(); _o->min_size = _e; }
-  { auto _e = max_size(); _o->max_size = _e; }
-}
-
-inline flatbuffers::Offset<RiotManifestParam> RiotManifestParam::Pack(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestParamT* _o, const flatbuffers::rehasher_function_t *_rehasher) {
-  return CreateRiotManifestParam(_fbb, _o, _rehasher);
-}
-
-inline flatbuffers::Offset<RiotManifestParam> CreateRiotManifestParam(flatbuffers::FlatBufferBuilder &_fbb, const RiotManifestParamT *_o, const flatbuffers::rehasher_function_t *_rehasher) {
-  (void)_rehasher;
-  (void)_o;
-  struct _VectorArgs { flatbuffers::FlatBufferBuilder *__fbb; const RiotManifestParamT* __o; const flatbuffers::rehasher_function_t *__rehasher; } _va = { &_fbb, _o, _rehasher}; (void)_va;
-  auto _id = _o->id;
-  auto _hash_type = _o->hash_type;
-  auto _unknown3 = _o->unknown3;
-  auto _min_size = _o->min_size;
-  auto _max_size = _o->max_size;
-  return yordle::manifest::generated::CreateRiotManifestParam(
-      _fbb,
-      _id,
-      _hash_type,
-      _unknown3,
-      _min_size,
-      _max_size);
-}
-
-inline const yordle::manifest::generated::RiotManifest * _Nullable GetRiotManifest(const void *buf) {
+inline const yordle::manifest::generated::RiotManifest *GetRiotManifest(const void *buf) {
   return flatbuffers::GetRoot<yordle::manifest::generated::RiotManifest>(buf);
 }
 
-inline const yordle::manifest::generated::RiotManifest * _Nullable GetSizePrefixedRiotManifest(const void *buf) {
+inline const yordle::manifest::generated::RiotManifest *GetSizePrefixedRiotManifest(const void *buf) {
   return flatbuffers::GetSizePrefixedRoot<yordle::manifest::generated::RiotManifest>(buf);
-}
-
-inline RiotManifest *GetMutableRiotManifest(void *buf) {
-  return flatbuffers::GetMutableRoot<RiotManifest>(buf);
-}
-
-inline yordle::manifest::generated::RiotManifest * _Nullable GetMutableSizePrefixedRiotManifest(void *buf) {
-  return flatbuffers::GetMutableSizePrefixedRoot<yordle::manifest::generated::RiotManifest>(buf);
 }
 
 inline bool VerifyRiotManifestBuffer(
@@ -1610,18 +857,6 @@ inline void FinishSizePrefixedRiotManifestBuffer(
     flatbuffers::FlatBufferBuilder &fbb,
     flatbuffers::Offset<yordle::manifest::generated::RiotManifest> root) {
   fbb.FinishSizePrefixed(root);
-}
-
-inline std::unique_ptr<yordle::manifest::generated::RiotManifestT> UnPackRiotManifest(
-    const void *buf,
-    const flatbuffers::resolver_function_t *res = nullptr) {
-  return std::unique_ptr<yordle::manifest::generated::RiotManifestT>(GetRiotManifest(buf)->UnPack(res));
-}
-
-inline std::unique_ptr<yordle::manifest::generated::RiotManifestT> UnPackSizePrefixedRiotManifest(
-    const void *buf,
-    const flatbuffers::resolver_function_t *res = nullptr) {
-  return std::unique_ptr<yordle::manifest::generated::RiotManifestT>(GetSizePrefixedRiotManifest(buf)->UnPack(res));
 }
 
 }  // namespace generated

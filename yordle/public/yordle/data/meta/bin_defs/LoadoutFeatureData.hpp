@@ -23,7 +23,7 @@ namespace yordle::data::meta {
             return type == 3930402607u;
         }
 
-        uint32_t mFeature = 13u;
+        uint32_t mFeature = 15u;
         std::optional<std::string> mMutator {};
         std::optional<std::string> mBinaryFile {};
         std::string mLoadoutCategory {};

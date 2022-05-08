@@ -7,7 +7,6 @@
 
 #include <yordle/data/meta/bin_defs/LoLFeatureToggles.hpp>
 #include <yordle/data/meta/bin_defs/GameplayFeatureToggles.hpp>
-#include <yordle/data/meta/bin_defs/EngineFeatureToggles.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -21,10 +20,6 @@ namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_GameplayFeatureToggles
     struct GameplayFeatureToggles;
 #endif
-
-#ifndef YORDLE_META_DEF_EngineFeatureToggles
-    struct EngineFeatureToggles;
-#endif
     struct YORDLE_EXPORT LiveFeatureToggles : public bin_class {
         explicit LiveFeatureToggles(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -34,7 +29,6 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::LoLFeatureToggles> mLoLToggles {};
         std::shared_ptr<yordle::data::meta::GameplayFeatureToggles> mGameplayToggles {};
-        std::shared_ptr<yordle::data::meta::EngineFeatureToggles> mEngineToggles {};
     };
 }
 #define YORDLE_META_DEF_LiveFeatureToggles

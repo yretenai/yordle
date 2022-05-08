@@ -4,7 +4,6 @@
 #pragma once
 
 #include <memory>
-#include <string>
 #include <vector>
 
 #include <yordle/data/meta/bin_defs/TftMapCharacterList.hpp>
@@ -24,7 +23,6 @@ namespace yordle::data::meta {
             return type == 1820531913u;
         }
 
-        std::string MapName {};
         std::vector<std::shared_ptr<yordle::data::meta::TftMapCharacterList>> characterLists {};
     };
 }

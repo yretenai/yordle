@@ -33,6 +33,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x18b07cca = 0u;
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
         std::shared_ptr<yordle::data::meta::xcce3468e> xdcddaed5 {};
+        yordle::data::meta::bin_fnv_hash xd7154637 = 0u;
+        yordle::data::meta::bin_fnv_hash xd2420273 = 0u;
     };
 }
 #define YORDLE_META_DEF_SocialPanelViewController

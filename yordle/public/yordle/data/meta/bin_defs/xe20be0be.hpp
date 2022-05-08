@@ -5,12 +5,16 @@
 
 #include <memory>
 
+#include <yordle/data/meta/bin_defs/xf5822b4e.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_xf5822b4e
+    struct xf5822b4e;
+#endif
     struct YORDLE_EXPORT xe20be0be : public ViewController {
         explicit xe20be0be(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -19,6 +23,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash x4d302530 = 0u;
+        std::shared_ptr<yordle::data::meta::xf5822b4e> x4babd89d {};
     };
 }
 #define YORDLE_META_DEF_xe20be0be

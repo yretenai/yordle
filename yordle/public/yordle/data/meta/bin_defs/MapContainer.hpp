@@ -37,6 +37,7 @@ namespace yordle::data::meta {
         std::array<float, 2> boundsMax { 14820, 14881 };
         float lowestWalkableHeight = 0.0;
         float xf010defb = 0.0;
+        bool xd4edb891 = false;
         std::map<yordle::data::meta::bin_fnv_hash, yordle::data::meta::bin_ref<yordle::data::meta::MapPlaceableContainer>> chunks {};
     };
 }

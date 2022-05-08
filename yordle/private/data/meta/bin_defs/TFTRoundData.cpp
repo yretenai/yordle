@@ -126,6 +126,11 @@ yordle::data::meta::TFTRoundData::TFTRoundData(const std::shared_ptr<yordle::dat
         mCombat = yordle::data::meta::deserialize<yordle::data::meta::TFTPhaseData>(ptr_mCombat, 634061068u);
     }
 
+    auto ptr_x79c749b6 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2043103670u);
+    if(ptr_x79c749b6 != nullptr) {
+        x79c749b6 = yordle::data::meta::deserialize<yordle::data::meta::TFTPhaseData>(ptr_x79c749b6, 634061068u);
+    }
+
     auto ptr_mCombatDeparture = prop->cast_prop<yordle::data::prop::inline_structure_prop>(4165626500u);
     if(ptr_mCombatDeparture != nullptr) {
         mCombatDeparture = yordle::data::meta::deserialize<yordle::data::meta::TFTPhaseData>(ptr_mCombatDeparture, 634061068u);

@@ -49,4 +49,14 @@ yordle::data::meta::SocialPanelViewController::SocialPanelViewController(const s
     if(ptr_xdcddaed5 != nullptr) {
         xdcddaed5 = yordle::data::meta::deserialize<yordle::data::meta::xcce3468e>(ptr_xdcddaed5, 3437446798u);
     }
+
+    auto ptr_xd7154637 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3608495671u);
+    if(ptr_xd7154637 != nullptr) {
+        xd7154637 = ptr_xd7154637->value;
+    }
+
+    auto ptr_xd2420273 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3527541363u);
+    if(ptr_xd2420273 != nullptr) {
+        xd2420273 = ptr_xd2420273->value;
+    }
 }

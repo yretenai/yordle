@@ -2,7 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/TftTraitData.hpp>
 
-#include <yordle/data/meta/bin_defs/TFTTraitSetData.hpp>
+#include <yordle/data/meta/bin_defs/xe132f2d0.hpp>
 #include <yordle/data/meta/bin_defs/x18ee4f3b.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
@@ -25,12 +25,17 @@ yordle::data::meta::TftTraitData::TftTraitData(const std::shared_ptr<yordle::dat
         mName = ptr_mName->value;
     }
 
-    auto ptr_mTraitSets = prop->cast_prop<yordle::data::prop::set_prop>(2651522645u);
-    if(ptr_mTraitSets != nullptr) {
-        for(const auto &set_mTraitSets_entry : ptr_mTraitSets->value) {
-            auto ptr_mTraitSets_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_mTraitSets_entry);
-            if(ptr_mTraitSets_entry != nullptr) {
-                mTraitSets.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::TFTTraitSetData>(ptr_mTraitSets_entry, 3241198053u));
+    auto ptr_x88730233 = prop->cast_prop<yordle::data::prop::uint8_prop>(2289238579u);
+    if(ptr_x88730233 != nullptr) {
+        x88730233 = ptr_x88730233->value;
+    }
+
+    auto ptr_x6f4cf34d = prop->cast_prop<yordle::data::prop::set_prop>(1867313997u);
+    if(ptr_x6f4cf34d != nullptr) {
+        for(const auto &set_x6f4cf34d_entry : ptr_x6f4cf34d->value) {
+            auto ptr_x6f4cf34d_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_x6f4cf34d_entry);
+            if(ptr_x6f4cf34d_entry != nullptr) {
+                x6f4cf34d.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::xe132f2d0>(ptr_x6f4cf34d_entry, 3778212560u));
             }
         }
     }
@@ -60,9 +65,14 @@ yordle::data::meta::TftTraitData::TftTraitData(const std::shared_ptr<yordle::dat
         mDescriptionNameTra = ptr_mDescriptionNameTra->value;
     }
 
-    auto ptr_mDisplayNameIcon = prop->cast_prop<yordle::data::prop::string_prop>(3071677840u);
-    if(ptr_mDisplayNameIcon != nullptr) {
-        mDisplayNameIcon = ptr_mDisplayNameIcon->value;
+    auto ptr_xfaf78155 = prop->cast_prop<yordle::data::prop::unordered_set_prop>(4210524501u);
+    if(ptr_xfaf78155 != nullptr) {
+        for(const auto &set_xfaf78155_entry : ptr_xfaf78155->value) {
+            auto ptr_xfaf78155_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_xfaf78155_entry);
+            if(ptr_xfaf78155_entry != nullptr) {
+                xfaf78155.emplace_back(ptr_xfaf78155_entry->value);
+            }
+        }
     }
 
     auto ptr_mIconPath = prop->cast_prop<yordle::data::prop::string_prop>(2347641202u);

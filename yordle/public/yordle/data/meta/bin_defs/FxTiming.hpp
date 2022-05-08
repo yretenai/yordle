@@ -19,9 +19,9 @@ namespace yordle::data::meta {
             return type == 3687298637u;
         }
 
-        uint32_t Anchor = 0u;
-        uint32_t type = 1u;
         float offset = 0.0;
+        int32_t x23756bf4 = 0;
+        bool x22a99fe3 = false;
     };
 }
 #define YORDLE_META_DEF_FxTiming

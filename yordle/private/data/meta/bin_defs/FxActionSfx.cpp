@@ -2,7 +2,8 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/FxActionSfx.hpp>
 
-#include <yordle/data/meta/bin_defs/FxTransform.hpp>
+#include <yordle/data/meta/bin_defs/x1c494c09.hpp>
+#include <yordle/data/meta/bin_defs/x5c086dbd.hpp>
 #include <yordle/data/meta/bin_defs/IFxAction.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -19,13 +20,28 @@ yordle::data::meta::FxActionSfx::FxActionSfx(const std::shared_ptr<yordle::data:
     if(prop == nullptr) {
         return;
     }
-    auto ptr_position = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2471448074u);
-    if(ptr_position != nullptr) {
-        position = yordle::data::meta::deserialize<yordle::data::meta::FxTransform>(ptr_position, 754442341u);
+    auto ptr_Location = prop->cast_prop<yordle::data::prop::structure_prop>(200649126u);
+    if(ptr_Location != nullptr) {
+        Location = yordle::data::meta::deserialize<yordle::data::meta::x1c494c09>(ptr_Location, 474565641u);
+    }
+
+    auto ptr_xacb23dae = prop->cast_prop<yordle::data::prop::bool_prop>(2897362350u);
+    if(ptr_xacb23dae != nullptr) {
+        xacb23dae = ptr_xacb23dae->value;
+    }
+
+    auto ptr_x5cfe9324 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1560187684u);
+    if(ptr_x5cfe9324 != nullptr) {
+        x5cfe9324 = yordle::data::meta::deserialize<yordle::data::meta::x5c086dbd>(ptr_x5cfe9324, 1544056253u);
     }
 
     auto ptr_EventName = prop->cast_prop<yordle::data::prop::string_prop>(705137820u);
     if(ptr_EventName != nullptr) {
         EventName = ptr_EventName->value;
+    }
+
+    auto ptr_xcc52e9ac = prop->cast_prop<yordle::data::prop::bool_prop>(3427985836u);
+    if(ptr_xcc52e9ac != nullptr) {
+        xcc52e9ac = ptr_xcc52e9ac->value;
     }
 }

@@ -6,15 +6,20 @@
 #include <memory>
 #include <string>
 
-#include <yordle/data/meta/bin_defs/FxTransform.hpp>
+#include <yordle/data/meta/bin_defs/x1c494c09.hpp>
+#include <yordle/data/meta/bin_defs/x5c086dbd.hpp>
 #include <yordle/data/meta/bin_defs/IFxAction.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_FxTransform
-    struct FxTransform;
+#ifndef YORDLE_META_DEF_x1c494c09
+    struct x1c494c09;
+#endif
+
+#ifndef YORDLE_META_DEF_x5c086dbd
+    struct x5c086dbd;
 #endif
     struct YORDLE_EXPORT FxActionSfx : public IFxAction {
         explicit FxActionSfx(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -23,8 +28,11 @@ namespace yordle::data::meta {
             return type == 3588503832u || IFxAction::is_type(type);
         }
 
-        std::shared_ptr<yordle::data::meta::FxTransform> position {};
+        std::shared_ptr<yordle::data::meta::x1c494c09> Location {};
+        bool xacb23dae = true;
+        std::shared_ptr<yordle::data::meta::x5c086dbd> x5cfe9324 {};
         std::string EventName {};
+        bool xcc52e9ac = false;
     };
 }
 #define YORDLE_META_DEF_FxActionSfx

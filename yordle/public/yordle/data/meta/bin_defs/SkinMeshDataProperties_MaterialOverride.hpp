@@ -26,6 +26,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::IMaterialDef> material { 3975636772 };
         std::string texture {};
         std::string glossTexture {};
+        std::string x195a9c57 {};
+        std::string normalMapTexture {};
         std::string Submesh {};
     };
 }

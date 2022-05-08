@@ -28,7 +28,7 @@
 #include <set>
 #include <string>
 
-#include <yordle/yordle.hpp>
+#include <yordle/manifest/riot_manifest.hpp>
 
 #ifdef POPPY_THREADING
 #    include <execution>

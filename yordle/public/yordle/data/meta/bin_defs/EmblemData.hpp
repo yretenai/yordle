@@ -19,7 +19,6 @@ namespace yordle::data::meta {
             return type == 1713655491u;
         }
 
-        bool mShowOnLoadingScreen = true;
         float mLoadingScreenScale = 0.800000011920929;
         std::string mImagePath {};
     };

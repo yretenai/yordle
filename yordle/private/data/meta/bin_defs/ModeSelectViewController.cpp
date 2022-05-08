@@ -3,6 +3,7 @@
 #include <yordle/data/meta/bin_defs/ModeSelectViewController.hpp>
 
 #include <yordle/data/meta/bin_defs/QueueDisplayData.hpp>
+#include <yordle/data/meta/bin_defs/x61767839.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -44,9 +45,9 @@ yordle::data::meta::ModeSelectViewController::ModeSelectViewController(const std
         }
     }
 
-    auto ptr_x9e4be5ed = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2655774189u);
-    if(ptr_x9e4be5ed != nullptr) {
-        x9e4be5ed = ptr_x9e4be5ed->value;
+    auto ptr_x61767839 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1635153977u);
+    if(ptr_x61767839 != nullptr) {
+        x61767839 = yordle::data::meta::deserialize<yordle::data::meta::x61767839>(ptr_x61767839, 1635153977u);
     }
 
     auto ptr_SoundOnActivate = prop->cast_prop<yordle::data::prop::string_prop>(2690247672u);

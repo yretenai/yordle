@@ -52,6 +52,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x9057e20c = 0u;
         yordle::data::meta::bin_fnv_hash BundleItemFrameIcon = 0u;
         yordle::data::meta::bin_fnv_hash BundleItemFrameHoverIcon = 0u;
+        yordle::data::meta::bin_fnv_hash x5893e64c = 0u;
         yordle::data::meta::bin_fnv_hash xd05802ad = 0u;
         yordle::data::meta::bin_fnv_hash x2435e125 = 0u;
         yordle::data::meta::bin_fnv_hash x75ef6ce0 = 0u;

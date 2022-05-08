@@ -10,6 +10,7 @@
 
 #include <yordle/data/meta/bin_defs/ChampionItemRecommendations.hpp>
 #include <yordle/data/meta/bin_defs/Character.hpp>
+#include <yordle/data/meta/bin_defs/CatalogEntry.hpp>
 #include <yordle/data/meta/bin_defs/WadFileDescriptor.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -22,6 +23,10 @@ namespace yordle::data::meta {
 
 #ifndef YORDLE_META_DEF_Character
     struct Character;
+#endif
+
+#ifndef YORDLE_META_DEF_CatalogEntry
+    struct CatalogEntry;
 #endif
     struct YORDLE_EXPORT Champion : public WadFileDescriptor {
         explicit Champion(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -36,6 +41,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::Character>> additionalCharacters {};
         int8_t fixedLoadScreenPosition = -1;
         uint32_t xc7d8a053 = 7u;
+        std::shared_ptr<yordle::data::meta::CatalogEntry> CatalogEntry {};
     };
 }
 #define YORDLE_META_DEF_Champion

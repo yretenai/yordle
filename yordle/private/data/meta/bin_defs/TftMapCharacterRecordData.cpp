@@ -2,6 +2,8 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/TftMapCharacterRecordData.hpp>
 
+#include <yordle/data/meta/bin_defs/xa4281f51.hpp>
+#include <yordle/data/meta/bin_defs/x1ad8a401.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -21,5 +23,25 @@ yordle::data::meta::TftMapCharacterRecordData::TftMapCharacterRecordData(const s
     auto ptr_tier = prop->cast_prop<yordle::data::prop::uint8_prop>(1548858633u);
     if(ptr_tier != nullptr) {
         tier = ptr_tier->value;
+    }
+
+    auto ptr_xed01b2a5 = prop->cast_prop<yordle::data::prop::set_prop>(3976311461u);
+    if(ptr_xed01b2a5 != nullptr) {
+        for(const auto &set_xed01b2a5_entry : ptr_xed01b2a5->value) {
+            auto ptr_xed01b2a5_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_xed01b2a5_entry);
+            if(ptr_xed01b2a5_entry != nullptr) {
+                xed01b2a5.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::xa4281f51>(ptr_xed01b2a5_entry, 2754092881u));
+            }
+        }
+    }
+
+    auto ptr_x687f379 = prop->cast_prop<yordle::data::prop::set_prop>(109572985u);
+    if(ptr_x687f379 != nullptr) {
+        for(const auto &set_x687f379_entry : ptr_x687f379->value) {
+            auto ptr_x687f379_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_x687f379_entry);
+            if(ptr_x687f379_entry != nullptr) {
+                x687f379.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x1ad8a401>(ptr_x687f379_entry, 450405377u));
+            }
+        }
     }
 }

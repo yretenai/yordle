@@ -7,6 +7,7 @@
 #include <yordle/data/meta/bin_defs/StaticMaterialSwitchDef.hpp>
 #include <yordle/data/meta/bin_defs/StaticMaterialTechniqueDef.hpp>
 #include <yordle/data/meta/bin_defs/StaticMaterialChildTechniqueDef.hpp>
+#include <yordle/data/meta/bin_defs/x272ca74d.hpp>
 #include <yordle/data/meta/bin_defs/DynamicMaterialDef.hpp>
 #include <yordle/data/meta/bin_defs/IResource.hpp>
 #include <yordle/data/meta/bin_defs/IMaterialDef.hpp>
@@ -40,7 +41,7 @@ yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<y
         defaultTechnique = ptr_defaultTechnique->value;
     }
 
-    auto ptr_samplerValues = prop->cast_prop<yordle::data::prop::set_prop>(175050421u);
+    auto ptr_samplerValues = prop->cast_prop<yordle::data::prop::unordered_set_prop>(175050421u);
     if(ptr_samplerValues != nullptr) {
         for(const auto &set_samplerValues_entry : ptr_samplerValues->value) {
             auto ptr_samplerValues_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_samplerValues_entry);
@@ -50,7 +51,7 @@ yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<y
         }
     }
 
-    auto ptr_paramValues = prop->cast_prop<yordle::data::prop::set_prop>(3500885688u);
+    auto ptr_paramValues = prop->cast_prop<yordle::data::prop::unordered_set_prop>(3500885688u);
     if(ptr_paramValues != nullptr) {
         for(const auto &set_paramValues_entry : ptr_paramValues->value) {
             auto ptr_paramValues_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_paramValues_entry);
@@ -60,7 +61,7 @@ yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<y
         }
     }
 
-    auto ptr_switches = prop->cast_prop<yordle::data::prop::set_prop>(3716012957u);
+    auto ptr_switches = prop->cast_prop<yordle::data::prop::unordered_set_prop>(3716012957u);
     if(ptr_switches != nullptr) {
         for(const auto &set_switches_entry : ptr_switches->value) {
             auto ptr_switches_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_switches_entry);
@@ -97,6 +98,16 @@ yordle::data::meta::StaticMaterialDef::StaticMaterialDef(const std::shared_ptr<y
             auto ptr_childTechniques_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_childTechniques_entry);
             if(ptr_childTechniques_entry != nullptr) {
                 childTechniques.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::StaticMaterialChildTechniqueDef>(ptr_childTechniques_entry, 1935363221u));
+            }
+        }
+    }
+
+    auto ptr_x69030632 = prop->cast_prop<yordle::data::prop::set_prop>(1761805874u);
+    if(ptr_x69030632 != nullptr) {
+        for(const auto &set_x69030632_entry : ptr_x69030632->value) {
+            auto ptr_x69030632_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_x69030632_entry);
+            if(ptr_x69030632_entry != nullptr) {
+                x69030632.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x272ca74d>(ptr_x69030632_entry, 657237837u));
             }
         }
     }

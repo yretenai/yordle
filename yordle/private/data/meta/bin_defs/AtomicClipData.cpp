@@ -34,4 +34,14 @@ yordle::data::meta::AtomicClipData::AtomicClipData(const std::shared_ptr<yordle:
     if(ptr_mUpdaterResourceData != nullptr) {
         mUpdaterResourceData = yordle::data::meta::deserialize<yordle::data::meta::UpdaterResourceData>(ptr_mUpdaterResourceData, 1426466346u);
     }
+
+    auto ptr_startFrame = prop->cast_prop<yordle::data::prop::float32_prop>(1996008740u);
+    if(ptr_startFrame != nullptr) {
+        startFrame = ptr_startFrame->value;
+    }
+
+    auto ptr_xbd8e2d9b = prop->cast_prop<yordle::data::prop::float32_prop>(3180211611u);
+    if(ptr_xbd8e2d9b != nullptr) {
+        xbd8e2d9b = ptr_xbd8e2d9b->value;
+    }
 }

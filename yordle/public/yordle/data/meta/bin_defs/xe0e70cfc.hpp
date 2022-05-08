@@ -19,6 +19,8 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash Scene = 0u;
+        yordle::data::meta::bin_fnv_hash xc5611fe2 = 0u;
+        yordle::data::meta::bin_fnv_hash xbde64e3e = 0u;
     };
 }
 #define YORDLE_META_DEF_xe0e70cfc

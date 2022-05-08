@@ -19,6 +19,16 @@ yordle::data::meta::x9e2b8a86::x9e2b8a86(const std::shared_ptr<yordle::data::pro
     if(prop == nullptr) {
         return;
     }
+    auto ptr_x2b0d70e8 = prop->cast_prop<yordle::data::prop::uint8_prop>(722301160u);
+    if(ptr_x2b0d70e8 != nullptr) {
+        x2b0d70e8 = ptr_x2b0d70e8->value;
+    }
+
+    auto ptr_x89a8419c = prop->cast_prop<yordle::data::prop::bool_prop>(2309505436u);
+    if(ptr_x89a8419c != nullptr) {
+        x89a8419c = ptr_x89a8419c->value;
+    }
+
     auto ptr_x41aa9616 = prop->cast_prop<yordle::data::prop::uint32_prop>(1101698582u);
     if(ptr_x41aa9616 != nullptr) {
         x41aa9616 = ptr_x41aa9616->value;
@@ -52,16 +62,6 @@ yordle::data::meta::x9e2b8a86::x9e2b8a86(const std::shared_ptr<yordle::data::pro
     auto ptr_x8ff1b151 = prop->cast_prop<yordle::data::prop::string_prop>(2414981457u);
     if(ptr_x8ff1b151 != nullptr) {
         x8ff1b151 = ptr_x8ff1b151->value;
-    }
-
-    auto ptr_xf7ee4522 = prop->cast_prop<yordle::data::prop::string_prop>(4159587618u);
-    if(ptr_xf7ee4522 != nullptr) {
-        xf7ee4522 = ptr_xf7ee4522->value;
-    }
-
-    auto ptr_x67282199 = prop->cast_prop<yordle::data::prop::string_prop>(1730683289u);
-    if(ptr_x67282199 != nullptr) {
-        x67282199 = ptr_x67282199->value;
     }
 
     auto ptr_x4babd89d = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1269553309u);
@@ -99,6 +99,16 @@ yordle::data::meta::x9e2b8a86::x9e2b8a86(const std::shared_ptr<yordle::data::pro
         x9dcf971d = ptr_x9dcf971d->value;
     }
 
+    auto ptr_x71993a70 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1905867376u);
+    if(ptr_x71993a70 != nullptr) {
+        x71993a70 = ptr_x71993a70->value;
+    }
+
+    auto ptr_xf7f3f138 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(4159959352u);
+    if(ptr_xf7f3f138 != nullptr) {
+        xf7f3f138 = ptr_xf7f3f138->value;
+    }
+
     auto ptr_xba1d038c = prop->cast_prop<yordle::data::prop::float32_prop>(3122463628u);
     if(ptr_xba1d038c != nullptr) {
         xba1d038c = ptr_xba1d038c->value;
@@ -107,5 +117,30 @@ yordle::data::meta::x9e2b8a86::x9e2b8a86(const std::shared_ptr<yordle::data::pro
     auto ptr_x75f9cc79 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1979305081u);
     if(ptr_x75f9cc79 != nullptr) {
         x75f9cc79 = ptr_x75f9cc79->value;
+    }
+
+    auto ptr_x5a0565cb = prop->cast_prop<yordle::data::prop::float32_prop>(1510303179u);
+    if(ptr_x5a0565cb != nullptr) {
+        x5a0565cb = ptr_x5a0565cb->value;
+    }
+
+    auto ptr_xd8e77c8a = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3639049354u);
+    if(ptr_xd8e77c8a != nullptr) {
+        xd8e77c8a = ptr_xd8e77c8a->value;
+    }
+
+    auto ptr_x5b720329 = prop->cast_prop<yordle::data::prop::int32_prop>(1534198569u);
+    if(ptr_x5b720329 != nullptr) {
+        x5b720329 = ptr_x5b720329->value;
+    }
+
+    auto ptr_x33c9204f = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(868819023u);
+    if(ptr_x33c9204f != nullptr) {
+        x33c9204f = ptr_x33c9204f->value;
+    }
+
+    auto ptr_x892bc919 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2301348121u);
+    if(ptr_x892bc919 != nullptr) {
+        x892bc919 = ptr_x892bc919->value;
     }
 }

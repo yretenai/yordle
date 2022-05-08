@@ -32,4 +32,14 @@ yordle::data::meta::MapActionPlayAnimation::MapActionPlayAnimation(const std::sh
     if(ptr_looping != nullptr) {
         looping = ptr_looping->value;
     }
+
+    auto ptr_x2efccaff = prop->cast_prop<yordle::data::prop::bool_prop>(788318975u);
+    if(ptr_x2efccaff != nullptr) {
+        x2efccaff = ptr_x2efccaff->value;
+    }
+
+    auto ptr_x51368eb1 = prop->cast_prop<yordle::data::prop::bool_prop>(1362529969u);
+    if(ptr_x51368eb1 != nullptr) {
+        x51368eb1 = ptr_x51368eb1->value;
+    }
 }

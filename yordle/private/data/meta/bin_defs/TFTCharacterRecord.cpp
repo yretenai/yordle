@@ -95,6 +95,16 @@ yordle::data::meta::TFTCharacterRecord::TFTCharacterRecord(const std::shared_ptr
         xd9439003 = ptr_xd9439003->value;
     }
 
+    auto ptr_xd75e19ad = prop->cast_prop<yordle::data::prop::uint32_prop>(3613268397u);
+    if(ptr_xd75e19ad != nullptr) {
+        xd75e19ad = ptr_xd75e19ad->value;
+    }
+
+    auto ptr_xf6137e2a = prop->cast_prop<yordle::data::prop::bool_prop>(4128472618u);
+    if(ptr_xf6137e2a != nullptr) {
+        xf6137e2a = ptr_xf6137e2a->value;
+    }
+
     auto ptr_x4a52410b = prop->cast_prop<yordle::data::prop::bool_prop>(1246904587u);
     if(ptr_x4a52410b != nullptr) {
         x4a52410b = ptr_x4a52410b->value;

@@ -7,8 +7,12 @@
 #endif
 #include <ProgramOptions.hxx>
 
+#include <yordle/yordle.hpp>
+#include <yordle/archive/wad_file.hpp>
+
 #include "file_type_detector.hpp"
 #include "lulu.hpp"
+
 
 using namespace std;
 using namespace yordle;

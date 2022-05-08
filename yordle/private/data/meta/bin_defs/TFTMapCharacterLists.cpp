@@ -19,11 +19,6 @@ yordle::data::meta::TFTMapCharacterLists::TFTMapCharacterLists(const std::shared
     if(prop == nullptr) {
         return;
     }
-    auto ptr_MapName = prop->cast_prop<yordle::data::prop::string_prop>(381973866u);
-    if(ptr_MapName != nullptr) {
-        MapName = ptr_MapName->value;
-    }
-
     auto ptr_characterLists = prop->cast_prop<yordle::data::prop::unordered_set_prop>(137362161u);
     if(ptr_characterLists != nullptr) {
         for(const auto &set_characterLists_entry : ptr_characterLists->value) {

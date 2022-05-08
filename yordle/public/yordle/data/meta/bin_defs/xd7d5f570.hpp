@@ -19,6 +19,8 @@ namespace yordle::data::meta {
             return type == 3621123440u || xa51270e5::is_type(type);
         }
 
+        uint8_t xe5c73ef5 = 0u;
+        uint8_t x3301fcdf = 0u;
         uint8_t x590bd78c = 0u;
         uint8_t xbbd94716 = 0u;
     };

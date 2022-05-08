@@ -6,7 +6,7 @@
 #include <memory>
 #include <string>
 
-#include <yordle/data/meta/bin_defs/SpecialOfferController.hpp>
+#include <yordle/data/meta/bin_defs/xbc20c38.hpp>
 #include <yordle/data/meta/bin_defs/x627faf1d.hpp>
 #include <yordle/data/meta/bin_defs/x75259ad3.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
@@ -15,8 +15,8 @@
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_SpecialOfferController
-    struct SpecialOfferController;
+#ifndef YORDLE_META_DEF_xbc20c38
+    struct xbc20c38;
 #endif
 
 #ifndef YORDLE_META_DEF_x627faf1d
@@ -34,9 +34,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash xb8421985 = 0u;
-        yordle::data::meta::bin_fnv_hash x2a16e3e6 = 0u;
-        yordle::data::meta::bin_fnv_hash xbbb37ef7 = 0u;
-        std::shared_ptr<yordle::data::meta::SpecialOfferController> SpecialOfferController {};
+        std::shared_ptr<yordle::data::meta::xbc20c38> xacc6797 {};
         std::shared_ptr<yordle::data::meta::x627faf1d> xe7def870 {};
         yordle::data::meta::bin_fnv_hash x493f0582 = 0u;
         yordle::data::meta::bin_fnv_hash xd010468e = 0u;
@@ -48,6 +46,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x424a4629 = 0u;
         yordle::data::meta::bin_fnv_hash x794ec41d = 0u;
         yordle::data::meta::bin_fnv_hash x16021a23 = 0u;
+        std::shared_ptr<yordle::data::meta::xbc20c38> xd4c3bc70 {};
     };
 }
 #define YORDLE_META_DEF_HomeViewController

@@ -5,6 +5,7 @@
 
 #include <memory>
 #include <string>
+#include <cstdint>
 
 #include <yordle/data/meta/bin_defs/IMaterialDef.hpp>
 #include <yordle/data/meta/bin_class.hpp>
@@ -26,6 +27,7 @@ namespace yordle::data::meta {
         std::string subMeshName {};
         yordle::data::meta::bin_xx_hash defaultTexturePath = 0u;
         bool IsSpectatorOnly = true;
+        uint32_t x754cdce2 = 2u;
         yordle::data::meta::bin_ref<yordle::data::meta::IMaterialDef> DefaultBlankMaterial { 3975636772 };
     };
 }

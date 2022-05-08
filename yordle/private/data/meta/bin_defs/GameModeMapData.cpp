@@ -6,7 +6,6 @@
 #include <yordle/data/meta/bin_defs/GameModeItemList.hpp>
 #include <yordle/data/meta/bin_defs/ItemShopGameModeData.hpp>
 #include <yordle/data/meta/bin_defs/AnnouncementMap.hpp>
-#include <yordle/data/meta/bin_defs/NeutralTimers.hpp>
 #include <yordle/data/meta/bin_defs/RenderStyleData.hpp>
 #include <yordle/data/meta/bin_defs/FloatingTextOverride.hpp>
 #include <yordle/data/meta/bin_defs/GlobalStatsUIData.hpp>
@@ -84,11 +83,6 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
         AnnouncementsMapping = yordle::data::meta::bin_ref<yordle::data::meta::AnnouncementMap>(224929220u, ptr_AnnouncementsMapping->value);
     }
 
-    auto ptr_mNeutralTimersDisplay = prop->cast_prop<yordle::data::prop::reference_prop>(2378333997u);
-    if(ptr_mNeutralTimersDisplay != nullptr) {
-        mNeutralTimersDisplay = yordle::data::meta::bin_ref<yordle::data::meta::NeutralTimers>(1283176254u, ptr_mNeutralTimersDisplay->value);
-    }
-
     auto ptr_mCursorConfig = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3834810340u);
     if(ptr_mCursorConfig != nullptr) {
         mCursorConfig = ptr_mCursorConfig->value;
@@ -102,6 +96,16 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
     auto ptr_mLoadingScreenBackground = prop->cast_prop<yordle::data::prop::string_prop>(2640988148u);
     if(ptr_mLoadingScreenBackground != nullptr) {
         mLoadingScreenBackground = ptr_mLoadingScreenBackground->value;
+    }
+
+    auto ptr_x84c58ee = prop->cast_prop<yordle::data::prop::set_prop>(139221230u);
+    if(ptr_x84c58ee != nullptr) {
+        for(const auto &set_x84c58ee_entry : ptr_x84c58ee->value) {
+            auto ptr_x84c58ee_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_x84c58ee_entry);
+            if(ptr_x84c58ee_entry != nullptr) {
+                x84c58ee.emplace_back(ptr_x84c58ee_entry->value);
+            }
+        }
     }
 
     auto ptr_mHudScoreData = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3646863737u);

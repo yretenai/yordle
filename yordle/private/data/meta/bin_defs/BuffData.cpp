@@ -3,6 +3,7 @@
 #include <yordle/data/meta/bin_defs/BuffData.hpp>
 
 #include <yordle/data/meta/bin_defs/VfxSpawnConditions.hpp>
+#include <yordle/data/meta/bin_defs/xe76e6115.hpp>
 #include <yordle/data/meta/bin_defs/TooltipInstanceBuff.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
@@ -26,6 +27,16 @@ yordle::data::meta::BuffData::BuffData(const std::shared_ptr<yordle::data::prop:
             auto ptr_mVfxSpawnConditions_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(set_mVfxSpawnConditions_entry);
             if(ptr_mVfxSpawnConditions_entry != nullptr) {
                 mVfxSpawnConditions.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::VfxSpawnConditions>(ptr_mVfxSpawnConditions_entry, 2833994484u));
+            }
+        }
+    }
+
+    auto ptr_xb8c35392 = prop->cast_prop<yordle::data::prop::set_prop>(3099808658u);
+    if(ptr_xb8c35392 != nullptr) {
+        for(const auto &set_xb8c35392_entry : ptr_xb8c35392->value) {
+            auto ptr_xb8c35392_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(set_xb8c35392_entry);
+            if(ptr_xb8c35392_entry != nullptr) {
+                xb8c35392.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::xe76e6115>(ptr_xb8c35392_entry, 3882770709u));
             }
         }
     }

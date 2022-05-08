@@ -47,4 +47,25 @@ yordle::data::meta::MapBakeProperties::MapBakeProperties(const std::shared_ptr<y
     if(ptr_lightGridFileName != nullptr) {
         lightGridFileName = ptr_lightGridFileName->value;
     }
+
+    auto ptr_x9cf064e5 = prop->cast_prop<yordle::data::prop::string_prop>(2633000165u);
+    if(ptr_x9cf064e5 != nullptr) {
+        x9cf064e5 = ptr_x9cf064e5->value;
+    }
+
+    auto ptr_x7ab8b646 = prop->cast_prop<yordle::data::prop::float32_prop>(2058925638u);
+    if(ptr_x7ab8b646 != nullptr) {
+        x7ab8b646 = ptr_x7ab8b646->value;
+    }
+
+    auto ptr_xf8bc3dfe = prop->cast_prop<yordle::data::prop::map_prop>(4173086206u);
+    if(ptr_xf8bc3dfe != nullptr) {
+        for(const auto &set_xf8bc3dfe_pair : ptr_xf8bc3dfe->value) {
+            auto ptr_xf8bc3dfe_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_xf8bc3dfe_pair.first);
+            auto ptr_xf8bc3dfe_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(set_xf8bc3dfe_pair.second);
+            if(ptr_xf8bc3dfe_key != nullptr && ptr_xf8bc3dfe_value != nullptr) {
+                xf8bc3dfe.emplace(ptr_xf8bc3dfe_key->value, ptr_xf8bc3dfe_value->value);
+            }
+        }
+    }
 }

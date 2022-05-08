@@ -4,19 +4,27 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
+#include <yordle/data/meta/bin_defs/x9de83409.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_x9de83409
+    struct x9de83409;
+#endif
     struct YORDLE_EXPORT x320b890e : public ViewController {
         explicit x320b890e(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
             return type == 839616782u || ViewController::is_type(type);
         }
+
+        std::string xe095d841 {};
+        std::shared_ptr<yordle::data::meta::x9de83409> x4431e0e3 {};
     };
 }
 #define YORDLE_META_DEF_x320b890e

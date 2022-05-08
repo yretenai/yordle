@@ -28,7 +28,9 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash xdb7747f5 = 0u;
         yordle::data::meta::bin_fnv_hash x4a989cc9 = 0u;
         yordle::data::meta::bin_fnv_hash x4e51b642 = 0u;
+        yordle::data::meta::bin_fnv_hash x767f5b0c = 0u;
         std::array<yordle::data::meta::bin_fnv_hash, 10> xd1d5634d { 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u };
+        yordle::data::meta::bin_fnv_hash xdafad87c = 0u;
         yordle::data::meta::bin_fnv_hash x2b33bedc = 0u;
         yordle::data::meta::bin_fnv_hash x93a118fb = 0u;
         yordle::data::meta::bin_fnv_hash x7b8e8695 = 0u;

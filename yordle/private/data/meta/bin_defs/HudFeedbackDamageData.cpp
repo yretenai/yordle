@@ -57,4 +57,14 @@ yordle::data::meta::HudFeedbackDamageData::HudFeedbackDamageData(const std::shar
     if(ptr_mLowHealthFlashOpacityStrength != nullptr) {
         mLowHealthFlashOpacityStrength = ptr_mLowHealthFlashOpacityStrength->value;
     }
+
+    auto ptr_xa34462c = prop->cast_prop<yordle::data::prop::string_prop>(171197996u);
+    if(ptr_xa34462c != nullptr) {
+        xa34462c = ptr_xa34462c->value;
+    }
+
+    auto ptr_x6368528b = prop->cast_prop<yordle::data::prop::string_prop>(1667781259u);
+    if(ptr_x6368528b != nullptr) {
+        x6368528b = ptr_x6368528b->value;
+    }
 }

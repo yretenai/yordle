@@ -20,6 +20,7 @@ namespace yordle::data::meta {
         }
 
         std::array<yordle::data::meta::bin_fnv_hash, 3> tierButton { 0u, 0u, 0u };
+        std::array<yordle::data::meta::bin_fnv_hash, 3> x7a6c84ab { 0u, 0u, 0u };
     };
 }
 #define YORDLE_META_DEF_LoadoutDamageSkinInfoPanel

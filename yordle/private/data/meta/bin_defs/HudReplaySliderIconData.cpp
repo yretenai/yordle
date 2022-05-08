@@ -28,9 +28,14 @@ yordle::data::meta::HudReplaySliderIconData::HudReplaySliderIconData(const std::
         mTooltipStyle = ptr_mTooltipStyle->value;
     }
 
-    auto ptr_mElementName = prop->cast_prop<yordle::data::prop::string_prop>(2033120547u);
-    if(ptr_mElementName != nullptr) {
-        mElementName = ptr_mElementName->value;
+    auto ptr_xe0f8b2b = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(235899691u);
+    if(ptr_xe0f8b2b != nullptr) {
+        xe0f8b2b = ptr_xe0f8b2b->value;
+    }
+
+    auto ptr_xd0f8998 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(219122072u);
+    if(ptr_xd0f8998 != nullptr) {
+        xd0f8998 = ptr_xd0f8998->value;
     }
 
     auto ptr_mElementSpacer = prop->cast_prop<yordle::data::prop::float32_prop>(934076876u);

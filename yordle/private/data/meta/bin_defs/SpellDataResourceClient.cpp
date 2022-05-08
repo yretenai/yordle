@@ -38,6 +38,16 @@ yordle::data::meta::SpellDataResourceClient::SpellDataResourceClient(const std::
         mTooltipData = yordle::data::meta::deserialize<yordle::data::meta::TooltipInstanceSpell>(ptr_mTooltipData, 2766224215u);
     }
 
+    auto ptr_xfaf78155 = prop->cast_prop<yordle::data::prop::unordered_set_prop>(4210524501u);
+    if(ptr_xfaf78155 != nullptr) {
+        for(const auto &set_xfaf78155_entry : ptr_xfaf78155->value) {
+            auto ptr_xfaf78155_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_xfaf78155_entry);
+            if(ptr_xfaf78155_entry != nullptr) {
+                xfaf78155.emplace_back(ptr_xfaf78155_entry->value);
+            }
+        }
+    }
+
     auto ptr_mSpawningUIDefinition = prop->cast_prop<yordle::data::prop::structure_prop>(2955245810u);
     if(ptr_mSpawningUIDefinition != nullptr) {
         mSpawningUIDefinition = yordle::data::meta::deserialize<yordle::data::meta::SpawningUIDefinition>(ptr_mSpawningUIDefinition, 1607774867u);
@@ -62,6 +72,11 @@ yordle::data::meta::SpellDataResourceClient::SpellDataResourceClient(const std::
                 mCustomTargeterDefinitions.emplace(ptr_mCustomTargeterDefinitions_key->value, yordle::data::meta::deserialize<yordle::data::meta::CustomTargeterDefinitions>(ptr_mCustomTargeterDefinitions_value, 3174223914u));
             }
         }
+    }
+
+    auto ptr_xdb6f2f8d = prop->cast_prop<yordle::data::prop::bool_prop>(3681496973u);
+    if(ptr_xdb6f2f8d != nullptr) {
+        xdb6f2f8d = ptr_xdb6f2f8d->value;
     }
 
     auto ptr_mMissileTargeterDefinitions = prop->cast_prop<yordle::data::prop::set_prop>(4113746976u);

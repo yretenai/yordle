@@ -5,6 +5,7 @@
 
 #include <memory>
 
+#include <yordle/data/meta/bin_defs/ViewPaneDefinition.hpp>
 #include <yordle/data/meta/bin_defs/x6d8b7fba.hpp>
 #include <yordle/data/meta/bin_defs/x75259ad3.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -12,6 +13,10 @@
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_ViewPaneDefinition
+    struct ViewPaneDefinition;
+#endif
+
 #ifndef YORDLE_META_DEF_x6d8b7fba
     struct x6d8b7fba;
 #endif
@@ -23,6 +28,8 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash x88f6a038 = 0u;
+        std::shared_ptr<yordle::data::meta::ViewPaneDefinition> x76d6191 {};
+        std::shared_ptr<yordle::data::meta::ViewPaneDefinition> xa567ed12 {};
         yordle::data::meta::bin_fnv_hash xb0dd6202 = 0u;
         yordle::data::meta::bin_fnv_hash x909d5d3f = 0u;
         yordle::data::meta::bin_fnv_hash x25c805c3 = 0u;

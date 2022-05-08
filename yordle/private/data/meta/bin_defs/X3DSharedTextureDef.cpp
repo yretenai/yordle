@@ -28,6 +28,11 @@ yordle::data::meta::X3DSharedTextureDef::X3DSharedTextureDef(const std::shared_p
         type = ptr_type->value;
     }
 
+    auto ptr_frequency = prop->cast_prop<yordle::data::prop::uint8_prop>(800267265u);
+    if(ptr_frequency != nullptr) {
+        frequency = ptr_frequency->value;
+    }
+
     auto ptr_x2d6871c0 = prop->cast_prop<yordle::data::prop::int32_prop>(761819584u);
     if(ptr_x2d6871c0 != nullptr) {
         x2d6871c0 = ptr_x2d6871c0->value;

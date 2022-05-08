@@ -6,6 +6,8 @@
 
 #include <format>
 
+#include <yordle/manifest/riot_bundle.hpp>
+
 using namespace std;
 using namespace yordle::manifest;
 using namespace dragon;

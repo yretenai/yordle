@@ -5,7 +5,7 @@
 
 #include <memory>
 
-#include <yordle/data/meta/bin_defs/FxTarget.hpp>
+#include <yordle/data/meta/bin_defs/x5c086dbd.hpp>
 #include <yordle/data/meta/bin_defs/xc6228969.hpp>
 #include <yordle/data/meta/bin_defs/IFxAction.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -13,8 +13,8 @@
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_FxTarget
-    struct FxTarget;
+#ifndef YORDLE_META_DEF_x5c086dbd
+    struct x5c086dbd;
 #endif
 
 #ifndef YORDLE_META_DEF_xc6228969
@@ -27,7 +27,7 @@ namespace yordle::data::meta {
             return type == 1501317789u || IFxAction::is_type(type);
         }
 
-        std::shared_ptr<yordle::data::meta::FxTarget> Target {};
+        std::shared_ptr<yordle::data::meta::x5c086dbd> Target {};
         yordle::data::meta::bin_ref<yordle::data::meta::xc6228969> xfdcc4eca { 3324152169 };
         bool xe68ccb2e = true;
     };

@@ -93,6 +93,16 @@ yordle::data::meta::TftItemData::TftItemData(const std::shared_ptr<yordle::data:
         }
     }
 
+    auto ptr_x9071fd36 = prop->cast_prop<yordle::data::prop::set_prop>(2423389494u);
+    if(ptr_x9071fd36 != nullptr) {
+        for(const auto &set_x9071fd36_entry : ptr_x9071fd36->value) {
+            auto ptr_x9071fd36_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(set_x9071fd36_entry);
+            if(ptr_x9071fd36_entry != nullptr) {
+                x9071fd36.emplace_back(yordle::data::meta::bin_ref<yordle::data::meta::TftTraitData>(1871118919u, ptr_x9071fd36_entry->value));
+            }
+        }
+    }
+
     auto ptr_mIsUnique = prop->cast_prop<yordle::data::prop::bool_prop>(2509677447u);
     if(ptr_mIsUnique != nullptr) {
         mIsUnique = ptr_mIsUnique->value;
@@ -118,9 +128,24 @@ yordle::data::meta::TftItemData::TftItemData(const std::shared_ptr<yordle::data:
         mDescriptionNameTra = ptr_mDescriptionNameTra->value;
     }
 
+    auto ptr_xfaf78155 = prop->cast_prop<yordle::data::prop::unordered_set_prop>(4210524501u);
+    if(ptr_xfaf78155 != nullptr) {
+        for(const auto &set_xfaf78155_entry : ptr_xfaf78155->value) {
+            auto ptr_xfaf78155_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_xfaf78155_entry);
+            if(ptr_xfaf78155_entry != nullptr) {
+                xfaf78155.emplace_back(ptr_xfaf78155_entry->value);
+            }
+        }
+    }
+
     auto ptr_mIconPath = prop->cast_prop<yordle::data::prop::string_prop>(2347641202u);
     if(ptr_mIconPath != nullptr) {
         mIconPath = ptr_mIconPath->value;
+    }
+
+    auto ptr_xd434d358 = prop->cast_prop<yordle::data::prop::string_prop>(3560231768u);
+    if(ptr_xd434d358 != nullptr) {
+        xd434d358 = ptr_xd434d358->value;
     }
 
     auto ptr_mColor = prop->cast_prop<yordle::data::prop::optional_prop>(1399972751u);

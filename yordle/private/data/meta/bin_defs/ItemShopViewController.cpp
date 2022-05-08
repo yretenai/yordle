@@ -28,6 +28,11 @@ yordle::data::meta::ItemShopViewController::ItemShopViewController(const std::sh
         ResizeDragRegion = ptr_ResizeDragRegion->value;
     }
 
+    auto ptr_xcc5d06d5 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3428648661u);
+    if(ptr_xcc5d06d5 != nullptr) {
+        xcc5d06d5 = ptr_xcc5d06d5->value;
+    }
+
     auto ptr_MaximumShopScale = prop->cast_prop<yordle::data::prop::float32_prop>(2871379417u);
     if(ptr_MaximumShopScale != nullptr) {
         MaximumShopScale = ptr_MaximumShopScale->value;

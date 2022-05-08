@@ -24,7 +24,7 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> TransitionIn {};
-        float MessageDuration = 5.0;
+        float x5d0f9396 = 5.0;
         uint32_t messageCount = 4u;
     };
 }

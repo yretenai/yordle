@@ -18,8 +18,8 @@ yordle::data::meta::x5b9614dc::x5b9614dc(const std::shared_ptr<yordle::data::pro
     if(prop == nullptr) {
         return;
     }
-    auto ptr_x9ac4d782 = prop->cast_prop<yordle::data::prop::float32_prop>(2596591490u);
-    if(ptr_x9ac4d782 != nullptr) {
-        x9ac4d782 = ptr_x9ac4d782->value;
+    auto ptr_xbb4a1111 = prop->cast_prop<yordle::data::prop::float32_prop>(3142193425u);
+    if(ptr_xbb4a1111 != nullptr) {
+        xbb4a1111 = ptr_xbb4a1111->value;
     }
 }

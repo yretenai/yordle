@@ -11,6 +11,8 @@
 
 #include <curl/curl.h>
 
+#include <yordle/yordle.hpp>
+
 #include "deploy.hpp"
 #include "fetch.hpp"
 

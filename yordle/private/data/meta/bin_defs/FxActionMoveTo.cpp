@@ -2,7 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/FxActionMoveTo.hpp>
 
-#include <yordle/data/meta/bin_defs/FxTransform.hpp>
+#include <yordle/data/meta/bin_defs/x1c494c09.hpp>
 #include <yordle/data/meta/bin_defs/FxActionMoveBase.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -19,8 +19,8 @@ yordle::data::meta::FxActionMoveTo::FxActionMoveTo(const std::shared_ptr<yordle:
     if(prop == nullptr) {
         return;
     }
-    auto ptr_Destination = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3000919231u);
+    auto ptr_Destination = prop->cast_prop<yordle::data::prop::structure_prop>(3000919231u);
     if(ptr_Destination != nullptr) {
-        Destination = yordle::data::meta::deserialize<yordle::data::meta::FxTransform>(ptr_Destination, 754442341u);
+        Destination = yordle::data::meta::deserialize<yordle::data::meta::x1c494c09>(ptr_Destination, 474565641u);
     }
 }

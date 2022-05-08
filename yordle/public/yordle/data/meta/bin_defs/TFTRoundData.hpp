@@ -50,6 +50,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::TFTPhaseData> mPlanningDeparture {};
         std::shared_ptr<yordle::data::meta::TFTPhaseData> mCombatArrival {};
         std::shared_ptr<yordle::data::meta::TFTPhaseData> mCombat {};
+        std::shared_ptr<yordle::data::meta::TFTPhaseData> x79c749b6 {};
         std::shared_ptr<yordle::data::meta::TFTPhaseData> mCombatDeparture {};
         std::map<std::string, std::shared_ptr<yordle::data::meta::GameModeConstant>> mScriptData {};
     };

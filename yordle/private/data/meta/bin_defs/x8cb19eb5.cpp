@@ -3,6 +3,7 @@
 #include <yordle/data/meta/bin_defs/x8cb19eb5.hpp>
 
 #include <yordle/data/meta/bin_defs/UnitStatusPriorityList.hpp>
+#include <yordle/data/meta/bin_defs/x506291c8.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -22,5 +23,21 @@ yordle::data::meta::x8cb19eb5::x8cb19eb5(const std::shared_ptr<yordle::data::pro
     auto ptr_UnitStatusPriorityList = prop->cast_prop<yordle::data::prop::reference_prop>(3886968817u);
     if(ptr_UnitStatusPriorityList != nullptr) {
         UnitStatusPriorityList = yordle::data::meta::bin_ref<yordle::data::meta::UnitStatusPriorityList>(3886968817u, ptr_UnitStatusPriorityList->value);
+    }
+
+    auto ptr_xa0bbdb34 = prop->cast_prop<yordle::data::prop::map_prop>(2696665908u);
+    if(ptr_xa0bbdb34 != nullptr) {
+        for(const auto &set_xa0bbdb34_pair : ptr_xa0bbdb34->value) {
+            auto ptr_xa0bbdb34_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint8_prop>(set_xa0bbdb34_pair.first);
+            auto ptr_xa0bbdb34_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(set_xa0bbdb34_pair.second);
+            if(ptr_xa0bbdb34_key != nullptr && ptr_xa0bbdb34_value != nullptr) {
+                xa0bbdb34.emplace(ptr_xa0bbdb34_key->value, yordle::data::meta::bin_ref<yordle::data::meta::x506291c8>(1348637128u, ptr_xa0bbdb34_value->value));
+            }
+        }
+    }
+
+    auto ptr_xe095d841 = prop->cast_prop<yordle::data::prop::string_prop>(3767916609u);
+    if(ptr_xe095d841 != nullptr) {
+        xe095d841 = ptr_xe095d841->value;
     }
 }

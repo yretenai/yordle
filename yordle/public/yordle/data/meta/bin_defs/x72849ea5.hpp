@@ -37,6 +37,8 @@ namespace yordle::data::meta {
             return type == 1921293989u || ViewController::is_type(type);
         }
 
+        float x5b9613f7 = 0.8500000238418579;
+        float xf48b7975 = 1.0;
         yordle::data::meta::bin_fnv_hash x4d302530 = 0u;
         yordle::data::meta::bin_fnv_hash xea5ca73 = 0u;
         yordle::data::meta::bin_fnv_hash x922cf02 = 0u;

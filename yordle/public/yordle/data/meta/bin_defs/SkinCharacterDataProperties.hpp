@@ -15,6 +15,7 @@
 #include <yordle/data/meta/bin_defs/SkinAudioProperties.hpp>
 #include <yordle/data/meta/bin_defs/SkinAnimationProperties.hpp>
 #include <yordle/data/meta/bin_defs/SkinMeshDataProperties.hpp>
+#include <yordle/data/meta/bin_defs/xf71d1d27.hpp>
 #include <yordle/data/meta/bin_defs/SkinCharacterDataProperties_CharacterIdleEffect.hpp>
 #include <yordle/data/meta/bin_defs/CharacterHealthBarDataRecord.hpp>
 #include <yordle/data/meta/bin_defs/SkinEmblem.hpp>
@@ -46,6 +47,10 @@ namespace yordle::data::meta {
 
 #ifndef YORDLE_META_DEF_SkinMeshDataProperties
     struct SkinMeshDataProperties;
+#endif
+
+#ifndef YORDLE_META_DEF_xf71d1d27
+    struct xf71d1d27;
 #endif
 
 #ifndef YORDLE_META_DEF_SkinCharacterDataProperties_CharacterIdleEffect
@@ -96,6 +101,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::SkinAudioProperties> SkinAudioProperties {};
         std::shared_ptr<yordle::data::meta::SkinAnimationProperties> SkinAnimationProperties {};
         std::shared_ptr<yordle::data::meta::SkinMeshDataProperties> skinMeshProperties {};
+        std::shared_ptr<yordle::data::meta::xf71d1d27> xf71d1d27 {};
         std::string armorMaterial {};
         std::vector<std::string> themeMusic {};
         bool x592970c = true;

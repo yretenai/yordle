@@ -18,9 +18,9 @@ yordle::data::meta::x9149cbb1::x9149cbb1(const std::shared_ptr<yordle::data::pro
     if(prop == nullptr) {
         return;
     }
-    auto ptr_xf36dc80c = prop->cast_prop<yordle::data::prop::uint32_prop>(4084058124u);
-    if(ptr_xf36dc80c != nullptr) {
-        xf36dc80c = ptr_xf36dc80c->value;
+    auto ptr_xe0c5d401 = prop->cast_prop<yordle::data::prop::uint32_prop>(3771061249u);
+    if(ptr_xe0c5d401 != nullptr) {
+        xe0c5d401 = ptr_xe0c5d401->value;
     }
 
     auto ptr_SponsorTexturePath = prop->cast_prop<yordle::data::prop::xx_hash_prop>(3625922223u);

@@ -5,12 +5,16 @@
 
 #include <memory>
 
+#include <yordle/data/meta/bin_defs/x7a9a96ff.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_x7a9a96ff
+    struct x7a9a96ff;
+#endif
     struct YORDLE_EXPORT xef05ba42 : public bin_class {
         explicit xef05ba42(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -41,6 +45,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x987dd59e = 0u;
         yordle::data::meta::bin_fnv_hash MythicPurchaseableVfx = 0u;
         yordle::data::meta::bin_fnv_hash MythicPurchasedVfx = 0u;
+        std::shared_ptr<yordle::data::meta::x7a9a96ff> x56bd4ca9 {};
     };
 }
 #define YORDLE_META_DEF_xef05ba42

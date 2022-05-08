@@ -52,6 +52,11 @@ yordle::data::meta::GearData::GearData(const std::shared_ptr<yordle::data::prop:
         mPortraitIcon = ptr_mPortraitIcon->value;
     }
 
+    auto ptr_x7333a550 = prop->cast_prop<yordle::data::prop::string_prop>(1932764496u);
+    if(ptr_x7333a550 != nullptr) {
+        x7333a550 = ptr_x7333a550->value;
+    }
+
     auto ptr_xb6c044fb = prop->cast_prop<yordle::data::prop::set_prop>(3066053883u);
     if(ptr_xb6c044fb != nullptr) {
         for(const auto &set_xb6c044fb_entry : ptr_xb6c044fb->value) {

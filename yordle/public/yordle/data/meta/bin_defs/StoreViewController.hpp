@@ -6,25 +6,35 @@
 #include <memory>
 #include <vector>
 
-#include <yordle/data/meta/bin_defs/xcd809187.hpp>
 #include <yordle/data/meta/bin_defs/ViewPaneDefinition.hpp>
 #include <yordle/data/meta/bin_defs/StoreCategoryButtonDefinition.hpp>
+#include <yordle/data/meta/bin_defs/xcd809187.hpp>
+#include <yordle/data/meta/bin_defs/x63a8aef9.hpp>
+#include <yordle/data/meta/bin_defs/x4bfe07eb.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_xcd809187
-    struct xcd809187;
-#endif
-
 #ifndef YORDLE_META_DEF_ViewPaneDefinition
     struct ViewPaneDefinition;
 #endif
 
 #ifndef YORDLE_META_DEF_StoreCategoryButtonDefinition
     struct StoreCategoryButtonDefinition;
+#endif
+
+#ifndef YORDLE_META_DEF_xcd809187
+    struct xcd809187;
+#endif
+
+#ifndef YORDLE_META_DEF_x63a8aef9
+    struct x63a8aef9;
+#endif
+
+#ifndef YORDLE_META_DEF_x4bfe07eb
+    struct x4bfe07eb;
 #endif
     struct YORDLE_EXPORT StoreViewController : public ViewController {
         explicit StoreViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -33,10 +43,14 @@ namespace yordle::data::meta {
             return type == 1146372659u || ViewController::is_type(type);
         }
 
-        std::shared_ptr<yordle::data::meta::xcd809187> xcd809187 {};
         yordle::data::meta::bin_fnv_hash x36a4c8ee = 0u;
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> MainViewPaneDefinition {};
         std::vector<std::shared_ptr<yordle::data::meta::StoreCategoryButtonDefinition>> xe9123b4f {};
+        yordle::data::meta::bin_fnv_hash x9032279 = 0u;
+        std::shared_ptr<yordle::data::meta::xcd809187> xcd809187 {};
+        std::shared_ptr<yordle::data::meta::x63a8aef9> xb1844566 {};
+        yordle::data::meta::bin_fnv_hash xd1342bca = 0u;
+        std::vector<std::shared_ptr<yordle::data::meta::x4bfe07eb>> x785236f5 {};
     };
 }
 #define YORDLE_META_DEF_StoreViewController

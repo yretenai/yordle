@@ -24,7 +24,7 @@ namespace yordle::data::meta {
         }
 
         std::string mItemTexturePath {};
-        std::string offerId {};
+        std::string id {};
         yordle::data::meta::bin_ref<yordle::data::meta::VfxSystemDefinitionData> x8142856e { 1171098015 };
     };
 }

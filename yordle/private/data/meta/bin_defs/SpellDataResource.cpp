@@ -17,10 +17,10 @@
 #include <yordle/data/meta/bin_defs/OverrideAttackTimeData.hpp>
 #include <yordle/data/meta/bin_defs/UseAutoattackCastTimeData.hpp>
 #include <yordle/data/meta/bin_defs/MissileSpecification.hpp>
-#include <yordle/data/meta/bin_defs/ResourceResolver.hpp>
 #include <yordle/data/meta/bin_defs/AISpellData.hpp>
 #include <yordle/data/meta/bin_defs/SpellDataResourceClient.hpp>
 #include <yordle/data/meta/bin_defs/TargetingTypeData.hpp>
+#include <yordle/data/meta/bin_defs/xefc7f35c.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -40,6 +40,11 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
     auto ptr_flags = prop->cast_prop<yordle::data::prop::uint32_prop>(2624027180u);
     if(ptr_flags != nullptr) {
         flags = ptr_flags->value;
+    }
+
+    auto ptr_xb4b840e6 = prop->cast_prop<yordle::data::prop::uint32_prop>(3031974118u);
+    if(ptr_xb4b840e6 != nullptr) {
+        xb4b840e6 = ptr_xb4b840e6->value;
     }
 
     auto ptr_mAffectsTypeFlags = prop->cast_prop<yordle::data::prop::uint32_prop>(3975411853u);
@@ -204,6 +209,11 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
                 mImgIconName.emplace_back(ptr_mImgIconName_entry->value);
             }
         }
+    }
+
+    auto ptr_x21753196 = prop->cast_prop<yordle::data::prop::string_prop>(561328534u);
+    if(ptr_x21753196 != nullptr) {
+        x21753196 = ptr_x21753196->value;
     }
 
     auto ptr_mMinimapIconName = prop->cast_prop<yordle::data::prop::string_prop>(2116383141u);
@@ -815,16 +825,6 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         mHitBoneName = ptr_mHitBoneName->value;
     }
 
-    auto ptr_mResourceResolvers = prop->cast_prop<yordle::data::prop::set_prop>(2460302967u);
-    if(ptr_mResourceResolvers != nullptr) {
-        for(const auto &set_mResourceResolvers_entry : ptr_mResourceResolvers->value) {
-            auto ptr_mResourceResolvers_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(set_mResourceResolvers_entry);
-            if(ptr_mResourceResolvers_entry != nullptr) {
-                mResourceResolvers.emplace_back(yordle::data::meta::bin_ref<yordle::data::meta::ResourceResolver>(4013559603u, ptr_mResourceResolvers_entry->value));
-            }
-        }
-    }
-
     auto ptr_mHitEffectKey = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2073816859u);
     if(ptr_mHitEffectKey != nullptr) {
         mHitEffectKey = ptr_mHitEffectKey->value;
@@ -952,5 +952,30 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
     auto ptr_mTargetingTypeData = prop->cast_prop<yordle::data::prop::structure_prop>(1564898895u);
     if(ptr_mTargetingTypeData != nullptr) {
         mTargetingTypeData = yordle::data::meta::deserialize<yordle::data::meta::TargetingTypeData>(ptr_mTargetingTypeData, 2144288560u);
+    }
+
+    auto ptr_x63060019 = prop->cast_prop<yordle::data::prop::reference_prop>(1661337625u);
+    if(ptr_x63060019 != nullptr) {
+        x63060019 = yordle::data::meta::bin_ref<yordle::data::meta::xefc7f35c>(4022858588u, ptr_x63060019->value);
+    }
+
+    auto ptr_mResourceResolvers = prop->cast_prop<yordle::data::prop::set_prop>(2460302967u);
+    if(ptr_mResourceResolvers != nullptr) {
+        for(const auto &set_mResourceResolvers_entry : ptr_mResourceResolvers->value) {
+            auto ptr_mResourceResolvers_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_mResourceResolvers_entry);
+            if(ptr_mResourceResolvers_entry != nullptr) {
+                mResourceResolvers.emplace_back(ptr_mResourceResolvers_entry->value);
+            }
+        }
+    }
+
+    auto ptr_AudioBankPaths = prop->cast_prop<yordle::data::prop::set_prop>(991437061u);
+    if(ptr_AudioBankPaths != nullptr) {
+        for(const auto &set_AudioBankPaths_entry : ptr_AudioBankPaths->value) {
+            auto ptr_AudioBankPaths_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_AudioBankPaths_entry);
+            if(ptr_AudioBankPaths_entry != nullptr) {
+                AudioBankPaths.emplace_back(ptr_AudioBankPaths_entry->value);
+            }
+        }
     }
 }

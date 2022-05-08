@@ -26,6 +26,7 @@ namespace yordle::data::meta {
         }
 
         std::map<uint8_t, std::shared_ptr<yordle::data::meta::StatUIData>> mStatUIData {};
+        std::map<uint8_t, std::shared_ptr<yordle::data::meta::StatUIData>> xef8fe151 {};
         std::string BaseOutputIconModifier {};
         std::string BonusOutputIconModifier {};
         std::string mNumberStyle {};

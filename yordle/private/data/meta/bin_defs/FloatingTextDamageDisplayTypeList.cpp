@@ -54,6 +54,11 @@ yordle::data::meta::FloatingTextDamageDisplayTypeList::FloatingTextDamageDisplay
         DotSlow = yordle::data::meta::bin_ref<yordle::data::meta::FloatTextDisplayOverrides>(267762117u, ptr_DotSlow->value);
     }
 
+    auto ptr_xd3594b78 = prop->cast_prop<yordle::data::prop::reference_prop>(3545844600u);
+    if(ptr_xd3594b78 != nullptr) {
+        xd3594b78 = yordle::data::meta::bin_ref<yordle::data::meta::FloatTextDisplayOverrides>(267762117u, ptr_xd3594b78->value);
+    }
+
     auto ptr_Multistrike = prop->cast_prop<yordle::data::prop::reference_prop>(1471176024u);
     if(ptr_Multistrike != nullptr) {
         Multistrike = yordle::data::meta::bin_ref<yordle::data::meta::FloatTextDisplayOverrides>(267762117u, ptr_Multistrike->value);

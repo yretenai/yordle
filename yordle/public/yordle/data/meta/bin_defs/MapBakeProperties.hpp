@@ -6,6 +6,7 @@
 #include <memory>
 #include <cstdint>
 #include <string>
+#include <map>
 
 #include <yordle/data/meta/bin_defs/MapComponent.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -26,6 +27,9 @@ namespace yordle::data::meta {
         float xea4e5cc8 = 5000.0;
         float x2f3b5471 = 1.0;
         std::string lightGridFileName {};
+        std::string x9cf064e5 {};
+        float x7ab8b646 = 1.0;
+        std::map<yordle::data::meta::bin_fnv_hash, uint8_t> xf8bc3dfe {};
     };
 }
 #define YORDLE_META_DEF_MapBakeProperties

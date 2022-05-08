@@ -19,23 +19,17 @@ yordle::data::meta::NeutralTimers::NeutralTimers(const std::shared_ptr<yordle::d
     if(prop == nullptr) {
         return;
     }
-    auto ptr_mSceneName = prop->cast_prop<yordle::data::prop::string_prop>(3978511459u);
-    if(ptr_mSceneName != nullptr) {
-        mSceneName = ptr_mSceneName->value;
+    auto ptr_Scene = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(543410963u);
+    if(ptr_Scene != nullptr) {
+        Scene = ptr_Scene->value;
     }
 
-    auto ptr_xee974cae = prop->cast_prop<yordle::data::prop::string_prop>(4002892974u);
-    if(ptr_xee974cae != nullptr) {
-        xee974cae = ptr_xee974cae->value;
-    }
-
-    auto ptr_mTimers = prop->cast_prop<yordle::data::prop::map_prop>(3936695518u);
-    if(ptr_mTimers != nullptr) {
-        for(const auto &set_mTimers_pair : ptr_mTimers->value) {
-            auto ptr_mTimers_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_mTimers_pair.first);
-            auto ptr_mTimers_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_mTimers_pair.second);
-            if(ptr_mTimers_key != nullptr && ptr_mTimers_value != nullptr) {
-                mTimers.emplace(ptr_mTimers_key->value, yordle::data::meta::deserialize<yordle::data::meta::NeutralTimerData>(ptr_mTimers_value, 964506025u));
+    auto ptr_xca2d9683 = prop->cast_prop<yordle::data::prop::set_prop>(3391985283u);
+    if(ptr_xca2d9683 != nullptr) {
+        for(const auto &set_xca2d9683_entry : ptr_xca2d9683->value) {
+            auto ptr_xca2d9683_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_xca2d9683_entry);
+            if(ptr_xca2d9683_entry != nullptr) {
+                xca2d9683.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::NeutralTimerData>(ptr_xca2d9683_entry, 964506025u));
             }
         }
     }

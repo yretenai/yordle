@@ -24,9 +24,9 @@ yordle::data::meta::HudMessageDisplayData::HudMessageDisplayData(const std::shar
         TransitionIn = yordle::data::meta::deserialize<yordle::data::meta::HudMenuTransitionData>(ptr_TransitionIn, 3273533950u);
     }
 
-    auto ptr_MessageDuration = prop->cast_prop<yordle::data::prop::float32_prop>(3756733196u);
-    if(ptr_MessageDuration != nullptr) {
-        MessageDuration = ptr_MessageDuration->value;
+    auto ptr_x5d0f9396 = prop->cast_prop<yordle::data::prop::float32_prop>(1561301910u);
+    if(ptr_x5d0f9396 != nullptr) {
+        x5d0f9396 = ptr_x5d0f9396->value;
     }
 
     auto ptr_messageCount = prop->cast_prop<yordle::data::prop::uint32_prop>(415023739u);

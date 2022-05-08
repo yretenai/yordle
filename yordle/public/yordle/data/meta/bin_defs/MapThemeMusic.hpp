@@ -21,6 +21,8 @@ namespace yordle::data::meta {
 
         std::string LocalThemeMusic {};
         std::string ThemeMusicTransitionEvent {};
+        std::string x86a36ce1 {};
+        std::string xdce1f159 {};
     };
 }
 #define YORDLE_META_DEF_MapThemeMusic

@@ -3,7 +3,7 @@
 #include <yordle/data/meta/bin_defs/MapPointLight.hpp>
 
 #include <yordle/data/meta/bin_defs/MapPointLightType.hpp>
-#include <yordle/data/meta/bin_defs/MapPlaceable.hpp>
+#include <yordle/data/meta/bin_defs/x429f3e94.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
 #include <yordle/data/prop/map_prop.hpp>
@@ -15,7 +15,7 @@
 #include <yordle/data/prop/unordered_set_prop.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 
-yordle::data::meta::MapPointLight::MapPointLight(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::MapPlaceable(prop) {
+yordle::data::meta::MapPointLight::MapPointLight(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::x429f3e94(prop) {
     if(prop == nullptr) {
         return;
     }
@@ -39,14 +39,6 @@ yordle::data::meta::MapPointLight::MapPointLight(const std::shared_ptr<yordle::d
         auto ptr_overrideCastStaticShadows_opt = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_overrideCastStaticShadows->value);
         if (ptr_overrideCastStaticShadows_opt != nullptr) {
             overrideCastStaticShadows = ptr_overrideCastStaticShadows_opt->value;
-        }
-    }
-
-    auto ptr_overrideUseSpecular = prop->cast_prop<yordle::data::prop::optional_prop>(1878817909u);
-    if(ptr_overrideUseSpecular != nullptr) {
-        auto ptr_overrideUseSpecular_opt = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_overrideUseSpecular->value);
-        if (ptr_overrideUseSpecular_opt != nullptr) {
-            overrideUseSpecular = ptr_overrideUseSpecular_opt->value;
         }
     }
 }

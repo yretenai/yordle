@@ -29,7 +29,7 @@ yordle::data::meta::X3DSharedConstantBufferDef::X3DSharedConstantBufferDef(const
         type = ptr_type->value;
     }
 
-    auto ptr_frequency = prop->cast_prop<yordle::data::prop::uint32_prop>(800267265u);
+    auto ptr_frequency = prop->cast_prop<yordle::data::prop::uint8_prop>(800267265u);
     if(ptr_frequency != nullptr) {
         frequency = ptr_frequency->value;
     }

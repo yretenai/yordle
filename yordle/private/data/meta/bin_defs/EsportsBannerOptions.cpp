@@ -34,6 +34,11 @@ yordle::data::meta::EsportsBannerOptions::EsportsBannerOptions(const std::shared
         IsSpectatorOnly = ptr_IsSpectatorOnly->value;
     }
 
+    auto ptr_x754cdce2 = prop->cast_prop<yordle::data::prop::uint32_prop>(1967971554u);
+    if(ptr_x754cdce2 != nullptr) {
+        x754cdce2 = ptr_x754cdce2->value;
+    }
+
     auto ptr_DefaultBlankMaterial = prop->cast_prop<yordle::data::prop::reference_prop>(3590584789u);
     if(ptr_DefaultBlankMaterial != nullptr) {
         DefaultBlankMaterial = yordle::data::meta::bin_ref<yordle::data::meta::IMaterialDef>(3975636772u, ptr_DefaultBlankMaterial->value);

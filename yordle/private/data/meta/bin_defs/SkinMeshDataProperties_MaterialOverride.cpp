@@ -34,6 +34,16 @@ yordle::data::meta::SkinMeshDataProperties_MaterialOverride::SkinMeshDataPropert
         glossTexture = ptr_glossTexture->value;
     }
 
+    auto ptr_x195a9c57 = prop->cast_prop<yordle::data::prop::string_prop>(425368663u);
+    if(ptr_x195a9c57 != nullptr) {
+        x195a9c57 = ptr_x195a9c57->value;
+    }
+
+    auto ptr_normalMapTexture = prop->cast_prop<yordle::data::prop::string_prop>(3866285399u);
+    if(ptr_normalMapTexture != nullptr) {
+        normalMapTexture = ptr_normalMapTexture->value;
+    }
+
     auto ptr_Submesh = prop->cast_prop<yordle::data::prop::string_prop>(2866241836u);
     if(ptr_Submesh != nullptr) {
         Submesh = ptr_Submesh->value;

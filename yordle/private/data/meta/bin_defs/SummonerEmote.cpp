@@ -2,7 +2,6 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/SummonerEmote.hpp>
 
-#include <yordle/data/meta/bin_defs/VfxSystemDefinitionData.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -24,9 +23,9 @@ yordle::data::meta::SummonerEmote::SummonerEmote(const std::shared_ptr<yordle::d
         summonerEmoteId = ptr_summonerEmoteId->value;
     }
 
-    auto ptr_vfxSystem = prop->cast_prop<yordle::data::prop::reference_prop>(719095870u);
+    auto ptr_vfxSystem = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(719095870u);
     if(ptr_vfxSystem != nullptr) {
-        vfxSystem = yordle::data::meta::bin_ref<yordle::data::meta::VfxSystemDefinitionData>(1171098015u, ptr_vfxSystem->value);
+        vfxSystem = ptr_vfxSystem->value;
     }
 
     auto ptr_AnnouncementIcon = prop->cast_prop<yordle::data::prop::string_prop>(728839351u);

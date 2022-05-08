@@ -38,6 +38,16 @@ yordle::data::meta::ItemShopGameModeData::ItemShopGameModeData(const std::shared
         }
     }
 
+    auto ptr_xdf5cfa0e = prop->cast_prop<yordle::data::prop::unordered_set_prop>(3747412494u);
+    if(ptr_xdf5cfa0e != nullptr) {
+        for(const auto &set_xdf5cfa0e_entry : ptr_xdf5cfa0e->value) {
+            auto ptr_xdf5cfa0e_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_xdf5cfa0e_entry);
+            if(ptr_xdf5cfa0e_entry != nullptr) {
+                xdf5cfa0e.emplace_back(ptr_xdf5cfa0e_entry->value);
+            }
+        }
+    }
+
     auto ptr_xc3b3430a = prop->cast_prop<yordle::data::prop::uint32_prop>(3283305226u);
     if(ptr_xc3b3430a != nullptr) {
         xc3b3430a = ptr_xc3b3430a->value;

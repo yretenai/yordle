@@ -43,4 +43,9 @@ yordle::data::meta::x49dc6c51::x49dc6c51(const std::shared_ptr<yordle::data::pro
     if(ptr_x12682a3e != nullptr) {
         x12682a3e = ptr_x12682a3e->value;
     }
+
+    auto ptr_x9aa349bf = prop->cast_prop<yordle::data::prop::bool_prop>(2594392511u);
+    if(ptr_x9aa349bf != nullptr) {
+        x9aa349bf = ptr_x9aa349bf->value;
+    }
 }

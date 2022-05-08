@@ -18,11 +18,6 @@ yordle::data::meta::EmblemData::EmblemData(const std::shared_ptr<yordle::data::p
     if(prop == nullptr) {
         return;
     }
-    auto ptr_mShowOnLoadingScreen = prop->cast_prop<yordle::data::prop::bool_prop>(2106504220u);
-    if(ptr_mShowOnLoadingScreen != nullptr) {
-        mShowOnLoadingScreen = ptr_mShowOnLoadingScreen->value;
-    }
-
     auto ptr_mLoadingScreenScale = prop->cast_prop<yordle::data::prop::float32_prop>(2955305810u);
     if(ptr_mLoadingScreenScale != nullptr) {
         mLoadingScreenScale = ptr_mLoadingScreenScale->value;

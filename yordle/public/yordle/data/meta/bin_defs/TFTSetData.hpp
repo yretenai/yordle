@@ -13,11 +13,11 @@
 #include <yordle/data/meta/bin_defs/TFTItemList.hpp>
 #include <yordle/data/meta/bin_defs/TftTraitList.hpp>
 #include <yordle/data/meta/bin_defs/x369a22b9.hpp>
+#include <yordle/data/meta/bin_defs/ScriptDataObjectList.hpp>
 #include <yordle/data/meta/bin_defs/xf260c3ae.hpp>
 #include <yordle/data/meta/bin_defs/TFTUnitUpgradeData.hpp>
 #include <yordle/data/meta/bin_defs/GameModeConstant.hpp>
 #include <yordle/data/meta/bin_defs/TFTStageData.hpp>
-#include <yordle/data/meta/bin_defs/ScriptDataObjectList.hpp>
 #include <yordle/data/meta/bin_defs/ResourceResolver.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -41,6 +41,10 @@ namespace yordle::data::meta {
     struct x369a22b9;
 #endif
 
+#ifndef YORDLE_META_DEF_ScriptDataObjectList
+    struct ScriptDataObjectList;
+#endif
+
 #ifndef YORDLE_META_DEF_xf260c3ae
     struct xf260c3ae;
 #endif
@@ -55,10 +59,6 @@ namespace yordle::data::meta {
 
 #ifndef YORDLE_META_DEF_TFTStageData
     struct TFTStageData;
-#endif
-
-#ifndef YORDLE_META_DEF_ScriptDataObjectList
-    struct ScriptDataObjectList;
 #endif
 
 #ifndef YORDLE_META_DEF_ResourceResolver
@@ -79,6 +79,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::TFTItemList>> itemLists {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::TftTraitList>> xf74504c0 {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::x369a22b9>> x90183782 {};
+        yordle::data::meta::bin_ref<yordle::data::meta::ScriptDataObjectList> xa40b8ff1 { 3171701405 };
         std::map<std::string, yordle::data::meta::bin_ref<yordle::data::meta::xf260c3ae>> DropRateTables {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::TFTUnitUpgradeData>> UnitUpgrades {};
         std::map<std::string, std::shared_ptr<yordle::data::meta::GameModeConstant>> ScriptData {};

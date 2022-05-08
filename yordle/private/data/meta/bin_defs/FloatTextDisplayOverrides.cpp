@@ -114,6 +114,14 @@ yordle::data::meta::FloatTextDisplayOverrides::FloatTextDisplayOverrides(const s
         }
     }
 
+    auto ptr_x20b20b79 = prop->cast_prop<yordle::data::prop::optional_prop>(548539257u);
+    if(ptr_x20b20b79 != nullptr) {
+        auto ptr_x20b20b79_opt = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_x20b20b79->value);
+        if (ptr_x20b20b79_opt != nullptr) {
+            x20b20b79 = ptr_x20b20b79_opt->value;
+        }
+    }
+
     auto ptr_overwritePreviousNumber = prop->cast_prop<yordle::data::prop::optional_prop>(1354636454u);
     if(ptr_overwritePreviousNumber != nullptr) {
         auto ptr_overwritePreviousNumber_opt = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::bool_prop>(ptr_overwritePreviousNumber->value);

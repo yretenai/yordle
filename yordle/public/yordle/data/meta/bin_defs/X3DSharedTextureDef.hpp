@@ -22,6 +22,7 @@ namespace yordle::data::meta {
 
         std::string name {};
         uint32_t type = 0u;
+        uint8_t frequency = 0u;
         int32_t x2d6871c0 = -1;
         uint32_t PlatformMask = 0u;
     };

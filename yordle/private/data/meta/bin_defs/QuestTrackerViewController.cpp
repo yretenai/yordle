@@ -3,6 +3,7 @@
 #include <yordle/data/meta/bin_defs/QuestTrackerViewController.hpp>
 
 #include <yordle/data/meta/bin_defs/HudMessageDisplayData.hpp>
+#include <yordle/data/meta/bin_defs/x64b1df0c.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -57,5 +58,25 @@ yordle::data::meta::QuestTrackerViewController::QuestTrackerViewController(const
     auto ptr_xc67a95a4 = prop->cast_prop<yordle::data::prop::float32_prop>(3329922468u);
     if(ptr_xc67a95a4 != nullptr) {
         xc67a95a4 = ptr_xc67a95a4->value;
+    }
+
+    auto ptr_xef8b25c1 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(4018873793u);
+    if(ptr_xef8b25c1 != nullptr) {
+        xef8b25c1 = ptr_xef8b25c1->value;
+    }
+
+    auto ptr_xd11e53b5 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3508425653u);
+    if(ptr_xd11e53b5 != nullptr) {
+        xd11e53b5 = ptr_xd11e53b5->value;
+    }
+
+    auto ptr_xf087db8 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(252214712u);
+    if(ptr_xf087db8 != nullptr) {
+        xf087db8 = ptr_xf087db8->value;
+    }
+
+    auto ptr_x38db73ae = prop->cast_prop<yordle::data::prop::inline_structure_prop>(953906094u);
+    if(ptr_x38db73ae != nullptr) {
+        x38db73ae = yordle::data::meta::deserialize<yordle::data::meta::x64b1df0c>(ptr_x38db73ae, 1689378572u);
     }
 }

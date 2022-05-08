@@ -4,6 +4,7 @@
 #pragma once
 
 #include <memory>
+#include <vector>
 #include <cstdint>
 
 #include <yordle/data/meta/bin_defs/xd946a9af.hpp>
@@ -26,9 +27,14 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x9a942af = 0u;
         yordle::data::meta::bin_fnv_hash x65e1e746 = 0u;
         yordle::data::meta::bin_fnv_hash x472ed1ef = 0u;
-        yordle::data::meta::bin_fnv_hash x968c4ad4 = 0u;
+        yordle::data::meta::bin_fnv_hash x8a436b27 = 0u;
         std::shared_ptr<yordle::data::meta::xd946a9af> x53fa9427 {};
         std::shared_ptr<yordle::data::meta::xd946a9af> xa18027e5 {};
+        yordle::data::meta::bin_fnv_hash x7475748d = 0u;
+        bool x7083251f = false;
+        std::vector<yordle::data::meta::bin_fnv_hash> x93adae79 {};
+        std::vector<uint16_t> x59546fdc {};
+        float x2766cb77 = 0.0;
         float xb86ba22a = 0.0;
         uint8_t x3e9d9a6b = 0u;
     };

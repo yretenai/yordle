@@ -22,6 +22,7 @@
 #include <yordle/data/meta/bin_defs/ValueColor.hpp>
 #include <yordle/data/meta/bin_defs/ValueVector2.hpp>
 #include <yordle/data/meta/bin_defs/VfxShape.hpp>
+#include <yordle/data/meta/bin_defs/xb13097f0.hpp>
 #include <yordle/data/meta/bin_defs/IntegratedValueVector2.hpp>
 #include <yordle/data/meta/bin_defs/IntegratedValueFloat.hpp>
 #include <yordle/data/meta/bin_defs/IntegratedValueVector3.hpp>
@@ -62,6 +63,26 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
         isTexturePixelated = ptr_isTexturePixelated->value;
     }
 
+    auto ptr_renderPhaseOverride = prop->cast_prop<yordle::data::prop::uint8_prop>(1996186992u);
+    if(ptr_renderPhaseOverride != nullptr) {
+        renderPhaseOverride = ptr_renderPhaseOverride->value;
+    }
+
+    auto ptr_blendMode = prop->cast_prop<yordle::data::prop::uint8_prop>(4202188459u);
+    if(ptr_blendMode != nullptr) {
+        blendMode = ptr_blendMode->value;
+    }
+
+    auto ptr_colorblindVisibility = prop->cast_prop<yordle::data::prop::uint8_prop>(1183687955u);
+    if(ptr_colorblindVisibility != nullptr) {
+        colorblindVisibility = ptr_colorblindVisibility->value;
+    }
+
+    auto ptr_offsetLifeScalingSymmetryMode = prop->cast_prop<yordle::data::prop::uint8_prop>(1302105276u);
+    if(ptr_offsetLifeScalingSymmetryMode != nullptr) {
+        offsetLifeScalingSymmetryMode = ptr_offsetLifeScalingSymmetryMode->value;
+    }
+
     auto ptr_material = prop->cast_prop<yordle::data::prop::reference_prop>(3538210912u);
     if(ptr_material != nullptr) {
         material = yordle::data::meta::bin_ref<yordle::data::meta::IMaterialDef>(3975636772u, ptr_material->value);
@@ -76,21 +97,6 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
                 materialDrivers.emplace(ptr_materialDrivers_key->value, yordle::data::meta::deserialize<yordle::data::meta::IVfxMaterialDriver>(ptr_materialDrivers_value, 37724083u));
             }
         }
-    }
-
-    auto ptr_renderPhaseOverride = prop->cast_prop<yordle::data::prop::uint8_prop>(1996186992u);
-    if(ptr_renderPhaseOverride != nullptr) {
-        renderPhaseOverride = ptr_renderPhaseOverride->value;
-    }
-
-    auto ptr_blendMode = prop->cast_prop<yordle::data::prop::uint8_prop>(4202188459u);
-    if(ptr_blendMode != nullptr) {
-        blendMode = ptr_blendMode->value;
-    }
-
-    auto ptr_colorblindVisibility = prop->cast_prop<yordle::data::prop::uint8_prop>(1183687955u);
-    if(ptr_colorblindVisibility != nullptr) {
-        colorblindVisibility = ptr_colorblindVisibility->value;
     }
 
     auto ptr_fieldCollectionDefinition = prop->cast_prop<yordle::data::prop::structure_prop>(2924424250u);
@@ -253,29 +259,14 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
         modulationFactor = ptr_modulationFactor->value;
     }
 
-    auto ptr_scaleEmitOffsetByBoundObjectSize = prop->cast_prop<yordle::data::prop::float32_prop>(3233764894u);
-    if(ptr_scaleEmitOffsetByBoundObjectSize != nullptr) {
-        scaleEmitOffsetByBoundObjectSize = ptr_scaleEmitOffsetByBoundObjectSize->value;
-    }
-
     auto ptr_scaleBirthScaleByBoundObjectSize = prop->cast_prop<yordle::data::prop::float32_prop>(2500926249u);
     if(ptr_scaleBirthScaleByBoundObjectSize != nullptr) {
         scaleBirthScaleByBoundObjectSize = ptr_scaleBirthScaleByBoundObjectSize->value;
     }
 
-    auto ptr_scaleEmitOffsetByBoundObjectHeight = prop->cast_prop<yordle::data::prop::float32_prop>(464554200u);
-    if(ptr_scaleEmitOffsetByBoundObjectHeight != nullptr) {
-        scaleEmitOffsetByBoundObjectHeight = ptr_scaleEmitOffsetByBoundObjectHeight->value;
-    }
-
     auto ptr_scaleBirthScaleByBoundObjectHeight = prop->cast_prop<yordle::data::prop::float32_prop>(3859373059u);
     if(ptr_scaleBirthScaleByBoundObjectHeight != nullptr) {
         scaleBirthScaleByBoundObjectHeight = ptr_scaleBirthScaleByBoundObjectHeight->value;
-    }
-
-    auto ptr_scaleEmitOffsetByBoundObjectRadius = prop->cast_prop<yordle::data::prop::float32_prop>(2055028341u);
-    if(ptr_scaleEmitOffsetByBoundObjectRadius != nullptr) {
-        scaleEmitOffsetByBoundObjectRadius = ptr_scaleEmitOffsetByBoundObjectRadius->value;
     }
 
     auto ptr_scaleBirthScaleByBoundObjectRadius = prop->cast_prop<yordle::data::prop::float32_prop>(942293422u);
@@ -309,16 +300,6 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
             auto ptr_keywordsIncluded_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_keywordsIncluded_entry);
             if(ptr_keywordsIncluded_entry != nullptr) {
                 keywordsIncluded.emplace_back(ptr_keywordsIncluded_entry->value);
-            }
-        }
-    }
-
-    auto ptr_excludedAttachmentTypes = prop->cast_prop<yordle::data::prop::set_prop>(4200859411u);
-    if(ptr_excludedAttachmentTypes != nullptr) {
-        for(const auto &set_excludedAttachmentTypes_entry : ptr_excludedAttachmentTypes->value) {
-            auto ptr_excludedAttachmentTypes_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_excludedAttachmentTypes_entry);
-            if(ptr_excludedAttachmentTypes_entry != nullptr) {
-                excludedAttachmentTypes.emplace_back(ptr_excludedAttachmentTypes_entry->value);
             }
         }
     }
@@ -380,11 +361,6 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
     auto ptr_birthVelocity = prop->cast_prop<yordle::data::prop::inline_structure_prop>(4198607757u);
     if(ptr_birthVelocity != nullptr) {
         birthVelocity = yordle::data::meta::deserialize<yordle::data::meta::ValueVector3>(ptr_birthVelocity, 1759261366u);
-    }
-
-    auto ptr_flexBirthTranslation = prop->cast_prop<yordle::data::prop::structure_prop>(2397835542u);
-    if(ptr_flexBirthTranslation != nullptr) {
-        flexBirthTranslation = yordle::data::meta::deserialize<yordle::data::meta::FlexValueVector3>(ptr_flexBirthTranslation, 1113621825u);
     }
 
     auto ptr_flexBirthVelocity = prop->cast_prop<yordle::data::prop::structure_prop>(2673908472u);
@@ -506,9 +482,9 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
         shape = yordle::data::meta::deserialize<yordle::data::meta::VfxShape>(ptr_shape, 2010092456u);
     }
 
-    auto ptr_flexScaleEmitOffset = prop->cast_prop<yordle::data::prop::structure_prop>(2007401040u);
-    if(ptr_flexScaleEmitOffset != nullptr) {
-        flexScaleEmitOffset = yordle::data::meta::deserialize<yordle::data::meta::FlexTypeFloat>(ptr_flexScaleEmitOffset, 796686208u);
+    auto ptr_x4ffce322 = prop->cast_prop<yordle::data::prop::structure_prop>(1341973282u);
+    if(ptr_x4ffce322 != nullptr) {
+        x4ffce322 = yordle::data::meta::deserialize<yordle::data::meta::xb13097f0>(ptr_x4ffce322, 2972751856u);
     }
 
     auto ptr_flexOffset = prop->cast_prop<yordle::data::prop::structure_prop>(3808923573u);
@@ -564,11 +540,6 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
     auto ptr_offsetLifetimeScaling = prop->cast_prop<yordle::data::prop::vector_prop>(1743020646u);
     if(ptr_offsetLifetimeScaling != nullptr) {
         offsetLifetimeScaling = ptr_offsetLifetimeScaling->value;
-    }
-
-    auto ptr_offsetLifeScalingSymmetryMode = prop->cast_prop<yordle::data::prop::uint8_prop>(1302105276u);
-    if(ptr_offsetLifeScalingSymmetryMode != nullptr) {
-        offsetLifeScalingSymmetryMode = ptr_offsetLifeScalingSymmetryMode->value;
     }
 
     auto ptr_emitterUvScrollRate = prop->cast_prop<yordle::data::prop::point_prop>(1375800169u);
@@ -791,6 +762,11 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
         uvRotation = yordle::data::meta::deserialize<yordle::data::meta::ValueFloat>(ptr_uvRotation, 70254680u);
     }
 
+    auto ptr_x33b8543e = prop->cast_prop<yordle::data::prop::inline_structure_prop>(867718206u);
+    if(ptr_x33b8543e != nullptr) {
+        x33b8543e = yordle::data::meta::deserialize<yordle::data::meta::ValueFloat>(ptr_x33b8543e, 70254680u);
+    }
+
     auto ptr_particleUVScrollRate = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1683889035u);
     if(ptr_particleUVScrollRate != nullptr) {
         particleUVScrollRate = yordle::data::meta::deserialize<yordle::data::meta::IntegratedValueVector2>(ptr_particleUVScrollRate, 1808563568u);
@@ -899,6 +875,26 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
     auto ptr_orientation = prop->cast_prop<yordle::data::prop::uint8_prop>(3309681697u);
     if(ptr_orientation != nullptr) {
         orientation = ptr_orientation->value;
+    }
+
+    auto ptr_x2bf854fb = prop->cast_prop<yordle::data::prop::bit_prop>(737694971u);
+    if(ptr_x2bf854fb != nullptr) {
+        x2bf854fb = (ptr_x2bf854fb->value & 2) == 2;
+    }
+
+    auto ptr_x2cf8568e = prop->cast_prop<yordle::data::prop::bit_prop>(754472590u);
+    if(ptr_x2cf8568e != nullptr) {
+        x2cf8568e = (ptr_x2cf8568e->value & 1) == 1;
+    }
+
+    auto ptr_x38b0b8cc = prop->cast_prop<yordle::data::prop::bit_prop>(951105740u);
+    if(ptr_x38b0b8cc != nullptr) {
+        x38b0b8cc = (ptr_x38b0b8cc->value & 4) == 4;
+    }
+
+    auto ptr_x3bb0bd85 = prop->cast_prop<yordle::data::prop::bit_prop>(1001438597u);
+    if(ptr_x3bb0bd85 != nullptr) {
+        x3bb0bd85 = (ptr_x3bb0bd85->value & 8) == 8;
     }
 
     auto ptr_particleBind = prop->cast_prop<yordle::data::prop::point_prop>(1364523800u);

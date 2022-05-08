@@ -23,6 +23,16 @@ yordle::data::meta::MapLightingVolume::MapLightingVolume(const std::shared_ptr<y
         sunColor = ptr_sunColor->value;
     }
 
+    auto ptr_x4620fe14 = prop->cast_prop<yordle::data::prop::float32_prop>(1176567316u);
+    if(ptr_x4620fe14 != nullptr) {
+        x4620fe14 = ptr_x4620fe14->value;
+    }
+
+    auto ptr_x196ca4c4 = prop->cast_prop<yordle::data::prop::float32_prop>(426550468u);
+    if(ptr_x196ca4c4 != nullptr) {
+        x196ca4c4 = ptr_x196ca4c4->value;
+    }
+
     auto ptr_sunDirection = prop->cast_prop<yordle::data::prop::vector_prop>(3784342774u);
     if(ptr_sunDirection != nullptr) {
         sunDirection = ptr_sunDirection->value;

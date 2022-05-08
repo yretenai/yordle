@@ -21,6 +21,7 @@ namespace yordle::data::meta {
 
         std::vector<yordle::data::meta::bin_fnv_hash> mShowSubmeshList {};
         std::vector<yordle::data::meta::bin_fnv_hash> mHideSubmeshList {};
+        bool x42ad0910 = false;
     };
 }
 #define YORDLE_META_DEF_SubmeshVisibilityEventData

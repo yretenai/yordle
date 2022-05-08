@@ -8,6 +8,7 @@
 #include <vector>
 #include <cstdint>
 
+#include <yordle/data/meta/bin_defs/xa2f62fa1.hpp>
 #include <yordle/data/meta/bin_defs/TftDamageSkinDescriptor.hpp>
 #include <yordle/data/meta/bin_defs/BaseLoadoutData.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -15,6 +16,10 @@
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_xa2f62fa1
+    struct xa2f62fa1;
+#endif
+
 #ifndef YORDLE_META_DEF_TftDamageSkinDescriptor
     struct TftDamageSkinDescriptor;
 #endif
@@ -36,6 +41,7 @@ namespace yordle::data::meta {
         uint32_t Level = 0u;
         bool disabled = false;
         float x7ed5b4a7 = 0.0;
+        std::shared_ptr<yordle::data::meta::xa2f62fa1> x3e651996 {};
         std::vector<std::shared_ptr<yordle::data::meta::TftDamageSkinDescriptor>> x31af5dc6 {};
     };
 }

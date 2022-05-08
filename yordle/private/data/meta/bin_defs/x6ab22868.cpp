@@ -37,4 +37,24 @@ yordle::data::meta::x6ab22868::x6ab22868(const std::shared_ptr<yordle::data::pro
     if(ptr_x8b76c33f != nullptr) {
         x8b76c33f = ptr_x8b76c33f->value;
     }
+
+    auto ptr_x213ab44b = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(557495371u);
+    if(ptr_x213ab44b != nullptr) {
+        x213ab44b = ptr_x213ab44b->value;
+    }
+
+    auto ptr_x3268568 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(52856168u);
+    if(ptr_x3268568 != nullptr) {
+        x3268568 = ptr_x3268568->value;
+    }
+
+    auto ptr_xf2cdca2e = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(4073572910u);
+    if(ptr_xf2cdca2e != nullptr) {
+        xf2cdca2e = ptr_xf2cdca2e->value;
+    }
+
+    auto ptr_x96550720 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2522154784u);
+    if(ptr_x96550720 != nullptr) {
+        x96550720 = ptr_x96550720->value;
+    }
 }

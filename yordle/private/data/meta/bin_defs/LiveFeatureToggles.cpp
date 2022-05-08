@@ -4,7 +4,6 @@
 
 #include <yordle/data/meta/bin_defs/LoLFeatureToggles.hpp>
 #include <yordle/data/meta/bin_defs/GameplayFeatureToggles.hpp>
-#include <yordle/data/meta/bin_defs/EngineFeatureToggles.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -29,10 +28,5 @@ yordle::data::meta::LiveFeatureToggles::LiveFeatureToggles(const std::shared_ptr
     auto ptr_mGameplayToggles = prop->cast_prop<yordle::data::prop::inline_structure_prop>(96400105u);
     if(ptr_mGameplayToggles != nullptr) {
         mGameplayToggles = yordle::data::meta::deserialize<yordle::data::meta::GameplayFeatureToggles>(ptr_mGameplayToggles, 3021260058u);
-    }
-
-    auto ptr_mEngineToggles = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2476043155u);
-    if(ptr_mEngineToggles != nullptr) {
-        mEngineToggles = yordle::data::meta::deserialize<yordle::data::meta::EngineFeatureToggles>(ptr_mEngineToggles, 2790085136u);
     }
 }

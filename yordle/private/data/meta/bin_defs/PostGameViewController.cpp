@@ -2,7 +2,10 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/PostGameViewController.hpp>
 
-#include <yordle/data/meta/bin_defs/NamedIconData.hpp>
+#include <yordle/data/meta/bin_defs/xa89fd289.hpp>
+#include <yordle/data/meta/bin_defs/x9a619bbc.hpp>
+#include <yordle/data/meta/bin_defs/xebd18932.hpp>
+#include <yordle/data/meta/bin_defs/x7a2a7a0d.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -24,12 +27,25 @@ yordle::data::meta::PostGameViewController::PostGameViewController(const std::sh
         Scene = ptr_Scene->value;
     }
 
-    auto ptr_RankIconData = prop->cast_prop<yordle::data::prop::set_prop>(541082918u);
-    if(ptr_RankIconData != nullptr) {
-        for(const auto &set_RankIconData_entry : ptr_RankIconData->value) {
-            auto ptr_RankIconData_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_RankIconData_entry);
-            if(ptr_RankIconData_entry != nullptr) {
-                RankIconData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::NamedIconData>(ptr_RankIconData_entry, 2945891227u));
+    auto ptr_x856af76d = prop->cast_prop<yordle::data::prop::set_prop>(2238379885u);
+    if(ptr_x856af76d != nullptr) {
+        auto index_x856af76d = 0;
+        for(const auto &set_x856af76d_entry : ptr_x856af76d->value) {
+            auto ptr_x856af76d_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_x856af76d_entry);
+            if(ptr_x856af76d_entry != nullptr) {
+                x856af76d[index_x856af76d] = ptr_x856af76d_entry->value;
+            }
+            index_x856af76d++;
+        }
+    }
+
+    auto ptr_x36cd05cf = prop->cast_prop<yordle::data::prop::map_prop>(919406031u);
+    if(ptr_x36cd05cf != nullptr) {
+        for(const auto &set_x36cd05cf_pair : ptr_x36cd05cf->value) {
+            auto ptr_x36cd05cf_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(set_x36cd05cf_pair.first);
+            auto ptr_x36cd05cf_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_x36cd05cf_pair.second);
+            if(ptr_x36cd05cf_key != nullptr && ptr_x36cd05cf_value != nullptr) {
+                x36cd05cf.emplace(ptr_x36cd05cf_key->value, ptr_x36cd05cf_value->value);
             }
         }
     }
@@ -74,6 +90,23 @@ yordle::data::meta::PostGameViewController::PostGameViewController(const std::sh
         CurrentPlayerHighlight = ptr_CurrentPlayerHighlight->value;
     }
 
+    auto ptr_xb2aff146 = prop->cast_prop<yordle::data::prop::set_prop>(2997875014u);
+    if(ptr_xb2aff146 != nullptr) {
+        auto index_xb2aff146 = 0;
+        for(const auto &set_xb2aff146_entry : ptr_xb2aff146->value) {
+            auto ptr_xb2aff146_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_xb2aff146_entry);
+            if(ptr_xb2aff146_entry != nullptr) {
+                xb2aff146[index_xb2aff146] = ptr_xb2aff146_entry->value;
+            }
+            index_xb2aff146++;
+        }
+    }
+
+    auto ptr_x5cf56914 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1559587092u);
+    if(ptr_x5cf56914 != nullptr) {
+        x5cf56914 = ptr_x5cf56914->value;
+    }
+
     auto ptr_GainedRatingText = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(529274973u);
     if(ptr_GainedRatingText != nullptr) {
         GainedRatingText = ptr_GainedRatingText->value;
@@ -89,19 +122,9 @@ yordle::data::meta::PostGameViewController::PostGameViewController(const std::sh
         CurrentRatingText = ptr_CurrentRatingText->value;
     }
 
-    auto ptr_x1abf4b19 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(448744217u);
-    if(ptr_x1abf4b19 != nullptr) {
-        x1abf4b19 = ptr_x1abf4b19->value;
-    }
-
-    auto ptr_RatedIconData = prop->cast_prop<yordle::data::prop::set_prop>(948589436u);
-    if(ptr_RatedIconData != nullptr) {
-        for(const auto &set_RatedIconData_entry : ptr_RatedIconData->value) {
-            auto ptr_RatedIconData_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_RatedIconData_entry);
-            if(ptr_RatedIconData_entry != nullptr) {
-                RatedIconData.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::NamedIconData>(ptr_RatedIconData_entry, 2945891227u));
-            }
-        }
+    auto ptr_x8af6ed76 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2331438454u);
+    if(ptr_x8af6ed76 != nullptr) {
+        x8af6ed76 = ptr_x8af6ed76->value;
     }
 
     auto ptr_x8ecd9248 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2395837000u);
@@ -109,9 +132,20 @@ yordle::data::meta::PostGameViewController::PostGameViewController(const std::sh
         x8ecd9248 = ptr_x8ecd9248->value;
     }
 
-    auto ptr_xb726620c = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3072745996u);
-    if(ptr_xb726620c != nullptr) {
-        xb726620c = ptr_xb726620c->value;
+    auto ptr_x6506aa85 = prop->cast_prop<yordle::data::prop::map_prop>(1694935685u);
+    if(ptr_x6506aa85 != nullptr) {
+        for(const auto &set_x6506aa85_pair : ptr_x6506aa85->value) {
+            auto ptr_x6506aa85_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(set_x6506aa85_pair.first);
+            auto ptr_x6506aa85_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_x6506aa85_pair.second);
+            if(ptr_x6506aa85_key != nullptr && ptr_x6506aa85_value != nullptr) {
+                x6506aa85.emplace(ptr_x6506aa85_key->value, yordle::data::meta::deserialize<yordle::data::meta::xa89fd289>(ptr_x6506aa85_value, 2829046409u));
+            }
+        }
+    }
+
+    auto ptr_x9a619bbc = prop->cast_prop<yordle::data::prop::structure_prop>(2590088124u);
+    if(ptr_x9a619bbc != nullptr) {
+        x9a619bbc = yordle::data::meta::deserialize<yordle::data::meta::x9a619bbc>(ptr_x9a619bbc, 2590088124u);
     }
 
     auto ptr_x5d5a384d = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1566193741u);
@@ -119,19 +153,13 @@ yordle::data::meta::PostGameViewController::PostGameViewController(const std::sh
         x5d5a384d = ptr_x5d5a384d->value;
     }
 
-    auto ptr_xa0dcad96 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2698816918u);
-    if(ptr_xa0dcad96 != nullptr) {
-        xa0dcad96 = ptr_xa0dcad96->value;
+    auto ptr_x4893610a = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1217618186u);
+    if(ptr_x4893610a != nullptr) {
+        x4893610a = yordle::data::meta::deserialize<yordle::data::meta::xebd18932>(ptr_x4893610a, 3956377906u);
     }
 
-    auto ptr_xb06a57fd = prop->cast_prop<yordle::data::prop::map_prop>(2959759357u);
-    if(ptr_xb06a57fd != nullptr) {
-        for(const auto &set_xb06a57fd_pair : ptr_xb06a57fd->value) {
-            auto ptr_xb06a57fd_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_xb06a57fd_pair.first);
-            auto ptr_xb06a57fd_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_xb06a57fd_pair.second);
-            if(ptr_xb06a57fd_key != nullptr && ptr_xb06a57fd_value != nullptr) {
-                xb06a57fd.emplace(ptr_xb06a57fd_key->value, ptr_xb06a57fd_value->value);
-            }
-        }
+    auto ptr_x9ac71105 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2596737285u);
+    if(ptr_x9ac71105 != nullptr) {
+        x9ac71105 = yordle::data::meta::deserialize<yordle::data::meta::x7a2a7a0d>(ptr_x9ac71105, 2049604109u);
     }
 }

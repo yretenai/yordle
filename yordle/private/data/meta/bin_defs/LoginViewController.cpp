@@ -18,4 +18,15 @@ yordle::data::meta::LoginViewController::LoginViewController(const std::shared_p
     if(prop == nullptr) {
         return;
     }
+    auto ptr_x93ec9f26 = prop->cast_prop<yordle::data::prop::set_prop>(2481757990u);
+    if(ptr_x93ec9f26 != nullptr) {
+        auto index_x93ec9f26 = 0;
+        for(const auto &set_x93ec9f26_entry : ptr_x93ec9f26->value) {
+            auto ptr_x93ec9f26_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_x93ec9f26_entry);
+            if(ptr_x93ec9f26_entry != nullptr) {
+                x93ec9f26[index_x93ec9f26] = ptr_x93ec9f26_entry->value;
+            }
+            index_x93ec9f26++;
+        }
+    }
 }

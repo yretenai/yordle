@@ -17,6 +17,8 @@ namespace yordle::data::meta {
         bool is_type(uint32_t type) override {
             return type == 2762908325u || VfxPrimitiveMeshBase::is_type(type);
         }
+
+        bool x5f2e5640 = false;
     };
 }
 #define YORDLE_META_DEF_VfxPrimitiveAttachedMesh

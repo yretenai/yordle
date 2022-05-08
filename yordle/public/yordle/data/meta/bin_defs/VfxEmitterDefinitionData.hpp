@@ -5,8 +5,8 @@
 
 #include <memory>
 #include <string>
-#include <map>
 #include <cstdint>
+#include <map>
 #include <vector>
 #include <array>
 #include <optional>
@@ -31,6 +31,7 @@
 #include <yordle/data/meta/bin_defs/ValueColor.hpp>
 #include <yordle/data/meta/bin_defs/ValueVector2.hpp>
 #include <yordle/data/meta/bin_defs/VfxShape.hpp>
+#include <yordle/data/meta/bin_defs/xb13097f0.hpp>
 #include <yordle/data/meta/bin_defs/IntegratedValueVector2.hpp>
 #include <yordle/data/meta/bin_defs/IntegratedValueFloat.hpp>
 #include <yordle/data/meta/bin_defs/IntegratedValueVector3.hpp>
@@ -121,6 +122,10 @@ namespace yordle::data::meta {
     struct VfxShape;
 #endif
 
+#ifndef YORDLE_META_DEF_xb13097f0
+    struct xb13097f0;
+#endif
+
 #ifndef YORDLE_META_DEF_IntegratedValueVector2
     struct IntegratedValueVector2;
 #endif
@@ -147,11 +152,12 @@ namespace yordle::data::meta {
         bool disabled = false;
         bool disableBackfaceCull = false;
         bool isTexturePixelated = false;
-        yordle::data::meta::bin_ref<yordle::data::meta::IMaterialDef> material { 3975636772 };
-        std::map<std::string, std::shared_ptr<yordle::data::meta::IVfxMaterialDriver>> materialDrivers {};
         uint8_t renderPhaseOverride = 7u;
         uint8_t blendMode = 0u;
         uint8_t colorblindVisibility = 0u;
+        uint8_t offsetLifeScalingSymmetryMode = 0u;
+        yordle::data::meta::bin_ref<yordle::data::meta::IMaterialDef> material { 3975636772 };
+        std::map<std::string, std::shared_ptr<yordle::data::meta::IVfxMaterialDriver>> materialDrivers {};
         std::shared_ptr<yordle::data::meta::VfxFieldCollectionDefinitionData> fieldCollectionDefinition {};
         std::vector<std::shared_ptr<yordle::data::meta::VfxMaterialOverrideDefinitionData>> materialOverrideDefinitions {};
         std::shared_ptr<yordle::data::meta::VfxSoftParticleDefinitionData> softParticleParams {};
@@ -183,16 +189,12 @@ namespace yordle::data::meta {
         std::array<float, 2> colorLookUpScales { 1, 1 };
         std::array<float, 2> colorLookUpOffsets { 0, 0 };
         std::array<float, 4> modulationFactor { 1, 1, 1, 1 };
-        float scaleEmitOffsetByBoundObjectSize = 0.0;
         float scaleBirthScaleByBoundObjectSize = 0.0;
-        float scaleEmitOffsetByBoundObjectHeight = 0.0;
         float scaleBirthScaleByBoundObjectHeight = 0.0;
-        float scaleEmitOffsetByBoundObjectRadius = 0.0;
         float scaleBirthScaleByBoundObjectRadius = 0.0;
         std::vector<std::string> keywordsExcluded {};
         std::vector<std::string> keywordsRequired {};
         std::vector<std::string> keywordsIncluded {};
-        std::vector<std::string> excludedAttachmentTypes {};
         uint8_t importance = 1u;
         uint8_t censorPolicy = 0u;
         uint8_t spectatorPolicy = 0u;
@@ -203,7 +205,6 @@ namespace yordle::data::meta {
         std::optional<float> particleLinger { 0.0 };
         std::optional<float> emitterLinger { 0.0 };
         std::shared_ptr<yordle::data::meta::ValueVector3> birthVelocity {};
-        std::shared_ptr<yordle::data::meta::FlexValueVector3> flexBirthTranslation {};
         std::shared_ptr<yordle::data::meta::FlexValueVector3> flexBirthVelocity {};
         std::shared_ptr<yordle::data::meta::FlexTypeFloat> flexScaleBirthScale {};
         std::shared_ptr<yordle::data::meta::FlexValueVector2> flexBirthUVScrollRate {};
@@ -226,7 +227,7 @@ namespace yordle::data::meta {
         std::optional<float> timeActiveDuringPeriod {};
         std::optional<float> period {};
         std::shared_ptr<yordle::data::meta::VfxShape> shape {};
-        std::shared_ptr<yordle::data::meta::FlexTypeFloat> flexScaleEmitOffset {};
+        std::shared_ptr<yordle::data::meta::xb13097f0> x4ffce322 {};
         std::shared_ptr<yordle::data::meta::FlexValueVector3> flexOffset {};
         int16_t startFrame = 0u;
         int16_t numFrames = 1u;
@@ -238,7 +239,6 @@ namespace yordle::data::meta {
         std::array<float, 4> censorModulateValue { 1, 1, 1, 1 };
         std::string emissionMeshName {};
         std::array<float, 3> offsetLifetimeScaling { 0, 0, 0 };
-        uint8_t offsetLifeScalingSymmetryMode = 0u;
         std::array<float, 2> emitterUvScrollRate { 0, 0 };
         std::array<float, 2> emitterUvScrollRateMult { 0, 0 };
         std::array<float, 3> translationOverride { 0, 0, 0 };
@@ -283,6 +283,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ValueFloat> birthUvRotateRate {};
         std::shared_ptr<yordle::data::meta::ValueFloat> birthUvRotateRateMult {};
         std::shared_ptr<yordle::data::meta::ValueFloat> uvRotation {};
+        std::shared_ptr<yordle::data::meta::ValueFloat> x33b8543e {};
         std::shared_ptr<yordle::data::meta::IntegratedValueVector2> particleUVScrollRate {};
         std::shared_ptr<yordle::data::meta::IntegratedValueVector2> particleUVScrollRateMult {};
         std::shared_ptr<yordle::data::meta::IntegratedValueFloat> particleUVRotateRate {};
@@ -305,6 +306,10 @@ namespace yordle::data::meta {
         uint8_t texAddressModeBase = 0u;
         uint8_t fixedOrbitType = 1u;
         uint8_t orientation = 0u;
+        bool x2bf854fb = false;
+        bool x2cf8568e = false;
+        bool x38b0b8cc = false;
+        bool x3bb0bd85 = false;
         std::array<float, 2> particleBind { 0, 0 };
         std::array<float, 2> scaleBias { 1, 1 };
         std::shared_ptr<yordle::data::meta::ValueVector3> birthRotation0 {};

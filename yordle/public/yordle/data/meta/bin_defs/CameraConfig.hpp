@@ -40,6 +40,9 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::CameraTrapezoid> x71c9323a {};
         std::shared_ptr<yordle::data::meta::CameraTrapezoid> xf7617555 {};
         float x383f51a8 = 0.0;
+        std::shared_ptr<yordle::data::meta::CameraTrapezoid> x79b2d636 {};
+        std::shared_ptr<yordle::data::meta::CameraTrapezoid> x4eb5a788 {};
+        float x75b7ab24 = 0.0;
     };
 }
 #define YORDLE_META_DEF_CameraConfig

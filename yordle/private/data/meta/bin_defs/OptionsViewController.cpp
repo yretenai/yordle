@@ -65,6 +65,31 @@ yordle::data::meta::OptionsViewController::OptionsViewController(const std::shar
         LastItemPadding = ptr_LastItemPadding->value;
     }
 
+    auto ptr_x991fa1d6 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2568987094u);
+    if(ptr_x991fa1d6 != nullptr) {
+        x991fa1d6 = ptr_x991fa1d6->value;
+    }
+
+    auto ptr_x1a34953e = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(439653694u);
+    if(ptr_x1a34953e != nullptr) {
+        x1a34953e = ptr_x1a34953e->value;
+    }
+
+    auto ptr_xca71e7ba = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3396462522u);
+    if(ptr_xca71e7ba != nullptr) {
+        xca71e7ba = ptr_xca71e7ba->value;
+    }
+
+    auto ptr_xc8d5290 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(210588304u);
+    if(ptr_xc8d5290 != nullptr) {
+        xc8d5290 = ptr_xc8d5290->value;
+    }
+
+    auto ptr_xfbed4d38 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(4226633016u);
+    if(ptr_xfbed4d38 != nullptr) {
+        xfbed4d38 = ptr_xfbed4d38->value;
+    }
+
     auto ptr_x4d302530 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1295000880u);
     if(ptr_x4d302530 != nullptr) {
         x4d302530 = ptr_x4d302530->value;

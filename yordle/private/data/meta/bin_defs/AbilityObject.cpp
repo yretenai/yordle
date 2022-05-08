@@ -48,4 +48,9 @@ yordle::data::meta::AbilityObject::AbilityObject(const std::shared_ptr<yordle::d
     if(ptr_mType != nullptr) {
         mType = ptr_mType->value;
     }
+
+    auto ptr_xf81238e4 = prop->cast_prop<yordle::data::prop::uint32_prop>(4161943780u);
+    if(ptr_xf81238e4 != nullptr) {
+        xf81238e4 = ptr_xf81238e4->value;
+    }
 }

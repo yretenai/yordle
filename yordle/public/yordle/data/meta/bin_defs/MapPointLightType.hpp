@@ -21,10 +21,9 @@ namespace yordle::data::meta {
         }
 
         std::array<float, 4> lightColor { 1, 1, 1, 1 };
-        std::array<float, 4> falloffColor { 0, 0, 0, 1 };
         float radius = 500.0;
         bool castStaticShadows = true;
-        bool specular = true;
+        float xc7334a55 = 5.0;
         int32_t Impact = 3;
     };
 }

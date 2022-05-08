@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/x828bfdbd.hpp>
 
+#include <yordle/data/meta/bin_defs/xc7d8a802.hpp>
 #include <yordle/data/meta/bin_defs/x231dd1a2.hpp>
 #include <yordle/data/meta/bin_defs/x89fa8d1c.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
@@ -19,6 +20,21 @@ yordle::data::meta::x828bfdbd::x828bfdbd(const std::shared_ptr<yordle::data::pro
     if(prop == nullptr) {
         return;
     }
+    auto ptr_xe9f33fa7 = prop->cast_prop<yordle::data::prop::float32_prop>(3925032871u);
+    if(ptr_xe9f33fa7 != nullptr) {
+        xe9f33fa7 = ptr_xe9f33fa7->value;
+    }
+
+    auto ptr_IsEnabled = prop->cast_prop<yordle::data::prop::bool_prop>(3744155086u);
+    if(ptr_IsEnabled != nullptr) {
+        IsEnabled = ptr_IsEnabled->value;
+    }
+
+    auto ptr_x8178e6ff = prop->cast_prop<yordle::data::prop::structure_prop>(2172184319u);
+    if(ptr_x8178e6ff != nullptr) {
+        x8178e6ff = yordle::data::meta::deserialize<yordle::data::meta::xc7d8a802>(ptr_x8178e6ff, 3352864770u);
+    }
+
     auto ptr_xa2a39d73 = prop->cast_prop<yordle::data::prop::set_prop>(2728631667u);
     if(ptr_xa2a39d73 != nullptr) {
         for(const auto &set_xa2a39d73_entry : ptr_xa2a39d73->value) {
@@ -29,33 +45,8 @@ yordle::data::meta::x828bfdbd::x828bfdbd(const std::shared_ptr<yordle::data::pro
         }
     }
 
-    auto ptr_xbcc3158a = prop->cast_prop<yordle::data::prop::set_prop>(3166901642u);
-    if(ptr_xbcc3158a != nullptr) {
-        for(const auto &set_xbcc3158a_entry : ptr_xbcc3158a->value) {
-            auto ptr_xbcc3158a_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(set_xbcc3158a_entry);
-            if(ptr_xbcc3158a_entry != nullptr) {
-                xbcc3158a.emplace_back(yordle::data::meta::bin_ref<yordle::data::meta::x231dd1a2>(589156770u, ptr_xbcc3158a_entry->value));
-            }
-        }
-    }
-
     auto ptr_xc84bbe59 = prop->cast_prop<yordle::data::prop::uint8_prop>(3360407129u);
     if(ptr_xc84bbe59 != nullptr) {
         xc84bbe59 = ptr_xc84bbe59->value;
-    }
-
-    auto ptr_x8178e6ff = prop->cast_prop<yordle::data::prop::uint8_prop>(2172184319u);
-    if(ptr_x8178e6ff != nullptr) {
-        x8178e6ff = ptr_x8178e6ff->value;
-    }
-
-    auto ptr_xe9f33fa7 = prop->cast_prop<yordle::data::prop::float32_prop>(3925032871u);
-    if(ptr_xe9f33fa7 != nullptr) {
-        xe9f33fa7 = ptr_xe9f33fa7->value;
-    }
-
-    auto ptr_IsEnabled = prop->cast_prop<yordle::data::prop::bool_prop>(3744155086u);
-    if(ptr_IsEnabled != nullptr) {
-        IsEnabled = ptr_IsEnabled->value;
     }
 }

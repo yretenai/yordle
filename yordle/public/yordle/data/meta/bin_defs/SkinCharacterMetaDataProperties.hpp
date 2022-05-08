@@ -40,7 +40,6 @@ namespace yordle::data::meta {
         bool skinBasedRelativeColorScheme = false;
         std::vector<int32_t> relativeColorSwapTable {};
         std::vector<std::shared_ptr<yordle::data::meta::SkinCharacterMetaDataProperties_SpawningSkinOffset>> spawningSkinOffsets {};
-        bool useGDSBinaries = false;
     };
 }
 #define YORDLE_META_DEF_SkinCharacterMetaDataProperties

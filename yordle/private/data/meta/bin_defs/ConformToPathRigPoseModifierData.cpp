@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/ConformToPathRigPoseModifierData.hpp>
 
+#include <yordle/data/meta/bin_defs/xa5584548.hpp>
 #include <yordle/data/meta/bin_defs/BaseRigPoseModifierData.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -51,5 +52,40 @@ yordle::data::meta::ConformToPathRigPoseModifierData::ConformToPathRigPoseModifi
     auto ptr_mFrequency = prop->cast_prop<yordle::data::prop::float32_prop>(825003174u);
     if(ptr_mFrequency != nullptr) {
         mFrequency = ptr_mFrequency->value;
+    }
+
+    auto ptr_xa550c40c = prop->cast_prop<yordle::data::prop::bool_prop>(2773533708u);
+    if(ptr_xa550c40c != nullptr) {
+        xa550c40c = ptr_xa550c40c->value;
+    }
+
+    auto ptr_xa4e3d433 = prop->cast_prop<yordle::data::prop::bool_prop>(2766394419u);
+    if(ptr_xa4e3d433 != nullptr) {
+        xa4e3d433 = ptr_xa4e3d433->value;
+    }
+
+    auto ptr_ActivationDistance = prop->cast_prop<yordle::data::prop::float32_prop>(4011335866u);
+    if(ptr_ActivationDistance != nullptr) {
+        ActivationDistance = ptr_ActivationDistance->value;
+    }
+
+    auto ptr_x6d3315f3 = prop->cast_prop<yordle::data::prop::float32_prop>(1832064499u);
+    if(ptr_x6d3315f3 != nullptr) {
+        x6d3315f3 = ptr_x6d3315f3->value;
+    }
+
+    auto ptr_xafc0620 = prop->cast_prop<yordle::data::prop::float32_prop>(184288800u);
+    if(ptr_xafc0620 != nullptr) {
+        xafc0620 = ptr_xafc0620->value;
+    }
+
+    auto ptr_xf1f20249 = prop->cast_prop<yordle::data::prop::set_prop>(4059169353u);
+    if(ptr_xf1f20249 != nullptr) {
+        for(const auto &set_xf1f20249_entry : ptr_xf1f20249->value) {
+            auto ptr_xf1f20249_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_xf1f20249_entry);
+            if(ptr_xf1f20249_entry != nullptr) {
+                xf1f20249.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::xa5584548>(ptr_xf1f20249_entry, 2774025544u));
+            }
+        }
     }
 }

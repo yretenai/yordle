@@ -4,19 +4,34 @@
 #pragma once
 
 #include <memory>
-#include <vector>
+#include <array>
 #include <map>
-#include <string>
+#include <cstdint>
 
-#include <yordle/data/meta/bin_defs/NamedIconData.hpp>
+#include <yordle/data/meta/bin_defs/xa89fd289.hpp>
+#include <yordle/data/meta/bin_defs/x9a619bbc.hpp>
+#include <yordle/data/meta/bin_defs/xebd18932.hpp>
+#include <yordle/data/meta/bin_defs/x7a2a7a0d.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_NamedIconData
-    struct NamedIconData;
+#ifndef YORDLE_META_DEF_xa89fd289
+    struct xa89fd289;
+#endif
+
+#ifndef YORDLE_META_DEF_x9a619bbc
+    struct x9a619bbc;
+#endif
+
+#ifndef YORDLE_META_DEF_xebd18932
+    struct xebd18932;
+#endif
+
+#ifndef YORDLE_META_DEF_x7a2a7a0d
+    struct x7a2a7a0d;
 #endif
     struct YORDLE_EXPORT PostGameViewController : public ViewController {
         explicit PostGameViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -26,7 +41,8 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash Scene = 0u;
-        std::vector<std::shared_ptr<yordle::data::meta::NamedIconData>> RankIconData {};
+        std::array<yordle::data::meta::bin_fnv_hash, 8> x856af76d { 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u };
+        std::map<uint32_t, yordle::data::meta::bin_fnv_hash> x36cd05cf {};
         yordle::data::meta::bin_fnv_hash RankText = 0u;
         yordle::data::meta::bin_fnv_hash CurrentExpText = 0u;
         yordle::data::meta::bin_fnv_hash GainedExpText = 0u;
@@ -35,16 +51,18 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash ProvisionalTextRight = 0u;
         yordle::data::meta::bin_fnv_hash BackgroundTexture = 0u;
         yordle::data::meta::bin_fnv_hash CurrentPlayerHighlight = 0u;
+        std::array<yordle::data::meta::bin_fnv_hash, 8> xb2aff146 { 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u };
+        yordle::data::meta::bin_fnv_hash x5cf56914 = 0u;
         yordle::data::meta::bin_fnv_hash GainedRatingText = 0u;
         yordle::data::meta::bin_fnv_hash LostRatingText = 0u;
         yordle::data::meta::bin_fnv_hash CurrentRatingText = 0u;
-        yordle::data::meta::bin_fnv_hash x1abf4b19 = 0u;
-        std::vector<std::shared_ptr<yordle::data::meta::NamedIconData>> RatedIconData {};
+        yordle::data::meta::bin_fnv_hash x8af6ed76 = 0u;
         yordle::data::meta::bin_fnv_hash x8ecd9248 = 0u;
-        yordle::data::meta::bin_fnv_hash xb726620c = 0u;
+        std::map<uint32_t, std::shared_ptr<yordle::data::meta::xa89fd289>> x6506aa85 {};
+        std::shared_ptr<yordle::data::meta::x9a619bbc> x9a619bbc {};
         yordle::data::meta::bin_fnv_hash x5d5a384d = 0u;
-        yordle::data::meta::bin_fnv_hash xa0dcad96 = 0u;
-        std::map<std::string, std::string> xb06a57fd {};
+        std::shared_ptr<yordle::data::meta::xebd18932> x4893610a {};
+        std::shared_ptr<yordle::data::meta::x7a2a7a0d> x9ac71105 {};
     };
 }
 #define YORDLE_META_DEF_PostGameViewController

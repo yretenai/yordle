@@ -11,6 +11,8 @@
 
 #include <nlohmann/json.hpp>
 #include <standard_dragon/exception/reasonable.hpp>
+#include <yordle/cdtb/xxhashlist.hpp>
+#include <yordle/yordle.hpp>
 
 #include "meta.hpp"
 #include "norra.hpp"

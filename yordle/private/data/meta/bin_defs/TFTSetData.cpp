@@ -6,11 +6,11 @@
 #include <yordle/data/meta/bin_defs/TFTItemList.hpp>
 #include <yordle/data/meta/bin_defs/TftTraitList.hpp>
 #include <yordle/data/meta/bin_defs/x369a22b9.hpp>
+#include <yordle/data/meta/bin_defs/ScriptDataObjectList.hpp>
 #include <yordle/data/meta/bin_defs/xf260c3ae.hpp>
 #include <yordle/data/meta/bin_defs/TFTUnitUpgradeData.hpp>
 #include <yordle/data/meta/bin_defs/GameModeConstant.hpp>
 #include <yordle/data/meta/bin_defs/TFTStageData.hpp>
-#include <yordle/data/meta/bin_defs/ScriptDataObjectList.hpp>
 #include <yordle/data/meta/bin_defs/ResourceResolver.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
@@ -91,6 +91,11 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
                 x90183782.emplace_back(yordle::data::meta::bin_ref<yordle::data::meta::x369a22b9>(916071097u, ptr_x90183782_entry->value));
             }
         }
+    }
+
+    auto ptr_xa40b8ff1 = prop->cast_prop<yordle::data::prop::reference_prop>(2752221169u);
+    if(ptr_xa40b8ff1 != nullptr) {
+        xa40b8ff1 = yordle::data::meta::bin_ref<yordle::data::meta::ScriptDataObjectList>(3171701405u, ptr_xa40b8ff1->value);
     }
 
     auto ptr_DropRateTables = prop->cast_prop<yordle::data::prop::map_prop>(721831827u);

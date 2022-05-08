@@ -18,11 +18,6 @@ yordle::data::meta::GameplayFeatureToggles::GameplayFeatureToggles(const std::sh
     if(prop == nullptr) {
         return;
     }
-    auto ptr_NewActorStuckPathfinding = prop->cast_prop<yordle::data::prop::bool_prop>(689679626u);
-    if(ptr_NewActorStuckPathfinding != nullptr) {
-        NewActorStuckPathfinding = ptr_NewActorStuckPathfinding->value;
-    }
-
     auto ptr_fowCastRayAccurate = prop->cast_prop<yordle::data::prop::bool_prop>(1316620882u);
     if(ptr_fowCastRayAccurate != nullptr) {
         fowCastRayAccurate = ptr_fowCastRayAccurate->value;
@@ -31,11 +26,6 @@ yordle::data::meta::GameplayFeatureToggles::GameplayFeatureToggles(const std::sh
     auto ptr_disableSpellLevelMinimumProtections = prop->cast_prop<yordle::data::prop::bool_prop>(1700882399u);
     if(ptr_disableSpellLevelMinimumProtections != nullptr) {
         disableSpellLevelMinimumProtections = ptr_disableSpellLevelMinimumProtections->value;
-    }
-
-    auto ptr_IndividualItemVisibility = prop->cast_prop<yordle::data::prop::bool_prop>(3146339973u);
-    if(ptr_IndividualItemVisibility != nullptr) {
-        IndividualItemVisibility = ptr_IndividualItemVisibility->value;
     }
 
     auto ptr_AFKDetection2 = prop->cast_prop<yordle::data::prop::bool_prop>(3829795124u);

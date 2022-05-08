@@ -37,4 +37,9 @@ yordle::data::meta::SoundEventData::SoundEventData(const std::shared_ptr<yordle:
     if(ptr_x67227d6 != nullptr) {
         x67227d6 = ptr_x67227d6->value;
     }
+
+    auto ptr_xea35be63 = prop->cast_prop<yordle::data::prop::uint16_prop>(3929390691u);
+    if(ptr_xea35be63 != nullptr) {
+        xea35be63 = ptr_xea35be63->value;
+    }
 }

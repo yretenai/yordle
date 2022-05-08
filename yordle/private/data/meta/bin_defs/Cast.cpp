@@ -18,4 +18,8 @@ yordle::data::meta::Cast::Cast(const std::shared_ptr<yordle::data::prop::structu
     if(prop == nullptr) {
         return;
     }
+    auto ptr_x9aa2fc4c = prop->cast_prop<yordle::data::prop::bool_prop>(2594372684u);
+    if(ptr_x9aa2fc4c != nullptr) {
+        x9aa2fc4c = ptr_x9aa2fc4c->value;
+    }
 }

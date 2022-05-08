@@ -28,6 +28,11 @@ yordle::data::meta::WallFollowMovement::WallFollowMovement(const std::shared_ptr
         mProjectTargetToCastRange = ptr_mProjectTargetToCastRange->value;
     }
 
+    auto ptr_x99aa2d1f = prop->cast_prop<yordle::data::prop::bool_prop>(2578066719u);
+    if(ptr_x99aa2d1f != nullptr) {
+        x99aa2d1f = ptr_x99aa2d1f->value;
+    }
+
     auto ptr_mUseGroundHeightAtTarget = prop->cast_prop<yordle::data::prop::bool_prop>(1847500467u);
     if(ptr_mUseGroundHeightAtTarget != nullptr) {
         mUseGroundHeightAtTarget = ptr_mUseGroundHeightAtTarget->value;
