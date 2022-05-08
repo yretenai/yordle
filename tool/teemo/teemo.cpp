@@ -10,6 +10,20 @@
 
 #include "teemo.hpp"
 
+#include <yordle/archive/wad_file.hpp>
+#include <yordle/data/rst_file.hpp>
+#include <yordle/data/inibin.hpp>
+#include <yordle/data/property_bin.hpp>
+#include <yordle/data/prop/primitive_prop.hpp>
+#include <yordle/data/prop/set_prop.hpp>
+#include <yordle/data/prop/unordered_set_prop.hpp>
+#include <yordle/data/prop/inline_structure_prop.hpp>
+#include <yordle/data/prop/optional_prop.hpp>
+#include <yordle/data/prop/map_prop.hpp>
+#include <yordle/data/prop/string_prop.hpp>
+#include <yordle/yordle.hpp>
+
+
 using namespace std;
 using namespace dragon;
 using namespace yordle;
