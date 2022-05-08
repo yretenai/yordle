@@ -874,7 +874,7 @@ public static class Program {
             case ClassPropertyType.U64:
                 return $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => x.GetUInt64()))} }}";
             case ClassPropertyType.F32:
-                return $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => x + "f"))} }}";
+                return $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(FormatFloat))} }}";
             case ClassPropertyType.String:
                 return $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => SymbolDisplay.FormatLiteral(x.GetString()!, true)))} }}";
             case ClassPropertyType.Hash:
@@ -927,7 +927,7 @@ public static class Program {
             case ClassPropertyType.Vec4: {
                 var stack = new List<string>();
                 if (defaultValue.ValueKind != JsonValueKind.Undefined) {
-                    stack.AddRange(defaultValue.EnumerateArray().Select(entry => string.Join(", ", entry.EnumerateArray().Select(x => x + "f"))));
+                    stack.AddRange(defaultValue.EnumerateArray().Select(entry => string.Join(", ", entry.EnumerateArray().Select(FormatFloat))));
                 }
 
                 return $"{{ {string.Join(", ", stack.Select(x => $"{listType}({{ {x} }})"))} }}";
@@ -943,7 +943,7 @@ public static class Program {
             case ClassPropertyType.Mtx44: {
                 var stack = new List<string>();
                 if (defaultValue.ValueKind != JsonValueKind.Undefined) {
-                    stack.AddRange(defaultValue.EnumerateArray().Select(entry => string.Join(", ", entry.EnumerateArray().SelectMany(x => x.EnumerateArray().Select(y => y.GetSingle() + "f")))));
+                    stack.AddRange(defaultValue.EnumerateArray().Select(entry => string.Join(", ", entry.EnumerateArray().SelectMany(x => x.EnumerateArray().Select(FormatFloat)))));
                 }
                 
                 return $"{{ {string.Join(", ", stack.Select(x => $"{{ {x} }}"))} }}";
