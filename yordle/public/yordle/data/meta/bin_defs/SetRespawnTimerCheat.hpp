@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         uint32_t mTarget = 1u;
-        float mTimerValue = 0.0;
+        float mTimerValue = 0.0f;
     };
 }
 #define YORDLE_META_DEF_SetRespawnTimerCheat

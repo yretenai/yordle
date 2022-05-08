@@ -18,9 +18,9 @@ namespace yordle::data::meta {
             return type == 1850343160u;
         }
 
-        float x840f5062 = 1.0;
-        float x254c8137 = 1.0;
-        float xf504817a = 0.5;
+        float x840f5062 = 1.0f;
+        float x254c8137 = 1.0f;
+        float xf504817a = 0.5f;
     };
 }
 #define YORDLE_META_DEF_TFTHudScoreboardData

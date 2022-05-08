@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 2141811217u || BaseEventData::is_type(type);
         }
 
-        float mLerpTime = 0.20000000298023224;
+        float mLerpTime = 0.20000000298023224f;
     };
 }
 #define YORDLE_META_DEF_SyncedAnimationEventData

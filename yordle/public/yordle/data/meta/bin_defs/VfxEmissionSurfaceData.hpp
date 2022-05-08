@@ -23,7 +23,7 @@ namespace yordle::data::meta {
         std::string meshName {};
         std::string skeletonName {};
         std::string animationName {};
-        float meshScale = 1.0;
+        float meshScale = 1.0f;
         int16_t maxJointWeights = 4u;
         bool useAvatarPose = false;
         bool useSurfaceNormalForBirthPhysics = true;

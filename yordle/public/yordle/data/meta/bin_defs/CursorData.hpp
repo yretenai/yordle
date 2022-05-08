@@ -20,7 +20,7 @@ namespace yordle::data::meta {
             return type == 187557783u;
         }
 
-        std::array<float, 2> mHotSpot { 0, 0 };
+        std::array<float, 2> mHotSpot { 0.0f, 0.0f };
         std::string mTextureName {};
         std::string mColorblindTextureName {};
         std::string xd240ce4f {};

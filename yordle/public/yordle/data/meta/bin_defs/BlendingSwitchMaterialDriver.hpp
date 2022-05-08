@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 1459861871u || SwitchMaterialDriver::is_type(type);
         }
 
-        float mBlendTime = 1.0;
+        float mBlendTime = 1.0f;
         std::vector<float> mOverrideBlendTimes {};
     };
 }

@@ -74,8 +74,8 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::xd3350101> x3da42bb9 {};
         std::shared_ptr<yordle::data::meta::xd3350101> x3c4f003d {};
         std::array<yordle::data::meta::bin_fnv_hash, 6> xe00be811 { 0u, 0u, 0u, 0u, 0u, 0u };
-        float xf8310aa = 1.0;
-        float x7df5b85f = 1.0;
+        float xf8310aa = 1.0f;
+        float x7df5b85f = 1.0f;
         yordle::data::meta::bin_fnv_hash BuildsIntoIconDefinition = 0u;
         yordle::data::meta::bin_fnv_hash BuildTreeIconDefinition = 0u;
         yordle::data::meta::bin_fnv_hash QuickBuyIconDefinition = 0u;
@@ -88,7 +88,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x5ab9b659 = 0u;
         yordle::data::meta::bin_fnv_hash xf8e1342c = 0u;
         yordle::data::meta::bin_fnv_hash x69988db6 = 0u;
-        float x7ba0c753 = 1.0;
+        float x7ba0c753 = 1.0f;
         yordle::data::meta::bin_fnv_hash ItemDetailsScene = 0u;
         yordle::data::meta::bin_fnv_hash xf48cf36f = 0u;
         yordle::data::meta::bin_fnv_hash xaa352f81 = 0u;

@@ -31,9 +31,9 @@ namespace yordle::data::meta {
         }
 
         bool mRelativeTeams = false;
-        std::array<float, 2> mSize { 0, 0 };
-        float mMinScale = 0.0;
-        float mMaxScale = 0.0;
+        std::array<float, 2> mSize { 0.0f, 0.0f };
+        float mMinScale = 0.0f;
+        float mMaxScale = 0.0f;
         std::shared_ptr<yordle::data::meta::MinimapIconTextureData> mBaseTexture {};
         std::map<uint8_t, std::shared_ptr<yordle::data::meta::MinimapIconTextureData>> mTeamTextures {};
         std::shared_ptr<yordle::data::meta::MinimapIconColorData> mBaseColor {};

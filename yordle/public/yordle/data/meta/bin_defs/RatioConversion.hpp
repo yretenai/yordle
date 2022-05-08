@@ -23,7 +23,7 @@ namespace yordle::data::meta {
         uint8_t mSourceStatOutput = 0u;
         uint8_t mResultingStatType = 0u;
         uint8_t mResultingStatOutput = 0u;
-        float x9227ce44 = 1.0;
+        float x9227ce44 = 1.0f;
     };
 }
 #define YORDLE_META_DEF_RatioConversion

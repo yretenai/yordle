@@ -23,8 +23,8 @@ namespace yordle::data::meta {
 
         int32_t OnPreDamagePriority = -1;
         uint32_t DeathEventType = 0u;
-        float CastTime = 0.0;
-        float ChannelDuration = 0.0;
+        float CastTime = 0.0f;
+        float ChannelDuration = 0.0f;
         std::string buffName {};
         std::string buffTextureName {};
         std::string displayName {};

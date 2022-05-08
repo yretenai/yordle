@@ -23,8 +23,8 @@ namespace yordle::data::meta {
             return type == 2151525964u || IGameCalculationPart::is_type(type);
         }
 
-        std::optional<float> mCeiling { 0.0 };
-        std::optional<float> mFloor { 0.0 };
+        std::optional<float> mCeiling { 0.0f };
+        std::optional<float> mFloor { 0.0f };
         std::vector<std::shared_ptr<yordle::data::meta::IGameCalculationPart>> mSubparts {};
     };
 }

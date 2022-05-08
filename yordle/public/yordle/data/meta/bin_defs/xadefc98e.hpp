@@ -20,8 +20,8 @@ namespace yordle::data::meta {
             return type == 2918173070u || x6dd26f3a::is_type(type);
         }
 
-        std::array<float, 4> color { 1, 1, 1, 1 };
-        float intensity = 1.0;
+        std::array<float, 4> color { 1.0f, 1.0f, 1.0f, 1.0f };
+        float intensity = 1.0f;
         int32_t Impact = 3;
     };
 }

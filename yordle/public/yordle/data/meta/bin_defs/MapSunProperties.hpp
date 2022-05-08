@@ -20,26 +20,26 @@ namespace yordle::data::meta {
             return type == 379203484u || MapComponent::is_type(type);
         }
 
-        std::array<float, 4> sunColor { 1, 1, 1, 1 };
-        float x4620fe14 = 1.0;
-        float x196ca4c4 = 10.0;
-        std::array<float, 3> sunDirection { 0, 0.707, 0.707 };
+        std::array<float, 4> sunColor { 1.0f, 1.0f, 1.0f, 1.0f };
+        float x4620fe14 = 1.0f;
+        float x196ca4c4 = 10.0f;
+        std::array<float, 3> sunDirection { 0.0f, 0.7070000171661377f, 0.7070000171661377f };
         std::optional<std::array<float, 3>> xa04bd9bf {};
-        float xd8851203 = 0.0;
-        float xba02f116 = 1.0;
-        std::array<float, 4> skyLightColor { 0.705, 0.88, 1, 1 };
-        std::array<float, 4> horizonColor { 0.4, 0.4, 0.4, 1 };
-        std::array<float, 4> groundColor { 0.1, 0.1, 0.1, 1 };
-        float skyLightScale = 0.20000000298023224;
-        float lightMapColorScale = 1.0;
+        float xd8851203 = 0.0f;
+        float xba02f116 = 1.0f;
+        std::array<float, 4> skyLightColor { 0.7049999833106995f, 0.8799999952316284f, 1.0f, 1.0f };
+        std::array<float, 4> horizonColor { 0.4000000059604645f, 0.4000000059604645f, 0.4000000059604645f, 1.0f };
+        std::array<float, 4> groundColor { 0.10000000149011612f, 0.10000000149011612f, 0.10000000149011612f, 1.0f };
+        float skyLightScale = 0.20000000298023224f;
+        float lightMapColorScale = 1.0f;
         bool fogEnabled = true;
-        std::array<float, 4> fogColor { 0.2, 0.2, 0.4, 1 };
-        std::array<float, 4> fogAlternateColor { 0.1, 0.1, 0.2, 1 };
-        std::array<float, 2> fogStartAndEnd { 0, -2000 };
-        float fogEmissiveRemap = 1.899999976158142;
-        float fogLowQualityModeEmissiveRemap = 0.019999999552965164;
+        std::array<float, 4> fogColor { 0.20000000298023224f, 0.20000000298023224f, 0.4000000059604645f, 1.0f };
+        std::array<float, 4> fogAlternateColor { 0.10000000149011612f, 0.10000000149011612f, 0.20000000298023224f, 1.0f };
+        std::array<float, 2> fogStartAndEnd { 0.0f, -2000.0f };
+        float fogEmissiveRemap = 1.899999976158142f;
+        float fogLowQualityModeEmissiveRemap = 0.019999999552965164f;
         bool useBloom = false;
-        float surfaceAreaToShadowMapScale = 0.05000000074505806;
+        float surfaceAreaToShadowMapScale = 0.05000000074505806f;
     };
 }
 #define YORDLE_META_DEF_MapSunProperties

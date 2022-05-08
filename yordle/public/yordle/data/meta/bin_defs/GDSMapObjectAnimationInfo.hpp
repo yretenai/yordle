@@ -22,7 +22,7 @@ namespace yordle::data::meta {
         std::string defaultAnimation {};
         bool looping = true;
         bool destroyOnCompletion = false;
-        float Duration = 0.0;
+        float Duration = 0.0f;
     };
 }
 #define YORDLE_META_DEF_GDSMapObjectAnimationInfo

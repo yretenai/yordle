@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 3920264276u || HeightSolverType::is_type(type);
         }
 
-        float mInitialTargetHeightOffset = 0.0;
+        float mInitialTargetHeightOffset = 0.0f;
     };
 }
 #define YORDLE_META_DEF_CurveTheDifferenceHeightSolver

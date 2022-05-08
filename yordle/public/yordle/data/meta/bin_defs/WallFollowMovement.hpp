@@ -22,11 +22,11 @@ namespace yordle::data::meta {
         bool mProjectTargetToCastRange = false;
         bool x99aa2d1f = false;
         bool mUseGroundHeightAtTarget = true;
-        float mSpeed = 0.0;
+        float mSpeed = 0.0f;
         bool mCounterClockwise = false;
-        float mWallOffset = 0.0;
-        float mWallLength = 1000.0;
-        float mWallSearchRadius = 200.0;
+        float mWallOffset = 0.0f;
+        float mWallLength = 1000.0f;
+        float mWallSearchRadius = 200.0f;
         bool xbcff2ee1 = false;
         bool x38872364 = false;
     };

@@ -43,7 +43,7 @@ namespace yordle::data::meta {
         std::string x36f8bc64 {};
         std::string x8b535821 {};
         yordle::data::meta::bin_fnv_hash x137f4e36 = 0u;
-        float xc7f057ac = 5.0;
+        float xc7f057ac = 5.0f;
     };
 }
 #define YORDLE_META_DEF_xfb654061

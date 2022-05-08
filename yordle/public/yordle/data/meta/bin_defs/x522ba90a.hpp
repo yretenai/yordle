@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 1378593034u;
         }
 
-        float minHealth = 1000.0;
+        float minHealth = 1000.0f;
         uint32_t microTicksBetween = 9u;
     };
 }

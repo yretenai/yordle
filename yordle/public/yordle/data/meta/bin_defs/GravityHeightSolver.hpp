@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 2530014013u || HeightSolverType::is_type(type);
         }
 
-        float mGravity = 0.0;
+        float mGravity = 0.0f;
     };
 }
 #define YORDLE_META_DEF_GravityHeightSolver

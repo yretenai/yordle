@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 1477816489u || IGameCalculationPartWithStats::is_type(type);
         }
 
-        float mCoefficient = 0.0;
+        float mCoefficient = 0.0f;
     };
 }
 #define YORDLE_META_DEF_StatByCoefficientCalculationPart

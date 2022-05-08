@@ -28,7 +28,7 @@ namespace yordle::data::meta {
         int32_t mMaxGroupOwnable = -1;
         int32_t mInventorySlotMin = 0;
         int32_t mInventorySlotMax = 5;
-        float mPurchaseCooldown = 0.0;
+        float mPurchaseCooldown = 0.0f;
         bool mCooldownExtendedByAmbientGoldStart = false;
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::ItemModifier>> mItemModifiers {};
     };

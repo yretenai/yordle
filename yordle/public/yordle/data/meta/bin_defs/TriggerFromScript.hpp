@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         std::string mTriggerName {};
-        float mDelay = 0.10000000149011612;
+        float mDelay = 0.10000000149011612f;
     };
 }
 #define YORDLE_META_DEF_TriggerFromScript

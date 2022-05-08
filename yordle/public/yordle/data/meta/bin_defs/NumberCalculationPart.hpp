@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 2667126912u || IGameCalculationPart::is_type(type);
         }
 
-        float mNumber = 0.0;
+        float mNumber = 0.0f;
     };
 }
 #define YORDLE_META_DEF_NumberCalculationPart

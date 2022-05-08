@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 1318474241u || HeightSolverType::is_type(type);
         }
 
-        float mHeightOffset = 0.0;
-        float mMaxSlope = 10.0;
+        float mHeightOffset = 0.0f;
+        float mMaxSlope = 10.0f;
     };
 }
 #define YORDLE_META_DEF_FollowTerrainHeightSolver

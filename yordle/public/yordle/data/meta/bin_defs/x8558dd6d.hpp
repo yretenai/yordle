@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 2237193581u;
         }
 
-        float x54222157 = 0.0;
-        float xa40f930a = 0.0;
+        float x54222157 = 0.0f;
+        float xa40f930a = 0.0f;
         bool xaa32e168 = false;
         bool x61cc66ee = true;
     };

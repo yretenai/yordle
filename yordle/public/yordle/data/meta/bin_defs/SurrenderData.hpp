@@ -24,10 +24,10 @@ namespace yordle::data::meta {
             return type == 2687760845u;
         }
 
-        float x43f7599b = 5.0;
-        float xe98993c = 180.0;
-        float xcc805103 = 180.0;
-        float x3afeacf3 = 0.5;
+        float x43f7599b = 5.0f;
+        float xe98993c = 180.0f;
+        float xcc805103 = 180.0f;
+        float x3afeacf3 = 0.5f;
         std::map<uint8_t, std::shared_ptr<yordle::data::meta::SurrenderTypeData>> mTypeData {};
     };
 }

@@ -18,10 +18,10 @@ namespace yordle::data::meta {
             return type == 60513980u || MissileMovementSpec::is_type(type);
         }
 
-        float mRadialVelocity = 0.0;
-        float mAngularVelocity = 0.0;
-        float mLinearVelocity = 0.0;
-        float mLifetime = 0.0;
+        float mRadialVelocity = 0.0f;
+        float mAngularVelocity = 0.0f;
+        float mLinearVelocity = 0.0f;
+        float mLifetime = 0.0f;
     };
 }
 #define YORDLE_META_DEF_CircleMovement

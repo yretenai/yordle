@@ -24,8 +24,8 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::MapPointLightType> type { 668199599 };
-        float radiusScale = 1.0;
-        float intensityScale = 1.0;
+        float radiusScale = 1.0f;
+        float intensityScale = 1.0f;
         std::optional<bool> overrideCastStaticShadows {};
     };
 }

@@ -20,14 +20,14 @@ namespace yordle::data::meta {
             return type == 2731869740u;
         }
 
-        float transitionTime = 0.10000000149011612;
+        float transitionTime = 0.10000000149011612f;
         uint8_t TransitionMinAlpha = 0u;
         uint8_t TransitionMaxAlpha = 255u;
-        std::array<float, 2> transitionOffset { 0, 0 };
-        std::array<float, 2> pulseOffset { 0, 0 };
-        float pulseTime = 0.25;
-        float pulseDuration = 1.0;
-        float pulseInterval = 15.0;
+        std::array<float, 2> transitionOffset { 0.0f, 0.0f };
+        std::array<float, 2> pulseOffset { 0.0f, 0.0f };
+        float pulseTime = 0.25f;
+        float pulseDuration = 1.0f;
+        float pulseInterval = 15.0f;
     };
 }
 #define YORDLE_META_DEF_HudBannerData

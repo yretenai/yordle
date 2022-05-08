@@ -19,7 +19,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mSituationNameHash = 0u;
-        float mTime = 0.0;
+        float mTime = 0.0f;
     };
 }
 #define YORDLE_META_DEF_ContextualConditionSituationHasRecentlyRun

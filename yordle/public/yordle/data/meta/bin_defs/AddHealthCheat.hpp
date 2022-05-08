@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         uint32_t mTarget = 1u;
-        float mAmount = 0.0;
+        float mAmount = 0.0f;
     };
 }
 #define YORDLE_META_DEF_AddHealthCheat

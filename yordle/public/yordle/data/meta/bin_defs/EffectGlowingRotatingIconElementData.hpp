@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 178804058u || EffectRotatingIconElementData::is_type(type);
         }
 
-        float CycleTime = 0.0;
-        float x54c178e = 0.0;
+        float CycleTime = 0.0f;
+        float x54c178e = 0.0f;
     };
 }
 #define YORDLE_META_DEF_EffectGlowingRotatingIconElementData

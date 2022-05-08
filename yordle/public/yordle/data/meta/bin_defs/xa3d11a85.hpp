@@ -19,9 +19,9 @@ namespace yordle::data::meta {
             return type == 2748390021u || AtlasDataBase::is_type(type);
         }
 
-        std::array<float, 2> TextureUs { 0, 1 };
-        std::array<float, 4> TextureVs { 0, 0.25, 0.75, 1 };
-        std::array<float, 2> x15ec9181 { 0.25, 0.25 };
+        std::array<float, 2> TextureUs { 0.0f, 1.0f };
+        std::array<float, 4> TextureVs { 0.0f, 0.25f, 0.75f, 1.0f };
+        std::array<float, 2> x15ec9181 { 0.25f, 0.25f };
     };
 }
 #define YORDLE_META_DEF_xa3d11a85

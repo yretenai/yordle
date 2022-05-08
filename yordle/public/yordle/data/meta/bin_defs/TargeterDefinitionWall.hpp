@@ -31,7 +31,7 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::DrawablePositionLocator> centerLocator {};
         uint32_t wallOrientation = 3u;
-        float wallRotation = 0.0;
+        float wallRotation = 0.0f;
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> thickness {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> length {};
         std::string textureWallOverrideName {};

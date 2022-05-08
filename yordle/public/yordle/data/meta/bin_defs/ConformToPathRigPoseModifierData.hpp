@@ -26,15 +26,15 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash mStartingJointName = 0u;
         yordle::data::meta::bin_fnv_hash mEndingJointName = 0u;
         yordle::data::meta::bin_fnv_hash mDefaultMaskName = 0u;
-        float mMaxBoneAngle = 65.0;
-        float mDampingValue = 10.0;
-        float mVelMultiplier = -0.5;
-        float mFrequency = 10.0;
+        float mMaxBoneAngle = 65.0f;
+        float mDampingValue = 10.0f;
+        float mVelMultiplier = -0.5f;
+        float mFrequency = 10.0f;
         bool xa550c40c = false;
         bool xa4e3d433 = false;
-        float ActivationDistance = 200.0;
-        float x6d3315f3 = 400.0;
-        float xafc0620 = 0.5;
+        float ActivationDistance = 200.0f;
+        float x6d3315f3 = 400.0f;
+        float xafc0620 = 0.5f;
         std::vector<std::shared_ptr<yordle::data::meta::xa5584548>> xf1f20249 {};
     };
 }

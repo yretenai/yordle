@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 1133034384u || ValueProcessorData::is_type(type);
         }
 
-        float mMultiplier = 0.0;
-        float mIncrement = 0.0;
+        float mMultiplier = 0.0f;
+        float mIncrement = 0.0f;
     };
 }
 #define YORDLE_META_DEF_LinearTransformProcessorData

@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 2293025490u || GameModeConstant::is_type(type);
         }
 
-        std::array<float, 3> mValue { 0, 0, 0 };
+        std::array<float, 3> mValue { 0.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_GameModeConstantVector3f

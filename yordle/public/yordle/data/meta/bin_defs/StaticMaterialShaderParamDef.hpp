@@ -21,7 +21,7 @@ namespace yordle::data::meta {
         }
 
         std::string name {};
-        std::array<float, 4> value { 0, 0, 0, 0 };
+        std::array<float, 4> value { 0.0f, 0.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_StaticMaterialShaderParamDef

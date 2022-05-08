@@ -24,10 +24,10 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::x1c494c09> Location {};
-        float fov = 45.0;
-        float yaw = 0.0;
-        float pitch = 45.0;
-        float x5a439ba5 = 4500.0;
+        float fov = 45.0f;
+        float yaw = 0.0f;
+        float pitch = 45.0f;
+        float x5a439ba5 = 4500.0f;
         bool follow = false;
         uint8_t ZoomEase = 2u;
     };

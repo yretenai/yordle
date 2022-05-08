@@ -41,8 +41,8 @@ namespace yordle::data::meta {
         uint8_t blendEquation = 0u;
         uint8_t windingToCull = 1u;
         uint8_t writeMask = 31u;
-        float depthOffsetSlope = 0.0;
-        float depthOffsetBias = 0.0;
+        float depthOffsetSlope = 0.0f;
+        float depthOffsetBias = 0.0f;
     };
 }
 #define YORDLE_META_DEF_HybridMaterialDefPreset

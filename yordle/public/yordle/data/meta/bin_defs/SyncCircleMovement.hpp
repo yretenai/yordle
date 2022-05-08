@@ -19,8 +19,8 @@ namespace yordle::data::meta {
             return type == 479174419u || MissileMovementSpec::is_type(type);
         }
 
-        float mAngularVelocity = 0.0;
-        float mLifetime = 0.0;
+        float mAngularVelocity = 0.0f;
+        float mLifetime = 0.0f;
         uint8_t x2630302a = 1u;
         bool x16d0a895 = false;
     };

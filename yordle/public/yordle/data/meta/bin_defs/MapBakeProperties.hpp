@@ -22,13 +22,13 @@ namespace yordle::data::meta {
         }
 
         uint32_t lightGridSize = 256u;
-        float x22d24a9a = 1.0;
-        float lightGridCharacterFullBrightIntensity = 0.25;
-        float xea4e5cc8 = 5000.0;
-        float x2f3b5471 = 1.0;
+        float x22d24a9a = 1.0f;
+        float lightGridCharacterFullBrightIntensity = 0.25f;
+        float xea4e5cc8 = 5000.0f;
+        float x2f3b5471 = 1.0f;
         std::string lightGridFileName {};
         std::string x9cf064e5 {};
-        float x7ab8b646 = 1.0;
+        float x7ab8b646 = 1.0f;
         std::map<yordle::data::meta::bin_fnv_hash, uint8_t> xf8bc3dfe {};
     };
 }

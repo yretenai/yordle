@@ -21,7 +21,7 @@ namespace yordle::data::meta {
         }
 
         std::string shadowMapPath {};
-        std::array<float, 4> shadowMapUVScaleAndBias { 1, 1, 0, 0 };
+        std::array<float, 4> shadowMapUVScaleAndBias { 1.0f, 1.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_MapPerInstanceInfo

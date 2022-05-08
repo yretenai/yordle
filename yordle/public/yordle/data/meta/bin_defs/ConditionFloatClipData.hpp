@@ -29,7 +29,7 @@ namespace yordle::data::meta {
         bool x94c90e2b = false;
         bool x31db4e6a = false;
         bool x92213dee = false;
-        float mChildAnimDelaySwitchTime = 0.0;
+        float mChildAnimDelaySwitchTime = 0.0f;
         std::vector<std::shared_ptr<yordle::data::meta::ConditionFloatPairData>> mConditionFloatPairDataList {};
     };
 }

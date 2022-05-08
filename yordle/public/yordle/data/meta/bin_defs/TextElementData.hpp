@@ -34,7 +34,7 @@ namespace yordle::data::meta {
         uint8_t mTextAlignmentHorizontal = 0u;
         uint8_t mTextAlignmentVertical = 1u;
         uint8_t WrappingMode = 0u;
-        float iconScale = 1.0;
+        float iconScale = 1.0f;
         yordle::data::meta::bin_ref<yordle::data::meta::CSSSheet> x7c0a8359 { 3173404643 };
     };
 }

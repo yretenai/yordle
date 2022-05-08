@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 2407917657u;
         }
 
-        float Duration = 0;
+        float Duration = 0.0f;
         bool xc4017c24 = false;
         bool xfddb60d7 = false;
         bool xd0b866c7 = false;

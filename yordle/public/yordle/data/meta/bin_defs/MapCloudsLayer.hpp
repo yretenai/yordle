@@ -19,9 +19,9 @@ namespace yordle::data::meta {
             return type == 769601740u;
         }
 
-        std::array<float, 2> Direction { 1, 0 };
-        float Scale = 10.0;
-        float speed = 0.0010000000474974513;
+        std::array<float, 2> Direction { 1.0f, 0.0f };
+        float Scale = 10.0f;
+        float speed = 0.0010000000474974513f;
     };
 }
 #define YORDLE_META_DEF_MapCloudsLayer

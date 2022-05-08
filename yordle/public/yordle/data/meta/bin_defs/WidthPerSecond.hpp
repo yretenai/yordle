@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 768590138u || MissileBehaviorSpec::is_type(type);
         }
 
-        float mWidthPerSecond = 0.0;
+        float mWidthPerSecond = 0.0f;
     };
 }
 #define YORDLE_META_DEF_WidthPerSecond

@@ -22,8 +22,8 @@ namespace yordle::data::meta {
             return type == 1887734700u;
         }
 
-        float MinDisplayTime = 5.0;
-        float MaxDisplayTime = 15.0;
+        float MinDisplayTime = 5.0f;
+        float MaxDisplayTime = 15.0f;
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> DetailsTransitionData {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> DeathRecapTransitionIn {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> DeathRecapTransitionOut {};

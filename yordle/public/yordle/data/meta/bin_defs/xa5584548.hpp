@@ -20,7 +20,7 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash x13859f0 = 0u;
         yordle::data::meta::bin_fnv_hash xd9b6cda9 = 0u;
-        float x35400ee4 = 0.0;
+        float x35400ee4 = 0.0f;
     };
 }
 #define YORDLE_META_DEF_xa5584548

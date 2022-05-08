@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         std::string mName {};
-        float mValue = 0.0;
+        float mValue = 0.0f;
     };
 }
 #define YORDLE_META_DEF_ItemDataValue

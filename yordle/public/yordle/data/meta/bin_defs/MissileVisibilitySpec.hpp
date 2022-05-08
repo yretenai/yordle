@@ -20,8 +20,8 @@ namespace yordle::data::meta {
 
         bool mTargetControlsVisibility = false;
         bool mVisibleToOwnerTeamOnly = false;
-        float mPerceptionBubbleRadius = 0;
-        float xbb639057 = 0;
+        float mPerceptionBubbleRadius = 0.0f;
+        float xbb639057 = 0.0f;
     };
 }
 #define YORDLE_META_DEF_MissileVisibilitySpec

@@ -36,7 +36,7 @@ namespace yordle::data::meta {
         std::string mShopTooltip {};
         std::string ShopExtendedTooltip {};
         uint8_t epicness = 2u;
-        float effectRadius = 0.0;
+        float effectRadius = 0.0f;
         std::array<int32_t, 16> mFloatVarsDecimals { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         std::string inventoryIcon {};
         std::string InventoryIconSmall {};

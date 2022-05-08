@@ -27,11 +27,11 @@ namespace yordle::data::meta {
             return type == 1540989414u || BlendableClipData::is_type(type);
         }
 
-        float mTickDuration = 0.03333333507180214;
+        float mTickDuration = 0.03333333507180214f;
         std::shared_ptr<yordle::data::meta::AnimationResourceData> mAnimationResourceData {};
         std::shared_ptr<yordle::data::meta::UpdaterResourceData> mUpdaterResourceData {};
-        float startFrame = 0.0;
-        float xbd8e2d9b = -1.0;
+        float startFrame = 0.0f;
+        float xbd8e2d9b = -1.0f;
     };
 }
 #define YORDLE_META_DEF_AtomicClipData

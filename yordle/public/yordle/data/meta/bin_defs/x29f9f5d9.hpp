@@ -30,12 +30,12 @@ namespace yordle::data::meta {
             return type == 704247257u;
         }
 
-        float xf9e45233 = 0.0;
+        float xf9e45233 = 0.0f;
         std::string name {};
         uint32_t priority = 0u;
         std::vector<std::string> xf7e7945a {};
         std::vector<std::string> xa327f48b {};
-        float x6d9c47ab = 0.0;
+        float x6d9c47ab = 0.0f;
         yordle::data::meta::bin_ref<yordle::data::meta::GameMutatorExpansions> eventMutator { 4119089369 };
         yordle::data::meta::bin_xx_hash xe8457340 = 0u;
         std::vector<std::shared_ptr<yordle::data::meta::x4a99e777>> IndividualBannerOverrides {};

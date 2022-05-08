@@ -23,7 +23,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash name = 0u;
         std::string PublicName {};
         uint8_t BitIndex = 0u;
-        float transitionTime = 3.0;
+        float transitionTime = 3.0f;
     };
 }
 #define YORDLE_META_DEF_MapVisibilityFlagDefinition

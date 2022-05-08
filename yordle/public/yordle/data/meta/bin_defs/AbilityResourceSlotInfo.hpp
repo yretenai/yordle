@@ -21,12 +21,12 @@ namespace yordle::data::meta {
         }
 
         uint8_t arType = 2u;
-        float arBase = 100.0;
-        float arPerLevel = 0.0;
-        float arBaseStaticRegen = 1.0;
-        float arBaseFactorRegen = 0.0;
-        float arRegenPerLevel = 0.0;
-        float arIncrements = 0.0;
+        float arBase = 100.0f;
+        float arPerLevel = 0.0f;
+        float arBaseStaticRegen = 1.0f;
+        float arBaseFactorRegen = 0.0f;
+        float arRegenPerLevel = 0.0f;
+        float arIncrements = 0.0f;
         int32_t arMaxSegments = 0;
         bool arHasRegenText = true;
         bool arAllowMaxValueToBeOverridden = false;

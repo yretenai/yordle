@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash name = 0u;
-        float value = 0.0;
+        float value = 0.0f;
         std::string formatString {};
     };
 }

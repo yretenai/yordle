@@ -19,8 +19,8 @@ namespace yordle::data::meta {
             return type == 955345470u;
         }
 
-        std::array<float, 3> mMultipliersRGB { 1, 1, 1 };
-        float mMultipliersSaturation = 1.0;
+        std::array<float, 3> mMultipliersRGB { 1.0f, 1.0f, 1.0f };
+        float mMultipliersSaturation = 1.0f;
     };
 }
 #define YORDLE_META_DEF_MapSkinColorizationPostEffect

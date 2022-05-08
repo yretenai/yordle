@@ -30,7 +30,7 @@ namespace yordle::data::meta {
         std::string mBaseTextureName {};
         std::string mTerrainTextureName {};
         std::string mTargetTextureName {};
-        float mTargetTextureRadius = 0.0;
+        float mTargetTextureRadius = 0.0f;
     };
 }
 #define YORDLE_META_DEF_TargeterDefinitionSkipTerrain

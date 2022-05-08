@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 3030776672u || IContextualCondition::is_type(type);
         }
 
-        float mRuleCooldown = 0.0;
+        float mRuleCooldown = 0.0f;
     };
 }
 #define YORDLE_META_DEF_ContextualConditionRuleCooldown

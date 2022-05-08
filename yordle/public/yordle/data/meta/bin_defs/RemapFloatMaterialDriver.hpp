@@ -22,10 +22,10 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IDynamicMaterialFloatDriver> mDriver {};
-        float mMinValue = 0.0;
-        float mMaxValue = 1.0;
-        float mOutputMinValue = 0.0;
-        float mOutputMaxValue = 1.0;
+        float mMinValue = 0.0f;
+        float mMaxValue = 1.0f;
+        float mOutputMinValue = 0.0f;
+        float mOutputMaxValue = 1.0f;
     };
 }
 #define YORDLE_META_DEF_RemapFloatMaterialDriver

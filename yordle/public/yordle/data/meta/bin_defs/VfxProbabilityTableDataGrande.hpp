@@ -24,8 +24,8 @@ namespace yordle::data::meta {
         std::array<yordle::data::meta::bin_fnv_hash, 10> x1c9ff127 { 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u };
         std::array<yordle::data::meta::bin_fnv_hash, 10> xbde64e3e { 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u };
         std::array<yordle::data::meta::bin_fnv_hash, 10> Index { 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u };
-        float authoredWidth = 480.0;
-        float SourceResolutionWidth = 1920.0;
+        float authoredWidth = 480.0f;
+        float SourceResolutionWidth = 1920.0f;
     };
 }
 #define YORDLE_META_DEF_VfxProbabilityTableDataGrande

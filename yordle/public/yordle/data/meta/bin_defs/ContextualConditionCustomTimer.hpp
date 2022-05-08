@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 1904648305u || IContextualCondition::is_type(type);
         }
 
-        float mCustomTimer = 0.0;
+        float mCustomTimer = 0.0f;
     };
 }
 #define YORDLE_META_DEF_ContextualConditionCustomTimer

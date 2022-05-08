@@ -27,8 +27,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash xaf871a91 = 0u;
         yordle::data::meta::bin_fnv_hash xdf85b25f = 0u;
         std::shared_ptr<yordle::data::meta::x1fa3e21c> x1fa3e21c {};
-        float xb6200fc = 5.0;
-        float x4a65c1a7 = 0.5;
+        float xb6200fc = 5.0f;
+        float x4a65c1a7 = 0.5f;
         uint8_t x17a5149 = 2u;
         uint32_t xf75a1005 = 3u;
     };

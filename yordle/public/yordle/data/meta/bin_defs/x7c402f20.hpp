@@ -19,18 +19,18 @@ namespace yordle::data::meta {
             return type == 2084581152u;
         }
 
-        float burstTimeWindow = 0.10000000149011612;
-        float burstTriggerPercent = 0.3499999940395355;
-        float flashTriggerPercent = 0.3499999940395355;
-        float flashDuration = 0.30000001192092896;
-        float shakeDuration = 0.4000000059604645;
-        std::array<float, 2> shakeBox { 8, 3.5 };
-        std::array<float, 2> shakeReferenceResolution { 1024, 768 };
-        float shakeTriggerPercent = 0.3499999940395355;
-        float shakeFrequency = 10.0;
-        float fadeSpeed = 0.05000000074505806;
-        float fadeAcceleration = 1.0;
-        float fadeHoldTime = 0.20000000298023224;
+        float burstTimeWindow = 0.10000000149011612f;
+        float burstTriggerPercent = 0.3499999940395355f;
+        float flashTriggerPercent = 0.3499999940395355f;
+        float flashDuration = 0.30000001192092896f;
+        float shakeDuration = 0.4000000059604645f;
+        std::array<float, 2> shakeBox { 8.0f, 3.5f };
+        std::array<float, 2> shakeReferenceResolution { 1024.0f, 768.0f };
+        float shakeTriggerPercent = 0.3499999940395355f;
+        float shakeFrequency = 10.0f;
+        float fadeSpeed = 0.05000000074505806f;
+        float fadeAcceleration = 1.0f;
+        float fadeHoldTime = 0.20000000298023224f;
     };
 }
 #define YORDLE_META_DEF_x7c402f20

@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         uint8_t mPARType = 0u;
-        float mCurrentPercentPAR = 0.0;
+        float mCurrentPercentPAR = 0.0f;
     };
 }
 #define YORDLE_META_DEF_AbovePARPercentCastRequirement

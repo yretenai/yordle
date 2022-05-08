@@ -24,10 +24,10 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mSceneTransition {};
-        float mProgressBarEaseRate = 0.0;
+        float mProgressBarEaseRate = 0.0f;
         std::string mProgressMeterSuffix {};
         std::string mTimerMeterSuffix {};
-        float mUnitBarFadeSpeed = 0.0;
+        float mUnitBarFadeSpeed = 0.0f;
         bool x3fc8ecec = false;
         std::string mProgressMeterHoverText {};
         std::string mProgressMeterPingText {};

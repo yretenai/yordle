@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 297772961u || xaba5f12d::is_type(type);
         }
 
-        float Scale = 1.0;
-        float xba467ec4 = -1.0;
+        float Scale = 1.0f;
+        float xba467ec4 = -1.0f;
     };
 }
 #define YORDLE_META_DEF_x11bfa7a1

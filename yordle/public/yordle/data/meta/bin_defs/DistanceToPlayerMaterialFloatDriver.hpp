@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 2437143893u || IDynamicMaterialFloatDriver::is_type(type);
         }
 
-        float minDistance = 100.0;
-        float maxDistance = 1000.0;
+        float minDistance = 100.0f;
+        float maxDistance = 1000.0f;
     };
 }
 #define YORDLE_META_DEF_DistanceToPlayerMaterialFloatDriver

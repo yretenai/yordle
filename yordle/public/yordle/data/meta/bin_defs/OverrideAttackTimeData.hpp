@@ -23,7 +23,7 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IGameCalculation> x20991541 {};
-        float mCastTimePercent = 0.6000000238418579;
+        float mCastTimePercent = 0.6000000238418579f;
         bool x278d2a22 = true;
     };
 }

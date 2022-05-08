@@ -25,8 +25,8 @@ namespace yordle::data::meta {
             return type == 3667811340u || GenericMapPlaceable::is_type(type);
         }
 
-        std::array<float, 3> boxMin { 0, 0, 0 };
-        std::array<float, 3> boxMax { 0, 0, 0 };
+        std::array<float, 3> boxMin { 0.0f, 0.0f, 0.0f };
+        std::array<float, 3> boxMax { 0.0f, 0.0f, 0.0f };
         uint8_t type = 0u;
         bool ignoreCollisionOnPlacement = false;
         bool eyeCandy = false;

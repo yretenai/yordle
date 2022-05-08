@@ -21,12 +21,12 @@ namespace yordle::data::meta {
 
         uint8_t minAlpha = 0u;
         uint8_t maxAlpha = 255u;
-        float maxOffset = 0.05000000074505806;
-        float x1568581f = 0.27000001072883606;
-        float x1cb012da = 0.10000000149011612;
-        float overshoot = 1.0;
-        float inertia = 0.5;
-        float xe5bc4657 = 5.0;
+        float maxOffset = 0.05000000074505806f;
+        float x1568581f = 0.27000001072883606f;
+        float x1cb012da = 0.10000000149011612f;
+        float overshoot = 1.0f;
+        float inertia = 0.5f;
+        float xe5bc4657 = 5.0f;
     };
 }
 #define YORDLE_META_DEF_x81862b0f

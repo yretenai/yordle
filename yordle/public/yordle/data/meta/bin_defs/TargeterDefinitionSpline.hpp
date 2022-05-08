@@ -41,7 +41,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> splineWidth {};
         std::shared_ptr<yordle::data::meta::ISplineInfo> overrideSpline {};
         uint32_t minSegmentCount = 10u;
-        float maxSegmentLength = 50.0;
+        float maxSegmentLength = 50.0f;
         bool isConstrainedToRange = false;
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> constraintRange {};
     };

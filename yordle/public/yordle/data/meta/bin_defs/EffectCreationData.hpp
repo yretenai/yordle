@@ -26,7 +26,7 @@ namespace yordle::data::meta {
         std::string mEffectName {};
         yordle::data::meta::bin_fnv_hash xa03a9542 = 0u;
         std::string xfe758550 {};
-        float mPlaySpeedModifier = 1.0;
+        float mPlaySpeedModifier = 1.0f;
         uint32_t x87596a93 = 0u;
         bool xc42cf88d = false;
         bool xa45eda7b = false;

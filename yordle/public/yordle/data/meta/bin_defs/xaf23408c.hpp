@@ -22,7 +22,7 @@ namespace yordle::data::meta {
 
         std::vector<std::string> x5c042946 {};
         std::string x15db0d85 {};
-        float x29a7efc6 = 1.0;
+        float x29a7efc6 = 1.0f;
         bool Shuffle = false;
     };
 }

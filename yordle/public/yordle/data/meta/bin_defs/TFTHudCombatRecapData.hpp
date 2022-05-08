@@ -23,7 +23,7 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mPanelTransition {};
-        float x4544719b = 0.30000001192092896;
+        float x4544719b = 0.30000001192092896f;
     };
 }
 #define YORDLE_META_DEF_TFTHudCombatRecapData

@@ -23,9 +23,9 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::xd0217984> x7146b6bc {};
-        float fadeSpeed = 0.5;
-        float fadeAcceleration = 5.0;
-        float fadeHoldTime = 0.05000000074505806;
+        float fadeSpeed = 0.5f;
+        float fadeAcceleration = 5.0f;
+        float fadeHoldTime = 0.05000000074505806f;
     };
 }
 #define YORDLE_META_DEF_xad58e686

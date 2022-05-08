@@ -21,7 +21,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash ExpandButtonDefinition = 0u;
         yordle::data::meta::bin_fnv_hash LabelElement = 0u;
         yordle::data::meta::bin_fnv_hash xe76606d7 = 0u;
-        float x999669b3 = 0.25;
+        float x999669b3 = 0.25f;
     };
 }
 #define YORDLE_META_DEF_OptionTemplateGroup

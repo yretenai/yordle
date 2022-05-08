@@ -22,7 +22,7 @@ namespace yordle::data::meta {
 
         std::string type {};
         int32_t typeIndex = -1;
-        float multiplier = 1.0;
+        float multiplier = 1.0f;
         std::string nameOverride {};
         uint32_t Style = 0u;
     };

@@ -22,10 +22,10 @@ namespace yordle::data::meta {
         bool mProjectTargetToCastRange = false;
         bool x99aa2d1f = false;
         bool mUseGroundHeightAtTarget = true;
-        float mAcceleration = 0.0;
-        float mMinSpeed = 0.0;
-        float mMaxSpeed = 0.0;
-        float mInitialSpeed = 0.0;
+        float mAcceleration = 0.0f;
+        float mMinSpeed = 0.0f;
+        float mMaxSpeed = 0.0f;
+        float mInitialSpeed = 0.0f;
     };
 }
 #define YORDLE_META_DEF_AcceleratingMovement

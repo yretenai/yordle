@@ -26,8 +26,8 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::x5c086dbd> Target {};
         std::string x42042493 {};
-        float x4e748b9a = 0.0;
-        float x820a08fd = 1.0;
+        float x4e748b9a = 0.0f;
+        float x820a08fd = 1.0f;
         uint8_t EasingType = 0u;
     };
 }

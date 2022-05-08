@@ -20,8 +20,8 @@ namespace yordle::data::meta {
         }
 
         uint32_t basePosition = 0u;
-        float distanceOffset = 0.0;
-        float angleOffsetRadian = 0.0;
+        float distanceOffset = 0.0f;
+        float angleOffsetRadian = 0.0f;
         uint32_t orientationType = 0u;
     };
 }

@@ -21,10 +21,10 @@ namespace yordle::data::meta {
             return type == 3561233493u || IconElementDataExtension::is_type(type);
         }
 
-        std::array<float, 4> mStartColor { 1, 0, 0, 1 };
-        std::array<float, 4> mEndColor { 0, 0, 1, 1 };
+        std::array<float, 4> mStartColor { 1.0f, 0.0f, 0.0f, 1.0f };
+        std::array<float, 4> mEndColor { 0.0f, 0.0f, 1.0f, 1.0f };
         uint32_t mGradientDirection = 0u;
-        std::array<float, 4> x4dff519d { 1, 0, 0, 0 };
+        std::array<float, 4> x4dff519d { 1.0f, 0.0f, 0.0f, 0.0f };
         std::string mAlphaTexture {};
     };
 }

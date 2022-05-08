@@ -18,11 +18,11 @@ namespace yordle::data::meta {
             return type == 740737797u;
         }
 
-        float VoteTimeout = 60.0;
-        float windowLength = 60.0;
-        float startTime = 1200.0;
-        float percentageRequired = 0.699999988079071;
-        float x3f72f07a = 1200.0;
+        float VoteTimeout = 60.0f;
+        float windowLength = 60.0f;
+        float startTime = 1200.0f;
+        float percentageRequired = 0.699999988079071f;
+        float x3f72f07a = 1200.0f;
     };
 }
 #define YORDLE_META_DEF_SurrenderTypeData

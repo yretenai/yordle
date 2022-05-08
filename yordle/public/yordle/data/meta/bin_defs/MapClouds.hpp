@@ -25,7 +25,7 @@ namespace yordle::data::meta {
         }
 
         std::string CloudsTexturePath {};
-        std::array<float, 4> x64847953 { 0.5, 0.5, 0.5, 1 };
+        std::array<float, 4> x64847953 { 0.5f, 0.5f, 0.5f, 1.0f };
         bool IsEyeCandy = false;
         std::array<std::shared_ptr<yordle::data::meta::MapCloudsLayer>, 3> Layers { nullptr, nullptr, nullptr };
     };

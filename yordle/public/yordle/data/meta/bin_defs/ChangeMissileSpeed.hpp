@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         uint32_t mSpeedChangeType = 0u;
-        float mSpeedValue = 0.0;
+        float mSpeedValue = 0.0f;
     };
 }
 #define YORDLE_META_DEF_ChangeMissileSpeed

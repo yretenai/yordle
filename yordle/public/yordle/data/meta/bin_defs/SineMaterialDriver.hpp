@@ -22,9 +22,9 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IDynamicMaterialFloatDriver> mDriver {};
-        float mFrequency = 1.0;
-        float mScale = 1.0;
-        float mBias = 0.0;
+        float mFrequency = 1.0f;
+        float mScale = 1.0f;
+        float mBias = 0.0f;
     };
 }
 #define YORDLE_META_DEF_SineMaterialDriver

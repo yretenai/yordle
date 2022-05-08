@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 381157638u;
         }
 
-        float mBottomFraction = 0.699999988079071;
+        float mBottomFraction = 0.699999988079071f;
         bool mDebugDrawEmblems = false;
     };
 }

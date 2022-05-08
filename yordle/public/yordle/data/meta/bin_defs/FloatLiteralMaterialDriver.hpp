@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 1895822007u || IDynamicMaterialFloatDriver::is_type(type);
         }
 
-        float mValue = 0.0;
+        float mValue = 0.0f;
     };
 }
 #define YORDLE_META_DEF_FloatLiteralMaterialDriver

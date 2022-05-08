@@ -23,10 +23,10 @@ namespace yordle::data::meta {
             return type == 2038992222u || ViewController::is_type(type);
         }
 
-        float x5b9613f7 = 0.5;
-        float xf48b7975 = 1.0;
+        float x5b9613f7 = 0.5f;
+        float xf48b7975 = 1.0f;
         uint8_t defaultWordWrapMargin = 10u;
-        float hideAfterSeconds = 7.5;
+        float hideAfterSeconds = 7.5f;
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
         yordle::data::meta::bin_fnv_hash SceneChat = 0u;
         yordle::data::meta::bin_fnv_hash x8284ebb3 = 0u;

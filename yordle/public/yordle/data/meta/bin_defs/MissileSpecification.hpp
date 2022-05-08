@@ -48,7 +48,7 @@ namespace yordle::data::meta {
             return type == 3221008892u;
         }
 
-        float mMissileWidth = 0.0;
+        float mMissileWidth = 0.0f;
         std::shared_ptr<yordle::data::meta::MissileMovementSpec> movementComponent {};
         std::shared_ptr<yordle::data::meta::MissileVisibilitySpec> visibilityComponent {};
         std::shared_ptr<yordle::data::meta::HeightSolverType> heightSolver {};

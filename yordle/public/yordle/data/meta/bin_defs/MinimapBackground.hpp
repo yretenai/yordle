@@ -21,8 +21,8 @@ namespace yordle::data::meta {
         }
 
         std::string mTextureName {};
-        std::array<float, 2> mOrigin { 0, 0 };
-        std::array<float, 2> mSize { 0, 0 };
+        std::array<float, 2> mOrigin { 0.0f, 0.0f };
+        std::array<float, 2> mSize { 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_MinimapBackground

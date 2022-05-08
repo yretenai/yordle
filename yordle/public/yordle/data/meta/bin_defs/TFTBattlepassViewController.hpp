@@ -65,7 +65,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x59434c33 = 0u;
         std::shared_ptr<yordle::data::meta::xa9fbac89> xa9fbac89 {};
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
-        float xc034af02 = 3.0;
+        float xc034af02 = 3.0f;
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> x650b36b5 {};
     };
 }

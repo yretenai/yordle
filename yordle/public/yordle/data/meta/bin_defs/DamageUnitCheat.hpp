@@ -21,7 +21,7 @@ namespace yordle::data::meta {
 
         uint32_t mTarget = 1u;
         uint32_t mDamageAmount = 0u;
-        float mPercentageOfAttack = 1.0;
+        float mPercentageOfAttack = 1.0f;
         uint32_t mDamageType = 0u;
         uint32_t mHitResult = 0u;
     };

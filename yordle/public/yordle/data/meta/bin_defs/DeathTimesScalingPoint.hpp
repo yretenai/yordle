@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         uint32_t mStartTime = 0u;
-        float mPercentIncrease = 0.0;
+        float mPercentIncrease = 0.0f;
     };
 }
 #define YORDLE_META_DEF_DeathTimesScalingPoint

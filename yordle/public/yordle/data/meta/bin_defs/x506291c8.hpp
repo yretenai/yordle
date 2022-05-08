@@ -20,8 +20,8 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash Scene = 0u;
         yordle::data::meta::bin_fnv_hash Anchor = 0u;
-        float untargetableAlpha = 0;
-        float resurrectingAlpha = 0;
+        float untargetableAlpha = 0.0f;
+        float resurrectingAlpha = 0.0f;
     };
 }
 #define YORDLE_META_DEF_x506291c8

@@ -18,11 +18,11 @@ namespace yordle::data::meta {
             return type == 1316167258u || MapPlaceable::is_type(type);
         }
 
-        float x6f3e4327 = 1800.0;
-        float x563a1941 = 3600.0;
-        float pitch = 46.0;
-        float yaw = 0.0;
-        float FieldOfView = 29.25;
+        float x6f3e4327 = 1800.0f;
+        float x563a1941 = 3600.0f;
+        float pitch = 46.0f;
+        float yaw = 0.0f;
+        float FieldOfView = 29.25f;
     };
 }
 #define YORDLE_META_DEF_MapCamera

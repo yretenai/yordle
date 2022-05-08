@@ -18,9 +18,9 @@ namespace yordle::data::meta {
             return type == 719276917u || IVfxMaterialDriver::is_type(type);
         }
 
-        float mFrequency = 1.0;
-        float mScale = 1.0;
-        float mBias = 0.0;
+        float mFrequency = 1.0f;
+        float mScale = 1.0f;
+        float mBias = 0.0f;
     };
 }
 #define YORDLE_META_DEF_VfxSineMaterialDriver

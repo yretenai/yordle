@@ -21,7 +21,7 @@ namespace yordle::data::meta {
 
         std::string PropName {};
         std::string Key {};
-        float value = 0.0;
+        float value = 0.0f;
     };
 }
 #define YORDLE_META_DEF_x49da656e

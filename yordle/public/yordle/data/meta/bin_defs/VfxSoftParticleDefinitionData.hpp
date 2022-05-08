@@ -18,10 +18,10 @@ namespace yordle::data::meta {
             return type == 497696688u;
         }
 
-        float beginIn = 0.0;
-        float beginOut = 0.0;
-        float deltaIn = 0.0;
-        float deltaOut = 0.0;
+        float beginIn = 0.0f;
+        float beginOut = 0.0f;
+        float deltaIn = 0.0f;
+        float deltaOut = 0.0f;
     };
 }
 #define YORDLE_META_DEF_VfxSoftParticleDefinitionData

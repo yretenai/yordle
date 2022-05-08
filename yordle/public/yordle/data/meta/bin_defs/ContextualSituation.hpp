@@ -25,7 +25,7 @@ namespace yordle::data::meta {
 
         std::vector<std::shared_ptr<yordle::data::meta::ContextualRule>> mRules {};
         bool mChooseRandomValidRule = false;
-        float mCoolDownTime = 0.0;
+        float mCoolDownTime = 0.0f;
     };
 }
 #define YORDLE_META_DEF_ContextualSituation

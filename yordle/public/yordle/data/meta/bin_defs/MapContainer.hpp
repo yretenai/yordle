@@ -33,10 +33,10 @@ namespace yordle::data::meta {
 
         std::string mapPath {};
         std::vector<std::shared_ptr<yordle::data::meta::MapComponent>> components {};
-        std::array<float, 2> boundsMin { 0, 0 };
-        std::array<float, 2> boundsMax { 14820, 14881 };
-        float lowestWalkableHeight = 0.0;
-        float xf010defb = 0.0;
+        std::array<float, 2> boundsMin { 0.0f, 0.0f };
+        std::array<float, 2> boundsMax { 14820.0f, 14881.0f };
+        float lowestWalkableHeight = 0.0f;
+        float xf010defb = 0.0f;
         bool xd4edb891 = false;
         std::map<yordle::data::meta::bin_fnv_hash, yordle::data::meta::bin_ref<yordle::data::meta::MapPlaceableContainer>> chunks {};
     };

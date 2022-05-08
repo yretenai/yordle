@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 3419333123u;
         }
 
-        float startTime = 0;
+        float startTime = 0.0f;
     };
 }
 #define YORDLE_META_DEF_MapAction

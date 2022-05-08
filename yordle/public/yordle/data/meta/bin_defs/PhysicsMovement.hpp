@@ -18,11 +18,11 @@ namespace yordle::data::meta {
             return type == 470290435u || MissileMovementSpec::is_type(type);
         }
 
-        float mLifetime = 0.0;
-        float mInitialSpeed = 0.0;
-        float mDrag = 1.0;
+        float mLifetime = 0.0f;
+        float mInitialSpeed = 0.0f;
+        float mDrag = 1.0f;
         bool mWallSliding = false;
-        float xca771747 = 1.0;
+        float xca771747 = 1.0f;
     };
 }
 #define YORDLE_META_DEF_PhysicsMovement

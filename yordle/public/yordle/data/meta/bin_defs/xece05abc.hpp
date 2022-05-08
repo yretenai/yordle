@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 3974126268u || IContextualCondition::is_type(type);
         }
 
-        float x3faea5ce = 0.0;
+        float x3faea5ce = 0.0f;
         uint8_t x728eb9a3 = 0u;
     };
 }

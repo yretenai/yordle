@@ -23,7 +23,7 @@ namespace yordle::data::meta {
             return type == 2490030924u;
         }
 
-        float mRecastFrequency = -1.0;
+        float mRecastFrequency = -1.0f;
         std::string mName {};
         std::shared_ptr<yordle::data::meta::CheatMenuUIData> mCheatMenuUIData {};
         bool mIsPlayerFacing = false;

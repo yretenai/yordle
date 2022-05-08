@@ -18,10 +18,10 @@ namespace yordle::data::meta {
             return type == 3410773763u || BaseRigPoseModifierData::is_type(type);
         }
 
-        float mMaxSpeed = 350.0;
-        float mStiffness = 45.0;
-        float mMass = 1.0;
-        float mDamping = 5.0;
+        float mMaxSpeed = 350.0f;
+        float mStiffness = 45.0f;
+        float mMass = 1.0f;
+        float mDamping = 5.0f;
     };
 }
 #define YORDLE_META_DEF_VertexAnimationRigPoseModifierData

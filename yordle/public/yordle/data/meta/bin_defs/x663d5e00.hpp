@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 1715297792u || IGameCalculationPart::is_type(type);
         }
 
-        float Coefficient = 0.0;
+        float Coefficient = 0.0f;
         uint8_t epicness = 1u;
     };
 }

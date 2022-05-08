@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         uint32_t x79dafa57 = 0u;
-        float xae9687e = 0.0;
+        float xae9687e = 0.0f;
     };
 }
 #define YORDLE_META_DEF_x3604b3e3

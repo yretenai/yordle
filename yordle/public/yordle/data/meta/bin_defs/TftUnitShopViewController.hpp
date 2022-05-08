@@ -25,7 +25,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash xa0ae7cfa = 0u;
-        float xc43a3d1f = 0.0;
+        float xc43a3d1f = 0.0f;
         yordle::data::meta::bin_fnv_hash ToggleShopButton = 0u;
         yordle::data::meta::bin_fnv_hash LockButton = 0u;
         yordle::data::meta::bin_fnv_hash BuyExpButton = 0u;

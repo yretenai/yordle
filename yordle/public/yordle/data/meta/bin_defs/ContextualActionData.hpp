@@ -24,8 +24,8 @@ namespace yordle::data::meta {
             return type == 3476110372u || IResource::is_type(type);
         }
 
-        float mCooldown = 0.0;
-        float x9fd838b2 = 0.0;
+        float mCooldown = 0.0f;
+        float x9fd838b2 = 0.0f;
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::ContextualSituation>> mSituations {};
         std::string mObjectPath {};
     };

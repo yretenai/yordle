@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 2815698218u;
         }
 
-        float rangeStart = 0.0;
-        float rangeEnd = 0.0;
+        float rangeStart = 0.0f;
+        float rangeEnd = 0.0f;
     };
 }
 #define YORDLE_META_DEF_AbilityResourceThresholdIndicatorRange

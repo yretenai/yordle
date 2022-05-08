@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 1680964441u || ICharacterSubcondition::is_type(type);
         }
 
-        float mDistance = 0.0;
+        float mDistance = 0.0f;
         uint8_t mCompareOp = 5u;
         uint8_t mDistanceTarget = 0u;
     };

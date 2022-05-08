@@ -24,7 +24,7 @@ namespace yordle::data::meta {
         int16_t mFlags = 0u;
         uint32_t mNameHash = 0u;
         std::string mName {};
-        float mRadius = 0.0;
+        float mRadius = 0.0f;
         int16_t mParentIndex = -1;
     };
 }

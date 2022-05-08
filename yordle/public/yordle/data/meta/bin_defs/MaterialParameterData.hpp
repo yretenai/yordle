@@ -21,7 +21,7 @@ namespace yordle::data::meta {
         }
 
         uint8_t type = 4u;
-        std::array<float, 4> DefaultValue { 0, 0, 0, 1 };
+        std::array<float, 4> DefaultValue { 0.0f, 0.0f, 0.0f, 1.0f };
     };
 }
 #define YORDLE_META_DEF_MaterialParameterData

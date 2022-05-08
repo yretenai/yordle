@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 329280789u || ICastRequirement::is_type(type);
         }
 
-        float mCurrentPercentHealth = 0.0;
+        float mCurrentPercentHealth = 0.0f;
     };
 }
 #define YORDLE_META_DEF_AboveHealthPercentCastRequirement

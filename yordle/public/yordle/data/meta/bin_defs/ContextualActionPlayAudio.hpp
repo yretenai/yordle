@@ -27,7 +27,7 @@ namespace yordle::data::meta {
         bool x54cd5fca = false;
         bool xbeb655b5 = false;
         std::string x66a1c28b {};
-        float mWaitTimeout = 0;
+        float mWaitTimeout = 0.0f;
     };
 }
 #define YORDLE_META_DEF_ContextualActionPlayAudio

@@ -20,17 +20,17 @@ namespace yordle::data::meta {
             return type == 395898060u;
         }
 
-        float mAnimatedTextQueueDelay = 0.10000000149011612;
-        float mIntervalInPix = -1.0;
-        float mScrollSpeed = 45.0;
+        float mAnimatedTextQueueDelay = 0.10000000149011612f;
+        float mIntervalInPix = -1.0f;
+        float mScrollSpeed = 45.0f;
         uint32_t mMaxFloatingTextItems = 25u;
-        float mMinimumDynamicScale = 1.0;
-        float mMaximumDynamicScale = 1.75;
-        float mYResolutionBaseline = 1200.0;
-        float xccf713a7 = 1000000.0;
-        float xf56f095c = -1.0;
-        float mMinionComparisonMultiplier = 1.25;
-        float mLocalPlayerHealthComparison = 12.5;
+        float mMinimumDynamicScale = 1.0f;
+        float mMaximumDynamicScale = 1.75f;
+        float mYResolutionBaseline = 1200.0f;
+        float xccf713a7 = 1000000.0f;
+        float xf56f095c = -1.0f;
+        float mMinionComparisonMultiplier = 1.25f;
+        float mLocalPlayerHealthComparison = 12.5f;
         std::vector<float> mComparisonByLevel {};
     };
 }

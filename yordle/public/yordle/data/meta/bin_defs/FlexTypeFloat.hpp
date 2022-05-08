@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         uint32_t mFlexID = 0u;
-        float mValue = 0.0;
+        float mValue = 0.0f;
     };
 }
 #define YORDLE_META_DEF_FlexTypeFloat

@@ -23,7 +23,7 @@ namespace yordle::data::meta {
             return type == 1776038985u;
         }
 
-        std::array<float, 2> constantValue { 0, 0 };
+        std::array<float, 2> constantValue { 0.0f, 0.0f };
         std::shared_ptr<yordle::data::meta::VfxAnimatedVector2fVariableData> dynamics {};
     };
 }

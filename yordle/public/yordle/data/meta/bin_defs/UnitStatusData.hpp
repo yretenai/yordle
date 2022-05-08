@@ -26,7 +26,7 @@ namespace yordle::data::meta {
         uint32_t attackableUnitStatusType = 13u;
         std::string statusName {};
         std::optional<std::array<uint8_t, 4>> textColor {};
-        std::array<float, 4> xc22d5164 { 0, 0, 0, 0 };
+        std::array<float, 4> xc22d5164 { 0.0f, 0.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_UnitStatusData

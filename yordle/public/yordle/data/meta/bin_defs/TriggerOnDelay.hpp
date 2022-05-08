@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 3108709201u || MissileTriggerSpec::is_type(type);
         }
 
-        float mDelay = 0.0;
+        float mDelay = 0.0f;
     };
 }
 #define YORDLE_META_DEF_TriggerOnDelay

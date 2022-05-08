@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 924097896u;
         }
 
-        float x88606883 = 1.5;
-        float xc38c6ba9 = 3.0;
+        float x88606883 = 1.5f;
+        float xc38c6ba9 = 3.0f;
     };
 }
 #define YORDLE_META_DEF_TFTHudUnitShopData

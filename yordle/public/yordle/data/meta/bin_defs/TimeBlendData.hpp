@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 1031735279u || BaseBlendData::is_type(type);
         }
 
-        float mTime = 0.20000000298023224;
+        float mTime = 0.20000000298023224f;
     };
 }
 #define YORDLE_META_DEF_TimeBlendData

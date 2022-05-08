@@ -23,8 +23,8 @@ namespace yordle::data::meta {
 
         std::string mIconFileName {};
         std::array<uint8_t, 4> mColor { 255, 255, 255, 255 };
-        std::array<float, 2> mDisplaySize { 0, 0 };
-        std::array<float, 2> mOffset { 0, 0 };
+        std::array<float, 2> mDisplaySize { 0.0f, 0.0f };
+        std::array<float, 2> mOffset { 0.0f, 0.0f };
         uint32_t mAlignment = 0u;
     };
 }

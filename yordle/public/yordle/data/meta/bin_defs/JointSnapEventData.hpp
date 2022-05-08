@@ -21,7 +21,7 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash mJointNameToOverride = 0u;
         yordle::data::meta::bin_fnv_hash mJointNameToSnapTo = 0u;
-        std::array<float, 3> offset { 0, 0, 0 };
+        std::array<float, 3> offset { 0.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_JointSnapEventData

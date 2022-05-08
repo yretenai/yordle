@@ -20,10 +20,10 @@ namespace yordle::data::meta {
             return type == 668199599u;
         }
 
-        std::array<float, 4> lightColor { 1, 1, 1, 1 };
-        float radius = 500.0;
+        std::array<float, 4> lightColor { 1.0f, 1.0f, 1.0f, 1.0f };
+        float radius = 500.0f;
         bool castStaticShadows = true;
-        float xc7334a55 = 5.0;
+        float xc7334a55 = 5.0f;
         int32_t Impact = 3;
     };
 }

@@ -24,7 +24,7 @@ namespace yordle::data::meta {
             return type == 2057207177u;
         }
 
-        float x55205acb = 0.0;
+        float x55205acb = 0.0f;
         std::vector<std::shared_ptr<yordle::data::meta::ICastRequirement>> x166d5141 {};
         std::vector<std::shared_ptr<yordle::data::meta::ICastRequirement>> x175e6650 {};
         bool xda83e690 = false;

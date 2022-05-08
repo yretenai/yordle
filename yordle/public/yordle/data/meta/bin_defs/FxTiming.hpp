@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 3687298637u;
         }
 
-        float offset = 0.0;
+        float offset = 0.0f;
         int32_t x23756bf4 = 0;
         bool x22a99fe3 = false;
     };

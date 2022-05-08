@@ -21,10 +21,10 @@ namespace yordle::data::meta {
         }
 
         uint8_t type = 1u;
-        std::array<float, 4> lightColor { 1, 1, 1, 1 };
-        float intensityScale = 1.0;
-        float radius = 500.0;
-        float xc7334a55 = 5.0;
+        std::array<float, 4> lightColor { 1.0f, 1.0f, 1.0f, 1.0f };
+        float intensityScale = 1.0f;
+        float radius = 500.0f;
+        float xc7334a55 = 5.0f;
         int32_t Impact = 3;
     };
 }

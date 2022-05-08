@@ -24,8 +24,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash vfxSystem = 0u;
         std::string AnnouncementIcon {};
         std::string selectionIcon {};
-        float renderScale = 1.0;
-        float verticalOffset = -100.0;
+        float renderScale = 1.0f;
+        float verticalOffset = -100.0f;
         std::string visibleSelectionName {};
     };
 }

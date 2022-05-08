@@ -22,8 +22,8 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash mName = 0u;
         std::string mParticleName {};
-        float mRenderScale = 1.0;
-        float mVerticalOffset = 0.0;
+        float mRenderScale = 1.0f;
+        float mVerticalOffset = 0.0f;
         int32_t mSummonerIconId = -1;
         uint32_t mMasteryLevel = 0u;
     };

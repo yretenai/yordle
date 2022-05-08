@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 1863542244u || MissileBehaviorSpec::is_type(type);
         }
 
-        float mDelayTime = 0.0;
+        float mDelayTime = 0.0f;
     };
 }
 #define YORDLE_META_DEF_DelayStart

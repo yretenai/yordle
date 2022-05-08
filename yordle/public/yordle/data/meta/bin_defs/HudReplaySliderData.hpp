@@ -24,7 +24,7 @@ namespace yordle::data::meta {
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::HudReplaySliderIconData>> mIconDataPriorityList {};
-        float mTooltipEventWindow = 1.0;
+        float mTooltipEventWindow = 1.0f;
     };
 }
 #define YORDLE_META_DEF_HudReplaySliderData

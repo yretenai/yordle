@@ -30,7 +30,7 @@ namespace yordle::data::meta {
         }
 
         std::map<yordle::data::meta::bin_fnv_hash, yordle::data::meta::bin_ref<yordle::data::meta::AudioSystemDataProperties>> systems {};
-        float cooldownVoiceOver = 12.0;
+        float cooldownVoiceOver = 12.0f;
         std::map<uint8_t, std::shared_ptr<yordle::data::meta::AudioStatusEvents>> localPlayerStatusEvents {};
         uint32_t x103e4044 = 1000u;
     };

@@ -24,8 +24,8 @@ namespace yordle::data::meta {
             return type == 3184228220u || MissileBehaviorSpec::is_type(type);
         }
 
-        float mMaximumDistance = 0.0;
-        float mMinimumGapBetweenTerrainWalls = 0.0;
+        float mMaximumDistance = 0.0f;
+        float mMinimumGapBetweenTerrainWalls = 0.0f;
         std::optional<uint32_t> mMaximumTerrainWallsToSkip {};
         std::optional<float> scanWidthOverride {};
         std::shared_ptr<yordle::data::meta::TargeterDefinitionSkipTerrain> mTargeterDefinition {};

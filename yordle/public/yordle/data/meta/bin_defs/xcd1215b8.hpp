@@ -60,7 +60,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x38a3cb36 = 0u;
         std::shared_ptr<yordle::data::meta::x34270fce> xe0b29ef4 {};
         std::shared_ptr<yordle::data::meta::x34270fce> x4e1babb4 {};
-        float x46ea8d6b = 2.0;
+        float x46ea8d6b = 2.0f;
     };
 }
 #define YORDLE_META_DEF_xcd1215b8

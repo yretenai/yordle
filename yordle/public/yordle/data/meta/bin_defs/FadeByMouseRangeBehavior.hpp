@@ -18,10 +18,10 @@ namespace yordle::data::meta {
             return type == 3193505140u || ITargeterFadeBehavior::is_type(type);
         }
 
-        float x76a72ad1 = 0.0;
-        float x65183440 = 0.0;
-        float mStartAlpha = 1.0;
-        float mEndAlpha = 1.0;
+        float x76a72ad1 = 0.0f;
+        float x65183440 = 0.0f;
+        float mStartAlpha = 1.0f;
+        float mEndAlpha = 1.0f;
     };
 }
 #define YORDLE_META_DEF_FadeByMouseRangeBehavior

@@ -42,9 +42,9 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x9dcf971d = 0u;
         yordle::data::meta::bin_fnv_hash x71993a70 = 0u;
         yordle::data::meta::bin_fnv_hash xf7f3f138 = 0u;
-        float xba1d038c = 0.0;
+        float xba1d038c = 0.0f;
         yordle::data::meta::bin_fnv_hash x75f9cc79 = 0u;
-        float x5a0565cb = 0.0;
+        float x5a0565cb = 0.0f;
         yordle::data::meta::bin_fnv_hash xd8e77c8a = 0u;
         int32_t x5b720329 = 0;
         yordle::data::meta::bin_fnv_hash x33c9204f = 0u;

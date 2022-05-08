@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 1722047856u || MissileTriggeredActionSpec::is_type(type);
         }
 
-        std::array<float, 7> x84bb076a { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
+        std::array<float, 7> x84bb076a { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_ChangeTurnRadius

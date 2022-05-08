@@ -18,10 +18,10 @@ namespace yordle::data::meta {
             return type == 2533312697u;
         }
 
-        float mPixelSize = 0.0;
-        float mMinVal = 0.0;
-        float mMaxVal = 0.0;
-        float mResultScale = 0.0;
+        float mPixelSize = 0.0f;
+        float mMinVal = 0.0f;
+        float mMaxVal = 0.0f;
+        float mResultScale = 0.0f;
     };
 }
 #define YORDLE_META_DEF_ToonInkingFilterParams

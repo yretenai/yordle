@@ -29,7 +29,7 @@ namespace yordle::data::meta {
             return type == 2190212541u || x89fa8d1c::is_type(type);
         }
 
-        float xe9f33fa7 = 0.0;
+        float xe9f33fa7 = 0.0f;
         bool IsEnabled = true;
         std::shared_ptr<yordle::data::meta::xc7d8a802> x8178e6ff {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::x231dd1a2>> xa2a39d73 {};

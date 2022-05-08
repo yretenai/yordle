@@ -43,8 +43,8 @@ namespace yordle::data::meta {
         bool hasMaxGrowRange = false;
         bool useGlobalLineIndicator = false;
         std::optional<bool> lineStopsAtEndPosition {};
-        float minimumDisplayedRange = 50.0;
-        float arrowSize = 0.0;
+        float minimumDisplayedRange = 50.0f;
+        float arrowSize = 0.0f;
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> lineWidth {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> overrideBaseRange {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> rangeGrowthStartTime {};
@@ -57,12 +57,12 @@ namespace yordle::data::meta {
         bool mAngleLineToEndpointHeight = false;
         bool mCenterArrowToEndPoint = false;
         bool facingLine = false;
-        float minAngleRangeFactor = 1.0;
-        float maxAngleRangeFactor = 1.0;
+        float minAngleRangeFactor = 1.0f;
+        float maxAngleRangeFactor = 1.0f;
         bool Fade = true;
-        float minAngle = 0.0;
-        float maxAngle = 180.0;
-        float fadeAngle = 0.0;
+        float minAngle = 0.0f;
+        float maxAngle = 180.0f;
+        float fadeAngle = 0.0f;
     };
 }
 #define YORDLE_META_DEF_TargeterDefinitionLine

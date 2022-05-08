@@ -22,8 +22,8 @@ namespace yordle::data::meta {
         uint32_t xf7f4881e = 0u;
         uint32_t xcf4a92d = 0u;
         uint32_t x7f4a14e = 0u;
-        float xa40f930a = 0.0;
-        float x18e4be8d = 0.0;
+        float xa40f930a = 0.0f;
+        float x18e4be8d = 0.0f;
         uint8_t Team = 4u;
         bool x61cc66ee = true;
     };

@@ -23,26 +23,26 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::CameraTrapezoid> x671c887 {};
-        float mAccelerationTimeMouse = 0.10000000149011612;
-        float mDecelerationTimeMouse = 0.10000000149011612;
-        float mAccelerationTimeKeyboard = 0.10000000149011612;
-        float mDecelerationTimeKeyboard = 0.10000000149011612;
-        float mTopdownZoom = 600.0;
-        float mZoomMinDistance = 1000.0;
-        float mZoomMaxDistance = 2250.0;
-        float mZoomEaseTime = 0.20000000298023224;
-        float mZoomMinSpeed = 3.0;
-        float mLockedCameraEasingDistance = 1000.0;
-        float mDragScale = 2.0;
-        float mDragMomentumDecay = 0.20000000298023224;
-        float mDragMomentumRecencyWeight = 0.25;
-        float mTransitionDurationIntoCinematicMode = 1.0;
+        float mAccelerationTimeMouse = 0.10000000149011612f;
+        float mDecelerationTimeMouse = 0.10000000149011612f;
+        float mAccelerationTimeKeyboard = 0.10000000149011612f;
+        float mDecelerationTimeKeyboard = 0.10000000149011612f;
+        float mTopdownZoom = 600.0f;
+        float mZoomMinDistance = 1000.0f;
+        float mZoomMaxDistance = 2250.0f;
+        float mZoomEaseTime = 0.20000000298023224f;
+        float mZoomMinSpeed = 3.0f;
+        float mLockedCameraEasingDistance = 1000.0f;
+        float mDragScale = 2.0f;
+        float mDragMomentumDecay = 0.20000000298023224f;
+        float mDragMomentumRecencyWeight = 0.25f;
+        float mTransitionDurationIntoCinematicMode = 1.0f;
         std::shared_ptr<yordle::data::meta::CameraTrapezoid> x71c9323a {};
         std::shared_ptr<yordle::data::meta::CameraTrapezoid> xf7617555 {};
-        float x383f51a8 = 0.0;
+        float x383f51a8 = 0.0f;
         std::shared_ptr<yordle::data::meta::CameraTrapezoid> x79b2d636 {};
         std::shared_ptr<yordle::data::meta::CameraTrapezoid> x4eb5a788 {};
-        float x75b7ab24 = 0.0;
+        float x75b7ab24 = 0.0f;
     };
 }
 #define YORDLE_META_DEF_CameraConfig

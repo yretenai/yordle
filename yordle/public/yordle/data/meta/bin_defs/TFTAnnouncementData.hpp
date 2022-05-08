@@ -22,8 +22,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x8b7d190d = 0u;
         std::string mIconPath {};
         std::string mTitleTra {};
-        float mDelay = 0.0;
-        float mDuration = 0.0;
+        float mDelay = 0.0f;
+        float mDuration = 0.0f;
     };
 }
 #define YORDLE_META_DEF_TFTAnnouncementData

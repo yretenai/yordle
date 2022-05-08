@@ -21,8 +21,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash DragRegion = 0u;
         yordle::data::meta::bin_fnv_hash ResizeDragRegion = 0u;
         yordle::data::meta::bin_fnv_hash xcc5d06d5 = 0u;
-        float MaximumShopScale = 1.5;
-        float MinimumShopScale = 0.75;
+        float MaximumShopScale = 1.5f;
+        float MinimumShopScale = 0.75f;
     };
 }
 #define YORDLE_META_DEF_ItemShopViewController

@@ -34,8 +34,8 @@ namespace yordle::data::meta {
         bool x7083251f = false;
         std::vector<yordle::data::meta::bin_fnv_hash> x93adae79 {};
         std::vector<uint16_t> x59546fdc {};
-        float x2766cb77 = 0.0;
-        float xb86ba22a = 0.0;
+        float x2766cb77 = 0.0f;
+        float xb86ba22a = 0.0f;
         uint8_t x3e9d9a6b = 0u;
     };
 }

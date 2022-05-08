@@ -22,10 +22,10 @@ namespace yordle::data::meta {
 
         uint8_t mEndPositionType = 0u;
         std::string mLineTextureName {};
-        float mLineTextureWidth = 10.0;
+        float mLineTextureWidth = 10.0f;
         std::string mLineEndTextureName {};
-        float mLineEndTextureWidth = 10.0;
-        float mLineEndTextureHeight = 10.0;
+        float mLineEndTextureWidth = 10.0f;
+        float mLineEndTextureHeight = 10.0f;
     };
 }
 #define YORDLE_META_DEF_MissileAttachedTargetingDefinition

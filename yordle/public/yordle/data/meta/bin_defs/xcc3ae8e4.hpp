@@ -21,8 +21,8 @@ namespace yordle::data::meta {
         }
 
         uint32_t xff786d5a = 1u;
-        float x94efa6a0 = 0.0;
-        float x5bbd27af = 0.0;
+        float x94efa6a0 = 0.0f;
+        float x5bbd27af = 0.0f;
         std::string x24cdeeb4 = "TFT_Drop_Hover";
         std::string x6cb9b89 = "TFT_Drop_Hover_End";
         std::string xadd98956 {};

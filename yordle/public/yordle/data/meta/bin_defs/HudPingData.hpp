@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 3598370238u;
         }
 
-        float distanceToNotTrollPingCorpses = 1000.0;
-        float timeToNotTrollPingCorpses = 10.0;
+        float distanceToNotTrollPingCorpses = 1000.0f;
+        float timeToNotTrollPingCorpses = 10.0f;
     };
 }
 #define YORDLE_META_DEF_HudPingData

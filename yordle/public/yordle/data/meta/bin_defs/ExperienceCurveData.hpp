@@ -22,9 +22,9 @@ namespace yordle::data::meta {
         std::vector<float> mExperienceRequiredPerLevel {};
         std::vector<float> mExperienceGrantedForKillPerLevel {};
         std::vector<float> x9980fa2e {};
-        float mBaseExperienceMultiplier = 1.0;
-        float mLevelDifferenceExperienceMultiplier = 0.15000000596046448;
-        float mMinimumExperienceMultiplier = 0.4000000059604645;
+        float mBaseExperienceMultiplier = 1.0f;
+        float mLevelDifferenceExperienceMultiplier = 0.15000000596046448f;
+        float mMinimumExperienceMultiplier = 0.4000000059604645f;
     };
 }
 #define YORDLE_META_DEF_ExperienceCurveData

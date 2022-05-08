@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 1608666903u || IFloatGet::is_type(type);
         }
 
-        float value = 0.0;
+        float value = 0.0f;
     };
 }
 #define YORDLE_META_DEF_FloatGet

@@ -22,7 +22,7 @@ namespace yordle::data::meta {
         bool mProjectTargetToCastRange = false;
         bool x99aa2d1f = false;
         bool mUseGroundHeightAtTarget = true;
-        float mTravelTime = 0.0;
+        float mTravelTime = 0.0f;
     };
 }
 #define YORDLE_META_DEF_FixedTimeMovement

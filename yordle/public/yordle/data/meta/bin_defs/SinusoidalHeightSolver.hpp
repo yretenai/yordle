@@ -18,9 +18,9 @@ namespace yordle::data::meta {
             return type == 4027168330u || HeightSolverType::is_type(type);
         }
 
-        float mVerticalOffset = 0.0;
-        float mAmplitude = 0.0;
-        float mNumberOfPeriods = 0.0;
+        float mVerticalOffset = 0.0f;
+        float mAmplitude = 0.0f;
+        float mNumberOfPeriods = 0.0f;
     };
 }
 #define YORDLE_META_DEF_SinusoidalHeightSolver

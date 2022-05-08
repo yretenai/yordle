@@ -25,7 +25,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mRadialWheelUITransitionData {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mRadialWheelButtonTransitionIntro {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mRadialWheelButtonTransitionOutro {};
-        float activateWheelDelayTime = 0.17499999701976776;
+        float activateWheelDelayTime = 0.17499999701976776f;
     };
 }
 #define YORDLE_META_DEF_HudRadialWheelData

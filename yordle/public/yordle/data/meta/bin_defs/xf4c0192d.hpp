@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 4106230061u || IDynamicMaterialDriver::is_type(type);
         }
 
-        std::array<float, 4> value { 1, 0, 0, 0 };
+        std::array<float, 4> value { 1.0f, 0.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_xf4c0192d

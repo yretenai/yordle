@@ -53,8 +53,8 @@ namespace yordle::data::meta {
         uint32_t blendEquation = 0u;
         uint32_t windingToCull = 1u;
         uint32_t writeMask = 31u;
-        float depthOffsetSlope = 0.0;
-        float depthOffsetBias = 0.0;
+        float depthOffsetSlope = 0.0f;
+        float depthOffsetBias = 0.0f;
     };
 }
 #define YORDLE_META_DEF_StaticMaterialPassDef

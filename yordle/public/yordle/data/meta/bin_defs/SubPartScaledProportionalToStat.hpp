@@ -24,7 +24,7 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IGameCalculationPart> mSubpart {};
-        float mRatio = 0.0;
+        float mRatio = 0.0f;
         uint8_t mStat = 0u;
         uint8_t mStatFormula = 0u;
         std::string mStyleTag {};

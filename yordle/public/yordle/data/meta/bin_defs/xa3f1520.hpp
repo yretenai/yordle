@@ -27,8 +27,8 @@ namespace yordle::data::meta {
         std::vector<std::shared_ptr<yordle::data::meta::xaba5f12d>> xef29baeb {};
         std::vector<std::shared_ptr<yordle::data::meta::xaba5f12d>> xee29b958 {};
         uint32_t xf4cd9851 = 3u;
-        float x67b34b53 = 0.25;
-        float x12682a3e = 255.0;
+        float x67b34b53 = 0.25f;
+        float x12682a3e = 255.0f;
         bool xce79296c = false;
         bool x9aa349bf = false;
     };

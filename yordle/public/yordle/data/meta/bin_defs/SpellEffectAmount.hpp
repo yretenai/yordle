@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 2463406204u;
         }
 
-        std::array<float, 7> value { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
+        std::array<float, 7> value { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_SpellEffectAmount

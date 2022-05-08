@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 1280605585u || BaseEventData::is_type(type);
         }
 
-        float mTimeToFade = 0.0;
-        float mTargetAlpha = 0.5;
+        float mTimeToFade = 0.0f;
+        float mTargetAlpha = 0.5f;
     };
 }
 #define YORDLE_META_DEF_FadeEventData

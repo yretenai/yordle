@@ -24,7 +24,7 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::ScriptTable> Table {};
         yordle::data::meta::bin_fnv_hash Var = 0u;
-        float offset = 0.0;
+        float offset = 0.0f;
     };
 }
 #define YORDLE_META_DEF_FloatOffsetTableGet

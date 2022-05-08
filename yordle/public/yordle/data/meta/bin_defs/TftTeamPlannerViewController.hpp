@@ -33,7 +33,7 @@ namespace yordle::data::meta {
             return type == 3963535729u || ViewController::is_type(type);
         }
 
-        float x6ee3bd2e = 5.0;
+        float x6ee3bd2e = 5.0f;
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
         std::shared_ptr<yordle::data::meta::x13a37f3e> x374d847e {};
         yordle::data::meta::bin_fnv_hash x160a8b77 = 0u;

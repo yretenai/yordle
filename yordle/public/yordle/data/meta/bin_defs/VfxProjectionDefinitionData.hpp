@@ -22,8 +22,8 @@ namespace yordle::data::meta {
             return type == 259276035u;
         }
 
-        float mYRange = 5.0;
-        float mFading = 200.0;
+        float mYRange = 5.0f;
+        float mFading = 200.0f;
         std::shared_ptr<yordle::data::meta::ValueColor> colorModulate {};
     };
 }

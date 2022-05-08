@@ -18,9 +18,9 @@ namespace yordle::data::meta {
             return type == 2028761698u;
         }
 
-        float healTimeWindow = 0.10000000149011612;
-        float healTriggerPercent = 0.10000000149011612;
-        float healFadeDuration = 0.20000000298023224;
+        float healTimeWindow = 0.10000000149011612f;
+        float healTriggerPercent = 0.10000000149011612f;
+        float healFadeDuration = 0.20000000298023224f;
     };
 }
 #define YORDLE_META_DEF_x78ec7262

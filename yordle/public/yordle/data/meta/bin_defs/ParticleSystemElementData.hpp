@@ -29,7 +29,7 @@ namespace yordle::data::meta {
         uint32_t xc47cf6c7 = 1u;
         bool x2824440 = true;
         bool x8ef629c9 = true;
-        float x91dec6fe = 1.0;
+        float x91dec6fe = 1.0f;
         std::map<yordle::data::meta::bin_fnv_hash, std::string> x1a898c7d {};
     };
 }

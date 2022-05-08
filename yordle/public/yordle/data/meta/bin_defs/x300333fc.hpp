@@ -25,7 +25,7 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::xc4244dee> x91939cd2 {};
         std::string xfe380acf {};
-        float x69288cba = 1.0;
+        float x69288cba = 1.0f;
     };
 }
 #define YORDLE_META_DEF_x300333fc

@@ -23,10 +23,10 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver> mBoolDriver {};
-        float mOnValue = 1.0;
-        float mOffValue = 0.0;
-        float mTurnOnTimeSec = 1.0;
-        float mTurnOffTimeSec = 1.0;
+        float mOnValue = 1.0f;
+        float mOffValue = 0.0f;
+        float mTurnOnTimeSec = 1.0f;
+        float mTurnOffTimeSec = 1.0f;
         bool xa452be9f = false;
     };
 }

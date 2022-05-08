@@ -19,7 +19,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash x86b1a034 = 0u;
-        float BlendOutTime = 0.20000000298023224;
+        float BlendOutTime = 0.20000000298023224f;
     };
 }
 #define YORDLE_META_DEF_LockRootOrientationEventData

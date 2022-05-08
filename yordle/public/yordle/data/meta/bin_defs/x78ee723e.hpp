@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         bool x39e35e95 = false;
-        float Duration = 0.0;
+        float Duration = 0.0f;
         bool x40e5a495 = false;
         uint32_t type = 0u;
     };

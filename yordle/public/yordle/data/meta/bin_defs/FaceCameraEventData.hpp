@@ -18,9 +18,9 @@ namespace yordle::data::meta {
             return type == 1991855177u || BaseEventData::is_type(type);
         }
 
-        float xb9cfc1ab = 0.0;
-        float BlendInTime = 0.0;
-        float BlendOutTime = 0.0;
+        float xb9cfc1ab = 0.0f;
+        float BlendInTime = 0.0f;
+        float BlendOutTime = 0.0f;
     };
 }
 #define YORDLE_META_DEF_FaceCameraEventData

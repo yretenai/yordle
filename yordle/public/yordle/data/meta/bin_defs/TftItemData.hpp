@@ -65,7 +65,7 @@ namespace yordle::data::meta {
         std::string mIconPath {};
         std::string xd434d358 {};
         std::optional<std::array<uint8_t, 4>> mColor {};
-        std::array<float, 2> x91d75dff { 0.2, 1 };
+        std::array<float, 2> x91d75dff { 0.20000000298023224f, 1.0f };
         yordle::data::meta::bin_ref<yordle::data::meta::VfxSystemDefinitionData> mVfxSystem { 1171098015 };
         int32_t x6d8fceed = -1;
     };

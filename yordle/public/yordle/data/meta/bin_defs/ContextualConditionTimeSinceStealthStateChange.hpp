@@ -21,7 +21,7 @@ namespace yordle::data::meta {
 
         uint8_t mStateToCheck = 1u;
         uint8_t mCompareOp = 5u;
-        float mTimeThreshold = 1.0;
+        float mTimeThreshold = 1.0f;
     };
 }
 #define YORDLE_META_DEF_ContextualConditionTimeSinceStealthStateChange

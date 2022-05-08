@@ -22,9 +22,9 @@ namespace yordle::data::meta {
 
         std::array<uint8_t, 4> PulseStartColor { 193, 251, 255, 255 };
         std::array<uint8_t, 4> PulseEndColor { 219, 252, 255, 255 };
-        std::array<float, 2> x59eebc86 { 0, 0.01 };
-        float pulseTime = 0.4000000059604645;
-        float pulseInterval = 0.20000000298023224;
+        std::array<float, 2> x59eebc86 { 0.0f, 0.009999999776482582f };
+        float pulseTime = 0.4000000059604645f;
+        float pulseInterval = 0.20000000298023224f;
     };
 }
 #define YORDLE_META_DEF_x1e8d9860

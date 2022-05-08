@@ -19,7 +19,7 @@ namespace yordle::data::meta {
         }
 
         bool mWaitForChildren = true;
-        float mDelayTime = 3.0;
+        float mDelayTime = 3.0f;
     };
 }
 #define YORDLE_META_DEF_NullMovement

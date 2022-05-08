@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 3672021242u;
         }
 
-        float xd4d2ea52 = 1.600000023841858;
-        float mDownscale = 0.699999988079071;
+        float xd4d2ea52 = 1.600000023841858f;
+        float mDownscale = 0.699999988079071f;
     };
 }
 #define YORDLE_META_DEF_TFTHudMobileDownscaleData

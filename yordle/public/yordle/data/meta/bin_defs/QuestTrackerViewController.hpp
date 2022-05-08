@@ -30,12 +30,12 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::HudMessageDisplayData> MessageDisplayData {};
         uint32_t x62eab0b = 15u;
-        float x18bae045 = 0.20000000298023224;
-        float xdba6febb = 5.0;
-        float x9fa3719e = 1.0;
-        float x28f5e138 = 0.699999988079071;
-        float xa0ae36a8 = 5.0;
-        float xc67a95a4 = 165.0;
+        float x18bae045 = 0.20000000298023224f;
+        float xdba6febb = 5.0f;
+        float x9fa3719e = 1.0f;
+        float x28f5e138 = 0.699999988079071f;
+        float xa0ae36a8 = 5.0f;
+        float xc67a95a4 = 165.0f;
         yordle::data::meta::bin_fnv_hash xef8b25c1 = 0u;
         yordle::data::meta::bin_fnv_hash xd11e53b5 = 0u;
         yordle::data::meta::bin_fnv_hash xf087db8 = 0u;

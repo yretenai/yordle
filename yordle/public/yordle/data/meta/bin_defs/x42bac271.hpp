@@ -22,12 +22,12 @@ namespace yordle::data::meta {
 
         std::string UiSound {};
         uint8_t xec63d209 = 5u;
-        float xa766d8e5 = 255.0;
-        float xd316d9e6 = 1.0;
-        float x95b7cd25 = 1.0;
-        float x93553543 = 0.0;
-        float x9897aa6c = 3.0;
-        float xf48c0195 = 1.5;
+        float xa766d8e5 = 255.0f;
+        float xd316d9e6 = 1.0f;
+        float x95b7cd25 = 1.0f;
+        float x93553543 = 0.0f;
+        float x9897aa6c = 3.0f;
+        float xf48c0195 = 1.5f;
     };
 }
 #define YORDLE_META_DEF_x42bac271

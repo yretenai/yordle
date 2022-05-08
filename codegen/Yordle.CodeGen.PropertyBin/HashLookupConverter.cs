@@ -18,6 +18,26 @@ public class HashLookupConverter : JsonConverter<(string?, uint)> {
 
     public static Dictionary<uint, string> HashMap { get; } = new();
 
+    private static readonly HashSet<string> Reserved = new() {
+        "register",
+        "template",
+        "class",
+        "far",
+        "short",
+        "ushort",
+        "byte",
+        "sbyte",
+        "int",
+        "uint",
+        "long",
+        "ulong",
+        "float",
+        "unsigned",
+        "namespace",
+        "struct",
+        "unsafe",
+    };
+
     private static void ProcessHashes(string type) {
         var cwd = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "./";
         foreach (var rawLine in File.ReadAllLines(Path.Combine(cwd, $"hashes.{type}.txt"))) {
@@ -33,7 +53,7 @@ public class HashLookupConverter : JsonConverter<(string?, uint)> {
                 Debug.WriteLine($"hash collision: {hash:x8} {HashMap[hash]} = {value}");
             }
 
-            if (value == "register" || value == "template") { // reserved keywords.
+            if (Reserved.Contains(value)) { // reserved keywords.
                 continue;
             }
 

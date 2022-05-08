@@ -21,12 +21,12 @@ namespace yordle::data::meta {
         }
 
         std::string reflectionMapTexture {};
-        float reflectionOpacityDirect = 0.0;
-        float reflectionOpacityGlancing = 1.0;
-        float reflectionFresnel = 1.0;
-        std::array<float, 4> reflectionFresnelColor { 1, 1, 1, 1 };
-        float fresnel = 1.0;
-        std::array<float, 4> fresnelColor { 0, 0, 0, 0 };
+        float reflectionOpacityDirect = 0.0f;
+        float reflectionOpacityGlancing = 1.0f;
+        float reflectionFresnel = 1.0f;
+        std::array<float, 4> reflectionFresnelColor { 1.0f, 1.0f, 1.0f, 1.0f };
+        float fresnel = 1.0f;
+        std::array<float, 4> fresnelColor { 0.0f, 0.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_VfxReflectionDefinitionData

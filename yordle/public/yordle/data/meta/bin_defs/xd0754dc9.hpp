@@ -23,8 +23,8 @@ namespace yordle::data::meta {
             return type == 3497348553u || ViewController::is_type(type);
         }
 
-        float x5b9613f7 = 0.75;
-        float xf48b7975 = 1.5;
+        float x5b9613f7 = 0.75f;
+        float xf48b7975 = 1.5f;
         yordle::data::meta::bin_fnv_hash x4d302530 = 0u;
         yordle::data::meta::bin_fnv_hash x261b251 = 0u;
         yordle::data::meta::bin_fnv_hash x37b7e946 = 0u;
@@ -34,7 +34,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x1cc88c1d = 0u;
         yordle::data::meta::bin_fnv_hash x985322b7 = 0u;
         yordle::data::meta::bin_fnv_hash xba47665c = 0u;
-        float x1cac9ad1 = 20.0;
+        float x1cac9ad1 = 20.0f;
         std::shared_ptr<yordle::data::meta::xb3f7f3ed> xb3f7f3ed {};
         std::string xe095d841 {};
     };

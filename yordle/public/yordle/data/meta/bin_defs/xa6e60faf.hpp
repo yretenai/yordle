@@ -25,8 +25,8 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash CheatSet = 0u;
-        float x5b9613f7 = 0.6600000262260437;
-        float xf48b7975 = 1.0;
+        float x5b9613f7 = 0.6600000262260437f;
+        float xf48b7975 = 1.0f;
         yordle::data::meta::bin_fnv_hash xc1f16a2a = 0u;
         yordle::data::meta::bin_fnv_hash x2d5f962 = 0u;
         yordle::data::meta::bin_fnv_hash x73c8aba4 = 0u;
@@ -36,8 +36,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash xdee8167e = 0u;
         yordle::data::meta::bin_fnv_hash x2effec77 = 0u;
         std::map<yordle::data::meta::bin_fnv_hash, yordle::data::meta::bin_fnv_hash> x2e89a529 {};
-        float tooltipDelay = 0.10000000149011612;
-        float groupDividerGapSize = 0.6000000238418579;
+        float tooltipDelay = 0.10000000149011612f;
+        float groupDividerGapSize = 0.6000000238418579f;
         uint8_t groupDividerIndex = 7u;
     };
 }

@@ -19,8 +19,8 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mMaskDataName = 0u;
-        float mBlendInTime = 0.0;
-        float mBlendOutTime = 0.0;
+        float mBlendInTime = 0.0f;
+        float mBlendOutTime = 0.0f;
     };
 }
 #define YORDLE_META_DEF_ConformToPathEventData

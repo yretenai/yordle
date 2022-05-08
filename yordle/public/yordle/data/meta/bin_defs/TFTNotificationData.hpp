@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         std::string mName {};
-        float mDurationSeconds = 3.0;
+        float mDurationSeconds = 3.0f;
         std::string mToplineTra {};
         std::string mBottomlineTra {};
         std::string mIconPath {};

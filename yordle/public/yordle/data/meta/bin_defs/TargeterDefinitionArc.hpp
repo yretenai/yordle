@@ -35,7 +35,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> constraintRange {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> overrideRadius {};
         std::string textureArcOverrideName {};
-        float thicknessOffset = 0.0;
+        float thicknessOffset = 0.0f;
     };
 }
 #define YORDLE_META_DEF_TargeterDefinitionArc

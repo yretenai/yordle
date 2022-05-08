@@ -22,10 +22,10 @@ namespace yordle::data::meta {
             return type == 3998066495u || EffectElementData::is_type(type);
         }
 
-        float CycleTime = 0.0;
-        float BaseScale = 0.0;
-        float CycleBasedScaleAddition = 0.0;
-        float MinimumAlpha = 0.0;
+        float CycleTime = 0.0f;
+        float BaseScale = 0.0f;
+        float CycleBasedScaleAddition = 0.0f;
+        float MinimumAlpha = 0.0f;
         bool mFlipX = false;
         bool mFlipY = false;
         bool mPerPixelUvsX = false;

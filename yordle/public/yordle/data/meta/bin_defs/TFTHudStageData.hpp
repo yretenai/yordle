@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 1839038444u;
         }
 
-        float xa11246b8 = 5.0;
+        float xa11246b8 = 5.0f;
     };
 }
 #define YORDLE_META_DEF_TFTHudStageData

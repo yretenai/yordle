@@ -19,9 +19,9 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mClipName = 0u;
-        float mValue = 0.0;
-        float mHoldAnimationToHigher = 0.0;
-        float mHoldAnimationToLower = 0.0;
+        float mValue = 0.0f;
+        float mHoldAnimationToHigher = 0.0f;
+        float mHoldAnimationToLower = 0.0f;
     };
 }
 #define YORDLE_META_DEF_ConditionFloatPairData

@@ -24,10 +24,10 @@ namespace yordle::data::meta {
         bool mUseHeightOffsetAtEnd = false;
         bool mTracksTarget = false;
         bool xaa44f99e = false;
-        float mTargetHeightAugment = 0;
-        float mOffsetInitialTargetHeight = 0;
+        float mTargetHeightAugment = 0.0f;
+        float mOffsetInitialTargetHeight = 0.0f;
         std::string mTargetBoneName {};
-        float mStartDelay = 0;
+        float mStartDelay = 0.0f;
         std::string mStartBoneName {};
         std::map<uint32_t, std::string> xa6cb1fa4 {};
     };

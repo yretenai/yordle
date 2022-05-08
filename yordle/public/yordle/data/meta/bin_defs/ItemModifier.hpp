@@ -44,9 +44,9 @@ namespace yordle::data::meta {
         bool mReplaceInsteadOfAddingBuildFrom = false;
         bool mIgnoreMaxGroupOwnable = false;
         yordle::data::meta::bin_fnv_hash mIgnoreSpecificMaxGroupOwnable = 0u;
-        float mDeltaGoldCost = 0.0;
-        float mDeltaGoldCostPercent = 0.0;
-        float mDeltaBuffCurrencyCostPercent = 0.0;
+        float mDeltaGoldCost = 0.0f;
+        float mDeltaGoldCostPercent = 0.0f;
+        float mDeltaBuffCurrencyCostPercent = 0.0f;
         int32_t mDeltaRequiredLevel = 0;
         int32_t mDeltaBuffCurrencyCost = 0;
         int32_t mDeltaMaxStacks = 0;

@@ -19,9 +19,9 @@ namespace yordle::data::meta {
             return type == 3991255873u;
         }
 
-        std::array<float, 2> xy { 0, 0 };
-        std::array<float, 2> wh { 20, 20 };
-        float x81e208ef = 0.0;
+        std::array<float, 2> xy { 0.0f, 0.0f };
+        std::array<float, 2> wh { 20.0f, 20.0f };
+        float x81e208ef = 0.0f;
     };
 }
 #define YORDLE_META_DEF_CSSIcon

@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 1496596895u;
         }
 
-        std::array<float, 4> value { 0, 0, 0, 0 };
+        std::array<float, 4> value { 0.0f, 0.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_MaterialInstanceParamDef

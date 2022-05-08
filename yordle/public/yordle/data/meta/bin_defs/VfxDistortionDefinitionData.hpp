@@ -20,7 +20,7 @@ namespace yordle::data::meta {
             return type == 1238702953u;
         }
 
-        float distortion = 0.0;
+        float distortion = 0.0f;
         uint8_t distortionMode = 1u;
         std::string normalMapTexture {};
     };

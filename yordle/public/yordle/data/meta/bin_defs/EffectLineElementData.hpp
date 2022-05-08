@@ -23,8 +23,8 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::AtlasData> mAtlas {};
-        float mThickness = 1.0;
-        float mRightSlicePercentage = 0.8999999761581421;
+        float mThickness = 1.0f;
+        float mRightSlicePercentage = 0.8999999761581421f;
     };
 }
 #define YORDLE_META_DEF_EffectLineElementData

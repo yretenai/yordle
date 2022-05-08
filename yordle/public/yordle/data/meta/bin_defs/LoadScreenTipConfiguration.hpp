@@ -20,8 +20,8 @@ namespace yordle::data::meta {
 
         bool mShowInCustomGames = false;
         bool mShowPBITipsOnLoadingScreen = false;
-        float mPBITipDurationOnLoadingScreen = 0.0;
-        float mDurationInGame = 0.0;
+        float mPBITipDurationOnLoadingScreen = 0.0f;
+        float mDurationInGame = 0.0f;
     };
 }
 #define YORDLE_META_DEF_LoadScreenTipConfiguration

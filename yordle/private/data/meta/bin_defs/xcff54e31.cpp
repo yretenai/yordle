@@ -23,9 +23,9 @@ yordle::data::meta::xcff54e31::xcff54e31(const std::shared_ptr<yordle::data::pro
         x54f3570f = ptr_x54f3570f->value;
     }
 
-    auto ptr_far = prop->cast_prop<yordle::data::prop::float32_prop>(3170376174u);
-    if(ptr_far != nullptr) {
-        far = ptr_far->value;
+    auto ptr_xbcf819ee = prop->cast_prop<yordle::data::prop::float32_prop>(3170376174u);
+    if(ptr_xbcf819ee != nullptr) {
+        xbcf819ee = ptr_xbcf819ee->value;
     }
 
     auto ptr_xaea44051 = prop->cast_prop<yordle::data::prop::float32_prop>(2929999953u);

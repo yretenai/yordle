@@ -20,8 +20,8 @@ namespace yordle::data::meta {
 
         bool mIsSelfOnly = false;
         bool mFireIfAnimationEndsEarly = false;
-        float mStartFrame = 0.0;
-        float mEndFrame = -1.0;
+        float mStartFrame = 0.0f;
+        float mEndFrame = -1.0f;
         yordle::data::meta::bin_fnv_hash mName = 0u;
     };
 }

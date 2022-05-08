@@ -19,7 +19,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mAnimationName = 0u;
-        float mMinRemainingTime = 0.5;
+        float mMinRemainingTime = 0.5f;
     };
 }
 #define YORDLE_META_DEF_ContextualConditionCharacterHasTimeRemainingForAnimation

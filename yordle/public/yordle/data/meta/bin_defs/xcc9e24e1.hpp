@@ -21,13 +21,13 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash name = 0u;
         yordle::data::meta::bin_fnv_hash Joint = 0u;
         bool xd46d37b7 = true;
-        float xdf7738d1 = 0.10000000149011612;
-        float x28ff849 = 2.5;
-        float xbb61b895 = 1.0;
+        float xdf7738d1 = 0.10000000149011612f;
+        float x28ff849 = 2.5f;
+        float xbb61b895 = 1.0f;
         bool x414d052 = false;
         bool x6dee491f = false;
-        float maxAngle = 0.0;
-        float maxDistance = 0.0;
+        float maxAngle = 0.0f;
+        float maxDistance = 0.0f;
         bool x316c9fa1 = false;
     };
 }

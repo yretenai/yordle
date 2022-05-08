@@ -24,8 +24,8 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver> mBoolDriver {};
-        std::array<float, 4> mColorOn { 1, 0, 0, 1 };
-        std::array<float, 4> mColorOff { 0, 0, 1, 1 };
+        std::array<float, 4> mColorOn { 1.0f, 0.0f, 0.0f, 1.0f };
+        std::array<float, 4> mColorOff { 0.0f, 0.0f, 1.0f, 1.0f };
     };
 }
 #define YORDLE_META_DEF_ColorChooserMaterialDriver

@@ -45,7 +45,7 @@ namespace yordle::data::meta {
         }
 
         bool mUseCascadeBlend = false;
-        float mCascadeBlendValue = -1.0;
+        float mCascadeBlendValue = -1.0f;
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::ClipBaseData>> mClipDataMap {};
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::MaskData>> mMaskDataMap {};
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::TrackData>> mTrackDataMap {};

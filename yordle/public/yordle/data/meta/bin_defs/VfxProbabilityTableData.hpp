@@ -21,7 +21,7 @@ namespace yordle::data::meta {
 
         std::vector<float> keyTimes {};
         std::vector<float> keyValues {};
-        float singleValue = 1.0;
+        float singleValue = 1.0f;
     };
 }
 #define YORDLE_META_DEF_VfxProbabilityTableData

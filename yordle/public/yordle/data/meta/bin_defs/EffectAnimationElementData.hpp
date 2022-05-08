@@ -23,9 +23,9 @@ namespace yordle::data::meta {
             return type == 1913369002u || EffectElementData::is_type(type);
         }
 
-        float FramesPerSecond = 0.0;
-        float TotalNumberOfFrames = 0.0;
-        float NumberOfFramesPerRowInAtlas = 0.0;
+        float FramesPerSecond = 0.0f;
+        float TotalNumberOfFrames = 0.0f;
+        float NumberOfFramesPerRowInAtlas = 0.0f;
         bool mFlipX = false;
         bool mFlipY = false;
         bool mPerPixelUvsX = false;

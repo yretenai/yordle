@@ -21,7 +21,7 @@ namespace yordle::data::meta {
 
         uint8_t mPriority = 0u;
         uint8_t mBlendMode = 0u;
-        float mBlendWeight = 1.0;
+        float mBlendWeight = 1.0f;
     };
 }
 #define YORDLE_META_DEF_TrackData

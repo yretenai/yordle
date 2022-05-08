@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 127412095u || MissileBehaviorSpec::is_type(type);
         }
 
-        float x5e19cde2 = 0.0;
+        float x5e19cde2 = 0.0f;
         uint32_t x6bfae91c = 0u;
         uint32_t x754a85a6 = 0u;
     };

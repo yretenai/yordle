@@ -19,8 +19,8 @@ namespace yordle::data::meta {
             return type == 3290713582u;
         }
 
-        std::array<float, 3> xc98f4557 { -1000, -1000, -1000 };
-        std::array<float, 3> xd7a2e319 { 1000, 1000, 1000 };
+        std::array<float, 3> xc98f4557 { -1000.0f, -1000.0f, -1000.0f };
+        std::array<float, 3> xd7a2e319 { 1000.0f, 1000.0f, 1000.0f };
     };
 }
 #define YORDLE_META_DEF_xc4244dee

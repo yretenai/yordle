@@ -22,9 +22,9 @@ namespace yordle::data::meta {
             return type == 2341739189u;
         }
 
-        float xca84776a = 0.0;
-        float xf675a6b7 = 0.0;
-        float mAnimationDelayTime = 0.0;
+        float xca84776a = 0.0f;
+        float xf675a6b7 = 0.0f;
+        float mAnimationDelayTime = 0.0f;
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> x77d83159 {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> x4ae65dfa {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mSlideTransitionIn {};

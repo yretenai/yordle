@@ -37,11 +37,11 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x1ad9fdf6 = 0u;
         std::string xc38bc99c {};
         std::map<uint32_t, std::shared_ptr<yordle::data::meta::xd1fd3185>> x939434dd {};
-        float x56b85896 = 0.0;
-        float x14713b68 = 0.0;
-        float x87f66219 = 0.0;
-        float x3ffa2fd6 = 0.0;
-        float xdc2153fc = 0.0;
+        float x56b85896 = 0.0f;
+        float x14713b68 = 0.0f;
+        float x87f66219 = 0.0f;
+        float x3ffa2fd6 = 0.0f;
+        float xdc2153fc = 0.0f;
     };
 }
 #define YORDLE_META_DEF_TftGameStartViewController

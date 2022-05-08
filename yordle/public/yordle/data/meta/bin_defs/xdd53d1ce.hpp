@@ -29,9 +29,9 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::x1c494c09> Location {};
         yordle::data::meta::bin_ref<yordle::data::meta::VfxSystemDefinitionData> Particle { 1171098015 };
-        float x39d6e480 = 0;
+        float x39d6e480 = 0.0f;
         bool x7436e01 = false;
-        float Scale = 0;
+        float Scale = 0.0f;
     };
 }
 #define YORDLE_META_DEF_xdd53d1ce

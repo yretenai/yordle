@@ -20,12 +20,12 @@ namespace yordle::data::meta {
         }
 
         uint32_t alphaStart = 255u;
-        float alphaFadeSpeed = 0.0;
-        float scaleStart = 1.0;
-        float scaleSpeed = 0.0;
-        float startDelay = 0.0;
-        float life = 0.0;
-        float onDeathFadeSpeed = 180.0;
+        float alphaFadeSpeed = 0.0f;
+        float scaleStart = 1.0f;
+        float scaleSpeed = 0.0f;
+        float startDelay = 0.0f;
+        float life = 0.0f;
+        float onDeathFadeSpeed = 180.0f;
         uint32_t repeatCount = 0u;
         bool blendWithAlpha = true;
     };

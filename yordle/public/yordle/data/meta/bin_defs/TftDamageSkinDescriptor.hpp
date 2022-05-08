@@ -23,7 +23,7 @@ namespace yordle::data::meta {
         uint32_t EffectType = 0u;
         std::string effectKey {};
         uint32_t AttachedToBone = 0u;
-        float EffectDelay = 0.0;
+        float EffectDelay = 0.0f;
         uint32_t x9d0cca5b = 0u;
     };
 }

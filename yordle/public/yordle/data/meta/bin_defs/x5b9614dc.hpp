@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 1536562396u || TargetingTypeData::is_type(type);
         }
 
-        float xbb4a1111 = 0.0;
+        float xbb4a1111 = 0.0f;
     };
 }
 #define YORDLE_META_DEF_x5b9614dc

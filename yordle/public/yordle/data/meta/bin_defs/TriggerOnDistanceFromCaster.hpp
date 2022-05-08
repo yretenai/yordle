@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 2746720777u || MissileTriggerSpec::is_type(type);
         }
 
-        float mDistance = 0.0;
+        float mDistance = 0.0f;
     };
 }
 #define YORDLE_META_DEF_TriggerOnDistanceFromCaster

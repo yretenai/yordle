@@ -18,10 +18,10 @@ namespace yordle::data::meta {
             return type == 1207715590u;
         }
 
-        float x9811eb50 = 0.0;
-        float x82cb6669 = 0.0;
-        float mMaxXTop = 0.0;
-        float mMaxXBottom = 0.0;
+        float x9811eb50 = 0.0f;
+        float x82cb6669 = 0.0f;
+        float mMaxXTop = 0.0f;
+        float mMaxXBottom = 0.0f;
     };
 }
 #define YORDLE_META_DEF_CameraTrapezoid

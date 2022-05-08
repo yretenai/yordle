@@ -22,9 +22,9 @@ namespace yordle::data::meta {
 
         std::string EventName {};
         uint32_t AudioType = 0u;
-        float startTime = 0.0;
-        float xdf1b8a47 = 0.0;
-        float x518f49b9 = 0.0;
+        float startTime = 0.0f;
+        float xdf1b8a47 = 0.0f;
+        float x518f49b9 = 0.0f;
     };
 }
 #define YORDLE_META_DEF_MapAudio

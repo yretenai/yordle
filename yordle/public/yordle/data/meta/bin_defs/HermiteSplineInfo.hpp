@@ -19,8 +19,8 @@ namespace yordle::data::meta {
             return type == 1365802124u || ISplineInfo::is_type(type);
         }
 
-        std::array<float, 3> mControlPoint1 { -1, 0, 0 };
-        std::array<float, 3> mControlPoint2 { 1, 0, 0 };
+        std::array<float, 3> mControlPoint1 { -1.0f, 0.0f, 0.0f };
+        std::array<float, 3> mControlPoint2 { 1.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_HermiteSplineInfo

@@ -26,13 +26,13 @@ namespace yordle::data::meta {
         uint8_t xf457386e = 4u;
         uint8_t x4b34615a = 4u;
         bool xe6f2ed02 = false;
-        float x1a52a449 = 0.0;
+        float x1a52a449 = 0.0f;
         bool x110cdbcd = false;
         bool x7279d292 = false;
         bool x9a8284cc = false;
         bool xe4d604c7 = false;
-        float Scale = 1.0;
-        float x6a7c10f9 = 120.0;
+        float Scale = 1.0f;
+        float x6a7c10f9 = 120.0f;
         bool xd4c0b82 = false;
         bool x992b4e86 = false;
         bool xae1c3a03 = false;

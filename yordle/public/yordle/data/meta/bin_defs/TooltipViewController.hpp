@@ -43,8 +43,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x77d086c4 = 0u;
         yordle::data::meta::bin_fnv_hash xc9338d72 = 0u;
         yordle::data::meta::bin_fnv_hash xcfe20df6 = 0u;
-        float x9e2fcad4 = 0.0;
-        float x750ad235 = 0.0;
+        float x9e2fcad4 = 0.0f;
+        float x750ad235 = 0.0f;
     };
 }
 #define YORDLE_META_DEF_TooltipViewController

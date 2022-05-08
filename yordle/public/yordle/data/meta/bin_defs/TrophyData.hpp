@@ -33,7 +33,7 @@ namespace yordle::data::meta {
             return type == 1176619879u || BaseLoadoutData::is_type(type);
         }
 
-        float mPerceptionBubbleRadius = 250.0;
+        float mPerceptionBubbleRadius = 250.0f;
         std::shared_ptr<yordle::data::meta::SkinMeshDataProperties> skinMeshProperties {};
         yordle::data::meta::bin_ref<yordle::data::meta::AnimationGraphData> AnimationGraphData { 4126869447 };
         std::shared_ptr<yordle::data::meta::ResourceResolver> mVFXResourceResolver {};

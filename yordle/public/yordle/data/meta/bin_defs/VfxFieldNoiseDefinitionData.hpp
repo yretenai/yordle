@@ -32,7 +32,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ValueFloat> radius {};
         std::shared_ptr<yordle::data::meta::ValueFloat> frequency {};
         std::shared_ptr<yordle::data::meta::ValueFloat> velocityDelta {};
-        std::array<float, 3> axisFraction { 0, 0, 0 };
+        std::array<float, 3> axisFraction { 0.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_VfxFieldNoiseDefinitionData

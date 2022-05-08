@@ -22,7 +22,7 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash effectKey = 0u;
         std::string effectName {};
-        std::array<float, 3> position { 0, 0, 0 };
+        std::array<float, 3> position { 0.0f, 0.0f, 0.0f };
         std::string boneName {};
         std::string targetBoneName {};
     };

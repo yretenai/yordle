@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 2832031521u || ITargeterFadeBehavior::is_type(type);
         }
 
-        float mAlpha = 1.0;
+        float mAlpha = 1.0f;
     };
 }
 #define YORDLE_META_DEF_FadeToExplicitValueBehavior

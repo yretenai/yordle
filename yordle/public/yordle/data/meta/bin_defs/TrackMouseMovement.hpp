@@ -23,12 +23,12 @@ namespace yordle::data::meta {
         bool mProjectTargetToCastRange = false;
         bool x99aa2d1f = false;
         bool mUseGroundHeightAtTarget = true;
-        float mAcceleration = 0.0;
-        float mMinSpeed = 0.0;
-        float mMaxSpeed = 0.0;
-        float mInitialSpeed = 0.0;
-        std::array<float, 7> x84bb076a { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
-        float x604989cf = 0.25;
+        float mAcceleration = 0.0f;
+        float mMinSpeed = 0.0f;
+        float mMaxSpeed = 0.0f;
+        float mInitialSpeed = 0.0f;
+        std::array<float, 7> x84bb076a { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+        float x604989cf = 0.25f;
     };
 }
 #define YORDLE_META_DEF_TrackMouseMovement

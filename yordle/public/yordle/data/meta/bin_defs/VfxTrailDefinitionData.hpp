@@ -24,7 +24,7 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::ValueVector3> mBirthTilingSize {};
-        float mCutoff = 0.0;
+        float mCutoff = 0.0f;
         int32_t mMaxAddedPerFrame = 0;
         uint8_t mSmoothingMode = 0u;
         uint8_t mMode = 0u;

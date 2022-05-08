@@ -25,7 +25,7 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::x5c086dbd> TargetObject {};
         uint8_t EasingType = 0u;
-        float OvershootDistance = 0;
+        float OvershootDistance = 0.0f;
         bool FaceVelocity = false;
     };
 }

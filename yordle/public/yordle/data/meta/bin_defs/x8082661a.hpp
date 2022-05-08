@@ -26,9 +26,9 @@ namespace yordle::data::meta {
         std::array<std::shared_ptr<yordle::data::meta::x6e03cc25>, 3> xccaadab7 { nullptr, nullptr, nullptr };
         std::shared_ptr<yordle::data::meta::x6e03cc25> x7f34b6b3 {};
         yordle::data::meta::bin_fnv_hash xf43b8449 = 0u;
-        float enlargeTime = 0.10000000149011612;
-        float enlargeSize = 1.2999999523162842;
-        float settleTime = 0.10000000149011612;
+        float enlargeTime = 0.10000000149011612f;
+        float enlargeSize = 1.2999999523162842f;
+        float settleTime = 0.10000000149011612f;
     };
 }
 #define YORDLE_META_DEF_x8082661a

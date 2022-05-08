@@ -20,7 +20,7 @@ namespace yordle::data::meta {
             return type == 297212766u;
         }
 
-        float hpPerTick = 0.0;
+        float hpPerTick = 0.0f;
         std::string attachToBone {};
         uint8_t unitHealthBarStyle = 0u;
         bool showWhileUntargetable = false;

@@ -18,9 +18,9 @@ namespace yordle::data::meta {
             return type == 702535597u;
         }
 
-        float xaeebcbdd = 0.0;
-        float xa8a2f6c7 = 0.0;
-        float x64e4f9f9 = 0.0;
+        float xaeebcbdd = 0.0f;
+        float xa8a2f6c7 = 0.0f;
+        float x64e4f9f9 = 0.0f;
     };
 }
 #define YORDLE_META_DEF_x29dfd7ad

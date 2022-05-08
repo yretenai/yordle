@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 3701691417u || MapGraphicsFeature::is_type(type);
         }
 
-        float xee91017d = 0.0;
-        float xc916a9fc = 3000.0;
+        float xee91017d = 0.0f;
+        float xc916a9fc = 3000.0f;
     };
 }
 #define YORDLE_META_DEF_MapLightingV2

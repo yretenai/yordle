@@ -19,14 +19,14 @@ namespace yordle::data::meta {
             return type == 3939670256u;
         }
 
-        float mPercentageDamageForFlash = 1.0;
-        float mOverTimeForFlashSeconds = 0.0;
-        float mMaxPercentageForMostReadHealth = 1.0;
-        float mFlashDuration = 1.0;
-        float mStartFlashAlpha = 1.0;
-        float mLowHealthFlashThresholdPercentage = 0.6000000238418579;
-        float mLowHealthFlashDuration = 1.2000000476837158;
-        float mLowHealthFlashOpacityStrength = 0.800000011920929;
+        float mPercentageDamageForFlash = 1.0f;
+        float mOverTimeForFlashSeconds = 0.0f;
+        float mMaxPercentageForMostReadHealth = 1.0f;
+        float mFlashDuration = 1.0f;
+        float mStartFlashAlpha = 1.0f;
+        float mLowHealthFlashThresholdPercentage = 0.6000000238418579f;
+        float mLowHealthFlashDuration = 1.2000000476837158f;
+        float mLowHealthFlashOpacityStrength = 0.800000011920929f;
         std::string xa34462c {};
         std::string x6368528b {};
     };

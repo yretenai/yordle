@@ -19,8 +19,8 @@ namespace yordle::data::meta {
             return type == 3742500809u || AnchorBase::is_type(type);
         }
 
-        std::array<float, 2> anchorLeft { 0, 0 };
-        std::array<float, 2> anchorRight { 0, 0 };
+        std::array<float, 2> anchorLeft { 0.0f, 0.0f };
+        std::array<float, 2> anchorRight { 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_AnchorDouble

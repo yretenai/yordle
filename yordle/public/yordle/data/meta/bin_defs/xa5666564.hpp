@@ -39,14 +39,14 @@ namespace yordle::data::meta {
         }
 
         std::string x4432d377 {};
-        float Duration = 0.0;
-        float xd43dd942 = 0.0;
-        float xacadbef6 = 0.0;
+        float Duration = 0.0f;
+        float xd43dd942 = 0.0f;
+        float xacadbef6 = 0.0f;
         std::shared_ptr<yordle::data::meta::x97fc7312> x1e7871ec {};
         std::shared_ptr<yordle::data::meta::x97fc7312> x16ba2823 {};
-        float x32eb58a4 = 100.0;
-        float x4f86466c = 50.0;
-        float x3f6fb5cb = 1075.0;
+        float x32eb58a4 = 100.0f;
+        float x4f86466c = 50.0f;
+        float x3f6fb5cb = 1075.0f;
         bool xa9443951 = false;
         bool x5f698fdd = false;
         bool xe2d9142a = false;

@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 1210599257u || ICastRequirement::is_type(type);
         }
 
-        float Distance = 0.0;
+        float Distance = 0.0f;
     };
 }
 #define YORDLE_META_DEF_x48284759

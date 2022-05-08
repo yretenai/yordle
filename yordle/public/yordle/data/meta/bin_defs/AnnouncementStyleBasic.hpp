@@ -23,7 +23,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash TextField = 0u;
-        float MinAnnouncementDuration = 2.5;
+        float MinAnnouncementDuration = 2.5f;
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> x3f43172e {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> xcc99a2db {};
     };

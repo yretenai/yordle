@@ -33,9 +33,9 @@ namespace yordle::data::meta {
         uint32_t erosionDriveSource = 0u;
         bool UseLingerErosionDriveCurve = false;
         std::shared_ptr<yordle::data::meta::ValueFloat> LingerErosionDriveCurve {};
-        float erosionFeatherIn = 0.10000000149011612;
-        float erosionFeatherOut = 0.10000000149011612;
-        float erosionSliceWidth = 1.5;
+        float erosionFeatherIn = 0.10000000149011612f;
+        float erosionFeatherOut = 0.10000000149011612f;
+        float erosionSliceWidth = 1.5f;
         std::string erosionMapName {};
         uint8_t erosionMapAddressMode = 2u;
         std::shared_ptr<yordle::data::meta::ValueColor> erosionMapChannelMixer {};

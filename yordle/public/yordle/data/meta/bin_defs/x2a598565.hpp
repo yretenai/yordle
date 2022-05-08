@@ -37,8 +37,8 @@ namespace yordle::data::meta {
         std::string xfc596ba6 {};
         yordle::data::meta::bin_fnv_hash animationName = 0u;
         yordle::data::meta::bin_fnv_hash x25888758 = 0u;
-        float x79f64609 = 10.0;
-        float xdb1cc90a = 10000.0;
+        float x79f64609 = 10.0f;
+        float xdb1cc90a = 10000.0f;
         std::vector<std::shared_ptr<yordle::data::meta::x24fc182b>> x567421af {};
         std::vector<std::shared_ptr<yordle::data::meta::x64e7b9e1>> x20cd725d {};
         std::vector<std::shared_ptr<yordle::data::meta::x2373fc78>> x9fa5a56c {};

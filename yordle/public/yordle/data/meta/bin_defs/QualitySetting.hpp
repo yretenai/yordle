@@ -21,7 +21,7 @@ namespace yordle::data::meta {
         }
 
         std::string mName {};
-        float x33eb38d = 0.75;
+        float x33eb38d = 0.75f;
         uint32_t mFrameCap = 0u;
         uint32_t mEnvironmentQuality = 2u;
         uint32_t xa8d99737 = 2u;

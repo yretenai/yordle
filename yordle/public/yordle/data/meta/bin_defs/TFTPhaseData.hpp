@@ -25,7 +25,7 @@ namespace yordle::data::meta {
         }
 
         bool mEnabled = false;
-        float mDuration = 0.0;
+        float mDuration = 0.0f;
         uint32_t mDisplay = 0u;
         std::string mLabel {};
         yordle::data::meta::bin_ref<yordle::data::meta::TFTAnnouncementData> mAnnouncementData { 3519409590 };

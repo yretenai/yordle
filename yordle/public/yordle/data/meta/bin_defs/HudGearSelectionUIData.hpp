@@ -24,10 +24,10 @@ namespace yordle::data::meta {
 
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mGearSelectionTransitionIntro {};
         std::shared_ptr<yordle::data::meta::HudMenuTransitionData> mGearSelectionTransitionOutro {};
-        float selectionButtonDelayTime = 0.25;
+        float selectionButtonDelayTime = 0.25f;
         bool timerEnabled = false;
-        float timerCountdownDuration = 30.0;
-        float timerCountdownWarningStart = 10.0;
+        float timerCountdownDuration = 30.0f;
+        float timerCountdownWarningStart = 10.0f;
     };
 }
 #define YORDLE_META_DEF_HudGearSelectionUIData

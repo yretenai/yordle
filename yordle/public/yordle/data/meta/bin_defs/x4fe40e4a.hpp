@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         uint32_t Target = 1u;
-        float x5083dbe2 = 0.0;
+        float x5083dbe2 = 0.0f;
         bool xf79bcddf = false;
     };
 }

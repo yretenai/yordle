@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 1420908503u || IContextualCondition::is_type(type);
         }
 
-        float mGold = 0.0;
+        float mGold = 0.0f;
     };
 }
 #define YORDLE_META_DEF_ContextualConditionHasGold

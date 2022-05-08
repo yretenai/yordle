@@ -19,10 +19,10 @@ namespace yordle::data::meta {
             return type == 2735193483u || IFxAction::is_type(type);
         }
 
-        float TimeDilation = 1.0;
-        float intime = 0.5;
+        float TimeDilation = 1.0f;
+        float intime = 0.5f;
         uint8_t InEase = 4u;
-        float OutTime = 0.5;
+        float OutTime = 0.5f;
         uint8_t OutEase = 4u;
     };
 }

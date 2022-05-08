@@ -20,7 +20,7 @@ namespace yordle::data::meta {
         }
 
         std::string mScriptName {};
-        float xff80df7a = 0.0;
+        float xff80df7a = 0.0f;
     };
 }
 #define YORDLE_META_DEF_HasBuffDynamicMaterialBoolDriver

@@ -18,8 +18,8 @@ namespace yordle::data::meta {
             return type == 369020348u || IGameCalculationPartByCharLevel::is_type(type);
         }
 
-        float mStartValue = 0.0;
-        float mEndValue = 0.0;
+        float mStartValue = 0.0f;
+        float mEndValue = 0.0f;
         bool x7fe8e3b3 = false;
         bool xa331f6bf = true;
     };

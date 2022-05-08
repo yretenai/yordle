@@ -26,7 +26,7 @@ namespace yordle::data::meta {
 
         std::string Cue {};
         std::vector<std::shared_ptr<yordle::data::meta::MapAction>> Actions {};
-        float x77f9e08 = 0.05000000074505806;
+        float x77f9e08 = 0.05000000074505806f;
     };
 }
 #define YORDLE_META_DEF_MapBehavior

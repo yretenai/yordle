@@ -22,7 +22,7 @@ namespace yordle::data::meta {
         uint8_t mStat = 0u;
         uint8_t mStatFormula = 0u;
         yordle::data::meta::bin_fnv_hash mDataValue = 0u;
-        float xbfe6ad01 = 0.0;
+        float xbfe6ad01 = 0.0f;
     };
 }
 #define YORDLE_META_DEF_x5abdfab

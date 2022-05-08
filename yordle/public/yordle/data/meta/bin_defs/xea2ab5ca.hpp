@@ -22,7 +22,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash buffName = 0u;
         std::string x9318830f {};
         std::string x61082251 {};
-        float Coefficient = 1.0;
+        float Coefficient = 1.0f;
     };
 }
 #define YORDLE_META_DEF_xea2ab5ca

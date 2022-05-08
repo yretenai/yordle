@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 1755899118u || IVectorGet::is_type(type);
         }
 
-        std::array<float, 3> value { 0, 0, 0 };
+        std::array<float, 3> value { 0.0f, 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_VectorGet

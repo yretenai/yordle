@@ -19,7 +19,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash x66f06798 = 0u;
-        float BlendOutTime = 0.0;
+        float BlendOutTime = 0.0f;
     };
 }
 #define YORDLE_META_DEF_xe5bbe067

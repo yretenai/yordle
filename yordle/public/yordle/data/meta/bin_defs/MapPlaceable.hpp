@@ -21,7 +21,7 @@ namespace yordle::data::meta {
             return type == 1502315240u;
         }
 
-        std::array<float, 16> Transform { 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1 };
+        std::array<float, 16> Transform { 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f };
         std::string name {};
         uint8_t mVisibilityFlags = 255u;
     };

@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 3516211013u;
         }
 
-        float transitionTime = 0;
+        float transitionTime = 0.0f;
         uint8_t startAlpha = 0u;
         uint8_t endAlpha = 0u;
         uint8_t EasingType = 0u;

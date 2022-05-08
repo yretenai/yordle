@@ -21,8 +21,8 @@ namespace yordle::data::meta {
 
         std::string targetName {};
         std::string pathname {};
-        float Duration = 10.0;
-        float velocity = 100.0;
+        float Duration = 10.0f;
+        float velocity = 100.0f;
         bool x3ade3a5d = false;
         bool xeefb990f = true;
     };

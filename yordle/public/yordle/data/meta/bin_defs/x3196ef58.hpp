@@ -22,7 +22,7 @@ namespace yordle::data::meta {
 
         uint8_t x6d2badf4 = 0u;
         bool x316c9fa1 = false;
-        std::array<float, 2> xa82efcbc { -1, 1 };
+        std::array<float, 2> xa82efcbc { -1.0f, 1.0f };
     };
 }
 #define YORDLE_META_DEF_x3196ef58

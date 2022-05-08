@@ -25,7 +25,7 @@ namespace yordle::data::meta {
         }
 
         std::vector<std::shared_ptr<yordle::data::meta::UnitStatusData>> mPrioritizedUnitStatusData {};
-        float mMinimumDisplayTime = 0.125;
+        float mMinimumDisplayTime = 0.125f;
         std::string textureName {};
     };
 }

@@ -19,10 +19,10 @@ namespace yordle::data::meta {
             return type == 3661280452u || IFxAction::is_type(type);
         }
 
-        float Magnitude = 20.0;
-        float xc4afd6f9 = 6.0;
-        float FalloffRate = 2.0;
-        std::array<float, 3> Direction { 1, 1, 0 };
+        float Magnitude = 20.0f;
+        float xc4afd6f9 = 6.0f;
+        float FalloffRate = 2.0f;
+        std::array<float, 3> Direction { 1.0f, 1.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_xda3ab4c4

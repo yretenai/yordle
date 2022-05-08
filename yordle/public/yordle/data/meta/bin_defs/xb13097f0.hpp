@@ -27,10 +27,10 @@ namespace yordle::data::meta {
             return type == 2972751856u;
         }
 
-        float x8625bf52 = 0.0;
-        float scaleEmitOffsetByBoundObjectSize = 0.0;
-        float scaleEmitOffsetByBoundObjectHeight = 0.0;
-        float scaleEmitOffsetByBoundObjectRadius = 0.0;
+        float x8625bf52 = 0.0f;
+        float scaleEmitOffsetByBoundObjectSize = 0.0f;
+        float scaleEmitOffsetByBoundObjectHeight = 0.0f;
+        float scaleEmitOffsetByBoundObjectRadius = 0.0f;
         std::shared_ptr<yordle::data::meta::FlexTypeFloat> flexScaleEmitOffset {};
         std::shared_ptr<yordle::data::meta::FlexValueVector3> flexBirthTranslation {};
     };

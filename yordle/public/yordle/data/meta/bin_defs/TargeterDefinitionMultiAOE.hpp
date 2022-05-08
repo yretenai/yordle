@@ -33,7 +33,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> overrideAOERadius {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> overrideMinCastRange {};
         std::shared_ptr<yordle::data::meta::FloatPerSpellLevel> overrideMaxCastRange {};
-        float angelOffsetRadian = 0.0;
+        float angelOffsetRadian = 0.0f;
         uint32_t numOfInnerAOE = 0u;
         std::string leftTextureName {};
         std::string rightTextureName {};

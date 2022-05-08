@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 1010350366u || IContextualCondition::is_type(type);
         }
 
-        float mGameTimeInMinutes = 0.0;
+        float mGameTimeInMinutes = 0.0f;
         uint8_t mCompareOp = 2u;
     };
 }

@@ -21,7 +21,7 @@ namespace yordle::data::meta {
 
         uint32_t mAffectsTypeFlags = 0u;
         uint32_t mAffectsStatusFlags = 0u;
-        float radius = 0.0;
+        float radius = 0.0f;
     };
 }
 #define YORDLE_META_DEF_x85f19f5c

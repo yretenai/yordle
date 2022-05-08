@@ -25,7 +25,7 @@ namespace yordle::data::meta {
 
         std::vector<std::shared_ptr<yordle::data::meta::ICastRequirement>> mUnitsRequirements {};
         uint32_t mUnitsRequired = 0u;
-        float mRange = 0.0;
+        float mRange = 0.0f;
         uint32_t mDistanceType = 0u;
     };
 }

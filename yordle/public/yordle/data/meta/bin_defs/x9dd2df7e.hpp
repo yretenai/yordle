@@ -22,7 +22,7 @@ namespace yordle::data::meta {
 
         uint32_t type = 0u;
         std::string name {};
-        float xeb553672 = 1.0;
+        float xeb553672 = 1.0f;
     };
 }
 #define YORDLE_META_DEF_x9dd2df7e

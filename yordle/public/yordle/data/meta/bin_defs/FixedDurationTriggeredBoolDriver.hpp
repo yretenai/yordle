@@ -22,7 +22,7 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver> mBoolDriver {};
-        float mCustomDuration = 0.0;
+        float mCustomDuration = 0.0f;
     };
 }
 #define YORDLE_META_DEF_FixedDurationTriggeredBoolDriver

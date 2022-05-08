@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 1577686390u || IStatStoneLogicDriver::is_type(type);
         }
 
-        float healthPercentage = 50.0;
+        float healthPercentage = 50.0f;
     };
 }
 #define YORDLE_META_DEF_SourceLessThanHealthPercentageFilter

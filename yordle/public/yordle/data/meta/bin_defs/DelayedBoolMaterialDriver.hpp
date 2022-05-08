@@ -22,8 +22,8 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver> mBoolDriver {};
-        float mDelayOn = 0.0;
-        float mDelayOff = 0.0;
+        float mDelayOn = 0.0f;
+        float mDelayOff = 0.0f;
     };
 }
 #define YORDLE_META_DEF_DelayedBoolMaterialDriver

@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 1906252436u || AtlasDataBase::is_type(type);
         }
 
-        std::array<float, 4> mTextureUV { 0, 0, 1, 1 };
+        std::array<float, 4> mTextureUV { 0.0f, 0.0f, 1.0f, 1.0f };
     };
 }
 #define YORDLE_META_DEF_AtlasData

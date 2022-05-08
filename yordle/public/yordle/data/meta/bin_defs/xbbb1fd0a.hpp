@@ -19,8 +19,8 @@ namespace yordle::data::meta {
             return type == 3149004042u;
         }
 
-        float x52a7b84e = 5.0;
-        float x9e4677fa = 2700.0;
+        float x52a7b84e = 5.0f;
+        float x9e4677fa = 2700.0f;
         uint8_t x77414c = 100u;
     };
 }

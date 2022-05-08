@@ -23,8 +23,8 @@ namespace yordle::data::meta {
             return type == 1559666382u || IGameCalculationPartByCharLevel::is_type(type);
         }
 
-        float mLevel1Value = 0.0;
-        float x2deb550 = 0.0;
+        float mLevel1Value = 0.0f;
+        float x2deb550 = 0.0f;
         std::vector<std::shared_ptr<yordle::data::meta::Breakpoint>> mBreakpoints {};
     };
 }

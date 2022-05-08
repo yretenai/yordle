@@ -22,7 +22,7 @@ namespace yordle::data::meta {
         }
 
         std::shared_ptr<yordle::data::meta::IGameCalculationPart> x6e82b179 {};
-        float mMaximumReductionPercent = 0.0;
+        float mMaximumReductionPercent = 0.0f;
     };
 }
 #define YORDLE_META_DEF_CustomReductionMultiplierCalculationPart

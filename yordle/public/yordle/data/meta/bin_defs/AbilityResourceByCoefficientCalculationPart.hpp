@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 1983743771u || IGameCalculationPart::is_type(type);
         }
 
-        float mCoefficient = 0.0;
+        float mCoefficient = 0.0f;
         uint8_t mAbilityResource = 0u;
         uint8_t mStatFormula = 0u;
     };

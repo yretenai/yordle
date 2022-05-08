@@ -30,10 +30,10 @@ namespace yordle::data::meta {
         std::array<uint8_t, 4> lightColoration { 0, 0, 0, 255 };
         std::array<uint8_t, 4> magmaColoration { 0, 0, 0, 255 };
         std::array<uint8_t, 4> stormColoration { 0, 0, 0, 255 };
-        float meterFilledButtonFadeInDelay = 0.25;
-        float firstSelectionAnimationDelay = 0.75;
-        float secondSelectionAnimationDelay = 1.0;
-        float glowingRingCycleTime = 0.75;
+        float meterFilledButtonFadeInDelay = 0.25f;
+        float firstSelectionAnimationDelay = 0.75f;
+        float secondSelectionAnimationDelay = 1.0f;
+        float glowingRingCycleTime = 0.75f;
     };
 }
 #define YORDLE_META_DEF_HudElementalSectionUIData

@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 2541033414u || GameModeConstant::is_type(type);
         }
 
-        float mValue = 0.0;
+        float mValue = 0.0f;
     };
 }
 #define YORDLE_META_DEF_GameModeConstantFloat

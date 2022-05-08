@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 2733481098u;
         }
 
-        float x472b866d = 1.5;
+        float x472b866d = 1.5f;
         uint8_t xb3f4a621 = 8u;
     };
 }

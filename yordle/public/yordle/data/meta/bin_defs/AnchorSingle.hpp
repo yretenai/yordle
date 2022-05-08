@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 1396238320u || AnchorBase::is_type(type);
         }
 
-        std::array<float, 2> Anchor { 0, 0 };
+        std::array<float, 2> Anchor { 0.0f, 0.0f };
     };
 }
 #define YORDLE_META_DEF_AnchorSingle

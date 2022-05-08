@@ -25,10 +25,10 @@ namespace yordle::data::meta {
         uint8_t mTooltipStyle = 2u;
         yordle::data::meta::bin_fnv_hash xe0f8b2b = 0u;
         yordle::data::meta::bin_fnv_hash xd0f8998 = 0u;
-        float mElementSpacer = 1.0;
-        float mElementAlphaDefault = 255.0;
-        float mElementAlphaSelected = 255.0;
-        float mElementAlphaUnselected = 80.0;
+        float mElementSpacer = 1.0f;
+        float mElementAlphaDefault = 255.0f;
+        float mElementAlphaSelected = 255.0f;
+        float mElementAlphaUnselected = 80.0f;
         std::vector<std::string> mTooltipIconNames {};
     };
 }

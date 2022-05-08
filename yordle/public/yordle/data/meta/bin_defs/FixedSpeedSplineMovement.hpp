@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 2002648336u || GenericSplineMovementSpec::is_type(type);
         }
 
-        float mSpeed = 0.0;
+        float mSpeed = 0.0f;
     };
 }
 #define YORDLE_META_DEF_FixedSpeedSplineMovement

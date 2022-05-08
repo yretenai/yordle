@@ -24,7 +24,7 @@ namespace yordle::data::meta {
         bool x94c90e2b = false;
         bool x31db4e6a = false;
         bool x92213dee = false;
-        float mChildAnimDelaySwitchTime = 0.0;
+        float mChildAnimDelaySwitchTime = 0.0f;
         yordle::data::meta::bin_fnv_hash mTrueConditionClipName = 0u;
         yordle::data::meta::bin_fnv_hash mFalseConditionClipName = 0u;
     };

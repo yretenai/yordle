@@ -18,7 +18,7 @@ namespace yordle::data::meta {
             return type == 1845742629u;
         }
 
-        float xff44ab1d = 0.0;
+        float xff44ab1d = 0.0f;
         yordle::data::meta::bin_fnv_hash xd5d36ff5 = 0u;
         yordle::data::meta::bin_fnv_hash xfad4c40b = 0u;
         yordle::data::meta::bin_fnv_hash xe4b196cc = 0u;

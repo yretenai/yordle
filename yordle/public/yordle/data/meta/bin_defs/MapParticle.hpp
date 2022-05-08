@@ -30,7 +30,7 @@ namespace yordle::data::meta {
         bool Transitional = false;
         int32_t quality = 31;
         uint32_t visibilityMode = 0u;
-        std::array<float, 4> colorModulate { 1, 1, 1, 1 };
+        std::array<float, 4> colorModulate { 1.0f, 1.0f, 1.0f, 1.0f };
         std::string groupName {};
         bool startDisabled = false;
     };

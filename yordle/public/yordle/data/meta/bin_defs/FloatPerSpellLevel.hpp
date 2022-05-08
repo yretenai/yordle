@@ -20,7 +20,7 @@ namespace yordle::data::meta {
             return type == 508250748u;
         }
 
-        std::array<float, 6> mPerLevelValues { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
+        std::array<float, 6> mPerLevelValues { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
         uint32_t mValueType = 0u;
     };
 }

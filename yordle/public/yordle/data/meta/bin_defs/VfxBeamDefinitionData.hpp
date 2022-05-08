@@ -33,8 +33,8 @@ namespace yordle::data::meta {
         uint8_t mMode = 0u;
         uint8_t mTrailMode = 0u;
         int32_t mSegments = 0;
-        std::array<float, 3> mLocalSpaceSourceOffset { 0, 0, 0 };
-        std::array<float, 3> mLocalSpaceTargetOffset { 0, 0, 0 };
+        std::array<float, 3> mLocalSpaceSourceOffset { 0.0f, 0.0f, 0.0f };
+        std::array<float, 3> mLocalSpaceTargetOffset { 0.0f, 0.0f, 0.0f };
         bool mIsColorBindedWithDistance = false;
         std::shared_ptr<yordle::data::meta::ValueColor> mAnimatedColorWithDistance {};
     };

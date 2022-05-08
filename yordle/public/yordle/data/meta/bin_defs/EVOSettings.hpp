@@ -22,8 +22,8 @@ namespace yordle::data::meta {
         bool mEnableChatVO = true;
         bool mEnableAnnouncerVOReplacement = true;
         int32_t mChatVOThrottleCounterThreshold = 3;
-        float mChatVOThrottleCounterDecayTime = 3.0;
-        float mPingVOThrottleThreshold = 3.0;
+        float mChatVOThrottleCounterDecayTime = 3.0f;
+        float mPingVOThrottleThreshold = 3.0f;
     };
 }
 #define YORDLE_META_DEF_EVOSettings

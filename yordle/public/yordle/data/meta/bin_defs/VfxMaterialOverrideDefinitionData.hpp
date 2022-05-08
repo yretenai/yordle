@@ -31,7 +31,7 @@ namespace yordle::data::meta {
         std::string baseTexture {};
         std::string glossTexture {};
         std::string transitionTexture {};
-        float transitionSample = 0.0;
+        float transitionSample = 0.0f;
         uint32_t transitionSource = 0u;
         yordle::data::meta::bin_ref<yordle::data::meta::IMaterialDef> material { 3975636772 };
     };

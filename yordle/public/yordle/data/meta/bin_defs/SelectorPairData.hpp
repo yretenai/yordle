@@ -19,7 +19,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash mClipName = 0u;
-        float mProbability = 0.0;
+        float mProbability = 0.0f;
     };
 }
 #define YORDLE_META_DEF_SelectorPairData

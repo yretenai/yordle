@@ -18,11 +18,11 @@ namespace yordle::data::meta {
             return type == 1592120060u;
         }
 
-        float xd14e6310 = 0.006000000052154064;
-        float xdd98d130 = 3000.0;
-        float x401eaebe = 3000.0;
-        float x80eddbe9 = 1500.0;
-        float xd7061dce = 8000.0;
+        float xd14e6310 = 0.006000000052154064f;
+        float xdd98d130 = 3000.0f;
+        float x401eaebe = 3000.0f;
+        float x80eddbe9 = 1500.0f;
+        float xd7061dce = 8000.0f;
     };
 }
 #define YORDLE_META_DEF_x5ee5d2fc

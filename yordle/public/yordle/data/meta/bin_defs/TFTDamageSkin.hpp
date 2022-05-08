@@ -40,7 +40,7 @@ namespace yordle::data::meta {
         uint32_t SkinID = 0u;
         uint32_t Level = 0u;
         bool disabled = false;
-        float x7ed5b4a7 = 0.0;
+        float x7ed5b4a7 = 0.0f;
         std::shared_ptr<yordle::data::meta::xa2f62fa1> x3e651996 {};
         std::vector<std::shared_ptr<yordle::data::meta::TftDamageSkinDescriptor>> x31af5dc6 {};
     };

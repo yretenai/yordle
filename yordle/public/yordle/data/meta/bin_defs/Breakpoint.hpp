@@ -20,8 +20,8 @@ namespace yordle::data::meta {
         }
 
         uint32_t mLevel = 1u;
-        float xd5fd07ed = 0.0;
-        float x57fdc438 = 0.0;
+        float xd5fd07ed = 0.0f;
+        float x57fdc438 = 0.0f;
     };
 }
 #define YORDLE_META_DEF_Breakpoint

@@ -589,7 +589,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "float",
                             ["name"] = propertyName,
-                            ["default"] = "= " + (defaultValue.ValueKind == JsonValueKind.Undefined ? "0" : defaultValue.ToString()),
+                            ["default"] = "= " + (defaultValue.ValueKind == JsonValueKind.Undefined ? "0.0f" : FormatFloat(defaultValue)),
                         }));
                     break;
                 case ClassPropertyType.Vec2:
@@ -601,7 +601,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "std::array<float, 2>",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "{}" : $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => x.GetSingle()))} }}",
+                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "{}" : $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(FormatFloat))} }}",
                         }));
                     break;
                 case ClassPropertyType.Vec3:
@@ -613,7 +613,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "std::array<float, 3>",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "{}" : $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => x.GetSingle()))} }}",
+                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "{}" : $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(FormatFloat))} }}",
                         }));
                     break;
                 case ClassPropertyType.Vec4:
@@ -625,7 +625,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "std::array<float, 4>",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "{}" : $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => x.GetSingle()))} }}",
+                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "{}" : $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(FormatFloat))} }}",
                         }));
                     break;
                 case ClassPropertyType.Mtx44:
@@ -637,7 +637,7 @@ public static class Program {
                         new Dictionary<string, object> {
                             ["type"] = "std::array<float, 16>",
                             ["name"] = propertyName,
-                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "{}" : $"{{ {string.Join(", ", defaultValue.EnumerateArray().SelectMany(x => x.EnumerateArray().Select(y => y.GetSingle())))} }}",
+                            ["default"] = defaultValue.ValueKind == JsonValueKind.Undefined ? "{}" : $"{{ {string.Join(", ", defaultValue.EnumerateArray().SelectMany(x => x.EnumerateArray().Select(FormatFloat)))} }}",
                         }));
                     break;
                 case ClassPropertyType.Color:
@@ -874,7 +874,7 @@ public static class Program {
             case ClassPropertyType.U64:
                 return $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => x.GetUInt64()))} }}";
             case ClassPropertyType.F32:
-                return $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => x.ToString()))} }}";
+                return $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => x + "f"))} }}";
             case ClassPropertyType.String:
                 return $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => SymbolDisplay.FormatLiteral(x.GetString()!, true)))} }}";
             case ClassPropertyType.Hash:
@@ -924,7 +924,14 @@ public static class Program {
             }
             case ClassPropertyType.Vec2:
             case ClassPropertyType.Vec3:
-            case ClassPropertyType.Vec4:
+            case ClassPropertyType.Vec4: {
+                var stack = new List<string>();
+                if (defaultValue.ValueKind != JsonValueKind.Undefined) {
+                    stack.AddRange(defaultValue.EnumerateArray().Select(entry => string.Join(", ", entry.EnumerateArray().Select(x => x + "f"))));
+                }
+
+                return $"{{ {string.Join(", ", stack.Select(x => $"{listType}({{ {x} }})"))} }}";
+            }
             case ClassPropertyType.Color: {
                 var stack = new List<string>();
                 if (defaultValue.ValueKind != JsonValueKind.Undefined) {
@@ -936,7 +943,7 @@ public static class Program {
             case ClassPropertyType.Mtx44: {
                 var stack = new List<string>();
                 if (defaultValue.ValueKind != JsonValueKind.Undefined) {
-                    stack.AddRange(defaultValue.EnumerateArray().Select(entry => string.Join(", ", entry.EnumerateArray().SelectMany(x => x.EnumerateArray().Select(y => y.GetSingle())))));
+                    stack.AddRange(defaultValue.EnumerateArray().Select(entry => string.Join(", ", entry.EnumerateArray().SelectMany(x => x.EnumerateArray().Select(y => y.GetSingle() + "f")))));
                 }
                 
                 return $"{{ {string.Join(", ", stack.Select(x => $"{{ {x} }}"))} }}";
@@ -966,7 +973,7 @@ public static class Program {
             case ClassPropertyType.U64:
                 return defaultValue.ValueKind == JsonValueKind.Undefined ? "0u" : defaultValue.GetUInt64() + "u";
             case ClassPropertyType.F32:
-                return defaultValue.ValueKind == JsonValueKind.Undefined ? "0.0" : defaultValue.ToString();
+                return defaultValue.ValueKind == JsonValueKind.Undefined ? "0.0f" : FormatFloat(defaultValue);
             case ClassPropertyType.String:
                 return defaultValue.ValueKind == JsonValueKind.Undefined ? "\"\"" : SymbolDisplay.FormatLiteral(defaultValue.GetString()!, true);
             case ClassPropertyType.Hash:
@@ -983,13 +990,27 @@ public static class Program {
             case ClassPropertyType.Vec2:
             case ClassPropertyType.Vec3:
             case ClassPropertyType.Vec4:
+                return $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(FormatFloat))} }}";
             case ClassPropertyType.Color:
                 return $"{{ {string.Join(", ", defaultValue.EnumerateArray().Select(x => x.ToString()))} }}";
             case ClassPropertyType.Mtx44:
-                return $"{{ {string.Join(", ", defaultValue.EnumerateArray().SelectMany(x => x.EnumerateArray().Select(y => y.GetSingle())))} }}";
+                return $"{{ {string.Join(", ", defaultValue.EnumerateArray().SelectMany(x => x.EnumerateArray().Select(FormatFloat)))} }}";
             default:
                 throw new NotSupportedException();
         }
+    }
+
+    private static string FormatFloat(JsonElement arg) {
+        var f = arg.ToString();
+        if (f == "null") {
+            return "0.0f";
+        }
+        
+        if (!f.Contains('.')) {
+            f += ".0";
+        }
+
+        return f + "f";
     }
 
     private static string GetRawType(ClassPropertyType? type, ClassProperty property, ISet<string> fwdDeclare, ISet<string> binRef, ISet<string> stdlib) {

@@ -24,20 +24,20 @@ namespace yordle::data::meta {
         std::array<uint8_t, 4> mEnemyColor { 0, 0, 255, 255 };
         std::array<uint8_t, 4> mNeutralColor { 255, 255, 255, 255 };
         std::array<uint8_t, 4> mSelfColor { 0, 255, 0, 255 };
-        std::array<float, 4> mInteractionTimes { 0.0, 0.0, 0.0, 0.0 };
+        std::array<float, 4> mInteractionTimes { 0.0f, 0.0f, 0.0f, 0.0f };
         std::array<int32_t, 4> mInteractionSizes { 1, 1, 1, 1 };
         int32_t mMouseOverSize = 1;
-        float mMouseOverColorFactor = 0.5;
+        float mMouseOverColorFactor = 0.5f;
         uint32_t mMouseOverBlurPassCount = 1u;
         int32_t mSelectedSize = 1;
-        float mSelectedColorFactor = 0.5;
+        float mSelectedColorFactor = 0.5f;
         uint32_t mSelectedBlurPassCount = 1u;
         int32_t mAvatarSize = 1;
-        float mAvatarColorFactor = 0.5;
+        float mAvatarColorFactor = 0.5f;
         std::array<uint8_t, 4> mAvatarColor { 0, 255, 255, 255 };
         uint32_t mAvatarBlurPassCount = 1u;
         int32_t mKillerSize = 1;
-        float mKillerColorFactor = 0.5;
+        float mKillerColorFactor = 0.5f;
         uint32_t mKillerBlurPassCount = 1u;
     };
 }

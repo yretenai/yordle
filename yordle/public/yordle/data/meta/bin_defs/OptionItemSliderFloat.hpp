@@ -21,7 +21,7 @@ namespace yordle::data::meta {
 
         int16_t option = 65535u;
         bool UpdateOnDrag = true;
-        float Scale = 1.0;
+        float Scale = 1.0f;
     };
 }
 #define YORDLE_META_DEF_OptionItemSliderFloat

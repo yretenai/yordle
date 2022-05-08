@@ -18,12 +18,12 @@ namespace yordle::data::meta {
             return type == 3488960049u || MapPlaceable::is_type(type);
         }
 
-        float x54f3570f = 10.0;
-        float far = 500.0;
-        float xaea44051 = 1.0;
-        float fov = 60.0;
+        float x54f3570f = 10.0f;
+        float xbcf819ee = 500.0f;
+        float xaea44051 = 1.0f;
+        float fov = 60.0f;
         bool xe3f05fab = false;
-        float x3ef359c2 = 200.0;
+        float x3ef359c2 = 200.0f;
     };
 }
 #define YORDLE_META_DEF_xcff54e31

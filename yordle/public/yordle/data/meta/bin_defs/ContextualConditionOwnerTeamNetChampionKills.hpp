@@ -21,7 +21,7 @@ namespace yordle::data::meta {
 
         int32_t mOwnerTeamNetKillAdvantage = 0;
         uint8_t mKillAdvantageCompareOp = 3u;
-        float mTimeFrameSeconds = 0.0;
+        float mTimeFrameSeconds = 0.0f;
     };
 }
 #define YORDLE_META_DEF_ContextualConditionOwnerTeamNetChampionKills

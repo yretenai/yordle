@@ -128,7 +128,7 @@ namespace yordle::data::meta {
         std::shared_ptr<yordle::data::meta::ISecondaryResourceDisplayData> secondaryResourceHudDisplayData {};
         yordle::data::meta::bin_ref<yordle::data::meta::ContextualActionData> mContextualActionData { 3476110372 };
         std::string emoteBuffbone = "Root";
-        float emoteYOffset = 0.0;
+        float emoteYOffset = 0.0f;
         std::string godrayFXbone = "BUFFBONE_GLB_GROUND_LOC";
         yordle::data::meta::bin_ref<yordle::data::meta::ResourceResolver> mResourceResolver { 4013559603 };
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::ResourceResolver>> mAdditionalResourceResolvers {};

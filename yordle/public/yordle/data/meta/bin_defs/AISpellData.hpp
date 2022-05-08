@@ -20,10 +20,10 @@ namespace yordle::data::meta {
         }
 
         bool mSendAIEvent = false;
-        float mRadius = -1.0;
-        float mLifetime = -1.0;
-        float mRange = -1.0;
-        float mSpeed = -1.0;
+        float mRadius = -1.0f;
+        float mLifetime = -1.0f;
+        float mRange = -1.0f;
+        float mSpeed = -1.0f;
         bool mEndOnly = false;
         uint8_t mBlockLevel = 0u;
     };

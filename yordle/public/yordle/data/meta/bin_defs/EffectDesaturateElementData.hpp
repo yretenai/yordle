@@ -22,8 +22,8 @@ namespace yordle::data::meta {
             return type == 1335813830u || EffectElementData::is_type(type);
         }
 
-        float MinimumSaturation = 0.0;
-        float MaximumSaturation = 1.0;
+        float MinimumSaturation = 0.0f;
+        float MaximumSaturation = 1.0f;
         bool mFlipX = false;
         bool mFlipY = false;
         bool mPerPixelUvsX = false;

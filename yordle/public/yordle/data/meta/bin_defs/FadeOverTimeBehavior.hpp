@@ -18,10 +18,10 @@ namespace yordle::data::meta {
             return type == 2433758018u || ITargeterFadeBehavior::is_type(type);
         }
 
-        float mTimeStart = 0.0;
-        float mTimeEnd = 0.0;
-        float mStartAlpha = 1.0;
-        float mEndAlpha = 1.0;
+        float mTimeStart = 0.0f;
+        float mTimeEnd = 0.0f;
+        float mStartAlpha = 1.0f;
+        float mEndAlpha = 1.0f;
     };
 }
 #define YORDLE_META_DEF_FadeOverTimeBehavior

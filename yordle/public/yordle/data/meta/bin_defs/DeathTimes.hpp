@@ -27,8 +27,8 @@ namespace yordle::data::meta {
         std::vector<float> mTimeDeadPerLevel {};
         uint32_t mScalingStartTime = 0u;
         uint32_t mScalingIncrementTime = 0u;
-        float mScalingPercentIncrease = 0.0;
-        float mScalingPercentCap = 0.0;
+        float mScalingPercentIncrease = 0.0f;
+        float mScalingPercentCap = 0.0f;
         std::vector<std::shared_ptr<yordle::data::meta::DeathTimesScalingPoint>> mScalingPoints {};
         bool mAllowRespawnMods = true;
         bool mStartDeathTimerForZombies = true;
