@@ -230,16 +230,16 @@ namespace vex::device {
 
         switch (msg) { // NOLINT(hicpp-multiway-paths-covered)
             case WM_SIZE:
-                if (inst->dx_device != nullptr && wParam != SIZE_MINIMIZED) {
+                if (inst->dx_device != nullptr && ((wParam == SIZE_MAXIMIZED) || (wParam == SIZE_RESTORED))) {
                     inst->shutdown_rt();
                     inst->dx_swap->ResizeBuffers(0, (UINT) LOWORD(lParam), (UINT) HIWORD(lParam), DXGI_FORMAT_UNKNOWN, 0);
                     inst->create_rt();
                 }
                 return 0;
             case WM_DPICHANGED: {
-                auto dpi = (float) GetDpiForWindow(inst->hwnd);
-                if (dpi > 0 && inst->dx_device != nullptr && wParam != SIZE_MINIMIZED) {
-                    inst->dpi_scale = 96.0f / dpi;
+                auto dpi = (UINT) HIWORD(wParam);
+                if (dpi > 0 && inst->dx_device != nullptr) {
+                    inst->dpi_scale = 96.0f / (float) dpi;
                     inst->update_dpi();
                 }
                 return 0;
