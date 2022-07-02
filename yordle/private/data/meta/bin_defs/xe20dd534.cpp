@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/xe20dd534.hpp>
 
+#include <yordle/data/meta/bin_defs/xbf5ac0ff.hpp>
 #include <yordle/data/meta/bin_defs/xf641c7ed.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
@@ -19,54 +20,19 @@ yordle::data::meta::xe20dd534::xe20dd534(const std::shared_ptr<yordle::data::pro
     if(prop == nullptr) {
         return;
     }
-    auto ptr_Scene = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(543410963u);
-    if(ptr_Scene != nullptr) {
-        Scene = ptr_Scene->value;
+    auto ptr_x552ea0a0 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1429119136u);
+    if(ptr_x552ea0a0 != nullptr) {
+        x552ea0a0 = yordle::data::meta::deserialize<yordle::data::meta::xbf5ac0ff>(ptr_x552ea0a0, 3210395903u);
     }
 
-    auto ptr_x874efc21 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2270100513u);
-    if(ptr_x874efc21 != nullptr) {
-        x874efc21 = ptr_x874efc21->value;
+    auto ptr_xe38a9326 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3817509670u);
+    if(ptr_xe38a9326 != nullptr) {
+        xe38a9326 = yordle::data::meta::deserialize<yordle::data::meta::xbf5ac0ff>(ptr_xe38a9326, 3210395903u);
     }
 
-    auto ptr_x538d27eb = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1401759723u);
-    if(ptr_x538d27eb != nullptr) {
-        x538d27eb = ptr_x538d27eb->value;
-    }
-
-    auto ptr_x3ca13504 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1017197828u);
-    if(ptr_x3ca13504 != nullptr) {
-        x3ca13504 = ptr_x3ca13504->value;
-    }
-
-    auto ptr_xa064eee8 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2690969320u);
-    if(ptr_xa064eee8 != nullptr) {
-        xa064eee8 = ptr_xa064eee8->value;
-    }
-
-    auto ptr_Timer = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1550380322u);
-    if(ptr_Timer != nullptr) {
-        Timer = ptr_Timer->value;
-    }
-
-    auto ptr_x22d4499e = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(584337822u);
-    if(ptr_x22d4499e != nullptr) {
-        x22d4499e = ptr_x22d4499e->value;
-    }
-
-    auto ptr_x76b767cf = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1991731151u);
-    if(ptr_x76b767cf != nullptr) {
-        x76b767cf = ptr_x76b767cf->value;
-    }
-
-    auto ptr_x302ccf7d = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(808243069u);
-    if(ptr_x302ccf7d != nullptr) {
-        x302ccf7d = ptr_x302ccf7d->value;
-    }
-
-    auto ptr_xc26ddee = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(203873774u);
-    if(ptr_xc26ddee != nullptr) {
-        xc26ddee = ptr_xc26ddee->value;
+    auto ptr_xf116f568 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(4044813672u);
+    if(ptr_xf116f568 != nullptr) {
+        xf116f568 = ptr_xf116f568->value;
     }
 
     auto ptr_x2b77ba39 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(729266745u);

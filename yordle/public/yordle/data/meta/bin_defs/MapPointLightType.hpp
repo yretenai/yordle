@@ -24,7 +24,7 @@ namespace yordle::data::meta {
         float radius = 500.0f;
         bool castStaticShadows = true;
         float xc7334a55 = 5.0f;
-        int32_t Impact = 3;
+        uint8_t Impact = 3u;
     };
 }
 #define YORDLE_META_DEF_MapPointLightType

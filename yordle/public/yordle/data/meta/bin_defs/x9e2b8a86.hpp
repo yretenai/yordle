@@ -6,6 +6,7 @@
 #include <memory>
 #include <cstdint>
 #include <string>
+#include <array>
 
 #include <yordle/data/meta/bin_defs/x2610e5a7.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
@@ -45,10 +46,20 @@ namespace yordle::data::meta {
         float xba1d038c = 0.0f;
         yordle::data::meta::bin_fnv_hash x75f9cc79 = 0u;
         float x5a0565cb = 0.0f;
+        float x4182ffb3 = 0.0f;
         yordle::data::meta::bin_fnv_hash xd8e77c8a = 0u;
         int32_t x5b720329 = 0;
+        yordle::data::meta::bin_fnv_hash x402b0b1c = 0u;
+        std::array<uint8_t, 4> xafebc682 { 0, 0, 0, 255 };
+        std::array<uint8_t, 4> xd3f22f32 { 0, 0, 0, 255 };
         yordle::data::meta::bin_fnv_hash x33c9204f = 0u;
         yordle::data::meta::bin_fnv_hash x892bc919 = 0u;
+        bool xb7024f99 = true;
+        bool xac38b47d = false;
+        yordle::data::meta::bin_fnv_hash x499064f1 = 0u;
+        yordle::data::meta::bin_fnv_hash x14f72c9 = 0u;
+        yordle::data::meta::bin_fnv_hash x22d4499e = 0u;
+        yordle::data::meta::bin_fnv_hash x76b767cf = 0u;
     };
 }
 #define YORDLE_META_DEF_x9e2b8a86

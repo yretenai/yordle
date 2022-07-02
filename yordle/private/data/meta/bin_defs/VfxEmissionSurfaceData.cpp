@@ -52,4 +52,14 @@ yordle::data::meta::VfxEmissionSurfaceData::VfxEmissionSurfaceData(const std::sh
     if(ptr_useSurfaceNormalForBirthPhysics != nullptr) {
         useSurfaceNormalForBirthPhysics = ptr_useSurfaceNormalForBirthPhysics->value;
     }
+
+    auto ptr_Submeshes = prop->cast_prop<yordle::data::prop::set_prop>(4232392264u);
+    if(ptr_Submeshes != nullptr) {
+        for(const auto &set_Submeshes_entry : ptr_Submeshes->value) {
+            auto ptr_Submeshes_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_Submeshes_entry);
+            if(ptr_Submeshes_entry != nullptr) {
+                Submeshes.emplace_back(ptr_Submeshes_entry->value);
+            }
+        }
+    }
 }

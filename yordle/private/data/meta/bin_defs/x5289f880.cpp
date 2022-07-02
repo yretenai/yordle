@@ -43,7 +43,7 @@ yordle::data::meta::x5289f880::x5289f880(const std::shared_ptr<yordle::data::pro
         xc7334a55 = ptr_xc7334a55->value;
     }
 
-    auto ptr_Impact = prop->cast_prop<yordle::data::prop::int32_prop>(510767767u);
+    auto ptr_Impact = prop->cast_prop<yordle::data::prop::uint8_prop>(510767767u);
     if(ptr_Impact != nullptr) {
         Impact = ptr_Impact->value;
     }

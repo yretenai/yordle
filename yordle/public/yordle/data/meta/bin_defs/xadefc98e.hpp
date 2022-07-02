@@ -22,7 +22,7 @@ namespace yordle::data::meta {
 
         std::array<float, 4> color { 1.0f, 1.0f, 1.0f, 1.0f };
         float intensity = 1.0f;
-        int32_t Impact = 3;
+        uint8_t Impact = 3u;
     };
 }
 #define YORDLE_META_DEF_xadefc98e

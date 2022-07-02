@@ -19,6 +19,7 @@
 #include <yordle/data/meta/bin_defs/SpellLevelUpInfo.hpp>
 #include <yordle/data/meta/bin_defs/RecSpellRankUpInfo.hpp>
 #include <yordle/data/meta/bin_defs/TargetLaserComponentEffects.hpp>
+#include <yordle/data/meta/bin_defs/xd60f170b.hpp>
 #include <yordle/data/meta/bin_defs/EvolutionDescription.hpp>
 #include <yordle/data/meta/bin_defs/UseableData.hpp>
 #include <yordle/data/meta/bin_defs/ToolEducationData.hpp>
@@ -64,6 +65,10 @@ namespace yordle::data::meta {
 
 #ifndef YORDLE_META_DEF_TargetLaserComponentEffects
     struct TargetLaserComponentEffects;
+#endif
+
+#ifndef YORDLE_META_DEF_xd60f170b
+    struct xd60f170b;
 #endif
 
 #ifndef YORDLE_META_DEF_EvolutionDescription
@@ -220,6 +225,7 @@ namespace yordle::data::meta {
         std::string silhouetteAttachmentAnim = "Idle1";
         std::shared_ptr<yordle::data::meta::TargetLaserComponentEffects> targetLaserEffects {};
         std::shared_ptr<yordle::data::meta::TargetLaserComponentEffects> DisabledTargetLaserEffects {};
+        std::shared_ptr<yordle::data::meta::xd60f170b> xd60f170b {};
         std::shared_ptr<yordle::data::meta::EvolutionDescription> evolutionData {};
         std::shared_ptr<yordle::data::meta::UseableData> UseableData {};
         bool recordAsWard = false;
@@ -235,9 +241,9 @@ namespace yordle::data::meta {
         bool platformEnabled = false;
         float MovingTowardEnemyActivationAngle = 45.0f;
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::AbilityObject>> mAbilities {};
-        uint32_t onKillEvent = 219u;
-        uint32_t OnKillEventSteal = 219u;
-        uint32_t onKillEventForSpectator = 219u;
+        uint32_t onKillEvent = 220u;
+        uint32_t OnKillEventSteal = 220u;
+        uint32_t onKillEventForSpectator = 220u;
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::IGameCalculation>> mCharacterCalculations {};
         yordle::data::meta::bin_ref<yordle::data::meta::SpellObject> mCharacterPassiveSpell { 1585338886 };
         std::vector<std::shared_ptr<yordle::data::meta::CharacterPassiveData>> mCharacterPassiveBuffs {};

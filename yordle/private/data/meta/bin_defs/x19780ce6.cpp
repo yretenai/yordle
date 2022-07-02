@@ -48,8 +48,13 @@ yordle::data::meta::x19780ce6::x19780ce6(const std::shared_ptr<yordle::data::pro
         xe507745d = ptr_xe507745d->value;
     }
 
-    auto ptr_x5468a177 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1416143223u);
-    if(ptr_x5468a177 != nullptr) {
-        x5468a177 = ptr_x5468a177->value;
+    auto ptr_x99303a0d = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2570074637u);
+    if(ptr_x99303a0d != nullptr) {
+        x99303a0d = ptr_x99303a0d->value;
+    }
+
+    auto ptr_x838d295b = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2207066459u);
+    if(ptr_x838d295b != nullptr) {
+        x838d295b = ptr_x838d295b->value;
     }
 }

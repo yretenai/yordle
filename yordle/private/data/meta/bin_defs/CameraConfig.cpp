@@ -123,4 +123,14 @@ yordle::data::meta::CameraConfig::CameraConfig(const std::shared_ptr<yordle::dat
     if(ptr_x75b7ab24 != nullptr) {
         x75b7ab24 = ptr_x75b7ab24->value;
     }
+
+    auto ptr_xf91db25d = prop->cast_prop<yordle::data::prop::float32_prop>(4179472989u);
+    if(ptr_xf91db25d != nullptr) {
+        xf91db25d = ptr_xf91db25d->value;
+    }
+
+    auto ptr_x28df594a = prop->cast_prop<yordle::data::prop::float32_prop>(685726026u);
+    if(ptr_x28df594a != nullptr) {
+        x28df594a = ptr_x28df594a->value;
+    }
 }

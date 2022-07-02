@@ -7,12 +7,16 @@
 #include <string>
 #include <vector>
 
+#include <yordle/data/meta/bin_defs/x83d6eef9.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_x83d6eef9
+    struct x83d6eef9;
+#endif
     struct YORDLE_EXPORT xd9438618 : public bin_class {
         explicit xd9438618(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -20,6 +24,7 @@ namespace yordle::data::meta {
             return type == 3645081112u;
         }
 
+        std::shared_ptr<yordle::data::meta::x83d6eef9> Filter {};
         std::vector<std::string> x799f2859 {};
     };
 }

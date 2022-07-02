@@ -9,6 +9,7 @@
 #include <cstdint>
 #include <vector>
 
+#include <yordle/data/meta/bin_defs/xbf11ddc7.hpp>
 #include <yordle/data/meta/bin_defs/MinimapBackgroundConfig.hpp>
 #include <yordle/data/meta/bin_defs/MapAlternateAssets.hpp>
 #include <yordle/data/meta/bin_defs/GameModeConstants.hpp>
@@ -20,6 +21,10 @@
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_xbf11ddc7
+    struct xbf11ddc7;
+#endif
+
 #ifndef YORDLE_META_DEF_MinimapBackgroundConfig
     struct MinimapBackgroundConfig;
 #endif
@@ -48,6 +53,7 @@ namespace yordle::data::meta {
 
         std::string name {};
         std::string mMapContainerLink {};
+        std::shared_ptr<yordle::data::meta::xbf11ddc7> x6c65a5a3 {};
         std::shared_ptr<yordle::data::meta::MinimapBackgroundConfig> mMinimapBackgroundConfig {};
         std::shared_ptr<yordle::data::meta::MapAlternateAssets> mAlternateAssets {};
         std::string mMapObjectsCFG = "ObjectCFG.cfg";

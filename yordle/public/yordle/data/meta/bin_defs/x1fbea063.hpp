@@ -5,17 +5,17 @@
 
 #include <memory>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x995ca734.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-    struct YORDLE_EXPORT x1fbea063 : public IDynamicMaterialDriver {
+    struct YORDLE_EXPORT x1fbea063 : public x995ca734 {
         explicit x1fbea063(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 532586595u || IDynamicMaterialDriver::is_type(type);
+            return type == 532586595u || x995ca734::is_type(type);
         }
     };
 }

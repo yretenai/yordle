@@ -6,7 +6,6 @@
 #include <yordle/data/meta/bin_defs/GameModeItemList.hpp>
 #include <yordle/data/meta/bin_defs/ItemShopGameModeData.hpp>
 #include <yordle/data/meta/bin_defs/AnnouncementMap.hpp>
-#include <yordle/data/meta/bin_defs/RenderStyleData.hpp>
 #include <yordle/data/meta/bin_defs/FloatingTextOverride.hpp>
 #include <yordle/data/meta/bin_defs/GlobalStatsUIData.hpp>
 #include <yordle/data/meta/bin_defs/x15502626.hpp>
@@ -21,6 +20,7 @@
 #include <yordle/data/meta/bin_defs/GameModeAutoItemPurchasingConfig.hpp>
 #include <yordle/data/meta/bin_defs/ScriptDataObjectList.hpp>
 #include <yordle/data/meta/bin_defs/GameModeConstants.hpp>
+#include <yordle/data/meta/bin_defs/xce8769d7.hpp>
 #include <yordle/data/meta/bin_defs/GameplayConfig.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
@@ -68,9 +68,14 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
         mItemShopData = yordle::data::meta::bin_ref<yordle::data::meta::ItemShopGameModeData>(4103435203u, ptr_mItemShopData->value);
     }
 
-    auto ptr_xd32dd16e = prop->cast_prop<yordle::data::prop::string_prop>(3542995310u);
-    if(ptr_xd32dd16e != nullptr) {
-        xd32dd16e = ptr_xd32dd16e->value;
+    auto ptr_x8e2030a7 = prop->cast_prop<yordle::data::prop::set_prop>(2384474279u);
+    if(ptr_x8e2030a7 != nullptr) {
+        for(const auto &set_x8e2030a7_entry : ptr_x8e2030a7->value) {
+            auto ptr_x8e2030a7_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::string_prop>(set_x8e2030a7_entry);
+            if(ptr_x8e2030a7_entry != nullptr) {
+                x8e2030a7.emplace_back(ptr_x8e2030a7_entry->value);
+            }
+        }
     }
 
     auto ptr_mRelativeColorization = prop->cast_prop<yordle::data::prop::bool_prop>(3788255821u);
@@ -111,11 +116,6 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
     auto ptr_mHudScoreData = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3646863737u);
     if(ptr_mHudScoreData != nullptr) {
         mHudScoreData = ptr_mHudScoreData->value;
-    }
-
-    auto ptr_mRenderStyle = prop->cast_prop<yordle::data::prop::reference_prop>(1948257549u);
-    if(ptr_mRenderStyle != nullptr) {
-        mRenderStyle = yordle::data::meta::bin_ref<yordle::data::meta::RenderStyleData>(4227680462u, ptr_mRenderStyle->value);
     }
 
     auto ptr_mFloatingTextOverride = prop->cast_prop<yordle::data::prop::reference_prop>(1845085589u);
@@ -221,6 +221,11 @@ yordle::data::meta::GameModeMapData::GameModeMapData(const std::shared_ptr<yordl
     auto ptr_mGameModeConstants = prop->cast_prop<yordle::data::prop::reference_prop>(885630574u);
     if(ptr_mGameModeConstants != nullptr) {
         mGameModeConstants = yordle::data::meta::bin_ref<yordle::data::meta::GameModeConstants>(201829573u, ptr_mGameModeConstants->value);
+    }
+
+    auto ptr_xce8769d7 = prop->cast_prop<yordle::data::prop::reference_prop>(3464980951u);
+    if(ptr_xce8769d7 != nullptr) {
+        xce8769d7 = yordle::data::meta::bin_ref<yordle::data::meta::xce8769d7>(3464980951u, ptr_xce8769d7->value);
     }
 
     auto ptr_mGameplayConfig = prop->cast_prop<yordle::data::prop::reference_prop>(3712367922u);

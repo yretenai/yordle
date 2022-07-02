@@ -2,8 +2,8 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/ColorChooserMaterialDriver.hpp>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialBoolDriver.hpp>
-#include <yordle/data/meta/bin_defs/IDynamicMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x7a851cd8.hpp>
+#include <yordle/data/meta/bin_defs/x995ca734.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
 #include <yordle/data/prop/map_prop.hpp>
@@ -15,13 +15,13 @@
 #include <yordle/data/prop/unordered_set_prop.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 
-yordle::data::meta::ColorChooserMaterialDriver::ColorChooserMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::IDynamicMaterialDriver(prop) {
+yordle::data::meta::ColorChooserMaterialDriver::ColorChooserMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::x995ca734(prop) {
     if(prop == nullptr) {
         return;
     }
     auto ptr_mBoolDriver = prop->cast_prop<yordle::data::prop::structure_prop>(3971470678u);
     if(ptr_mBoolDriver != nullptr) {
-        mBoolDriver = yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialBoolDriver>(ptr_mBoolDriver, 3663840478u);
+        mBoolDriver = yordle::data::meta::deserialize<yordle::data::meta::x7a851cd8>(ptr_mBoolDriver, 2055544024u);
     }
 
     auto ptr_mColorOn = prop->cast_prop<yordle::data::prop::quaternion_prop>(3054468938u);

@@ -30,7 +30,6 @@ namespace yordle::data::meta {
         bool mFlipY = false;
         bool mPerPixelUvsX = false;
         std::shared_ptr<yordle::data::meta::AtlasData> mAtlas {};
-        bool mLooping = false;
         uint8_t mFinishBehavior = 0u;
     };
 }

@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <vector>
 
+#include <yordle/data/meta/bin_defs/x68b3a178.hpp>
 #include <yordle/data/meta/bin_defs/ValueProcessorData.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -14,6 +15,10 @@
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_x68b3a178
+    struct x68b3a178;
+#endif
+
 #ifndef YORDLE_META_DEF_ValueProcessorData
     struct ValueProcessorData;
 #endif
@@ -24,7 +29,7 @@ namespace yordle::data::meta {
             return type == 3953106978u;
         }
 
-        uint32_t mInputType = 4294967295u;
+        std::shared_ptr<yordle::data::meta::x68b3a178> xf9d86f7b {};
         uint32_t mOutputType = 4294967295u;
         std::vector<std::shared_ptr<yordle::data::meta::ValueProcessorData>> mValueProcessorDataList {};
     };

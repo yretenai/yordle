@@ -5,29 +5,29 @@
 
 #include <memory>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialFloatDriver.hpp>
+#include <yordle/data/meta/bin_defs/xb33b2406.hpp>
 #include <yordle/data/meta/bin_defs/VfxAnimatedColorVariableData.hpp>
-#include <yordle/data/meta/bin_defs/IDynamicMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x995ca734.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_IDynamicMaterialFloatDriver
-    struct IDynamicMaterialFloatDriver;
+#ifndef YORDLE_META_DEF_xb33b2406
+    struct xb33b2406;
 #endif
 
 #ifndef YORDLE_META_DEF_VfxAnimatedColorVariableData
     struct VfxAnimatedColorVariableData;
 #endif
-    struct YORDLE_EXPORT ColorGraphMaterialDriver : public IDynamicMaterialDriver {
+    struct YORDLE_EXPORT ColorGraphMaterialDriver : public x995ca734 {
         explicit ColorGraphMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 235706735u || IDynamicMaterialDriver::is_type(type);
+            return type == 235706735u || x995ca734::is_type(type);
         }
 
-        std::shared_ptr<yordle::data::meta::IDynamicMaterialFloatDriver> driver {};
+        std::shared_ptr<yordle::data::meta::xb33b2406> driver {};
         std::shared_ptr<yordle::data::meta::VfxAnimatedColorVariableData> colors {};
     };
 }

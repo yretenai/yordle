@@ -27,6 +27,16 @@ yordle::data::meta::TFTModeData::TFTModeData(const std::shared_ptr<yordle::data:
         mDefaultSetData = yordle::data::meta::bin_ref<yordle::data::meta::TFTSetData>(1133007103u, ptr_mDefaultSetData->value);
     }
 
+    auto ptr_x2d527e72 = prop->cast_prop<yordle::data::prop::set_prop>(760381042u);
+    if(ptr_x2d527e72 != nullptr) {
+        for(const auto &set_x2d527e72_entry : ptr_x2d527e72->value) {
+            auto ptr_x2d527e72_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::reference_prop>(set_x2d527e72_entry);
+            if(ptr_x2d527e72_entry != nullptr) {
+                x2d527e72.emplace_back(yordle::data::meta::bin_ref<yordle::data::meta::TFTSetData>(1133007103u, ptr_x2d527e72_entry->value));
+            }
+        }
+    }
+
     auto ptr_mDragData = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3020870234u);
     if(ptr_mDragData != nullptr) {
         mDragData = yordle::data::meta::deserialize<yordle::data::meta::TFTDragData>(ptr_mDragData, 1414729207u);
@@ -140,5 +150,10 @@ yordle::data::meta::TFTModeData::TFTModeData(const std::shared_ptr<yordle::data:
     auto ptr_xd95e9023 = prop->cast_prop<yordle::data::prop::uint32_prop>(3646853155u);
     if(ptr_xd95e9023 != nullptr) {
         xd95e9023 = ptr_xd95e9023->value;
+    }
+
+    auto ptr_x23e59ebe = prop->cast_prop<yordle::data::prop::string_prop>(602250942u);
+    if(ptr_x23e59ebe != nullptr) {
+        x23e59ebe = ptr_x23e59ebe->value;
     }
 }

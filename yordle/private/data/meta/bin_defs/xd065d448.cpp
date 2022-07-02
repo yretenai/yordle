@@ -33,7 +33,7 @@ yordle::data::meta::xd065d448::xd065d448(const std::shared_ptr<yordle::data::pro
         radius = ptr_radius->value;
     }
 
-    auto ptr_Impact = prop->cast_prop<yordle::data::prop::int32_prop>(510767767u);
+    auto ptr_Impact = prop->cast_prop<yordle::data::prop::uint8_prop>(510767767u);
     if(ptr_Impact != nullptr) {
         Impact = ptr_Impact->value;
     }

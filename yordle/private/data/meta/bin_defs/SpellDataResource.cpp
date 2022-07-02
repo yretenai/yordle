@@ -949,6 +949,21 @@ yordle::data::meta::SpellDataResource::SpellDataResource(const std::shared_ptr<y
         x24b763c2 = ptr_x24b763c2->value;
     }
 
+    auto ptr_x43b514b6 = prop->cast_prop<yordle::data::prop::bool_prop>(1135940790u);
+    if(ptr_x43b514b6 != nullptr) {
+        x43b514b6 = ptr_x43b514b6->value;
+    }
+
+    auto ptr_xbb6aca93 = prop->cast_prop<yordle::data::prop::bool_prop>(3144338067u);
+    if(ptr_xbb6aca93 != nullptr) {
+        xbb6aca93 = ptr_xbb6aca93->value;
+    }
+
+    auto ptr_x338e3aed = prop->cast_prop<yordle::data::prop::bool_prop>(864959213u);
+    if(ptr_x338e3aed != nullptr) {
+        x338e3aed = ptr_x338e3aed->value;
+    }
+
     auto ptr_mTargetingTypeData = prop->cast_prop<yordle::data::prop::structure_prop>(1564898895u);
     if(ptr_mTargetingTypeData != nullptr) {
         mTargetingTypeData = yordle::data::meta::deserialize<yordle::data::meta::TargetingTypeData>(ptr_mTargetingTypeData, 2144288560u);

@@ -128,11 +128,6 @@ yordle::data::meta::SkinMeshDataProperties::SkinMeshDataProperties(const std::sh
         castShadows = ptr_castShadows->value;
     }
 
-    auto ptr_allowCharacterInking = prop->cast_prop<yordle::data::prop::bool_prop>(374007017u);
-    if(ptr_allowCharacterInking != nullptr) {
-        allowCharacterInking = ptr_allowCharacterInking->value;
-    }
-
     auto ptr_reflectionMap = prop->cast_prop<yordle::data::prop::string_prop>(3678458954u);
     if(ptr_reflectionMap != nullptr) {
         reflectionMap = ptr_reflectionMap->value;

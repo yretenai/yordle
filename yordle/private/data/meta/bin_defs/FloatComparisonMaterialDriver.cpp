@@ -2,8 +2,8 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/FloatComparisonMaterialDriver.hpp>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialFloatDriver.hpp>
-#include <yordle/data/meta/bin_defs/IDynamicMaterialBoolDriver.hpp>
+#include <yordle/data/meta/bin_defs/xb33b2406.hpp>
+#include <yordle/data/meta/bin_defs/x7a851cd8.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
 #include <yordle/data/prop/map_prop.hpp>
@@ -15,7 +15,7 @@
 #include <yordle/data/prop/unordered_set_prop.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 
-yordle::data::meta::FloatComparisonMaterialDriver::FloatComparisonMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::IDynamicMaterialBoolDriver(prop) {
+yordle::data::meta::FloatComparisonMaterialDriver::FloatComparisonMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::x7a851cd8(prop) {
     if(prop == nullptr) {
         return;
     }
@@ -26,11 +26,11 @@ yordle::data::meta::FloatComparisonMaterialDriver::FloatComparisonMaterialDriver
 
     auto ptr_mValueA = prop->cast_prop<yordle::data::prop::structure_prop>(308998456u);
     if(ptr_mValueA != nullptr) {
-        mValueA = yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialFloatDriver>(ptr_mValueA, 1090223300u);
+        mValueA = yordle::data::meta::deserialize<yordle::data::meta::xb33b2406>(ptr_mValueA, 3006997510u);
     }
 
     auto ptr_mValueB = prop->cast_prop<yordle::data::prop::structure_prop>(359331313u);
     if(ptr_mValueB != nullptr) {
-        mValueB = yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialFloatDriver>(ptr_mValueB, 1090223300u);
+        mValueB = yordle::data::meta::deserialize<yordle::data::meta::xb33b2406>(ptr_mValueB, 3006997510u);
     }
 }

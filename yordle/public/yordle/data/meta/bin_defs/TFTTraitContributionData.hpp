@@ -26,6 +26,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_ref<yordle::data::meta::TftTraitData> TraitData { 1871118919 };
         int32_t Amount = 1;
         bool xa91037f5 = true;
+        bool xbaeca565 = false;
     };
 }
 #define YORDLE_META_DEF_TFTTraitContributionData

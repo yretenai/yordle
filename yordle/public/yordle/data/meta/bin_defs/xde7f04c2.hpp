@@ -10,6 +10,7 @@
 #include <yordle/data/meta/bin_defs/xcc3d6ff6.hpp>
 #include <yordle/data/meta/bin_defs/healthBarData.hpp>
 #include <yordle/data/meta/bin_defs/x1bca1a5e.hpp>
+#include <yordle/data/meta/bin_defs/xbb59fd4.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -31,6 +32,10 @@ namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_x1bca1a5e
     struct x1bca1a5e;
 #endif
+
+#ifndef YORDLE_META_DEF_xbb59fd4
+    struct xbb59fd4;
+#endif
     struct YORDLE_EXPORT xde7f04c2 : public ViewController {
         explicit xde7f04c2(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -39,6 +44,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash Scene = 0u;
+        yordle::data::meta::bin_fnv_hash xad2db494 = 0u;
         yordle::data::meta::bin_fnv_hash xd20a71a6 = 0u;
         yordle::data::meta::bin_fnv_hash x21e0b0e0 = 0u;
         yordle::data::meta::bin_fnv_hash x45a8bc04 = 0u;
@@ -47,7 +53,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x9d7f2df2 = 0u;
         yordle::data::meta::bin_fnv_hash xf3eb96d4 = 0u;
         yordle::data::meta::bin_fnv_hash xe2e6e1df = 0u;
-        std::array<yordle::data::meta::bin_fnv_hash, 6> xd75fac87 { 0u, 0u, 0u, 0u, 0u, 0u };
+        std::array<yordle::data::meta::bin_fnv_hash, 8> xd75fac87 { 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u };
         std::array<yordle::data::meta::bin_fnv_hash, 4> xa952b6b4 { 0u, 0u, 0u, 0u };
         yordle::data::meta::bin_fnv_hash Region = 0u;
         std::array<std::shared_ptr<yordle::data::meta::xca07a45>, 3> traits { nullptr, nullptr, nullptr };
@@ -57,6 +63,7 @@ namespace yordle::data::meta {
         std::array<yordle::data::meta::bin_fnv_hash, 3> x97e0a6ab { 0u, 0u, 0u };
         std::shared_ptr<yordle::data::meta::healthBarData> healthBarData {};
         std::shared_ptr<yordle::data::meta::x1bca1a5e> x35d8178d {};
+        std::shared_ptr<yordle::data::meta::xbb59fd4> xf71e50d6 {};
     };
 }
 #define YORDLE_META_DEF_xde7f04c2

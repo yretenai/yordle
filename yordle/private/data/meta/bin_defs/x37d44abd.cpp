@@ -20,13 +20,11 @@ yordle::data::meta::x37d44abd::x37d44abd(const std::shared_ptr<yordle::data::pro
     }
     auto ptr_xd7e81a83 = prop->cast_prop<yordle::data::prop::set_prop>(3622312579u);
     if(ptr_xd7e81a83 != nullptr) {
-        auto index_xd7e81a83 = 0;
         for(const auto &set_xd7e81a83_entry : ptr_xd7e81a83->value) {
             auto ptr_xd7e81a83_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_xd7e81a83_entry);
             if(ptr_xd7e81a83_entry != nullptr) {
-                xd7e81a83[index_xd7e81a83] = ptr_xd7e81a83_entry->value;
+                xd7e81a83.emplace_back(ptr_xd7e81a83_entry->value);
             }
-            index_xd7e81a83++;
         }
     }
 }

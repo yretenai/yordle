@@ -5,6 +5,8 @@
 #include <yordle/data/meta/bin_defs/ViewPaneDefinition.hpp>
 #include <yordle/data/meta/bin_defs/x13a37f3e.hpp>
 #include <yordle/data/meta/bin_defs/x60764292.hpp>
+#include <yordle/data/meta/bin_defs/xf340b385.hpp>
+#include <yordle/data/meta/bin_defs/xe69440b8.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -51,11 +53,6 @@ yordle::data::meta::TftTeamPlannerViewController::TftTeamPlannerViewController(c
         x387116c1 = ptr_x387116c1->value;
     }
 
-    auto ptr_ChampionButtonTemplate = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3019062520u);
-    if(ptr_ChampionButtonTemplate != nullptr) {
-        ChampionButtonTemplate = ptr_ChampionButtonTemplate->value;
-    }
-
     auto ptr_x88ca9d2d = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2294979885u);
     if(ptr_x88ca9d2d != nullptr) {
         x88ca9d2d = ptr_x88ca9d2d->value;
@@ -69,6 +66,21 @@ yordle::data::meta::TftTeamPlannerViewController::TftTeamPlannerViewController(c
     auto ptr_xc6e9fbea = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3337223146u);
     if(ptr_xc6e9fbea != nullptr) {
         xc6e9fbea = ptr_xc6e9fbea->value;
+    }
+
+    auto ptr_x972cf46e = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2536305774u);
+    if(ptr_x972cf46e != nullptr) {
+        x972cf46e = yordle::data::meta::deserialize<yordle::data::meta::xf340b385>(ptr_x972cf46e, 4081103749u);
+    }
+
+    auto ptr_x6c4e43d9 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1817068505u);
+    if(ptr_x6c4e43d9 != nullptr) {
+        x6c4e43d9 = yordle::data::meta::deserialize<yordle::data::meta::xe69440b8>(ptr_x6c4e43d9, 3868475576u);
+    }
+
+    auto ptr_xacaafa13 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2896886291u);
+    if(ptr_xacaafa13 != nullptr) {
+        xacaafa13 = ptr_xacaafa13->value;
     }
 
     auto ptr_ChampionsPerRow = prop->cast_prop<yordle::data::prop::uint8_prop>(1246660210u);
@@ -94,5 +106,15 @@ yordle::data::meta::TftTeamPlannerViewController::TftTeamPlannerViewController(c
     auto ptr_x807ef97f = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2155805055u);
     if(ptr_x807ef97f != nullptr) {
         x807ef97f = ptr_x807ef97f->value;
+    }
+
+    auto ptr_x336e8cbd = prop->cast_prop<yordle::data::prop::set_prop>(862883005u);
+    if(ptr_x336e8cbd != nullptr) {
+        for(const auto &set_x336e8cbd_entry : ptr_x336e8cbd->value) {
+            auto ptr_x336e8cbd_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_x336e8cbd_entry);
+            if(ptr_x336e8cbd_entry != nullptr) {
+                x336e8cbd.emplace_back(ptr_x336e8cbd_entry->value);
+            }
+        }
     }
 }

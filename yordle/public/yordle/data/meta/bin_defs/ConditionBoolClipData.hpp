@@ -4,14 +4,17 @@
 #pragma once
 
 #include <memory>
-#include <cstdint>
 
+#include <yordle/data/meta/bin_defs/x1650a0ab.hpp>
 #include <yordle/data/meta/bin_defs/ClipBaseData.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_x1650a0ab
+    struct x1650a0ab;
+#endif
     struct YORDLE_EXPORT ConditionBoolClipData : public ClipBaseData {
         explicit ConditionBoolClipData(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -19,7 +22,7 @@ namespace yordle::data::meta {
             return type == 358669516u || ClipBaseData::is_type(type);
         }
 
-        uint32_t mUpdaterType = 4294967295u;
+        std::shared_ptr<yordle::data::meta::x1650a0ab> x16860572 {};
         bool mChangeAnimationMidPlay = false;
         bool x94c90e2b = false;
         bool x31db4e6a = false;

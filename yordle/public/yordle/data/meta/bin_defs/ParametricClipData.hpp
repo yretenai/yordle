@@ -4,9 +4,9 @@
 #pragma once
 
 #include <memory>
-#include <cstdint>
 #include <vector>
 
+#include <yordle/data/meta/bin_defs/x68b3a178.hpp>
 #include <yordle/data/meta/bin_defs/ParametricPairData.hpp>
 #include <yordle/data/meta/bin_defs/BlendableClipData.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -14,6 +14,10 @@
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_x68b3a178
+    struct x68b3a178;
+#endif
+
 #ifndef YORDLE_META_DEF_ParametricPairData
     struct ParametricPairData;
 #endif
@@ -24,7 +28,7 @@ namespace yordle::data::meta {
             return type == 4071811009u || BlendableClipData::is_type(type);
         }
 
-        uint32_t mUpdaterType = 4294967295u;
+        std::shared_ptr<yordle::data::meta::x68b3a178> x16860572 {};
         std::vector<std::shared_ptr<yordle::data::meta::ParametricPairData>> mParametricPairDataList {};
     };
 }

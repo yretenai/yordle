@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/xd9438618.hpp>
 
+#include <yordle/data/meta/bin_defs/x83d6eef9.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -18,6 +19,11 @@ yordle::data::meta::xd9438618::xd9438618(const std::shared_ptr<yordle::data::pro
     if(prop == nullptr) {
         return;
     }
+    auto ptr_Filter = prop->cast_prop<yordle::data::prop::structure_prop>(3353438327u);
+    if(ptr_Filter != nullptr) {
+        Filter = yordle::data::meta::deserialize<yordle::data::meta::x83d6eef9>(ptr_Filter, 2211901177u);
+    }
+
     auto ptr_x799f2859 = prop->cast_prop<yordle::data::prop::unordered_set_prop>(2040473689u);
     if(ptr_x799f2859 != nullptr) {
         for(const auto &set_x799f2859_entry : ptr_x799f2859->value) {

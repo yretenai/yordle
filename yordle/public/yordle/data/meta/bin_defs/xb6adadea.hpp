@@ -20,6 +20,7 @@ namespace yordle::data::meta {
 
         yordle::data::meta::bin_fnv_hash Icon = 0u;
         yordle::data::meta::bin_fnv_hash xe5a8465e = 0u;
+        yordle::data::meta::bin_fnv_hash border = 0u;
     };
 }
 #define YORDLE_META_DEF_xb6adadea

@@ -54,11 +54,6 @@ yordle::data::meta::EffectAnimationElementData::EffectAnimationElementData(const
         mAtlas = yordle::data::meta::deserialize<yordle::data::meta::AtlasData>(ptr_mAtlas, 1906252436u);
     }
 
-    auto ptr_mLooping = prop->cast_prop<yordle::data::prop::bool_prop>(1824309994u);
-    if(ptr_mLooping != nullptr) {
-        mLooping = ptr_mLooping->value;
-    }
-
     auto ptr_mFinishBehavior = prop->cast_prop<yordle::data::prop::uint8_prop>(3996911377u);
     if(ptr_mFinishBehavior != nullptr) {
         mFinishBehavior = ptr_mFinishBehavior->value;

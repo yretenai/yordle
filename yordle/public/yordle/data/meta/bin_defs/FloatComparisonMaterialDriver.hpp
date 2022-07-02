@@ -6,26 +6,26 @@
 #include <memory>
 #include <cstdint>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialFloatDriver.hpp>
-#include <yordle/data/meta/bin_defs/IDynamicMaterialBoolDriver.hpp>
+#include <yordle/data/meta/bin_defs/xb33b2406.hpp>
+#include <yordle/data/meta/bin_defs/x7a851cd8.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_IDynamicMaterialFloatDriver
-    struct IDynamicMaterialFloatDriver;
+#ifndef YORDLE_META_DEF_xb33b2406
+    struct xb33b2406;
 #endif
-    struct YORDLE_EXPORT FloatComparisonMaterialDriver : public IDynamicMaterialBoolDriver {
+    struct YORDLE_EXPORT FloatComparisonMaterialDriver : public x7a851cd8 {
         explicit FloatComparisonMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 2428279575u || IDynamicMaterialBoolDriver::is_type(type);
+            return type == 2428279575u || x7a851cd8::is_type(type);
         }
 
         uint32_t mOperator = 0u;
-        std::shared_ptr<yordle::data::meta::IDynamicMaterialFloatDriver> mValueA {};
-        std::shared_ptr<yordle::data::meta::IDynamicMaterialFloatDriver> mValueB {};
+        std::shared_ptr<yordle::data::meta::xb33b2406> mValueA {};
+        std::shared_ptr<yordle::data::meta::xb33b2406> mValueB {};
     };
 }
 #define YORDLE_META_DEF_FloatComparisonMaterialDriver

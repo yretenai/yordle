@@ -62,4 +62,9 @@ yordle::data::meta::ExperienceCurveData::ExperienceCurveData(const std::shared_p
     if(ptr_mMinimumExperienceMultiplier != nullptr) {
         mMinimumExperienceMultiplier = ptr_mMinimumExperienceMultiplier->value;
     }
+
+    auto ptr_xf1f3d846 = prop->cast_prop<yordle::data::prop::uint32_prop>(4059289670u);
+    if(ptr_xf1f3d846 != nullptr) {
+        xf1f3d846 = ptr_xf1f3d846->value;
+    }
 }

@@ -2,8 +2,8 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/SwitchMaterialDriverElement.hpp>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialBoolDriver.hpp>
-#include <yordle/data/meta/bin_defs/IDynamicMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x7a851cd8.hpp>
+#include <yordle/data/meta/bin_defs/x995ca734.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -22,11 +22,11 @@ yordle::data::meta::SwitchMaterialDriverElement::SwitchMaterialDriverElement(con
     }
     auto ptr_mCondition = prop->cast_prop<yordle::data::prop::structure_prop>(813840573u);
     if(ptr_mCondition != nullptr) {
-        mCondition = yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialBoolDriver>(ptr_mCondition, 3663840478u);
+        mCondition = yordle::data::meta::deserialize<yordle::data::meta::x7a851cd8>(ptr_mCondition, 2055544024u);
     }
 
     auto ptr_mValue = prop->cast_prop<yordle::data::prop::structure_prop>(619900041u);
     if(ptr_mValue != nullptr) {
-        mValue = yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialDriver>(ptr_mValue, 1009087838u);
+        mValue = yordle::data::meta::deserialize<yordle::data::meta::x995ca734>(ptr_mValue, 2572986164u);
     }
 }

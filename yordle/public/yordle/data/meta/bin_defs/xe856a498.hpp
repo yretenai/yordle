@@ -6,17 +6,17 @@
 #include <memory>
 #include <string>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialFloatDriver.hpp>
+#include <yordle/data/meta/bin_defs/xb33b2406.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-    struct YORDLE_EXPORT xe856a498 : public IDynamicMaterialFloatDriver {
+    struct YORDLE_EXPORT xe856a498 : public xb33b2406 {
         explicit xe856a498(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3897992344u || IDynamicMaterialFloatDriver::is_type(type);
+            return type == 3897992344u || xb33b2406::is_type(type);
         }
 
         std::string mKeyName {};

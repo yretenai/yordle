@@ -23,6 +23,21 @@ yordle::data::meta::PatchingViewController::PatchingViewController(const std::sh
         Scene = ptr_Scene->value;
     }
 
+    auto ptr_x5efd144d = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1593644109u);
+    if(ptr_x5efd144d != nullptr) {
+        x5efd144d = ptr_x5efd144d->value;
+    }
+
+    auto ptr_x53162210 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1393959440u);
+    if(ptr_x53162210 != nullptr) {
+        x53162210 = ptr_x53162210->value;
+    }
+
+    auto ptr_x210a80d4 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(554336468u);
+    if(ptr_x210a80d4 != nullptr) {
+        x210a80d4 = ptr_x210a80d4->value;
+    }
+
     auto ptr_xa2ed28e0 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2733451488u);
     if(ptr_xa2ed28e0 != nullptr) {
         xa2ed28e0 = ptr_xa2ed28e0->value;

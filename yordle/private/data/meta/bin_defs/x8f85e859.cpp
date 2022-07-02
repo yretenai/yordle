@@ -58,6 +58,11 @@ yordle::data::meta::x8f85e859::x8f85e859(const std::shared_ptr<yordle::data::pro
         x3bbef2b3 = ptr_x3bbef2b3->value;
     }
 
+    auto ptr_x53a98e7a = prop->cast_prop<yordle::data::prop::bool_prop>(1403620986u);
+    if(ptr_x53a98e7a != nullptr) {
+        x53a98e7a = ptr_x53a98e7a->value;
+    }
+
     auto ptr_x50154a84 = prop->cast_prop<yordle::data::prop::bool_prop>(1343572612u);
     if(ptr_x50154a84 != nullptr) {
         x50154a84 = ptr_x50154a84->value;

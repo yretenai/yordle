@@ -62,7 +62,6 @@ namespace yordle::data::meta {
         float fresnel = 0.0f;
         bool usesSkinVO = false;
         bool castShadows = true;
-        bool allowCharacterInking = true;
         std::string reflectionMap {};
         float reflectionOpacityDirect = 0.0f;
         float reflectionOpacityGlancing = 1.0f;

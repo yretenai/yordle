@@ -19,6 +19,9 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash Scene = 0u;
+        yordle::data::meta::bin_fnv_hash x5efd144d = 0u;
+        yordle::data::meta::bin_fnv_hash x53162210 = 0u;
+        yordle::data::meta::bin_fnv_hash x210a80d4 = 0u;
         yordle::data::meta::bin_fnv_hash xa2ed28e0 = 0u;
         yordle::data::meta::bin_fnv_hash x68464d70 = 0u;
     };

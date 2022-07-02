@@ -2,7 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/DynamicMaterialTextureSwapOption.hpp>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialBoolDriver.hpp>
+#include <yordle/data/meta/bin_defs/x7a851cd8.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -21,7 +21,7 @@ yordle::data::meta::DynamicMaterialTextureSwapOption::DynamicMaterialTextureSwap
     }
     auto ptr_driver = prop->cast_prop<yordle::data::prop::structure_prop>(3847494111u);
     if(ptr_driver != nullptr) {
-        driver = yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialBoolDriver>(ptr_driver, 3663840478u);
+        driver = yordle::data::meta::deserialize<yordle::data::meta::x7a851cd8>(ptr_driver, 2055544024u);
     }
 
     auto ptr_textureName = prop->cast_prop<yordle::data::prop::string_prop>(3004290287u);

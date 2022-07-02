@@ -19,6 +19,11 @@ yordle::data::meta::ILoadoutInfoPanel::ILoadoutInfoPanel(const std::shared_ptr<y
     if(prop == nullptr) {
         return;
     }
+    auto ptr_Scene = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(543410963u);
+    if(ptr_Scene != nullptr) {
+        Scene = ptr_Scene->value;
+    }
+
     auto ptr_ViewPaneDefinition = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2330109623u);
     if(ptr_ViewPaneDefinition != nullptr) {
         ViewPaneDefinition = yordle::data::meta::deserialize<yordle::data::meta::ViewPaneDefinition>(ptr_ViewPaneDefinition, 2330109623u);

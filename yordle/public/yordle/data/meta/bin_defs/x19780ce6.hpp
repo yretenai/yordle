@@ -24,7 +24,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash xa025590b = 0u;
         yordle::data::meta::bin_fnv_hash xacdc3f70 = 0u;
         yordle::data::meta::bin_fnv_hash xe507745d = 0u;
-        yordle::data::meta::bin_fnv_hash x5468a177 = 0u;
+        yordle::data::meta::bin_fnv_hash x99303a0d = 0u;
+        yordle::data::meta::bin_fnv_hash x838d295b = 0u;
     };
 }
 #define YORDLE_META_DEF_x19780ce6

@@ -7,12 +7,16 @@
 #include <cstdint>
 #include <optional>
 
+#include <yordle/data/meta/bin_defs/x94205387.hpp>
 #include <yordle/data/meta/bin_defs/xe132f2d0.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_x94205387
+    struct x94205387;
+#endif
     struct YORDLE_EXPORT x18ee4f3b : public xe132f2d0 {
         explicit x18ee4f3b(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -22,6 +26,8 @@ namespace yordle::data::meta {
 
         uint32_t minUnits = 0u;
         std::optional<uint32_t> maxUnits {};
+        std::shared_ptr<yordle::data::meta::x94205387> x2e1c1e9b {};
+        bool x8bab364f = true;
         uint8_t Style = 1u;
     };
 }

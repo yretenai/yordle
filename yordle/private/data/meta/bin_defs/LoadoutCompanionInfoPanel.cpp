@@ -64,6 +64,18 @@ yordle::data::meta::LoadoutCompanionInfoPanel::LoadoutCompanionInfoPanel(const s
         }
     }
 
+    auto ptr_x5d777e64 = prop->cast_prop<yordle::data::prop::set_prop>(1568112228u);
+    if(ptr_x5d777e64 != nullptr) {
+        auto index_x5d777e64 = 0;
+        for(const auto &set_x5d777e64_entry : ptr_x5d777e64->value) {
+            auto ptr_x5d777e64_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::fnv_hash_prop>(set_x5d777e64_entry);
+            if(ptr_x5d777e64_entry != nullptr) {
+                x5d777e64[index_x5d777e64] = ptr_x5d777e64_entry->value;
+            }
+            index_x5d777e64++;
+        }
+    }
+
     auto ptr_x6a5635f2 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1784034802u);
     if(ptr_x6a5635f2 != nullptr) {
         x6a5635f2 = ptr_x6a5635f2->value;

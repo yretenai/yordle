@@ -34,7 +34,15 @@ namespace yordle::data::meta {
             return type == 710509925u || x8f85e859::is_type(type);
         }
 
+        float xe9e6d319 = 0.0f;
+        std::string x18babeb3 {};
+        std::string x31be8604 {};
+        float xc7b9055a = 0.0f;
         std::string xfc596ba6 {};
+        std::string x7ea3e8d8 {};
+        std::string x40ee28f8 {};
+        std::string x7c67d7e9 {};
+        std::string x721f9044 {};
         yordle::data::meta::bin_fnv_hash animationName = 0u;
         yordle::data::meta::bin_fnv_hash x25888758 = 0u;
         float x79f64609 = 10.0f;

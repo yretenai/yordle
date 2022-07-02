@@ -25,7 +25,7 @@ namespace yordle::data::meta {
         float intensityScale = 1.0f;
         float radius = 500.0f;
         float xc7334a55 = 5.0f;
-        int32_t Impact = 3;
+        uint8_t Impact = 3u;
     };
 }
 #define YORDLE_META_DEF_x5289f880

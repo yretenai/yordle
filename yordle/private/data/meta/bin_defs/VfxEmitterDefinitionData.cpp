@@ -852,7 +852,7 @@ yordle::data::meta::VfxEmitterDefinitionData::VfxEmitterDefinitionData(const std
         lingerDrag = yordle::data::meta::deserialize<yordle::data::meta::ValueVector3>(ptr_lingerDrag, 1759261366u);
     }
 
-    auto ptr_childParticleSetDefinition = prop->cast_prop<yordle::data::prop::inline_structure_prop>(2687919304u);
+    auto ptr_childParticleSetDefinition = prop->cast_prop<yordle::data::prop::structure_prop>(2687919304u);
     if(ptr_childParticleSetDefinition != nullptr) {
         childParticleSetDefinition = yordle::data::meta::deserialize<yordle::data::meta::VfxChildParticleSetDefinitionData>(ptr_childParticleSetDefinition, 3038774362u);
     }

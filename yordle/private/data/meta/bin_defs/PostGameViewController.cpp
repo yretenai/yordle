@@ -107,6 +107,11 @@ yordle::data::meta::PostGameViewController::PostGameViewController(const std::sh
         x5cf56914 = ptr_x5cf56914->value;
     }
 
+    auto ptr_xe09650c0 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3767947456u);
+    if(ptr_xe09650c0 != nullptr) {
+        xe09650c0 = ptr_xe09650c0->value;
+    }
+
     auto ptr_GainedRatingText = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(529274973u);
     if(ptr_GainedRatingText != nullptr) {
         GainedRatingText = ptr_GainedRatingText->value;

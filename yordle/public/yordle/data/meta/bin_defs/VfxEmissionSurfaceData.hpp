@@ -6,6 +6,7 @@
 #include <memory>
 #include <string>
 #include <cstdint>
+#include <vector>
 
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -27,6 +28,7 @@ namespace yordle::data::meta {
         int16_t maxJointWeights = 4u;
         bool useAvatarPose = false;
         bool useSurfaceNormalForBirthPhysics = true;
+        std::vector<yordle::data::meta::bin_fnv_hash> Submeshes {};
     };
 }
 #define YORDLE_META_DEF_VfxEmissionSurfaceData

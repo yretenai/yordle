@@ -4,6 +4,7 @@
 #pragma once
 
 #include <memory>
+#include <array>
 
 #include <yordle/data/meta/bin_defs/ILoadoutInfoPanel.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -17,6 +18,11 @@ namespace yordle::data::meta {
         bool is_type(uint32_t type) override {
             return type == 2807723955u || ILoadoutInfoPanel::is_type(type);
         }
+
+        yordle::data::meta::bin_fnv_hash ItemIcon = 0u;
+        yordle::data::meta::bin_fnv_hash xd2605dd4 = 0u;
+        yordle::data::meta::bin_fnv_hash x66229a1c = 0u;
+        std::array<yordle::data::meta::bin_fnv_hash, 5> x96867f27 { 0u, 0u, 0u, 0u, 0u };
     };
 }
 #define YORDLE_META_DEF_LoadoutArenaSkinInfoPanel

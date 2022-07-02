@@ -11,7 +11,6 @@
 #include <yordle/data/meta/bin_defs/GameModeItemList.hpp>
 #include <yordle/data/meta/bin_defs/ItemShopGameModeData.hpp>
 #include <yordle/data/meta/bin_defs/AnnouncementMap.hpp>
-#include <yordle/data/meta/bin_defs/RenderStyleData.hpp>
 #include <yordle/data/meta/bin_defs/FloatingTextOverride.hpp>
 #include <yordle/data/meta/bin_defs/GlobalStatsUIData.hpp>
 #include <yordle/data/meta/bin_defs/x15502626.hpp>
@@ -26,6 +25,7 @@
 #include <yordle/data/meta/bin_defs/GameModeAutoItemPurchasingConfig.hpp>
 #include <yordle/data/meta/bin_defs/ScriptDataObjectList.hpp>
 #include <yordle/data/meta/bin_defs/GameModeConstants.hpp>
+#include <yordle/data/meta/bin_defs/xce8769d7.hpp>
 #include <yordle/data/meta/bin_defs/GameplayConfig.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -47,10 +47,6 @@ namespace yordle::data::meta {
 
 #ifndef YORDLE_META_DEF_AnnouncementMap
     struct AnnouncementMap;
-#endif
-
-#ifndef YORDLE_META_DEF_RenderStyleData
-    struct RenderStyleData;
 #endif
 
 #ifndef YORDLE_META_DEF_FloatingTextOverride
@@ -109,6 +105,10 @@ namespace yordle::data::meta {
     struct GameModeConstants;
 #endif
 
+#ifndef YORDLE_META_DEF_xce8769d7
+    struct xce8769d7;
+#endif
+
 #ifndef YORDLE_META_DEF_GameplayConfig
     struct GameplayConfig;
 #endif
@@ -123,7 +123,7 @@ namespace yordle::data::meta {
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::GameModeChampionList>> mChampionLists {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::GameModeItemList>> itemLists {};
         yordle::data::meta::bin_ref<yordle::data::meta::ItemShopGameModeData> mItemShopData { 4103435203 };
-        std::string xd32dd16e {};
+        std::vector<std::string> x8e2030a7 {};
         bool mRelativeColorization = false;
         yordle::data::meta::bin_ref<yordle::data::meta::AnnouncementMap> AnnouncementsMapping { 224929220 };
         yordle::data::meta::bin_fnv_hash mCursorConfig = 0u;
@@ -131,7 +131,6 @@ namespace yordle::data::meta {
         std::string mLoadingScreenBackground {};
         std::vector<std::string> x84c58ee {};
         yordle::data::meta::bin_fnv_hash mHudScoreData = 0u;
-        yordle::data::meta::bin_ref<yordle::data::meta::RenderStyleData> mRenderStyle { 4227680462 };
         yordle::data::meta::bin_ref<yordle::data::meta::FloatingTextOverride> mFloatingTextOverride { 1059987028 };
         yordle::data::meta::bin_ref<yordle::data::meta::GlobalStatsUIData> mStatsUiData { 4087817779 };
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::x15502626>> x8bd9f7d8 {};
@@ -150,6 +149,7 @@ namespace yordle::data::meta {
         bool x882a6450 = false;
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::ScriptDataObjectList>> mScriptDataObjectLists {};
         yordle::data::meta::bin_ref<yordle::data::meta::GameModeConstants> mGameModeConstants { 201829573 };
+        yordle::data::meta::bin_ref<yordle::data::meta::xce8769d7> xce8769d7 { 3464980951 };
         yordle::data::meta::bin_ref<yordle::data::meta::GameplayConfig> mGameplayConfig { 3168105463 };
         std::string xf74c67bb {};
     };

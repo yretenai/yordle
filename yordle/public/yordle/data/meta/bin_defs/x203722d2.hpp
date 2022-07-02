@@ -19,19 +19,23 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash Group = 0u;
+        yordle::data::meta::bin_fnv_hash xc95b5341 = 0u;
+        yordle::data::meta::bin_fnv_hash xf7d516a6 = 0u;
         yordle::data::meta::bin_fnv_hash x10892008 = 0u;
         yordle::data::meta::bin_fnv_hash x80359e95 = 0u;
         yordle::data::meta::bin_fnv_hash x3b793e8f = 0u;
         yordle::data::meta::bin_fnv_hash NameText = 0u;
         yordle::data::meta::bin_fnv_hash RankText = 0u;
         yordle::data::meta::bin_fnv_hash xf768ea78 = 0u;
-        yordle::data::meta::bin_fnv_hash xebc169a4 = 0u;
+        yordle::data::meta::bin_fnv_hash xfdde5b32 = 0u;
         yordle::data::meta::bin_fnv_hash xa59d87e5 = 0u;
         yordle::data::meta::bin_fnv_hash x18befb6c = 0u;
         yordle::data::meta::bin_fnv_hash xa01ab831 = 0u;
         yordle::data::meta::bin_fnv_hash xf60c25c4 = 0u;
         yordle::data::meta::bin_fnv_hash x7eae7fdd = 0u;
         yordle::data::meta::bin_fnv_hash loadoutsButton = 0u;
+        yordle::data::meta::bin_fnv_hash xd11d9cae = 0u;
+        bool xdb0af250 = false;
     };
 }
 #define YORDLE_META_DEF_x203722d2

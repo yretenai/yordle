@@ -6,6 +6,7 @@
 #include <memory>
 #include <array>
 
+#include <yordle/data/meta/bin_defs/xbf5ac0ff.hpp>
 #include <yordle/data/meta/bin_defs/xf641c7ed.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -13,6 +14,10 @@
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_xbf5ac0ff
+    struct xbf5ac0ff;
+#endif
+
 #ifndef YORDLE_META_DEF_xf641c7ed
     struct xf641c7ed;
 #endif
@@ -23,16 +28,9 @@ namespace yordle::data::meta {
             return type == 3792557364u || ViewController::is_type(type);
         }
 
-        yordle::data::meta::bin_fnv_hash Scene = 0u;
-        yordle::data::meta::bin_fnv_hash x874efc21 = 0u;
-        yordle::data::meta::bin_fnv_hash x538d27eb = 0u;
-        yordle::data::meta::bin_fnv_hash x3ca13504 = 0u;
-        yordle::data::meta::bin_fnv_hash xa064eee8 = 0u;
-        yordle::data::meta::bin_fnv_hash Timer = 0u;
-        yordle::data::meta::bin_fnv_hash x22d4499e = 0u;
-        yordle::data::meta::bin_fnv_hash x76b767cf = 0u;
-        yordle::data::meta::bin_fnv_hash x302ccf7d = 0u;
-        yordle::data::meta::bin_fnv_hash xc26ddee = 0u;
+        std::shared_ptr<yordle::data::meta::xbf5ac0ff> x552ea0a0 {};
+        std::shared_ptr<yordle::data::meta::xbf5ac0ff> xe38a9326 {};
+        yordle::data::meta::bin_fnv_hash xf116f568 = 0u;
         yordle::data::meta::bin_fnv_hash x2b77ba39 = 0u;
         yordle::data::meta::bin_fnv_hash x3ac7a0ba = 0u;
         std::shared_ptr<yordle::data::meta::xf641c7ed> xe5ffa4a9 {};

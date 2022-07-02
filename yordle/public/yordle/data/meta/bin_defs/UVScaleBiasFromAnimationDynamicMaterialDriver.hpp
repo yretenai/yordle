@@ -7,17 +7,17 @@
 #include <string>
 #include <cstdint>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x995ca734.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-    struct YORDLE_EXPORT UVScaleBiasFromAnimationDynamicMaterialDriver : public IDynamicMaterialDriver {
+    struct YORDLE_EXPORT UVScaleBiasFromAnimationDynamicMaterialDriver : public x995ca734 {
         explicit UVScaleBiasFromAnimationDynamicMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3997290289u || IDynamicMaterialDriver::is_type(type);
+            return type == 3997290289u || x995ca734::is_type(type);
         }
 
         std::string mSubMeshName {};

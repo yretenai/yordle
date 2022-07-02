@@ -24,11 +24,11 @@ namespace yordle::data::meta {
         }
 
         std::string mName {};
+        yordle::data::meta::bin_ref<yordle::data::meta::TFTAnnouncementData> mAnnouncementData { 3519409590 };
         std::string mStageIconPath {};
         std::string mTooltipIconPath {};
         std::string mTooltipDescriptionTra {};
         std::string mTooltipTitleTra {};
-        yordle::data::meta::bin_ref<yordle::data::meta::TFTAnnouncementData> mAnnouncementData { 3519409590 };
     };
 }
 #define YORDLE_META_DEF_TFTGameVariationData

@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/UpdaterData.hpp>
 
+#include <yordle/data/meta/bin_defs/x68b3a178.hpp>
 #include <yordle/data/meta/bin_defs/ValueProcessorData.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
@@ -19,9 +20,9 @@ yordle::data::meta::UpdaterData::UpdaterData(const std::shared_ptr<yordle::data:
     if(prop == nullptr) {
         return;
     }
-    auto ptr_mInputType = prop->cast_prop<yordle::data::prop::uint32_prop>(2951212868u);
-    if(ptr_mInputType != nullptr) {
-        mInputType = ptr_mInputType->value;
+    auto ptr_xf9d86f7b = prop->cast_prop<yordle::data::prop::structure_prop>(4191711099u);
+    if(ptr_xf9d86f7b != nullptr) {
+        xf9d86f7b = yordle::data::meta::deserialize<yordle::data::meta::x68b3a178>(ptr_xf9d86f7b, 1756602744u);
     }
 
     auto ptr_mOutputType = prop->cast_prop<yordle::data::prop::uint32_prop>(1688448797u);

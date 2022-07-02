@@ -73,7 +73,8 @@ namespace yordle::data::meta {
 
         uint32_t TftGameType = 0u;
         uint32_t number = 0u;
-        std::string Mutator {};
+        std::string name {};
+        std::string x936ed1dd {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::MapCharacterList>> DebugCharacterLists {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::MapCharacterList>> characterLists {};
         std::vector<yordle::data::meta::bin_ref<yordle::data::meta::TFTItemList>> itemLists {};

@@ -23,7 +23,7 @@ namespace yordle::data::meta {
         std::array<float, 4> lightColor { 1.0f, 1.0f, 1.0f, 1.0f };
         float intensityScale = 1.0f;
         float radius = 500.0f;
-        int32_t Impact = 3;
+        uint8_t Impact = 3u;
         bool castStaticShadows = true;
     };
 }

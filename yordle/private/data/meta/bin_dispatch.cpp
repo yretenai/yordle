@@ -5,9 +5,11 @@
 #include <yordle/data/meta/bin_defs/x10f4d0bf.hpp>
 #include <yordle/data/meta/bin_defs/TempTable2Table.hpp>
 #include <yordle/data/meta/bin_defs/x1122b16e.hpp>
+#include <yordle/data/meta/bin_defs/x1186c725.hpp>
 #include <yordle/data/meta/bin_defs/CharacterHealthBarDataRecord.hpp>
 #include <yordle/data/meta/bin_defs/x11bfa7a1.hpp>
 #include <yordle/data/meta/bin_defs/MapVisibilityFlagRange.hpp>
+#include <yordle/data/meta/bin_defs/x11f7583d.hpp>
 #include <yordle/data/meta/bin_defs/TFTHudAnnouncementData.hpp>
 #include <yordle/data/meta/bin_defs/x1239c84e.hpp>
 #include <yordle/data/meta/bin_defs/X3DSharedConstantDef.hpp>
@@ -15,9 +17,12 @@
 #include <yordle/data/meta/bin_defs/TimeMultiplierCheat.hpp>
 #include <yordle/data/meta/bin_defs/StatUIData.hpp>
 #include <yordle/data/meta/bin_defs/OptionTemplateLabel.hpp>
+#include <yordle/data/meta/bin_defs/x12b6d15e.hpp>
+#include <yordle/data/meta/bin_defs/x12e24bcd.hpp>
 #include <yordle/data/meta/bin_defs/FloatOffsetTableGet.hpp>
 #include <yordle/data/meta/bin_defs/DeathTimes.hpp>
 #include <yordle/data/meta/bin_defs/x13363778.hpp>
+#include <yordle/data/meta/bin_defs/x137c5cb3.hpp>
 #include <yordle/data/meta/bin_defs/x139f27a2.hpp>
 #include <yordle/data/meta/bin_defs/AboveHealthPercentCastRequirement.hpp>
 #include <yordle/data/meta/bin_defs/x13a37f3e.hpp>
@@ -39,6 +44,8 @@
 #include <yordle/data/meta/bin_defs/ByCharLevelInterpolationCalculationPart.hpp>
 #include <yordle/data/meta/bin_defs/MissileBehaviorSpec.hpp>
 #include <yordle/data/meta/bin_defs/TransitionClipBlendData.hpp>
+#include <yordle/data/meta/bin_defs/x1635bdb6.hpp>
+#include <yordle/data/meta/bin_defs/x1650a0ab.hpp>
 #include <yordle/data/meta/bin_defs/x1650a4ce.hpp>
 #include <yordle/data/meta/bin_defs/x16892533.hpp>
 #include <yordle/data/meta/bin_defs/MapSunProperties.hpp>
@@ -51,18 +58,25 @@
 #include <yordle/data/meta/bin_defs/FloatingTextTunables.hpp>
 #include <yordle/data/meta/bin_defs/ItemRecommendationCondition.hpp>
 #include <yordle/data/meta/bin_defs/x17b19502.hpp>
+#include <yordle/data/meta/bin_defs/x17e5a283.hpp>
 #include <yordle/data/meta/bin_defs/GameModeItemList.hpp>
 #include <yordle/data/meta/bin_defs/x186be64c.hpp>
 #include <yordle/data/meta/bin_defs/NumberFormattingBehavior.hpp>
 #include <yordle/data/meta/bin_defs/TargeterDefinitionMinimap.hpp>
+#include <yordle/data/meta/bin_defs/x18ce0cda.hpp>
 #include <yordle/data/meta/bin_defs/x18ee4f3b.hpp>
 #include <yordle/data/meta/bin_defs/OrScriptCondition.hpp>
 #include <yordle/data/meta/bin_defs/x19780ce6.hpp>
+#include <yordle/data/meta/bin_defs/x1a31bf45.hpp>
 #include <yordle/data/meta/bin_defs/VfxFieldAttractionDefinitionData.hpp>
+#include <yordle/data/meta/bin_defs/x1a7fa2f8.hpp>
 #include <yordle/data/meta/bin_defs/x1a96332d.hpp>
 #include <yordle/data/meta/bin_defs/TriggerOnHit.hpp>
 #include <yordle/data/meta/bin_defs/x1ad8a401.hpp>
+#include <yordle/data/meta/bin_defs/x1aee95cf.hpp>
+#include <yordle/data/meta/bin_defs/x1b01e9c3.hpp>
 #include <yordle/data/meta/bin_defs/x1b1243af.hpp>
+#include <yordle/data/meta/bin_defs/x1b906cbf.hpp>
 #include <yordle/data/meta/bin_defs/x1bca1a5e.hpp>
 #include <yordle/data/meta/bin_defs/x1be092ec.hpp>
 #include <yordle/data/meta/bin_defs/PhysicsMovement.hpp>
@@ -95,6 +109,7 @@
 #include <yordle/data/meta/bin_defs/MinimapIcon.hpp>
 #include <yordle/data/meta/bin_defs/TargetOrLocation.hpp>
 #include <yordle/data/meta/bin_defs/x1fa3e21c.hpp>
+#include <yordle/data/meta/bin_defs/x1fac8b64.hpp>
 #include <yordle/data/meta/bin_defs/VfxBeamDefinitionData.hpp>
 #include <yordle/data/meta/bin_defs/x1fbea063.hpp>
 #include <yordle/data/meta/bin_defs/x1feaab61.hpp>
@@ -103,16 +118,19 @@
 #include <yordle/data/meta/bin_defs/x20664115.hpp>
 #include <yordle/data/meta/bin_defs/x2070f6ad.hpp>
 #include <yordle/data/meta/bin_defs/ReturnToCasterOnMovementComplete.hpp>
+#include <yordle/data/meta/bin_defs/x2092043f.hpp>
 #include <yordle/data/meta/bin_defs/IResource.hpp>
 #include <yordle/data/meta/bin_defs/x20d7982e.hpp>
 #include <yordle/data/meta/bin_defs/FxActionContinue.hpp>
 #include <yordle/data/meta/bin_defs/ParallelClipData.hpp>
+#include <yordle/data/meta/bin_defs/x21695480.hpp>
 #include <yordle/data/meta/bin_defs/VfxPrimitiveTrailBase.hpp>
 #include <yordle/data/meta/bin_defs/DynamicMaterialTextureSwapOption.hpp>
 #include <yordle/data/meta/bin_defs/x222410ce.hpp>
 #include <yordle/data/meta/bin_defs/ItemAdviceAttribute.hpp>
 #include <yordle/data/meta/bin_defs/MapPerInstanceInfo.hpp>
 #include <yordle/data/meta/bin_defs/ScriptTableGet.hpp>
+#include <yordle/data/meta/bin_defs/x2257630d.hpp>
 #include <yordle/data/meta/bin_defs/IContextualConditionSpell.hpp>
 #include <yordle/data/meta/bin_defs/VerticalFacingFaceTarget.hpp>
 #include <yordle/data/meta/bin_defs/ContextualRule.hpp>
@@ -120,11 +138,13 @@
 #include <yordle/data/meta/bin_defs/FloatTextFormattingData.hpp>
 #include <yordle/data/meta/bin_defs/MapPointLight.hpp>
 #include <yordle/data/meta/bin_defs/x231dd1a2.hpp>
+#include <yordle/data/meta/bin_defs/x2339b9f8.hpp>
 #include <yordle/data/meta/bin_defs/x2373fc78.hpp>
 #include <yordle/data/meta/bin_defs/CharacterRecord.hpp>
 #include <yordle/data/meta/bin_defs/x23f06f1c.hpp>
 #include <yordle/data/meta/bin_defs/ModeProgressionRewardData.hpp>
 #include <yordle/data/meta/bin_defs/IVfxMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x23f9fb40.hpp>
 #include <yordle/data/meta/bin_defs/ByCharLevelFormulaCalculationPart.hpp>
 #include <yordle/data/meta/bin_defs/CatalogEntry.hpp>
 #include <yordle/data/meta/bin_defs/x242fe438.hpp>
@@ -132,6 +152,7 @@
 #include <yordle/data/meta/bin_defs/ItemData.hpp>
 #include <yordle/data/meta/bin_defs/AlternateSpellAssets.hpp>
 #include <yordle/data/meta/bin_defs/x245ba20b.hpp>
+#include <yordle/data/meta/bin_defs/x24c7aea.hpp>
 #include <yordle/data/meta/bin_defs/ScriptTable.hpp>
 #include <yordle/data/meta/bin_defs/x24fc182b.hpp>
 #include <yordle/data/meta/bin_defs/ObjectTags.hpp>
@@ -179,6 +200,7 @@
 #include <yordle/data/meta/bin_defs/VfxSineMaterialDriver.hpp>
 #include <yordle/data/meta/bin_defs/ScriptCommentBlock.hpp>
 #include <yordle/data/meta/bin_defs/GameModeConstantsGroup.hpp>
+#include <yordle/data/meta/bin_defs/x2b300459.hpp>
 #include <yordle/data/meta/bin_defs/MaskData.hpp>
 #include <yordle/data/meta/bin_defs/x2b58b8dd.hpp>
 #include <yordle/data/meta/bin_defs/AnnouncementIcon.hpp>
@@ -189,11 +211,12 @@
 #include <yordle/data/meta/bin_defs/x2be06ec4.hpp>
 #include <yordle/data/meta/bin_defs/x2bf1aafe.hpp>
 #include <yordle/data/meta/bin_defs/VfxColorOverLifeMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x2c04ede0.hpp>
 #include <yordle/data/meta/bin_defs/SurrenderTypeData.hpp>
 #include <yordle/data/meta/bin_defs/FloatingTextTypeList.hpp>
 #include <yordle/data/meta/bin_defs/LineTargetToCaster.hpp>
 #include <yordle/data/meta/bin_defs/x2cfea070.hpp>
-#include <yordle/data/meta/bin_defs/IsOwnerAliveSpawnConditions.hpp>
+#include <yordle/data/meta/bin_defs/x2d2b5973.hpp>
 #include <yordle/data/meta/bin_defs/EsportsBannerData.hpp>
 #include <yordle/data/meta/bin_defs/RegaliaRankedBannerMap.hpp>
 #include <yordle/data/meta/bin_defs/DynamicMaterialDef.hpp>
@@ -210,6 +233,7 @@
 #include <yordle/data/meta/bin_defs/AbovePARPercentCastRequirement.hpp>
 #include <yordle/data/meta/bin_defs/ScriptPreloadCharacter.hpp>
 #include <yordle/data/meta/bin_defs/FlexTypeFloat.hpp>
+#include <yordle/data/meta/bin_defs/x2fa2826.hpp>
 #include <yordle/data/meta/bin_defs/x2fae5ced.hpp>
 #include <yordle/data/meta/bin_defs/FunctionTableGet.hpp>
 #include <yordle/data/meta/bin_defs/x300333fc.hpp>
@@ -230,6 +254,7 @@
 #include <yordle/data/meta/bin_defs/LoadoutDamageSkinInfoPanel.hpp>
 #include <yordle/data/meta/bin_defs/x327b06c3.hpp>
 #include <yordle/data/meta/bin_defs/LockRootOrientationRigPoseModifierData.hpp>
+#include <yordle/data/meta/bin_defs/x32a4d21f.hpp>
 #include <yordle/data/meta/bin_defs/MapAlternateAssets.hpp>
 #include <yordle/data/meta/bin_defs/x32be2466.hpp>
 #include <yordle/data/meta/bin_defs/x32c5fd80.hpp>
@@ -237,6 +262,7 @@
 #include <yordle/data/meta/bin_defs/SkinCharacterDataProperties_CharacterIdleEffect.hpp>
 #include <yordle/data/meta/bin_defs/TFTGameVariationData.hpp>
 #include <yordle/data/meta/bin_defs/NamedDataValueCalculationPart.hpp>
+#include <yordle/data/meta/bin_defs/x33b88aa0.hpp>
 #include <yordle/data/meta/bin_defs/UseAutoattackCastTimeData.hpp>
 #include <yordle/data/meta/bin_defs/TargeterDefinitionLine.hpp>
 #include <yordle/data/meta/bin_defs/x340536c7.hpp>
@@ -244,6 +270,7 @@
 #include <yordle/data/meta/bin_defs/x34270fce.hpp>
 #include <yordle/data/meta/bin_defs/X3DSharedData.hpp>
 #include <yordle/data/meta/bin_defs/x345c1c77.hpp>
+#include <yordle/data/meta/bin_defs/x347698ff.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionSpellSlot.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionKillCount.hpp>
 #include <yordle/data/meta/bin_defs/TerrainType.hpp>
@@ -256,7 +283,9 @@
 #include <yordle/data/meta/bin_defs/TooltipInstanceItem.hpp>
 #include <yordle/data/meta/bin_defs/x3604b3e3.hpp>
 #include <yordle/data/meta/bin_defs/MinMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x361810cd.hpp>
 #include <yordle/data/meta/bin_defs/x364f1782.hpp>
+#include <yordle/data/meta/bin_defs/x366824d6.hpp>
 #include <yordle/data/meta/bin_defs/AudioSystemDataProperties.hpp>
 #include <yordle/data/meta/bin_defs/x369a22b9.hpp>
 #include <yordle/data/meta/bin_defs/VoiceChatViewController.hpp>
@@ -275,6 +304,7 @@
 #include <yordle/data/meta/bin_defs/MapSkinColorizationPostEffect.hpp>
 #include <yordle/data/meta/bin_defs/MinimapIconColorData.hpp>
 #include <yordle/data/meta/bin_defs/NeutralTimerData.hpp>
+#include <yordle/data/meta/bin_defs/x3985a371.hpp>
 #include <yordle/data/meta/bin_defs/CircleMovement.hpp>
 #include <yordle/data/meta/bin_defs/x39bbca88.hpp>
 #include <yordle/data/meta/bin_defs/EncounterUITunables.hpp>
@@ -285,16 +315,18 @@
 #include <yordle/data/meta/bin_defs/ItemGroup.hpp>
 #include <yordle/data/meta/bin_defs/AbilityResourceTypeConfig.hpp>
 #include <yordle/data/meta/bin_defs/x3ba29588.hpp>
+#include <yordle/data/meta/bin_defs/x3bdcdfe9.hpp>
 #include <yordle/data/meta/bin_defs/TftSurrenderCheat.hpp>
 #include <yordle/data/meta/bin_defs/IconElementData.hpp>
-#include <yordle/data/meta/bin_defs/IDynamicMaterialDriver.hpp>
 #include <yordle/data/meta/bin_defs/IScriptBlock.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionGameTimer.hpp>
+#include <yordle/data/meta/bin_defs/x3c38f0fa.hpp>
 #include <yordle/data/meta/bin_defs/LootTableDialogViewController.hpp>
 #include <yordle/data/meta/bin_defs/MapBehavior.hpp>
 #include <yordle/data/meta/bin_defs/x3c82d0e6.hpp>
 #include <yordle/data/meta/bin_defs/FxActionMoveBase.hpp>
 #include <yordle/data/meta/bin_defs/x3c8d0b5d.hpp>
+#include <yordle/data/meta/bin_defs/x3ccabb2e.hpp>
 #include <yordle/data/meta/bin_defs/x3cd8dbcd.hpp>
 #include <yordle/data/meta/bin_defs/TriggerOnStart.hpp>
 #include <yordle/data/meta/bin_defs/PerkBuff.hpp>
@@ -302,6 +334,7 @@
 #include <yordle/data/meta/bin_defs/x3de2c4c6.hpp>
 #include <yordle/data/meta/bin_defs/MissileGroupSpawnerSpec.hpp>
 #include <yordle/data/meta/bin_defs/x3e59e2ca.hpp>
+#include <yordle/data/meta/bin_defs/x3e78fedb.hpp>
 #include <yordle/data/meta/bin_defs/SetRespawnTimerCheat.hpp>
 #include <yordle/data/meta/bin_defs/x3ee0746d.hpp>
 #include <yordle/data/meta/bin_defs/x3f22b20c.hpp>
@@ -309,17 +342,20 @@
 #include <yordle/data/meta/bin_defs/MapGraphicsFeature.hpp>
 #include <yordle/data/meta/bin_defs/IndicatorTypeLocal.hpp>
 #include <yordle/data/meta/bin_defs/IContextualAction.hpp>
+#include <yordle/data/meta/bin_defs/x40124672.hpp>
 #include <yordle/data/meta/bin_defs/GameModeConstantInteger.hpp>
 #include <yordle/data/meta/bin_defs/x4057a24f.hpp>
 #include <yordle/data/meta/bin_defs/x407b58d1.hpp>
 #include <yordle/data/meta/bin_defs/x4084af1e.hpp>
 #include <yordle/data/meta/bin_defs/MaterialInstanceDynamicTexture.hpp>
+#include <yordle/data/meta/bin_defs/x40ac7d9e.hpp>
 #include <yordle/data/meta/bin_defs/SyncedAnimationRigPoseModifierData.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionItemID.hpp>
-#include <yordle/data/meta/bin_defs/IDynamicMaterialFloatDriver.hpp>
 #include <yordle/data/meta/bin_defs/VfxReflectionDefinitionData.hpp>
+#include <yordle/data/meta/bin_defs/x41356ce8.hpp>
 #include <yordle/data/meta/bin_defs/FlexValueVector2.hpp>
 #include <yordle/data/meta/bin_defs/x418b95a.hpp>
+#include <yordle/data/meta/bin_defs/x41ae7879.hpp>
 #include <yordle/data/meta/bin_defs/ItemCareyOverrideStartingItemSetSet.hpp>
 #include <yordle/data/meta/bin_defs/x41c73a85.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionNegation.hpp>
@@ -327,7 +363,9 @@
 #include <yordle/data/meta/bin_defs/SkinAnimationProperties.hpp>
 #include <yordle/data/meta/bin_defs/LoadScreenTip.hpp>
 #include <yordle/data/meta/bin_defs/x429f3e94.hpp>
+#include <yordle/data/meta/bin_defs/x42b7c989.hpp>
 #include <yordle/data/meta/bin_defs/x42bac271.hpp>
+#include <yordle/data/meta/bin_defs/x42d144f5.hpp>
 #include <yordle/data/meta/bin_defs/AudioTagListProperties.hpp>
 #include <yordle/data/meta/bin_defs/ValueFloat.hpp>
 #include <yordle/data/meta/bin_defs/x430dd10d.hpp>
@@ -337,6 +375,7 @@
 #include <yordle/data/meta/bin_defs/x4379a5b2.hpp>
 #include <yordle/data/meta/bin_defs/TFTSetData.hpp>
 #include <yordle/data/meta/bin_defs/LinearTransformProcessorData.hpp>
+#include <yordle/data/meta/bin_defs/x43985a14.hpp>
 #include <yordle/data/meta/bin_defs/x43c3d118.hpp>
 #include <yordle/data/meta/bin_defs/StoreViewController.hpp>
 #include <yordle/data/meta/bin_defs/CharacterVarsTable.hpp>
@@ -349,11 +388,14 @@
 #include <yordle/data/meta/bin_defs/MaterialInstanceDynamicSwitch.hpp>
 #include <yordle/data/meta/bin_defs/SwitchMaterialDriverElement.hpp>
 #include <yordle/data/meta/bin_defs/MapPrefabInstance.hpp>
+#include <yordle/data/meta/bin_defs/x460c4eb6.hpp>
 #include <yordle/data/meta/bin_defs/TrophyData.hpp>
 #include <yordle/data/meta/bin_defs/BuffData.hpp>
 #include <yordle/data/meta/bin_defs/x46533086.hpp>
 #include <yordle/data/meta/bin_defs/SpecificColorMaterialDriver.hpp>
 #include <yordle/data/meta/bin_defs/ItemRecommendationItemList.hpp>
+#include <yordle/data/meta/bin_defs/x4695505a.hpp>
+#include <yordle/data/meta/bin_defs/x46b48e3a.hpp>
 #include <yordle/data/meta/bin_defs/x474f1541.hpp>
 #include <yordle/data/meta/bin_defs/QualitySetting.hpp>
 #include <yordle/data/meta/bin_defs/x4792d315.hpp>
@@ -364,10 +406,15 @@
 #include <yordle/data/meta/bin_defs/x48184113.hpp>
 #include <yordle/data/meta/bin_defs/x48284759.hpp>
 #include <yordle/data/meta/bin_defs/x486e38ec.hpp>
+#include <yordle/data/meta/bin_defs/x486fc5cf.hpp>
 #include <yordle/data/meta/bin_defs/ESportLeagueEntry.hpp>
+#include <yordle/data/meta/bin_defs/x48b8b7f9.hpp>
 #include <yordle/data/meta/bin_defs/x48c9ff38.hpp>
 #include <yordle/data/meta/bin_defs/MapParticleGroups.hpp>
 #include <yordle/data/meta/bin_defs/GDSMapObjectExtraInfo.hpp>
+#include <yordle/data/meta/bin_defs/x48e47e11.hpp>
+#include <yordle/data/meta/bin_defs/x48eb8d47.hpp>
+#include <yordle/data/meta/bin_defs/x48ed2f8c.hpp>
 #include <yordle/data/meta/bin_defs/x4926ae3e.hpp>
 #include <yordle/data/meta/bin_defs/x49340fba.hpp>
 #include <yordle/data/meta/bin_defs/VfxDistortionDefinitionData.hpp>
@@ -393,8 +440,11 @@
 #include <yordle/data/meta/bin_defs/TargeterDefinition.hpp>
 #include <yordle/data/meta/bin_defs/FadeEventData.hpp>
 #include <yordle/data/meta/bin_defs/NeutralTimers.hpp>
-#include <yordle/data/meta/bin_defs/HudGearSelectionUIData.hpp>
+#include <yordle/data/meta/bin_defs/x4c7c2212.hpp>
+#include <yordle/data/meta/bin_defs/x4ccbdd5b.hpp>
+#include <yordle/data/meta/bin_defs/x4d2d2581.hpp>
 #include <yordle/data/meta/bin_defs/x4d31ed46.hpp>
+#include <yordle/data/meta/bin_defs/x4d8b713a.hpp>
 #include <yordle/data/meta/bin_defs/DynamicMaterialTextureSwapDef.hpp>
 #include <yordle/data/meta/bin_defs/MaterialInstanceTextureDef.hpp>
 #include <yordle/data/meta/bin_defs/x4e4bbc2b.hpp>
@@ -406,16 +456,20 @@
 #include <yordle/data/meta/bin_defs/IsSkinSpawnConditionData.hpp>
 #include <yordle/data/meta/bin_defs/MaterialSwitchData.hpp>
 #include <yordle/data/meta/bin_defs/x4f3e1bdd.hpp>
+#include <yordle/data/meta/bin_defs/x4f503c36.hpp>
 #include <yordle/data/meta/bin_defs/EffectDesaturateElementData.hpp>
 #include <yordle/data/meta/bin_defs/MasteryBadgeData.hpp>
 #include <yordle/data/meta/bin_defs/x4fe40e4a.hpp>
 #include <yordle/data/meta/bin_defs/TFTHudTunables.hpp>
 #include <yordle/data/meta/bin_defs/SpellDataValue.hpp>
 #include <yordle/data/meta/bin_defs/x5016b4b.hpp>
+#include <yordle/data/meta/bin_defs/x503ad0d2.hpp>
+#include <yordle/data/meta/bin_defs/x50508565.hpp>
+#include <yordle/data/meta/bin_defs/x5059f9b6.hpp>
 #include <yordle/data/meta/bin_defs/BlendableClipData.hpp>
 #include <yordle/data/meta/bin_defs/ITargeterFadeBehavior.hpp>
 #include <yordle/data/meta/bin_defs/x506291c8.hpp>
-#include <yordle/data/meta/bin_defs/HasBuffNameSpawnConditions.hpp>
+#include <yordle/data/meta/bin_defs/x50a17343.hpp>
 #include <yordle/data/meta/bin_defs/AnnouncementsViewController.hpp>
 #include <yordle/data/meta/bin_defs/x512e2440.hpp>
 #include <yordle/data/meta/bin_defs/HermiteSplineInfo.hpp>
@@ -423,6 +477,7 @@
 #include <yordle/data/meta/bin_defs/FlexValueFloat.hpp>
 #include <yordle/data/meta/bin_defs/healthBarData.hpp>
 #include <yordle/data/meta/bin_defs/VfxFloatOverLifeMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x51d7da65.hpp>
 #include <yordle/data/meta/bin_defs/x522ba90a.hpp>
 #include <yordle/data/meta/bin_defs/x527e0256.hpp>
 #include <yordle/data/meta/bin_defs/x5289f880.hpp>
@@ -441,15 +496,19 @@
 #include <yordle/data/meta/bin_defs/TrackMouseMovement.hpp>
 #include <yordle/data/meta/bin_defs/WorldVarsTable.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionHasGold.hpp>
+#include <yordle/data/meta/bin_defs/x54d18cd8.hpp>
 #include <yordle/data/meta/bin_defs/UpdaterResourceData.hpp>
 #include <yordle/data/meta/bin_defs/RigResource.hpp>
 #include <yordle/data/meta/bin_defs/x55212361.hpp>
 #include <yordle/data/meta/bin_defs/x555b42fd.hpp>
 #include <yordle/data/meta/bin_defs/OptionTemplateHotkeysLabel.hpp>
+#include <yordle/data/meta/bin_defs/x55cb8ac2.hpp>
 #include <yordle/data/meta/bin_defs/MaterialOverrideCallbackDynamicMaterial.hpp>
+#include <yordle/data/meta/bin_defs/x55f603e4.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionMarkerName.hpp>
 #include <yordle/data/meta/bin_defs/SourceTypeFilter.hpp>
 #include <yordle/data/meta/bin_defs/x560e6c39.hpp>
+#include <yordle/data/meta/bin_defs/x564d2410.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionCharacterLevel.hpp>
 #include <yordle/data/meta/bin_defs/ToggleAfkDetectionCheat.hpp>
 #include <yordle/data/meta/bin_defs/BlendingSwitchMaterialDriver.hpp>
@@ -458,6 +517,7 @@
 #include <yordle/data/meta/bin_defs/HasUnitTagsCastRequirement.hpp>
 #include <yordle/data/meta/bin_defs/BuffCounterDynamicMaterialFloatDriver.hpp>
 #include <yordle/data/meta/bin_defs/OverrideAttackTimeData.hpp>
+#include <yordle/data/meta/bin_defs/x57c67d10.hpp>
 #include <yordle/data/meta/bin_defs/x57e5c253.hpp>
 #include <yordle/data/meta/bin_defs/x580644e.hpp>
 #include <yordle/data/meta/bin_defs/StatByCoefficientCalculationPart.hpp>
@@ -466,7 +526,6 @@
 #include <yordle/data/meta/bin_defs/MapVisibilityFlagDefinitions.hpp>
 #include <yordle/data/meta/bin_defs/x5891432c.hpp>
 #include <yordle/data/meta/bin_defs/x58e072e0.hpp>
-#include <yordle/data/meta/bin_defs/HudRadialWheelData.hpp>
 #include <yordle/data/meta/bin_defs/MapParticle.hpp>
 #include <yordle/data/meta/bin_defs/MaterialInstanceParamDef.hpp>
 #include <yordle/data/meta/bin_defs/x597c4a9d.hpp>
@@ -478,6 +537,7 @@
 #include <yordle/data/meta/bin_defs/x5a3bc52d.hpp>
 #include <yordle/data/meta/bin_defs/x5a51d019.hpp>
 #include <yordle/data/meta/bin_defs/PerkReplacement.hpp>
+#include <yordle/data/meta/bin_defs/x5a730cb9.hpp>
 #include <yordle/data/meta/bin_defs/x5abdfab.hpp>
 #include <yordle/data/meta/bin_defs/PlatformSpellInfo.hpp>
 #include <yordle/data/meta/bin_defs/OptionItemSliderGraphicsQuality.hpp>
@@ -492,11 +552,13 @@
 #include <yordle/data/meta/bin_defs/LootItem.hpp>
 #include <yordle/data/meta/bin_defs/ICastRequirement.hpp>
 #include <yordle/data/meta/bin_defs/x5c8fefd9.hpp>
+#include <yordle/data/meta/bin_defs/x5c93a47b.hpp>
 #include <yordle/data/meta/bin_defs/x5ca5224c.hpp>
-#include <yordle/data/meta/bin_defs/IsOwnerHeroSpawnConditions.hpp>
+#include <yordle/data/meta/bin_defs/x5caa6326.hpp>
 #include <yordle/data/meta/bin_defs/x5ce1431e.hpp>
 #include <yordle/data/meta/bin_defs/ByCharLevelBreakpointsCalculationPart.hpp>
 #include <yordle/data/meta/bin_defs/GetKeyValueInCustomTableBlock.hpp>
+#include <yordle/data/meta/bin_defs/x5daa76d6.hpp>
 #include <yordle/data/meta/bin_defs/MapClouds.hpp>
 #include <yordle/data/meta/bin_defs/TFTHudCombatRecapData.hpp>
 #include <yordle/data/meta/bin_defs/ParticleEventDataPair.hpp>
@@ -522,6 +584,7 @@
 #include <yordle/data/meta/bin_defs/ShaderStaticSwitch.hpp>
 #include <yordle/data/meta/bin_defs/StaticMaterialTechniqueDef.hpp>
 #include <yordle/data/meta/bin_defs/SameTeamCastRequirement.hpp>
+#include <yordle/data/meta/bin_defs/x60bb49c0.hpp>
 #include <yordle/data/meta/bin_defs/ScriptDataObject.hpp>
 #include <yordle/data/meta/bin_defs/SkinMeshDataProperties.hpp>
 #include <yordle/data/meta/bin_defs/x6172a47c.hpp>
@@ -554,6 +617,7 @@
 #include <yordle/data/meta/bin_defs/x64b1df0c.hpp>
 #include <yordle/data/meta/bin_defs/SponsoredBanner.hpp>
 #include <yordle/data/meta/bin_defs/x64e7b9e1.hpp>
+#include <yordle/data/meta/bin_defs/x651375aa.hpp>
 #include <yordle/data/meta/bin_defs/MaxMaterialDriver.hpp>
 #include <yordle/data/meta/bin_defs/x6526fc8.hpp>
 #include <yordle/data/meta/bin_defs/TftItemComposition.hpp>
@@ -564,6 +628,7 @@
 #include <yordle/data/meta/bin_defs/MusicAudioDataProperties.hpp>
 #include <yordle/data/meta/bin_defs/x6638d338.hpp>
 #include <yordle/data/meta/bin_defs/x663d5e00.hpp>
+#include <yordle/data/meta/bin_defs/x66615e8b.hpp>
 #include <yordle/data/meta/bin_defs/SyncGroupData.hpp>
 #include <yordle/data/meta/bin_defs/x666f9b2c.hpp>
 #include <yordle/data/meta/bin_defs/ChangeTurnRadius.hpp>
@@ -575,7 +640,10 @@
 #include <yordle/data/meta/bin_defs/MissileVisibilitySpec.hpp>
 #include <yordle/data/meta/bin_defs/MaterialTextureDataCollection.hpp>
 #include <yordle/data/meta/bin_defs/VfxPrimitiveBeam.hpp>
+#include <yordle/data/meta/bin_defs/x6884e28b.hpp>
+#include <yordle/data/meta/bin_defs/x6897155d.hpp>
 #include <yordle/data/meta/bin_defs/VectorGet.hpp>
+#include <yordle/data/meta/bin_defs/x68b3a178.hpp>
 #include <yordle/data/meta/bin_defs/ValueVector3.hpp>
 #include <yordle/data/meta/bin_defs/SkinUpgradeData.hpp>
 #include <yordle/data/meta/bin_defs/x696a421b.hpp>
@@ -588,6 +656,7 @@
 #include <yordle/data/meta/bin_defs/x6a1c233f.hpp>
 #include <yordle/data/meta/bin_defs/MapBakeProperties.hpp>
 #include <yordle/data/meta/bin_defs/x6a569767.hpp>
+#include <yordle/data/meta/bin_defs/x6a6e3b03.hpp>
 #include <yordle/data/meta/bin_defs/x6a7b0838.hpp>
 #include <yordle/data/meta/bin_defs/VfxMeshDefinitionData.hpp>
 #include <yordle/data/meta/bin_defs/OptionItemSecondaryHotkeys2Column.hpp>
@@ -600,10 +669,13 @@
 #include <yordle/data/meta/bin_defs/SpellDataValueVector.hpp>
 #include <yordle/data/meta/bin_defs/MinimapPingEffectDefinition.hpp>
 #include <yordle/data/meta/bin_defs/IntegratedValueVector2.hpp>
+#include <yordle/data/meta/bin_defs/x6bf6a4c1.hpp>
 #include <yordle/data/meta/bin_defs/SHData.hpp>
 #include <yordle/data/meta/bin_defs/InvalidDeviceViewController.hpp>
-#include <yordle/data/meta/bin_defs/TFTMapCharacterLists.hpp>
+#include <yordle/data/meta/bin_defs/x6c816d62.hpp>
+#include <yordle/data/meta/bin_defs/x6ca013c9.hpp>
 #include <yordle/data/meta/bin_defs/x6cadfdc9.hpp>
+#include <yordle/data/meta/bin_defs/x6cae7c7b.hpp>
 #include <yordle/data/meta/bin_defs/IntegratedValueVector3.hpp>
 #include <yordle/data/meta/bin_defs/x6cdbb71d.hpp>
 #include <yordle/data/meta/bin_defs/x6ce97639.hpp>
@@ -611,9 +683,11 @@
 #include <yordle/data/meta/bin_defs/x6d6cc142.hpp>
 #include <yordle/data/meta/bin_defs/x6d8274d.hpp>
 #include <yordle/data/meta/bin_defs/SelectorPairData.hpp>
+#include <yordle/data/meta/bin_defs/x6d8a849f.hpp>
 #include <yordle/data/meta/bin_defs/x6d8b7fba.hpp>
 #include <yordle/data/meta/bin_defs/TFTHudStageData.hpp>
 #include <yordle/data/meta/bin_defs/x6dd26f3a.hpp>
+#include <yordle/data/meta/bin_defs/x6df7291a.hpp>
 #include <yordle/data/meta/bin_defs/x6e03cc25.hpp>
 #include <yordle/data/meta/bin_defs/TFTHudScoreboardData.hpp>
 #include <yordle/data/meta/bin_defs/BuffStackingSettings.hpp>
@@ -621,29 +695,37 @@
 #include <yordle/data/meta/bin_defs/x6e9187f0.hpp>
 #include <yordle/data/meta/bin_defs/RegionElementData.hpp>
 #include <yordle/data/meta/bin_defs/MapPathCurveSegment.hpp>
+#include <yordle/data/meta/bin_defs/x6f0c0b6.hpp>
 #include <yordle/data/meta/bin_defs/DelayStart.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionSpellLevel.hpp>
+#include <yordle/data/meta/bin_defs/x6f2e6cac.hpp>
 #include <yordle/data/meta/bin_defs/TftTraitData.hpp>
 #include <yordle/data/meta/bin_defs/FxActionMoveReset.hpp>
 #include <yordle/data/meta/bin_defs/x6faebdfe.hpp>
 #include <yordle/data/meta/bin_defs/x6fb1f68f.hpp>
 #include <yordle/data/meta/bin_defs/MaterialDataCollections.hpp>
+#include <yordle/data/meta/bin_defs/x6fe54ebf.hpp>
 #include <yordle/data/meta/bin_defs/x700d0136.hpp>
+#include <yordle/data/meta/bin_defs/x703acc15.hpp>
+#include <yordle/data/meta/bin_defs/x7041ed03.hpp>
 #include <yordle/data/meta/bin_defs/x705759a.hpp>
+#include <yordle/data/meta/bin_defs/x70678bd0.hpp>
 #include <yordle/data/meta/bin_defs/SwapChampionCheat.hpp>
-#include <yordle/data/meta/bin_defs/HudStatStoneDeathRecapData.hpp>
 #include <yordle/data/meta/bin_defs/TableValueExistsScriptCondition.hpp>
 #include <yordle/data/meta/bin_defs/GameCalculationModified.hpp>
 #include <yordle/data/meta/bin_defs/FloatLiteralMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x71082f6a.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionCustomTimer.hpp>
 #include <yordle/data/meta/bin_defs/AtlasData.hpp>
 #include <yordle/data/meta/bin_defs/GlobalPerLevelStatsFactor.hpp>
 #include <yordle/data/meta/bin_defs/EffectAnimationElementData.hpp>
 #include <yordle/data/meta/bin_defs/HasGearDynamicMaterialBoolDriver.hpp>
+#include <yordle/data/meta/bin_defs/x726fba2.hpp>
 #include <yordle/data/meta/bin_defs/x72849ea5.hpp>
 #include <yordle/data/meta/bin_defs/BaseResourceResolver.hpp>
 #include <yordle/data/meta/bin_defs/MissionAsset.hpp>
 #include <yordle/data/meta/bin_defs/TargeterDefinitionMultiAOE.hpp>
+#include <yordle/data/meta/bin_defs/x72c992e3.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionShopOpenCount.hpp>
 #include <yordle/data/meta/bin_defs/x732daac5.hpp>
 #include <yordle/data/meta/bin_defs/StaticMaterialChildTechniqueDef.hpp>
@@ -654,9 +736,12 @@
 #include <yordle/data/meta/bin_defs/ValueColor.hpp>
 #include <yordle/data/meta/bin_defs/TFTUnitUpgradeData.hpp>
 #include <yordle/data/meta/bin_defs/MaterialInstanceDynamicParam.hpp>
+#include <yordle/data/meta/bin_defs/x751db4bd.hpp>
 #include <yordle/data/meta/bin_defs/x75259ad3.hpp>
 #include <yordle/data/meta/bin_defs/x759a8c58.hpp>
+#include <yordle/data/meta/bin_defs/x75bd5974.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionEnemyDeathsNearby.hpp>
+#include <yordle/data/meta/bin_defs/x75e442a0.hpp>
 #include <yordle/data/meta/bin_defs/x75e8f0c1.hpp>
 #include <yordle/data/meta/bin_defs/OptionItemLabel.hpp>
 #include <yordle/data/meta/bin_defs/AbilityResourceByCoefficientCalculationPart.hpp>
@@ -694,9 +779,10 @@
 #include <yordle/data/meta/bin_defs/x7a2a7a0d.hpp>
 #include <yordle/data/meta/bin_defs/x7a2da7e3.hpp>
 #include <yordle/data/meta/bin_defs/NullMovement.hpp>
+#include <yordle/data/meta/bin_defs/x7a851cd8.hpp>
 #include <yordle/data/meta/bin_defs/x7a9a96ff.hpp>
 #include <yordle/data/meta/bin_defs/x7a9e7d89.hpp>
-#include <yordle/data/meta/bin_defs/HudTunables.hpp>
+#include <yordle/data/meta/bin_defs/x7aaf9246.hpp>
 #include <yordle/data/meta/bin_defs/MapMotionPath.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionSpell.hpp>
 #include <yordle/data/meta/bin_defs/MinimapPingData.hpp>
@@ -727,12 +813,13 @@
 #include <yordle/data/meta/bin_defs/OptionTemplateDropdown.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionHasItemFromVOGroup.hpp>
 #include <yordle/data/meta/bin_defs/x7ecffba4.hpp>
+#include <yordle/data/meta/bin_defs/x7edb8ffc.hpp>
 #include <yordle/data/meta/bin_defs/x7efae6c2.hpp>
 #include <yordle/data/meta/bin_defs/AnchorBase.hpp>
+#include <yordle/data/meta/bin_defs/x7f2f1cd7.hpp>
 #include <yordle/data/meta/bin_defs/MapActionPlaySoundAtLocation.hpp>
 #include <yordle/data/meta/bin_defs/ILoadoutInfoPanel.hpp>
 #include <yordle/data/meta/bin_defs/MinimapPingEffectAndTextureData.hpp>
-#include <yordle/data/meta/bin_defs/HudStatStoneData.hpp>
 #include <yordle/data/meta/bin_defs/SyncedAnimationEventData.hpp>
 #include <yordle/data/meta/bin_defs/AnimationFractionDynamicMaterialFloatDriver.hpp>
 #include <yordle/data/meta/bin_defs/TargetingTypeData.hpp>
@@ -746,6 +833,7 @@
 #include <yordle/data/meta/bin_defs/EffectAnimatedRotatingIconElementData.hpp>
 #include <yordle/data/meta/bin_defs/x8164bac7.hpp>
 #include <yordle/data/meta/bin_defs/ShaderPhysicalParameter.hpp>
+#include <yordle/data/meta/bin_defs/x817dda6b.hpp>
 #include <yordle/data/meta/bin_defs/x81862b0f.hpp>
 #include <yordle/data/meta/bin_defs/x8195235f.hpp>
 #include <yordle/data/meta/bin_defs/EffectCooldownRadialElementData.hpp>
@@ -757,6 +845,7 @@
 #include <yordle/data/meta/bin_defs/x828bfdbd.hpp>
 #include <yordle/data/meta/bin_defs/x8314a414.hpp>
 #include <yordle/data/meta/bin_defs/x833fc03.hpp>
+#include <yordle/data/meta/bin_defs/x83d6eef9.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionCharacterPlayingAnimation.hpp>
 #include <yordle/data/meta/bin_defs/ToggleBuffCheat.hpp>
 #include <yordle/data/meta/bin_defs/HomeViewController.hpp>
@@ -777,6 +866,7 @@
 #include <yordle/data/meta/bin_defs/x86504cef.hpp>
 #include <yordle/data/meta/bin_defs/AudioStatusEvents.hpp>
 #include <yordle/data/meta/bin_defs/x868f2575.hpp>
+#include <yordle/data/meta/bin_defs/x86bbe402.hpp>
 #include <yordle/data/meta/bin_defs/VfxProbabilityTableDataGrande.hpp>
 #include <yordle/data/meta/bin_defs/GlobalAudioDataProperties.hpp>
 #include <yordle/data/meta/bin_defs/ClearAlreadyHitTracking.hpp>
@@ -809,7 +899,7 @@
 #include <yordle/data/meta/bin_defs/EffectCreationData.hpp>
 #include <yordle/data/meta/bin_defs/SkinMeshDataProperties_MaterialOverride.hpp>
 #include <yordle/data/meta/bin_defs/x8b912b1.hpp>
-#include <yordle/data/meta/bin_defs/HudStatPanelStatStoneData.hpp>
+#include <yordle/data/meta/bin_defs/x8bb623e8.hpp>
 #include <yordle/data/meta/bin_defs/EffectValueCalculationPart.hpp>
 #include <yordle/data/meta/bin_defs/x8bc2dd4a.hpp>
 #include <yordle/data/meta/bin_defs/GenericMapPlaceable.hpp>
@@ -818,6 +908,7 @@
 #include <yordle/data/meta/bin_defs/x8cb19eb5.hpp>
 #include <yordle/data/meta/bin_defs/SequencerClipData.hpp>
 #include <yordle/data/meta/bin_defs/x8df16a16.hpp>
+#include <yordle/data/meta/bin_defs/x8e14e9d9.hpp>
 #include <yordle/data/meta/bin_defs/CompanionSpeciesData.hpp>
 #include <yordle/data/meta/bin_defs/x8e85b8c7.hpp>
 #include <yordle/data/meta/bin_defs/Breakpoint.hpp>
@@ -829,11 +920,13 @@
 #include <yordle/data/meta/bin_defs/x8f1e6a22.hpp>
 #include <yordle/data/meta/bin_defs/DefaultSplashedPerkStyle.hpp>
 #include <yordle/data/meta/bin_defs/SkinAudioProperties.hpp>
+#include <yordle/data/meta/bin_defs/x8f83fb9c.hpp>
 #include <yordle/data/meta/bin_defs/x8f85e859.hpp>
 #include <yordle/data/meta/bin_defs/WallFollowMovement.hpp>
 #include <yordle/data/meta/bin_defs/HasBuffSpawnConditionData.hpp>
 #include <yordle/data/meta/bin_defs/RegaliaRankedCrestMap.hpp>
 #include <yordle/data/meta/bin_defs/FloorFloatMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x902efdf2.hpp>
 #include <yordle/data/meta/bin_defs/x90347ed8.hpp>
 #include <yordle/data/meta/bin_defs/StaticMaterialShaderSamplerDef.hpp>
 #include <yordle/data/meta/bin_defs/x9063268e.hpp>
@@ -845,11 +938,15 @@
 #include <yordle/data/meta/bin_defs/OptionItemHotkeys.hpp>
 #include <yordle/data/meta/bin_defs/AllTrueMaterialDriver.hpp>
 #include <yordle/data/meta/bin_defs/EnterFOWVisibility.hpp>
+#include <yordle/data/meta/bin_defs/x92cd7558.hpp>
 #include <yordle/data/meta/bin_defs/SpellEffectAmount.hpp>
 #include <yordle/data/meta/bin_defs/VectorTableSet.hpp>
+#include <yordle/data/meta/bin_defs/x939f012f.hpp>
 #include <yordle/data/meta/bin_defs/x93ad1c61.hpp>
 #include <yordle/data/meta/bin_defs/ICatalogEntryOwner.hpp>
 #include <yordle/data/meta/bin_defs/ExperienceCurveData.hpp>
+#include <yordle/data/meta/bin_defs/x94184a6c.hpp>
+#include <yordle/data/meta/bin_defs/x94205387.hpp>
 #include <yordle/data/meta/bin_defs/RegionsThatAllowContent.hpp>
 #include <yordle/data/meta/bin_defs/x946612f1.hpp>
 #include <yordle/data/meta/bin_defs/Cheat.hpp>
@@ -857,6 +954,7 @@
 #include <yordle/data/meta/bin_defs/x94e53457.hpp>
 #include <yordle/data/meta/bin_defs/LootOutputBase.hpp>
 #include <yordle/data/meta/bin_defs/TFTStreakData.hpp>
+#include <yordle/data/meta/bin_defs/x9577b25f.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionCharacterMetadata.hpp>
 #include <yordle/data/meta/bin_defs/BaseLoadoutData.hpp>
 #include <yordle/data/meta/bin_defs/X3DSharedConstantBufferDef.hpp>
@@ -864,12 +962,14 @@
 #include <yordle/data/meta/bin_defs/StatStoneSet.hpp>
 #include <yordle/data/meta/bin_defs/x968f51a8.hpp>
 #include <yordle/data/meta/bin_defs/VfxChildIdentifier.hpp>
+#include <yordle/data/meta/bin_defs/x96b0a5e6.hpp>
 #include <yordle/data/meta/bin_defs/GravityHeightSolver.hpp>
+#include <yordle/data/meta/bin_defs/x96d673eb.hpp>
 #include <yordle/data/meta/bin_defs/VfxPrimitiveCameraQuad.hpp>
-#include <yordle/data/meta/bin_defs/ToonInkingFilterParams.hpp>
 #include <yordle/data/meta/bin_defs/x973c5e4d.hpp>
 #include <yordle/data/meta/bin_defs/GameModeConstantFloat.hpp>
 #include <yordle/data/meta/bin_defs/TFTItemList.hpp>
+#include <yordle/data/meta/bin_defs/x97e71e72.hpp>
 #include <yordle/data/meta/bin_defs/x97fc7312.hpp>
 #include <yordle/data/meta/bin_defs/TrackData.hpp>
 #include <yordle/data/meta/bin_defs/ItemRecommendationOverrideStartingItemSet.hpp>
@@ -878,6 +978,7 @@
 #include <yordle/data/meta/bin_defs/ContextualConditionMapID.hpp>
 #include <yordle/data/meta/bin_defs/CreateFunctionBlock.hpp>
 #include <yordle/data/meta/bin_defs/SubPartScaledProportionalToStat.hpp>
+#include <yordle/data/meta/bin_defs/x995ca734.hpp>
 #include <yordle/data/meta/bin_defs/Companion.hpp>
 #include <yordle/data/meta/bin_defs/MapPathLineSegment.hpp>
 #include <yordle/data/meta/bin_defs/CheatPage.hpp>
@@ -886,9 +987,11 @@
 #include <yordle/data/meta/bin_defs/x99e777d.hpp>
 #include <yordle/data/meta/bin_defs/DeathTimesScalingPoint.hpp>
 #include <yordle/data/meta/bin_defs/TooltipInstanceListElement.hpp>
+#include <yordle/data/meta/bin_defs/x9a2769a4.hpp>
 #include <yordle/data/meta/bin_defs/PatchingViewController.hpp>
 #include <yordle/data/meta/bin_defs/AnimationResourceData.hpp>
 #include <yordle/data/meta/bin_defs/x9a619bbc.hpp>
+#include <yordle/data/meta/bin_defs/x9aef58ef.hpp>
 #include <yordle/data/meta/bin_defs/CustomReductionMultiplierCalculationPart.hpp>
 #include <yordle/data/meta/bin_defs/FontLocaleType.hpp>
 #include <yordle/data/meta/bin_defs/Area.hpp>
@@ -905,10 +1008,12 @@
 #include <yordle/data/meta/bin_defs/x9bd21f30.hpp>
 #include <yordle/data/meta/bin_defs/x9bd65ac8.hpp>
 #include <yordle/data/meta/bin_defs/x9c472cf3.hpp>
+#include <yordle/data/meta/bin_defs/x9c4f3cc3.hpp>
 #include <yordle/data/meta/bin_defs/SoundEventData.hpp>
 #include <yordle/data/meta/bin_defs/TextElementData.hpp>
 #include <yordle/data/meta/bin_defs/x9c638700.hpp>
 #include <yordle/data/meta/bin_defs/OptionItemCheckbox.hpp>
+#include <yordle/data/meta/bin_defs/x9c8ade94.hpp>
 #include <yordle/data/meta/bin_defs/VfxEmitterDefinitionData.hpp>
 #include <yordle/data/meta/bin_defs/AddHealthCheat.hpp>
 #include <yordle/data/meta/bin_defs/ClientStateCommonSettings.hpp>
@@ -921,16 +1026,19 @@
 #include <yordle/data/meta/bin_defs/x9de83409.hpp>
 #include <yordle/data/meta/bin_defs/TftMapCharacterSkinData.hpp>
 #include <yordle/data/meta/bin_defs/x9e2b8a86.hpp>
+#include <yordle/data/meta/bin_defs/x9e317160.hpp>
 #include <yordle/data/meta/bin_defs/x9e380c11.hpp>
 #include <yordle/data/meta/bin_defs/x9e5aed77.hpp>
 #include <yordle/data/meta/bin_defs/x9e7b8301.hpp>
-#include <yordle/data/meta/bin_defs/x9ec23f4d.hpp>
 #include <yordle/data/meta/bin_defs/NumberCalculationPart.hpp>
+#include <yordle/data/meta/bin_defs/x9f4f8824.hpp>
 #include <yordle/data/meta/bin_defs/x9f59e92d.hpp>
 #include <yordle/data/meta/bin_defs/CustomTableGet.hpp>
 #include <yordle/data/meta/bin_defs/x9fd8bcfd.hpp>
+#include <yordle/data/meta/bin_defs/xa0129931.hpp>
 #include <yordle/data/meta/bin_defs/SurrenderData.hpp>
 #include <yordle/data/meta/bin_defs/HudItemShopData.hpp>
+#include <yordle/data/meta/bin_defs/xa0ce6603.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionNeutralMinionCampIsAlive.hpp>
 #include <yordle/data/meta/bin_defs/xa10379c5.hpp>
 #include <yordle/data/meta/bin_defs/VfxPrimitiveRay.hpp>
@@ -940,6 +1048,7 @@
 #include <yordle/data/meta/bin_defs/MinimapBackground.hpp>
 #include <yordle/data/meta/bin_defs/xa1c2c89f.hpp>
 #include <yordle/data/meta/bin_defs/MaterialInstanceSwitchDef.hpp>
+#include <yordle/data/meta/bin_defs/xa23088af.hpp>
 #include <yordle/data/meta/bin_defs/xa24429bf.hpp>
 #include <yordle/data/meta/bin_defs/SecondaryResourceDisplayFractional.hpp>
 #include <yordle/data/meta/bin_defs/ItemRecommendationMatrixRow.hpp>
@@ -956,17 +1065,20 @@
 #include <yordle/data/meta/bin_defs/xa37f48cd.hpp>
 #include <yordle/data/meta/bin_defs/TriggerOnDistanceFromCaster.hpp>
 #include <yordle/data/meta/bin_defs/xa3d11a85.hpp>
+#include <yordle/data/meta/bin_defs/xa3d2b899.hpp>
 #include <yordle/data/meta/bin_defs/xa3f1520.hpp>
 #include <yordle/data/meta/bin_defs/LoadoutCompanionInfoPanel.hpp>
 #include <yordle/data/meta/bin_defs/ItemRecommendationOverrideSet.hpp>
 #include <yordle/data/meta/bin_defs/xa4281f51.hpp>
 #include <yordle/data/meta/bin_defs/BankUnit.hpp>
 #include <yordle/data/meta/bin_defs/xa44b28c0.hpp>
+#include <yordle/data/meta/bin_defs/xa487a000.hpp>
 #include <yordle/data/meta/bin_defs/xa4941383.hpp>
 #include <yordle/data/meta/bin_defs/VfxPrimitiveAttachedMesh.hpp>
 #include <yordle/data/meta/bin_defs/xa4c4c795.hpp>
 #include <yordle/data/meta/bin_defs/TooltipInstanceSpell.hpp>
 #include <yordle/data/meta/bin_defs/PerkScriptData.hpp>
+#include <yordle/data/meta/bin_defs/xa4ef6883.hpp>
 #include <yordle/data/meta/bin_defs/xa502a9f5.hpp>
 #include <yordle/data/meta/bin_defs/xa51270e5.hpp>
 #include <yordle/data/meta/bin_defs/xa5584548.hpp>
@@ -983,22 +1095,26 @@
 #include <yordle/data/meta/bin_defs/xa6a54243.hpp>
 #include <yordle/data/meta/bin_defs/ToggleTeamCheat.hpp>
 #include <yordle/data/meta/bin_defs/IFloatGet.hpp>
+#include <yordle/data/meta/bin_defs/xa6e3bf67.hpp>
 #include <yordle/data/meta/bin_defs/xa6e60faf.hpp>
 #include <yordle/data/meta/bin_defs/xa6f7c24c.hpp>
 #include <yordle/data/meta/bin_defs/LoadoutArenaSkinInfoPanel.hpp>
 #include <yordle/data/meta/bin_defs/MapAudio.hpp>
+#include <yordle/data/meta/bin_defs/xa7ae8586.hpp>
 #include <yordle/data/meta/bin_defs/AbilityResourceThresholdIndicatorRange.hpp>
 #include <yordle/data/meta/bin_defs/IdMappingEntry.hpp>
 #include <yordle/data/meta/bin_defs/TogglePlantFastRespawnCheat.hpp>
 #include <yordle/data/meta/bin_defs/EffectRotatingIconElementData.hpp>
 #include <yordle/data/meta/bin_defs/ItemCareyOverrideStartingItemSet.hpp>
 #include <yordle/data/meta/bin_defs/MapLocator.hpp>
+#include <yordle/data/meta/bin_defs/xa847e0a9.hpp>
 #include <yordle/data/meta/bin_defs/NotScriptCondition.hpp>
 #include <yordle/data/meta/bin_defs/xa89e6d1e.hpp>
 #include <yordle/data/meta/bin_defs/xa89fd289.hpp>
 #include <yordle/data/meta/bin_defs/VfxPaletteDefinitionData.hpp>
 #include <yordle/data/meta/bin_defs/FadeToExplicitValueBehavior.hpp>
 #include <yordle/data/meta/bin_defs/VfxSpawnConditions.hpp>
+#include <yordle/data/meta/bin_defs/xa8fc25d8.hpp>
 #include <yordle/data/meta/bin_defs/RemoveFromCustomTableBlock.hpp>
 #include <yordle/data/meta/bin_defs/xa914101a.hpp>
 #include <yordle/data/meta/bin_defs/LoadoutSelectViewController.hpp>
@@ -1008,6 +1124,7 @@
 #include <yordle/data/meta/bin_defs/xa9fbac89.hpp>
 #include <yordle/data/meta/bin_defs/GameModeConstantFloatPerLevel.hpp>
 #include <yordle/data/meta/bin_defs/Cast.hpp>
+#include <yordle/data/meta/bin_defs/xaa2b7ab2.hpp>
 #include <yordle/data/meta/bin_defs/OptionTemplateCheckbox.hpp>
 #include <yordle/data/meta/bin_defs/DamageShieldedLogic.hpp>
 #include <yordle/data/meta/bin_defs/xaa50a840.hpp>
@@ -1016,11 +1133,14 @@
 #include <yordle/data/meta/bin_defs/xaa9fc559.hpp>
 #include <yordle/data/meta/bin_defs/CustomTableSet.hpp>
 #include <yordle/data/meta/bin_defs/SceneData.hpp>
+#include <yordle/data/meta/bin_defs/xab27483a.hpp>
 #include <yordle/data/meta/bin_defs/xab3d1567.hpp>
 #include <yordle/data/meta/bin_defs/QuestDefinition.hpp>
 #include <yordle/data/meta/bin_defs/xab89e6ba.hpp>
 #include <yordle/data/meta/bin_defs/SwitchMaterialDriver.hpp>
 #include <yordle/data/meta/bin_defs/xaba5f12d.hpp>
+#include <yordle/data/meta/bin_defs/xacad2bb8.hpp>
+#include <yordle/data/meta/bin_defs/xacb408c2.hpp>
 #include <yordle/data/meta/bin_defs/CrowdControlFilter.hpp>
 #include <yordle/data/meta/bin_defs/VfxAnimatedVector3fVariableData.hpp>
 #include <yordle/data/meta/bin_defs/EffectInstancedElementData.hpp>
@@ -1038,22 +1158,26 @@
 #include <yordle/data/meta/bin_defs/TftUnitShopViewController.hpp>
 #include <yordle/data/meta/bin_defs/xaf23408c.hpp>
 #include <yordle/data/meta/bin_defs/DragDirection.hpp>
-#include <yordle/data/meta/bin_defs/xaf5a8fff.hpp>
 #include <yordle/data/meta/bin_defs/xaf7c0947.hpp>
 #include <yordle/data/meta/bin_defs/AcceleratingMovement.hpp>
 #include <yordle/data/meta/bin_defs/OptionsTab.hpp>
 #include <yordle/data/meta/bin_defs/xafc6bcd.hpp>
 #include <yordle/data/meta/bin_defs/xb075814f.hpp>
+#include <yordle/data/meta/bin_defs/xb075bcfd.hpp>
+#include <yordle/data/meta/bin_defs/xb0a5a7d1.hpp>
 #include <yordle/data/meta/bin_defs/xb0ca221b.hpp>
 #include <yordle/data/meta/bin_defs/xb0d49a20.hpp>
-#include <yordle/data/meta/bin_defs/AlwaysSpawnCondition.hpp>
 #include <yordle/data/meta/bin_defs/ToolEducationData.hpp>
 #include <yordle/data/meta/bin_defs/TargetHasBuffFilter.hpp>
 #include <yordle/data/meta/bin_defs/PerkEffectAmountPerMode.hpp>
 #include <yordle/data/meta/bin_defs/xb13097f0.hpp>
 #include <yordle/data/meta/bin_defs/NavHeaderViewController.hpp>
+#include <yordle/data/meta/bin_defs/xb1757147.hpp>
 #include <yordle/data/meta/bin_defs/xb1a585e5.hpp>
+#include <yordle/data/meta/bin_defs/xb1c7f3d2.hpp>
+#include <yordle/data/meta/bin_defs/xb1c81e63.hpp>
 #include <yordle/data/meta/bin_defs/LoadoutViewController.hpp>
+#include <yordle/data/meta/bin_defs/xb2305647.hpp>
 #include <yordle/data/meta/bin_defs/MapPlaceableContainer.hpp>
 #include <yordle/data/meta/bin_defs/DecelToLocationMovement.hpp>
 #include <yordle/data/meta/bin_defs/OptionItemDropdown.hpp>
@@ -1065,6 +1189,8 @@
 #include <yordle/data/meta/bin_defs/BaseRigPoseModifierData.hpp>
 #include <yordle/data/meta/bin_defs/CursorData.hpp>
 #include <yordle/data/meta/bin_defs/xb2feedb2.hpp>
+#include <yordle/data/meta/bin_defs/xb3042888.hpp>
+#include <yordle/data/meta/bin_defs/xb33b2406.hpp>
 #include <yordle/data/meta/bin_defs/xb35ad9d8.hpp>
 #include <yordle/data/meta/bin_defs/xb36600f0.hpp>
 #include <yordle/data/meta/bin_defs/MapAudioDataProperties.hpp>
@@ -1074,6 +1200,7 @@
 #include <yordle/data/meta/bin_defs/MapActionPlayAnimation.hpp>
 #include <yordle/data/meta/bin_defs/xb3a933a4.hpp>
 #include <yordle/data/meta/bin_defs/SummonerSpellPerkReplacementList.hpp>
+#include <yordle/data/meta/bin_defs/xb3c7e52c.hpp>
 #include <yordle/data/meta/bin_defs/xb3e3401c.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionCharacterHealth.hpp>
 #include <yordle/data/meta/bin_defs/xb3f7f3ed.hpp>
@@ -1102,22 +1229,29 @@
 #include <yordle/data/meta/bin_defs/MaterialSwitchDataCollection.hpp>
 #include <yordle/data/meta/bin_defs/xb78525db.hpp>
 #include <yordle/data/meta/bin_defs/StatFormulaData.hpp>
+#include <yordle/data/meta/bin_defs/xb844ad92.hpp>
 #include <yordle/data/meta/bin_defs/ContextualActionPlayAnimation.hpp>
 #include <yordle/data/meta/bin_defs/xb8d75e45.hpp>
+#include <yordle/data/meta/bin_defs/xb94050aa.hpp>
 #include <yordle/data/meta/bin_defs/TriggerOnDelay.hpp>
 #include <yordle/data/meta/bin_defs/IntTableGet.hpp>
+#include <yordle/data/meta/bin_defs/xb98f49af.hpp>
 #include <yordle/data/meta/bin_defs/HybridMaterialDef.hpp>
 #include <yordle/data/meta/bin_defs/FloatingTextDamageDisplayTypeList.hpp>
 #include <yordle/data/meta/bin_defs/FontResolution.hpp>
 #include <yordle/data/meta/bin_defs/PerkSubStyleBonus.hpp>
 #include <yordle/data/meta/bin_defs/xbac72a13.hpp>
 #include <yordle/data/meta/bin_defs/RScript.hpp>
+#include <yordle/data/meta/bin_defs/xbaddec44.hpp>
 #include <yordle/data/meta/bin_defs/xbb59fd4.hpp>
 #include <yordle/data/meta/bin_defs/ConcatenateStringsBlock.hpp>
 #include <yordle/data/meta/bin_defs/OptionItemSecondaryHotkeys1Column.hpp>
 #include <yordle/data/meta/bin_defs/TriggerOnMovementComplete.hpp>
+#include <yordle/data/meta/bin_defs/xbb94c710.hpp>
+#include <yordle/data/meta/bin_defs/xbbac8ee0.hpp>
 #include <yordle/data/meta/bin_defs/BoolTableGet.hpp>
 #include <yordle/data/meta/bin_defs/xbbb1fd0a.hpp>
+#include <yordle/data/meta/bin_defs/xbbb86b6e.hpp>
 #include <yordle/data/meta/bin_defs/VfxFieldCollectionDefinitionData.hpp>
 #include <yordle/data/meta/bin_defs/IShaderDef.hpp>
 #include <yordle/data/meta/bin_defs/xbbc6d7f5.hpp>
@@ -1130,18 +1264,20 @@
 #include <yordle/data/meta/bin_defs/SpellRankUpRequirements.hpp>
 #include <yordle/data/meta/bin_defs/SetVarInTableBlock.hpp>
 #include <yordle/data/meta/bin_defs/TargeterDefinitionArc.hpp>
-#include <yordle/data/meta/bin_defs/HasSkinIDSpawnConditions.hpp>
 #include <yordle/data/meta/bin_defs/ParticleWadFileDescriptor.hpp>
 #include <yordle/data/meta/bin_defs/xbc90b786.hpp>
 #include <yordle/data/meta/bin_defs/OptionTemplateHotkeysKey.hpp>
 #include <yordle/data/meta/bin_defs/GameplayConfig.hpp>
 #include <yordle/data/meta/bin_defs/xbcdc9113.hpp>
+#include <yordle/data/meta/bin_defs/xbce5fa3e.hpp>
 #include <yordle/data/meta/bin_defs/SubmeshVisibilityEventData.hpp>
 #include <yordle/data/meta/bin_defs/ScriptDataObjectList.hpp>
+#include <yordle/data/meta/bin_defs/xbd10ca3c.hpp>
 #include <yordle/data/meta/bin_defs/BaseBlendData.hpp>
 #include <yordle/data/meta/bin_defs/CSSSheet.hpp>
 #include <yordle/data/meta/bin_defs/CustomTargeterDefinitions.hpp>
 #include <yordle/data/meta/bin_defs/IsEnemyDynamicMaterialBoolDriver.hpp>
+#include <yordle/data/meta/bin_defs/xbd71ac00.hpp>
 #include <yordle/data/meta/bin_defs/HasSpellRankSpawnConditionData.hpp>
 #include <yordle/data/meta/bin_defs/FixedDistanceIgnoringTerrain.hpp>
 #include <yordle/data/meta/bin_defs/MapCharacterList.hpp>
@@ -1155,8 +1291,11 @@
 #include <yordle/data/meta/bin_defs/xbe71189.hpp>
 #include <yordle/data/meta/bin_defs/TargetHasUnitTagFilter.hpp>
 #include <yordle/data/meta/bin_defs/BasePerk.hpp>
+#include <yordle/data/meta/bin_defs/xbeba9102.hpp>
 #include <yordle/data/meta/bin_defs/BaseElementData.hpp>
+#include <yordle/data/meta/bin_defs/xbf11ddc7.hpp>
 #include <yordle/data/meta/bin_defs/Location.hpp>
+#include <yordle/data/meta/bin_defs/xbf5ac0ff.hpp>
 #include <yordle/data/meta/bin_defs/VfxEmissionSurfaceData.hpp>
 #include <yordle/data/meta/bin_defs/MissileSpecification.hpp>
 #include <yordle/data/meta/bin_defs/xc0037ef9.hpp>
@@ -1166,8 +1305,8 @@
 #include <yordle/data/meta/bin_defs/xc0b50425.hpp>
 #include <yordle/data/meta/bin_defs/xc0c056f1.hpp>
 #include <yordle/data/meta/bin_defs/DefaultStatModPerkSet.hpp>
-#include <yordle/data/meta/bin_defs/xc0e1ce26.hpp>
 #include <yordle/data/meta/bin_defs/LockRootOrientationEventData.hpp>
+#include <yordle/data/meta/bin_defs/xc12f716a.hpp>
 #include <yordle/data/meta/bin_defs/EvolutionDescription.hpp>
 #include <yordle/data/meta/bin_defs/IIntGet.hpp>
 #include <yordle/data/meta/bin_defs/KillingSpreeFilter.hpp>
@@ -1179,8 +1318,11 @@
 #include <yordle/data/meta/bin_defs/xc2da185a.hpp>
 #include <yordle/data/meta/bin_defs/HudMenuTransitionData.hpp>
 #include <yordle/data/meta/bin_defs/IStatStoneLogicDriver.hpp>
+#include <yordle/data/meta/bin_defs/xc35fd9a.hpp>
+#include <yordle/data/meta/bin_defs/xc3d61f7f.hpp>
 #include <yordle/data/meta/bin_defs/xc4244dee.hpp>
 #include <yordle/data/meta/bin_defs/Destroy.hpp>
+#include <yordle/data/meta/bin_defs/xc4ab5e47.hpp>
 #include <yordle/data/meta/bin_defs/HudTeamScoreMeterProperties.hpp>
 #include <yordle/data/meta/bin_defs/xc58386.hpp>
 #include <yordle/data/meta/bin_defs/AddGoldCheat.hpp>
@@ -1196,6 +1338,7 @@
 #include <yordle/data/meta/bin_defs/xc83c665c.hpp>
 #include <yordle/data/meta/bin_defs/MissileTriggerSpec.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionCharacterSkinID.hpp>
+#include <yordle/data/meta/bin_defs/xc87f4ce3.hpp>
 #include <yordle/data/meta/bin_defs/OneTrueMaterialDriver.hpp>
 #include <yordle/data/meta/bin_defs/xc8924ad4.hpp>
 #include <yordle/data/meta/bin_defs/QuestUITunables.hpp>
@@ -1203,16 +1346,19 @@
 #include <yordle/data/meta/bin_defs/ParametricPairData.hpp>
 #include <yordle/data/meta/bin_defs/xc953d7f.hpp>
 #include <yordle/data/meta/bin_defs/AssistCountFilter.hpp>
+#include <yordle/data/meta/bin_defs/xc9dd46d2.hpp>
 #include <yordle/data/meta/bin_defs/xca07a45.hpp>
 #include <yordle/data/meta/bin_defs/VFXSpawnConditionData.hpp>
 #include <yordle/data/meta/bin_defs/xca2caace.hpp>
 #include <yordle/data/meta/bin_defs/RatioConversion.hpp>
 #include <yordle/data/meta/bin_defs/xca4c8132.hpp>
 #include <yordle/data/meta/bin_defs/OverrideAutoAttackCastTimeData.hpp>
+#include <yordle/data/meta/bin_defs/xcaa58cb2.hpp>
 #include <yordle/data/meta/bin_defs/IContextualCondition.hpp>
 #include <yordle/data/meta/bin_defs/FixedTimeSplineMovement.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionCharacterInRangeForSyncedAnimation.hpp>
 #include <yordle/data/meta/bin_defs/OptionTemplateBorder.hpp>
+#include <yordle/data/meta/bin_defs/xcb3cb339.hpp>
 #include <yordle/data/meta/bin_defs/xcb3ed43e.hpp>
 #include <yordle/data/meta/bin_defs/VertexAnimationRigPoseModifierData.hpp>
 #include <yordle/data/meta/bin_defs/IOptionItemFilter.hpp>
@@ -1225,8 +1371,11 @@
 #include <yordle/data/meta/bin_defs/ContextualConditionCharacterHasCAC.hpp>
 #include <yordle/data/meta/bin_defs/xcc72cb1e.hpp>
 #include <yordle/data/meta/bin_defs/xcc9e24e1.hpp>
+#include <yordle/data/meta/bin_defs/xccb4aa8a.hpp>
+#include <yordle/data/meta/bin_defs/xccb78d30.hpp>
 #include <yordle/data/meta/bin_defs/xcce3468e.hpp>
 #include <yordle/data/meta/bin_defs/xcce5e3e3.hpp>
+#include <yordle/data/meta/bin_defs/xcd02833b.hpp>
 #include <yordle/data/meta/bin_defs/InsertIntoCustomTableBlock.hpp>
 #include <yordle/data/meta/bin_defs/DragonUITunables.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionItemPriceMinimum.hpp>
@@ -1246,12 +1395,16 @@
 #include <yordle/data/meta/bin_defs/AbilityResourceSlotInfo.hpp>
 #include <yordle/data/meta/bin_defs/SkinnedMeshDataMaterialController.hpp>
 #include <yordle/data/meta/bin_defs/SwitchCase.hpp>
+#include <yordle/data/meta/bin_defs/xce4229fb.hpp>
+#include <yordle/data/meta/bin_defs/xce8769d7.hpp>
 #include <yordle/data/meta/bin_defs/xceab3604.hpp>
 #include <yordle/data/meta/bin_defs/xceb70e5a.hpp>
 #include <yordle/data/meta/bin_defs/xcec9c9dc.hpp>
 #include <yordle/data/meta/bin_defs/xcecd5450.hpp>
 #include <yordle/data/meta/bin_defs/xced6ab09.hpp>
 #include <yordle/data/meta/bin_defs/ContextualActionData.hpp>
+#include <yordle/data/meta/bin_defs/xcf99c50.hpp>
+#include <yordle/data/meta/bin_defs/xcfdc701b.hpp>
 #include <yordle/data/meta/bin_defs/xcff0bd42.hpp>
 #include <yordle/data/meta/bin_defs/xcff54e31.hpp>
 #include <yordle/data/meta/bin_defs/xd0116dc8.hpp>
@@ -1263,20 +1416,25 @@
 #include <yordle/data/meta/bin_defs/xd09acba6.hpp>
 #include <yordle/data/meta/bin_defs/EsportsBannerConfiguration.hpp>
 #include <yordle/data/meta/bin_defs/xd11fafa3.hpp>
+#include <yordle/data/meta/bin_defs/xd12fb726.hpp>
 #include <yordle/data/meta/bin_defs/xd149dd3f.hpp>
 #include <yordle/data/meta/bin_defs/TftItemData.hpp>
 #include <yordle/data/meta/bin_defs/IntegratedValueFloat.hpp>
 #include <yordle/data/meta/bin_defs/xd1951f45.hpp>
+#include <yordle/data/meta/bin_defs/xd1ae9686.hpp>
 #include <yordle/data/meta/bin_defs/TFTAnnouncementData.hpp>
+#include <yordle/data/meta/bin_defs/BARRACKS.hpp>
 #include <yordle/data/meta/bin_defs/xd1fd3185.hpp>
 #include <yordle/data/meta/bin_defs/xd20000f6.hpp>
 #include <yordle/data/meta/bin_defs/xd20a9a6c.hpp>
 #include <yordle/data/meta/bin_defs/EffectFillPercentageElementData.hpp>
 #include <yordle/data/meta/bin_defs/HudReplaySliderData.hpp>
+#include <yordle/data/meta/bin_defs/xd27d6bcf.hpp>
+#include <yordle/data/meta/bin_defs/xd2956d0e.hpp>
 #include <yordle/data/meta/bin_defs/Defaultvisibility.hpp>
 #include <yordle/data/meta/bin_defs/xd3350101.hpp>
 #include <yordle/data/meta/bin_defs/AbilityResourceDynamicMaterialFloatDriver.hpp>
-#include <yordle/data/meta/bin_defs/HudElementalSectionUIData.hpp>
+#include <yordle/data/meta/bin_defs/xd3cb80a0.hpp>
 #include <yordle/data/meta/bin_defs/MapTerrainPaint.hpp>
 #include <yordle/data/meta/bin_defs/HudGameModeScoreData.hpp>
 #include <yordle/data/meta/bin_defs/xd40fb1c3.hpp>
@@ -1295,11 +1453,12 @@
 #include <yordle/data/meta/bin_defs/FxActionSfx.hpp>
 #include <yordle/data/meta/bin_defs/MaxAllSkillsCheat.hpp>
 #include <yordle/data/meta/bin_defs/xd609f42b.hpp>
+#include <yordle/data/meta/bin_defs/xd60f170b.hpp>
 #include <yordle/data/meta/bin_defs/xd63809d8.hpp>
 #include <yordle/data/meta/bin_defs/xd63bcf0f.hpp>
 #include <yordle/data/meta/bin_defs/EsportsBannerOptions.hpp>
-#include <yordle/data/meta/bin_defs/HudPingData.hpp>
 #include <yordle/data/meta/bin_defs/AnnouncementMap.hpp>
+#include <yordle/data/meta/bin_defs/xd6a99b5b.hpp>
 #include <yordle/data/meta/bin_defs/TFTBattlepassViewController.hpp>
 #include <yordle/data/meta/bin_defs/TftDamageSkinDescriptor.hpp>
 #include <yordle/data/meta/bin_defs/xd75442ea.hpp>
@@ -1323,9 +1482,9 @@
 #include <yordle/data/meta/bin_defs/xda3ab4c4.hpp>
 #include <yordle/data/meta/bin_defs/xda3c6dc6.hpp>
 #include <yordle/data/meta/bin_defs/TargetTeamFilter.hpp>
-#include <yordle/data/meta/bin_defs/IDynamicMaterialBoolDriver.hpp>
 #include <yordle/data/meta/bin_defs/GdsMapObject.hpp>
 #include <yordle/data/meta/bin_defs/TFTHudMobileDownscaleData.hpp>
+#include <yordle/data/meta/bin_defs/xdafc7c75.hpp>
 #include <yordle/data/meta/bin_defs/TftMapCharacterRecordData.hpp>
 #include <yordle/data/meta/bin_defs/xdb36062d.hpp>
 #include <yordle/data/meta/bin_defs/IconElementDataExtension.hpp>
@@ -1341,6 +1500,7 @@
 #include <yordle/data/meta/bin_defs/xdc0b7125.hpp>
 #include <yordle/data/meta/bin_defs/AbilityObject.hpp>
 #include <yordle/data/meta/bin_defs/xdc65ffe4.hpp>
+#include <yordle/data/meta/bin_defs/xdca02fad.hpp>
 #include <yordle/data/meta/bin_defs/MissileAttachedTargetingDefinition.hpp>
 #include <yordle/data/meta/bin_defs/MapLightingV2.hpp>
 #include <yordle/data/meta/bin_defs/HudReplaySliderIconData.hpp>
@@ -1349,6 +1509,7 @@
 #include <yordle/data/meta/bin_defs/EffectCircleMaskDesaturateElementData.hpp>
 #include <yordle/data/meta/bin_defs/Cone.hpp>
 #include <yordle/data/meta/bin_defs/LoLSpellPreloadData.hpp>
+#include <yordle/data/meta/bin_defs/xdd4de76f.hpp>
 #include <yordle/data/meta/bin_defs/xdd53d1ce.hpp>
 #include <yordle/data/meta/bin_defs/VfxPrimitiveBeamBase.hpp>
 #include <yordle/data/meta/bin_defs/ParticleSystemElementData.hpp>
@@ -1359,6 +1520,7 @@
 #include <yordle/data/meta/bin_defs/TFTAttachmentSlotStyleData.hpp>
 #include <yordle/data/meta/bin_defs/IsInGrassDynamicMaterialBoolDriver.hpp>
 #include <yordle/data/meta/bin_defs/StaticMaterialShaderParamDef.hpp>
+#include <yordle/data/meta/bin_defs/xde4a6414.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionTeammateDeathsNearby.hpp>
 #include <yordle/data/meta/bin_defs/AnnouncementStyleBasic.hpp>
 #include <yordle/data/meta/bin_defs/MinimapIconTextureData.hpp>
@@ -1377,6 +1539,7 @@
 #include <yordle/data/meta/bin_defs/Map.hpp>
 #include <yordle/data/meta/bin_defs/CameraConfig.hpp>
 #include <yordle/data/meta/bin_defs/TFTTraitContributionData.hpp>
+#include <yordle/data/meta/bin_defs/xe04f7948.hpp>
 #include <yordle/data/meta/bin_defs/MessageBoxDialog.hpp>
 #include <yordle/data/meta/bin_defs/xe09faa59.hpp>
 #include <yordle/data/meta/bin_defs/xe0b196c2.hpp>
@@ -1388,20 +1551,23 @@
 #include <yordle/data/meta/bin_defs/MaterialTextureData.hpp>
 #include <yordle/data/meta/bin_defs/xe20be0be.hpp>
 #include <yordle/data/meta/bin_defs/xe20dd534.hpp>
+#include <yordle/data/meta/bin_defs/xe20ffd3f.hpp>
 #include <yordle/data/meta/bin_defs/StaticMaterialSwitchDef.hpp>
 #include <yordle/data/meta/bin_defs/TargeterDefinitionAoe.hpp>
 #include <yordle/data/meta/bin_defs/xe259ae3e.hpp>
+#include <yordle/data/meta/bin_defs/xe260302c.hpp>
 #include <yordle/data/meta/bin_defs/xe262e6be.hpp>
 #include <yordle/data/meta/bin_defs/VfxPrimitiveBase.hpp>
 #include <yordle/data/meta/bin_defs/CollectiblesEsportsTeamData.hpp>
 #include <yordle/data/meta/bin_defs/GameFontDescription.hpp>
-#include <yordle/data/meta/bin_defs/IVFXSpawnConditions.hpp>
 #include <yordle/data/meta/bin_defs/xe357c116.hpp>
 #include <yordle/data/meta/bin_defs/xe3af402a.hpp>
 #include <yordle/data/meta/bin_defs/MinimapPingTypeContainer.hpp>
+#include <yordle/data/meta/bin_defs/xe3e9b36c.hpp>
 #include <yordle/data/meta/bin_defs/RegaliaRankedCrestEntry.hpp>
 #include <yordle/data/meta/bin_defs/SwitchScriptBlock.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionItemVOGroup.hpp>
+#include <yordle/data/meta/bin_defs/xe443fb30.hpp>
 #include <yordle/data/meta/bin_defs/VfxPrimitiveProjectionBase.hpp>
 #include <yordle/data/meta/bin_defs/HasBuffData.hpp>
 #include <yordle/data/meta/bin_defs/AbilityResourceStateColorOptions.hpp>
@@ -1412,17 +1578,22 @@
 #include <yordle/data/meta/bin_defs/MapAlternateAsset.hpp>
 #include <yordle/data/meta/bin_defs/PerkStyle.hpp>
 #include <yordle/data/meta/bin_defs/xe5bbe067.hpp>
+#include <yordle/data/meta/bin_defs/xe5fa2828.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionSituationHasRecentlyRun.hpp>
+#include <yordle/data/meta/bin_defs/xe69440b8.hpp>
 #include <yordle/data/meta/bin_defs/xe6caaf8c.hpp>
+#include <yordle/data/meta/bin_defs/xe6e22688.hpp>
 #include <yordle/data/meta/bin_defs/xe725d152.hpp>
 #include <yordle/data/meta/bin_defs/MapNavigationGridOverlays.hpp>
 #include <yordle/data/meta/bin_defs/VfxFieldDragDefinitionData.hpp>
+#include <yordle/data/meta/bin_defs/xe7555bdb.hpp>
 #include <yordle/data/meta/bin_defs/xe76e6115.hpp>
 #include <yordle/data/meta/bin_defs/MaterialInstanceDef.hpp>
 #include <yordle/data/meta/bin_defs/xe7a8a5a4.hpp>
 #include <yordle/data/meta/bin_defs/UnitStatusPriorityList.hpp>
 #include <yordle/data/meta/bin_defs/LaneData.hpp>
 #include <yordle/data/meta/bin_defs/DamageSourceTemplate.hpp>
+#include <yordle/data/meta/bin_defs/xe7e4e05e.hpp>
 #include <yordle/data/meta/bin_defs/VerticalFacingType.hpp>
 #include <yordle/data/meta/bin_defs/HudColorData.hpp>
 #include <yordle/data/meta/bin_defs/xe8062aeb.hpp>
@@ -1430,6 +1601,7 @@
 #include <yordle/data/meta/bin_defs/ItemRecommendationOverrideContext.hpp>
 #include <yordle/data/meta/bin_defs/xe8774a0b.hpp>
 #include <yordle/data/meta/bin_defs/xe87aa7bf.hpp>
+#include <yordle/data/meta/bin_defs/xe8ad32eb.hpp>
 #include <yordle/data/meta/bin_defs/xe8d20b5b.hpp>
 #include <yordle/data/meta/bin_defs/IResourceResolver.hpp>
 #include <yordle/data/meta/bin_defs/ClipBaseData.hpp>
@@ -1441,9 +1613,11 @@
 #include <yordle/data/meta/bin_defs/MaterialParameterDataCollection.hpp>
 #include <yordle/data/meta/bin_defs/GameCalculationConditional.hpp>
 #include <yordle/data/meta/bin_defs/xe9fb4d18.hpp>
+#include <yordle/data/meta/bin_defs/xea148f98.hpp>
 #include <yordle/data/meta/bin_defs/xea2ab5ca.hpp>
 #include <yordle/data/meta/bin_defs/xea321356.hpp>
 #include <yordle/data/meta/bin_defs/LoadoutFeatureData.hpp>
+#include <yordle/data/meta/bin_defs/xea4608f8.hpp>
 #include <yordle/data/meta/bin_defs/Champion.hpp>
 #include <yordle/data/meta/bin_defs/SelfAoe.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionSpellIsReady.hpp>
@@ -1457,11 +1631,15 @@
 #include <yordle/data/meta/bin_defs/SummonerNameCreateViewController.hpp>
 #include <yordle/data/meta/bin_defs/UpdaterData.hpp>
 #include <yordle/data/meta/bin_defs/xebd18932.hpp>
+#include <yordle/data/meta/bin_defs/xebd862b2.hpp>
 #include <yordle/data/meta/bin_defs/xebe4c19a.hpp>
+#include <yordle/data/meta/bin_defs/xebfb09e2.hpp>
+#include <yordle/data/meta/bin_defs/xec2d115.hpp>
 #include <yordle/data/meta/bin_defs/CharacterToolData.hpp>
 #include <yordle/data/meta/bin_defs/TftTeamPlannerViewController.hpp>
 #include <yordle/data/meta/bin_defs/DamageUnitCheat.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionNeutralCampId.hpp>
+#include <yordle/data/meta/bin_defs/xec8777c6.hpp>
 #include <yordle/data/meta/bin_defs/HasNNearbyVisibleUnitsRequirement.hpp>
 #include <yordle/data/meta/bin_defs/xece05abc.hpp>
 #include <yordle/data/meta/bin_defs/VeritcalFacingMatchVelocity.hpp>
@@ -1476,15 +1654,18 @@
 #include <yordle/data/meta/bin_defs/TargetTypeFilter.hpp>
 #include <yordle/data/meta/bin_defs/CursorConfig.hpp>
 #include <yordle/data/meta/bin_defs/TargeterDefinitionSkipTerrain.hpp>
+#include <yordle/data/meta/bin_defs/xee405aca.hpp>
 #include <yordle/data/meta/bin_defs/UVScaleBiasFromAnimationDynamicMaterialDriver.hpp>
 #include <yordle/data/meta/bin_defs/xee4d1304.hpp>
 #include <yordle/data/meta/bin_defs/EffectGlowElementData.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionItemCanBePurchased.hpp>
 #include <yordle/data/meta/bin_defs/xeeba7343.hpp>
 #include <yordle/data/meta/bin_defs/TextureAndColorData.hpp>
+#include <yordle/data/meta/bin_defs/xef02c9a2.hpp>
 #include <yordle/data/meta/bin_defs/TFTCompanionBucket.hpp>
 #include <yordle/data/meta/bin_defs/AISpellData.hpp>
 #include <yordle/data/meta/bin_defs/xef05ba42.hpp>
+#include <yordle/data/meta/bin_defs/xef0efd87.hpp>
 #include <yordle/data/meta/bin_defs/xef241d31.hpp>
 #include <yordle/data/meta/bin_defs/xef279b9d.hpp>
 #include <yordle/data/meta/bin_defs/DynamicMaterialStaticSwitch.hpp>
@@ -1497,12 +1678,14 @@
 #include <yordle/data/meta/bin_defs/StringTableGet.hpp>
 #include <yordle/data/meta/bin_defs/ExperienceModData.hpp>
 #include <yordle/data/meta/bin_defs/xf0f3a045.hpp>
+#include <yordle/data/meta/bin_defs/xf10cf1d9.hpp>
 #include <yordle/data/meta/bin_defs/TrophyPedestalData.hpp>
 #include <yordle/data/meta/bin_defs/VfxPrimitiveCameraSegmentBeam.hpp>
 #include <yordle/data/meta/bin_defs/InstanceVarsTable.hpp>
 #include <yordle/data/meta/bin_defs/xf1c387c0.hpp>
 #include <yordle/data/meta/bin_defs/xf21128e4.hpp>
 #include <yordle/data/meta/bin_defs/xf260c3ae.hpp>
+#include <yordle/data/meta/bin_defs/xf261b123.hpp>
 #include <yordle/data/meta/bin_defs/xf2906c54.hpp>
 #include <yordle/data/meta/bin_defs/MouseOverEffectData.hpp>
 #include <yordle/data/meta/bin_defs/StoreCategoryButtonDefinition.hpp>
@@ -1513,6 +1696,7 @@
 #include <yordle/data/meta/bin_defs/xf30734a3.hpp>
 #include <yordle/data/meta/bin_defs/FixedShaderDef.hpp>
 #include <yordle/data/meta/bin_defs/SkinSummonerEmoteLoadout.hpp>
+#include <yordle/data/meta/bin_defs/xf340b385.hpp>
 #include <yordle/data/meta/bin_defs/SummonerSpellPerkReplacement.hpp>
 #include <yordle/data/meta/bin_defs/OptionItemBorder.hpp>
 #include <yordle/data/meta/bin_defs/TimeMaterialDriver.hpp>
@@ -1522,8 +1706,10 @@
 #include <yordle/data/meta/bin_defs/LoadoutEmoteInfoPanel.hpp>
 #include <yordle/data/meta/bin_defs/GameModeConstantTRAKey.hpp>
 #include <yordle/data/meta/bin_defs/UseableData.hpp>
+#include <yordle/data/meta/bin_defs/xf4753ad3.hpp>
 #include <yordle/data/meta/bin_defs/ItemShopGameModeData.hpp>
 #include <yordle/data/meta/bin_defs/TFTRoundData.hpp>
+#include <yordle/data/meta/bin_defs/xf4b99cd.hpp>
 #include <yordle/data/meta/bin_defs/xf4c0192d.hpp>
 #include <yordle/data/meta/bin_defs/StopAnimationEventData.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionItemPurchased.hpp>
@@ -1552,32 +1738,43 @@
 #include <yordle/data/meta/bin_defs/ILineIndicatorType.hpp>
 #include <yordle/data/meta/bin_defs/xf795f405.hpp>
 #include <yordle/data/meta/bin_defs/HasAllSubRequirementsCastRequirement.hpp>
+#include <yordle/data/meta/bin_defs/xf7fcc091.hpp>
 #include <yordle/data/meta/bin_defs/SkinCharacterMetaDataProperties.hpp>
 #include <yordle/data/meta/bin_defs/xf8026218.hpp>
 #include <yordle/data/meta/bin_defs/xf82b21de.hpp>
 #include <yordle/data/meta/bin_defs/xf8739c73.hpp>
+#include <yordle/data/meta/bin_defs/xf92a5095.hpp>
 #include <yordle/data/meta/bin_defs/TeamScoreMeterUITunables.hpp>
+#include <yordle/data/meta/bin_defs/xf9a410c2.hpp>
 #include <yordle/data/meta/bin_defs/SocialPanelViewController.hpp>
 #include <yordle/data/meta/bin_defs/xfa29db11.hpp>
 #include <yordle/data/meta/bin_defs/WardSkinDisabler.hpp>
 #include <yordle/data/meta/bin_defs/IsDeadDynamicMaterialBoolDriver.hpp>
+#include <yordle/data/meta/bin_defs/xface6a25.hpp>
 #include <yordle/data/meta/bin_defs/IContextualConditionBuff.hpp>
 #include <yordle/data/meta/bin_defs/DestroyOnMovementComplete.hpp>
+#include <yordle/data/meta/bin_defs/xfb2aa4b7.hpp>
 #include <yordle/data/meta/bin_defs/TooltipInstanceList.hpp>
 #include <yordle/data/meta/bin_defs/xfb654061.hpp>
 #include <yordle/data/meta/bin_defs/HasSkillPointRequirement.hpp>
-#include <yordle/data/meta/bin_defs/RenderStyleData.hpp>
 #include <yordle/data/meta/bin_defs/ContextualSituation.hpp>
 #include <yordle/data/meta/bin_defs/xfc2d67aa.hpp>
 #include <yordle/data/meta/bin_defs/EsportsBannerMaterialController.hpp>
 #include <yordle/data/meta/bin_defs/VfxPrimitiveMeshBase.hpp>
+#include <yordle/data/meta/bin_defs/xfc3c4a5c.hpp>
 #include <yordle/data/meta/bin_defs/IFunctionGet.hpp>
 #include <yordle/data/meta/bin_defs/OptionTemplateMuteButton.hpp>
+#include <yordle/data/meta/bin_defs/xfd7ff444.hpp>
+#include <yordle/data/meta/bin_defs/xfd91cc12.hpp>
+#include <yordle/data/meta/bin_defs/xfd9d4983.hpp>
 #include <yordle/data/meta/bin_defs/xfdad6e32.hpp>
+#include <yordle/data/meta/bin_defs/xfdca498e.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionNumberOfCharactersNearTargetPos.hpp>
+#include <yordle/data/meta/bin_defs/xfde8af7f.hpp>
 #include <yordle/data/meta/bin_defs/VfxAnimatedFloatVariableData.hpp>
 #include <yordle/data/meta/bin_defs/ContextualConditionNearbyChampionCount.hpp>
 #include <yordle/data/meta/bin_defs/ItemRecommendationContext.hpp>
+#include <yordle/data/meta/bin_defs/xfe7449a3.hpp>
 #include <yordle/data/meta/bin_defs/TriggerFromScript.hpp>
 #include <yordle/data/meta/bin_defs/FloatTextDisplayOverrides.hpp>
 #include <yordle/data/meta/bin_defs/xff5d83bd.hpp>
@@ -1598,9 +1795,11 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[284479679u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x10f4d0bf>(prop)); };
     table[285936043u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TempTable2Table>(prop)); };
     table[287486318u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1122b16e>(prop)); };
+    table[294045477u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1186c725>(prop)); };
     table[297212766u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CharacterHealthBarDataRecord>(prop)); };
     table[297772961u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x11bfa7a1>(prop)); };
     table[298132920u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapVisibilityFlagRange>(prop)); };
+    table[301422653u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x11f7583d>(prop)); };
     table[305388529u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTHudAnnouncementData>(prop)); };
     table[305776718u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1239c84e>(prop)); };
     table[19256412u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::X3DSharedConstantDef>(prop)); };
@@ -1608,9 +1807,12 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[308619146u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TimeMultiplierCheat>(prop)); };
     table[309827837u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StatUIData>(prop)); };
     table[313035124u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionTemplateLabel>(prop)); };
+    table[313971038u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x12b6d15e>(prop)); };
+    table[316820429u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x12e24bcd>(prop)); };
     table[317190090u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FloatOffsetTableGet>(prop)); };
     table[319277549u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DeathTimes>(prop)); };
     table[322320248u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x13363778>(prop)); };
+    table[326917299u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x137c5cb3>(prop)); };
     table[329197474u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x139f27a2>(prop)); };
     table[329280789u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AboveHealthPercentCastRequirement>(prop)); };
     table[329482046u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x13a37f3e>(prop)); };
@@ -1632,6 +1834,8 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[369020348u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ByCharLevelInterpolationCalculationPart>(prop)); };
     table[369826590u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MissileBehaviorSpec>(prop)); };
     table[371240319u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TransitionClipBlendData>(prop)); };
+    table[372620726u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1635bdb6>(prop)); };
+    table[374382763u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1650a0ab>(prop)); };
     table[374383822u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1650a4ce>(prop)); };
     table[378086707u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x16892533>(prop)); };
     table[379203484u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapSunProperties>(prop)); };
@@ -1644,18 +1848,25 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[395898060u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FloatingTextTunables>(prop)); };
     table[396544810u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemRecommendationCondition>(prop)); };
     table[397513986u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x17b19502>(prop)); };
+    table[400925315u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x17e5a283>(prop)); };
     table[401601815u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GameModeItemList>(prop)); };
     table[409724492u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x186be64c>(prop)); };
     table[410617757u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::NumberFormattingBehavior>(prop)); };
     table[411843849u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargeterDefinitionMinimap>(prop)); };
+    table[416156890u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x18ce0cda>(prop)); };
     table[418271035u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x18ee4f3b>(prop)); };
     table[419340840u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OrScriptCondition>(prop)); };
     table[427298022u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x19780ce6>(prop)); };
+    table[439467845u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1a31bf45>(prop)); };
     table[443947005u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxFieldAttractionDefinitionData>(prop)); };
+    table[444572408u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1a7fa2f8>(prop)); };
     table[446051117u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1a96332d>(prop)); };
     table[447874143u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TriggerOnHit>(prop)); };
     table[450405377u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1ad8a401>(prop)); };
+    table[451843535u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1aee95cf>(prop)); };
+    table[453110211u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1b01e9c3>(prop)); };
     table[454181807u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1b1243af>(prop)); };
+    table[462449855u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1b906cbf>(prop)); };
     table[466229854u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1bca1a5e>(prop)); };
     table[467702508u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1be092ec>(prop)); };
     table[470290435u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::PhysicsMovement>(prop)); };
@@ -1688,6 +1899,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[525225061u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MinimapIcon>(prop)); };
     table[530745462u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargetOrLocation>(prop)); };
     table[530833948u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1fa3e21c>(prop)); };
+    table[531401572u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1fac8b64>(prop)); };
     table[532209417u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxBeamDefinitionData>(prop)); };
     table[532586595u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1fbea063>(prop)); };
     table[535472993u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x1feaab61>(prop)); };
@@ -1696,16 +1908,19 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[543572245u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x20664115>(prop)); };
     table[544274093u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2070f6ad>(prop)); };
     table[545864281u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ReturnToCasterOnMovementComplete>(prop)); };
+    table[546440255u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2092043f>(prop)); };
     table[547453112u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IResource>(prop)); };
     table[551000110u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x20d7982e>(prop)); };
     table[554443936u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FxActionContinue>(prop)); };
     table[559985644u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ParallelClipData>(prop)); };
+    table[560551040u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x21695480>(prop)); };
     table[562397581u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxPrimitiveTrailBase>(prop)); };
     table[567330916u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DynamicMaterialTextureSwapOption>(prop)); };
     table[572788942u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x222410ce>(prop)); };
     table[573358062u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemAdviceAttribute>(prop)); };
     table[573833423u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapPerInstanceInfo>(prop)); };
     table[574110442u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ScriptTableGet>(prop)); };
+    table[576152333u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2257630d>(prop)); };
     table[576452982u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IContextualConditionSpell>(prop)); };
     table[577189237u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VerticalFacingFaceTarget>(prop)); };
     table[584100880u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualRule>(prop)); };
@@ -1713,11 +1928,13 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[585161597u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FloatTextFormattingData>(prop)); };
     table[36597367u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapPointLight>(prop)); };
     table[589156770u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x231dd1a2>(prop)); };
+    table[590985720u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2339b9f8>(prop)); };
     table[594803832u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2373fc78>(prop)); };
     table[602544405u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CharacterRecord>(prop)); };
     table[602959644u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x23f06f1c>(prop)); };
     table[2355674u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ModeProgressionRewardData>(prop)); };
     table[37724083u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IVfxMaterialDriver>(prop)); };
+    table[603585344u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x23f9fb40>(prop)); };
     table[606188120u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ByCharLevelFormulaCalculationPart>(prop)); };
     table[607049692u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CatalogEntry>(prop)); };
     table[607118392u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x242fe438>(prop)); };
@@ -1725,6 +1942,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[608970470u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemData>(prop)); };
     table[609301268u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AlternateSpellAssets>(prop)); };
     table[609985035u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x245ba20b>(prop)); };
+    table[38566634u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x24c7aea>(prop)); };
     table[619916734u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ScriptTable>(prop)); };
     table[620501035u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x24fc182b>(prop)); };
     table[622921539u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ObjectTags>(prop)); };
@@ -1772,6 +1990,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[719276917u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxSineMaterialDriver>(prop)); };
     table[720031464u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ScriptCommentBlock>(prop)); };
     table[720276364u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GameModeConstantsGroup>(prop)); };
+    table[724567129u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2b300459>(prop)); };
     table[725360953u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaskData>(prop)); };
     table[727234781u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2b58b8dd>(prop)); };
     table[728839351u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AnnouncementIcon>(prop)); };
@@ -1782,11 +2001,12 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[736128708u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2be06ec4>(prop)); };
     table[737258238u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2bf1aafe>(prop)); };
     table[737679281u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxColorOverLifeMaterialDriver>(prop)); };
+    table[738520544u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2c04ede0>(prop)); };
     table[740737797u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SurrenderTypeData>(prop)); };
     table[46628140u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FloatingTextTypeList>(prop)); };
     table[752642599u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LineTargetToCaster>(prop)); };
     table[754884720u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2cfea070>(prop)); };
-    table[759657674u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IsOwnerAliveSpawnConditions>(prop)); };
+    table[757815667u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2d2b5973>(prop)); };
     table[761042637u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EsportsBannerData>(prop)); };
     table[761319899u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::RegaliaRankedBannerMap>(prop)); };
     table[762048930u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DynamicMaterialDef>(prop)); };
@@ -1803,6 +2023,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[795738052u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AbovePARPercentCastRequirement>(prop)); };
     table[796426082u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ScriptPreloadCharacter>(prop)); };
     table[796686208u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FlexTypeFloat>(prop)); };
+    table[49948710u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2fa2826>(prop)); };
     table[799956205u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x2fae5ced>(prop)); };
     table[800615629u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FunctionTableGet>(prop)); };
     table[805516284u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x300333fc>(prop)); };
@@ -1823,6 +2044,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[845574667u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LoadoutDamageSkinInfoPanel>(prop)); };
     table[846923459u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x327b06c3>(prop)); };
     table[847419898u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LockRootOrientationRigPoseModifierData>(prop)); };
+    table[849662495u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x32a4d21f>(prop)); };
     table[849736052u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapAlternateAssets>(prop)); };
     table[851321958u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x32be2466>(prop)); };
     table[851836288u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x32c5fd80>(prop)); };
@@ -1830,6 +2052,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[856064357u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SkinCharacterDataProperties_CharacterIdleEffect>(prop)); };
     table[53563192u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTGameVariationData>(prop)); };
     table[858698817u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::NamedDataValueCalculationPart>(prop)); };
+    table[867732128u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x33b88aa0>(prop)); };
     table[868276581u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::UseAutoattackCastTimeData>(prop)); };
     table[872611392u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargeterDefinitionLine>(prop)); };
     table[872756935u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x340536c7>(prop)); };
@@ -1837,6 +2060,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[874975182u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x34270fce>(prop)); };
     table[877304437u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::X3DSharedData>(prop)); };
     table[878451831u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x345c1c77>(prop)); };
+    table[880187647u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x347698ff>(prop)); };
     table[880553955u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionSpellSlot>(prop)); };
     table[888087826u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionKillCount>(prop)); };
     table[890181294u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TerrainType>(prop)); };
@@ -1849,7 +2073,9 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[905298284u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TooltipInstanceItem>(prop)); };
     table[906277859u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3604b3e3>(prop)); };
     table[906481424u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MinMaterialDriver>(prop)); };
+    table[907546829u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x361810cd>(prop)); };
     table[911153026u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x364f1782>(prop)); };
+    table[912794838u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x366824d6>(prop)); };
     table[915602117u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AudioSystemDataProperties>(prop)); };
     table[916071097u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x369a22b9>(prop)); };
     table[917336570u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VoiceChatViewController>(prop)); };
@@ -1868,6 +2094,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[955345470u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapSkinColorizationPostEffect>(prop)); };
     table[59888480u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MinimapIconColorData>(prop)); };
     table[964506025u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::NeutralTimerData>(prop)); };
+    table[965059441u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3985a371>(prop)); };
     table[60513980u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CircleMovement>(prop)); };
     table[968608392u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x39bbca88>(prop)); };
     table[60771964u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EncounterUITunables>(prop)); };
@@ -1878,16 +2105,18 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[992861497u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemGroup>(prop)); };
     table[994495723u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AbilityResourceTypeConfig>(prop)); };
     table[1000510856u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3ba29588>(prop)); };
+    table[1004330985u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3bdcdfe9>(prop)); };
     table[1005214616u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TftSurrenderCheat>(prop)); };
     table[1005588128u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IconElementData>(prop)); };
-    table[1009087838u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IDynamicMaterialDriver>(prop)); };
     table[1009431984u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IScriptBlock>(prop)); };
     table[1010350366u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionGameTimer>(prop)); };
+    table[1010364666u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3c38f0fa>(prop)); };
     table[1013446472u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LootTableDialogViewController>(prop)); };
     table[1013623483u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapBehavior>(prop)); };
     table[1015206118u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3c82d0e6>(prop)); };
     table[1015511333u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FxActionMoveBase>(prop)); };
     table[1015876445u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3c8d0b5d>(prop)); };
+    table[1019919150u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3ccabb2e>(prop)); };
     table[1020845005u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3cd8dbcd>(prop)); };
     table[1023490542u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TriggerOnStart>(prop)); };
     table[1031283364u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::PerkBuff>(prop)); };
@@ -1895,6 +2124,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1038271686u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3de2c4c6>(prop)); };
     table[1040594301u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MissileGroupSpawnerSpec>(prop)); };
     table[1046078154u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3e59e2ca>(prop)); };
+    table[1048116955u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3e78fedb>(prop)); };
     table[1050508117u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SetRespawnTimerCheat>(prop)); };
     table[1054897261u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3ee0746d>(prop)); };
     table[1059238412u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x3f22b20c>(prop)); };
@@ -1902,17 +2132,20 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[66354938u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapGraphicsFeature>(prop)); };
     table[1062280453u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IndicatorTypeLocal>(prop)); };
     table[1073283193u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IContextualAction>(prop)); };
+    table[1074939506u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x40124672>(prop)); };
     table[1074986366u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GameModeConstantInteger>(prop)); };
     table[1079485007u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4057a24f>(prop)); };
     table[1081825489u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x407b58d1>(prop)); };
     table[1082437406u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4084af1e>(prop)); };
     table[1083476907u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialInstanceDynamicTexture>(prop)); };
+    table[1085046174u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x40ac7d9e>(prop)); };
     table[1085106335u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SyncedAnimationRigPoseModifierData>(prop)); };
     table[1086321689u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionItemID>(prop)); };
-    table[1090223300u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IDynamicMaterialFloatDriver>(prop)); };
     table[1091758723u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxReflectionDefinitionData>(prop)); };
+    table[1094020328u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x41356ce8>(prop)); };
     table[1096844206u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FlexValueVector2>(prop)); };
     table[68729178u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x418b95a>(prop)); };
+    table[1101953145u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x41ae7879>(prop)); };
     table[1101955153u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemCareyOverrideStartingItemSetSet>(prop)); };
     table[1103575685u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x41c73a85>(prop)); };
     table[1104587944u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionNegation>(prop)); };
@@ -1920,7 +2153,9 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1114474915u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SkinAnimationProperties>(prop)); };
     table[1116466002u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LoadScreenTip>(prop)); };
     table[1117732500u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x429f3e94>(prop)); };
+    table[1119340937u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x42b7c989>(prop)); };
     table[1119535729u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x42bac271>(prop)); };
+    table[1121010933u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x42d144f5>(prop)); };
     table[1123665566u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AudioTagListProperties>(prop)); };
     table[70254680u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ValueFloat>(prop)); };
     table[1124978957u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x430dd10d>(prop)); };
@@ -1930,6 +2165,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1132045746u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4379a5b2>(prop)); };
     table[1133007103u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTSetData>(prop)); };
     table[1133034384u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LinearTransformProcessorData>(prop)); };
+    table[1134058004u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x43985a14>(prop)); };
     table[1136906520u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x43c3d118>(prop)); };
     table[1146372659u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StoreViewController>(prop)); };
     table[1154861162u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CharacterVarsTable>(prop)); };
@@ -1942,11 +2178,14 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1171267580u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialInstanceDynamicSwitch>(prop)); };
     table[1173409658u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SwitchMaterialDriverElement>(prop)); };
     table[1173599148u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapPrefabInstance>(prop)); };
+    table[1175211702u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x460c4eb6>(prop)); };
     table[1176619879u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TrophyData>(prop)); };
     table[1177802644u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BuffData>(prop)); };
     table[1179857030u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x46533086>(prop)); };
     table[1181419247u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SpecificColorMaterialDriver>(prop)); };
     table[1183984318u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemRecommendationItemList>(prop)); };
+    table[1184190554u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4695505a>(prop)); };
+    table[1186238010u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x46b48e3a>(prop)); };
     table[1196365121u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x474f1541>(prop)); };
     table[1198542322u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::QualitySetting>(prop)); };
     table[1200804629u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4792d315>(prop)); };
@@ -1957,10 +2196,15 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1209549075u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x48184113>(prop)); };
     table[1210599257u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x48284759>(prop)); };
     table[1215183084u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x486e38ec>(prop)); };
+    table[1215284687u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x486fc5cf>(prop)); };
     table[1219793301u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ESportLeagueEntry>(prop)); };
+    table[1220065273u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x48b8b7f9>(prop)); };
     table[1221197624u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x48c9ff38>(prop)); };
     table[1221817611u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapParticleGroups>(prop)); };
     table[1222455122u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GDSMapObjectExtraInfo>(prop)); };
+    table[1222934033u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x48e47e11>(prop)); };
+    table[1223396679u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x48eb8d47>(prop)); };
+    table[1223503756u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x48ed2f8c>(prop)); };
     table[1227271742u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4926ae3e>(prop)); };
     table[1228148666u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x49340fba>(prop)); };
     table[1238702953u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxDistortionDefinitionData>(prop)); };
@@ -1986,8 +2230,11 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1278600786u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargeterDefinition>(prop)); };
     table[1280605585u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FadeEventData>(prop)); };
     table[1283176254u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::NeutralTimers>(prop)); };
-    table[1288133231u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudGearSelectionUIData>(prop)); };
+    table[1283203602u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4c7c2212>(prop)); };
+    table[1288428891u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4ccbdd5b>(prop)); };
+    table[1294804353u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4d2d2581>(prop)); };
     table[1295117638u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4d31ed46>(prop)); };
+    table[1300984122u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4d8b713a>(prop)); };
     table[1303930364u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DynamicMaterialTextureSwapDef>(prop)); };
     table[1305331905u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialInstanceTextureDef>(prop)); };
     table[1313586219u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4e4bbc2b>(prop)); };
@@ -1999,16 +2246,20 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1323437592u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IsSkinSpawnConditionData>(prop)); };
     table[1327860340u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialSwitchData>(prop)); };
     table[1329470429u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4f3e1bdd>(prop)); };
+    table[1330658358u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4f503c36>(prop)); };
     table[1335813830u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EffectDesaturateElementData>(prop)); };
     table[1337363141u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MasteryBadgeData>(prop)); };
     table[1340345930u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x4fe40e4a>(prop)); };
     table[1340671070u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTHudTunables>(prop)); };
     table[5245094u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SpellDataValue>(prop)); };
     table[83979083u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5016b4b>(prop)); };
+    table[1346031826u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x503ad0d2>(prop)); };
+    table[1347454309u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x50508565>(prop)); };
+    table[1348073910u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5059f9b6>(prop)); };
     table[1348327734u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BlendableClipData>(prop)); };
     table[1348413282u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ITargeterFadeBehavior>(prop)); };
     table[1348637128u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x506291c8>(prop)); };
-    table[1349646866u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HasBuffNameSpawnConditions>(prop)); };
+    table[1352758083u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x50a17343>(prop)); };
     table[1353487870u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AnnouncementsViewController>(prop)); };
     table[1361978432u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x512e2440>(prop)); };
     table[1365802124u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HermiteSplineInfo>(prop)); };
@@ -2016,6 +2267,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1370198255u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FlexValueFloat>(prop)); };
     table[1372076792u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::healthBarData>(prop)); };
     table[1372839132u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxFloatOverLifeMaterialDriver>(prop)); };
+    table[1373100645u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x51d7da65>(prop)); };
     table[1378593034u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x522ba90a>(prop)); };
     table[1383989846u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x527e0256>(prop)); };
     table[1384773760u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5289f880>(prop)); };
@@ -2034,15 +2286,19 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1415088838u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TrackMouseMovement>(prop)); };
     table[1416785227u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::WorldVarsTable>(prop)); };
     table[1420908503u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionHasGold>(prop)); };
+    table[1423019224u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x54d18cd8>(prop)); };
     table[1426466346u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::UpdaterResourceData>(prop)); };
     table[1426469241u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::RigResource>(prop)); };
     table[1428235105u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x55212361>(prop)); };
     table[1432044285u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x555b42fd>(prop)); };
     table[1432209297u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionTemplateHotkeysLabel>(prop)); };
+    table[1439402690u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x55cb8ac2>(prop)); };
     table[1441690361u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialOverrideCallbackDynamicMaterial>(prop)); };
+    table[1442186212u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x55f603e4>(prop)); };
     table[1442744202u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionMarkerName>(prop)); };
     table[1442793122u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SourceTypeFilter>(prop)); };
     table[1443785785u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x560e6c39>(prop)); };
+    table[1447896080u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x564d2410>(prop)); };
     table[1454228832u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionCharacterLevel>(prop)); };
     table[1458280349u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ToggleAfkDetectionCheat>(prop)); };
     table[1459861871u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BlendingSwitchMaterialDriver>(prop)); };
@@ -2051,6 +2307,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1461533414u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HasUnitTagsCastRequirement>(prop)); };
     table[1465311360u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BuffCounterDynamicMaterialFloatDriver>(prop)); };
     table[1471545228u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OverrideAttackTimeData>(prop)); };
+    table[1472625936u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x57c67d10>(prop)); };
     table[1474675283u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x57e5c253>(prop)); };
     table[92300366u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x580644e>(prop)); };
     table[1477816489u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StatByCoefficientCalculationPart>(prop)); };
@@ -2059,7 +2316,6 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1484706743u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapVisibilityFlagDefinitions>(prop)); };
     table[1485914924u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5891432c>(prop)); };
     table[1491104480u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x58e072e0>(prop)); };
-    table[1493463692u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudRadialWheelData>(prop)); };
     table[1496250051u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapParticle>(prop)); };
     table[1496596895u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialInstanceParamDef>(prop)); };
     table[1501317789u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x597c4a9d>(prop)); };
@@ -2071,6 +2327,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1513866541u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5a3bc52d>(prop)); };
     table[1515311129u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5a51d019>(prop)); };
     table[1517326239u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::PerkReplacement>(prop)); };
+    table[1517489337u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5a730cb9>(prop)); };
     table[95149995u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5abdfab>(prop)); };
     table[1523572560u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::PlatformSpellInfo>(prop)); };
     table[1524323892u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionItemSliderGraphicsQuality>(prop)); };
@@ -2085,11 +2342,13 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1545315440u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LootItem>(prop)); };
     table[1550969638u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ICastRequirement>(prop)); };
     table[1552936921u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5c8fefd9>(prop)); };
+    table[1553179771u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5c93a47b>(prop)); };
     table[1554326092u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5ca5224c>(prop)); };
-    table[1556398653u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IsOwnerHeroSpawnConditions>(prop)); };
+    table[1554670374u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5caa6326>(prop)); };
     table[1558266654u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5ce1431e>(prop)); };
     table[1559666382u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ByCharLevelBreakpointsCalculationPart>(prop)); };
     table[1569214838u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GetKeyValueInCustomTableBlock>(prop)); };
+    table[1571452630u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x5daa76d6>(prop)); };
     table[1572954563u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapClouds>(prop)); };
     table[1573027425u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTHudCombatRecapData>(prop)); };
     table[1574343673u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ParticleEventDataPair>(prop)); };
@@ -2115,6 +2374,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1621267174u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ShaderStaticSwitch>(prop)); };
     table[101336083u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StaticMaterialTechniqueDef>(prop)); };
     table[1622554532u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SameTeamCastRequirement>(prop)); };
+    table[1622886848u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x60bb49c0>(prop)); };
     table[1625294129u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ScriptDataObject>(prop)); };
     table[1628559524u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SkinMeshDataProperties>(prop)); };
     table[1634903164u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6172a47c>(prop)); };
@@ -2147,6 +2407,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1689378572u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x64b1df0c>(prop)); };
     table[6610142u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SponsoredBanner>(prop)); };
     table[1692908001u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x64e7b9e1>(prop)); };
+    table[1695774122u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x651375aa>(prop)); };
     table[414058u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaxMaterialDriver>(prop)); };
     table[106065864u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6526fc8>(prop)); };
     table[1707263328u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TftItemComposition>(prop)); };
@@ -2157,6 +2418,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1714459771u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MusicAudioDataProperties>(prop)); };
     table[1715000120u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6638d338>(prop)); };
     table[1715297792u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x663d5e00>(prop)); };
+    table[1717657227u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x66615e8b>(prop)); };
     table[1718266157u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SyncGroupData>(prop)); };
     table[1718590252u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x666f9b2c>(prop)); };
     table[1722047856u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ChangeTurnRadius>(prop)); };
@@ -2168,7 +2430,10 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1749521072u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MissileVisibilitySpec>(prop)); };
     table[1749974331u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialTextureDataCollection>(prop)); };
     table[1752512115u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxPrimitiveBeam>(prop)); };
+    table[1753539211u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6884e28b>(prop)); };
+    table[1754731869u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6897155d>(prop)); };
     table[1755899118u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VectorGet>(prop)); };
+    table[1756602744u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x68b3a178>(prop)); };
     table[1759261366u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ValueVector3>(prop)); };
     table[1760736924u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SkinUpgradeData>(prop)); };
     table[1768571419u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x696a421b>(prop)); };
@@ -2181,6 +2446,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1780228927u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6a1c233f>(prop)); };
     table[1783247881u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapBakeProperties>(prop)); };
     table[1784059751u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6a569767>(prop)); };
+    table[1785608963u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6a6e3b03>(prop)); };
     table[1786447928u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6a7b0838>(prop)); };
     table[1787328523u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxMeshDefinitionData>(prop)); };
     table[1788849882u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionItemSecondaryHotkeys2Column>(prop)); };
@@ -2193,10 +2459,13 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1798273677u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SpellDataValueVector>(prop)); };
     table[1803253536u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MinimapPingEffectDefinition>(prop)); };
     table[1808563568u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IntegratedValueVector2>(prop)); };
+    table[1811326145u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6bf6a4c1>(prop)); };
     table[1813728254u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SHData>(prop)); };
     table[1813912031u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::InvalidDeviceViewController>(prop)); };
-    table[1820531913u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTMapCharacterLists>(prop)); };
+    table[1820421474u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6c816d62>(prop)); };
+    table[1822430153u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6ca013c9>(prop)); };
     table[1823342025u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6cadfdc9>(prop)); };
+    table[1823374459u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6cae7c7b>(prop)); };
     table[1825341187u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IntegratedValueVector3>(prop)); };
     table[1826338589u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6cdbb71d>(prop)); };
     table[1827239481u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6ce97639>(prop)); };
@@ -2204,9 +2473,11 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1835843906u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6d6cc142>(prop)); };
     table[114829133u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6d8274d>(prop)); };
     table[1837663416u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SelectorPairData>(prop)); };
+    table[1837794463u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6d8a849f>(prop)); };
     table[1837858746u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6d8b7fba>(prop)); };
     table[1839038444u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTHudStageData>(prop)); };
     table[1842507578u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6dd26f3a>(prop)); };
+    table[1844914458u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6df7291a>(prop)); };
     table[1845742629u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6e03cc25>(prop)); };
     table[1850343160u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTHudScoreboardData>(prop)); };
     table[1852984937u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BuffStackingSettings>(prop)); };
@@ -2214,29 +2485,37 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[1855031280u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6e9187f0>(prop)); };
     table[1859523703u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::RegionElementData>(prop)); };
     table[1861095566u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapPathCurveSegment>(prop)); };
+    table[116441270u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6f0c0b6>(prop)); };
     table[1863542244u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DelayStart>(prop)); };
     table[1864557295u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionSpellLevel>(prop)); };
+    table[1865313452u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6f2e6cac>(prop)); };
     table[1871118919u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TftTraitData>(prop)); };
     table[1873184927u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FxActionMoveReset>(prop)); };
     table[1873722878u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6faebdfe>(prop)); };
     table[1873933967u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6fb1f68f>(prop)); };
     table[1874373301u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialDataCollections>(prop)); };
+    table[1877298879u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x6fe54ebf>(prop)); };
     table[1879900470u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x700d0136>(prop)); };
+    table[1882901525u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x703acc15>(prop)); };
+    table[1883368707u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x7041ed03>(prop)); };
     table[117798298u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x705759a>(prop)); };
+    table[1885834192u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x70678bd0>(prop)); };
     table[1887008704u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SwapChampionCheat>(prop)); };
-    table[1887734700u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudStatStoneDeathRecapData>(prop)); };
     table[1889908488u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TableValueExistsScriptCondition>(prop)); };
     table[118371731u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GameCalculationModified>(prop)); };
     table[1895822007u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FloatLiteralMaterialDriver>(prop)); };
+    table[1896361834u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x71082f6a>(prop)); };
     table[1904648305u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionCustomTimer>(prop)); };
     table[1906252436u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AtlasData>(prop)); };
     table[1907548119u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GlobalPerLevelStatsFactor>(prop)); };
     table[1913369002u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EffectAnimationElementData>(prop)); };
     table[1914613726u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HasGearDynamicMaterialBoolDriver>(prop)); };
+    table[119995298u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x726fba2>(prop)); };
     table[1921293989u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x72849ea5>(prop)); };
     table[1923179998u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BaseResourceResolver>(prop)); };
     table[1923729607u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MissionAsset>(prop)); };
     table[120327418u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargeterDefinitionMultiAOE>(prop)); };
+    table[1925812963u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x72c992e3>(prop)); };
     table[1926860258u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionShopOpenCount>(prop)); };
     table[1932372677u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x732daac5>(prop)); };
     table[1935363221u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StaticMaterialChildTechniqueDef>(prop)); };
@@ -2247,9 +2526,12 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[122655197u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ValueColor>(prop)); };
     table[1963259073u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTUnitUpgradeData>(prop)); };
     table[1964830497u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialInstanceDynamicParam>(prop)); };
+    table[1964881085u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x751db4bd>(prop)); };
     table[1965398739u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x75259ad3>(prop)); };
     table[1973062744u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x759a8c58>(prop)); };
+    table[1975343476u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x75bd5974>(prop)); };
     table[1977541677u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionEnemyDeathsNearby>(prop)); };
+    table[1977893536u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x75e442a0>(prop)); };
     table[1978200257u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x75e8f0c1>(prop)); };
     table[1981427363u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionItemLabel>(prop)); };
     table[1983743771u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AbilityResourceByCoefficientCalculationPart>(prop)); };
@@ -2287,9 +2569,10 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2049604109u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x7a2a7a0d>(prop)); };
     table[2049812451u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x7a2da7e3>(prop)); };
     table[2051207289u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::NullMovement>(prop)); };
+    table[2055544024u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x7a851cd8>(prop)); };
     table[2056951551u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x7a9a96ff>(prop)); };
     table[2057207177u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x7a9e7d89>(prop)); };
-    table[2058949250u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudTunables>(prop)); };
+    table[2058326598u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x7aaf9246>(prop)); };
     table[2059187804u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapMotionPath>(prop)); };
     table[2059432175u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionSpell>(prop)); };
     table[2062125700u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MinimapPingData>(prop)); };
@@ -2320,12 +2603,13 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2120591967u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionTemplateDropdown>(prop)); };
     table[2121488724u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionHasItemFromVOGroup>(prop)); };
     table[2127559588u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x7ecffba4>(prop)); };
+    table[2128318460u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x7edb8ffc>(prop)); };
     table[2130372290u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x7efae6c2>(prop)); };
     table[2131369601u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AnchorBase>(prop)); };
+    table[2133794007u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x7f2f1cd7>(prop)); };
     table[2134659206u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapActionPlaySoundAtLocation>(prop)); };
     table[2136477118u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ILoadoutInfoPanel>(prop)); };
     table[2136503545u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MinimapPingEffectAndTextureData>(prop)); };
-    table[2137884073u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudStatStoneData>(prop)); };
     table[2141811217u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SyncedAnimationEventData>(prop)); };
     table[2143410291u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AnimationFractionDynamicMaterialFloatDriver>(prop)); };
     table[2144288560u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargetingTypeData>(prop)); };
@@ -2339,6 +2623,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2170661496u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EffectAnimatedRotatingIconElementData>(prop)); };
     table[2170862279u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8164bac7>(prop)); };
     table[2171032536u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ShaderPhysicalParameter>(prop)); };
+    table[2172508779u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x817dda6b>(prop)); };
     table[2173053711u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x81862b0f>(prop)); };
     table[2174034783u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8195235f>(prop)); };
     table[2174290526u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EffectCooldownRadialElementData>(prop)); };
@@ -2350,6 +2635,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2190212541u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x828bfdbd>(prop)); };
     table[2199168020u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8314a414>(prop)); };
     table[137624579u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x833fc03>(prop)); };
+    table[2211901177u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x83d6eef9>(prop)); };
     table[2213043706u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionCharacterPlayingAnimation>(prop)); };
     table[2218753755u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ToggleBuffCheat>(prop)); };
     table[2222497939u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HomeViewController>(prop)); };
@@ -2370,6 +2656,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2253409519u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x86504cef>(prop)); };
     table[2254221038u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AudioStatusEvents>(prop)); };
     table[2257528181u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x868f2575>(prop)); };
+    table[2260460546u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x86bbe402>(prop)); };
     table[2261862267u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxProbabilityTableDataGrande>(prop)); };
     table[2263089413u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GlobalAudioDataProperties>(prop)); };
     table[2263200418u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ClearAlreadyHitTracking>(prop)); };
@@ -2402,7 +2689,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2338173165u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EffectCreationData>(prop)); };
     table[2340045716u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SkinMeshDataProperties_MaterialOverride>(prop)); };
     table[146346673u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8b912b1>(prop)); };
-    table[2341739189u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudStatPanelStatStoneData>(prop)); };
+    table[2343969768u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8bb623e8>(prop)); };
     table[2344649559u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EffectValueCalculationPart>(prop)); };
     table[2344803658u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8bc2dd4a>(prop)); };
     table[2347595275u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GenericMapPlaceable>(prop)); };
@@ -2411,6 +2698,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2360450741u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8cb19eb5>(prop)); };
     table[2368776128u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SequencerClipData>(prop)); };
     table[2381408790u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8df16a16>(prop)); };
+    table[2383735257u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8e14e9d9>(prop)); };
     table[2386264729u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CompanionSpeciesData>(prop)); };
     table[2391128263u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8e85b8c7>(prop)); };
     table[2392053998u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::Breakpoint>(prop)); };
@@ -2422,11 +2710,13 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2401135138u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8f1e6a22>(prop)); };
     table[2405280373u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DefaultSplashedPerkStyle>(prop)); };
     table[2407209295u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SkinAudioProperties>(prop)); };
+    table[2407791516u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8f83fb9c>(prop)); };
     table[2407917657u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x8f85e859>(prop)); };
     table[2409973973u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::WallFollowMovement>(prop)); };
     table[2412429686u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HasBuffSpawnConditionData>(prop)); };
     table[2415052226u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::RegaliaRankedCrestMap>(prop)); };
     table[2417503366u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FloorFloatMaterialDriver>(prop)); };
+    table[2418998770u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x902efdf2>(prop)); };
     table[2419359448u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x90347ed8>(prop)); };
     table[151302480u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StaticMaterialShaderSamplerDef>(prop)); };
     table[2422417038u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9063268e>(prop)); };
@@ -2438,11 +2728,15 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2450342190u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionItemHotkeys>(prop)); };
     table[2452878935u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AllTrueMaterialDriver>(prop)); };
     table[2461751699u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EnterFOWVisibility>(prop)); };
+    table[2462938456u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x92cd7558>(prop)); };
     table[2463406204u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SpellEffectAmount>(prop)); };
     table[2465524974u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VectorTableSet>(prop)); };
+    table[2476671279u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x939f012f>(prop)); };
     table[2477595745u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x93ad1c61>(prop)); };
     table[2479546740u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ICatalogEntryOwner>(prop)); };
     table[2482357264u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ExperienceCurveData>(prop)); };
+    table[2484619884u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x94184a6c>(prop)); };
+    table[2485146503u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x94205387>(prop)); };
     table[2486262273u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::RegionsThatAllowContent>(prop)); };
     table[2489717489u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x946612f1>(prop)); };
     table[2490030924u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::Cheat>(prop)); };
@@ -2450,6 +2744,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2498049111u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x94e53457>(prop)); };
     table[2506702743u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LootOutputBase>(prop)); };
     table[2506805399u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTStreakData>(prop)); };
+    table[2507649631u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9577b25f>(prop)); };
     table[2510804743u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionCharacterMetadata>(prop)); };
     table[2514536512u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BaseLoadoutData>(prop)); };
     table[2515485450u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::X3DSharedConstantBufferDef>(prop)); };
@@ -2457,12 +2752,14 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2524344308u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StatStoneSet>(prop)); };
     table[2525974952u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x968f51a8>(prop)); };
     table[2526736020u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxChildIdentifier>(prop)); };
+    table[2528159206u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x96b0a5e6>(prop)); };
     table[2530014013u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GravityHeightSolver>(prop)); };
+    table[2530636779u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x96d673eb>(prop)); };
     table[2531114100u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxPrimitiveCameraQuad>(prop)); };
-    table[2533312697u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ToonInkingFilterParams>(prop)); };
     table[2537315917u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x973c5e4d>(prop)); };
     table[2541033414u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GameModeConstantFloat>(prop)); };
     table[2541164198u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTItemList>(prop)); };
+    table[2548506226u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x97e71e72>(prop)); };
     table[2549904146u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x97fc7312>(prop)); };
     table[2552904996u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TrackData>(prop)); };
     table[2556481222u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemRecommendationOverrideStartingItemSet>(prop)); };
@@ -2471,6 +2768,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[160416398u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionMapID>(prop)); };
     table[2568619062u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CreateFunctionBlock>(prop)); };
     table[2572940566u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SubPartScaledProportionalToStat>(prop)); };
+    table[2572986164u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x995ca734>(prop)); };
     table[2573155477u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::Companion>(prop)); };
     table[2574492633u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapPathLineSegment>(prop)); };
     table[2577175271u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CheatPage>(prop)); };
@@ -2479,9 +2777,11 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[161380221u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x99e777d>(prop)); };
     table[2583264988u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DeathTimesScalingPoint>(prop)); };
     table[2585474309u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TooltipInstanceListElement>(prop)); };
+    table[2586274212u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9a2769a4>(prop)); };
     table[161679594u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::PatchingViewController>(prop)); };
     table[2588617117u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AnimationResourceData>(prop)); };
     table[2590088124u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9a619bbc>(prop)); };
+    table[2599377135u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9aef58ef>(prop)); };
     table[2599819896u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CustomReductionMultiplierCalculationPart>(prop)); };
     table[2600090346u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FontLocaleType>(prop)); };
     table[2601460036u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::Area>(prop)); };
@@ -2498,10 +2798,12 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2614239024u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9bd21f30>(prop)); };
     table[2614516424u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9bd65ac8>(prop)); };
     table[2621910259u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9c472cf3>(prop)); };
+    table[2622438595u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9c4f3cc3>(prop)); };
     table[2622906420u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SoundEventData>(prop)); };
     table[2622984950u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TextElementData>(prop)); };
     table[2623768320u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9c638700>(prop)); };
     table[2624893466u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionItemCheckbox>(prop)); };
+    table[2626346644u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9c8ade94>(prop)); };
     table[164488258u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxEmitterDefinitionData>(prop)); };
     table[2639255897u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AddHealthCheat>(prop)); };
     table[2643135015u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ClientStateCommonSettings>(prop)); };
@@ -2514,16 +2816,19 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2649240585u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9de83409>(prop)); };
     table[2653184481u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TftMapCharacterSkinData>(prop)); };
     table[2653653638u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9e2b8a86>(prop)); };
+    table[2654040416u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9e317160>(prop)); };
     table[2654473233u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9e380c11>(prop)); };
     table[2656759159u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9e5aed77>(prop)); };
     table[2658894593u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9e7b8301>(prop)); };
-    table[2663530317u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9ec23f4d>(prop)); };
     table[2667126912u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::NumberCalculationPart>(prop)); };
+    table[2672789540u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9f4f8824>(prop)); };
     table[2673469741u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9f59e92d>(prop)); };
     table[2681684398u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CustomTableGet>(prop)); };
     table[2681781501u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::x9fd8bcfd>(prop)); };
+    table[2685573425u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa0129931>(prop)); };
     table[2687760845u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SurrenderData>(prop)); };
     table[2696268697u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudItemShopData>(prop)); };
+    table[2697881091u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa0ce6603>(prop)); };
     table[2698836486u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionNeutralMinionCampIsAlive>(prop)); };
     table[2701359557u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa10379c5>(prop)); };
     table[2706101456u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxPrimitiveRay>(prop)); };
@@ -2533,6 +2838,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2712490432u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MinimapBackground>(prop)); };
     table[2713897119u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa1c2c89f>(prop)); };
     table[2719807978u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialInstanceSwitchDef>(prop)); };
+    table[2721089711u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa23088af>(prop)); };
     table[2722376127u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa24429bf>(prop)); };
     table[2725259578u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SecondaryResourceDisplayFractional>(prop)); };
     table[2727115092u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemRecommendationMatrixRow>(prop)); };
@@ -2549,17 +2855,20 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2743027917u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa37f48cd>(prop)); };
     table[2746720777u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TriggerOnDistanceFromCaster>(prop)); };
     table[2748390021u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa3d11a85>(prop)); };
+    table[2748496025u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa3d2b899>(prop)); };
     table[171906336u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa3f1520>(prop)); };
     table[172106287u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LoadoutCompanionInfoPanel>(prop)); };
     table[2753712911u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemRecommendationOverrideSet>(prop)); };
     table[2754092881u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa4281f51>(prop)); };
     table[2755749141u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BankUnit>(prop)); };
     table[2756389056u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa44b28c0>(prop)); };
+    table[2760351744u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa487a000>(prop)); };
     table[2761167747u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa4941383>(prop)); };
     table[2762908325u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxPrimitiveAttachedMesh>(prop)); };
     table[2764359573u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa4c4c795>(prop)); };
     table[2766224215u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TooltipInstanceSpell>(prop)); };
     table[2766644386u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::PerkScriptData>(prop)); };
+    table[2767153283u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa4ef6883>(prop)); };
     table[2768415221u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa502a9f5>(prop)); };
     table[2769449189u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa51270e5>(prop)); };
     table[2774025544u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa5584548>(prop)); };
@@ -2576,22 +2885,26 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2795848259u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa6a54243>(prop)); };
     table[2796927515u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ToggleTeamCheat>(prop)); };
     table[2798892082u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IFloatGet>(prop)); };
+    table[2799943527u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa6e3bf67>(prop)); };
     table[2800095151u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa6e60faf>(prop)); };
     table[2801254988u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa6f7c24c>(prop)); };
     table[2807723955u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LoadoutArenaSkinInfoPanel>(prop)); };
     table[2810433493u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapAudio>(prop)); };
+    table[2813232518u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa7ae8586>(prop)); };
     table[2815698218u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AbilityResourceThresholdIndicatorRange>(prop)); };
     table[176045846u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IdMappingEntry>(prop)); };
     table[2818226507u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TogglePlantFastRespawnCheat>(prop)); };
     table[2820872175u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EffectRotatingIconElementData>(prop)); };
     table[2822771443u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemCareyOverrideStartingItemSet>(prop)); };
     table[2823085921u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapLocator>(prop)); };
+    table[2823282857u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa847e0a9>(prop)); };
     table[2824201906u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::NotScriptCondition>(prop)); };
     table[2828954910u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa89e6d1e>(prop)); };
     table[2829046409u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa89fd289>(prop)); };
     table[2829943575u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxPaletteDefinitionData>(prop)); };
     table[2832031521u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FadeToExplicitValueBehavior>(prop)); };
     table[2833994484u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxSpawnConditions>(prop)); };
+    table[2835097048u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa8fc25d8>(prop)); };
     table[2835506159u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::RemoveFromCustomTableBlock>(prop)); };
     table[2836664346u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa914101a>(prop)); };
     table[2838012998u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LoadoutSelectViewController>(prop)); };
@@ -2601,6 +2914,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2851843209u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xa9fbac89>(prop)); };
     table[2851992205u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GameModeConstantFloatPerLevel>(prop)); };
     table[2854572110u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::Cast>(prop)); };
+    table[2854976178u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xaa2b7ab2>(prop)); };
     table[2855504619u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionTemplateCheckbox>(prop)); };
     table[2857147974u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DamageShieldedLogic>(prop)); };
     table[2857412672u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xaa50a840>(prop)); };
@@ -2609,11 +2923,14 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2862597465u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xaa9fc559>(prop)); };
     table[2864404146u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CustomTableSet>(prop)); };
     table[2867346523u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SceneData>(prop)); };
+    table[2871478330u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xab27483a>(prop)); };
     table[2872907111u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xab3d1567>(prop)); };
     table[2873675736u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::QuestDefinition>(prop)); };
     table[2877941434u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xab89e6ba>(prop)); };
     table[2878204994u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SwitchMaterialDriver>(prop)); };
     table[2879779117u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xaba5f12d>(prop)); };
+    table[2897030072u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xacad2bb8>(prop)); };
+    table[2897479874u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xacb408c2>(prop)); };
     table[2898073997u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CrowdControlFilter>(prop)); };
     table[2899841408u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxAnimatedVector3fVariableData>(prop)); };
     table[2901870171u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EffectInstancedElementData>(prop)); };
@@ -2631,22 +2948,26 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[2934583178u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TftUnitShopViewController>(prop)); };
     table[2938323084u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xaf23408c>(prop)); };
     table[183658092u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DragDirection>(prop)); };
-    table[2941947903u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xaf5a8fff>(prop)); };
     table[2944141639u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xaf7c0947>(prop)); };
     table[2945473954u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AcceleratingMovement>(prop)); };
     table[2946448300u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionsTab>(prop)); };
     table[184314829u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xafc6bcd>(prop)); };
     table[2960490831u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb075814f>(prop)); };
+    table[2960506109u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb075bcfd>(prop)); };
+    table[2963646417u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb0a5a7d1>(prop)); };
     table[2966037019u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb0ca221b>(prop)); };
     table[2966723104u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb0d49a20>(prop)); };
-    table[2968154316u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AlwaysSpawnCondition>(prop)); };
     table[2970707127u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ToolEducationData>(prop)); };
     table[2971935795u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargetHasBuffFilter>(prop)); };
     table[2971960800u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::PerkEffectAmountPerMode>(prop)); };
     table[2972751856u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb13097f0>(prop)); };
     table[2972878046u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::NavHeaderViewController>(prop)); };
+    table[2977263943u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb1757147>(prop)); };
     table[2980414949u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb1a585e5>(prop)); };
+    table[2982671314u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb1c7f3d2>(prop)); };
+    table[2982682211u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb1c81e63>(prop)); };
     table[11657974u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LoadoutViewController>(prop)); };
+    table[2989512263u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb2305647>(prop)); };
     table[2992376383u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapPlaceableContainer>(prop)); };
     table[2993585533u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DecelToLocationMovement>(prop)); };
     table[2993708970u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionItemDropdown>(prop)); };
@@ -2658,6 +2979,8 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3000850570u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BaseRigPoseModifierData>(prop)); };
     table[187557783u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CursorData>(prop)); };
     table[3003051442u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb2feedb2>(prop)); };
+    table[3003394184u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb3042888>(prop)); };
+    table[3006997510u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb33b2406>(prop)); };
     table[3009075672u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb35ad9d8>(prop)); };
     table[3009806576u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb36600f0>(prop)); };
     table[3010308524u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapAudioDataProperties>(prop)); };
@@ -2667,6 +2990,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3013740817u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapActionPlayAnimation>(prop)); };
     table[3014210468u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb3a933a4>(prop)); };
     table[3014400443u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SummonerSpellPerkReplacementList>(prop)); };
+    table[3016221996u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb3c7e52c>(prop)); };
     table[3018014748u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb3e3401c>(prop)); };
     table[188655288u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionCharacterHealth>(prop)); };
     table[3019371501u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb3f7f3ed>(prop)); };
@@ -2695,22 +3019,29 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3078356408u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialSwitchDataCollection>(prop)); };
     table[3078956507u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb78525db>(prop)); };
     table[3086678927u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StatFormulaData>(prop)); };
+    table[3091508626u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb844ad92>(prop)); };
     table[3095435268u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualActionPlayAnimation>(prop)); };
     table[3101122117u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb8d75e45>(prop)); };
+    table[3107999914u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb94050aa>(prop)); };
     table[3108709201u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TriggerOnDelay>(prop)); };
     table[3112089886u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IntTableGet>(prop)); };
+    table[3113175471u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xb98f49af>(prop)); };
     table[3114171249u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HybridMaterialDef>(prop)); };
     table[3119478897u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FloatingTextDamageDisplayTypeList>(prop)); };
     table[3120352850u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FontResolution>(prop)); };
     table[3127434961u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::PerkSubStyleBonus>(prop)); };
     table[3133614611u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbac72a13>(prop)); };
     table[3134806650u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::RScript>(prop)); };
+    table[3135106116u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbaddec44>(prop)); };
     table[196452308u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbb59fd4>(prop)); };
     table[3143453189u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ConcatenateStringsBlock>(prop)); };
     table[3144650323u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionItemSecondaryHotkeys1Column>(prop)); };
     table[3145117116u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TriggerOnMovementComplete>(prop)); };
+    table[3147089680u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbb94c710>(prop)); };
+    table[3148648160u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbbac8ee0>(prop)); };
     table[3148945057u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BoolTableGet>(prop)); };
     table[3149004042u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbbb1fd0a>(prop)); };
+    table[3149425518u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbbb86b6e>(prop)); };
     table[3149931448u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxFieldCollectionDefinitionData>(prop)); };
     table[196890972u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IShaderDef>(prop)); };
     table[3150370805u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbbc6d7f5>(prop)); };
@@ -2723,18 +3054,20 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3158945758u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SpellRankUpRequirements>(prop)); };
     table[3160901390u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SetVarInTableBlock>(prop)); };
     table[3161379494u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargeterDefinitionArc>(prop)); };
-    table[3161555652u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HasSkinIDSpawnConditions>(prop)); };
     table[3162079434u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ParticleWadFileDescriptor>(prop)); };
     table[3163600774u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbc90b786>(prop)); };
     table[3163647920u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionTemplateHotkeysKey>(prop)); };
     table[3168105463u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GameplayConfig>(prop)); };
     table[3168571667u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbcdc9113>(prop)); };
+    table[3169188414u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbce5fa3e>(prop)); };
     table[3170201200u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SubmeshVisibilityEventData>(prop)); };
     table[3171701405u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ScriptDataObjectList>(prop)); };
+    table[3171994172u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbd10ca3c>(prop)); };
     table[3172694155u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BaseBlendData>(prop)); };
     table[3173404643u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CSSSheet>(prop)); };
     table[3174223914u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CustomTargeterDefinitions>(prop)); };
     table[3177246235u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IsEnemyDynamicMaterialBoolDriver>(prop)); };
+    table[3178343424u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbd71ac00>(prop)); };
     table[3181780357u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HasSpellRankSpawnConditionData>(prop)); };
     table[3184228220u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FixedDistanceIgnoringTerrain>(prop)); };
     table[199060396u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapCharacterList>(prop)); };
@@ -2748,8 +3081,11 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[199692681u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbe71189>(prop)); };
     table[3196462184u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargetHasUnitTagFilter>(prop)); };
     table[3196794540u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BasePerk>(prop)); };
+    table[3199897858u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbeba9102>(prop)); };
     table[3202633864u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BaseElementData>(prop)); };
+    table[3205619143u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbf11ddc7>(prop)); };
     table[200649126u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::Location>(prop)); };
+    table[3210395903u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xbf5ac0ff>(prop)); };
     table[3217219891u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxEmissionSurfaceData>(prop)); };
     table[3221008892u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MissileSpecification>(prop)); };
     table[3221454585u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc0037ef9>(prop)); };
@@ -2759,8 +3095,8 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3233088549u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc0b50425>(prop)); };
     table[3233830641u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc0c056f1>(prop)); };
     table[3234822452u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DefaultStatModPerkSet>(prop)); };
-    table[3236023846u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc0e1ce26>(prop)); };
     table[3239264152u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LockRootOrientationEventData>(prop)); };
+    table[3241111914u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc12f716a>(prop)); };
     table[3253985952u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EvolutionDescription>(prop)); };
     table[3256124575u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IIntGet>(prop)); };
     table[3258535250u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::KillingSpreeFilter>(prop)); };
@@ -2772,8 +3108,11 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3269072986u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc2da185a>(prop)); };
     table[3273533950u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudMenuTransitionData>(prop)); };
     table[3276314181u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IStatStoneLogicDriver>(prop)); };
+    table[204864922u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc35fd9a>(prop)); };
+    table[3285589887u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc3d61f7f>(prop)); };
     table[3290713582u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc4244dee>(prop)); };
     table[3294324549u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::Destroy>(prop)); };
+    table[3299565127u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc4ab5e47>(prop)); };
     table[3303051661u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudTeamScoreMeterProperties>(prop)); };
     table[12944262u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc58386>(prop)); };
     table[3317948433u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AddGoldCheat>(prop)); };
@@ -2789,6 +3128,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3359401564u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc83c665c>(prop)); };
     table[3362386950u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MissileTriggerSpec>(prop)); };
     table[3363398730u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionCharacterSkinID>(prop)); };
+    table[3363785955u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc87f4ce3>(prop)); };
     table[3364456740u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OneTrueMaterialDriver>(prop)); };
     table[3365030612u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc8924ad4>(prop)); };
     table[3365626407u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::QuestUITunables>(prop)); };
@@ -2796,16 +3136,19 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3371956895u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ParametricPairData>(prop)); };
     table[211107199u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc953d7f>(prop)); };
     table[3383798399u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AssistCountFilter>(prop)); };
+    table[3386722002u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xc9dd46d2>(prop)); };
     table[211843653u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xca07a45>(prop)); };
     table[3390937687u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VFXSpawnConditionData>(prop)); };
     table[3391924942u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xca2caace>(prop)); };
     table[3393100796u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::RatioConversion>(prop)); };
     table[3394011442u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xca4c8132>(prop)); };
     table[3397751176u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OverrideAutoAttackCastTimeData>(prop)); };
+    table[3399847090u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcaa58cb2>(prop)); };
     table[3400586476u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IContextualCondition>(prop)); };
     table[3401906356u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FixedTimeSplineMovement>(prop)); };
     table[3402679647u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionCharacterInRangeForSyncedAnimation>(prop)); };
     table[3405043372u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionTemplateBorder>(prop)); };
+    table[3409752889u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcb3cb339>(prop)); };
     table[3409892414u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcb3ed43e>(prop)); };
     table[3410773763u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VertexAnimationRigPoseModifierData>(prop)); };
     table[3415079880u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IOptionItemFilter>(prop)); };
@@ -2818,8 +3161,11 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3428313767u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionCharacterHasCAC>(prop)); };
     table[3430075166u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcc72cb1e>(prop)); };
     table[3432916193u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcc9e24e1>(prop)); };
+    table[3434392202u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xccb4aa8a>(prop)); };
+    table[3434581296u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xccb78d30>(prop)); };
     table[3437446798u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcce3468e>(prop)); };
     table[3437618147u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcce5e3e3>(prop)); };
+    table[3439493947u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcd02833b>(prop)); };
     table[3439760492u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::InsertIntoCustomTableBlock>(prop)); };
     table[3440211024u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DragonUITunables>(prop)); };
     table[3440316227u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionItemPriceMinimum>(prop)); };
@@ -2839,12 +3185,16 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3459369333u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AbilityResourceSlotInfo>(prop)); };
     table[3460011047u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SkinnedMeshDataMaterialController>(prop)); };
     table[3460129365u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SwitchCase>(prop)); };
+    table[3460442619u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xce4229fb>(prop)); };
+    table[3464980951u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xce8769d7>(prop)); };
     table[3467326980u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xceab3604>(prop)); };
     table[3468103258u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xceb70e5a>(prop)); };
     table[3469330908u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcec9c9dc>(prop)); };
     table[3469562960u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcecd5450>(prop)); };
     table[3470174985u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xced6ab09>(prop)); };
     table[3476110372u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualActionData>(prop)); };
+    table[217685072u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcf99c50>(prop)); };
+    table[3487330331u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcfdc701b>(prop)); };
     table[3488660802u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcff0bd42>(prop)); };
     table[3488960049u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xcff54e31>(prop)); };
     table[3490803144u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd0116dc8>(prop)); };
@@ -2856,20 +3206,25 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3499805606u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd09acba6>(prop)); };
     table[3503743985u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EsportsBannerConfiguration>(prop)); };
     table[3508514723u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd11fafa3>(prop)); };
+    table[3509565222u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd12fb726>(prop)); };
     table[3511278911u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd149dd3f>(prop)); };
     table[3515269914u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TftItemData>(prop)); };
     table[3515916773u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IntegratedValueFloat>(prop)); };
     table[3516211013u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd1951f45>(prop)); };
+    table[3517879942u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd1ae9686>(prop)); };
     table[3519409590u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTAnnouncementData>(prop)); };
+    table[3521999102u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::BARRACKS>(prop)); };
     table[3523031429u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd1fd3185>(prop)); };
     table[3523215606u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd20000f6>(prop)); };
     table[3523910252u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd20a9a6c>(prop)); };
     table[220339975u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EffectFillPercentageElementData>(prop)); };
     table[220532968u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudReplaySliderData>(prop)); };
+    table[3531434959u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd27d6bcf>(prop)); };
+    table[3533008142u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd2956d0e>(prop)); };
     table[3535923758u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::Defaultvisibility>(prop)); };
     table[3543466241u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd3350101>(prop)); };
     table[3549389049u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AbilityResourceDynamicMaterialFloatDriver>(prop)); };
-    table[3553075624u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudElementalSectionUIData>(prop)); };
+    table[3553329312u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd3cb80a0>(prop)); };
     table[3554680230u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapTerrainPaint>(prop)); };
     table[3557256043u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudGameModeScoreData>(prop)); };
     table[3557798339u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd40fb1c3>(prop)); };
@@ -2888,11 +3243,12 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3588503832u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FxActionSfx>(prop)); };
     table[3590488641u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaxAllSkillsCheat>(prop)); };
     table[3590976555u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd609f42b>(prop)); };
+    table[3591313163u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd60f170b>(prop)); };
     table[3593996760u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd63809d8>(prop)); };
     table[3594243855u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd63bcf0f>(prop)); };
     table[224714173u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EsportsBannerOptions>(prop)); };
-    table[3598370238u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudPingData>(prop)); };
     table[224929220u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AnnouncementMap>(prop)); };
+    table[3601439579u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd6a99b5b>(prop)); };
     table[3603985163u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTBattlepassViewController>(prop)); };
     table[3607046696u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TftDamageSkinDescriptor>(prop)); };
     table[3612623594u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xd75442ea>(prop)); };
@@ -2916,9 +3272,9 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3661280452u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xda3ab4c4>(prop)); };
     table[3661393350u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xda3c6dc6>(prop)); };
     table[3663270019u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargetTeamFilter>(prop)); };
-    table[3663840478u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IDynamicMaterialBoolDriver>(prop)); };
     table[3667811340u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GdsMapObject>(prop)); };
     table[3672021242u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTHudMobileDownscaleData>(prop)); };
+    table[3673980021u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xdafc7c75>(prop)); };
     table[229654189u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TftMapCharacterRecordData>(prop)); };
     table[3677750829u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xdb36062d>(prop)); };
     table[3681459597u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IconElementDataExtension>(prop)); };
@@ -2934,6 +3290,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3691737381u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xdc0b7125>(prop)); };
     table[3696800942u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AbilityObject>(prop)); };
     table[3697672164u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xdc65ffe4>(prop)); };
+    table[3701485485u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xdca02fad>(prop)); };
     table[3701578183u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MissileAttachedTargetingDefinition>(prop)); };
     table[3701691417u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapLightingV2>(prop)); };
     table[3703833425u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudReplaySliderIconData>(prop)); };
@@ -2942,6 +3299,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3706969042u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EffectCircleMaskDesaturateElementData>(prop)); };
     table[3711978346u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::Cone>(prop)); };
     table[3712288203u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LoLSpellPreloadData>(prop)); };
+    table[3712870255u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xdd4de76f>(prop)); };
     table[3713257934u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xdd53d1ce>(prop)); };
     table[3713591166u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxPrimitiveBeamBase>(prop)); };
     table[3716126038u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ParticleSystemElementData>(prop)); };
@@ -2952,6 +3310,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3726789741u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTAttachmentSlotStyleData>(prop)); };
     table[3727041878u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IsInGrassDynamicMaterialBoolDriver>(prop)); };
     table[3729264367u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StaticMaterialShaderParamDef>(prop)); };
+    table[3729417236u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xde4a6414>(prop)); };
     table[3730624179u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionTeammateDeathsNearby>(prop)); };
     table[3731372071u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AnnouncementStyleBasic>(prop)); };
     table[3732824828u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MinimapIconTextureData>(prop)); };
@@ -2970,6 +3329,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3751997361u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::Map>(prop)); };
     table[3757418744u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CameraConfig>(prop)); };
     table[3758614261u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTTraitContributionData>(prop)); };
+    table[3763304776u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe04f7948>(prop)); };
     table[3766132529u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MessageBoxDialog>(prop)); };
     table[3768560217u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe09faa59>(prop)); };
     table[3769734850u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe0b196c2>(prop)); };
@@ -2981,20 +3341,23 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3791453475u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialTextureData>(prop)); };
     table[3792429246u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe20be0be>(prop)); };
     table[3792557364u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe20dd534>(prop)); };
+    table[3792698687u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe20ffd3f>(prop)); };
     table[237114017u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StaticMaterialSwitchDef>(prop)); };
     table[3795530517u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargeterDefinitionAoe>(prop)); };
     table[3797528126u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe259ae3e>(prop)); };
+    table[3797954604u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe260302c>(prop)); };
     table[3798132414u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe262e6be>(prop)); };
     table[3801322209u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxPrimitiveBase>(prop)); };
     table[3808259511u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CollectiblesEsportsTeamData>(prop)); };
     table[3812866480u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GameFontDescription>(prop)); };
-    table[3813882857u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IVFXSpawnConditions>(prop)); };
     table[3814179094u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe357c116>(prop)); };
     table[3819913258u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe3af402a>(prop)); };
     table[3823129339u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MinimapPingTypeContainer>(prop)); };
+    table[3823743852u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe3e9b36c>(prop)); };
     table[3828118224u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::RegaliaRankedCrestEntry>(prop)); };
     table[3828703835u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SwitchScriptBlock>(prop)); };
     table[3828924738u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionItemVOGroup>(prop)); };
+    table[3829660464u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe443fb30>(prop)); };
     table[3832843140u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxPrimitiveProjectionBase>(prop)); };
     table[3836337806u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HasBuffData>(prop)); };
     table[3837969205u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AbilityResourceStateColorOptions>(prop)); };
@@ -3005,17 +3368,22 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3846963535u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapAlternateAsset>(prop)); };
     table[240569694u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::PerkStyle>(prop)); };
     table[3854295143u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe5bbe067>(prop)); };
+    table[3858376744u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe5fa2828>(prop)); };
     table[3867527440u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionSituationHasRecentlyRun>(prop)); };
+    table[3868475576u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe69440b8>(prop)); };
     table[3872042892u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe6caaf8c>(prop)); };
+    table[3873580680u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe6e22688>(prop)); };
     table[3878015314u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe725d152>(prop)); };
     table[3880372342u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MapNavigationGridOverlays>(prop)); };
     table[3880844002u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxFieldDragDefinitionData>(prop)); };
+    table[3881130971u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe7555bdb>(prop)); };
     table[3882770709u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe76e6115>(prop)); };
     table[3883795674u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialInstanceDef>(prop)); };
     table[3886589348u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe7a8a5a4>(prop)); };
     table[3886968817u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::UnitStatusPriorityList>(prop)); };
     table[243000503u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LaneData>(prop)); };
     table[3888872651u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DamageSourceTemplate>(prop)); };
+    table[3890536542u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe7e4e05e>(prop)); };
     table[3891808829u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VerticalFacingType>(prop)); };
     table[3892017401u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HudColorData>(prop)); };
     table[3892718315u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe8062aeb>(prop)); };
@@ -3023,6 +3391,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3898055584u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemRecommendationOverrideContext>(prop)); };
     table[3900131851u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe8774a0b>(prop)); };
     table[3900352447u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe87aa7bf>(prop)); };
+    table[3903664875u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe8ad32eb>(prop)); };
     table[3906079579u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe8d20b5b>(prop)); };
     table[3911265650u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IResourceResolver>(prop)); };
     table[3917866950u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ClipBaseData>(prop)); };
@@ -3034,9 +3403,11 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3921803671u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MaterialParameterDataCollection>(prop)); };
     table[3922646404u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GameCalculationConditional>(prop)); };
     table[3925560600u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xe9fb4d18>(prop)); };
+    table[3927216024u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xea148f98>(prop)); };
     table[3928667594u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xea2ab5ca>(prop)); };
     table[3929150294u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xea321356>(prop)); };
     table[3930402607u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LoadoutFeatureData>(prop)); };
+    table[3930458360u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xea4608f8>(prop)); };
     table[3931724966u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::Champion>(prop)); };
     table[3931936918u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SelfAoe>(prop)); };
     table[3932864058u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionSpellIsReady>(prop)); };
@@ -3050,11 +3421,15 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3950575855u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SummonerNameCreateViewController>(prop)); };
     table[3953106978u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::UpdaterData>(prop)); };
     table[3956377906u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xebd18932>(prop)); };
+    table[3956826802u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xebd862b2>(prop)); };
     table[3957637530u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xebe4c19a>(prop)); };
+    table[3959097826u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xebfb09e2>(prop)); };
+    table[247648533u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xec2d115>(prop)); };
     table[3963447610u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CharacterToolData>(prop)); };
     table[3963535729u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TftTeamPlannerViewController>(prop)); };
     table[3963713437u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DamageUnitCheat>(prop)); };
     table[3967297150u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionNeutralCampId>(prop)); };
+    table[3968300998u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xec8777c6>(prop)); };
     table[3970312064u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HasNNearbyVisibleUnitsRequirement>(prop)); };
     table[3974126268u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xece05abc>(prop)); };
     table[3974501911u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VeritcalFacingMatchVelocity>(prop)); };
@@ -3069,15 +3444,18 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[3994264754u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargetTypeFilter>(prop)); };
     table[3994575677u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::CursorConfig>(prop)); };
     table[3994921506u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TargeterDefinitionSkipTerrain>(prop)); };
+    table[3997194954u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xee405aca>(prop)); };
     table[3997290289u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::UVScaleBiasFromAnimationDynamicMaterialDriver>(prop)); };
     table[3998028548u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xee4d1304>(prop)); };
     table[3998066495u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EffectGlowElementData>(prop)); };
     table[4001334472u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionItemCanBePurchased>(prop)); };
     table[4005196611u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xeeba7343>(prop)); };
     table[4009176784u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TextureAndColorData>(prop)); };
+    table[4009937314u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xef02c9a2>(prop)); };
     table[4009991563u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTCompanionBucket>(prop)); };
     table[4010062211u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::AISpellData>(prop)); };
     table[4010129986u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xef05ba42>(prop)); };
+    table[4010737031u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xef0efd87>(prop)); };
     table[4012121393u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xef241d31>(prop)); };
     table[4012350365u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xef279b9d>(prop)); };
     table[4013554309u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DynamicMaterialStaticSwitch>(prop)); };
@@ -3090,12 +3468,14 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[4031524872u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StringTableGet>(prop)); };
     table[4040137199u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ExperienceModData>(prop)); };
     table[4042498117u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf0f3a045>(prop)); };
+    table[4044157401u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf10cf1d9>(prop)); };
     table[4045134945u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TrophyPedestalData>(prop)); };
     table[4048547755u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxPrimitiveCameraSegmentBeam>(prop)); };
     table[4055000216u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::InstanceVarsTable>(prop)); };
     table[4056123328u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf1c387c0>(prop)); };
     table[4061210852u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf21128e4>(prop)); };
     table[4066427822u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf260c3ae>(prop)); };
+    table[4066488611u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf261b123>(prop)); };
     table[4069551188u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf2906c54>(prop)); };
     table[4069567955u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::MouseOverEffectData>(prop)); };
     table[4069990911u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StoreCategoryButtonDefinition>(prop)); };
@@ -3106,6 +3486,7 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[4077335715u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf30734a3>(prop)); };
     table[4078053219u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FixedShaderDef>(prop)); };
     table[4080233272u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SkinSummonerEmoteLoadout>(prop)); };
+    table[4081103749u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf340b385>(prop)); };
     table[4081542451u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SummonerSpellPerkReplacement>(prop)); };
     table[4083351021u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionItemBorder>(prop)); };
     table[4084077559u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TimeMaterialDriver>(prop)); };
@@ -3115,8 +3496,10 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[4100634241u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::LoadoutEmoteInfoPanel>(prop)); };
     table[4100984476u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::GameModeConstantTRAKey>(prop)); };
     table[4101150036u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::UseableData>(prop)); };
+    table[4101323475u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf4753ad3>(prop)); };
     table[4103435203u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemShopGameModeData>(prop)); };
     table[4104567591u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TFTRoundData>(prop)); };
+    table[256612813u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf4b99cd>(prop)); };
     table[4106230061u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf4c0192d>(prop)); };
     table[4107335487u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::StopAnimationEventData>(prop)); };
     table[4109134353u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionItemPurchased>(prop)); };
@@ -3145,32 +3528,43 @@ void yordle::data::meta::bin_dispatch::load_table() {
     table[4153143643u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ILineIndicatorType>(prop)); };
     table[4153799685u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf795f405>(prop)); };
     table[4155399702u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HasAllSubRequirementsCastRequirement>(prop)); };
+    table[4160536721u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf7fcc091>(prop)); };
     table[4160558231u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SkinCharacterMetaDataProperties>(prop)); };
     table[4160905752u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf8026218>(prop)); };
     table[4163576286u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf82b21de>(prop)); };
     table[4168326259u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf8739c73>(prop)); };
+    table[4180299925u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf92a5095>(prop)); };
     table[4180972365u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TeamScoreMeterUITunables>(prop)); };
+    table[4188278978u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xf9a410c2>(prop)); };
     table[4191775141u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::SocialPanelViewController>(prop)); };
     table[4197047057u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xfa29db11>(prop)); };
     table[4197693672u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::WardSkinDisabler>(prop)); };
     table[4199153591u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IsDeadDynamicMaterialBoolDriver>(prop)); };
+    table[4207831589u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xface6a25>(prop)); };
     table[4210162581u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IContextualConditionBuff>(prop)); };
     table[4211998018u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::DestroyOnMovementComplete>(prop)); };
+    table[4213875895u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xfb2aa4b7>(prop)); };
     table[4214485747u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TooltipInstanceList>(prop)); };
     table[4217716833u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xfb654061>(prop)); };
     table[4223600025u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::HasSkillPointRequirement>(prop)); };
-    table[4227680462u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::RenderStyleData>(prop)); };
     table[4230456894u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualSituation>(prop)); };
     table[4230834090u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xfc2d67aa>(prop)); };
     table[4231349552u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::EsportsBannerMaterialController>(prop)); };
     table[4231615076u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxPrimitiveMeshBase>(prop)); };
+    table[4231809628u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xfc3c4a5c>(prop)); };
     table[4245932760u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::IFunctionGet>(prop)); };
     table[4250471695u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::OptionTemplateMuteButton>(prop)); };
+    table[4253021252u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xfd7ff444>(prop)); };
+    table[4254190610u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xfd91cc12>(prop)); };
+    table[4254943619u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xfd9d4983>(prop)); };
     table[4256001586u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xfdad6e32>(prop)); };
+    table[4257892750u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xfdca498e>(prop)); };
     table[4259363442u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionNumberOfCharactersNearTargetPos>(prop)); };
+    table[4259884927u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xfde8af7f>(prop)); };
     table[4261825672u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::VfxAnimatedFloatVariableData>(prop)); };
     table[4264964658u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ContextualConditionNearbyChampionCount>(prop)); };
     table[4266457040u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::ItemRecommendationContext>(prop)); };
+    table[4269033891u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xfe7449a3>(prop)); };
     table[4280641128u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::TriggerFromScript>(prop)); };
     table[267762117u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::FloatTextDisplayOverrides>(prop)); };
     table[4284318653u] = [](prop_arg prop) { return reinterpret_pointer_cast<yordle::data::meta::bin_class>(make_shared<yordle::data::meta::xff5d83bd>(prop)); };

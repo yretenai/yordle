@@ -6,23 +6,23 @@
 #include <memory>
 #include <vector>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialBoolDriver.hpp>
+#include <yordle/data/meta/bin_defs/x7a851cd8.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_IDynamicMaterialBoolDriver
-    struct IDynamicMaterialBoolDriver;
+#ifndef YORDLE_META_DEF_x7a851cd8
+    struct x7a851cd8;
 #endif
-    struct YORDLE_EXPORT OneTrueMaterialDriver : public IDynamicMaterialBoolDriver {
+    struct YORDLE_EXPORT OneTrueMaterialDriver : public x7a851cd8 {
         explicit OneTrueMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 3364456740u || IDynamicMaterialBoolDriver::is_type(type);
+            return type == 3364456740u || x7a851cd8::is_type(type);
         }
 
-        std::vector<std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver>> mDrivers {};
+        std::vector<std::shared_ptr<yordle::data::meta::x7a851cd8>> mDrivers {};
     };
 }
 #define YORDLE_META_DEF_OneTrueMaterialDriver

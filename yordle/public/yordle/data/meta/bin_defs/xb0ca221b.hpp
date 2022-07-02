@@ -21,6 +21,8 @@ namespace yordle::data::meta {
 
         std::string x718f0085 {};
         std::string displayName {};
+        std::string IconPath {};
+        std::string description {};
     };
 }
 #define YORDLE_META_DEF_xb0ca221b

@@ -53,6 +53,11 @@ yordle::data::meta::NavHeaderViewController::NavHeaderViewController(const std::
         xdb7747f5 = ptr_xdb7747f5->value;
     }
 
+    auto ptr_x811e7e11 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2166259217u);
+    if(ptr_x811e7e11 != nullptr) {
+        x811e7e11 = ptr_x811e7e11->value;
+    }
+
     auto ptr_x4a989cc9 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1251515593u);
     if(ptr_x4a989cc9 != nullptr) {
         x4a989cc9 = ptr_x4a989cc9->value;
@@ -66,6 +71,51 @@ yordle::data::meta::NavHeaderViewController::NavHeaderViewController(const std::
     auto ptr_x767f5b0c = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1988057868u);
     if(ptr_x767f5b0c != nullptr) {
         x767f5b0c = ptr_x767f5b0c->value;
+    }
+
+    auto ptr_x4babd89d = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1269553309u);
+    if(ptr_x4babd89d != nullptr) {
+        x4babd89d = ptr_x4babd89d->value;
+    }
+
+    auto ptr_x40d97d44 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1087995204u);
+    if(ptr_x40d97d44 != nullptr) {
+        x40d97d44 = ptr_x40d97d44->value;
+    }
+
+    auto ptr_x74634cc6 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1952664774u);
+    if(ptr_x74634cc6 != nullptr) {
+        x74634cc6 = ptr_x74634cc6->value;
+    }
+
+    auto ptr_x8094eecb = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2157244107u);
+    if(ptr_x8094eecb != nullptr) {
+        x8094eecb = ptr_x8094eecb->value;
+    }
+
+    auto ptr_x42b9373c = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1119434556u);
+    if(ptr_x42b9373c != nullptr) {
+        x42b9373c = ptr_x42b9373c->value;
+    }
+
+    auto ptr_x4e7eddfd = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1316937213u);
+    if(ptr_x4e7eddfd != nullptr) {
+        x4e7eddfd = ptr_x4e7eddfd->value;
+    }
+
+    auto ptr_x58de27c1 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1490954177u);
+    if(ptr_x58de27c1 != nullptr) {
+        x58de27c1 = ptr_x58de27c1->value;
+    }
+
+    auto ptr_x7ed6327f = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2127966847u);
+    if(ptr_x7ed6327f != nullptr) {
+        x7ed6327f = ptr_x7ed6327f->value;
+    }
+
+    auto ptr_xf623b026 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(4129533990u);
+    if(ptr_xf623b026 != nullptr) {
+        xf623b026 = ptr_xf623b026->value;
     }
 
     auto ptr_xd1d5634d = prop->cast_prop<yordle::data::prop::set_prop>(3520422733u);

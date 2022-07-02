@@ -6,12 +6,16 @@
 #include <memory>
 #include <string>
 
+#include <yordle/data/meta/bin_defs/x5059f9b6.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_x5059f9b6
+    struct x5059f9b6;
+#endif
     struct YORDLE_EXPORT x6ab22868 : public ViewController {
         explicit x6ab22868(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -19,6 +23,11 @@ namespace yordle::data::meta {
             return type == 1790060648u || ViewController::is_type(type);
         }
 
+        yordle::data::meta::bin_fnv_hash x84f92b5a = 0u;
+        yordle::data::meta::bin_fnv_hash x57a1ffd0 = 0u;
+        yordle::data::meta::bin_fnv_hash xa67b394f = 0u;
+        yordle::data::meta::bin_fnv_hash x88635bfb = 0u;
+        std::shared_ptr<yordle::data::meta::x5059f9b6> x4e36cf97 {};
         yordle::data::meta::bin_fnv_hash Scene = 0u;
         yordle::data::meta::bin_fnv_hash x88f6a038 = 0u;
         std::string xeac10e8a {};

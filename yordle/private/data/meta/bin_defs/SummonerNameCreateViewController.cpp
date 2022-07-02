@@ -38,4 +38,14 @@ yordle::data::meta::SummonerNameCreateViewController::SummonerNameCreateViewCont
     if(ptr_x315b9a19 != nullptr) {
         x315b9a19 = ptr_x315b9a19->value;
     }
+
+    auto ptr_x6fd80c = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(7329804u);
+    if(ptr_x6fd80c != nullptr) {
+        x6fd80c = ptr_x6fd80c->value;
+    }
+
+    auto ptr_errorText = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(469739042u);
+    if(ptr_errorText != nullptr) {
+        errorText = ptr_errorText->value;
+    }
 }

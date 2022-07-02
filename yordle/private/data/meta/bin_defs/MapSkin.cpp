@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/MapSkin.hpp>
 
+#include <yordle/data/meta/bin_defs/xbf11ddc7.hpp>
 #include <yordle/data/meta/bin_defs/MinimapBackgroundConfig.hpp>
 #include <yordle/data/meta/bin_defs/MapAlternateAssets.hpp>
 #include <yordle/data/meta/bin_defs/GameModeConstants.hpp>
@@ -31,6 +32,11 @@ yordle::data::meta::MapSkin::MapSkin(const std::shared_ptr<yordle::data::prop::s
     auto ptr_mMapContainerLink = prop->cast_prop<yordle::data::prop::string_prop>(2517564801u);
     if(ptr_mMapContainerLink != nullptr) {
         mMapContainerLink = ptr_mMapContainerLink->value;
+    }
+
+    auto ptr_x6c65a5a3 = prop->cast_prop<yordle::data::prop::structure_prop>(1818600867u);
+    if(ptr_x6c65a5a3 != nullptr) {
+        x6c65a5a3 = yordle::data::meta::deserialize<yordle::data::meta::xbf11ddc7>(ptr_x6c65a5a3, 3205619143u);
     }
 
     auto ptr_mMinimapBackgroundConfig = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1123874201u);

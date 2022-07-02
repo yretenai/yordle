@@ -6,24 +6,24 @@
 #include <memory>
 #include <array>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialBoolDriver.hpp>
-#include <yordle/data/meta/bin_defs/IDynamicMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x7a851cd8.hpp>
+#include <yordle/data/meta/bin_defs/x995ca734.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_IDynamicMaterialBoolDriver
-    struct IDynamicMaterialBoolDriver;
+#ifndef YORDLE_META_DEF_x7a851cd8
+    struct x7a851cd8;
 #endif
-    struct YORDLE_EXPORT ColorChooserMaterialDriver : public IDynamicMaterialDriver {
+    struct YORDLE_EXPORT ColorChooserMaterialDriver : public x995ca734 {
         explicit ColorChooserMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 1258254170u || IDynamicMaterialDriver::is_type(type);
+            return type == 1258254170u || x995ca734::is_type(type);
         }
 
-        std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver> mBoolDriver {};
+        std::shared_ptr<yordle::data::meta::x7a851cd8> mBoolDriver {};
         std::array<float, 4> mColorOn { 1.0f, 0.0f, 0.0f, 1.0f };
         std::array<float, 4> mColorOff { 0.0f, 0.0f, 1.0f, 1.0f };
     };

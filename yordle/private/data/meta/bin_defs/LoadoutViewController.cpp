@@ -27,6 +27,11 @@ yordle::data::meta::LoadoutViewController::LoadoutViewController(const std::shar
         x78407281 = ptr_x78407281->value;
     }
 
+    auto ptr_x30aa3195 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(816460181u);
+    if(ptr_x30aa3195 != nullptr) {
+        x30aa3195 = ptr_x30aa3195->value;
+    }
+
     auto ptr_xd1abeb9d = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3517705117u);
     if(ptr_xd1abeb9d != nullptr) {
         xd1abeb9d = ptr_xd1abeb9d->value;

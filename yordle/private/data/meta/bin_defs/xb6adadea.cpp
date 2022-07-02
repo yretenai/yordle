@@ -27,4 +27,9 @@ yordle::data::meta::xb6adadea::xb6adadea(const std::shared_ptr<yordle::data::pro
     if(ptr_xe5a8465e != nullptr) {
         xe5a8465e = ptr_xe5a8465e->value;
     }
+
+    auto ptr_border = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(525480503u);
+    if(ptr_border != nullptr) {
+        border = ptr_border->value;
+    }
 }

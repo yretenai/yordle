@@ -33,4 +33,9 @@ yordle::data::meta::TFTTraitContributionData::TFTTraitContributionData(const std
     if(ptr_xa91037f5 != nullptr) {
         xa91037f5 = ptr_xa91037f5->value;
     }
+
+    auto ptr_xbaeca565 = prop->cast_prop<yordle::data::prop::bool_prop>(3136071013u);
+    if(ptr_xbaeca565 != nullptr) {
+        xbaeca565 = ptr_xbaeca565->value;
+    }
 }

@@ -5,15 +5,15 @@
 
 #include <memory>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialBoolDriver.hpp>
+#include <yordle/data/meta/bin_defs/x7a851cd8.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_IDynamicMaterialBoolDriver
-    struct IDynamicMaterialBoolDriver;
+#ifndef YORDLE_META_DEF_x7a851cd8
+    struct x7a851cd8;
 #endif
     struct YORDLE_EXPORT MaterialInstanceDynamicSwitch : public bin_class {
         explicit MaterialInstanceDynamicSwitch(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -23,7 +23,7 @@ namespace yordle::data::meta {
         }
 
         bool enabled = false;
-        std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver> driver {};
+        std::shared_ptr<yordle::data::meta::x7a851cd8> driver {};
     };
 }
 #define YORDLE_META_DEF_MaterialInstanceDynamicSwitch

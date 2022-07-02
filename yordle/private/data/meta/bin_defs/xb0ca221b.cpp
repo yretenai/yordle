@@ -27,4 +27,14 @@ yordle::data::meta::xb0ca221b::xb0ca221b(const std::shared_ptr<yordle::data::pro
     if(ptr_displayName != nullptr) {
         displayName = ptr_displayName->value;
     }
+
+    auto ptr_IconPath = prop->cast_prop<yordle::data::prop::string_prop>(1999062871u);
+    if(ptr_IconPath != nullptr) {
+        IconPath = ptr_IconPath->value;
+    }
+
+    auto ptr_description = prop->cast_prop<yordle::data::prop::string_prop>(879704937u);
+    if(ptr_description != nullptr) {
+        description = ptr_description->value;
+    }
 }

@@ -6,6 +6,7 @@
 #include <memory>
 #include <cstdint>
 #include <vector>
+#include <string>
 
 #include <yordle/data/meta/bin_defs/RatioConversion.hpp>
 #include <yordle/data/meta/bin_defs/x4379a5b2.hpp>
@@ -35,6 +36,8 @@ namespace yordle::data::meta {
         uint32_t x5b1192f5 = 0u;
         std::vector<std::shared_ptr<yordle::data::meta::RatioConversion>> x441a3020 {};
         std::vector<std::shared_ptr<yordle::data::meta::x4379a5b2>> xddbea054 {};
+        std::string xa4e9548e {};
+        std::string xdeb3f6e7 {};
     };
 }
 #define YORDLE_META_DEF_SpellModifier

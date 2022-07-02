@@ -38,9 +38,14 @@ yordle::data::meta::TFTSetData::TFTSetData(const std::shared_ptr<yordle::data::p
         number = ptr_number->value;
     }
 
-    auto ptr_Mutator = prop->cast_prop<yordle::data::prop::string_prop>(3473488713u);
-    if(ptr_Mutator != nullptr) {
-        Mutator = ptr_Mutator->value;
+    auto ptr_name = prop->cast_prop<yordle::data::prop::string_prop>(2369371622u);
+    if(ptr_name != nullptr) {
+        name = ptr_name->value;
+    }
+
+    auto ptr_x936ed1dd = prop->cast_prop<yordle::data::prop::string_prop>(2473513437u);
+    if(ptr_x936ed1dd != nullptr) {
+        x936ed1dd = ptr_x936ed1dd->value;
     }
 
     auto ptr_DebugCharacterLists = prop->cast_prop<yordle::data::prop::set_prop>(1919625892u);

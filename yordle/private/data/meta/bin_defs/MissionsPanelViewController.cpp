@@ -45,6 +45,11 @@ yordle::data::meta::MissionsPanelViewController::MissionsPanelViewController(con
         xba21570a = yordle::data::meta::deserialize<yordle::data::meta::x16eb9b94>(ptr_xba21570a, 384539540u);
     }
 
+    auto ptr_x5f2f76f3 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1596946163u);
+    if(ptr_x5f2f76f3 != nullptr) {
+        x5f2f76f3 = ptr_x5f2f76f3->value;
+    }
+
     auto ptr_xb3e383e1 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3018032097u);
     if(ptr_xb3e383e1 != nullptr) {
         xb3e383e1 = ptr_xb3e383e1->value;

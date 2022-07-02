@@ -26,6 +26,7 @@ namespace yordle::data::meta {
         bool xc6a848a7 = false;
         bool x4a4b58c2 = false;
         bool x3bbef2b3 = false;
+        bool x53a98e7a = false;
         bool x50154a84 = false;
         bool x2f6fc1ad = false;
         bool xab693575 = false;

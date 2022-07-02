@@ -53,6 +53,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash CurrentPlayerHighlight = 0u;
         std::array<yordle::data::meta::bin_fnv_hash, 8> xb2aff146 { 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u };
         yordle::data::meta::bin_fnv_hash x5cf56914 = 0u;
+        yordle::data::meta::bin_fnv_hash xe09650c0 = 0u;
         yordle::data::meta::bin_fnv_hash GainedRatingText = 0u;
         yordle::data::meta::bin_fnv_hash LostRatingText = 0u;
         yordle::data::meta::bin_fnv_hash CurrentRatingText = 0u;

@@ -10,6 +10,7 @@
 #include <yordle/data/meta/bin_defs/SpellLevelUpInfo.hpp>
 #include <yordle/data/meta/bin_defs/RecSpellRankUpInfo.hpp>
 #include <yordle/data/meta/bin_defs/TargetLaserComponentEffects.hpp>
+#include <yordle/data/meta/bin_defs/xd60f170b.hpp>
 #include <yordle/data/meta/bin_defs/EvolutionDescription.hpp>
 #include <yordle/data/meta/bin_defs/UseableData.hpp>
 #include <yordle/data/meta/bin_defs/ToolEducationData.hpp>
@@ -645,6 +646,11 @@ yordle::data::meta::CharacterRecord::CharacterRecord(const std::shared_ptr<yordl
     auto ptr_DisabledTargetLaserEffects = prop->cast_prop<yordle::data::prop::structure_prop>(3440493367u);
     if(ptr_DisabledTargetLaserEffects != nullptr) {
         DisabledTargetLaserEffects = yordle::data::meta::deserialize<yordle::data::meta::TargetLaserComponentEffects>(ptr_DisabledTargetLaserEffects, 490133160u);
+    }
+
+    auto ptr_xd60f170b = prop->cast_prop<yordle::data::prop::structure_prop>(3591313163u);
+    if(ptr_xd60f170b != nullptr) {
+        xd60f170b = yordle::data::meta::deserialize<yordle::data::meta::xd60f170b>(ptr_xd60f170b, 3591313163u);
     }
 
     auto ptr_evolutionData = prop->cast_prop<yordle::data::prop::structure_prop>(1831945790u);

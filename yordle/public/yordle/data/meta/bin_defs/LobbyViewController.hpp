@@ -11,6 +11,7 @@
 #include <yordle/data/meta/bin_defs/x5c8fefd9.hpp>
 #include <yordle/data/meta/bin_defs/x407b58d1.hpp>
 #include <yordle/data/meta/bin_defs/x5a27978a.hpp>
+#include <yordle/data/meta/bin_defs/xd3cb80a0.hpp>
 #include <yordle/data/meta/bin_defs/xe87aa7bf.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -30,6 +31,10 @@ namespace yordle::data::meta {
     struct x5a27978a;
 #endif
 
+#ifndef YORDLE_META_DEF_xd3cb80a0
+    struct xd3cb80a0;
+#endif
+
 #ifndef YORDLE_META_DEF_xe87aa7bf
     struct xe87aa7bf;
 #endif
@@ -43,12 +48,13 @@ namespace yordle::data::meta {
         std::map<uint8_t, std::shared_ptr<yordle::data::meta::x5c8fefd9>> x6096489e {};
         std::shared_ptr<yordle::data::meta::x407b58d1> xf12be813 {};
         std::shared_ptr<yordle::data::meta::x5a27978a> x665a0a9c {};
+        std::shared_ptr<yordle::data::meta::xd3cb80a0> x49e385de {};
         yordle::data::meta::bin_fnv_hash x573e7831 = 0u;
         std::string xa38f5021 {};
         std::string x72c4914b {};
         std::string xbf51f61a {};
         yordle::data::meta::bin_fnv_hash xb3e2f60e = 0u;
-        std::map<uint32_t, std::shared_ptr<yordle::data::meta::xe87aa7bf>> x6506aa85 {};
+        std::map<uint32_t, std::shared_ptr<yordle::data::meta::xe87aa7bf>> xec054176 {};
         bool xcbde9a9d = false;
         std::string ThemeMusicStateGroup {};
         std::string LobbyMusicState {};

@@ -26,6 +26,8 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x4d302530 = 0u;
         yordle::data::meta::bin_fnv_hash x27215cd1 = 0u;
         yordle::data::meta::bin_fnv_hash x315b9a19 = 0u;
+        yordle::data::meta::bin_fnv_hash x6fd80c = 0u;
+        yordle::data::meta::bin_fnv_hash errorText = 0u;
     };
 }
 #define YORDLE_META_DEF_SummonerNameCreateViewController

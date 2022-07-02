@@ -51,6 +51,7 @@ namespace yordle::data::meta {
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::TrackData>> mTrackDataMap {};
         std::map<yordle::data::meta::bin_fnv_hash, std::shared_ptr<yordle::data::meta::SyncGroupData>> mSyncGroupDataMap {};
         std::map<uint64_t, std::shared_ptr<yordle::data::meta::BaseBlendData>> mBlendDataTable {};
+        yordle::data::meta::bin_fnv_hash xd31ccb9f = 0u;
     };
 }
 #define YORDLE_META_DEF_AnimationGraphData

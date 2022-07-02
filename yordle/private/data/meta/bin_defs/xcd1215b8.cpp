@@ -6,6 +6,7 @@
 #include <yordle/data/meta/bin_defs/x8f04cc91.hpp>
 #include <yordle/data/meta/bin_defs/xa4c4c795.hpp>
 #include <yordle/data/meta/bin_defs/xb78525db.hpp>
+#include <yordle/data/meta/bin_defs/xef0efd87.hpp>
 #include <yordle/data/meta/bin_defs/x20d7982e.hpp>
 #include <yordle/data/meta/bin_defs/x34270fce.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
@@ -67,6 +68,11 @@ yordle::data::meta::xcd1215b8::xcd1215b8(const std::shared_ptr<yordle::data::pro
     auto ptr_xb78525db = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3078956507u);
     if(ptr_xb78525db != nullptr) {
         xb78525db = yordle::data::meta::deserialize<yordle::data::meta::xb78525db>(ptr_xb78525db, 3078956507u);
+    }
+
+    auto ptr_xd2517598 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(3528553880u);
+    if(ptr_xd2517598 != nullptr) {
+        xd2517598 = yordle::data::meta::deserialize<yordle::data::meta::xef0efd87>(ptr_xd2517598, 4010737031u);
     }
 
     auto ptr_x4807a7a6 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1208461222u);

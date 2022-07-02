@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/ParametricClipData.hpp>
 
+#include <yordle/data/meta/bin_defs/x68b3a178.hpp>
 #include <yordle/data/meta/bin_defs/ParametricPairData.hpp>
 #include <yordle/data/meta/bin_defs/BlendableClipData.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
@@ -19,9 +20,9 @@ yordle::data::meta::ParametricClipData::ParametricClipData(const std::shared_ptr
     if(prop == nullptr) {
         return;
     }
-    auto ptr_mUpdaterType = prop->cast_prop<yordle::data::prop::uint32_prop>(479720153u);
-    if(ptr_mUpdaterType != nullptr) {
-        mUpdaterType = ptr_mUpdaterType->value;
+    auto ptr_x16860572 = prop->cast_prop<yordle::data::prop::structure_prop>(377881970u);
+    if(ptr_x16860572 != nullptr) {
+        x16860572 = yordle::data::meta::deserialize<yordle::data::meta::x68b3a178>(ptr_x16860572, 1756602744u);
     }
 
     auto ptr_mParametricPairDataList = prop->cast_prop<yordle::data::prop::set_prop>(784579174u);

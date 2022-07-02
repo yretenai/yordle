@@ -59,4 +59,14 @@ yordle::data::meta::SpellModifier::SpellModifier(const std::shared_ptr<yordle::d
             }
         }
     }
+
+    auto ptr_xa4e9548e = prop->cast_prop<yordle::data::prop::string_prop>(2766754958u);
+    if(ptr_xa4e9548e != nullptr) {
+        xa4e9548e = ptr_xa4e9548e->value;
+    }
+
+    auto ptr_xdeb3f6e7 = prop->cast_prop<yordle::data::prop::string_prop>(3736336103u);
+    if(ptr_xdeb3f6e7 != nullptr) {
+        xdeb3f6e7 = ptr_xdeb3f6e7->value;
+    }
 }

@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/ConditionBoolClipData.hpp>
 
+#include <yordle/data/meta/bin_defs/x1650a0ab.hpp>
 #include <yordle/data/meta/bin_defs/ClipBaseData.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -18,9 +19,9 @@ yordle::data::meta::ConditionBoolClipData::ConditionBoolClipData(const std::shar
     if(prop == nullptr) {
         return;
     }
-    auto ptr_mUpdaterType = prop->cast_prop<yordle::data::prop::uint32_prop>(479720153u);
-    if(ptr_mUpdaterType != nullptr) {
-        mUpdaterType = ptr_mUpdaterType->value;
+    auto ptr_x16860572 = prop->cast_prop<yordle::data::prop::structure_prop>(377881970u);
+    if(ptr_x16860572 != nullptr) {
+        x16860572 = yordle::data::meta::deserialize<yordle::data::meta::x1650a0ab>(ptr_x16860572, 374382763u);
     }
 
     auto ptr_mChangeAnimationMidPlay = prop->cast_prop<yordle::data::prop::bool_prop>(1177069846u);

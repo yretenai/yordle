@@ -33,6 +33,7 @@ namespace yordle::data::meta {
         float xfa7c8443 = 0.5f;
         uint8_t xec740d9e = 19u;
         std::shared_ptr<yordle::data::meta::x16eb9b94> xba21570a {};
+        yordle::data::meta::bin_fnv_hash x5f2f76f3 = 0u;
         yordle::data::meta::bin_fnv_hash xb3e383e1 = 0u;
     };
 }

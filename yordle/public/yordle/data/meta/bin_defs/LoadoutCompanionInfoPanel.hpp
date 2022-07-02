@@ -24,6 +24,7 @@ namespace yordle::data::meta {
         std::array<yordle::data::meta::bin_fnv_hash, 3> tierButton { 0u, 0u, 0u };
         std::array<yordle::data::meta::bin_fnv_hash, 3> x7a6c84ab { 0u, 0u, 0u };
         std::array<yordle::data::meta::bin_fnv_hash, 3> upgradeTierButton { 0u, 0u, 0u };
+        std::array<yordle::data::meta::bin_fnv_hash, 3> x5d777e64 { 0u, 0u, 0u };
         yordle::data::meta::bin_fnv_hash x6a5635f2 = 0u;
         yordle::data::meta::bin_fnv_hash x90dd73ef = 0u;
     };

@@ -2,7 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/AnimationFractionDynamicMaterialFloatDriver.hpp>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialFloatDriver.hpp>
+#include <yordle/data/meta/bin_defs/xb33b2406.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
 #include <yordle/data/prop/map_prop.hpp>
@@ -14,7 +14,7 @@
 #include <yordle/data/prop/unordered_set_prop.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 
-yordle::data::meta::AnimationFractionDynamicMaterialFloatDriver::AnimationFractionDynamicMaterialFloatDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::IDynamicMaterialFloatDriver(prop) {
+yordle::data::meta::AnimationFractionDynamicMaterialFloatDriver::AnimationFractionDynamicMaterialFloatDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::xb33b2406(prop) {
     if(prop == nullptr) {
         return;
     }

@@ -24,6 +24,11 @@ yordle::data::meta::TFTGameVariationData::TFTGameVariationData(const std::shared
         mName = ptr_mName->value;
     }
 
+    auto ptr_mAnnouncementData = prop->cast_prop<yordle::data::prop::reference_prop>(1220847671u);
+    if(ptr_mAnnouncementData != nullptr) {
+        mAnnouncementData = yordle::data::meta::bin_ref<yordle::data::meta::TFTAnnouncementData>(3519409590u, ptr_mAnnouncementData->value);
+    }
+
     auto ptr_mStageIconPath = prop->cast_prop<yordle::data::prop::string_prop>(4287681780u);
     if(ptr_mStageIconPath != nullptr) {
         mStageIconPath = ptr_mStageIconPath->value;
@@ -42,10 +47,5 @@ yordle::data::meta::TFTGameVariationData::TFTGameVariationData(const std::shared
     auto ptr_mTooltipTitleTra = prop->cast_prop<yordle::data::prop::string_prop>(1539123372u);
     if(ptr_mTooltipTitleTra != nullptr) {
         mTooltipTitleTra = ptr_mTooltipTitleTra->value;
-    }
-
-    auto ptr_mAnnouncementData = prop->cast_prop<yordle::data::prop::reference_prop>(1220847671u);
-    if(ptr_mAnnouncementData != nullptr) {
-        mAnnouncementData = yordle::data::meta::bin_ref<yordle::data::meta::TFTAnnouncementData>(3519409590u, ptr_mAnnouncementData->value);
     }
 }

@@ -28,7 +28,7 @@ yordle::data::meta::xadefc98e::xadefc98e(const std::shared_ptr<yordle::data::pro
         intensity = ptr_intensity->value;
     }
 
-    auto ptr_Impact = prop->cast_prop<yordle::data::prop::int32_prop>(510767767u);
+    auto ptr_Impact = prop->cast_prop<yordle::data::prop::uint8_prop>(510767767u);
     if(ptr_Impact != nullptr) {
         Impact = ptr_Impact->value;
     }

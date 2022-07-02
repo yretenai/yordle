@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/x6ab22868.hpp>
 
+#include <yordle/data/meta/bin_defs/x5059f9b6.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -18,6 +19,31 @@ yordle::data::meta::x6ab22868::x6ab22868(const std::shared_ptr<yordle::data::pro
     if(prop == nullptr) {
         return;
     }
+    auto ptr_x84f92b5a = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2230922074u);
+    if(ptr_x84f92b5a != nullptr) {
+        x84f92b5a = ptr_x84f92b5a->value;
+    }
+
+    auto ptr_x57a1ffd0 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1470234576u);
+    if(ptr_x57a1ffd0 != nullptr) {
+        x57a1ffd0 = ptr_x57a1ffd0->value;
+    }
+
+    auto ptr_xa67b394f = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2793093455u);
+    if(ptr_xa67b394f != nullptr) {
+        xa67b394f = ptr_xa67b394f->value;
+    }
+
+    auto ptr_x88635bfb = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2288212987u);
+    if(ptr_x88635bfb != nullptr) {
+        x88635bfb = ptr_x88635bfb->value;
+    }
+
+    auto ptr_x4e36cf97 = prop->cast_prop<yordle::data::prop::structure_prop>(1312214935u);
+    if(ptr_x4e36cf97 != nullptr) {
+        x4e36cf97 = yordle::data::meta::deserialize<yordle::data::meta::x5059f9b6>(ptr_x4e36cf97, 1348073910u);
+    }
+
     auto ptr_Scene = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(543410963u);
     if(ptr_Scene != nullptr) {
         Scene = ptr_Scene->value;

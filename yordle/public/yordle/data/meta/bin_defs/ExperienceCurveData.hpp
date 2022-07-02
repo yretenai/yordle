@@ -5,6 +5,7 @@
 
 #include <memory>
 #include <vector>
+#include <cstdint>
 
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -25,6 +26,7 @@ namespace yordle::data::meta {
         float mBaseExperienceMultiplier = 1.0f;
         float mLevelDifferenceExperienceMultiplier = 0.15000000596046448f;
         float mMinimumExperienceMultiplier = 0.4000000059604645f;
+        uint32_t xf1f3d846 = 18u;
     };
 }
 #define YORDLE_META_DEF_ExperienceCurveData

@@ -47,6 +47,7 @@ namespace yordle::data::meta {
         float mMinionAutoLeeway = 0.0f;
         float mMinionAAHelperLimit = 0.0f;
         float mItemSellQueueTime = 0.0f;
+        float xae9071b4 = 0.0f;
         std::shared_ptr<yordle::data::meta::CCScoreMultipliers> mCCScoreMultipliers {};
         bool mPerSlotCDRIsAdditive = false;
         std::vector<yordle::data::meta::bin_fnv_hash> mSummonerSpells {};

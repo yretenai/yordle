@@ -4,7 +4,7 @@
 #pragma once
 
 #include <memory>
-#include <array>
+#include <vector>
 
 #include <yordle/data/meta/bin_defs/x53a6d068.hpp>
 #include <yordle/data/meta/bin_defs/xbbc6d7f5.hpp>
@@ -36,8 +36,9 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x2051c3e8 = 0u;
         yordle::data::meta::bin_fnv_hash xcbd504c1 = 0u;
         yordle::data::meta::bin_fnv_hash xa8f86028 = 0u;
-        std::array<std::shared_ptr<yordle::data::meta::x53a6d068>, 5> x36779387 {};
-        std::array<std::shared_ptr<yordle::data::meta::xbbc6d7f5>, 5> x2070742c {};
+        std::vector<std::shared_ptr<yordle::data::meta::x53a6d068>> x36779387 {};
+        std::vector<std::shared_ptr<yordle::data::meta::xbbc6d7f5>> x2070742c {};
+        float activateWheelDelayTime = 0.0f;
     };
 }
 #define YORDLE_META_DEF_x3f22b20c

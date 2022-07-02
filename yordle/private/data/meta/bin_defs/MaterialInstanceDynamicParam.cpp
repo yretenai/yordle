@@ -2,7 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/MaterialInstanceDynamicParam.hpp>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x995ca734.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -26,6 +26,6 @@ yordle::data::meta::MaterialInstanceDynamicParam::MaterialInstanceDynamicParam(c
 
     auto ptr_driver = prop->cast_prop<yordle::data::prop::structure_prop>(3847494111u);
     if(ptr_driver != nullptr) {
-        driver = yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialDriver>(ptr_driver, 1009087838u);
+        driver = yordle::data::meta::deserialize<yordle::data::meta::x995ca734>(ptr_driver, 2572986164u);
     }
 }

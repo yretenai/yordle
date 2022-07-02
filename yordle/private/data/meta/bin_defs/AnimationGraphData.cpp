@@ -87,4 +87,9 @@ yordle::data::meta::AnimationGraphData::AnimationGraphData(const std::shared_ptr
             }
         }
     }
+
+    auto ptr_xd31ccb9f = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3541879711u);
+    if(ptr_xd31ccb9f != nullptr) {
+        xd31ccb9f = ptr_xd31ccb9f->value;
+    }
 }

@@ -20,6 +20,7 @@ namespace yordle::data::meta {
         }
 
         uint32_t mSkinId = 0u;
+        bool xc176d167 = true;
     };
 }
 #define YORDLE_META_DEF_IsSkinSpawnConditionData

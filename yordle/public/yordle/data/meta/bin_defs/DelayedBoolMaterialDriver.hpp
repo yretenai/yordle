@@ -5,23 +5,23 @@
 
 #include <memory>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialBoolDriver.hpp>
+#include <yordle/data/meta/bin_defs/x7a851cd8.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_IDynamicMaterialBoolDriver
-    struct IDynamicMaterialBoolDriver;
+#ifndef YORDLE_META_DEF_x7a851cd8
+    struct x7a851cd8;
 #endif
-    struct YORDLE_EXPORT DelayedBoolMaterialDriver : public IDynamicMaterialBoolDriver {
+    struct YORDLE_EXPORT DelayedBoolMaterialDriver : public x7a851cd8 {
         explicit DelayedBoolMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 347152410u || IDynamicMaterialBoolDriver::is_type(type);
+            return type == 347152410u || x7a851cd8::is_type(type);
         }
 
-        std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver> mBoolDriver {};
+        std::shared_ptr<yordle::data::meta::x7a851cd8> mBoolDriver {};
         float mDelayOn = 0.0f;
         float mDelayOff = 0.0f;
     };

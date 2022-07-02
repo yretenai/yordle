@@ -2,6 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/ConditionFloatClipData.hpp>
 
+#include <yordle/data/meta/bin_defs/xec2d115.hpp>
 #include <yordle/data/meta/bin_defs/ConditionFloatPairData.hpp>
 #include <yordle/data/meta/bin_defs/ClipBaseData.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
@@ -19,9 +20,9 @@ yordle::data::meta::ConditionFloatClipData::ConditionFloatClipData(const std::sh
     if(prop == nullptr) {
         return;
     }
-    auto ptr_mUpdaterType = prop->cast_prop<yordle::data::prop::uint32_prop>(479720153u);
-    if(ptr_mUpdaterType != nullptr) {
-        mUpdaterType = ptr_mUpdaterType->value;
+    auto ptr_x16860572 = prop->cast_prop<yordle::data::prop::structure_prop>(377881970u);
+    if(ptr_x16860572 != nullptr) {
+        x16860572 = yordle::data::meta::deserialize<yordle::data::meta::xec2d115>(ptr_x16860572, 247648533u);
     }
 
     auto ptr_mChangeAnimationMidPlay = prop->cast_prop<yordle::data::prop::bool_prop>(1177069846u);

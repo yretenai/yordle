@@ -2,7 +2,7 @@
 // THIS FILE IS AUTO GENERATED DO NOT EDIT
 #include <yordle/data/meta/bin_defs/AllTrueMaterialDriver.hpp>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialBoolDriver.hpp>
+#include <yordle/data/meta/bin_defs/x7a851cd8.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
 #include <yordle/data/prop/map_prop.hpp>
@@ -14,7 +14,7 @@
 #include <yordle/data/prop/unordered_set_prop.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 
-yordle::data::meta::AllTrueMaterialDriver::AllTrueMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::IDynamicMaterialBoolDriver(prop) {
+yordle::data::meta::AllTrueMaterialDriver::AllTrueMaterialDriver(const std::shared_ptr<yordle::data::prop::structure_prop> &prop) : yordle::data::meta::x7a851cd8(prop) {
     if(prop == nullptr) {
         return;
     }
@@ -23,7 +23,7 @@ yordle::data::meta::AllTrueMaterialDriver::AllTrueMaterialDriver(const std::shar
         for(const auto &set_mDrivers_entry : ptr_mDrivers->value) {
             auto ptr_mDrivers_entry = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::structure_prop>(set_mDrivers_entry);
             if(ptr_mDrivers_entry != nullptr) {
-                mDrivers.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::IDynamicMaterialBoolDriver>(ptr_mDrivers_entry, 3663840478u));
+                mDrivers.emplace_back(yordle::data::meta::deserialize<yordle::data::meta::x7a851cd8>(ptr_mDrivers_entry, 2055544024u));
             }
         }
     }

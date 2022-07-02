@@ -10,6 +10,7 @@
 #include <yordle/data/meta/bin_defs/x8f04cc91.hpp>
 #include <yordle/data/meta/bin_defs/xa4c4c795.hpp>
 #include <yordle/data/meta/bin_defs/xb78525db.hpp>
+#include <yordle/data/meta/bin_defs/xef0efd87.hpp>
 #include <yordle/data/meta/bin_defs/x20d7982e.hpp>
 #include <yordle/data/meta/bin_defs/x34270fce.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
@@ -34,6 +35,10 @@ namespace yordle::data::meta {
     struct xb78525db;
 #endif
 
+#ifndef YORDLE_META_DEF_xef0efd87
+    struct xef0efd87;
+#endif
+
 #ifndef YORDLE_META_DEF_x20d7982e
     struct x20d7982e;
 #endif
@@ -56,6 +61,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x2cf093ce = 0u;
         yordle::data::meta::bin_fnv_hash xf5ef5591 = 0u;
         std::shared_ptr<yordle::data::meta::xb78525db> xb78525db {};
+        std::shared_ptr<yordle::data::meta::xef0efd87> xd2517598 {};
         std::shared_ptr<yordle::data::meta::x20d7982e> x4807a7a6 {};
         yordle::data::meta::bin_fnv_hash x38a3cb36 = 0u;
         std::shared_ptr<yordle::data::meta::x34270fce> xe0b29ef4 {};

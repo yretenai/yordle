@@ -22,6 +22,7 @@ namespace yordle::data::meta {
             return type == 2136477118u;
         }
 
+        yordle::data::meta::bin_fnv_hash Scene = 0u;
         std::shared_ptr<yordle::data::meta::ViewPaneDefinition> ViewPaneDefinition {};
     };
 }

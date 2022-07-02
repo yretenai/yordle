@@ -29,6 +29,8 @@ namespace yordle::data::meta {
         uint32_t xa27eeebb = 8u;
         std::vector<yordle::data::meta::bin_fnv_hash> x28a386c4 {};
         bool x6a8818e8 = false;
+        uint32_t xcab626a5 = 1u;
+        std::vector<yordle::data::meta::bin_fnv_hash> x864efa3 {};
     };
 }
 #define YORDLE_META_DEF_x5c8fefd9

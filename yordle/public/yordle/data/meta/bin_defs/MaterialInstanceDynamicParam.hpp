@@ -5,15 +5,15 @@
 
 #include <memory>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x995ca734.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_IDynamicMaterialDriver
-    struct IDynamicMaterialDriver;
+#ifndef YORDLE_META_DEF_x995ca734
+    struct x995ca734;
 #endif
     struct YORDLE_EXPORT MaterialInstanceDynamicParam : public bin_class {
         explicit MaterialInstanceDynamicParam(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -23,7 +23,7 @@ namespace yordle::data::meta {
         }
 
         bool enabled = true;
-        std::shared_ptr<yordle::data::meta::IDynamicMaterialDriver> driver {};
+        std::shared_ptr<yordle::data::meta::x995ca734> driver {};
     };
 }
 #define YORDLE_META_DEF_MaterialInstanceDynamicParam

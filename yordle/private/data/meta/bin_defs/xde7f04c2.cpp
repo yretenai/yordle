@@ -6,6 +6,7 @@
 #include <yordle/data/meta/bin_defs/xcc3d6ff6.hpp>
 #include <yordle/data/meta/bin_defs/healthBarData.hpp>
 #include <yordle/data/meta/bin_defs/x1bca1a5e.hpp>
+#include <yordle/data/meta/bin_defs/xbb59fd4.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
 #include <yordle/data/prop/inline_structure_prop.hpp>
@@ -25,6 +26,11 @@ yordle::data::meta::xde7f04c2::xde7f04c2(const std::shared_ptr<yordle::data::pro
     auto ptr_Scene = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(543410963u);
     if(ptr_Scene != nullptr) {
         Scene = ptr_Scene->value;
+    }
+
+    auto ptr_xad2db494 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(2905453716u);
+    if(ptr_xad2db494 != nullptr) {
+        xad2db494 = ptr_xad2db494->value;
     }
 
     auto ptr_xd20a71a6 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(3523899814u);
@@ -164,5 +170,10 @@ yordle::data::meta::xde7f04c2::xde7f04c2(const std::shared_ptr<yordle::data::pro
     auto ptr_x35d8178d = prop->cast_prop<yordle::data::prop::inline_structure_prop>(903354253u);
     if(ptr_x35d8178d != nullptr) {
         x35d8178d = yordle::data::meta::deserialize<yordle::data::meta::x1bca1a5e>(ptr_x35d8178d, 466229854u);
+    }
+
+    auto ptr_xf71e50d6 = prop->cast_prop<yordle::data::prop::inline_structure_prop>(4145959126u);
+    if(ptr_xf71e50d6 != nullptr) {
+        xf71e50d6 = yordle::data::meta::deserialize<yordle::data::meta::xbb59fd4>(ptr_xf71e50d6, 196452308u);
     }
 }

@@ -4,7 +4,7 @@
 #pragma once
 
 #include <memory>
-#include <array>
+#include <vector>
 
 #include <yordle/data/meta/bin_defs/x3f22b20c.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -19,7 +19,7 @@ namespace yordle::data::meta {
             return type == 936659645u || x3f22b20c::is_type(type);
         }
 
-        std::array<yordle::data::meta::bin_fnv_hash, 5> xd7e81a83 { 0u, 0u, 0u, 0u, 0u };
+        std::vector<yordle::data::meta::bin_fnv_hash> xd7e81a83 {};
     };
 }
 #define YORDLE_META_DEF_x37d44abd

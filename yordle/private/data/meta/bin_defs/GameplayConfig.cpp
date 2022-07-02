@@ -110,6 +110,11 @@ yordle::data::meta::GameplayConfig::GameplayConfig(const std::shared_ptr<yordle:
         mItemSellQueueTime = ptr_mItemSellQueueTime->value;
     }
 
+    auto ptr_xae9071b4 = prop->cast_prop<yordle::data::prop::float32_prop>(2928701876u);
+    if(ptr_xae9071b4 != nullptr) {
+        xae9071b4 = ptr_xae9071b4->value;
+    }
+
     auto ptr_mCCScoreMultipliers = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1888351048u);
     if(ptr_mCCScoreMultipliers != nullptr) {
         mCCScoreMultipliers = yordle::data::meta::deserialize<yordle::data::meta::CCScoreMultipliers>(ptr_mCCScoreMultipliers, 2006398389u);

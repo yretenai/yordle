@@ -4,22 +4,19 @@
 #pragma once
 
 #include <memory>
-#include <array>
 
-#include <yordle/data/meta/bin_defs/x3f22b20c.hpp>
+#include <yordle/data/meta/bin_defs/xfd91cc12.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-    struct YORDLE_EXPORT x354ac847 : public x3f22b20c {
+    struct YORDLE_EXPORT x354ac847 : public xfd91cc12 {
         explicit x354ac847(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
         bool is_type(uint32_t type) override {
-            return type == 894093383u || x3f22b20c::is_type(type);
+            return type == 894093383u || xfd91cc12::is_type(type);
         }
-
-        std::array<yordle::data::meta::bin_fnv_hash, 5> x18abf042 { 0u, 0u, 0u, 0u, 0u };
     };
 }
 #define YORDLE_META_DEF_x354ac847

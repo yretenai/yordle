@@ -5,6 +5,7 @@
 #include <yordle/data/meta/bin_defs/x5c8fefd9.hpp>
 #include <yordle/data/meta/bin_defs/x407b58d1.hpp>
 #include <yordle/data/meta/bin_defs/x5a27978a.hpp>
+#include <yordle/data/meta/bin_defs/xd3cb80a0.hpp>
 #include <yordle/data/meta/bin_defs/xe87aa7bf.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/prop/empty_prop.hpp>
@@ -43,6 +44,11 @@ yordle::data::meta::LobbyViewController::LobbyViewController(const std::shared_p
         x665a0a9c = yordle::data::meta::deserialize<yordle::data::meta::x5a27978a>(ptr_x665a0a9c, 1512544138u);
     }
 
+    auto ptr_x49e385de = prop->cast_prop<yordle::data::prop::inline_structure_prop>(1239647710u);
+    if(ptr_x49e385de != nullptr) {
+        x49e385de = yordle::data::meta::deserialize<yordle::data::meta::xd3cb80a0>(ptr_x49e385de, 3553329312u);
+    }
+
     auto ptr_x573e7831 = prop->cast_prop<yordle::data::prop::fnv_hash_prop>(1463711793u);
     if(ptr_x573e7831 != nullptr) {
         x573e7831 = ptr_x573e7831->value;
@@ -68,13 +74,13 @@ yordle::data::meta::LobbyViewController::LobbyViewController(const std::shared_p
         xb3e2f60e = ptr_xb3e2f60e->value;
     }
 
-    auto ptr_x6506aa85 = prop->cast_prop<yordle::data::prop::map_prop>(1694935685u);
-    if(ptr_x6506aa85 != nullptr) {
-        for(const auto &set_x6506aa85_pair : ptr_x6506aa85->value) {
-            auto ptr_x6506aa85_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(set_x6506aa85_pair.first);
-            auto ptr_x6506aa85_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_x6506aa85_pair.second);
-            if(ptr_x6506aa85_key != nullptr && ptr_x6506aa85_value != nullptr) {
-                x6506aa85.emplace(ptr_x6506aa85_key->value, yordle::data::meta::deserialize<yordle::data::meta::xe87aa7bf>(ptr_x6506aa85_value, 3900352447u));
+    auto ptr_xec054176 = prop->cast_prop<yordle::data::prop::map_prop>(3959767414u);
+    if(ptr_xec054176 != nullptr) {
+        for(const auto &set_xec054176_pair : ptr_xec054176->value) {
+            auto ptr_xec054176_key = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::uint32_prop>(set_xec054176_pair.first);
+            auto ptr_xec054176_value = yordle::data::prop::empty_prop::cast_prop<yordle::data::prop::inline_structure_prop>(set_xec054176_pair.second);
+            if(ptr_xec054176_key != nullptr && ptr_xec054176_value != nullptr) {
+                xec054176.emplace(ptr_xec054176_key->value, yordle::data::meta::deserialize<yordle::data::meta::xe87aa7bf>(ptr_xec054176_value, 3900352447u));
             }
         }
     }

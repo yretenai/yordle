@@ -39,6 +39,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_fnv_hash x78407281 = 0u;
+        yordle::data::meta::bin_fnv_hash x30aa3195 = 0u;
         yordle::data::meta::bin_fnv_hash xd1abeb9d = 0u;
         yordle::data::meta::bin_fnv_hash equipButton = 0u;
         yordle::data::meta::bin_fnv_hash gridItemButton = 0u;

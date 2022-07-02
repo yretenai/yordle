@@ -22,4 +22,9 @@ yordle::data::meta::IsSkinSpawnConditionData::IsSkinSpawnConditionData(const std
     if(ptr_mSkinId != nullptr) {
         mSkinId = ptr_mSkinId->value;
     }
+
+    auto ptr_xc176d167 = prop->cast_prop<yordle::data::prop::bool_prop>(3245789543u);
+    if(ptr_xc176d167 != nullptr) {
+        xc176d167 = ptr_xc176d167->value;
+    }
 }

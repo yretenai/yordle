@@ -22,31 +22,22 @@ namespace yordle::data::meta {
             return type == 384539540u;
         }
 
-        yordle::data::meta::bin_fnv_hash Group = 0u;
+        yordle::data::meta::bin_fnv_hash x6b867200 = 0u;
+        yordle::data::meta::bin_fnv_hash x7b93a845 = 0u;
+        yordle::data::meta::bin_fnv_hash xe21049a6 = 0u;
+        yordle::data::meta::bin_fnv_hash xaf4499c3 = 0u;
         yordle::data::meta::bin_fnv_hash x6723e4bf = 0u;
-        yordle::data::meta::bin_fnv_hash x368afe7b = 0u;
-        yordle::data::meta::bin_fnv_hash xc04a6f62 = 0u;
-        yordle::data::meta::bin_fnv_hash x1dfa58a3 = 0u;
-        yordle::data::meta::bin_fnv_hash x2e9429e7 = 0u;
-        yordle::data::meta::bin_fnv_hash x76daf025 = 0u;
-        yordle::data::meta::bin_fnv_hash x9d51f9c1 = 0u;
-        yordle::data::meta::bin_fnv_hash xe443d8d6 = 0u;
-        yordle::data::meta::bin_fnv_hash xb5616e48 = 0u;
-        yordle::data::meta::bin_fnv_hash x2aa5cb5e = 0u;
-        yordle::data::meta::bin_fnv_hash x1c330f2a = 0u;
-        yordle::data::meta::bin_fnv_hash x1180f709 = 0u;
-        yordle::data::meta::bin_fnv_hash xff626dee = 0u;
-        yordle::data::meta::bin_fnv_hash x47b3e0c4 = 0u;
-        yordle::data::meta::bin_fnv_hash x6f18be08 = 0u;
-        yordle::data::meta::bin_fnv_hash xa4a823f4 = 0u;
-        yordle::data::meta::bin_fnv_hash x42be75b5 = 0u;
-        yordle::data::meta::bin_fnv_hash x4a5b3cd3 = 0u;
-        yordle::data::meta::bin_fnv_hash xae75d5ef = 0u;
-        yordle::data::meta::bin_fnv_hash x8a64df98 = 0u;
-        yordle::data::meta::bin_fnv_hash xc9abc1cd = 0u;
-        std::shared_ptr<yordle::data::meta::x19780ce6> xe65501bc {};
-        std::shared_ptr<yordle::data::meta::x19780ce6> x35919151 {};
-        std::shared_ptr<yordle::data::meta::x19780ce6> x34918fbe {};
+        yordle::data::meta::bin_fnv_hash x698fa777 = 0u;
+        yordle::data::meta::bin_fnv_hash xef14711d = 0u;
+        yordle::data::meta::bin_fnv_hash x5a84f4d1 = 0u;
+        yordle::data::meta::bin_fnv_hash x9156f4d4 = 0u;
+        yordle::data::meta::bin_fnv_hash x81973fba = 0u;
+        yordle::data::meta::bin_fnv_hash x198daaca = 0u;
+        yordle::data::meta::bin_fnv_hash xbc53b1f6 = 0u;
+        yordle::data::meta::bin_fnv_hash xf5b8026a = 0u;
+        yordle::data::meta::bin_fnv_hash xfec87a13 = 0u;
+        yordle::data::meta::bin_fnv_hash x7869531f = 0u;
+        std::shared_ptr<yordle::data::meta::x19780ce6> x3d55b734 {};
     };
 }
 #define YORDLE_META_DEF_x16eb9b94

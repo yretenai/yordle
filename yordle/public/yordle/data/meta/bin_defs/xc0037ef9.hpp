@@ -6,12 +6,16 @@
 #include <memory>
 #include <string>
 
+#include <yordle/data/meta/bin_defs/x4695505a.hpp>
 #include <yordle/data/meta/bin_defs/x580644e.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_x4695505a
+    struct x4695505a;
+#endif
     struct YORDLE_EXPORT xc0037ef9 : public x580644e {
         explicit xc0037ef9(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -24,6 +28,7 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x21f50e4b = 0u;
         yordle::data::meta::bin_fnv_hash xf7584cc4 = 0u;
         yordle::data::meta::bin_fnv_hash x200be3be = 0u;
+        std::shared_ptr<yordle::data::meta::x4695505a> x6c1dc1b4 {};
     };
 }
 #define YORDLE_META_DEF_xc0037ef9

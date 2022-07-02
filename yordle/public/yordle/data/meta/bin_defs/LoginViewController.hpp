@@ -6,12 +6,21 @@
 #include <memory>
 #include <array>
 
+#include <yordle/data/meta/bin_defs/x2339b9f8.hpp>
+#include <yordle/data/meta/bin_defs/xa6e3bf67.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_x2339b9f8
+    struct x2339b9f8;
+#endif
+
+#ifndef YORDLE_META_DEF_xa6e3bf67
+    struct xa6e3bf67;
+#endif
     struct YORDLE_EXPORT LoginViewController : public ViewController {
         explicit LoginViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -19,7 +28,9 @@ namespace yordle::data::meta {
             return type == 1830754775u || ViewController::is_type(type);
         }
 
-        std::array<yordle::data::meta::bin_fnv_hash, 4> x93ec9f26 { 0u, 0u, 0u, 0u };
+        std::shared_ptr<yordle::data::meta::x2339b9f8> x707586e2 {};
+        std::shared_ptr<yordle::data::meta::xa6e3bf67> x550d895 {};
+        std::array<yordle::data::meta::bin_fnv_hash, 5> xb11e62a4 { 0u, 0u, 0u, 0u, 0u };
     };
 }
 #define YORDLE_META_DEF_LoginViewController

@@ -6,6 +6,7 @@
 #include <memory>
 #include <vector>
 #include <cstdint>
+#include <string>
 
 #include <yordle/data/meta/bin_defs/TFTSetData.hpp>
 #include <yordle/data/meta/bin_defs/TFTDragData.hpp>
@@ -40,6 +41,7 @@ namespace yordle::data::meta {
         }
 
         yordle::data::meta::bin_ref<yordle::data::meta::TFTSetData> mDefaultSetData { 1133007103 };
+        std::vector<yordle::data::meta::bin_ref<yordle::data::meta::TFTSetData>> x2d527e72 {};
         std::shared_ptr<yordle::data::meta::TFTDragData> mDragData {};
         std::shared_ptr<yordle::data::meta::TFTDragData> mMobileDragData {};
         float x3caeb7b4 = 3.0f;
@@ -61,6 +63,7 @@ namespace yordle::data::meta {
         float x793d00f9 = 60.0f;
         float x218ae92c = 90.0f;
         uint32_t xd95e9023 = 2u;
+        std::string x23e59ebe {};
     };
 }
 #define YORDLE_META_DEF_TFTModeData

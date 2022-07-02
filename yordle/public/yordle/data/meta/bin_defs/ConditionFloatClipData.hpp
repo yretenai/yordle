@@ -4,9 +4,9 @@
 #pragma once
 
 #include <memory>
-#include <cstdint>
 #include <vector>
 
+#include <yordle/data/meta/bin_defs/xec2d115.hpp>
 #include <yordle/data/meta/bin_defs/ConditionFloatPairData.hpp>
 #include <yordle/data/meta/bin_defs/ClipBaseData.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
@@ -14,6 +14,10 @@
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
+#ifndef YORDLE_META_DEF_xec2d115
+    struct xec2d115;
+#endif
+
 #ifndef YORDLE_META_DEF_ConditionFloatPairData
     struct ConditionFloatPairData;
 #endif
@@ -24,7 +28,7 @@ namespace yordle::data::meta {
             return type == 2394679778u || ClipBaseData::is_type(type);
         }
 
-        uint32_t mUpdaterType = 4294967295u;
+        std::shared_ptr<yordle::data::meta::xec2d115> x16860572 {};
         bool mChangeAnimationMidPlay = false;
         bool x94c90e2b = false;
         bool x31db4e6a = false;

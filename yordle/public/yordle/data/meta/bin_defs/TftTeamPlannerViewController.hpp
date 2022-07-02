@@ -5,10 +5,13 @@
 
 #include <memory>
 #include <cstdint>
+#include <vector>
 
 #include <yordle/data/meta/bin_defs/ViewPaneDefinition.hpp>
 #include <yordle/data/meta/bin_defs/x13a37f3e.hpp>
 #include <yordle/data/meta/bin_defs/x60764292.hpp>
+#include <yordle/data/meta/bin_defs/xf340b385.hpp>
+#include <yordle/data/meta/bin_defs/xe69440b8.hpp>
 #include <yordle/data/meta/bin_defs/ViewController.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
@@ -26,6 +29,14 @@ namespace yordle::data::meta {
 #ifndef YORDLE_META_DEF_x60764292
     struct x60764292;
 #endif
+
+#ifndef YORDLE_META_DEF_xf340b385
+    struct xf340b385;
+#endif
+
+#ifndef YORDLE_META_DEF_xe69440b8
+    struct xe69440b8;
+#endif
     struct YORDLE_EXPORT TftTeamPlannerViewController : public ViewController {
         explicit TftTeamPlannerViewController(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
 
@@ -39,15 +50,18 @@ namespace yordle::data::meta {
         yordle::data::meta::bin_fnv_hash x160a8b77 = 0u;
         std::shared_ptr<yordle::data::meta::x60764292> xad64dc55 {};
         yordle::data::meta::bin_fnv_hash x387116c1 = 0u;
-        yordle::data::meta::bin_fnv_hash ChampionButtonTemplate = 0u;
         yordle::data::meta::bin_fnv_hash x88ca9d2d = 0u;
         yordle::data::meta::bin_fnv_hash closeButton = 0u;
         yordle::data::meta::bin_fnv_hash xc6e9fbea = 0u;
+        std::shared_ptr<yordle::data::meta::xf340b385> x972cf46e {};
+        std::shared_ptr<yordle::data::meta::xe69440b8> x6c4e43d9 {};
+        yordle::data::meta::bin_fnv_hash xacaafa13 = 0u;
         uint8_t ChampionsPerRow = 5u;
         uint8_t TraitsPerRow = 6u;
         yordle::data::meta::bin_fnv_hash Scene = 0u;
         yordle::data::meta::bin_fnv_hash xf581291f = 0u;
         yordle::data::meta::bin_fnv_hash x807ef97f = 0u;
+        std::vector<yordle::data::meta::bin_fnv_hash> x336e8cbd {};
     };
 }
 #define YORDLE_META_DEF_TftTeamPlannerViewController

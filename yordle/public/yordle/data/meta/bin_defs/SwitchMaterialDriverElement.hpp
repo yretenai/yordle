@@ -5,20 +5,20 @@
 
 #include <memory>
 
-#include <yordle/data/meta/bin_defs/IDynamicMaterialBoolDriver.hpp>
-#include <yordle/data/meta/bin_defs/IDynamicMaterialDriver.hpp>
+#include <yordle/data/meta/bin_defs/x7a851cd8.hpp>
+#include <yordle/data/meta/bin_defs/x995ca734.hpp>
 #include <yordle/data/meta/bin_class.hpp>
 #include <yordle/data/meta/bin_ref.hpp>
 #include <yordle/data/prop/structure_prop.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data::meta {
-#ifndef YORDLE_META_DEF_IDynamicMaterialBoolDriver
-    struct IDynamicMaterialBoolDriver;
+#ifndef YORDLE_META_DEF_x7a851cd8
+    struct x7a851cd8;
 #endif
 
-#ifndef YORDLE_META_DEF_IDynamicMaterialDriver
-    struct IDynamicMaterialDriver;
+#ifndef YORDLE_META_DEF_x995ca734
+    struct x995ca734;
 #endif
     struct YORDLE_EXPORT SwitchMaterialDriverElement : public bin_class {
         explicit SwitchMaterialDriverElement(const std::shared_ptr<yordle::data::prop::structure_prop> &prop);
@@ -27,8 +27,8 @@ namespace yordle::data::meta {
             return type == 1173409658u;
         }
 
-        std::shared_ptr<yordle::data::meta::IDynamicMaterialBoolDriver> mCondition {};
-        std::shared_ptr<yordle::data::meta::IDynamicMaterialDriver> mValue {};
+        std::shared_ptr<yordle::data::meta::x7a851cd8> mCondition {};
+        std::shared_ptr<yordle::data::meta::x995ca734> mValue {};
     };
 }
 #define YORDLE_META_DEF_SwitchMaterialDriverElement

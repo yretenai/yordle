@@ -266,6 +266,9 @@ namespace yordle::data::meta {
         bool x39381720 = false;
         bool xa8eb09d1 = false;
         bool x24b763c2 = false;
+        bool x43b514b6 = false;
+        bool xbb6aca93 = false;
+        bool x338e3aed = false;
         std::shared_ptr<yordle::data::meta::TargetingTypeData> mTargetingTypeData {};
         yordle::data::meta::bin_ref<yordle::data::meta::xefc7f35c> x63060019 { 4022858588 };
         std::vector<yordle::data::meta::bin_fnv_hash> mResourceResolvers {};
