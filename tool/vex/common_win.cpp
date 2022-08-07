@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-25.
-//
-
 #include "common_win.hpp"
 
 void vex::win_post_message(HRESULT result) {

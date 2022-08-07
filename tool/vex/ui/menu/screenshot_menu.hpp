@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-05-09.
-//
-
 #pragma once
 
 #include "../../mage/wad_container.hpp"

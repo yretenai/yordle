@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-05.
-//
-
 #pragma once
 
 // Lulu is responsible for downloading/decoding manifests/bundles

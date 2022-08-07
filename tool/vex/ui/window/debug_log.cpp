@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-24.
-//
-
 #include "debug_log.hpp"
 
 #include "../../vex.hpp"

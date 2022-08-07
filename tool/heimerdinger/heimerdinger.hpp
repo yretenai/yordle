@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-06.
-//
-
 #pragma once
 
 // Heimerdinger is responsible for converting ini, inibin, and props

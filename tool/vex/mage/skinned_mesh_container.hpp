@@ -1,8 +1,3 @@
-//
-// Created by Lilith on 2021-06-24.
-//
-
-
 #pragma once
 
 #include <memory>

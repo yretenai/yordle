@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-04-23.
-//
-
 #include <yordle/yordle.hpp>
 
 using namespace std;

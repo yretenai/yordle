@@ -1,7 +1,3 @@
-//
-// Created by Naomi on 2021-03-24.
-//
-
 #pragma once
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-variable"

@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-13.
-//
-
 #include <yordle/audio/wem_pack.hpp>
 
 #include <standard_dragon/exception/invalid_data.hpp>

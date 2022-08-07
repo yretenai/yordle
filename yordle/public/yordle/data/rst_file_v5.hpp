@@ -1,7 +1,3 @@
-//
-// Created by Naomi on 2022-08-07.
-//
-
 #pragma once
 
 #pragma once

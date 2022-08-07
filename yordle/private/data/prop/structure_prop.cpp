@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-09.
-//
-
 #include <standard_dragon/exception/not_implemented.hpp>
 
 #include <yordle/cdtb/hashlist_collection.hpp>

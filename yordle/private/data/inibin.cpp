@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-06.
-//
-
 #include <yordle/cdtb/hashlist_collection.hpp>
 #include <yordle/data/inibin.hpp>
 #include <yordle/data/inibin_v1.hpp>

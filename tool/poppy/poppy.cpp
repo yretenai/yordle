@@ -1,7 +1,3 @@
-//
-// Created by Naomi on 2020-08-25.
-//
-
 #include <ostream>
 
 #ifndef NDEBUG

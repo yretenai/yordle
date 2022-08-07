@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-03-22.
-//
-
 #include <cassert>
 
 #include <yordle/manifest/riot_bundle.hpp>

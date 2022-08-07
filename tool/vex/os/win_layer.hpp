@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-18.
-//
-
 #pragma once
 
 #include "../device/win_d3d11.hpp"

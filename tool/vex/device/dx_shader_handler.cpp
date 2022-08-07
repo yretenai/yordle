@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-25.
-//
-
 #include <d3d11.h>
 #include <d3dcompiler.h>
 #include <windows.h>

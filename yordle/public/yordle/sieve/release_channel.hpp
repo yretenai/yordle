@@ -1,6 +1,3 @@
-//
-// Created by Lilith on 2021-03-23.
-//
 // Generated using quicktype.
 
 #pragma once

@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-21.
-//
-
 #pragma once
 
 #include <yordle/lcu/v1/champion_perk_style_map.hpp>

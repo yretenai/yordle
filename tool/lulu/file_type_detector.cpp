@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-16.
-//
-
 #include <standard_dragon/dragon.hpp>
 
 #include "file_type_detector.hpp"

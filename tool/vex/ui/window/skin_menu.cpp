@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-21.
-//
-
 #include "skin_menu.hpp"
 
 #include "../../mage/skin_container.hpp"

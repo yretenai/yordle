@@ -1,7 +1,3 @@
-//
-// Created by Naomi on 2022-08-07.
-//
-
 #include <yordle/data/rst_file_v5.hpp>
 
 using namespace std;

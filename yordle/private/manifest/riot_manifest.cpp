@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2020-08-25.
-//
-
 #include <bitset>
 #include <cassert>
 

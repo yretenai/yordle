@@ -1,8 +1,3 @@
-//
-// Created by Naomi on 3/24/2021.
-//
-
-
 #include <string>
 
 #include <format>

@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-06.
-//
-
 #include <standard_dragon/exception/invalid_data.hpp>
 #include <standard_dragon/exception/not_implemented.hpp>
 

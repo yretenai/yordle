@@ -1,7 +1,3 @@
-//
-// Created by Naomi on 3/24/2021.
-//
-
 #include "deploy.hpp"
 
 #include <format>

@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2020-08-25.
-//
-
 #pragma once
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-variable"

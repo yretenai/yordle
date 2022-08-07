@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-21.
-//
-
 #include <exception>
 #include <xxhash.h>
 #include <yordle/data/meta/bin_defs/Champion.hpp>

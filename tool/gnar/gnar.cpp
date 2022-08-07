@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-12.
-//
-
 #include <ProgramOptions.hxx>
 #include <standard_dragon/hash/fnv1a.hpp>
 #include <standard_dragon/WemSoundbank.hpp>

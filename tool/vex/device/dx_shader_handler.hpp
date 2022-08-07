@@ -1,8 +1,3 @@
-//
-// Created by Lilith on 2021-06-25.
-//
-
-
 #pragma once
 
 #include <d3d11.h>

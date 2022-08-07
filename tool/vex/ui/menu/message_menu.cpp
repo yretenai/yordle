@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-18.
-//
-
 #include "message_menu.hpp"
 
 #include "../../vex.hpp"

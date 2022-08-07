@@ -1,7 +1,3 @@
-//
-// Created by Naomi on 2020-09-10.
-//
-
 #pragma once
 
 #define YORDLE_VERSION 22

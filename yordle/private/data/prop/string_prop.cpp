@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-09.
-//
-
 #include <yordle/cdtb/hashlist_collection.hpp>
 #include <yordle/data/prop/string_prop.hpp>
 

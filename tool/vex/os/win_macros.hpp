@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-23.
-//
-
 #pragma once
 
 #ifndef CLEANUP_RELEASE

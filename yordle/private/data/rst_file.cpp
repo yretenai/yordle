@@ -1,7 +1,3 @@
-//
-// Created by Naomi on 2021-06-17.
-//
-
 #include <yordle/data/rst_file.hpp>
 #include <yordle/data/rst_file_v1.hpp>
 #include <yordle/data/rst_file_v2.hpp>

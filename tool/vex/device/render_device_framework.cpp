@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-05-09.
-//
-
 #include <algorithm>
 
 #include <yordle/data/meta/bin_defs/SkinCharacterDataProperties.hpp>

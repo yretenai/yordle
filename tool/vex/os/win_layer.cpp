@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-18.
-//
-
 #include <windows.h>
 
 #include <psapi.h>

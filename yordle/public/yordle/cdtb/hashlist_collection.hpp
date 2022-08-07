@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-17.
-//
-
 #pragma once
 
 #include <yordle/cdtb/fnvhashlist.hpp>

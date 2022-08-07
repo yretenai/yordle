@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-05.
-//
-
 #ifndef NDEBUG
 #    define PROGRAMOPTIONS_NO_COLORS
 #endif

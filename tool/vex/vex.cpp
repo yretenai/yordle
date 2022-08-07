@@ -1,8 +1,3 @@
-//
-// Created by Lilith on 2021-05-08.
-//
-
-
 #ifdef _WIN32
 #    define HAS_DX11
 #    include "device/win_d3d11.hpp"

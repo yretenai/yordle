@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-18.
-//
-
 #include "../vex.hpp"
 
 #include <yordle/cdtb/xxhashlist.hpp>

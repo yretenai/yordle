@@ -1,7 +1,3 @@
-//
-// Created by Naomi on 2020-09-09.
-//
-
 #include <cassert>
 
 #include <standard_dragon/exception/invalid_data.hpp>

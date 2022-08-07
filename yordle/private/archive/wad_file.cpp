@@ -1,7 +1,3 @@
-//
-// Created by Naomi on 2021-06-05.
-//
-
 #include <algorithm>
 
 #include <standard_dragon/exception/invalid_data.hpp>

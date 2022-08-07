@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-05-08.
-//
-
 #pragma once
 
 #define VEX_VERSION 1

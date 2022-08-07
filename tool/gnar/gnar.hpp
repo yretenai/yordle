@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-12.
-//
-
 #pragma once
 
 // Gnar is responsible for unpacking bnk/wpk files into wem files using bin files for naming.

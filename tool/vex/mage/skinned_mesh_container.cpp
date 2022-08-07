@@ -1,7 +1,3 @@
-//
-// Created by Lilith on 2021-06-24.
-//
-
 #include <yordle/data/meta/bin_defs/MaterialInstanceDef.hpp>
 #include <yordle/data/meta/bin_defs/StaticMaterialDef.hpp>
 
