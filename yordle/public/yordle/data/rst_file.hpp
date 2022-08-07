@@ -1,5 +1,5 @@
 //
-// Created by Lilith on 2021-06-17.
+// Created by Naomi on 2021-06-17.
 //
 
 #pragma once
@@ -23,6 +23,7 @@ namespace yordle::data {
         v2 = DRAGON_MAGIC32('R', 'S', 'T', 2),
         v3 = DRAGON_MAGIC32('R', 'S', 'T', 3),
         v4 = DRAGON_MAGIC32('R', 'S', 'T', 4),
+        v5 = DRAGON_MAGIC32('R', 'S', 'T', 5),
     };
 #pragma pack(pop)
 

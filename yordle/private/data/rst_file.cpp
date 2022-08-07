@@ -1,11 +1,12 @@
 //
-// Created by Lilith on 2021-06-17.
+// Created by Naomi on 2021-06-17.
 //
 
 #include <yordle/data/rst_file.hpp>
 #include <yordle/data/rst_file_v1.hpp>
 #include <yordle/data/rst_file_v2.hpp>
 #include <yordle/data/rst_file_v4.hpp>
+#include <yordle/data/rst_file_v5.hpp>
 
 using namespace std;
 using namespace dragon;
@@ -23,6 +24,8 @@ namespace yordle::data {
                 return make_shared<rst_file_v2>(buffer);
             case rst_version::v4:
                 return make_shared<rst_file_v4>(buffer);
+            case rst_version::v5:
+                return make_shared<rst_file_v5>(buffer);
             case rst_version::v0:
             default:
                 return nullptr;

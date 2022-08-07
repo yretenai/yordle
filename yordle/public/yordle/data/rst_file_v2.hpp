@@ -1,29 +1,24 @@
 //
-// Created by Lilith on 2021-06-17.
+// Created by Naomi on 2021-06-17.
 //
 
 #pragma once
 
 #pragma once
 
-#include <yordle/data/rst_file.hpp>
+#include <yordle/data/rst_file_v1.hpp>
 #include <yordle/yordle_export.h>
 
 namespace yordle::data {
-    class YORDLE_EXPORT rst_file_v2 : public rst_file {
+    class YORDLE_EXPORT rst_file_v2 : public rst_file_v1 {
     public:
         explicit rst_file_v2() = default;
         explicit rst_file_v2(dragon::Array<uint8_t> &buffer);
         ~rst_file_v2() = default;
 
-        yordle::data::rst_version fourcc = yordle::data::rst_version::v0;
         std::string config;
-        uint32_t entry_count = 0;
-        bool some_switch     = false;
 
-        rst_version get_rst_version() override {
-            return fourcc;
-        }
+        nlohmann::json to_json(cdtb::hashlist_collection &hashes) override;
     };
 
 } // namespace yordle::data

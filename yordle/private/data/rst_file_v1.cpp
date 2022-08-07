@@ -1,5 +1,5 @@
 //
-// Created by Lilith on 2021-06-17.
+// Created by Naomi on 2021-06-17.
 //
 
 #include <yordle/data/rst_file_v1.hpp>
@@ -14,12 +14,18 @@ namespace yordle::data {
         fourcc       = buffer.lpcast<rst_version>(offset);
         entry_count  = buffer.lpcast<uint32_t>(offset);
         auto entries = buffer.lpcast<uint64_t>(offset, entry_count);
-        some_switch  = buffer.lpcast<bool>(offset);
+        is_encrypted = buffer.lpcast<bool>(offset);
 
         for (const auto &entry : entries) {
             auto string_offset = entry >> 40;
             auto hash          = entry & 0xffffffffff;
-            strings[hash]      = std::string(reinterpret_cast<const char *>(buffer.data() + offset + string_offset));
+            auto string_ptr    = buffer.data() + offset + string_offset;
+            if (is_encrypted && string_ptr[0] == 0xff) {
+                auto string_len = reinterpret_cast<uint16_t *>(string_ptr + 1)[0];
+                strings[hash] = std::string(string_ptr + 3, string_ptr + 3 + string_len);
+            } else {
+                strings[hash] = std::string(reinterpret_cast<const char *>(string_ptr));
+            }
         }
     }
 } // namespace yordle::data

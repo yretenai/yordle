@@ -1,5 +1,5 @@
 //
-// Created by Lilith on 2021-06-17.
+// Created by Naomi on 2021-06-17.
 //
 
 #pragma once
@@ -18,7 +18,7 @@ namespace yordle::data {
 
         yordle::data::rst_version fourcc = yordle::data::rst_version::v0;
         uint32_t entry_count             = 0;
-        bool some_switch                 = false;
+        bool is_encrypted                = false;
 
         rst_version get_rst_version() override {
             return fourcc;
