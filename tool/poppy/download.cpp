@@ -127,7 +127,7 @@ namespace poppy {
             }
             auto dump_file = ofstream(poppy.dump_path, ios::out | ios::trunc);
             for (const auto &bundle_id : bundle_ids_to_download) {
-                auto url = format(poppy.bundle_template, poppy.bundle_host, bundle_id);
+                auto url = vformat(poppy.bundle_template, std::make_format_args(poppy.bundle_host, bundle_id));
                 dump_file << url << endl;
             }
 
@@ -145,7 +145,7 @@ namespace poppy {
 #else
         for (const auto &bundle_id : bundle_ids) {
 #endif
-            auto url = format(poppy.bundle_template, poppy.bundle_host, bundle_id);
+            auto url = vformat(poppy.bundle_template, std::make_format_args(poppy.bundle_host, bundle_id));
             print_lock.lock();
             cout << "downloading (" << ++ind << "/" << max << ") " << url << endl;
             print_lock.unlock();

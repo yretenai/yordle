@@ -59,7 +59,7 @@ namespace poppy {
                 filesystem::create_directories(cache);
             }
 
-            auto url = format(poppy.manifest_url, target);
+            auto url = vformat(poppy.manifest_url, std::make_format_args(target));
             cout << "downloading " << url << endl;
             auto data = download_curl(url, 0);
             if (data == nullptr) {
@@ -128,7 +128,7 @@ namespace poppy {
                     filesystem::create_directories(cache);
                 }
 
-                auto url = format(poppy.manifest_url, configuration, target, poppy.platform);
+                auto url = vformat(poppy.manifest_url, std::make_format_args(configuration, target, poppy.platform));
                 cout << "downloading " << url << endl;
                 auto data = download_curl(url, 0);
                 if (data == nullptr) {

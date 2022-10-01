@@ -5,6 +5,9 @@
 
 #include <yordle/yordle.hpp>
 #include <yordle/archive/wad_file.hpp>
+#include <yordle/r3d/texture.hpp>
+
+#include <standard_dragon/dds_support.hpp>
 
 #include "file_type_detector.hpp"
 #include "lulu.hpp"
@@ -54,7 +57,11 @@ namespace lulu {
 
         auto &dry = cli["dry"]
                         .abbreviation('n')
-                        .description("targets are file paths to cached manifests");
+                        .description("do not write files");
+
+        auto &tex = cli["tex"]
+                        .abbreviation('t')
+                        .description("convert tex files to dds");
 
         auto &version = cli["version"]
                             .abbreviation('v')
@@ -79,6 +86,10 @@ namespace lulu {
 
         if (dry.was_set()) {
             lulu.dry_run = true;
+        }
+
+        if (tex.was_set()) {
+            lulu.convert_tex = true;
         }
 
         if (lulu.targets.empty()) {
@@ -165,7 +176,43 @@ int main(int argc, char **argv) {
 
             cout << generic << endl;
 
-            dragon::write_file(output_path, *data);
+            if (equivalent(output_path.extension(), ".tex") && lulu.convert_tex) {
+                auto tex = yordle::r3d::texture(data);
+                auto surface = tex.get_surface(0, 0);
+
+                dragon::support::DDS dds = {};
+                dds.dx9.width = tex.header.width;
+                dds.dx9.height = tex.header.height;
+                dds.dx9.mip_count = 1;
+                dds.dx10.array_size = 1;
+
+                switch(tex.header.format) {
+                    case r3d::tex_header_format::UNKNOWN0x1:
+                    case r3d::tex_header_format::UNKNOWN0x2:
+                    case r3d::tex_header_format::UNKNOWN0x3:
+                        dds.dx10.format = dragon::support::DXGI_FORMAT::A8_UNORM;
+                        break;
+                    case r3d::tex_header_format::RGBA8:
+                        dds.dx10.format = dragon::support::DXGI_FORMAT::R8G8B8A8_UNORM;
+                        break;
+                    case r3d::tex_header_format::BC1:
+                        dds.dx10.format = dragon::support::DXGI_FORMAT::BC1_UNORM;
+                        break;
+                    case r3d::tex_header_format::BC3:
+                        dds.dx10.format = dragon::support::DXGI_FORMAT::BC3_UNORM;
+                        break;
+                }
+
+                output_path.replace_extension(".dds");
+
+                dragon::Array<uint8_t> ddsData = dragon::Array<uint8_t>(sizeof(dragon::support::DDS) + surface->Length, nullptr);
+                ddsData.paste(reinterpret_cast<uintptr_t>(&dds), 0, sizeof(dragon::support::DDS));
+                ddsData.paste(reinterpret_cast<uintptr_t>(surface->data()), sizeof(dragon::support::DDS), surface->Length);
+
+                dragon::write_file(output_path, ddsData);
+            } else {
+                dragon::write_file(output_path, *data);
+            }
         }
 
         stream.close();

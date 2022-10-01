@@ -28,32 +28,34 @@ namespace lulu {
     const vector<file_type_detector::FileType> file_type_detector::types = {
         {".dds", 0x046C2A, 24},                                               // Encrypted/Secret DDS
         {".dds", DRAGON_MAGIC32('D', 'D', 'S', 0), 24},                       // DDS
+        {".tex", DRAGON_MAGIC32('T', 'E', 'X', 0), 24},                       // TEX texture
         {".bin", DRAGON_MAGIC32('P', 'R', 'O', 'P'), 32},                     // Property Bin
         {".bin", DRAGON_MAGIC32('P', 'T', 'C', 'H'), 32},                     // Property Bin Patch
-        {".bundle", DRAGON_MAGIC32('R', 'B', 'U', 'N'), 32},                  // Bundle
+        {".bundle", DRAGON_MAGIC32('R', 'B', 'U', 'N'), 32},                  // Riot Bundle
         {".manifest", DRAGON_MAGIC32('R', 'M', 'A', 'N'), 32},                // Riot Manifest
         {".wad", DRAGON_MAGIC32('R', 'W', 0, 0), 16},                         // WAD storage
         {".anm", DRAGON_MAGIC64('r', '3', 'd', '2', 'a', 'n', 'm', 'd'), 64}, // animation data
         {".scb", DRAGON_MAGIC64('r', '3', 'd', '2', 'M', 'e', 's', 'h'), 64}, // mesh data
-        {".wpk", DRAGON_MAGIC32('r', '3', 'd', '2'), 32},                     // Wem Pack
-        {".bnk", DRAGON_MAGIC32('B', 'K', 'H', 'D'), 32},                     // soundbank
+        {".wpk", DRAGON_MAGIC64('r', '3', 'd', '2', 1, 0, 0, 0), 64},         // Wem Pack
+        {".bnk", DRAGON_MAGIC32('B', 'K', 'H', 'D'), 32},                     // soundbank (BanK HeaDer)
         {".skn", 0x00112233, 32},                                             // skin file
         {".luabin", DRAGON_MAGIC32(0x1B, 'L', 'u', 'a'), 32},                 // lua binary
-        {".txt", DRAGON_MAGIC32('R', 'S', 'T', 0), 24},                       // lua binary
+        {".txt", DRAGON_MAGIC32('R', 'S', 'T', 0), 24},                       // riot string table
         {".rofl", DRAGON_MAGIC32('R', 'I', 'O', 'T'), 32},                    // replay
         {".jpg", 0xFFD8FF, 24},                                               // jpeg
         {".png", DRAGON_MAGIC32(0x89, 'P', 'N', 'G'), 32},                    // png
         {".ogg", DRAGON_MAGIC32('O', 'g', 'g', 0), 24},                       // ogg/vorbis
+        {".wav", DRAGON_MAGIC32('R', 'I', 'F', 'F'), 32},                     // Waveform Audio
         {".webm", 0xA3DF451A, 32},                                            // webm
         {".svg", DRAGON_MAGIC32('<', 's', 'v', 'g'), 32},                     // svg
         {".json", 0x7B, 8},                                                   // {
         {".json", 0x5B, 8},                                                   // [
     };
 
-    std::string file_type_detector::detect_extension(shared_ptr<dragon::Array<uint8_t>> &buffer) {
+    string file_type_detector::detect_extension(shared_ptr<dragon::Array<uint8_t>> &buffer) {
         auto size = buffer->size();
         if (size < 1) {
-            return string();
+            return {};
         }
 
         uint64_t magic;
@@ -64,7 +66,7 @@ namespace lulu {
             magic = buffer->cast<uint32_t>(0);
         } else if (size >= 2) {
             magic = buffer->cast<uint16_t>(0);
-        } else if (size >= 1) {
+        } else {
             magic = buffer->get(0);
         }
         for (const auto &test : types) {
@@ -79,7 +81,7 @@ namespace lulu {
             magic = buffer->cast<uint32_t>(size - 4);
         } else if (size >= 2) {
             magic = buffer->cast<uint16_t>(size - 2);
-        } else if (size >= 1) {
+        } else {
             magic = buffer->get(size - 1);
         }
         for (const auto &test : types) {
@@ -93,6 +95,6 @@ namespace lulu {
             return ".legacydirlistinfo";
         }
 
-        return string();
+        return {};
     }
 } // namespace lulu

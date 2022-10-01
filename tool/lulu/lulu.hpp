@@ -23,6 +23,8 @@ namespace lulu {
         std::filesystem::path output_dir = ".";
         yordle::cdtb::xxhashlist hash_list;
         bool dry_run = false;
+        bool convert_tex = false;
+        bool convert_rbin = false;
     };
 
     bool parse_configuration(int argc, char **argv, LuluConfiguration &lulu, int &code);
